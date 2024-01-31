@@ -1,8 +1,8 @@
-const asyncCatch = require("express-async-catch");
-const sendEmail = require("./../utils/nodeMailer");
-const AppError = require("../utils/AppError");
+import asyncCatch from "express-async-catch";
+import sendEmail from "./../utils/nodeMailer";
+import AppError from "../utils/AppError";
 
-exports.sendEmailHandler = asyncCatch(async (req, res, next) => {
+export const sendEmailHandler = asyncCatch(async (req, res, next) => {
   //   try {
   const data = await sendEmail({
     from: "JMS <gymate@gmail.com>",
@@ -24,7 +24,7 @@ exports.sendEmailHandler = asyncCatch(async (req, res, next) => {
   //   }
 });
 
-exports.sendEmailMessage = async (passwordResetUrl) => {
+export const sendEmailMessage = async (passwordResetUrl) => {
   try {
     await sendEmail({
       from: "alphaalpha@gmail.com",

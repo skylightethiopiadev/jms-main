@@ -1,10 +1,9 @@
-const express = require("express");
-require("dotenv").config();
-const path = require("path");
-const cors = require("cors");
+import express from "express";
+import 'dotenv/config';
+import path from "path";
 const app = express();
-const userRoute = require("./routes/userRoute");
-const { errorController } = require("./controller/errorController");
+import userRoute from "./routes/userRoute";
+import { errorController } from "./controller/errorController";
 
 const authorization = async (req, res, next) => {
   const method = "read"; //req.method

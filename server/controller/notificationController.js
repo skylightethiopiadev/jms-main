@@ -1,7 +1,7 @@
-const asyncCatch = require("express-async-catch");
-const { Notification } = require("./../models/notificationModel");
+import asyncCatch from "express-async-catch";
+import { Notification } from "./../models/notificationModel";
 
-exports.createNotification = asyncCatch(async (req, res, next) => {
+export const createNotification = asyncCatch(async (req, res, next) => {
   const data = await Notification.create(req.body);
 
   res.status(200).json({
@@ -11,7 +11,7 @@ exports.createNotification = asyncCatch(async (req, res, next) => {
   });
 });
 
-exports.readNotification = asyncCatch(async (req, res, next) => {
+export const readNotification = asyncCatch(async (req, res, next) => {
   const data = Notification.find().sort("-date");
   const value =
     req.query.type === "admin"
@@ -26,7 +26,7 @@ exports.readNotification = asyncCatch(async (req, res, next) => {
   });
 });
 
-exports.updateNotification = asyncCatch(async (req, res, next) => {
+export const updateNotification = asyncCatch(async (req, res, next) => {
   const data = await Notification.findOne({ _id: req.query.id });
 
   data.receiver = [
@@ -41,7 +41,7 @@ exports.updateNotification = asyncCatch(async (req, res, next) => {
   });
 });
 
-exports.deleteNotification = asyncCatch(async (req, res, next) => {
+export const deleteNotification = asyncCatch(async (req, res, next) => {
   const data = await Notification.findByIdAndDelete(req.query.id);
 
   res.status(200).json({

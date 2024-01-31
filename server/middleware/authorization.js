@@ -1,4 +1,4 @@
-const AppError = require("../utils/AppError");
+import AppError  from "../utils/AppError";
 
 const authorization = async (req, res, next) => {
   const method = "read"; //req.method

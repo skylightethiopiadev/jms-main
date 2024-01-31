@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
 const userRoute = express.Router();
-const { upload } = require("../utils/upload");
-const { User } = require("../models/signupModel");
-const { authorization } = require("../middleware/authorization");
-const { authentication } = require("../middleware/authentication");
+import { upload } from "../utils/upload";
+import { User } from "../models/signupModel";
+import { authorization } from "../middleware/authorization";
+import { authentication } from "../middleware/authentication";
 const {
   passwordResetValidator,
   changePasswordValidator,
@@ -80,4 +80,4 @@ userRoute
   .route("/sendEmail")
   .post(emailSendValidator, isValidated, sendEmailHandler);
 
-module.exports = userRoute;
+export default userRoute;
