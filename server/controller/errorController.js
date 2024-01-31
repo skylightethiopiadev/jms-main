@@ -1,4 +1,4 @@
-const AppError = require("../utils/AppError");
+import AppError from "../utils/AppError";
 
 const handleCastError = (err) => {
   return new AppError(`invalid ${err.path}:${err.value}`, 400);
@@ -34,7 +34,7 @@ const prodError = (err, res) => {
   }
 };
 
-exports.errorController = (err, req, res, next) => {
+const errorController = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
   if (process.env.NODE_ENV.trim() === "production") {
@@ -48,3 +48,5 @@ exports.errorController = (err, req, res, next) => {
     devErr(err, res);
   }
 };
+
+export {errorController}

@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
-exports.tokenGenerator = (res, id) => {
+const tokenGenerator = (res, id) => {
   const token = jwt.sign({ id }, process.env.JWT_SECRET_KEY, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
@@ -15,3 +15,5 @@ exports.tokenGenerator = (res, id) => {
   res.cookie("jwt", token, cookieOption);
   return token;
 };
+
+export {tokenGenerator}
