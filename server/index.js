@@ -29,7 +29,7 @@ const authorization = async (req, res, next) => {
       if (step1 && step2) {
         console.log("authorized", step1, step2);
       } else {
-        console.log("not authorized", step1, step2);
+        console.log("not Authorized", step1, step2);
       }
       break;
     }
