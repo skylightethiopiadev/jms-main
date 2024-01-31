@@ -20,7 +20,7 @@ exports.readNotification = asyncCatch(async (req, res, next) => {
 
   const val = await value;
   res.status(200).json({
-    status: "Read",
+    status: "read",
     size: val?.length,
     data: val,
   });
