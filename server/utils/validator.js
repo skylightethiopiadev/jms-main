@@ -1,7 +1,7 @@
-const { body, validationResult } = require("express-validator");
-const { User } = require("../models/signupModel");
-const fs = require("fs");
-const bcrypt = require("bcrypt");
+import { body, validationResult } from "express-validator";
+import { User } from"../models/signupModel";
+import fs from "fs";
+import bcrypt from "bcrypt";
 
 //for character like first name with out space eg. gedeon
 const onlyCharacter = (field, min, max, allowSpace) => {
@@ -178,7 +178,7 @@ exports.emailSendValidator = [
   alphaNumeric("description", 3, 500),
 ];
 
-exports.signupValidator = [
+export const signupValidator = [
   onlyCharacter("firstName", 4, 100, false),
   onlyCharacter("lastName", 4, 100, false),
   onlyCharacter("city", 4, 100, true),
@@ -189,7 +189,7 @@ exports.signupValidator = [
   confirmPassword("confirmPassword"),
 ];
 
-exports.updateInfoValidator = [
+export const updateInfoValidator = [
   onlyCharacter("firstName", 4, 100, false),
   onlyCharacter("lastName", 4, 100, false),
   onlyCharacter("city", 4, 100, true),
@@ -198,23 +198,23 @@ exports.updateInfoValidator = [
   numeric("phone", 6),
 ];
 
-exports.passwordResetValidator = [
+export const passwordResetValidator = [
   password("password"),
   confirmPassword("confirmPassword"),
 ];
 
-exports.changePasswordValidator = [
+export const changePasswordValidator = [
   currentPassword("currentPassword"),
   password("newPassword"),
   confirmPasswordChange("confirmPassword"),
 ];
 
-exports.notificationValidator = [
+export const notificationValidator = [
   alphaNumeric("description", 3, 1200),
   notification("receiver"),
 ];
 
-exports.isValidated = () => (req, res, next) => {
+export const isValidated = () => (req, res, next) => {
   console.log(next);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

@@ -1,9 +1,9 @@
-const { User } = require("../models/signupModel");
-const { promisify } = require("util");
-const jwt = require("jsonwebtoken");
-const AppError = require("../utils/AppError");
+import { User } from "../models/signupModel";
+import { promisify } from "util";
+import jwt from "jsonwebtoken";
+import AppError from "../utils/AppError";
 
-exports.authentication = async (req, res, next) => {
+export const authentication = async (req, res, next) => {
   // console.log(req.headers);
   let token, user;
   const header = req.headers.authorization;
