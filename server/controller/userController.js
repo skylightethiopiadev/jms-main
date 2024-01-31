@@ -6,6 +6,7 @@ const crypto = require("crypto");
 const { sendEmailMessage } = require("./emailHandler");
 
 exports.signupHandler = asyncCatch(async (req, res, next) => {
+  console.log("running");
   const profilePicture = req.files.profilePicture;
 
   const data = await User.create({
