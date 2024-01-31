@@ -1,4 +1,4 @@
-exports.size = (bytes) => {
+const size = (bytes) => {
   const arr = ["Bytes", "KB", "MB", "GB", "TB", "ZB"];
   let dp = 0;
   let counter = 0;
@@ -20,3 +20,5 @@ exports.size = (bytes) => {
   }
   return data.toFixed(2) + " " + arr[counter];
 };
+
+export { size}
