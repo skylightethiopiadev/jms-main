@@ -48,13 +48,7 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-app.use(
-  cors({
-    origin: ["https://http://127.0.0.1:4000"],
-    methods: ["POST", "GET", "PATCH", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

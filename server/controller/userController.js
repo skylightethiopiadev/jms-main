@@ -1,3 +1,4 @@
+
 import AppError from "../utils/AppError";
 import asyncCatch from "express-async-catch";
 import { User } from "./../models/signupModel";
@@ -6,6 +7,7 @@ import crypto from "crypto";
 import { sendEmailMessage } from "./emailHandler";
 
 export const signupHandler = asyncCatch(async (req, res, next) => {
+
   const profilePicture = req.files.profilePicture;
 
   const data = await User.create({
