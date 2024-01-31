@@ -24,7 +24,7 @@ exports.authentication = async (req, res, next) => {
   if (await user.isPasswordChanged(decode.iat))
     return next(
       new AppError(
-        ".you have recently changed your password # please login again",
+        "you have recently changed your password # please login again",
         400
       )
     );
