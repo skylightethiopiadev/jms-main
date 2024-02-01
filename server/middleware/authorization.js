@@ -1,6 +1,6 @@
-import AppError  from "../utils/AppError";
+import AppError from "../utils/AppError.js";
 
-const authorization = async (req, res, next) => {
+export const authorization = async (req, res, next) => {
   const method = "read"; //req.method
   const table = "users"; //model.collection.collectionName
   const role = "super-admin"; //req.user.role

@@ -1,6 +1,6 @@
 import asyncCatch from "express-async-catch";
-import sendEmail from "./../utils/nodeMailer";
-import AppError from "../utils/AppError";
+import sendEmail from "./../utils/nodeMailer.js";
+import AppError from "../utils/AppError.js";
 
 export const sendEmailHandler = asyncCatch(async (req, res, next) => {
   //   try {
