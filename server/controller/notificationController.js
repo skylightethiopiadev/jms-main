@@ -1,5 +1,5 @@
 import asyncCatch from "express-async-catch";
-import { Notification } from "./../models/notificationModel";
+import { Notification } from "./../models/notificationModel.js";
 
 export const createNotification = asyncCatch(async (req, res, next) => {
   const data = await Notification.create(req.body);

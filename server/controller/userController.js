@@ -1,25 +1,51 @@
-
-import AppError from "../utils/AppError";
+import AppError from "../utils/AppError.js";
 import asyncCatch from "express-async-catch";
-import { User } from "./../models/signupModel";
-import { tokenGenerator } from "../utils/tokenGenerator";
+import { User } from "./../models/signupModel.js";
+import { tokenGenerator } from "../utils/tokenGenerator.js";
 import crypto from "crypto";
-import { sendEmailMessage } from "./emailHandler";
+import { sendEmailMessage } from "./emailHandler.js";
+import Institution from "../models/organizationModel.js";
+import Lawyer from "../models/lawyerModel.js";
 
 export const signupHandler = asyncCatch(async (req, res, next) => {
+  // const profilePicture = req.files.profilePicture;
+  let userId = "";
 
-  const profilePicture = req.files.profilePicture;
+  // if (req.body.userType === "lawyer") {
+  // console.log(req.body.userType);
+  // const lawyer = await Lawyer.create({});
+  // console.log(lawyer, "lawyer data");
+  // res.status(200).json({ message: "success" });
+  // if (lawyer) userId = lawyer._id;
+  // }
 
+  // console.log(userId.toString().length, "user id");
+  // if (userId.toString().length > 0) {
   const data = await User.create({
+    // firstName,
+    // middleName,
+    // lastName,
+    // userName,
+    // email,
+    // phone,
+    // address,
+    // nationality,
+    // role,
+    // userType,
+    // userId,
+    // password,
+    // userType,
     ...req.body,
-    profilePicture: profilePicture ? profilePicture[0].path : undefined,
+    // profilePicture: profilePicture
+    //   ? "http://192.168.100.12:5000/uploads/" + profilePicture[0].filename
+    //   : undefined,
   });
-
   const token = tokenGenerator(res, data._id);
 
   return res
     .status(200)
     .json({ message: "Account Created Successfully", token, data });
+  // }
 });
 
 export const loginHandler = asyncCatch(async (req, res, next) => {

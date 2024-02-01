@@ -1,4 +1,4 @@
-import AppError from "../utils/AppError";
+import AppError from "../utils/AppError.js";
 
 const handleCastError = (err) => {
   return new AppError(`invalid ${err.path}:${err.value}`, 400);
@@ -49,4 +49,4 @@ const errorController = (err, req, res, next) => {
   }
 };
 
-export {errorController}
+export { errorController };

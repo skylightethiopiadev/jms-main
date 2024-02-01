@@ -1,19 +1,77 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const crypto = require("crypto");
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import crypto from "crypto";
+import uniqueValidator from "mongoose-unique-validator";
+import * as valid from "../utils/validator";
 
 const signupSchema = new mongoose.Schema(
   {
-    firstName: String,
-    middleName: String,
-    lastName: String,
-    userName: String,
-    email: String,
-    phone: String,
-    city: String,
-    role: { type: String, default: "user" },
-    password: { type: String, select: false },
-    confirmPassword: String,
+    firstName: {
+      type: String,
+      validate: valid.name("First name"),
+      required: [true, "First name is required"],
+    },
+
+    middleName: {
+      type: String,
+      validate: valid.name("Middle name"),
+      required: [true, "Middle name is required"],
+    },
+
+    lastName: {
+      type: String,
+      validate: valid.name("Last name"),
+      required: [true, "Last name is required"],
+    },
+
+    gender: {
+      type: String,
+      validate: valid.gender("Gender"),
+      required: [true, "Gender is required"],
+    },
+
+    userName: {
+      type: String,
+      unique: true,
+      validate: valid.userName("User name"),
+      required: [true, "User name is required"],
+    },
+
+    email: {
+      type: String,
+      unique: true,
+      validate: valid.email("Email"),
+      required: [true, "Email is required"],
+    },
+
+    phone: {
+      type: String,
+      validate: valid.phone("Phone"),
+      required: [true, "Phone is required"],
+    },
+
+    address: {
+      type: String,
+      validate: valid.paragraph("Address", 4, 200),
+      required: [true, "Address is required"],
+    },
+
+    role: { type: String, default: "customer" },
+    userType: { type: String },
+    nationality: {
+      type: String,
+      validate: valid.paragraph("Nationality", 4, 100),
+    },
+    userId: { type: String, required: [true, "User id is required"] },
+    password: {
+      type: String,
+      select: false,
+      validate: valid.password("Password"),
+    },
+    confirmPassword: {
+      type: String,
+      validate: valid.confirmPassword("Confirm password"),
+    },
     modifiedDate: Number,
     createdAt: { type: Number, default: Date.now() },
     passwordChangedAt: Number,
@@ -70,4 +128,5 @@ signupSchema.pre("save", function (next) {
   next();
 });
 
-exports.User = mongoose.model("users", signupSchema);
+signupSchema.plugin(uniqueValidator);
+export const User = mongoose.model("users", signupSchema);

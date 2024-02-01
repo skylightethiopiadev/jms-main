@@ -1,7 +1,7 @@
-import { User } from "../models/signupModel";
+import { User } from "../models/signupModel.js";
 import { promisify } from "util";
 import jwt from "jsonwebtoken";
-import AppError from "../utils/AppError";
+import AppError from "../utils/AppError.js";
 
 export const authentication = async (req, res, next) => {
   // console.log(req.headers);
