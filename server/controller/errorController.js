@@ -4,8 +4,10 @@ const handleCastError = (err) => {
   return new AppError(`invalid ${err.path}:${err.value}`, 400);
 };
 
-const handleValidationError = () => {
-  return new AppError("validation error", 400);
+const handleValidationError = (err, res) => {
+  const keys = Object.keys(err.errors);
+  const value = keys.map((key) => err.errors[key].message);
+  return res.status(500).json({ status: err.status, message: value });
 };
 
 const handleTokenExpiredError = () => {
@@ -13,21 +15,27 @@ const handleTokenExpiredError = () => {
 };
 
 const devErr = (err, res) => {
-  res.status(err.statusCode).json({
+  const messageHandler = () => {
+    const keys = Object.keys(err.errors);
+    const value = keys.map((key) => err.errors[key].message);
+    return value;
+  };
+
+  return res.status(err.statusCode).json({
     status: err.status,
-    error: err,
+    message: err.name === "ValidationError" ? messageHandler() : err.message,
     stack: err.stack,
-    message: err.message,
+    error: err,
   });
 };
 
 const prodError = (err, res) => {
   if (err.isOperational) {
-    res
+    return res
       .status(err.statusCode)
       .json({ status: err.status, message: err.message });
   } else {
-    res.status(500).json({
+    return res.status(500).json({
       status: "error",
       message: "something went wrong!",
     });
@@ -38,12 +46,22 @@ const errorController = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
   if (process.env.NODE_ENV.trim() === "production") {
-    if (err.name === "CastError") err = handleCastError(err);
-    if (err.name === "ValidationError") err = handleValidationError(err);
-    if (err.name === "TokenExpiredError") err = handleTokenExpiredError(err);
-    if (err.code === "11000" && err.keyPattern.day === 1)
-      err = handleDuplicateKeyError(err, next);
-    prodError(err, res);
+    switch (err.name) {
+      case "CastError":
+        err = handleCastError(err);
+        break;
+      case "ValidationError":
+        err = handleValidationError(err, res);
+        break;
+      case "TokenExpiredError":
+        err = handleTokenExpiredError(err);
+        break;
+      case "11000" && err.keyPattern.day === 1:
+        err = handleDuplicateKeyError(err, next);
+        break;
+      default:
+        prodError(err, res);
+    }
   } else if (process.env.NODE_ENV.trim() === "development") {
     devErr(err, res);
   }

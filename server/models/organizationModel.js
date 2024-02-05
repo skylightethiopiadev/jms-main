@@ -1,28 +1,23 @@
 import mongoose from "mongoose";
+import uniqueValidator from "mongoose-unique-validator";
+import * as valid from "../utils/validator.js";
 
-const InstitutionSchema = new mongoose.Schema({
+const institutionSchema = new mongoose.Schema({
   companyName: {
     type: String,
-    required: true,
-    unique: true,
-  },
-  Contact: {
-    type: String,
-    required: true,
-    unique: true,
+    required: [true, "Company name is required"],
+    unique: [true, "This name is taken"],
   },
   tinNumber: {
     type: String,
-    required: true,
-    unique: true,
-  },
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "User",
+    required: [true, "Tin number is required"],
+    validate: valid.paragraph("Address", 4, 200),
+    unique: [true, "This Tin number is taken"],
   },
 });
 
-const Institution = mongoose.model("Institution", InstitutionSchema);
+uniqueValidator.defaults.message = "{PATH} '{VALUE}' is taken";
+institutionSchema.plugin(uniqueValidator);
+const Institution = mongoose.model("Institution", institutionSchema);
 
 export default Institution;

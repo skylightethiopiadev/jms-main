@@ -16,4 +16,4 @@ const tokenGenerator = (res, id) => {
   return token;
 };
 
-export {tokenGenerator}
+export { tokenGenerator };

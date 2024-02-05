@@ -1,36 +1,120 @@
+import { Permission } from "../models/permissionModel.js";
 import AppError from "../utils/AppError.js";
+import { selectModel } from "../utils/selectModel.js";
+
+const unauthorized = (next) => {
+  return next(new AppError("You are not authorized to perform this action"));
+};
 
 export const authorization = async (req, res, next) => {
-  const method = "read"; //req.method
-  const table = "users"; //model.collection.collectionName
-  const role = "super-admin"; //req.user.role
+  const method = req.method; //req.method
+  const table = selectModel(req.query.tt_nn, next).collection.collectionName; //model.collection.collectionName
+  const role = req.user.role; //req.user.role
+  const data = await Permission.findById(req.user.permission); //permission data
+  let key = table === "users" ? req.query.uu_tt : table;
+  let methods = [];
 
-  switch (role) {
-    case "case-manager-main" ||
-      "case-manager-regular" ||
-      "case-manager-external": {
-      //this data will be fetched from permission table in the database
-      const data = {
-        name: "role name",
-        roles: {
-          users: ["read", "update"],
-          cases: ["delete", "update", "read", "create"],
-        },
-      };
-
-      const step1 = Object.keys(data.roles).includes(table);
-      const step2 = data.roles[table]?.includes(method) ? true : false;
-
-      if (step1 && step2) {
-        console.log("authorized", step1, step2);
-      } else {
-        console.log("not authorized", step1, step2);
+  //translate permission data to request method
+  data &&
+    data?.roles[key]?.map((val) => {
+      switch (val) {
+        case "read":
+          methods.push(val.replace("read", "GET"));
+          break;
+        case "update":
+          methods.push(val.replace("update", "PUT"));
+          break;
+        case "create":
+          methods.push(val.replace("create", "POST"));
+          break;
+        case "delete":
+          methods.push(val.replace("delete", "DELETE"));
+          break;
       }
-      break;
+    });
+
+  const step1 = data && Object.keys(data?.roles).includes(key);
+  const step2 = methods && methods?.includes(method) ? true : false;
+
+  if (role === "super-admin") {
+    //super admin can perform any kind of actions
+    next();
+  } else {
+    if (method === "GET") {
+      //every user has a permission to read all data
+      next();
+    } else {
+      switch (
+        table //we just switch the table type to select which table can be used
+      ) {
+        case "cases" || "categories":
+          switch (
+            role //current user role
+          ) {
+            case "customer" || "lawyer":
+              return unauthorized(next);
+            default:
+              if (step1 && step2) {
+                return next();
+              } else {
+                return unauthorized(next);
+              }
+          }
+
+        case "permissions":
+          switch (role) {
+            case "customer" || "lawyer":
+              return unauthorized(next);
+            case "representative":
+              if (method === "GET") {
+                return next();
+              } else {
+                return unauthorized(next);
+              }
+          }
+
+        case "users": //users table has every users data in this system.
+          //to identify which users will be affected by this action in users table
+          switch (
+            req.query.uu_tt //uu_tt is user type it can be lawyer, customer or representative and this will be available only if the table type is users
+          ) {
+            case "lawyers":
+              switch (role) {
+                case "lawyer":
+                  return next();
+                case "representative":
+                  if (step1 && step2) {
+                    return next();
+                  } else {
+                    return unauthorized(next);
+                  }
+                default:
+                  return unauthorized(next);
+              }
+
+            case "customers":
+              switch (role) {
+                case "customer":
+                  return next();
+                case "representative":
+                  if (step1 && step2) {
+                    return next();
+                  } else {
+                    return unauthorized(next);
+                  }
+                default:
+                  return unauthorized(next);
+              }
+          }
+
+        case "representatives":
+          switch (role) {
+            case "representative":
+              return next();
+            default:
+              return unauthorized(next);
+          }
+      }
     }
-    case "customer":
-    //customer permission logic
-    case "lawyer":
-    //lawyer permission logic
   }
 };

@@ -1,4 +1,4 @@
-import { User } from "../models/signupModel.js";
+import { User } from "../models/userModel.js";
 import { promisify } from "util";
 import jwt from "jsonwebtoken";
 import AppError from "../utils/AppError.js";
