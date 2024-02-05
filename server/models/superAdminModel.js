@@ -1,20 +1,16 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-    firstname: {
-      type: String,
-      required: true
-    },
-    email: {
-      type: String,
-      required: true
-    },
-    photo: {
-      data: Buffer, // Store photo as binary data in Buffer
-      contentType: String // Store the content type of the photo
-    }
-  });
-  
-  const User = mongoose.model('Super', userSchema);
+const superAdminSchema = new mongoose.Schema({
+  firstname: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+});
 
-  export default SuperAdmin
+const SuperAdmin = mongoose.model("super-admin", superAdminSchema);
+
+export default SuperAdmin;

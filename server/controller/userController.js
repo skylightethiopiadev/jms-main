@@ -1,51 +1,67 @@
 import AppError from "../utils/AppError.js";
 import asyncCatch from "express-async-catch";
-import { User } from "./../models/signupModel.js";
+import { User } from "../models/userModel.js";
 import { tokenGenerator } from "../utils/tokenGenerator.js";
 import crypto from "crypto";
-import { sendEmailMessage } from "./emailHandler.js";
+import { sendEmailMessage } from "./emailController.js";
 import Institution from "../models/organizationModel.js";
 import Lawyer from "../models/lawyerModel.js";
+import CaseManager from "../models/caseManagerModel.js";
 
 export const signupHandler = asyncCatch(async (req, res, next) => {
-  // const profilePicture = req.files.profilePicture;
-  let userId = "";
+  const profilePicture = req.files.profilePicture;
+  const value = { ...req.body };
 
-  // if (req.body.userType === "lawyer") {
-  // console.log(req.body.userType);
-  // const lawyer = await Lawyer.create({});
-  // console.log(lawyer, "lawyer data");
-  // res.status(200).json({ message: "success" });
-  // if (lawyer) userId = lawyer._id;
-  // }
+  const createAccount = async (id) => {
+    const data = await User.create({
+      ...value,
+      user: id,
+      profilePicture: profilePicture
+        ? "http://192.168.100.12:5000/uploads/" + profilePicture[0].filename
+        : undefined,
+    });
 
-  // console.log(userId.toString().length, "user id");
-  // if (userId.toString().length > 0) {
-  const data = await User.create({
-    // firstName,
-    // middleName,
-    // lastName,
-    // userName,
-    // email,
-    // phone,
-    // address,
-    // nationality,
-    // role,
-    // userType,
-    // userId,
-    // password,
-    // userType,
-    ...req.body,
-    // profilePicture: profilePicture
-    //   ? "http://192.168.100.12:5000/uploads/" + profilePicture[0].filename
-    //   : undefined,
+    const token = tokenGenerator(res, data._id);
+
+    return res
+      .status(200)
+      .json({ message: "Account Created Successfully", token, data });
+  };
+
+  const user = await User.find({
+    $or: [{ email: req.body.email }, { userName: req.body.userName }],
   });
-  const token = tokenGenerator(res, data._id);
 
-  return res
-    .status(200)
-    .json({ message: "Account Created Successfully", token, data });
-  // }
+  if (user.length > 0) {
+    return next(new AppError(`either user name or email is taken`, 400));
+  }
+
+  switch (value.userType) {
+    case "private":
+      createAccount("");
+      break;
+    case "lawyer":
+      const lawyer = await Lawyer.create(value);
+      lawyer._id && createAccount(lawyer._id);
+      break;
+    case "business":
+      const remove = ["firstName", "middleName", "lastName", "gender"];
+      remove.forEach((el) => delete value[el]);
+      const business = await Institution.create(value);
+      business._id && createAccount(business._id);
+      break;
+    case "case-manager-main" ||
+      "case-manager-regular" ||
+      "case-manager-external":
+      const manager = await CaseManager.create(value);
+      manager._id && createAccount(manager._id);
+      break;
+    case "super-admin":
+      createAccount("");
+      break;
+    default:
+      return next(new AppError("problem with creating account try again", 500));
+  }
 });
 
 export const loginHandler = asyncCatch(async (req, res, next) => {
@@ -83,28 +99,39 @@ export const forgetPassword = asyncCatch(async (req, res, next) => {
     return next(new AppError("There is no email registered by this email"));
 
   const resetTokenUrl = await user.createResetToken();
-  await user.save({ validateBeforeSave: false });
+  await user.save({ validateBeforeSave: true });
   const passwordResetUrl = `${req.protocol}:/${req.originalUrl}/${resetTokenUrl}`; // this url will sent via email
 
   //email sent logic here
-  sendEmailMessage(passwordResetUrl);
+  sendEmailMessage(passwordResetUrl, user, res);
 });
 
 export const resetPassword = asyncCatch(async (req, res, next) => {
+  //decode reset token
   const resetToken = await crypto
     .createHash("sha256")
     .update(req.query.resetToken)
     .digest("hex");
 
+  //find users by this token
   const user = await User.findOne({
     resetToken,
   }).select("+password");
+
+  if (!req.body.confirmPassword || !req.body.password) {
+    return next(new AppError("Password and Confirm password are required"));
+  }
+
+  if (req.body.confirmPassword !== req.body.password) {
+    return next(new AppError("Password not much"));
+  }
 
   if (!user) return next(new AppError("Invalid Token", 404));
 
   const isTokenExpired = await user.isTokenExpired();
   if (isTokenExpired) return next(new AppError("Token Expired", 404));
 
+  //save new password to the database
   user.password = req.body.password;
   user.resetToken = undefined;
   user.resetTokenExpires = undefined;
@@ -120,62 +147,104 @@ export const resetPassword = asyncCatch(async (req, res, next) => {
 });
 
 export const readProfileInfo = asyncCatch(async (req, res, next) => {
+  const user =
+    req.user.userType === "private"
+      ? await User.findById(req.user._id)
+      : await User.findById(req.user._id).populate("user");
+
   res.status(200).json({
     status: "READ",
-    data: req.user,
+    data: user,
   });
 });
 
 export const updateProfileInfo = asyncCatch(async (req, res, next) => {
   const body = { ...req.body };
-  body.role && delete body["role"];
-  body.password && delete body["password"];
-  const data = await User.findByIdAndUpdate(req.query.id, {
-    $set: { ...body },
+
+  const remove = [
+    "role",
+    "password",
+    "confirmPassword",
+    "permission",
+    "profilePicture",
+    "userType",
+    "user",
+  ];
+
+  remove.forEach((el) => {
+    if (body[el]) {
+      delete body[el];
+    }
   });
+
+  const data = await User.findOneAndUpdate(
+    { _id: req.user._id },
+    {
+      $set: { ...body },
+    }
+  );
 
   if (!data)
     return next(new AppError("Error unable to update the profile", 404));
 
   res
     .status(200)
-    .json({ status: "Updated", message: "Profile updated successfully", data });
+    .json({ status: "Updated", message: "Profile updated successfully" });
 });
 
 export const updateProfilePicture = asyncCatch(async (req, res, next) => {
   if (!req.files || !req.files.profilePicture)
     return next(new AppError("please select your new profile picture", 404));
 
-  const data = await User.findByIdAndUpdate(req.body.id, {
-    $set: { profilePicture: req.files.profilePicture[0].path },
-  });
+  const data = await User.findOneAndUpdate(
+    { _id: req.user._id },
+    {
+      $set: {
+        profilePicture:
+          "http://localhost:5000/uploads/" +
+          req.files.profilePicture[0].filename,
+      },
+    }
+  );
 
   if (!data)
     return next(new AppError("Error unable to update the profile", 404));
 
   return res.status(200).json({
     status: "Updated",
-    message: "Profile updated successfully",
-    data,
+    message: "Profile picture updated successfully",
   });
 });
 
 export const updatePassword = asyncCatch(async (req, res, next) => {
-  const body = { ...req.body };
-  body.role && delete body["role"];
-  body.permission && delete body["permission"];
+  const { newPassword, currentPassword, confirmPassword } = req.body;
 
-  const user = await User.findOne({ _id: body.id }).select("+password");
+  if (!newPassword || !currentPassword || !confirmPassword)
+    return next(new AppError("All fields are required", 404));
 
-  user.password = body.newPassword;
-  await user.save();
+  const user = await User.findOne({ _id: req.user._id }).select("+password");
+
+  if (newPassword !== confirmPassword)
+    return next(new AppError("Password not much", 404));
+
+  if (!user) return next(new AppError("Please login first to proceed", 404));
+
+  //check current password
+  const isPasswordCorrect = await user.passwordCheck(
+    user.password,
+    currentPassword
+  );
+  if (!isPasswordCorrect)
+    return next(new AppError("Your current password is incorrect", 404));
+
+  //save new password to the database
+  user.password = newPassword;
+  const data = await user.save({ validateBeforeSave: true });
+
+  if (!data)
+    return next(new AppError("Error unable to update the password", 404));
 
   res
     .status(200)
     .json({ status: "Changed", message: "Password changed successfully" });
-});
-
-export const getUsersHandler = asyncCatch(async (req, res, next) => {
-  const data = await User.find().sort("-createdAt");
-  res.status(200).json({ status: "success", length: data.length, data });
 });
