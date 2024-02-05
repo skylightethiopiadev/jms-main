@@ -6,14 +6,18 @@ import { selectModel } from "../utils/selectModel.js";
 export const _create = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.query.tt_nn, next);
 
-  const data = await model.create(req.body);
+  if (model) {
+    const data = await model.create(req.body);
 
-  if (!data)
-    return next(new AppError("something went wrong unable to create the data"));
+    if (!data)
+      return next(
+        new AppError("something went wrong unable to create the data")
+      );
 
-  res
-    .status(201)
-    .json({ status: "Success", message: "data created successfully", data });
+    res
+      .status(201)
+      .json({ status: "Success", message: "data created successfully", data });
+  }
 });
 
 //read
@@ -102,34 +106,42 @@ export const _read = asyncCatch(async (req, res, next) => {
 export const _update = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.query.tt_nn, next);
 
-  const data = await model.findOneAndUpdate(
-    { _id: req.query.id },
-    { ...req.body }
-  );
+  if (model) {
+    const data = await model.findOneAndUpdate(
+      { _id: req.query.id },
+      { ...req.body }
+    );
 
-  if (!data)
-    return next(new AppError("something went wrong unable to update the data"));
+    if (!data)
+      return next(
+        new AppError("something went wrong unable to update the data")
+      );
 
-  res
-    .status(201)
-    .json({ status: "Success", message: "data updated successfully" });
+    res
+      .status(201)
+      .json({ status: "Success", message: "data updated successfully" });
+  }
 });
 
 //delete
 export const _delete = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.query.tt_nn, next);
 
-  const data = await model.findByIdAndUpdate(
-    { _id: req.query.id },
-    { ...req.body }
-  );
+  if (model) {
+    const data = await model.findByIdAndUpdate(
+      { _id: req.query.id },
+      { ...req.body }
+    );
 
-  if (!data)
-    return next(new AppError("something went wrong unable to delete the data"));
+    if (!data)
+      return next(
+        new AppError("something went wrong unable to delete the data")
+      );
 
-  res
-    .status(201)
-    .json({ status: "Success", message: "data deleted successfully" });
+    res
+      .status(201)
+      .json({ status: "Success", message: "data deleted successfully" });
+  }
 });
 
 //read single data

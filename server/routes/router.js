@@ -6,6 +6,7 @@ import {
   _create,
   _delete,
   _read,
+  _readSingle,
   _update,
 } from "../controller/factoryController.js";
 
@@ -47,5 +48,6 @@ router.route("/create").post(authentication, authorization, _create);
 router.route("/read").get(authentication, authorization, _read);
 router.route("/update").put(authentication, authorization, _update);
 router.route("/delete").delete(authentication, authorization, _delete);
+router.route("/readSingle").delete(authentication, authorization, _readSingle);
 
 export default router;
