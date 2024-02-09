@@ -1,23 +1,8 @@
 import React, { useContext } from "react";
-import {
-  Article,
-  Dashboard,
-  Drafts,
-  Gavel,
-  KeyboardDoubleArrowRight,
-  LocalHospital,
-  Message,
-  Money,
-  People,
-  Person2,
-  PieChart,
-  PowerSettingsNew,
-  Report,
-  SupervisorAccount,
-} from "@mui/icons-material";
+import { KeyboardDoubleArrowRight } from "@mui/icons-material";
 import SidebarItems from "./SidebarItems";
 import { useNavigate } from "react-router-dom";
-import { mobileContext } from "../App";
+import { mobileContext } from "../pages/dashboard/HomeDashboard";
 
 const Sidebar = (props) => {
   const navigate = useNavigate();
@@ -33,7 +18,7 @@ const Sidebar = (props) => {
       case "customer": {
         return ["Representative", "Lawyers", "Public"];
       }
-      case "superAdmin": {
+      case "super-admin": {
         return ["Representative", "Lawyers", "Public"];
       }
       case "representative-main": {
@@ -131,7 +116,7 @@ const Sidebar = (props) => {
             ]}
           />
 
-          {role === "superAdmin" && (
+          {role === "super-admin" && (
             <SidebarItems
               title="Roles"
               id="roles"
@@ -141,7 +126,7 @@ const Sidebar = (props) => {
             />
           )}
 
-          {role === "superAdmin" ? (
+          {role === "super-admin" ? (
             <SidebarItems
               title="Lawyers"
               id="lawyers"
@@ -158,7 +143,7 @@ const Sidebar = (props) => {
             />
           )}
 
-          {role === "superAdmin" ? (
+          {role === "super-admin" ? (
             <SidebarItems
               title="Representatives"
               id="representatives"
@@ -188,7 +173,7 @@ const Sidebar = (props) => {
             />
           )}
 
-          {role !== "superAdmin" && (
+          {role !== "super-admin" && (
             <SidebarItems
               title="Consulting"
               id="consulting"
@@ -197,7 +182,7 @@ const Sidebar = (props) => {
             />
           )}
 
-          {role !== "superAdmin" && (
+          {role !== "super-admin" && (
             <SidebarItems
               title="Tutorials"
               id="tutorials"
@@ -206,7 +191,7 @@ const Sidebar = (props) => {
             />
           )}
 
-          {role === "superAdmin" && (
+          {role === "super-admin" && (
             <SidebarItems
               title="Client type"
               id="clientType"

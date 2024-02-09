@@ -4,7 +4,7 @@ import { selectModel } from "../utils/selectModel.js";
 
 //create
 export const _create = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
   if (model) {
     const data = await model.create(req.body);
@@ -22,10 +22,10 @@ export const _create = asyncCatch(async (req, res, next) => {
 
 //read
 export const _read = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
   if (model) {
-    const total = await model.find();
+    const total = await model.find({ _id: req.params.id });
     const params = { ...req.query };
 
     const remove = [
@@ -36,7 +36,6 @@ export const _read = asyncCatch(async (req, res, next) => {
       "value",
       "ss_ff",
       "ss_vv",
-      "tt_nn",
       "uu_tt",
       "pp_ff",
     ];
@@ -104,7 +103,7 @@ export const _read = asyncCatch(async (req, res, next) => {
 
 //update
 export const _update = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
   if (model) {
     const data = await model.findOneAndUpdate(
@@ -125,7 +124,7 @@ export const _update = asyncCatch(async (req, res, next) => {
 
 //delete
 export const _delete = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
   if (model) {
     const data = await model.findByIdAndUpdate(
@@ -145,9 +144,9 @@ export const _delete = asyncCatch(async (req, res, next) => {
 });
 
 //read single data
-export const _readSingle = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
-  const data = await model.findById(req.query.id);
+export const _read_single = asyncCatch(async (req, res, next) => {
+  const model = selectModel(req.params.table, next);
+  const data = await model.findById(req.params.id);
 
   if (!data)
     return next(new AppError("something went wrong unable to fetch the data"));

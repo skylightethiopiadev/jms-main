@@ -1,4 +1,5 @@
-import Institution from "../models/organizationModel.js";
+import { Category } from "../models/categoryModel.js";
+import { Institution } from "../models/organizationModel.js";
 import { Permission } from "../models/permissionModel.js";
 import { User } from "../models/userModel.js";
 import AppError from "./AppError.js";
@@ -17,6 +18,9 @@ export const selectModel = (name, next) => {
       break;
     case "cases":
       model = User;
+      break;
+    case "categories":
+      model = Category;
       break;
     default:
       return next(

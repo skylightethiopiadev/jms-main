@@ -1,28 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { Close } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const Response = ({ response, setPending }) => {
+const Response = ({ response, setPending, redirectTo, type }) => {
+  const navigate = useNavigate();
   const [error, setError] = useState(true);
   const [success, setSuccess] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState();
 
   useEffect(() => {
-    console.log(response, "response");
-
     response.status === "pending" ? setPending(true) : setPending(false);
 
     response.status === "fulfilled"
       ? (setError(false),
         setSuccess(true),
-        setSuccessMessage(response?.data?.msg),
-        setTimeout(() => {
-          setSuccess(false);
-        }, 4000))
+        setSuccessMessage(response?.data?.message),
+        type === "login"
+          ? (sessionStorage.setItem("jwt", response?.data?.token),
+            sessionStorage.setItem(
+              "user",
+              JSON.stringify(response?.data?.data)
+            ),
+            redirectTo.length > 0
+              ? navigate(redirectTo, { replace: true })
+              : null)
+          : redirectTo.length > 0
+          ? navigate(redirectTo)
+          : setTimeout(() => {
+              setSuccess(false);
+            }, 4000))
       : null;
 
     response.status === "rejected"
-      ? (setError(true), setErrorMessage([response?.error?.data?.msg]))
+      ? (setError(true), setErrorMessage([response?.error?.data?.message]))
       : setError(false);
   }, [response]);
 

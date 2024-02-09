@@ -7,11 +7,10 @@ import {
   Search,
 } from "@mui/icons-material";
 import React, { useContext } from "react";
-import { mobileContext } from "../App";
+import { mobileContext } from "../pages/dashboard/HomeDashboard";
 
 const Header = () => {
   const context = useContext(mobileContext);
-
   const menuHandler = () => {
     context.mobile === true
       ? context.setMobile(false)

@@ -5,7 +5,7 @@ import { AccessTime, Star, MoreHoriz, ArrowForward } from "@mui/icons-material";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import DataTable from "react-data-table-component";
-import { mobileContext } from "../../App";
+import { mobileContext } from "./HomeDashboard";
 
 const Dashboard = (props) => {
   const context = useContext(mobileContext);
@@ -349,7 +349,7 @@ const Dashboard = (props) => {
       </div>
 
       {/* second phase */}
-      {role === "superAdmin" && (
+      {role === "super-admin" && (
         <div
           className={`flex flex-col border ${context.borderColor} rounded-sm shadow-sm h-auto`}
         >
@@ -415,7 +415,7 @@ const Dashboard = (props) => {
       {/* third phase */}
       <div
         className={`grid grid-cols-1 gap-4 md:grid-cols-2 ${
-          role === "superAdmin" || role === "representative-main"
+          role === "super-admin" || role === "representative-main"
             ? "lg:grid-cols-3"
             : null
         } `}
@@ -427,7 +427,7 @@ const Dashboard = (props) => {
             className={`border-b ${context.borderColor} flex justify-between p-2 items-center`}
           >
             <p className="uppercase">
-              {role === "superAdmin"
+              {role === "super-admin"
                 ? "New clients"
                 : role === "customer"
                 ? "Lawyers"
@@ -472,7 +472,7 @@ const Dashboard = (props) => {
             className={`border-b ${context.borderColor} flex justify-between p-2 items-center`}
           >
             <p className="uppercase">
-              {role === "superAdmin"
+              {role === "super-admin"
                 ? "Representatives"
                 : role === "representative"
                 ? "Lawyers"
@@ -533,7 +533,7 @@ const Dashboard = (props) => {
           </div>
         </div>
 
-        {role === "superAdmin" ? (
+        {role === "super-admin" ? (
           <div
             className={`flex flex-col border ${context.borderColor} rounded-sm shadow-sm h-auto`}
           >
@@ -589,7 +589,7 @@ const Dashboard = (props) => {
                 className={`border-b ${context.borderColor} flex justify-between p-2 items-center`}
               >
                 <p className="uppercase">
-                  {role === "superAdmin"
+                  {role === "super-admin"
                     ? "Top rated lawyers"
                     : role === "representative-main"
                     ? "Lawyers"
@@ -661,7 +661,7 @@ const Dashboard = (props) => {
           className={`border-b ${context.borderColor} flex justify-between p-2 items-center`}
         >
           <p className="uppercase">
-            {role === "superAdmin" ? "Latest cases" : "Your latest cases"}
+            {role === "super-admin" ? "Latest cases" : "Your latest cases"}
           </p>
         </div>
 

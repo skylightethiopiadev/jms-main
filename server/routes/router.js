@@ -6,7 +6,7 @@ import {
   _create,
   _delete,
   _read,
-  _readSingle,
+  _read_single,
   _update,
 } from "../controller/factoryController.js";
 
@@ -44,10 +44,13 @@ router
 router.route("/updatePassword").put(authentication, updatePassword);
 
 //factory endpoint
-router.route("/create").post(authentication, authorization, _create);
-router.route("/read").get(authentication, authorization, _read);
-router.route("/update").put(authentication, authorization, _update);
-router.route("/delete").delete(authentication, authorization, _delete);
-router.route("/readSingle").delete(authentication, authorization, _readSingle);
+router.route("/:table/:id").get(authentication, authorization, _read_single);
+
+router
+  .route("/:table")
+  .post(authentication, authorization, _create)
+  .get(authentication, authorization, _read)
+  .put(authentication, authorization, _update)
+  .delete(authentication, authorization, _delete);
 
 export default router;

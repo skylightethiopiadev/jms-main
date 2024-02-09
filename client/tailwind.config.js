@@ -5,6 +5,11 @@ export default {
     extend: {
       colors: {
         night: "rgb(77 78 78)",
+        main: "#eb9405",
+      },
+      backgroundImage: {
+        hero: "url('/gedi.jpg')",
+        footer: "url('/img/footer-texture.png')",
       },
     },
     fontFamily: {

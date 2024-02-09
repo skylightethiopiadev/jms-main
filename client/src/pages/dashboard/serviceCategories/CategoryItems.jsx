@@ -2,7 +2,7 @@ import { MoreHoriz } from "@mui/icons-material";
 import React, { useContext } from "react";
 import Charts from "../../../components/Charts";
 import SmallChart from "../../../components/SmallChart";
-import { mobileContext } from "../../../App";
+import { mobileContext } from "../HomeDashboard";
 
 const CategoryItems = (props) => {
   const context = useContext(mobileContext);

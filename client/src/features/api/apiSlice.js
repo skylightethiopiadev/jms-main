@@ -1,9 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const authorization = {
+  authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+};
+
 export const apiSlice = createApi({
   reducerPath: "redux",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://192.168.100.24:1221/api",
+    baseUrl: "http://192.168.100.12:5000/jms/app/v1",
   }),
   tagTypes: [
     "get-all-users",
@@ -16,7 +20,7 @@ export const apiSlice = createApi({
     //user signup
     userRegister: builder.mutation({
       query: (data) => ({
-        url: "/users/signup",
+        url: "/user/signup",
         method: "POST",
         body: data,
       }),
@@ -24,11 +28,21 @@ export const apiSlice = createApi({
     //user login
     userLogin: builder.mutation({
       query: (data) => ({
-        url: "/users/login",
+        url: "/user/login",
         method: "POST",
         body: data,
       }),
       invalidatesTags: ["get-all-users"],
+    }),
+
+    //GET ALL ROLES
+    getAllUsers: builder.query({
+      query: () => ({
+        url: `/user/users`,
+        method: "GET",
+        headers: authorization,
+      }),
+      provideTags: ["get-all-users"],
     }),
 
     //GET SINGLE ROLE
@@ -36,11 +50,7 @@ export const apiSlice = createApi({
       query: (param) => ({
         url: `/roles/view?id=${param.id}`,
         method: "GET",
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       provideTags: ["get-all-roles"],
     }),
@@ -50,11 +60,7 @@ export const apiSlice = createApi({
       query: () => ({
         url: `/roles/all`,
         method: "GET",
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       provideTags: ["get-all-roles"],
     }),
@@ -65,11 +71,7 @@ export const apiSlice = createApi({
         url: "/roles/create",
         method: "POST",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["get-all-roles"],
     }),
@@ -80,11 +82,7 @@ export const apiSlice = createApi({
         url: `/roles/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["get-all-roles"],
     }),
@@ -113,11 +111,7 @@ export const apiSlice = createApi({
         url: "/client_type/create",
         method: "POST",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["client-type"],
     }),
@@ -128,11 +122,7 @@ export const apiSlice = createApi({
         url: `/client_type/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["client-type"],
     }),
@@ -143,11 +133,7 @@ export const apiSlice = createApi({
         url: "/service_area/create",
         method: "POST",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["get-all-service-area"],
     }),
@@ -158,11 +144,7 @@ export const apiSlice = createApi({
         url: `/service_area/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["get-all-service-area"],
     }),
@@ -191,11 +173,7 @@ export const apiSlice = createApi({
         url: "/representatives/create",
         method: "POST",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["get-all-representative"],
     }),
@@ -206,11 +184,7 @@ export const apiSlice = createApi({
         url: `/representatives/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       invalidatesTags: ["get-all-representative"],
     }),
@@ -229,21 +203,26 @@ export const apiSlice = createApi({
       query: (param) => ({
         url: `/roles/view?id=${param.id}`,
         method: "GET",
-        headers: {
-          authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("gsm-user")).token
-          }`,
-        },
+        headers: authorization,
       }),
       provideTags: ["get-all-representative"],
     }),
     //##############################
+
+    serviceAreaCreate: builder.mutation({
+      query: (data) => ({
+        url: "/servicesAreas",
+        method: "POST",
+        headers: authorization,
+      }),
+    }),
   }),
 });
 
 export const {
   useUserRegisterMutation,
   useUserLoginMutation,
+  useGetAllUsersQuery,
   //role
   useGetSingleRoleQuery,
   useGetAllRolesQuery,

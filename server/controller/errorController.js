@@ -56,9 +56,6 @@ const errorController = (err, req, res, next) => {
       case "TokenExpiredError":
         err = handleTokenExpiredError(err);
         break;
-      case "11000" && err.keyPattern.day === 1:
-        err = handleDuplicateKeyError(err, next);
-        break;
       default:
         prodError(err, res);
     }

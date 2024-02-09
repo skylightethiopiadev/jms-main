@@ -31,6 +31,7 @@
     "redux": "^4.2.1",
     "styled-components": "^6.1.8",
     "timeago.js": "^4.0.2",
+    "tw-elements-react": "^1.0.0-alpha2",
     "typography": "^0.16.24"
   },
   "devDependencies": {
