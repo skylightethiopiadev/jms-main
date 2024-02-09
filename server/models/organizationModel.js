@@ -18,6 +18,5 @@ const institutionSchema = new mongoose.Schema({
 
 uniqueValidator.defaults.message = "{PATH} '{VALUE}' is taken";
 institutionSchema.plugin(uniqueValidator);
-const Institution = mongoose.model("Institution", institutionSchema);
 
-export default Institution;
+export const Institution = mongoose.model("Institution", institutionSchema);

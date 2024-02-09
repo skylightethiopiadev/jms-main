@@ -8,7 +8,7 @@ const unauthorized = (next) => {
 
 export const authorization = async (req, res, next) => {
   const method = req.method; //req.method
-  const table = selectModel(req.query.tt_nn, next).collection.collectionName; //model.collection.collectionName
+  const table = selectModel(req.params.table, next).collection.collectionName; //model.collection.collectionName
   const role = req.user.role; //req.user.role
   const data = await Permission.findById(req.user.permission); //permission data
   let key = table === "users" ? req.query.uu_tt : table;

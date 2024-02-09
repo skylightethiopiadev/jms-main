@@ -1,80 +1,32 @@
-import { Link, Route, Routes, useLocation } from "react-router-dom";
-import Login from "./components/Login";
+import { Route, Routes } from "react-router-dom";
 import SignUp from "./pages/SignUp";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
 import Home from "./pages/Home";
-import CreateRole from "./pages/dashboard/roles/CreateRole";
-import AllRoles from "./pages/dashboard/roles/AllRoles";
-import Update from "./pages/dashboard/roles/Update";
-import Detail from "./pages/dashboard/roles/Detail";
-import Dashboard from "./pages/dashboard/Dashboard";
-import ClientType from "./pages/dashboard/clientType/ClientType";
-import ClientTypeUpdate from "./pages/dashboard/clientType/ClientTypeUpdate";
-import AllServiceArea from "./pages/dashboard/serviceArea/AllServiceArea";
-import ServiceAreaUpdate from "./pages/dashboard/serviceArea/ServiceAreaUpdate";
-import { AccessTime, Balance } from "@mui/icons-material";
-import { createContext, useState } from "react";
-import CaseChart from "./pages/dashboard/caseChart/CaseChart";
-import Applications from "./pages/dashboard/applications/Applications";
-import Chat from "./pages/dashboard/chat/Chat";
-import Representative from "./pages/dashboard/representatives/Representative";
-import Payment from "./pages/dashboard/payment/Payment";
-import Lawyer from "./pages/dashboard/lawyers/Lawyer";
-import Customers from "./pages/dashboard/customers/Customers";
-import Consulting from "./pages/dashboard/consulting/Consulting";
-import Tutorials from "./pages/dashboard/tutorials/Tutorials";
-import Reports from "./pages/dashboard/reports/Reports";
+import HomeDashboard from "./pages/dashboard/HomeDashboard";
+import PageNotFound from "./components/PageNotFound";
+import Login from "./pages/Login";
 
-export const mobileContext = createContext();
 function App() {
-  const user = JSON.parse(sessionStorage.getItem("gsm-user"));
-  const location = useLocation();
-  const paths = location.pathname.split("/");
-
-  const greetingHandler = () => {
-    const hour = new Date().getHours();
-    let greeting = "";
-    if (hour < 10) greeting = "Good Morning";
-    else if (hour < 20) greeting = "Good Afternoon";
-    else greeting = "Good Evening";
-    return greeting;
-  };
-
-  const dateHandler = () => {
-    const date = new Date().toString().split(" ").splice(0, 4).join(" ");
-    const time = new Date()
-      .toString()
-      .split(" ")[4]
-      .split(":")
-      .splice(0, 2)
-      .join(":");
-    const type = new Date().getHours() < 12 ? "AM" : "PM";
-    return `${date}  ${time} ${type}`;
-  };
-
-  const [mobile, setMobile] = useState(false);
-  const [nightMode, setNightMode] = useState(false);
-  const borderColor = `${nightMode ? "border-gray-700" : "border-gray-200"}`;
-  let role = "customer";
-
+  const jwt = sessionStorage.getItem("jwt");
+  const user = JSON.parse(sessionStorage.getItem("user"));
   return (
-    <div
-      className={`font-poppins small ${
-        nightMode ? "bg-gray-800 text-gray-400" : "bg-white text-gray-600"
-      }  tracking-wide`}
-    >
+    <div className={`font-poppins medium   tracking-wide`}>
       <div className="">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="login" element={<Login />}></Route>
           <Route path="signUp" element={<SignUp />}></Route>
-          <Route path="*" element={<p></p>} />
+          {jwt && user && (
+            <Route
+              path="/dashboard/*"
+              element={<HomeDashboard role={user?.role} />}
+            ></Route>
+          )}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
 
       {/* secure routes */}
-      <mobileContext.Provider
+      {/* <mobileContext.Provider
         value={{
           mobile,
           setMobile,
@@ -151,7 +103,6 @@ function App() {
                 </div>
               </div>
 
-              {/* {user && ( */}
               <Routes>
                 <Route path="/dashboard" element={<Dashboard />}></Route>
                 <Route
@@ -196,11 +147,10 @@ function App() {
                 <Route path="/dashboard/reports" element={<Reports />} />
                 <Route path="*" element={<p>Path not resolved</p>} />
               </Routes>
-              {/* )} */}
             </div>
           </div>
         </div>
-      </mobileContext.Provider>
+      </mobileContext.Provider> */}
     </div>
   );
 }

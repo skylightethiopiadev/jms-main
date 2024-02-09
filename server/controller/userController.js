@@ -4,9 +4,9 @@ import { User } from "../models/userModel.js";
 import { tokenGenerator } from "../utils/tokenGenerator.js";
 import crypto from "crypto";
 import { sendEmailMessage } from "./emailController.js";
-import Institution from "../models/organizationModel.js";
 import Lawyer from "../models/lawyerModel.js";
 import CaseManager from "../models/caseManagerModel.js";
+import { Institution } from "../models/organizationModel.js";
 
 export const signupHandler = asyncCatch(async (req, res, next) => {
   const profilePicture = req.files.profilePicture;

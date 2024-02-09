@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGetAllRolesQuery } from "../../../features/api/apiSlice";
+import {
+  useGetAllRolesQuery,
+  useGetAllUsersQuery,
+} from "../../../features/api/apiSlice";
 import Tables from "../../../components/Tables";
 
 const AllRoles = () => {
   const { data } = useGetAllRolesQuery();
+  // const { data: role } = useGetAllUsersQuery();
+  // console.log(role, "roles");
   const columns = [
     {
       name: "No",

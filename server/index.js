@@ -5,8 +5,11 @@ import cors from "cors";
 import { errorController } from "./controller/errorController.js";
 import mongodb from "./config/db.js";
 import router from "./routes/router.js";
+// import apicache from "apicache";
 
 const app = express();
+// let cache = apicache.middleware;
+// app.use(cache("5 minutes"));
 const __dirname = path.resolve();
 
 // process.on("uncaughtException", (err) => {
@@ -14,8 +17,13 @@ const __dirname = path.resolve();
 //   console.log(err.name, err.message);
 //   process.exit(1);
 // });
-
+// {
+//     origin: ["http://localhost:3000"],
+//     methods: ["GET", "PUT", "POST", "DELETE", "PATCH"],
+//     // credentials: true,
+//   }
 app.use(cors());
+
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/jms/app/v1/user", router);

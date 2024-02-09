@@ -8,7 +8,7 @@ import {
   Person,
   PostAdd,
 } from "@mui/icons-material";
-import { mobileContext } from "../../../App";
+import { mobileContext } from "../HomeDashboard";
 
 const Categories = () => {
   const context = useContext(mobileContext);
@@ -16,9 +16,9 @@ const Categories = () => {
   return (
     <div className="grid h-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <CategoryItems
-        title={`${role === "superAdmin" ? "Service area" : "Active cases"}`}
+        title={`${role === "super-admin" ? "Service area" : "Active cases"}`}
         icon={
-          role === "superAdmin" ? (
+          role === "super-admin" ? (
             <Dashboard fontSize="small" />
           ) : role === "representative-main" ? (
             <Article fontSize="small" />
@@ -27,7 +27,7 @@ const Categories = () => {
           )
         }
         number={20}
-        description={`${role === "superAdmin" ? "total area" : "total cases"}`}
+        description={`${role === "super-admin" ? "total area" : "total cases"}`}
         color="#0000FF"
         textColor="text-blue-500"
         data={[
@@ -37,9 +37,9 @@ const Categories = () => {
       />
 
       <CategoryItems
-        title={`${role === "superAdmin" ? "Cases" : "Closed cases"}`}
+        title={`${role === "super-admin" ? "Cases" : "Closed cases"}`}
         icon={
-          role === "superAdmin" ? (
+          role === "super-admin" ? (
             <Dashboard fontSize="small" />
           ) : role === "representative-main" ? (
             <Article fontSize="small" />

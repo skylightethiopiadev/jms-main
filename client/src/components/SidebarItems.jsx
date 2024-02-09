@@ -1,7 +1,7 @@
 import { ArrowRight, KeyboardArrowRight } from "@mui/icons-material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { mobileContext } from "../App";
+import { mobileContext } from "../pages/dashboard/HomeDashboard";
 
 const SidebarItems = (props) => {
   props.children?.paths && console.log(props.children?.paths[0], "aaaaaaaaaa");

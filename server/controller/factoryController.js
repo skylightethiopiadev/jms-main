@@ -4,24 +4,28 @@ import { selectModel } from "../utils/selectModel.js";
 
 //create
 export const _create = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
-  const data = await model.create(req.body);
+  if (model) {
+    const data = await model.create(req.body);
 
-  if (!data)
-    return next(new AppError("something went wrong unable to create the data"));
+    if (!data)
+      return next(
+        new AppError("something went wrong unable to create the data")
+      );
 
-  res
-    .status(201)
-    .json({ status: "Success", message: "data created successfully", data });
+    res
+      .status(201)
+      .json({ status: "Success", message: "data created successfully", data });
+  }
 });
 
 //read
 export const _read = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
   if (model) {
-    const total = await model.find();
+    const total = await model.find({ _id: req.params.id });
     const params = { ...req.query };
 
     const remove = [
@@ -32,7 +36,6 @@ export const _read = asyncCatch(async (req, res, next) => {
       "value",
       "ss_ff",
       "ss_vv",
-      "tt_nn",
       "uu_tt",
       "pp_ff",
     ];
@@ -100,42 +103,50 @@ export const _read = asyncCatch(async (req, res, next) => {
 
 //update
 export const _update = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
-  const data = await model.findOneAndUpdate(
-    { _id: req.query.id },
-    { ...req.body }
-  );
+  if (model) {
+    const data = await model.findOneAndUpdate(
+      { _id: req.query.id },
+      { ...req.body }
+    );
 
-  if (!data)
-    return next(new AppError("something went wrong unable to update the data"));
+    if (!data)
+      return next(
+        new AppError("something went wrong unable to update the data")
+      );
 
-  res
-    .status(201)
-    .json({ status: "Success", message: "data updated successfully" });
+    res
+      .status(201)
+      .json({ status: "Success", message: "data updated successfully" });
+  }
 });
 
 //delete
 export const _delete = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
+  const model = selectModel(req.params.table, next);
 
-  const data = await model.findByIdAndUpdate(
-    { _id: req.query.id },
-    { ...req.body }
-  );
+  if (model) {
+    const data = await model.findByIdAndUpdate(
+      { _id: req.query.id },
+      { ...req.body }
+    );
 
-  if (!data)
-    return next(new AppError("something went wrong unable to delete the data"));
+    if (!data)
+      return next(
+        new AppError("something went wrong unable to delete the data")
+      );
 
-  res
-    .status(201)
-    .json({ status: "Success", message: "data deleted successfully" });
+    res
+      .status(201)
+      .json({ status: "Success", message: "data deleted successfully" });
+  }
 });
 
 //read single data
-export const _readSingle = asyncCatch(async (req, res, next) => {
-  const model = selectModel(req.query.tt_nn, next);
-  const data = await model.findById(req.query.id);
+export const _read_single = asyncCatch(async (req, res, next) => {
+  const model = selectModel(req.params.table, next);
+  const data = await model.findById(req.params.id);
 
   if (!data)
     return next(new AppError("something went wrong unable to fetch the data"));
