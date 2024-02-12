@@ -1,44 +1,103 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const authorization = {
-  authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+  authorization: `Bearer ${localStorage.getItem("jwt")}`,
 };
 
+let tag = [];
+
 export const apiSlice = createApi({
-  reducerPath: "redux",
+  reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://192.168.100.12:5000/jms/app/v1",
+    baseUrl: "http://192.168.100.12:5000/jms/app/v1/user",
   }),
-  tagTypes: [
-    "get-all-users",
-    "get-all-roles",
-    "get-all-service-area",
-    "get-all-representative",
-    "client-type",
-  ],
+  tagTypes: ["categories", "cases"],
   endpoints: (builder) => ({
     //user signup
     userRegister: builder.mutation({
       query: (data) => ({
-        url: "/user/signup",
+        url: "/signup",
         method: "POST",
         body: data,
       }),
     }),
+
     //user login
     userLogin: builder.mutation({
       query: (data) => ({
-        url: "/user/login",
+        url: "/login",
         method: "POST",
         body: data,
       }),
       invalidatesTags: ["get-all-users"],
     }),
 
+    //create
+    create: builder.mutation({
+      query: (data) => {
+        data?.tag.map((d) => tag.push(d));
+        return {
+          url: data.url,
+          method: "POST",
+          body: data,
+          headers: authorization,
+        };
+      },
+      invalidatesTags: () => {
+        return [...new Set(tag)];
+      },
+    }),
+
+    //read
+    read: builder.query({
+      query: (data) => {
+        data?.tag.map((d) => tag.push(d));
+        return {
+          url: data.url,
+          method: "GET",
+          headers: authorization,
+        };
+      },
+      providesTags: () => {
+        return [...new Set(tag)];
+      },
+    }),
+
+    //update
+    update: builder.mutation({
+      query: (data) => {
+        data?.tag.map((d) => tag.push(d));
+        return {
+          url: data.url,
+          method: "PUT",
+          body: data,
+          headers: authorization,
+        };
+      },
+      invalidatesTags: () => {
+        return [...new Set(tag)];
+      },
+    }),
+
+    //delete
+    delete: builder.mutation({
+      query: (data) => {
+        data?.tag.map((d) => tag.push(d));
+        return {
+          url: data.url,
+          method: "DELETE",
+          body: data,
+          headers: authorization,
+        };
+      },
+      invalidatesTags: () => {
+        return [...new Set(tag)];
+      },
+    }),
     //GET ALL ROLES
     getAllUsers: builder.query({
       query: () => ({
-        url: `/user/users`,
+        url: `/users`,
         method: "GET",
         headers: authorization,
       }),
@@ -208,14 +267,6 @@ export const apiSlice = createApi({
       provideTags: ["get-all-representative"],
     }),
     //##############################
-
-    serviceAreaCreate: builder.mutation({
-      query: (data) => ({
-        url: "/servicesAreas",
-        method: "POST",
-        headers: authorization,
-      }),
-    }),
   }),
 });
 
@@ -246,4 +297,10 @@ export const {
   useGetAllRepresentativeQuery,
   useGetSingleRepresentativeQuery,
   useUpdateRepresentativeMutation,
+
+  //category
+  useCreateMutation,
+  useReadQuery,
+  useUpdateMutation,
+  useDeleteMutation,
 } = apiSlice;

@@ -15,7 +15,11 @@
   height: 0px;
   background: rgba(0, 0, 0, 0.2);
 }
-
+/* * { */
+/* border-style: solid;
+  border-color: rgb(77, 78, 78);
+  border-width: 1px; */
+/* } */
 .container {
   @apply w-full  text-gray-500 h-[80vh] bg-gray-200 flex items-center justify-center flex-col;
 }
@@ -34,9 +38,15 @@
 .medium {
   @apply text-[12px];
 }
-
-* {
-  /* border-style: solid; */
-  /* border-color: rgb(77, 78, 78); */
-  /* border-width: 1px; */
+.center {
+  @apply flex flex-col w-full items-center justify-center h-full;
+}
+.button-nb {
+  @apply px-3 py-[6px] border text-black border-gray-200  rounded-sm;
+}
+.grids {
+  @apply grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+.input {
+  @apply border border-gray-300 p-2 rounded-sm;
 }

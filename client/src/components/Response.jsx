@@ -17,15 +17,12 @@ const Response = ({ response, setPending, redirectTo, type }) => {
         setSuccess(true),
         setSuccessMessage(response?.data?.message),
         type === "login"
-          ? (sessionStorage.setItem("jwt", response?.data?.token),
-            sessionStorage.setItem(
-              "user",
-              JSON.stringify(response?.data?.data)
-            ),
+          ? (localStorage.setItem("jwt", response?.data?.token),
+            localStorage.setItem("user", JSON.stringify(response?.data?.data)),
             redirectTo.length > 0
               ? navigate(redirectTo, { replace: true })
               : null)
-          : redirectTo.length > 0
+          : redirectTo && redirectTo?.length > 0
           ? navigate(redirectTo)
           : setTimeout(() => {
               setSuccess(false);

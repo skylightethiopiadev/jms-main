@@ -1,3 +1,4 @@
+import { Case } from "../models/caseModel.js";
 import { Category } from "../models/categoryModel.js";
 import { Institution } from "../models/organizationModel.js";
 import { Permission } from "../models/permissionModel.js";
@@ -17,7 +18,7 @@ export const selectModel = (name, next) => {
       model = Permission;
       break;
     case "cases":
-      model = User;
+      model = Case;
       break;
     case "categories":
       model = Category;

@@ -48,7 +48,7 @@ export const _read = asyncCatch(async (req, res, next) => {
         (match) => `$${match}`
       )
     );
-
+    // queryObject.deleted = false;
     //searching
     if (req.query.ss_ff)
       queryObject[req.query.ss_ff] = new RegExp(req.query.ss_vv, "gi");
@@ -129,7 +129,7 @@ export const _delete = asyncCatch(async (req, res, next) => {
   if (model) {
     const data = await model.findByIdAndUpdate(
       { _id: req.query.id },
-      { ...req.body }
+      { deleted: req.body.type === "delete" ? true : false }
     );
 
     if (!data)
