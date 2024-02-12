@@ -7,7 +7,7 @@ const handleCastError = (err) => {
 const handleValidationError = (err, res) => {
   const keys = Object.keys(err.errors);
   const value = keys.map((key) => err.errors[key].message);
-  return res.status(500).json({ status: err.status, message: value });
+  return res.status(400).json({ status: err.status, message: value });
 };
 
 const handleTokenExpiredError = () => {

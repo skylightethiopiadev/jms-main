@@ -17,6 +17,10 @@ const categorySchema = new Schema({
     },
     required: [true, "Type must be either 'civil' or 'crime'"],
   },
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 uniqueValidator.defaults.message = "{PATH} '{VALUE}' is taken";

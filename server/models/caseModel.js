@@ -1,35 +1,18 @@
 import mongoose, { Schema } from "mongoose";
 
-const CaseSchema = new Schema({
-  caseName: {
+const caseSchema = new Schema({
+  name: {
     type: String,
     required: true,
   },
-  appointmentDate: {
-    type: Date,
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "category",
     required: true,
   },
-  caseNumber: {
-    type: String,
-    required: true,
-  },
-  caseType: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: "CaseCategory",
-  },
-  caseDescription: {
-    type: String,
-    required: true,
-  },
-  caseStatus: {
-    type: String,
-    required: true,
-  },
-  ApplicationID: {
-    type: Schema.Types.ObjectId,
-    ref: "Application",
+  deleted: {
+    type: Boolean,
+    default: false,
   },
 });
-const Case = mongoose.model("Case", CaseSchema);
-export default Case;
+export const Case = mongoose.model("case", caseSchema);

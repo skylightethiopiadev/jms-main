@@ -4,8 +4,6 @@ import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import AllServiceArea from "./serviceArea/AllServiceArea";
-import ServiceAreaUpdate from "./serviceArea/ServiceAreaUpdate";
 import CaseChart from "./caseChart/CaseChart";
 import Applications from "./applications/Applications";
 import Chat from "./chat/Chat";
@@ -22,7 +20,11 @@ import Tutorials from "./tutorials/Tutorials";
 import ClientType from "./clientType/ClientType";
 import ClientTypeUpdate from "./clientType/ClientTypeUpdate";
 import Reports from "./reports/Reports";
-import Read from "./categories/Read";
+
+import ServiceAreaDetail from "./categories/ServiceAreaDetail";
+import ServiceAreaRead from "./categories/ServiceAreaRead";
+import ServiceAreaCreate from "./categories/ServiceAreaCreate";
+import ServiceAreaUpdate from "./categories/ServiceAreaUpdate";
 
 export const mobileContext = createContext();
 
@@ -114,7 +116,7 @@ const HomeDashboard = ({ role }) => {
                         <Link
                           to={location.pathname
                             .split("/")
-                            .splice(0, paths.length - 1)
+                            .splice(0, i + 1)
                             .join("/")}
                         >
                           {path.replaceAll("-", " ")}/
@@ -141,10 +143,18 @@ const HomeDashboard = ({ role }) => {
             {/* {user && ( */}
             <Routes>
               <Route path="/" element={<Dashboard />}></Route>
-              <Route path="/service-area" element={<Read />} />
+              <Route path="/service-area" element={<ServiceAreaRead />} />
               <Route
-                path="/service-rea/update"
+                path="/service-area/update"
                 element={<ServiceAreaUpdate />}
+              />
+              <Route
+                path="/service-area/detail"
+                element={<ServiceAreaDetail />}
+              />
+              <Route
+                path="/service-area/create"
+                element={<ServiceAreaCreate />}
               />
               <Route path="/case-chart" element={<CaseChart />} />
               <Route path="/applications" element={<Applications />} />

@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["apicache"]
+  "cSpell.words": ["apicache"],
+  "scss.lint.unknownAtRules": "ignore",
+  "workbench.settings.useSplitJSON": false,
+  "css.lint.unknownAtRules": "ignore"
 }

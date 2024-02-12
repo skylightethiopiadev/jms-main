@@ -6,8 +6,10 @@ import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 
 function App() {
-  const jwt = sessionStorage.getItem("jwt");
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const jwt = localStorage.getItem("jwt");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  // console.log(jwt, user);
   return (
     <div className={`font-poppins medium   tracking-wide`}>
       <div className="">
