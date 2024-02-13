@@ -12,4 +12,4 @@ const groupSchema = mongoose.Schema({
   role: { type: String },
 });
 
-module.exports.groupModel = mongoose.model("groups", groupSchema);
+module.exports.groupModel = mongoose.model("group", groupSchema);

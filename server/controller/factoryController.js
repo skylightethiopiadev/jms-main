@@ -23,7 +23,6 @@ export const _create = asyncCatch(async (req, res, next) => {
 //read
 export const _read = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-
   if (model) {
     const total = await model.find({ _id: req.params.id });
     const params = { ...req.query };
@@ -36,7 +35,7 @@ export const _read = asyncCatch(async (req, res, next) => {
       "value",
       "ss_ff",
       "ss_vv",
-      "uu_tt",
+      "pp_tt",
       "pp_ff",
     ];
     remove.forEach((el) => delete params[el]);
@@ -73,10 +72,12 @@ export const _read = asyncCatch(async (req, res, next) => {
     query.skip(skip).limit(limit);
 
     //populating
-    switch (req.query.uu_tt) {
+    switch (req.query.pp_tt) {
       case "private":
         query.populate(req.query.pp_ff);
         break;
+      case "application":
+        query.populate(req.query.pp_ff.split(",").join(" "));
       default:
         query;
     }
@@ -108,7 +109,8 @@ export const _update = asyncCatch(async (req, res, next) => {
   if (model) {
     const data = await model.findOneAndUpdate(
       { _id: req.query.id },
-      { ...req.body }
+      { ...req.body },
+      { runValidators: true }
     );
 
     if (!data)
@@ -146,8 +148,19 @@ export const _delete = asyncCatch(async (req, res, next) => {
 //read single data
 export const _read_single = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-  const data = await model.findById(req.params.id);
+  const query = model.findById(req.params.id);
+  //populating
+  switch (req.query.pp_tt) {
+    case "private":
+      query.populate(req.query.pp_ff);
+      break;
+    case "application":
+      query.populate(req.query.pp_ff.split(",").join(" "));
+    default:
+      query;
+  }
 
+  const data = await query;
   if (!data)
     return next(new AppError("something went wrong unable to fetch the data"));
 

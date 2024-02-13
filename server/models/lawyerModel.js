@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import * as valid from "../utils/validator.js";
 
-const LawyerSchema = new mongoose.Schema({
+const lawyerSchema = new mongoose.Schema({
   levelOfEducation: {
     type: String,
     validate: valid.paragraph("Level of education", 4, 50),
@@ -50,11 +50,19 @@ const LawyerSchema = new mongoose.Schema({
     required: [true, "Lawyer type is required"],
   },
 
+  status: {
+    type: String,
+    default: "Active",
+  },
+  
   licenseFile: {
     type: Buffer,
   },
 });
 
-const Lawyer = mongoose.model("lawyer", LawyerSchema);
+lawyerSchema.pre("findOneAndUpdate", function (next) {
+  this.options.runValidators = true;
+  next();
+});
 
-export default Lawyer;
+export const Lawyer = mongoose.model("lawyer", lawyerSchema);

@@ -23,7 +23,12 @@ const categorySchema = new Schema({
   },
 });
 
+categorySchema.pre("findOneAndUpdate", function (next) {
+  this.options.runValidators = true;
+  next();
+});
+
 uniqueValidator.defaults.message = "{PATH} '{VALUE}' is taken";
 categorySchema.plugin(uniqueValidator);
 
-export const Category = mongoose.model("categories", categorySchema);
+export const Category = mongoose.model("category", categorySchema);

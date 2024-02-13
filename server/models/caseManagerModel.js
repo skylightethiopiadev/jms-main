@@ -50,11 +50,11 @@ const caseManagerSchema = new mongoose.Schema({
     required: [true, "Case manager type is required"],
   },
 
+  status: { type: String, default: "Active" },
+
   licenseFile: {
     type: Buffer,
   },
 });
 
-const CaseManager = mongoose.model("case-manager", caseManagerSchema);
-
-export default CaseManager;
+export const CaseManager = mongoose.model("case-manager", caseManagerSchema);

@@ -1,6 +1,10 @@
+import { Application } from "../models/applicationModel.js";
+import { CaseManager } from "../models/caseManagerModel.js";
 import { Case } from "../models/caseModel.js";
 import { Category } from "../models/categoryModel.js";
+import { Lawyer } from "../models/lawyerModel.js";
 import { Institution } from "../models/organizationModel.js";
+import { Payment } from "../models/paymentModel.js";
 import { Permission } from "../models/permissionModel.js";
 import { User } from "../models/userModel.js";
 import AppError from "./AppError.js";
@@ -22,6 +26,18 @@ export const selectModel = (name, next) => {
       break;
     case "categories":
       model = Category;
+      break;
+    case "applications":
+      model = Application;
+      break;
+    case "payments":
+      model = Payment;
+      break;
+    case "case-managers":
+      model = CaseManager;
+      break;
+    case "lawyers":
+      model = Lawyer;
       break;
     default:
       return next(
