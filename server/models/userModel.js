@@ -113,6 +113,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       validate: valid.confirmPassword("Confirm password"),
     },
+    isPro: {
+      type: String,
+    },
     modifiedDate: Number,
     createdAt: { type: Number, default: Date.now() },
     passwordChangedAt: Number,
@@ -125,9 +128,13 @@ const userSchema = new mongoose.Schema(
     },
   },
   {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
   }
 );
 
@@ -176,4 +183,4 @@ userSchema.pre("save", function (next) {
 
 uniqueValidator.defaults.message = "{PATH} '{VALUE}' is taken";
 userSchema.plugin(uniqueValidator);
-export const User = mongoose.model("users", userSchema);
+export const User = mongoose.model("user", userSchema);

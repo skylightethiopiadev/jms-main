@@ -44,14 +44,14 @@ export const authorization = async (req, res, next) => {
       //every user has a permission to read all data
       next();
     } else {
-      switch (
-        table //we just switch the table type to select which table can be used
-      ) {
-        case "cases" || "categories":
-          switch (
-            role //current user role
-          ) {
-            case "customer" || "lawyer":
+      //we just switch the table type to select which table can be used
+      switch (table) {
+        case "categories":
+          //current user role
+          switch (role) {
+            case "customer":
+              return unauthorized(next);
+            case "lawyer":
               return unauthorized(next);
             default:
               if (step1 && step2) {
@@ -63,7 +63,9 @@ export const authorization = async (req, res, next) => {
 
         case "permissions":
           switch (role) {
-            case "customer" || "lawyer":
+            case "customer":
+              return unauthorized(next);
+            case "lawyer":
               return unauthorized(next);
             case "representative":
               if (method === "GET") {
@@ -107,13 +109,18 @@ export const authorization = async (req, res, next) => {
               }
           }
 
-        case "representatives":
+        case "case-managers":
           switch (role) {
-            case "representative":
+            case "case-manager":
               return next();
             default:
               return unauthorized(next);
           }
+
+        case "applications":
+          return next();
+        case "payments":
+          return next();
       }
     }
   }

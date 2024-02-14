@@ -23,7 +23,10 @@ import {
 
 const router = express.Router();
 
-const files = upload.fields([{ name: "profilePicture", maxCount: 1 }]);
+const files = upload.fields([
+  { name: "attachments", maxCount: 10 },
+  { name: "profilePicture", maxCount: 1 },
+]);
 
 router.route("/signup").post(files, signupHandler);
 
@@ -43,14 +46,13 @@ router
 
 router.route("/updatePassword").put(authentication, updatePassword);
 
-//factory endpoint
 router.route("/:table/:id").get(authentication, authorization, _read_single);
 
 router
   .route("/:table")
-  .post(authentication, authorization, _create)
+  .post(authentication, authorization, files, _create)
   .get(authentication, authorization, _read)
-  .put(authentication, authorization, _update)
+  .put(authentication, authorization, files, _update)
   .delete(authentication, authorization, _delete);
 
 export default router;

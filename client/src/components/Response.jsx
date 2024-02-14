@@ -30,10 +30,16 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       : null;
 
     response.status === "rejected"
-      ? (setError(true), setErrorMessage([response?.error?.data?.message]))
+      ? (setError(true),
+        setErrorMessage(
+          typeof response?.error?.data?.message === "string"
+            ? [response?.error?.data?.message]
+            : response?.error?.data?.message
+        ))
       : setError(false);
   }, [response]);
 
+  console.log(typeof errorMessage, "eeeeeeee");
   return (
     <div>
       {error && errorMessage && (
@@ -46,7 +52,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
 
           {errorMessage?.map((err, i) => {
             return (
-              <p key={i} className="text-[14px] text-red-500">
+              <p key={i} className="text-red-500">
                 {i + 1}. {err} <br />
               </p>
             );
