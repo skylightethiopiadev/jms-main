@@ -15,6 +15,14 @@ const chatsModel = mongoose.Schema(
       type: String,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+  }
 );
 module.exports.chats = mongoose.model("chat", chatsModel);

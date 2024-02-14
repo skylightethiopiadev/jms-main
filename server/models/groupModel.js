@@ -1,15 +1,26 @@
 const mongoose = require("mongoose");
 
-const groupSchema = mongoose.Schema({
-  groupName: { type: String },
-  flag: { type: String },
-  ownersName: { type: String },
-  ownersId: { type: String },
-  groupPro: { type: [Object] },
-  members: { type: [String] },
-  requests: { type: [String] },
-  type: { type: String, default: "public" },
-  role: { type: String },
-});
+const groupSchema = mongoose.Schema(
+  {
+    groupName: { type: String },
+    flag: { type: String },
+    ownersName: { type: String },
+    ownersId: { type: String },
+    groupPro: { type: [Object] },
+    members: { type: [String] },
+    requests: { type: [String] },
+    type: { type: String, default: "public" },
+    role: { type: String },
+  },
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+  }
+);
 
 module.exports.groupModel = mongoose.model("group", groupSchema);

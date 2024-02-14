@@ -1,22 +1,80 @@
 import asyncCatch from "express-async-catch";
 import AppError from "../utils/AppError.js";
 import { selectModel } from "../utils/selectModel.js";
+import v2 from "./../config/cloudinary.js";
 
 //create
 export const _create = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
 
+  // const createHandler = async (results) => {
+  //   const data = await model.create({
+  //     ...req.body,
+  //     attachments: results?.length > 0 ? results : undefined,
+  //   });
+
+  //   if (!data) 
+  //     return next(
+  //       new AppError("something went wrong unable to create the data")
+  //     );
+
+  //   return res.status(201).json({
+  //     status: "Success",
+  //     message: "data created successfully",
+  //     data,
+  //   });
+  // };
+
   if (model) {
-    const data = await model.create(req.body);
+    if (req.files?.attachments === undefined) {
+      const data = await model.create({
+        ...req.body,
+        // attachments: results?.length > 0 ? results : undefined,
+      });
+  
+      if (!data) 
+        return next(
+          new AppError("something went wrong unable to create the data")
+        );
+  
+      return res.status(201).json({
+        status: "Success",
+        message: "data created successfully",
+        data,
+      });
+    } else {
+      let results = [];
+      req.files?.attachments?.map((file, i) => {
+        v2.uploader.upload(file.path, async function (err, result) {
+          if (err) {
+            console.log(err);
+            return res.status(500).json({
+              message: "something went wrong unable to upload the file",
+            });
+          }
 
-    if (!data)
-      return next(
-        new AppError("something went wrong unable to create the data")
-      );
+          results.push(result.url);
 
-    res
-      .status(201)
-      .json({ status: "Success", message: "data created successfully", data });
+          if (results.length === req.files.attachments.length) {
+            const data = await model.create({
+              ...req.body,
+              attachments: results,
+            });
+        
+            if (!data) 
+              return next(
+                new AppError("something went wrong unable to create the data")
+              );
+        
+            return res.status(201).json({
+              status: "Success",
+              message: "data created successfully",
+              data,
+            });
+          }
+        });
+      }); 
+    }
   }
 });
 

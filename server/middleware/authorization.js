@@ -46,10 +46,12 @@ export const authorization = async (req, res, next) => {
     } else {
       //we just switch the table type to select which table can be used
       switch (table) {
-        case "cases" || "categories":
+        case "categories":
           //current user role
           switch (role) {
-            case "customer" || "lawyer":
+            case "customer":
+              return unauthorized(next);
+            case "lawyer":
               return unauthorized(next);
             default:
               if (step1 && step2) {
@@ -61,7 +63,9 @@ export const authorization = async (req, res, next) => {
 
         case "permissions":
           switch (role) {
-            case "customer" || "lawyer":
+            case "customer":
+              return unauthorized(next);
+            case "lawyer":
               return unauthorized(next);
             case "representative":
               if (method === "GET") {

@@ -7,25 +7,45 @@ import { sendEmailMessage } from "./emailController.js";
 import { Lawyer } from "../models/lawyerModel.js";
 import { CaseManager } from "../models/caseManagerModel.js";
 import { Institution } from "../models/organizationModel.js";
+import v2 from "./../config/cloudinary.js";
 
 export const signupHandler = asyncCatch(async (req, res, next) => {
-  const profilePicture = req.files.profilePicture;
   const value = { ...req.body };
 
   const createAccount = async (id) => {
-    const data = await User.create({
-      ...value,
-      user: id,
-      profilePicture: profilePicture
-        ? "http://192.168.100.12:5000/uploads/" + profilePicture[0].filename
-        : undefined,
-    });
+    if (req.files.profilePicture === undefined) {
+      const data = await User.create({
+        ...value,
+        user: id,
+        profilePicture: undefined,
+      });
 
-    const token = tokenGenerator(res, data._id);
+      const token = tokenGenerator(res, data._id);
 
-    return res
-      .status(200)
-      .json({ message: "Account Created Successfully", token, data });
+      return res
+        .status(200)
+        .json({ message: "Account Created Successfully", token, data });
+    }
+    v2.uploader.upload(
+      req.files.profilePicture[0].path,
+      async function (err, result) {
+        if (err) {
+          console.log(err);
+          return res
+            .status(500)
+            .json({ message: "something went wrong account not created" });
+        }
+        const data = await User.create({
+          ...value,
+          user: id,
+          profilePicture: result.url,
+        });
+        const token = tokenGenerator(res, data._id);
+        return res
+          .status(200)
+          .json({ message: "Account Created Successfully", token, data });
+      }
+    );
   };
 
   const user = await User.find({

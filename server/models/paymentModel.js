@@ -1,21 +1,32 @@
 import mongoose, { Schema } from "mongoose";
 
-const paymentSchema = new Schema({
-  application: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "application",
-    required: [true, "please select case"],
-  },
+const paymentSchema = new Schema(
+  {
+    application: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "application",
+      required: [true, "please select case"],
+    },
 
-  rounds: {
-    type: [Object],
-  },
+    rounds: {
+      type: [Object],
+    },
 
-  customerApprovalStatus: {
-    type: String,
-    default: "pending",
+    customerApprovalStatus: {
+      type: String,
+      default: "pending",
+    },
   },
-});
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+  }
+);
 
 paymentSchema.pre("findOneAndUpdate", function (next) {
   this.options.runValidators = true;

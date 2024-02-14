@@ -46,6 +46,11 @@ const errorController = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
   if (process.env.NODE_ENV.trim() === "production") {
+    if (err.errno === "-3001") {
+      return res
+        .status(500)
+        .json({ message: "something went wrong unable to upload the file" });
+    }
     switch (err.name) {
       case "CastError":
         err = handleCastError(err);
