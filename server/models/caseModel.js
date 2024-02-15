@@ -29,6 +29,16 @@ const caseSchema = new Schema(
       required: [true, "Please select case manager"],
     },
 
+    status: {
+      type: String,
+      default: "Pending",
+    },
+
+    year: {
+      type: Number,
+      default: new Date().getFullYear() * 1,
+    },
+
     deleted: {
       type: Boolean,
       default: false,
