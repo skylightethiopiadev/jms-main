@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import HomeDashboard from "./pages/dashboard/HomeDashboard";
 import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
+import Chat from "./pages/Chat";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="login" element={<Login />}></Route>
           <Route path="signUp" element={<SignUp />}></Route>
+          <Route path="chat" element={<Chat />}></Route>
           {jwt && user && (
             <Route
               path="/dashboard/*"
