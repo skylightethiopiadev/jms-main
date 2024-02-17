@@ -20,6 +20,7 @@ import {
   readProfileInfo,
   updatePassword,
 } from "../controller/userController.js";
+import { aggregate } from "../controller/aggregationController.js";
 
 const router = express.Router();
 
@@ -53,6 +54,9 @@ router
   .post(authentication, authorization, files, _create)
   .get(authentication, authorization, _read)
   .put(authentication, authorization, files, _update)
-  .delete(authentication, authorization, _delete);
+  .delete(authentication, authorization, _delete)
+  .patch(authentication, authorization, aggregate);
 
+//aggregation
+// router.route("/stats/:table").patch(authentication, authorization, firstPhase);
 export default router;
