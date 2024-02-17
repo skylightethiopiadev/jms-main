@@ -5,6 +5,7 @@ import HomeDashboard from "./pages/dashboard/HomeDashboard";
 import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
+import {Flowbite } from "flowbite-react";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
@@ -12,25 +13,26 @@ function App() {
 
   // console.log(jwt, user);
   return (
-    <div className={`font-poppins medium   tracking-wide`}>
-      <div className="">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="login" element={<Login />}></Route>
-          <Route path="signUp" element={<SignUp />}></Route>
-          <Route path="chat" element={<Chat />}></Route>
-          {jwt && user && (
-            <Route
-              path="/dashboard/*"
-              element={<HomeDashboard role={user?.role} />}
-            ></Route>
-          )}
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </div>
+    <Flowbite>
+      <div className={`font-poppins medium   tracking-wide`}>
+        <div className="">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="signUp" element={<SignUp />}></Route>
+            <Route path="chat" element={<Chat />}></Route>
+            {jwt && user && (
+              <Route
+                path="/dashboard/*"
+                element={<HomeDashboard role={user?.role} />}
+              ></Route>
+            )}
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </div>
 
-      {/* secure routes */}
-      {/* <mobileContext.Provider
+        {/* secure routes */}
+        {/* <mobileContext.Provider
         value={{
           mobile,
           setMobile,
@@ -155,7 +157,8 @@ function App() {
           </div>
         </div>
       </mobileContext.Provider> */}
-    </div>
+      </div>
+    </Flowbite>
   );
 }
 
