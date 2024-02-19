@@ -1,15 +1,23 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const chatsModel = mongoose.Schema(
   {
-    chatOwners: {
-      type: String,
-    },
     chatId: {
       type: String,
     },
-    messages: {
-      type: [Object],
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+    },
+    receiver: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+    },
+    message: {
+      type: Object,
+    },
+    messageType: {
+      type: String,
     },
     chatType: {
       type: String,
@@ -25,4 +33,4 @@ const chatsModel = mongoose.Schema(
     },
   }
 );
-module.exports.chats = mongoose.model("chat", chatsModel);
+export const Chat = mongoose.model("chat", chatsModel);

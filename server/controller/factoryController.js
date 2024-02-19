@@ -13,7 +13,7 @@ export const _create = asyncCatch(async (req, res, next) => {
   //     attachments: results?.length > 0 ? results : undefined,
   //   });
 
-  //   if (!data) 
+  //   if (!data)
   //     return next(
   //       new AppError("something went wrong unable to create the data")
   //     );
@@ -31,12 +31,12 @@ export const _create = asyncCatch(async (req, res, next) => {
         ...req.body,
         // attachments: results?.length > 0 ? results : undefined,
       });
-  
-      if (!data) 
+
+      if (!data)
         return next(
           new AppError("something went wrong unable to create the data")
         );
-  
+
       return res.status(201).json({
         status: "Success",
         message: "data created successfully",
@@ -60,12 +60,12 @@ export const _create = asyncCatch(async (req, res, next) => {
               ...req.body,
               attachments: results,
             });
-        
-            if (!data) 
+
+            if (!data)
               return next(
                 new AppError("something went wrong unable to create the data")
               );
-        
+
             return res.status(201).json({
               status: "Success",
               message: "data created successfully",
@@ -73,7 +73,7 @@ export const _create = asyncCatch(async (req, res, next) => {
             });
           }
         });
-      }); 
+      });
     }
   }
 });
@@ -82,7 +82,8 @@ export const _create = asyncCatch(async (req, res, next) => {
 export const _read = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
   if (model) {
-    const total = await model.find({ _id: req.params.id });
+    // const total = await model.find({ _id: req.params.id });
+    const total = await model.countDocuments();
     const params = { ...req.query };
 
     const remove = [
@@ -95,6 +96,7 @@ export const _read = asyncCatch(async (req, res, next) => {
       "ss_vv",
       "pp_tt",
       "pp_ff",
+      "limits",
     ];
     remove.forEach((el) => delete params[el]);
 
@@ -115,7 +117,9 @@ export const _read = asyncCatch(async (req, res, next) => {
     const query = model.find({ ...queryObject });
     req.query.sort
       ? query.sort(req.query.sort.split(",").join(" "))
-      : query.sort("-createdAt");
+      : req.params.table === "chats"
+      ? query.sort("createdAt")
+      : query.sort("createdAt");
 
     //limiting fields
     const fields = req.query.fields
@@ -136,10 +140,13 @@ export const _read = asyncCatch(async (req, res, next) => {
         break;
       case "application":
         query.populate(req.query.pp_ff.split(",").join(" "));
+      case "chats":
+        query.populate(req.query.pp_ff.split(",").join(" "));
       default:
         query;
     }
 
+    req.query.limits ? query.limit(req.query.limits) : null;
     const data = await query;
 
     //last page indicator
@@ -154,7 +161,7 @@ export const _read = asyncCatch(async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       length: data.length,
-      total: total.length,
+      total: total,
       data: data,
     });
   }
@@ -206,7 +213,12 @@ export const _delete = asyncCatch(async (req, res, next) => {
 //read single data
 export const _read_single = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-  const query = model.findById(req.params.id);
+  const query = model.find(
+    req.params.table === "chats"
+      ? { chatId: req.params.id }
+      : { _id: req.params.id }
+  );
+
   //populating
   switch (req.query.pp_tt) {
     case "private":

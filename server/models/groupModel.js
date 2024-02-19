@@ -1,16 +1,11 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const groupSchema = mongoose.Schema(
   {
     groupName: { type: String },
-    flag: { type: String },
-    ownersName: { type: String },
-    ownersId: { type: String },
-    groupPro: { type: [Object] },
+    admin: { type: String },
     members: { type: [String] },
     requests: { type: [String] },
-    type: { type: String, default: "public" },
-    role: { type: String },
   },
   {
     timestamps: true,
@@ -23,4 +18,4 @@ const groupSchema = mongoose.Schema(
   }
 );
 
-module.exports.groupModel = mongoose.model("group", groupSchema);
+export const Group = mongoose.model("group", groupSchema);
