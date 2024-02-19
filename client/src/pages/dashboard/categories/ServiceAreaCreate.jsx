@@ -12,6 +12,7 @@ const ServiceAreaCreate = () => {
   const createHandler = () => {
     data({ name, type, url: `/categories`, tag: ["categories"] });
   };
+
   return (
     <div className="center">
       <Response response={response} setPending={setPending} />

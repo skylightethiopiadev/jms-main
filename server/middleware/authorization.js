@@ -121,6 +121,10 @@ export const authorization = async (req, res, next) => {
           return next();
         case "payments":
           return next();
+        case "chats":
+          return next();
+        case "groups":
+          return next();
       }
     }
   }
