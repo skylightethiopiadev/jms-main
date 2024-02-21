@@ -10,7 +10,10 @@ export const authorization = async (req, res, next) => {
   const method = req.method; //req.method
   const table = selectModel(req.params.table, next)?.collection?.collectionName; //model.collection.collectionName
   const role = req.user.role; //req.user.role
-  const data = await Permission.findById(req.user.permission); //permission data
+  const data =
+    role === "customer" || role === "lawyer"
+      ? undefined
+      : await Permission.findById(req.user.permission); //permission data
   let key = table === "users" ? req.query.uu_tt : table;
   let methods = [];
 
@@ -47,6 +50,21 @@ export const authorization = async (req, res, next) => {
       //we just switch the table type to select which table can be used
       switch (table) {
         case "categories":
+          //current user role
+          switch (role) {
+            case "customer":
+              return unauthorized(next);
+            case "lawyer":
+              return unauthorized(next);
+            default:
+              if (step1 && step2) {
+                return next();
+              } else {
+                return unauthorized(next);
+              }
+          }
+
+        case "cases":
           //current user role
           switch (role) {
             case "customer":
@@ -123,8 +141,8 @@ export const authorization = async (req, res, next) => {
           return next();
         case "chats":
           return next();
-        case "groups":
-          return next();
+        default:
+          return unauthorized();
       }
     }
   }

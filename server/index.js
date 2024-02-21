@@ -102,33 +102,46 @@ mongodb()
     };
 
     io.on("connection", (socket) => {
-      socket.on("com", (user) => {
+      //user connected
+      socket.on("connect-user", (user) => {
         if (user !== "") {
           addUser(user, socket.id);
-          io.emit("aaa", users);
-          console.log("user connected",socket.id);
+          io.emit(
+            "aaa",
+            users.map((u) => u.name)
+          );
         }
       });
 
+      //user disconnected
       socket.on("disconnect", () => {
         removeUser(socket.id);
-        io.emit("aaa", users);
-        console.log('user disconnected',socket.id);
+        // console.log(users, "online disconnected");
+        io.emit(
+          "aaa",
+          users.map((u) => u.name)
+        );
       });
 
-      socket.on("typing t", (bool, room) => {
-        socket.join(room);
-        socket.broadcast.to(room).emit("typing true", bool);
+      //send message for rooms
+      socket.on("aa", (messages, room1, room2) => {
+        // console.log(room1, room2, "rooms");
+        socket.join([room1, room2]);
+        socket.to(room1).to(room2).emit("bb", messages);
+        // socket.join([room1, room2]);
+        // socket.to(room1).to(room2).emit("bb", messages);
       });
 
-      socket.on("typing f", (bool, room) => {
-        socket.join(room);
-        socket.broadcast.to(room).emit("typing false", bool);
+      //typing indicator on
+      socket.on("typing t", (bool, room1, room2) => {
+        socket.join([room1, room2]);
+        socket.broadcast.to(room1).to(room2).emit("typing true", bool);
       });
 
-      socket.on("aa", (messages, room) => {
-        socket.join(room);
-        socket.to(room).emit("bb", messages);
+      //typing indicator off
+      socket.on("typing f", (bool, room1, room2) => {
+        socket.join([room1, room2]);
+        socket.broadcast.to(room1).to(room2).emit("typing false", bool);
       });
 
       socket.on("sen aaaa", (val) => {
@@ -154,7 +167,7 @@ mongodb()
       socket.on("cc1", (val) => {
         io.emit("cc2", val);
       });
-      
+
       socket.on("ff1", (val) => {
         io.emit("ff2", val);
       });

@@ -14,20 +14,33 @@ const Response = ({ response, setPending, redirectTo, type }) => {
 
     response.status === "fulfilled"
       ? (setError(false),
-        setSuccess(true),
+        // setSuccess(true),
         setSuccessMessage(response?.data?.message),
         type === "login"
-          ? (localStorage.setItem("jwt", response?.data?.token),
-            localStorage.setItem("user", JSON.stringify(response?.data?.data)),
-            redirectTo.length > 0
-              ? navigate(redirectTo, { replace: true })
-              : null)
+          ? // localStorage.setItem("jwt", response?.data?.token),
+            //   localStorage.setItem("user", JSON.stringify(response?.data?.data)),
+            //   redirectTo.length > 0
+            //     ? navigate(redirectTo, { replace: true })
+            //   : null
+            navigate(
+              `/chat#${response?.data?.data?._id}#${response?.data?.data?.userName}`
+            )
           : redirectTo && redirectTo?.length > 0
           ? navigate(redirectTo)
           : setTimeout(() => {
               setSuccess(false);
             }, 4000))
       : null;
+
+    //from here remove this
+    //from apiSlice uncomment authorization
+    //from router uncomment and add auth and author
+    // console.log(response?.data?.data?.userName, "rrrrrrrrrrrrrrrrr");
+    // response.status === "fulfilled"
+    //   ? navigate(
+    //       `/chat#${response?.data?.data?._id}#${response?.data?.data?.userName}`
+    //     )
+    //   : null;
 
     response.status === "rejected"
       ? (setError(true),
@@ -39,7 +52,6 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       : setError(false);
   }, [response]);
 
-  console.log(typeof errorMessage, "eeeeeeee");
   return (
     <div>
       {error && errorMessage && (

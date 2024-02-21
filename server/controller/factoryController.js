@@ -2,6 +2,7 @@ import asyncCatch from "express-async-catch";
 import AppError from "../utils/AppError.js";
 import { selectModel } from "../utils/selectModel.js";
 import v2 from "./../config/cloudinary.js";
+import { Query } from "mongoose";
 
 //create
 export const _create = asyncCatch(async (req, res, next) => {
@@ -213,12 +214,29 @@ export const _delete = asyncCatch(async (req, res, next) => {
 //read single data
 export const _read_single = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-  const query = model.find(
-    req.params.table === "chats"
-      ? { chatId: req.params.id }
-      : { _id: req.params.id }
-  );
+  let query;
 
+  // let chat = req.params.table === 'chats' ? model.find({ chatId: req.params.id });
+  if (req.params.table === "chats") {
+    query = model.find({
+      $or: [
+        { chatId: req.params.id },
+        {
+          chatId:
+            req.params.id.split(".")[1] + "." + req.params.id.split(".")[0],
+        },
+      ],
+    });
+    // if (chat?.length === 0) {
+    //   query = chat;
+    // } else {
+    //   let chatId =
+    //     req.params.id.split(".")[1] + "." + req.params.id.split(".")[0];
+    //   query = model.find({ chatId });
+    // }
+  } else {
+    query = model.find({ _id: req.params.id });
+  }
   //populating
   switch (req.query.pp_tt) {
     case "private":
@@ -231,10 +249,12 @@ export const _read_single = asyncCatch(async (req, res, next) => {
   }
 
   const data = await query;
+  // const data = await query.sort("-createdAt").limit(req.query.limits);
+
   if (!data)
     return next(new AppError("something went wrong unable to fetch the data"));
 
-  res
+  return res
     .status(201)
     .json({ status: "Success", message: "data fetched successfully", data });
 });

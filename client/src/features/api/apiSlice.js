@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const authorization = {
-  authorization: `Bearer ${localStorage.getItem("jwt")}`,
-};
+// const authorization = {
+//   authorization: `Bearer ${localStorage.getItem("jwt")}`,
+// };
 
 let tag = [];
 
@@ -40,7 +40,7 @@ export const apiSlice = createApi({
           url: data.url,
           method: "POST",
           body: data,
-          headers: authorization,
+          // headers: authorization,
         };
       },
       invalidatesTags: () => {
@@ -55,7 +55,7 @@ export const apiSlice = createApi({
         return {
           url: data.url,
           method: "GET",
-          headers: authorization,
+          // headers: authorization,
         };
       },
       providesTags: () => {
@@ -63,6 +63,20 @@ export const apiSlice = createApi({
       },
     }),
 
+    readChat: builder.query({
+      query: (data) => {
+        data?.tag.map((d) => tag.push(d));
+        // console.log(data, "rtkkkkkkk in api slice");
+        return {
+          url: data.url,
+          method: "GET",
+          // headers: authorization,
+        };
+      },
+      providesTags: () => {
+        return [...new Set(tag)];
+      },
+    }),
     //update
     update: builder.mutation({
       query: (data) => {
@@ -71,7 +85,7 @@ export const apiSlice = createApi({
           url: data.url,
           method: "PUT",
           body: data,
-          headers: authorization,
+          // headers: authorization,
         };
       },
       invalidatesTags: () => {
@@ -87,7 +101,7 @@ export const apiSlice = createApi({
           url: data.url,
           method: "DELETE",
           body: data,
-          headers: authorization,
+          // headers: authorization,
         };
       },
       invalidatesTags: () => {
@@ -99,7 +113,7 @@ export const apiSlice = createApi({
       query: () => ({
         url: `/users`,
         method: "GET",
-        headers: authorization,
+        // headers: authorization,
       }),
       provideTags: ["get-all-users"],
     }),
@@ -109,7 +123,7 @@ export const apiSlice = createApi({
       query: (param) => ({
         url: `/roles/view?id=${param.id}`,
         method: "GET",
-        headers: authorization,
+        // headers: authorization,
       }),
       provideTags: ["get-all-roles"],
     }),
@@ -119,7 +133,7 @@ export const apiSlice = createApi({
       query: () => ({
         url: `/roles/all`,
         method: "GET",
-        headers: authorization,
+        // headers: authorization,
       }),
       provideTags: ["get-all-roles"],
     }),
@@ -130,7 +144,7 @@ export const apiSlice = createApi({
         url: "/roles/create",
         method: "POST",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["get-all-roles"],
     }),
@@ -141,7 +155,7 @@ export const apiSlice = createApi({
         url: `/roles/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["get-all-roles"],
     }),
@@ -170,7 +184,7 @@ export const apiSlice = createApi({
         url: "/client_type/create",
         method: "POST",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["client-type"],
     }),
@@ -181,7 +195,7 @@ export const apiSlice = createApi({
         url: `/client_type/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["client-type"],
     }),
@@ -192,7 +206,7 @@ export const apiSlice = createApi({
         url: "/service_area/create",
         method: "POST",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["get-all-service-area"],
     }),
@@ -203,7 +217,7 @@ export const apiSlice = createApi({
         url: `/service_area/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["get-all-service-area"],
     }),
@@ -232,7 +246,7 @@ export const apiSlice = createApi({
         url: "/representatives/create",
         method: "POST",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["get-all-representative"],
     }),
@@ -243,7 +257,7 @@ export const apiSlice = createApi({
         url: `/representatives/update?id=${data.id}`,
         method: "PUT",
         body: data,
-        headers: authorization,
+        // headers: authorization,
       }),
       invalidatesTags: ["get-all-representative"],
     }),
@@ -262,7 +276,7 @@ export const apiSlice = createApi({
       query: (param) => ({
         url: `/roles/view?id=${param.id}`,
         method: "GET",
-        headers: authorization,
+        // headers: authorization,
       }),
       provideTags: ["get-all-representative"],
     }),
@@ -303,4 +317,5 @@ export const {
   useReadQuery,
   useUpdateMutation,
   useDeleteMutation,
+  useLazyReadChatQuery,
 } = apiSlice;
