@@ -47,15 +47,24 @@ router
 
 router.route("/updatePassword").put(authentication, updatePassword);
 
-router.route("/:table/:id").get(authentication, authorization, _read_single);
+// router.route("/:table/:id").get(authentication, authorization, _read_single);
+router.route("/:table/:id").get(_read_single);
+
+// router
+//   .route("/:table")
+//   .post(authentication, authorization, files, _create)
+//   .get(authentication, authorization, _read)
+//   .put(authentication, authorization, files, _update)
+//   .delete(authentication, authorization, _delete)
+//   .patch(authentication, authorization, aggregate);
 
 router
   .route("/:table")
-  .post(authentication, authorization, files, _create)
-  .get(authentication, authorization, _read)
-  .put(authentication, authorization, files, _update)
-  .delete(authentication, authorization, _delete)
-  .patch(authentication, authorization, aggregate);
+  .post(files, _create)
+  .get(_read)
+  .put(files, _update)
+  .delete(_delete)
+  .patch(aggregate);
 
 //aggregation
 // router.route("/stats/:table").patch(authentication, authorization, firstPhase);

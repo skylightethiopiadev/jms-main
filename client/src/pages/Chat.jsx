@@ -1,38 +1,75 @@
 import { DarkThemeToggle } from "flowbite-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
-import { useCreateMutation, useReadQuery } from "../features/api/apiSlice";
+import {
+  useCreateMutation,
+  useLazyReadChatQuery,
+  useReadQuery,
+} from "../features/api/apiSlice";
 import Response from "../components/Response";
 import LoadingButton from "../components/loading/LoadingButton";
 import Loading from "../components/loading/Loading";
+import { useLocation } from "react-router-dom";
 
 const Chat = () => {
   const [socket, setSocket] = useState(null);
+  const location = useLocation();
   const [sendMessageData, sendMessageResponse] = useCreateMutation();
+  const [sender, setSenderId] = useState("");
+  const [receiver, setReceiverId] = useState("");
+  const [currentUser, setCurrentUser] = useState({});
+  const [onlineUsers, setOnlineUsers] = useState();
+  const [message, setMessage] = useState("");
+  const [pending, setPending] = useState(false);
+  const [texts, setTexts] = useState();
+  const [typing, setTyping] = useState(false);
+  const refer = useRef(null);
+
+  const [trigger, { data: messageData, isLoading, isError }] =
+    useLazyReadChatQuery({ refetchOnFocus: false });
+
+  useEffect(() => {
+    if (receiver && sender) {
+      trigger({
+        url: `/chats/${sender}.${receiver}`,
+        tag: ["chats"],
+      });
+    }
+  }, [receiver, sender]);
+
   const {
-    data: messageData,
-    isFetching,
-    isError,
+    data: userData,
+    isLoading: userIsFetching,
+    isError: userIsError,
   } = useReadQuery({
-    url: `/chats/65bbb8cf7c12590874fd3d2565bbb8e37c12590874fd3d2e`,
-    tag: ["chats"],
+    url: `/users?limits=50`,
+    tag: ["users"],
   });
 
-  console.log(messageData, "mmmmm");
+  useEffect(() => {
+    const hash = location.hash.split("#").splice(1, 2);
+    // console.log(hash, "locations now");
+    if (location?.hash) {
+      setCurrentUser({ _id: hash[0], userName: hash[1] });
+    }
+  }, []);
+
   const focusHandler = (id) => {
     ["group", "private", "manager", "lawyer", "all"].map((e) => {
       const ids = document.getElementById(e);
       ids?.classList?.remove(
-        "border-b",
-        "bg-gray-200",
-        "border-blue-600",
+        // "border-b",
+        // "bg-gray-200",
+        // "border-blue-600",
+        "font-extrabold",
         "text-blue-600"
       );
       if (id === e) {
         ids?.classList?.add(
-          "border-b",
-          "bg-gray-200",
-          "border-blue-600",
+          // "border-b",
+          // "bg-gray-200",
+          // "border-blue-600",
+          "font-extrabold",
           "text-blue-600"
         );
       }
@@ -52,20 +89,55 @@ const Chat = () => {
     );
   }, []);
 
-  const [onlineUsers, setOnlineUsers] = useState();
-  const currentUser = JSON.parse(localStorage.getItem("user"));
-  //online users
   useEffect(() => {
-    //current user = currentUser.userName
-    socket?.emit("com", currentUser?.userName);
+    socket?.emit("connect-user", currentUser?.userName);
     socket?.on("aaa", (val) => {
       setOnlineUsers(val);
     });
-  }, [socket]);
+  }, [socket, currentUser]);
 
-  console.log(onlineUsers, "online users");
+  const sendHandler = () => {
+    sender &&
+      receiver &&
+      sendMessageData({
+        chatId: `${sender}.${receiver}`,
+        sender: sender,
+        receiver: receiver,
+        message: {
+          content: message,
+          size: "20kb",
+        },
+        messageType: "text",
+        chatType: "private",
+        url: `/chats`,
+        tag: ["chats"],
+      });
+  };
+
+  useEffect(() => {
+    if (messageData !== undefined) {
+      setTexts(messageData?.data);
+      socket?.emit(
+        "aa",
+        messageData?.data,
+        `${receiver}.${sender}`,
+        `${sender}.${receiver}`
+      );
+      socket?.on("bb", (text) => {
+        setTexts(text);
+      });
+    }
+  }, [messageData]);
+
+  useEffect(() => {
+    refer.current?.scrollIntoView();
+  }, [texts]);
+
+  useEffect(() => {
+    refer.current?.scrollIntoView();
+  }, [typing]);
+
   const createRoomHandler = (id) => {
-    console.log(id, "running");
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((e) => {
       const ids = document.getElementById(e);
       ids?.classList?.remove("bg-gray-200");
@@ -95,30 +167,36 @@ const Chat = () => {
       : (i.classList?.remove("flex"), i.classList?.add("hidden"));
   };
 
-  const [message, setMessage] = useState("");
-  const [pending, setPending] = useState(false);
-
-  const sendHandler = () => {
-    sendMessageData({
-      chatId: "65bbb8cf7c12590874fd3d2565bbb8e37c12590874fd3d2e",
-      sender: "65bbb8cf7c12590874fd3d25",
-      receiver: "65bbb8e37c12590874fd3d2e",
-      message: {
-        content: message,
-        size: "20kb",
-      },
-      messageType: "text",
-      chatType: "private",
-      url: `/chats`,
-      tag: ["chats"],
-    });
+  // typing handler
+  const typingHandler = (e) => {
+    if (e.target.value.length > 0) {
+      socket?.emit(
+        "typing t",
+        true,
+        `${receiver}.${sender}`,
+        `${sender}.${receiver}`
+      );
+      socket?.on("typing true", (bool) => {
+        setTyping(bool);
+      });
+    } else {
+      socket?.emit(
+        "typing f",
+        false,
+        `${receiver}.${sender}`,
+        `${sender}.${receiver}`
+      );
+      socket?.on("typing false", (bool) => {
+        setTyping(bool);
+      });
+    }
   };
 
   return (
     <div className="flex w-full h-[100vh">
       {/* side navigation */}
       <div className="hidden md:flex border-r py-2 items-start justify-start shadow-md">
-        <ul class="space-y-0 font-medium">
+        <ul className="space-y-0 font-medium">
           <li
             onClick={() => {
               // focusHandler("menu");
@@ -128,7 +206,7 @@ const Chat = () => {
             <a
               href="#"
               id="menu"
-              class="flex flex-col items-center px-9 border-gray-400 py-4 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+              className="flex flex-col items-center px-9 border-gray-400 py-4 text-gray-900 dark:text-white group"
             >
               <svg
                 className="w-6 h-6 text-gray-800 dark:text-white"
@@ -144,14 +222,14 @@ const Chat = () => {
                   d="M5 7h14M5 12h14M5 17h14"
                 />
               </svg>
-              {/* <span class="ms-3">Dashboard</span> */}
+              {/* <span className="ms-3">Dashboard</span> */}
             </a>
           </li>{" "}
           <li onClick={() => focusHandler("all")}>
             <a
               href="#"
               id="all"
-              class="flex flex-col items-center border-b border-blue-600 text-blue-600 bg-gray-200  p-2 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+              className="flex flex-col items-center font-extrabold  text-blue-600  p-2 dark:text-white group"
             >
               <svg
                 className="w-6 h-6  dark:text-white"
@@ -168,14 +246,14 @@ const Chat = () => {
                   d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z"
                 />
               </svg>
-              <span class="">All</span>
+              <span className="">All</span>
             </a>
           </li>{" "}
           <li onClick={() => focusHandler("group")}>
             <a
               href="#"
               id="group"
-              class="flex flex-col items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-700 group"
+              className="flex flex-col items-center p-2  group"
             >
               <svg
                 className="w-6 h-6 "
@@ -192,14 +270,14 @@ const Chat = () => {
                 />
               </svg>
 
-              <span class="">Groups</span>
+              <span className="">Groups</span>
             </a>
           </li>{" "}
           <li onClick={() => focusHandler("private")}>
             <a
               href="#"
               id="private"
-              class="flex flex-col items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-700 group"
+              className="flex flex-col items-center p-2 group"
             >
               <svg
                 className="w-6 h-6"
@@ -214,14 +292,14 @@ const Chat = () => {
                   d="M7 17v1c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
-              <span class="">Privates</span>
+              <span className="">Privates</span>
             </a>
           </li>{" "}
           <li onClick={() => focusHandler("manager")}>
             <a
               href="#"
               id="manager"
-              class="flex flex-col items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-700 group"
+              className="flex flex-col items-center p-2 group"
             >
               <svg
                 className="w-6 h-6"
@@ -239,14 +317,14 @@ const Chat = () => {
                 />
               </svg>
 
-              <span class="">Managers</span>
+              <span className="">Managers</span>
             </a>
           </li>{" "}
           <li onClick={() => focusHandler("lawyer")}>
             <a
               href="#"
               id="lawyer"
-              class="flex flex-col items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-700 group"
+              className="flex flex-col items-center p-2 group"
             >
               <svg
                 className="w-6 h-6"
@@ -264,15 +342,14 @@ const Chat = () => {
                 />
               </svg>
 
-              <span class="">Lawyers</span>
+              <span className="">Lawyers</span>
             </a>
           </li>{" "}
         </ul>
       </div>
 
       <Response response={sendMessageResponse} setPending={setPending} />
-      {isFetching && <Loading />}
-      {isError && <p>something went wrong unable to read the data</p>}
+
       {/* search and user list */}
       <div id="user_list_container" className="hidden md:block md:flex-[25%]">
         <div
@@ -282,15 +359,15 @@ const Chat = () => {
           {/* search */}
           <form className="px-2 mt-3">
             <label
-              for="search"
-              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              htmlFor="search"
+              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
             >
               Search
             </label>
-            <div class="relative">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <div className="relative">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg
-                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -298,8 +375,8 @@ const Chat = () => {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     strokeWidth="2"
                     d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                   />
@@ -308,55 +385,69 @@ const Chat = () => {
               <input
                 type="search"
                 id="search"
-                class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search"
                 required
               />
               <button
                 type="submit"
-                class="text-white absolute end-2 bottom-[5.5px] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white absolute end-2 bottom-[5.5px] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Search
               </button>
             </div>
           </form>
 
+          {userIsFetching && <Loading text="text-gray-500" />}
+          {userIsError && <p>something went wrong unable to read the users</p>}
           {/* user list */}
           <div className="flex flex-col  mt-3 h-full overflow-y-scroll">
-            <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
-                (e, i) => {
-                  return (
-                    <li
-                      key={i}
-                      id={i.toString()}
-                      onClick={() => createRoomHandler(i)}
-                      class="p-3 hover:bg-gray-200"
-                    >
-                      <div class="flex cursor-pointer items-center space-x-4 rtl:space-x-reverse">
-                        <div class="relative">
-                          <img
-                            class="w-10 h-10 rounded-full"
-                            src="gedi.jpg"
-                            alt=""
-                          />
-                          <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+            <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+              {userData && userData?.data?.length > 0 ? (
+                userData?.data?.map((user, i) => {
+                  if (user?._id !== currentUser?._id) {
+                    return (
+                      <li
+                        key={i}
+                        id={i.toString()}
+                        onClick={() => {
+                          createRoomHandler(i);
+                          setReceiverId(user?._id);
+                          setSenderId(currentUser?._id);
+                          // fetchUsersMessage();
+                        }}
+                        className="p-3 hover:bg-gray-200"
+                      >
+                        <div className="flex cursor-pointer items-center space-x-4 rtl:space-x-reverse">
+                          <div className="relative">
+                            <img
+                              className="w-10 h-10 rounded-full"
+                              src={user?.profilePicture}
+                              alt={user?.userName}
+                            />
+                            <span
+                              className={`top-0 left-7 absolute  w-3.5 h-3.5 ${
+                                onlineUsers?.includes(user?.userName)
+                                  ? "bg-green-400"
+                                  : "bg-gray-200"
+                              }  border-2 border-white dark:border-gray-800 rounded-full`}
+                            ></span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                              {user?.userName}
+                            </p>
+                            <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                              {user?.email}
+                            </p>
+                          </div>
                         </div>
-                        <div class="flex-1 min-w-0">
-                          <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Neil Sims
-                          </p>
-                          <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@flowbite.com
-                          </p>
-                        </div>
-                        {/* <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
-                </div> */}
-                      </div>
-                    </li>
-                  );
-                }
+                      </li>
+                    );
+                  }
+                })
+              ) : (
+                <div className="w-full text-center">No user found</div>
               )}
             </ul>
           </div>
@@ -364,14 +455,14 @@ const Chat = () => {
       </div>
 
       <div className="flex flex-[62%]">
-        <div class="flex-1  justify-between flex flex-col h-screen">
+        <div className="flex-1  justify-between flex flex-col h-screen">
           {/* user profile detail */}
           <div className="w-full relative flex border-b justify-between items-center">
-            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+            <div className="flex items-center space-x-4 rtl:space-x-reverse">
               <a
                 href="#"
                 id="menu"
-                class="flex flex-col md:hidden ml-2 items-center p-2 border-gray-400 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+                className="flex flex-col md:hidden ml-2 items-center p-2 border-gray-400 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
               >
                 <svg
                   className="w-6 h-6 text-gray-800 dark:text-white"
@@ -387,31 +478,32 @@ const Chat = () => {
                     d="M5 7h14M5 12h14M5 17h14"
                   />
                 </svg>
-                {/* <span class="ms-3">Dashboard</span> */}
+                {/* <span className="ms-3">Dashboard</span> */}
               </a>
-              <div class="relative ml-4 py-2">
-                <img class="w-10 h-10 rounded-full" src="gedi.jpg" alt="" />
-                {/* <span class="top-6 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span> */}
+              <div className="relative ml-4 py-2">
+                <img className="w-10 h-10 rounded-full" src="gedi.jpg" alt="" />
+                {/* <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span> */}
               </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                  Neil Sims
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  {currentUser?.userName}
                 </p>
-                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+
+                <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                   last seen recently
                 </p>
               </div>
             </div>
-            <div className="w-44 h-auto p-4 rounded-md bg-white absolute right-20 top-10 z-30 border border-gray-400 shadow-lg">
+            {/* <div className="w-44 h-auto p-4 rounded-md bg-white absolute right-20 top-10 z-30 border border-gray-400 shadow-lg">
               hello
-            </div>
-            <div class="flex items-center mr-4 gap-2 space-x-2">
+            </div> */}
+            <div className="flex items-center mr-4 gap-2 space-x-2">
               <button
                 type="button"
-                class="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out text-gray-500 focus:outline-none"
+                className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out text-gray-500 focus:outline-none"
               >
                 <svg
-                  class="w-7 h-7 text-gray-800 dark:text-white"
+                  className="w-7 h-7 text-gray-800 dark:text-white"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -419,18 +511,18 @@ const Chat = () => {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeWidth="2"
                     d="M12 6h0m0 6h0m0 6h0"
                   />
                 </svg>
               </button>
               <button
                 type="button"
-                class="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out text-gray-500 focus:outline-none"
+                className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out text-gray-500 focus:outline-none"
               >
                 <svg
-                  class="w-8 h-8 text-gray-800 dark:text-white"
+                  className="w-8 h-8 text-gray-800 dark:text-white"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -438,7 +530,7 @@ const Chat = () => {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                     d="M7 17v1c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                   />
                 </svg>
@@ -449,265 +541,75 @@ const Chat = () => {
           </div>
 
           {/* messages */}
-          {/* {messageData && messageData?.data?.length > 0 ? messageData?.data?.map((message) => {
-            return 
-          }):} */}
           <div
             id="messages"
-            class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
+            className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
           >
-            {messageData && messageData?.data.length > 0 ? (
-              messageData?.data?.map((message) => {
-                if (message?.sender !== currentUser?._id) {
-                  return (
-                    <div class="chat-message">
-                      <div class="flex items-end">
-                        <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                          <div>
-                            <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                              {message?.message?.content}
-                            </span>
-                            <p className="text-xs">2 hours ago</p>
+            {isLoading && <Loading text="text-gray-500" />}
+            {isError && <p>something went wrong unable to read the messages</p>}
+            {receiver && sender ? (
+              texts && texts?.length > 0 ? (
+                texts?.map((message, i) => {
+                  if (message?.sender !== currentUser?._id) {
+                    return (
+                      <div key={i} className="chat-message">
+                        <div className="flex items-start">
+                          <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                            <div>
+                              <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                                {message?.message?.content}
+                              </span>
+                              <p className="text-xs">2 hours ago</p>
+                            </div>
                           </div>
+                          <img
+                            src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
+                            alt="My profile"
+                            className="w-6 h-6 rounded-full order-1"
+                          />
                         </div>
-                        <img
-                          src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                          alt="My profile"
-                          class="w-6 h-6 rounded-full order-1"
-                        />
                       </div>
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div class="chat-message">
-                      <div class="flex items-end justify-end">
-                        <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                          <div>
-                            <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                              {message?.message?.content}
-                            </span>
+                    );
+                  } else {
+                    return (
+                      <div key={i} className="chat-message">
+                        <div className="flex items-end justify-end">
+                          <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
+                            <div>
+                              <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
+                                {message?.message?.content}
+                              </span>
+                            </div>
+                            <p className="text-xs font-light self-end">
+                              2 hours ago
+                            </p>
                           </div>
-                          <p className="text-xs font-light self-end">
-                            2 hours ago
-                          </p>
+                          <img
+                            src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
+                            alt="My profile"
+                            className="w-6 h-6 rounded-full order-2"
+                          />
                         </div>
-                        <img
-                          src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                          alt="My profile"
-                          class="w-6 h-6 rounded-full order-2"
-                        />
                       </div>
-                    </div>
-                  );
-                }
-              })
+                    );
+                  }
+                })
+              ) : (
+                <div className="flex flex-col items-center justify-center space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+                  say hi, to your friend.
+                </div>
+              )
             ) : (
               <div className="flex flex-col items-center justify-center space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-                say hi, to your friends
+                select a user or group to chat with them
               </div>
             )}
-            {/* {messageData && messageData?.data.length > 0 ? messageData?.data?.map()=>{ }(
-              <div className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-                <div class="chat-message">
-                  <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                          Can be verified on any platform using docker
-                        </span>
-                        <p className="text-xs">2 hours ago</p>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-1"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end justify-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                          Your error message says permission denied, npm global
-                          installs must be given root privileges.
-                        </span>
-                      </div>
-                      <p className="text-xs font-light self-end">2 hours ago</p>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-2"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                          Command was run with root privileges. I'm sure about
-                          that.
-                        </span>
-                      </div>
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                          I've update the description so it's more obviously now
-                        </span>
-                      </div>
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                          FYI https://askubuntu.com/a/700266/510172
-                        </span>
-                      </div>
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                          Check the line above (it ends with a # so, I'm running
-                          it as root )<pre># npm install -g @vue/devtools</pre>
-                        </span>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-1"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end justify-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                          Any updates on this issue? I'm getting the same error
-                          when trying to install devtools. Thanks
-                        </span>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-2"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                          Thanks for your message David. I thought I'm alone
-                          with this issue. Please, ? the issue to support it :)
-                        </span>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-1"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end justify-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block bg-blue-600 text-white ">
-                          Are you using sudo?
-                        </span>
-                      </div>
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                          Run this command sudo chown -R `whoami`
-                          /Users/.npm-global/ then install the package globally
-                          without using sudo
-                        </span>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-2"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                          It seems like you are from Mac OS world. There is no
-                          /Users/ folder on linux ?
-                        </span>
-                      </div>
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                          I have no issue with any other packages installed with
-                          root permission globally.
-                        </span>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-1"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end justify-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                          yes, I have a mac. I never had issues with root
-                          permission as well, but this helped me to solve the
-                          problem
-                        </span>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-2"
-                    />
-                  </div>
-                </div>
-                <div class="chat-message">
-                  <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                          I get the same error on Arch Linux (also with sudo)
-                        </span>
-                      </div>
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                          I also have this issue, Here is what I was doing until
-                          now: #1076
-                        </span>
-                      </div>
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                          even i am facing
-                        </span>
-                      </div>
-                    </div>
-                    <img
-                      src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-1"
-                    />
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-                say hi, to your friends
-              </div>
-            )} */}
+            <div ref={refer} />
+            {typing && (
+              <p className="text-sm text-[#00aeff] flex gap-2 items-center justify-center ml-2 mt-1">
+                <Loading text="text-gray-500" />
+              </p>
+            )}
           </div>
 
           {/* message input field */}
@@ -716,17 +618,17 @@ const Chat = () => {
               id="file-send"
               className="hidden absolute bg-white z-20 flex-col items-start justify-start gap-3 bottom-0 left-0 rounded-sm w-full h-auto p-4 border shadow-xl"
             >
-              <div class="flex w-full items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              <div className="flex w-full items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Send file
                 </h3>
                 <button
                   onClick={() => popup("file-send")}
                   type="button"
-                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   <svg
-                    class="w-3 h-3"
+                    className="w-3 h-3"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 14 14"
@@ -735,99 +637,102 @@ const Chat = () => {
                       stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                     />
                   </svg>
-                  <span class="sr-only">Close</span>
+                  <span className="sr-only">Close</span>
                 </button>
               </div>
               <label
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                for="small_size"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="small_size"
               >
                 File input
               </label>
               <input
-                class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                className="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                 id="small_size"
                 type="file"
               />
 
               <label
-                for="message"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="message"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 File description
               </label>
               <textarea
                 id="message"
                 rows="4"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Write your description here..."
               ></textarea>
 
-              <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+              <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                 <button
                   type="button"
-                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Send
                 </button>
                 <button
                   onClick={() => popup("file-send")}
                   type="button"
-                  class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                  className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 >
                   Cancel
                 </button>
               </div>
             </div>
 
-            <div class="relative items-center justify-center flex gap-2 border border-gray-300 rounded-lg mb-3">
+            <div className="relative items-center justify-center flex gap-2 border border-gray-300 rounded-lg mb-3">
               <button
                 onClick={() => popup("file-send")}
                 type="button"
-                class="inline-flex items-center p-1  justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none"
+                className="inline-flex items-center p-1  justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  class="h-6 w-6 text-gray-600"
+                  className="h-6 w-6 text-gray-600"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
                   ></path>
                 </svg>
               </button>
 
               <input
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => {
+                  typingHandler(e);
+                  setMessage(e.target.value);
+                }}
                 type="text"
                 placeholder="Write your message!"
-                class="w-full text-gray-600 focus:ring-0 focus:border-none p-3 border-none focus:outline-none focus:rounded-sm"
+                className="w-full text-gray-600 focus:ring-0 focus:border-none p-3 border-none focus:outline-none focus:rounded-sm"
               />
 
               <button
                 type="button"
-                class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none"
+                className="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  class="h-6 w-6 text-gray-600"
+                  className="h-6 w-6 text-gray-600"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   ></path>
                 </svg>
@@ -843,14 +748,14 @@ const Chat = () => {
               {/* <button
                 onClick={sendHandler}
                 type="button"
-                class="inline-flex items-center justify-center rounded-lg px-4 py-1  mr-2 transition duration-500 ease-in-out text-white bg-blue-600 hover:bg-blue-500 focus:outline-none"
+                className="inline-flex items-center justify-center rounded-lg px-4 py-1  mr-2 transition duration-500 ease-in-out text-white bg-blue-600 hover:bg-blue-500 focus:outline-none"
               >
-                <span class="font-bold">Send</span>
+                <span className="font-bold">Send</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  class="h-6 w-6 ml-2 transform rotate-90"
+                  className="h-6 w-6 ml-2 transform rotate-90"
                 >
                   <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
                 </svg>
