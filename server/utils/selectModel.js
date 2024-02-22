@@ -2,7 +2,6 @@ import { Application } from "../models/applicationModel.js";
 import { CaseManager } from "../models/caseManagerModel.js";
 import { Case } from "../models/caseModel.js";
 import { Category } from "../models/categoryModel.js";
-import { Chat } from "../models/chatsModel.js";
 import { Group } from "../models/groupModel.js";
 import { Lawyer } from "../models/lawyerModel.js";
 import { Institution } from "../models/organizationModel.js";
@@ -40,9 +39,6 @@ export const selectModel = (name, next) => {
       break;
     case "lawyers":
       model = Lawyer;
-      break;
-    case "chats":
-      model = Chat;
       break;
     case "groups":
       model = Group;

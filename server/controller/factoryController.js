@@ -8,24 +8,6 @@ import { Query } from "mongoose";
 export const _create = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
 
-  // const createHandler = async (results) => {
-  //   const data = await model.create({
-  //     ...req.body,
-  //     attachments: results?.length > 0 ? results : undefined,
-  //   });
-
-  //   if (!data)
-  //     return next(
-  //       new AppError("something went wrong unable to create the data")
-  //     );
-
-  //   return res.status(201).json({
-  //     status: "Success",
-  //     message: "data created successfully",
-  //     data,
-  //   });
-  // };
-
   if (model) {
     if (req.files?.attachments === undefined) {
       const data = await model.create({
@@ -45,35 +27,27 @@ export const _create = asyncCatch(async (req, res, next) => {
       });
     } else {
       let results = [];
-      req.files?.attachments?.map((file, i) => {
-        v2.uploader.upload(file.path, async function (err, result) {
-          if (err) {
-            console.log(err);
-            return res.status(500).json({
-              message: "something went wrong unable to upload the file",
-            });
-          }
+      req.files?.attachments?.map(async (file, i) => {
+        console.log(file, "files");
+        results.push(file[0].path);
 
-          results.push(result.url);
+        if (results.length === req.files.attachments.length) {
+          const data = await model.create({
+            ...req.body,
+            attachments: results,
+          });
 
-          if (results.length === req.files.attachments.length) {
-            const data = await model.create({
-              ...req.body,
-              attachments: results,
-            });
+          if (!data)
+            return next(
+              new AppError("something went wrong unable to create the data")
+            );
 
-            if (!data)
-              return next(
-                new AppError("something went wrong unable to create the data")
-              );
-
-            return res.status(201).json({
-              status: "Success",
-              message: "data created successfully",
-              data,
-            });
-          }
-        });
+          return res.status(201).json({
+            status: "Success",
+            message: "data created successfully",
+            data,
+          });
+        }
       });
     }
   }
@@ -118,8 +92,6 @@ export const _read = asyncCatch(async (req, res, next) => {
     const query = model.find({ ...queryObject });
     req.query.sort
       ? query.sort(req.query.sort.split(",").join(" "))
-      : req.params.table === "chats"
-      ? query.sort("createdAt")
       : query.sort("createdAt");
 
     //limiting fields
@@ -140,8 +112,6 @@ export const _read = asyncCatch(async (req, res, next) => {
         query.populate(req.query.pp_ff);
         break;
       case "application":
-        query.populate(req.query.pp_ff.split(",").join(" "));
-      case "chats":
         query.populate(req.query.pp_ff.split(",").join(" "));
       default:
         query;
@@ -214,29 +184,29 @@ export const _delete = asyncCatch(async (req, res, next) => {
 //read single data
 export const _read_single = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-  let query;
+  // let query;
 
   // let chat = req.params.table === 'chats' ? model.find({ chatId: req.params.id });
-  if (req.params.table === "chats") {
-    query = model.find({
-      $or: [
-        { chatId: req.params.id },
-        {
-          chatId:
-            req.params.id.split(".")[1] + "." + req.params.id.split(".")[0],
-        },
-      ],
-    });
-    // if (chat?.length === 0) {
-    //   query = chat;
-    // } else {
-    //   let chatId =
-    //     req.params.id.split(".")[1] + "." + req.params.id.split(".")[0];
-    //   query = model.find({ chatId });
-    // }
-  } else {
-    query = model.find({ _id: req.params.id });
-  }
+  // if (req.params.table === "chats") {
+  //   query = model.find({
+  //     $or: [
+  //       { chatId: req.params.id },
+  //       {
+  //         chatId:
+  //           req.params.id.split(".")[1] + "." + req.params.id.split(".")[0],
+  //       },
+  //     ],
+  //   });
+  // if (chat?.length === 0) {
+  //   query = chat;
+  // } else {
+  //   let chatId =
+  //     req.params.id.split(".")[1] + "." + req.params.id.split(".")[0];
+  //   query = model.find({ chatId });
+  // }
+  // } else {
+  const query = model.find({ _id: req.params.id });
+  // }
   //populating
   switch (req.query.pp_tt) {
     case "private":

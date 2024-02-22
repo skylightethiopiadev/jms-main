@@ -31,7 +31,7 @@ const Chat = () => {
   useEffect(() => {
     if (receiver && sender) {
       trigger({
-        url: `/chats/${sender}.${receiver}`,
+        url: `/chat/${sender}.${receiver}`,
         tag: ["chats"],
       });
     }
@@ -42,7 +42,7 @@ const Chat = () => {
     isLoading: userIsFetching,
     isError: userIsError,
   } = useReadQuery({
-    url: `/users?limits=50`,
+    url: `/user/users?limits=50`,
     tag: ["users"],
   });
 
@@ -109,7 +109,7 @@ const Chat = () => {
         },
         messageType: "text",
         chatType: "private",
-        url: `/chats`,
+        url: `/chat`,
         tag: ["chats"],
       });
   };
@@ -170,22 +170,12 @@ const Chat = () => {
   // typing handler
   const typingHandler = (e) => {
     if (e.target.value.length > 0) {
-      socket?.emit(
-        "typing t",
-        true,
-        `${receiver}.${sender}`,
-        `${sender}.${receiver}`
-      );
+      socket?.emit("typing t", true, "this must be a chat room unique id");
       socket?.on("typing true", (bool) => {
         setTyping(bool);
       });
     } else {
-      socket?.emit(
-        "typing f",
-        false,
-        `${receiver}.${sender}`,
-        `${sender}.${receiver}`
-      );
+      socket?.emit("typing f", false, "this must be a chat room unique id");
       socket?.on("typing false", (bool) => {
         setTyping(bool);
       });

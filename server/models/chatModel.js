@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const chatsModel = mongoose.Schema(
+const chatSchema = mongoose.Schema(
   {
     chatId: {
       type: String,
@@ -33,4 +33,9 @@ const chatsModel = mongoose.Schema(
     },
   }
 );
-export const Chat = mongoose.model("chat", chatsModel);
+
+chatSchema.pre("findOneAndUpdate", function (next) {
+  this.options.runValidators = true;
+  next();
+});
+export const Chat = mongoose.model("chat", chatSchema);
