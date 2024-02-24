@@ -17,15 +17,15 @@ const Response = ({ response, setPending, redirectTo, type }) => {
         // setSuccess(true),
         setSuccessMessage(response?.data?.message),
         type === "login"
-          ? // localStorage.setItem("jwt", response?.data?.token),
-            //   localStorage.setItem("user", JSON.stringify(response?.data?.data)),
-            //   redirectTo.length > 0
-            //     ? navigate(redirectTo, { replace: true })
-            //   : null
-            navigate(
-              `/chat#${response?.data?.data?._id}#${response?.data?.data?.userName}`
-            )
-          : redirectTo && redirectTo?.length > 0
+          ? (localStorage.setItem("jwt", response?.data?.token),
+            localStorage.setItem("user", JSON.stringify(response?.data?.data)),
+            redirectTo.length > 0
+              ? navigate(redirectTo, { replace: true })
+              : null)
+          : // navigate(
+          //   `/chat#${response?.data?.data?._id}#${response?.data?.data?.userName}`
+          // )
+          redirectTo && redirectTo?.length > 0
           ? navigate(redirectTo)
           : setTimeout(() => {
               setSuccess(false);
