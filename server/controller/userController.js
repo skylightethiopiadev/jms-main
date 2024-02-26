@@ -13,39 +13,19 @@ export const signupHandler = asyncCatch(async (req, res, next) => {
   const value = { ...req.body };
 
   const createAccount = async (id) => {
-    if (req.files.profilePicture === undefined) {
-      const data = await User.create({
-        ...value,
-        user: id,
-        profilePicture: undefined,
-      });
+    const data = await User.create({
+      ...value,
+      user: id,
+      profilePicture: req.files.profilePicture
+        ? req.files.profilePicture[0].path
+        : undefined,
+    });
 
-      const token = tokenGenerator(res, data._id);
+    const token = tokenGenerator(res, data._id);
 
-      return res
-        .status(200)
-        .json({ message: "Account Created Successfully", token, data });
-    }
-    v2.uploader.upload(
-      req.files.profilePicture[0].path,
-      async function (err, result) {
-        if (err) {
-          console.log(err);
-          return res
-            .status(500)
-            .json({ message: "something went wrong account not created" });
-        }
-        const data = await User.create({
-          ...value,
-          user: id,
-          profilePicture: result.url,
-        });
-        const token = tokenGenerator(res, data._id);
-        return res
-          .status(200)
-          .json({ message: "Account Created Successfully", token, data });
-      }
-    );
+    return res
+      .status(200)
+      .json({ message: "Account Created Successfully", token, data });
   };
 
   const user = await User.find({

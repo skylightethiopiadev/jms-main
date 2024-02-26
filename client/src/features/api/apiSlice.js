@@ -9,14 +9,14 @@ let tag = [];
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://192.168.100.12:5000/jms/app/v1/user",
+    baseUrl: "http://192.168.100.12:5000/jms/app/v1",
   }),
   tagTypes: ["categories", "cases"],
   endpoints: (builder) => ({
     //user signup
     userRegister: builder.mutation({
       query: (data) => ({
-        url: "/signup",
+        url: "/user/signup",
         method: "POST",
         body: data,
       }),
@@ -25,7 +25,7 @@ export const apiSlice = createApi({
     //user login
     userLogin: builder.mutation({
       query: (data) => ({
-        url: "/login",
+        url: "/user/login",
         method: "POST",
         body: data,
       }),

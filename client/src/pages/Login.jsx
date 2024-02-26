@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LoadingButton from "../components/loading/LoadingButton";
 import { useUserLoginMutation } from "../features/api/apiSlice";
 import Response from "../components/Response";
+// import { ReactMediaRecorder } from "react-media-recorder";
 
 const Login = () => {
   const [loginData, loginResponse] = useUserLoginMutation();
@@ -15,6 +16,20 @@ const Login = () => {
 
   return (
     <div className="w-full gap-3 h-[100vh] flex flex-col items-center justify-center">
+      {/* <ReactMediaRecorder
+        audio
+        render={({ status, startRecording, stopRecording, mediaBlobUrl,error }) => {
+          console.log(mediaBlobUrl,error,'blob');
+          return (
+            <div>
+              <p>{status}</p>
+              <button onClick={startRecording}>Start Recording</button>
+              <button onClick={stopRecording}>Stop Recording</button>
+              <video src={mediaBlobUrl?mediaBlobUrl:null} controls autoPlay loop />
+            </div>
+          );
+        }}
+      /> */}
       <Response
         response={loginResponse}
         setPending={setPending}

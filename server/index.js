@@ -4,7 +4,7 @@ import path from "path";
 import cors from "cors";
 import { errorController } from "./controller/errorController.js";
 import mongodb from "./config/db.js";
-import router from "./routes/router.js";
+import { chatRouter, router } from "./routes/router.js";
 import { createServer } from "http";
 import { Server } from "socket.io";
 // import apicache from "apicache";
@@ -29,6 +29,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/jms/app/v1/user", router);
+app.use("/jms/app/v1/chat", chatRouter);
 
 app.get("/", (req, res) => {
   res.json("Hello from jms server");
@@ -102,6 +103,25 @@ mongodb()
     };
 
     io.on("connection", (socket) => {
+      //video ##################################################
+      socket.emit("me", socket.id);
+
+      socket.on("disconnect", () => {
+        socket.broadcast.emit("callEnded");
+      });
+
+      socket.on("callUser", (data) => {
+        io.to(data.userToCall).emit("callUser", {
+          signal: data.signalData,
+          from: data.from,
+          name: data.name,
+        });
+      });
+
+      socket.on("answerCall", (data) => {
+        io.to(data.to).emit("callAccepted", data.signal);
+      });
+      //########################################################
       //user connected
       socket.on("connect-user", (user) => {
         if (user !== "") {
@@ -133,15 +153,15 @@ mongodb()
       });
 
       //typing indicator on
-      socket.on("typing t", (bool, room1, room2) => {
-        socket.join([room1, room2]);
-        socket.broadcast.to(room1).to(room2).emit("typing true", bool);
+      socket.on("typing t", (bool, room) => {
+        socket.join(room);
+        socket.broadcast.to(room).emit("typing true", bool);
       });
 
       //typing indicator off
-      socket.on("typing f", (bool, room1, room2) => {
-        socket.join([room1, room2]);
-        socket.broadcast.to(room1).to(room2).emit("typing false", bool);
+      socket.on("typing f", (bool, room) => {
+        socket.join(room);
+        socket.broadcast.to(room).emit("typing false", bool);
       });
 
       socket.on("sen aaaa", (val) => {

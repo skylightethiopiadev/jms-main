@@ -21,14 +21,22 @@ import {
   updatePassword,
 } from "../controller/userController.js";
 import { aggregate } from "../controller/aggregationController.js";
+import {
+  chatCreate,
+  chatDelete,
+  chatRead,
+  chatUpdate,
+} from "../controller/chatController.js";
 
 const router = express.Router();
+const chatRouter = express.Router();
 
 const files = upload.fields([
   { name: "attachments", maxCount: 10 },
   { name: "profilePicture", maxCount: 1 },
 ]);
 
+//user account route
 router.route("/signup").post(files, signupHandler);
 
 router.route("/login").post(loginHandler);
@@ -47,25 +55,26 @@ router
 
 router.route("/updatePassword").put(authentication, updatePassword);
 
-// router.route("/:table/:id").get(authentication, authorization, _read_single);
-router.route("/:table/:id").get(_read_single);
-
-// router
-//   .route("/:table")
-//   .post(authentication, authorization, files, _create)
-//   .get(authentication, authorization, _read)
-//   .put(authentication, authorization, files, _update)
-//   .delete(authentication, authorization, _delete)
-//   .patch(authentication, authorization, aggregate);
+//factory route
+router.route("/:table/:id").get(authentication, authorization, _read_single);
 
 router
   .route("/:table")
-  .post(files, _create)
+  .post(authentication, authorization, files, _create)
   .get(_read)
-  .put(files, _update)
-  .delete(_delete)
-  .patch(aggregate);
+  .put(authentication, authorization, files, _update)
+  .delete(authentication, authorization, _delete)
+  .patch(authentication, authorization, aggregate);
+
+//chat route
+chatRouter.route("/:id").get(chatRead);
+chatRouter
+  .route("/")
+  .post(files, chatCreate)
+  .get(chatRead)
+  .put(files, chatUpdate)
+  .delete(chatDelete);
 
 //aggregation
 // router.route("/stats/:table").patch(authentication, authorization, firstPhase);
-export default router;
+export { router, chatRouter };

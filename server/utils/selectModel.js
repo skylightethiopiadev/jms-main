@@ -2,7 +2,6 @@ import { Application } from "../models/applicationModel.js";
 import { CaseManager } from "../models/caseManagerModel.js";
 import { Case } from "../models/caseModel.js";
 import { Category } from "../models/categoryModel.js";
-import { Chat } from "../models/chatsModel.js";
 import { Group } from "../models/groupModel.js";
 import { Lawyer } from "../models/lawyerModel.js";
 import { Institution } from "../models/organizationModel.js";
@@ -12,6 +11,7 @@ import { User } from "../models/userModel.js";
 import AppError from "./AppError.js";
 
 export const selectModel = (name, next) => {
+  console.log("running");
   let model;
   switch (name) {
     case "users":
@@ -41,16 +41,11 @@ export const selectModel = (name, next) => {
     case "lawyers":
       model = Lawyer;
       break;
-    case "chats":
-      model = Chat;
-      break;
     case "groups":
       model = Group;
       break;
     default:
-      return next(
-        new AppError("something went wrong unable to fetch the data.", 500)
-      );
+      return next(new AppError("something went wrong please try again!.", 500));
   }
   return model;
 };
