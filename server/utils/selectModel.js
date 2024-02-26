@@ -11,6 +11,7 @@ import { User } from "../models/userModel.js";
 import AppError from "./AppError.js";
 
 export const selectModel = (name, next) => {
+  console.log("running");
   let model;
   switch (name) {
     case "users":
@@ -44,9 +45,7 @@ export const selectModel = (name, next) => {
       model = Group;
       break;
     default:
-      return next(
-        new AppError("something went wrong unable to fetch the data.", 500)
-      );
+      return next(new AppError("something went wrong please try again!.", 500));
   }
   return model;
 };

@@ -2,12 +2,20 @@ import asyncCatch from "express-async-catch";
 import AppError from "../utils/AppError.js";
 import { Chat } from "../models/chatModel.js";
 
-//delete
+//create
 export const chatCreate = asyncCatch(async (req, res, next) => {
-  const data = await Chat.create({ ...req.body });
+  let data;
+  const { sender, receiver } = req.body;
+  const chat = await Chat.findOne({ chatId: `${sender}.${receiver}` });
+
+  if (chat.length > 0) {
+    data = await Chat.create({ ...req.body, chatId: `${sender}.${receiver}` });
+  } else {
+    data = await Chat.create({ ...req.body, chatId: `${receiver}.${sender}` });
+  }
 
   if (!data)
-    return next(new AppError("something went wrong unable to create the data"));
+    return next(new AppError("something went wrong unable to send the message"));
 
   return res.status(201).json({
     status: "Success",
@@ -35,14 +43,12 @@ export const chatRead = asyncCatch(async (req, res, next) => {
   if (!data)
     return next(new AppError("something went wrong unable to fetch the data"));
 
-  return res
-    .status(201)
-    .json({
-      status: "Success",
-      message: "data fetched successfully",
-      total,
-      data,
-    });
+  return res.status(201).json({
+    status: "Success",
+    message: "data fetched successfully",
+    total,
+    data,
+  });
 });
 
 //update
