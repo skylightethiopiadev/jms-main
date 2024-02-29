@@ -17,8 +17,6 @@ import Detail from "./roles/Detail";
 import Customers from "./customers/Customers";
 import Consulting from "./consulting/Consulting";
 import Tutorials from "./tutorials/Tutorials";
-import ClientType from "./clientType/ClientType";
-import ClientTypeUpdate from "./clientType/ClientTypeUpdate";
 import Reports from "./reports/Reports";
 
 import ServiceAreaDetail from "./categories/ServiceAreaDetail";
@@ -169,11 +167,6 @@ const HomeDashboard = ({ role }) => {
               <Route path="/customers" element={<Customers />} />
               <Route path="/consulting" element={<Consulting />} />
               <Route path="/tutorials" element={<Tutorials />} />
-              <Route path="/Client-type" element={<ClientType />} />
-              <Route
-                path="/Client-type/update"
-                element={<ClientTypeUpdate />}
-              />
               <Route path="/reports" element={<Reports />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>

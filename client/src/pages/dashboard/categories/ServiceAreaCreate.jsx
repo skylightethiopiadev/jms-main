@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useCreateMutation } from "../../../features/api/apiSlice";
 import LoadingButton from "../../../components/loading/LoadingButton";
 import Response from "../../../components/Response";
@@ -10,7 +10,7 @@ const ServiceAreaCreate = () => {
 
   const [pending, setPending] = useState(false);
   const createHandler = () => {
-    data({ name, type, url: `/categories`, tag: ["categories"] });
+    data({ name, type, url: `/user/categories`, tag: ["categories"] });
   };
 
   return (

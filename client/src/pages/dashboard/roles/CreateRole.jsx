@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LoadingButton from "../../../components/loading/LoadingButton";
-import { useCreateRoleMutation } from "../../../features/api/apiSlice";
+import { useCreateMutation } from "../../../features/api/apiSlice";
 import Response from "../../../components/Response";
 import { TableBar, TableChart, TableRows } from "@mui/icons-material";
 
@@ -26,7 +26,7 @@ const CreateRole = () => {
     },
   ]);
 
-  const [roleData, roleResponse] = useCreateRoleMutation();
+  const [roleData, roleResponse] = useCreateMutation();
   const [pending, setPending] = useState(false);
 
   const [dataToBeSent, setData] = useState({
