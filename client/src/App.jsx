@@ -5,7 +5,7 @@ import HomeDashboard from "./pages/dashboard/HomeDashboard";
 import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
-import {Flowbite } from "flowbite-react";
+import { Flowbite } from "flowbite-react";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
