@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// image
+import customerImage from "../../../../assets/images/customers/customer-i.jpg";
 // react icons
 // search icon
 import { FiSearch } from "react-icons/fi";
@@ -48,35 +50,35 @@ const CustomerDashboardHeader = () => {
           </button>
         </div>
         {/* username and profile */}
-        <div className="flex items-center gap-x-1">
+        <div className="flex items-center gap-x-1 transition-all ease-in-out duration-150 border border-transparent px-1 py-[.1rem] rounded-md hover:border-gray-300">
           <img
-            src="https://th.bing.com/th/id/R.b37449e1b72e11ff5dd8107308207fd3?rik=vb9G3NWALO1Hdw&pid=ImgRaw&r=0"
+            src={customerImage}
             alt=""
             className="w-[24px] h-[24px] rounded-sm"
           />
-          <span>full name</span>
-        </div>
-        {/* sub menu */}
-        <div className="relative">
-          {/* sub menu icon */}
-          <button
-            className={`text-xl ${
-              isUserProfilePopup ? "text-sky-700" : "text-gray-500"
-            }`}
-            onClick={() => {
-              setIsUserProfilePopup(!isUserProfilePopup);
-            }}
-          >
-            {isUserProfilePopup ? <IoIosArrowUp /> : <IoIosArrowDown />}
-          </button>
-          {/* pop up */}
-          {isUserProfilePopup ? (
-            <div className="absolute bg-white z-[1200] w-[300px] h-[300px] right-0 shadow-xl">
-              pop up
-            </div>
-          ) : (
-            <></>
-          )}
+          <span className="text-xs text-gray-500">Meseret Seyoum</span>
+          {/* sub menu */}
+          <div className="relative">
+            {/* sub menu icon */}
+            <button
+              className={`${
+                isUserProfilePopup ? "text-sky-700" : "text-gray-500"
+              }`}
+              onClick={() => {
+                setIsUserProfilePopup(!isUserProfilePopup);
+              }}
+            >
+              {isUserProfilePopup ? <IoIosArrowUp /> : <IoIosArrowDown />}
+            </button>
+            {/* pop up */}
+            {isUserProfilePopup ? (
+              <div className="absolute bg-white z-[1200] w-[300px] h-[300px] right-0 shadow-xl">
+                pop up
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </div>
     </header>

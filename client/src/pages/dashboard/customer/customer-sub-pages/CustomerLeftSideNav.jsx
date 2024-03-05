@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+// site logo
+import siteMainLogo from "../../../../assets/images/site-logo/jms-site-logo.jpg";
+
 //
 import {
   IoIosArrowDown,
@@ -17,6 +20,7 @@ import { FaClock, FaRegChartBar } from "react-icons/fa";
 import { SiCashapp } from "react-icons/si";
 import { GrCompliance } from "react-icons/gr";
 import { TiGlobe } from "react-icons/ti";
+import { IoExitSharp } from "react-icons/io5";
 // main
 // CustomerLeftSideNav
 const CustomerLeftSideNav = () => {
@@ -40,8 +44,8 @@ const CustomerLeftSideNav = () => {
         <div className="flex items-center justify-center pt-[7%]">
           <NavLink className={"flex items-center justify-center"}>
             {/* icon */}
-            <TiGlobe className="text-3xl text-blue-700" />
-            <span className="text-gray-700 font-bold">E-Shop</span>
+            <img src={siteMainLogo} alt="" className="w-[64px] h-[64px]" />
+            <span className="text-gray-700 font-bold">MACOTA</span>
           </NavLink>
         </div>
         {/* nav container */}
@@ -49,7 +53,7 @@ const CustomerLeftSideNav = () => {
           {/* Dashboard */}
           <NavLink
             to={`/dashboard/customer`}
-            className={`flex items-center font-semibold my-3`}
+            className={`flex items-center my-4`}
             onClick={(e) => {
               setIsComplianceOpen(false);
               setIsMyChartOpen(false);
@@ -57,11 +61,11 @@ const CustomerLeftSideNav = () => {
               setIsOtherServiceOpen(false);
             }}
           >
-            <MdDashboard className="text-lg mr-1" />
+            <MdDashboard className="text-lg mr-2" />
             <span>Dashboard</span>
           </NavLink>
           {/* Compliance */}
-          <div className="font-semibold my-3 relative">
+          <div className="my-4 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
@@ -74,7 +78,7 @@ const CustomerLeftSideNav = () => {
             >
               <div className="flex items-center">
                 <GrCompliance
-                  className={`mr-1 text-lg ${
+                  className={`mr-2 text-lg ${
                     isComplianceOpen ? "text-sky-500" : ""
                   }`}
                 />
@@ -110,7 +114,7 @@ const CustomerLeftSideNav = () => {
             )}
           </div>
           {/* My Chart */}
-          <div className="font-semibold my-3 relative">
+          <div className="my-4 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
@@ -123,7 +127,7 @@ const CustomerLeftSideNav = () => {
             >
               <div className="flex items-center">
                 <FaRegChartBar
-                  className={`mr-1 text-lg ${
+                  className={`mr-2 text-lg ${
                     isMyChartOpen ? "text-sky-500" : ""
                   }`}
                 />
@@ -159,7 +163,7 @@ const CustomerLeftSideNav = () => {
           </div>
           {/* message */}
           <NavLink
-            className={`flex items-center font-semibold my-3`}
+            className={`flex items-center my-4`}
             onClick={(e) => {
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
@@ -167,12 +171,12 @@ const CustomerLeftSideNav = () => {
               setIsComplianceOpen(false);
             }}
           >
-            <MdMessage className="text-lg mr-1" />
+            <MdMessage className="text-lg mr-2" />
             <span>Message</span>
           </NavLink>
           {/* appointment */}
           <NavLink
-            className={`flex items-center font-semibold my-3`}
+            className={`flex items-center my-4`}
             onClick={(e) => {
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
@@ -180,11 +184,11 @@ const CustomerLeftSideNav = () => {
               setIsComplianceOpen(false);
             }}
           >
-            <FaClock className="text-lg mr-1" />
+            <FaClock className="text-lg mr-2" />
             <span>Appointment</span>
           </NavLink>
           {/* Finance */}
-          <div className="font-semibold my-3 relative">
+          <div className="my-4 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
@@ -197,7 +201,7 @@ const CustomerLeftSideNav = () => {
             >
               <div className="flex items-center">
                 <SiCashapp
-                  className={`mr-1 text-lg ${
+                  className={`mr-2 text-lg ${
                     isFinanceOpen ? "text-sky-500" : ""
                   }`}
                 />
@@ -235,7 +239,7 @@ const CustomerLeftSideNav = () => {
             )}
           </div>
           {/* other services */}
-          <div className="font-semibold my-3 relative">
+          <div className="my-4 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
@@ -248,7 +252,7 @@ const CustomerLeftSideNav = () => {
             >
               <div className="flex items-center">
                 <MdOutlineHomeRepairService
-                  className={`mr-1 text-lg ${
+                  className={`mr-2 text-lg ${
                     isOtherServiceOpen ? "text-sky-500" : ""
                   }`}
                 />
@@ -307,8 +311,8 @@ const CustomerLeftSideNav = () => {
         {/* bottom */}
         <div>
           <button className="text-gray-500 flex items-center my-3">
-            <IoMdNotifications className="text-lg mr-3" />
-            logout
+            <IoExitSharp className="text-xl mr-1" />
+            Logout
           </button>
         </div>
       </div>

@@ -2,8 +2,12 @@ import { Outlet } from "react-router-dom";
 import Calendar from "react-calendar";
 import { CalendarComponent } from "@syncfusion/ej2-react-calendars";
 
+/// images
+import customerImage from "../../../assets/images/customers/customer-i.jpg";
+
 // icons
 import { IoIosArrowDown } from "react-icons/io";
+import { VscVerifiedFilled } from "react-icons/vsc";
 
 // customer-sub-pages
 import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeader";
@@ -44,7 +48,7 @@ const CustomerDashboard = () => {
                 {/* image */}
                 <div className="border-4 border-r-transparent border-t-sky-300 border-sky-700 rounded-full w-[78px] h-[78px] flex items-center justify-center">
                   <img
-                    src="https://th.bing.com/th/id/R.b37449e1b72e11ff5dd8107308207fd3?rik=vb9G3NWALO1Hdw&pid=ImgRaw&r=0"
+                    src={customerImage}
                     alt=""
                     className="w-[64px] h-[64px] rounded-full"
                   />
@@ -54,8 +58,8 @@ const CustomerDashboard = () => {
               <div className="w-full flex items-center flex-col">
                 <div className="font-semibold text-sky-500">welcome</div>
                 <div className="w-full flex items-center justify-center gap-1">
-                  <span className="flexs font-bold">Andreas Iniesta</span>
-                  <GiSevenPointedStar className="text-sky-500 text-lg" />
+                  <span className="flexs font-bold">Meseret Seyoum</span>
+                  <VscVerifiedFilled className="text-sky-500 text-lg" />
                 </div>
                 <div className="text-gray-500">College Student</div>
               </div>
@@ -106,7 +110,27 @@ const CustomerDashboard = () => {
               </div>
               {/* calandaer table */}
               <div>
-                <CalendarComponent></CalendarComponent>
+                {/* <Calendar></Calendar> */}
+
+                <div class="relative max-w-sm">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg
+                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                    </svg>
+                  </div>
+                  <input
+                    datepicker
+                    type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Select date"
+                  />
+                </div>
               </div>
             </div>
           </div>
