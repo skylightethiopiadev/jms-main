@@ -55,7 +55,7 @@ const CustomerDashboard = () => {
                 <div>College Student</div>
               </div>
               {/* calandaer table */}
-              <div>calander table</div>
+              <div>hello</div>
               {/* footer */}
               <div>footer</div>
             </div>
