@@ -5,7 +5,12 @@ import HomeDashboard from "./pages/dashboard/HomeDashboard";
 import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
-import {Flowbite } from "flowbite-react";
+import { Flowbite } from "flowbite-react";
+
+// customer
+import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
+import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
+import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
@@ -21,6 +26,17 @@ function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
+            <Route path="/dashboard/customer" element={<CustomerDashboard />}>
+              <Route
+                // path="/dashboard/customer/home"
+                index
+                element={<CustomerDashboardHome />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/new-case"
+                element={<NewCase />}
+              ></Route>
+            </Route>
             {jwt && user && (
               <Route
                 path="/dashboard/*"

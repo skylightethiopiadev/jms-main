@@ -60,7 +60,7 @@ const Home = () => {
             to="/signUp"
             className=" px-4 py-2 rounded-sm bg-main text-white"
           >
-            Haddis Pictures{" "}
+            Register now{" "}
             <ArrowForward sx={{ width: 16, height: 16 }} className="ml-2" />
           </Link>
         </div>
