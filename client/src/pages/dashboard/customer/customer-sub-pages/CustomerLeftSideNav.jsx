@@ -310,9 +310,9 @@ const CustomerLeftSideNav = () => {
         </div>
         {/* bottom */}
         <div>
-          <button className="text-gray-500 flex items-center my-3">
+          <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
             <IoExitSharp className="text-xl mr-1" />
-            Logout
+            <span>Logout</span>
           </button>
         </div>
       </div>

@@ -43,7 +43,7 @@ const NewCase = () => {
       <header className="h-[130px] bg-sky-100">header</header>
       {/* content */}
       <div className="bg-white m-2 rounded-sm">
-        <header className="flex items-center justify-between gap-3 py-2 px-[5%]">
+        <header className="flex items-center justify-between gap-3 py-2 px-[5%] border-b border-gray-200 rounded-sm">
           {/* all type */}
           <div className="flex flex-col gap-y-3 relative border-r border-gray-200 pr-3 w-full">
             <span className="text-gray-500">Type of counceling</span>

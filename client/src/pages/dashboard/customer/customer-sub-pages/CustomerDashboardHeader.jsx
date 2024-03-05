@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 // image
 import customerImage from "../../../../assets/images/customers/customer-i.jpg";
@@ -11,6 +12,14 @@ import { IoMdNotifications } from "react-icons/io";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 // menu
 import { GrMenu } from "react-icons/gr";
+import { VscVerifiedFilled } from "react-icons/vsc";
+
+import {
+  IoStarOutline,
+  IoStarHalfOutline,
+  IoStarSharp,
+  IoExitSharp,
+} from "react-icons/io5";
 
 // main
 // CustomerDashboardHeader
@@ -50,7 +59,12 @@ const CustomerDashboardHeader = () => {
           </button>
         </div>
         {/* username and profile */}
-        <div className="flex items-center gap-x-1 transition-all ease-in-out duration-150 border border-transparent px-1 py-[.1rem] rounded-md hover:border-gray-300">
+        <div
+          className="flex items-center gap-x-1 transition-all ease-in-out duration-150 border border-transparent px-1 py-[.1rem] rounded-md hover:border-gray-300 cursor-pointer"
+          onClick={() => {
+            setIsUserProfilePopup(!isUserProfilePopup);
+          }}
+        >
           <img
             src={customerImage}
             alt=""
@@ -62,19 +76,61 @@ const CustomerDashboardHeader = () => {
             {/* sub menu icon */}
             <button
               className={`${
-                isUserProfilePopup ? "text-sky-700" : "text-gray-500"
+                isUserProfilePopup ? "text-sky-500" : "text-gray-500"
               }`}
-              onClick={() => {
-                setIsUserProfilePopup(!isUserProfilePopup);
-              }}
             >
               {isUserProfilePopup ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </button>
             {/* pop up */}
             {isUserProfilePopup ? (
-              <div className="absolute bg-white z-[1200] w-[300px] h-[300px] right-0 shadow-xl">
-                pop up
-              </div>
+              <motion.div
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.15 }}
+                className="absolute bg-white z-[1200] w-max right-0 top-[2rem] rounded-md cursor-default shadow-xl flex flex-col items-center p-3"
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              >
+                {/* user profile */}
+                <div className="p-2 shadow-md w-max rounded-md">
+                  <img
+                    src={customerImage}
+                    alt=""
+                    className="w-[200px] h-[200px] rounded-sm"
+                  />
+                </div>
+                {/* username */}
+                <div className="my-1 text-gray-700 font-semibold flex items-center justify-center gap-x-1">
+                  <span>Meseret Seyoum</span>
+                  <VscVerifiedFilled className="text-lg text-sky-500" />
+                </div>
+                {/* ratting */}
+                <div className="flex items-center justify-center gap-1 bg-emerald-500 text-white px-2 py-1 rounded-sm my-1">
+                  <div className="flex items-center justify-center gap-x-1">
+                    <IoStarSharp />
+                    <IoStarSharp />
+                    <IoStarSharp />
+                    <IoStarHalfOutline />
+                    <IoStarOutline />
+                  </div>
+                  <span className="font-semibold">4.35</span>
+                </div>
+                {/* bio */}
+                <div>
+                  <p className="w-[350px] italic my-1 p-2 border-y border-gray-200">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Velit cum quia fuga delectus dolore a aliquam accusamus.
+                  </p>
+                </div>
+                {/* logout */}
+                <div>
+                  <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
+                    <IoExitSharp className="text-xl mr-1" />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </motion.div>
             ) : (
               <></>
             )}
