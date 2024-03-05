@@ -52,7 +52,7 @@ const CustomerDashboard = () => {
                   <span className="flexs font-bold">AndreasIniesta</span>
                   <GiSevenPointedStar className="text-sky-500" />
                 </div>
-                <div>College Students</div>
+                <div>College </div>
               </div>
               {/* calandaer table */}
               <div>hello</div>
