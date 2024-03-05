@@ -37,7 +37,7 @@
   @apply text-[15px];
 }
 .medium {
-  @apply text-[12px];
+  @apply text-[14px];
 }
 .center {
   @apply flex flex-col w-full items-center justify-center h-full;
