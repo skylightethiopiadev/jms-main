@@ -30,13 +30,37 @@ const CustomerLeftSideNav = () => {
   const [isMyChartOpen, setIsMyChartOpen] = useState(false);
   const [isFinanceOpen, setIsFinanceOpen] = useState(false);
   const [isOtherServiceOpen, setIsOtherServiceOpen] = useState(false);
+
+  // customer dashboard left side bar toggler
+  const customerDashBoardLeftSideBarToggler = () => {
+    let customerDashBoardLeftSideBar = document.getElementById(
+      "customer-dashboard-leftside-nav-bar"
+    );
+    if (customerDashBoardLeftSideBar?.classList.contains("left-[-100vw]")) {
+      customerDashBoardLeftSideBar?.classList.remove("left-[-100vw]");
+      customerDashBoardLeftSideBar?.classList.add("left-0");
+    } else {
+      customerDashBoardLeftSideBar?.classList.add("left-[-100vw]");
+      customerDashBoardLeftSideBar?.classList.remove("left-0");
+    }
+  };
+
   return (
-    <div className=" w-[20%] min-w-[180px] flex flex-col justify-between px-[1%]">
+    <div
+      className="absolute left-[-100vw] h-full bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[180px] flex flex-col justify-between px-[1%]"
+      id="customer-dashboard-leftside-nav-bar"
+    >
       {/* logo and nav container */}
       <div className="relative">
         {/* close btn container */}
-        <div className="absolute top-1 right-1">
-          <button className="text-3xl text-gray-500">
+        <div className="absolute top-1 right-1 lg:hidden">
+          <button
+            className="text-3xl text-gray-500"
+            onClick={(e) => {
+              e.stopPropagation();
+              customerDashBoardLeftSideBarToggler();
+            }}
+          >
             <MdClose />
           </button>
         </div>
@@ -59,6 +83,7 @@ const CustomerLeftSideNav = () => {
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
               setIsOtherServiceOpen(false);
+              customerDashBoardLeftSideBarToggler();
             }}
           >
             <MdDashboard className="text-lg mr-2" />
@@ -105,6 +130,10 @@ const CustomerLeftSideNav = () => {
                 <NavLink
                   to={`/dashboard/customer/new-case`}
                   className="pl-[20%] py-1 bg-white"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    customerDashBoardLeftSideBarToggler();
+                  }}
                 >
                   New Case
                 </NavLink>
@@ -152,9 +181,33 @@ const CustomerLeftSideNav = () => {
             {isMyChartOpen ? (
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
-                  <NavLink className="pl-[20%] py-1">Case Team</NavLink>
-                  <NavLink className="pl-[20%] py-1">Active Case</NavLink>
-                  <NavLink className="pl-[20%] py-1">Closed Case</NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Case Team
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Active Case
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Closed Case
+                  </NavLink>
                 </div>
               </div>
             ) : (
@@ -169,6 +222,7 @@ const CustomerLeftSideNav = () => {
               setIsFinanceOpen(false);
               setIsOtherServiceOpen(false);
               setIsComplianceOpen(false);
+              customerDashBoardLeftSideBarToggler();
             }}
           >
             <MdMessage className="text-lg mr-2" />
@@ -182,6 +236,7 @@ const CustomerLeftSideNav = () => {
               setIsFinanceOpen(false);
               setIsOtherServiceOpen(false);
               setIsComplianceOpen(false);
+              customerDashBoardLeftSideBarToggler();
             }}
           >
             <FaClock className="text-lg mr-2" />
@@ -226,10 +281,40 @@ const CustomerLeftSideNav = () => {
             {isFinanceOpen ? (
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
-                  <NavLink className="pl-[20%] py-1">Add Funds</NavLink>
-                  <NavLink className="pl-[20%] py-1">Requested Payment</NavLink>
-                  <NavLink className="pl-[20%] py-1">Refund Funds</NavLink>
-                  <NavLink className="pl-[20%] py-1">
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Add Funds
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Requested Payment
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Refund Funds
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
                     Recent Transactions
                   </NavLink>
                 </div>
@@ -277,10 +362,40 @@ const CustomerLeftSideNav = () => {
             {isOtherServiceOpen ? (
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
-                  <NavLink className="pl-[20%] py-1">Traning</NavLink>
-                  <NavLink className="pl-[20%] py-1">Consulting</NavLink>
-                  <NavLink className="pl-[20%] py-1">Researches</NavLink>
-                  <NavLink className="pl-[20%] py-1">
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Traning
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Consulting
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    Researches
+                  </NavLink>
+                  <NavLink
+                    className="pl-[20%] py-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
                     Recent Transactions
                   </NavLink>
                 </div>

@@ -13,7 +13,7 @@ export const caseTeams = [
     first_name: "Meseret",
     last_name: "Seyoume",
     profile:
-      "https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg",
+      "https://th.bing.com/th/id/R.da2e546841da40cdcf60061743233500?rik=IeO7Sr%2fkUW54wQ&riu=http%3a%2f%2fwww.venmond.com%2fdemo%2fvendroid%2fimg%2favatar%2fbig.jpg&ehk=JihI5nQ0BOd0W%2bZVhtIWmqwac0NMyRMOV7%2bzryywg%2fg%3d&risl=&pid=ImgRaw&r=0",
     proffession: "Lawyer",
     status: "CLOSED",
     email: "haddisfun@gmail.com",

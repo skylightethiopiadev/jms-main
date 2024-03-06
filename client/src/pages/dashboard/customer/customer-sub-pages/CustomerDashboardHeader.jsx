@@ -26,13 +26,30 @@ import {
 const CustomerDashboardHeader = () => {
   // local state
   const [isUserProfilePopup, setIsUserProfilePopup] = useState(false);
+  // customer dashboard left side bar toggler
+  const customerDashBoardLeftSideBarToggler = () => {
+    let customerDashBoardLeftSideBar = document.getElementById(
+      "customer-dashboard-leftside-nav-bar"
+    );
+    if (customerDashBoardLeftSideBar?.classList.contains("left-[-100vw]")) {
+      customerDashBoardLeftSideBar?.classList.remove("left-[-100vw]");
+      customerDashBoardLeftSideBar?.classList.add("left-0");
+    } else {
+      customerDashBoardLeftSideBar?.classList.add("left-[-100vw]");
+      customerDashBoardLeftSideBar?.classList.remove("left-0");
+    }
+  };
   return (
     <header className="py-2 px-1 flex items-center justify-between w-full">
       {/* left header portion */}
       <div className="flex items-center">
         {/* menu icon */}
-        <div className="text-2xl text-gray-500">
-          <button>
+        <div className="text-2xl text-gray-500 lg:hidden">
+          <button
+            onClick={() => {
+              customerDashBoardLeftSideBarToggler();
+            }}
+          >
             <GrMenu />
           </button>
         </div>
