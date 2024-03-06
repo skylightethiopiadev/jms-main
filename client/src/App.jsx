@@ -7,6 +7,11 @@ import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
 
+// components
+import AddisHeader from "./components/addis_components/AddisHeader";
+// pages
+import AddisHome from "./pages/addis_pages/AddisHome";
+
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
@@ -21,8 +26,10 @@ function App() {
     <Flowbite>
       <div className={`font-poppins medium   tracking-wide`}>
         <div className="">
+          <AddisHeader />
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<AddisHome />}></Route>
+            {/* <Route path="/" element={<Home />}></Route> */}
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
