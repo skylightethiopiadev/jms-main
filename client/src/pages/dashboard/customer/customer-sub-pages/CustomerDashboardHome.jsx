@@ -1,12 +1,81 @@
+import { motion } from "framer-motion";
 // icons
 import { CiSearch, CiPhone, CiEdit } from "react-icons/ci";
 import { MdOutlineMail, MdOutlineMoreVert } from "react-icons/md";
 import { BiSolidUserDetail } from "react-icons/bi";
+import { VscVerifiedFilled } from "react-icons/vsc";
+import {
+  IoStarOutline,
+  IoStarHalfOutline,
+  IoStarSharp,
+  IoExitSharp,
+} from "react-icons/io5";
+
+// data files
+import { caseTeams } from "../../../../DataFile";
 // main
 // CustomerDashboardHome
 const CustomerDashboardHome = () => {
   return (
-    <div className="p-[2%]">
+    <div className="p-[2%] relative">
+      {!true ? (
+        <div className="absolute left-[25%] top-[3%] bg-white shadow-lg rounded-sm z-50">
+          <motion.div
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.15 }}
+            className="bg-white z-[1200] w-max right-0 top-[2rem] rounded-md cursor-default shadow-xl flex flex-col items-center p-3"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {/* user profile */}
+            <div className="p-2 shadow-md w-max rounded-md">
+              <img
+                src="https://i.pinimg.com/originals/c7/31/ea/c731ea1d54775c7818cba2ad78e3b05b.jpg"
+                alt=""
+                className="w-[200px] h-[200px] rounded-sm"
+              />
+            </div>
+            {/* username */}
+            <div className="my-1 text-gray-700 font-semibold flex items-center justify-center gap-x-1">
+              <span>Meseret Seyoum</span>
+              <VscVerifiedFilled className="text-lg text-sky-500" />
+            </div>
+            {/* ratting */}
+            <div className="flex items-center justify-center gap-1 bg-emerald-500 text-white px-2 py-1 rounded-sm my-1">
+              <div className="flex items-center justify-center gap-x-1">
+                <IoStarSharp />
+                <IoStarSharp />
+                <IoStarSharp />
+                <IoStarHalfOutline />
+                <IoStarOutline />
+              </div>
+              <span className="font-semibold">4.35</span>
+            </div>
+            {/* bio */}
+            <div>
+              <p className="w-[350px] text-xs italic my-1 p-2 border-y border-gray-200">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
+                cum quia fuga delectus dolore a aliquam accusamus.
+              </p>
+            </div>
+            {/* logout */}
+            <div className="flex items-center justify-center gap-x-3">
+              <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
+                <CiPhone className="text-xl mr-1" />
+                <span>Call</span>
+              </button>
+              <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
+                <MdOutlineMail className="text-xl mr-1" />
+                <span>Message</span>
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      ) : (
+        <></>
+      )}
       {/* top */}
       <div className="rounded-md relative bg-sky-100">
         <div className="flex items-center justify-between px-[5%] py-[2%]">
@@ -133,57 +202,69 @@ const CustomerDashboardHome = () => {
           <div className="h-[22vh] overflow-y-auto">
             <table className="w-full">
               <tbody>
-                <tr className="bg-white mb-1 border-b-8 border-sky-100 text-xs text-gray-900">
-                  <td>
-                    <div className="flex items-center justify-start gap-x-1 p-1">
-                      <div>
-                        <img
-                          src="https://th.bing.com/th/id/OIP.s3RJ4bcuEf9d2BBzCCB_0wHaHa?rs=1&pid=ImgDetMain"
-                          alt=""
-                          className="w-[24px] h-[24px] rounded-full"
-                        />
-                      </div>
-                      <div>
-                        <span>Haddis Fanta</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>Case Manager</td>
-                  <td>+251923996736</td>
-                  <td>
-                    <button className="px-3 py-1 rounded-md bg-yellow-400 text-white">
-                      active
-                    </button>
-                  </td>
-
-                  <td>
-                    <div className="relative">
-                      <button>
-                        <MdOutlineMoreVert className="text-xl" />
-                      </button>
-                      {!true ? (
-                        <div className="absolute bg-white top-[100%] right-0 shadow-md">
-                          <ul className="px-3 py-1">
-                            <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
-                              <BiSolidUserDetail className="text-lg text-gray-500" />
-                              Detail
-                            </li>
-                            <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
-                              <CiPhone className="text-lg text-gray-500" />
-                              Call
-                            </li>
-                            <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
-                              <MdOutlineMail className="text-lg text-gray-500" />
-                              Message
-                            </li>
-                          </ul>
+                {caseTeams.map((team, index) => (
+                  <tr
+                    key={index}
+                    className="bg-white mb-1 border-b-8 border-sky-100 text-xs text-gray-900"
+                  >
+                    <td>
+                      <div className="flex items-center justify-start gap-x-1 p-1">
+                        <div>
+                          <img
+                            src={team.profile}
+                            alt=""
+                            className="w-[24px] h-[24px] rounded-full"
+                          />
                         </div>
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                  </td>
-                </tr>
+                        <div>
+                          <span>
+                            {team.first_name} {team.last_name}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{team.proffession}</td>
+                    <td>{team.phone}</td>
+                    <td>
+                      <button
+                        className={`px-3 py-1 rounded-md ${
+                          team.status === "ACTIVE"
+                            ? "bg-yellow-400"
+                            : "bg-red-400"
+                        } text-white lowercase`}
+                      >
+                        {team.status}
+                      </button>
+                    </td>
+                    <td>
+                      <div className="relative">
+                        <button>
+                          <MdOutlineMoreVert className="text-xl" />
+                        </button>
+                        {!true ? (
+                          <div className="absolute bg-white top-[100%] right-0 shadow-md">
+                            <ul className="px-3 py-1">
+                              <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
+                                <BiSolidUserDetail className="text-lg text-gray-500" />
+                                Detail
+                              </li>
+                              <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
+                                <CiPhone className="text-lg text-gray-500" />
+                                Call
+                              </li>
+                              <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
+                                <MdOutlineMail className="text-lg text-gray-500" />
+                                Message
+                              </li>
+                            </ul>
+                          </div>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -202,7 +283,7 @@ const CustomerDashboardHome = () => {
           </header>
           <div className="h-[26vh] w-[230px] overflow-y-auto py-2">
             {/* cards 1 */}
-            <div className="bg-white p-1 border-l-4 border-green-500 rounded-md shadow-md py-2 mb-3">
+            <div className="bg-white p-1 border-l-4 border-green-500 rounded-md shadow-md py-2 mb-3 pl-2">
               <div className="flex items-center justify-between text-gray-500 text-sm">
                 <div>
                   <span>pre-algebra</span>
@@ -244,7 +325,7 @@ const CustomerDashboardHome = () => {
               </div>
             </div>
             {/* card 2 */}
-            <div className="bg-white p-1 border-l-4 border-blue-500 rounded-md shadow-md py-2 mb-2">
+            <div className="bg-white p-1 border-l-4 border-blue-500 rounded-md shadow-md py-2 mb-2 pl-2">
               <div className="flex items-center justify-between text-gray-500 text-sm">
                 <div>
                   <span>pre-algebra</span>
@@ -286,7 +367,7 @@ const CustomerDashboardHome = () => {
               </div>
             </div>
             {/* card 3 */}
-            <div className="bg-white p-1 border-l-4 border-red-500 rounded-md shadow-md py-2 mb-2">
+            <div className="bg-white p-1 border-l-4 border-red-500 rounded-md shadow-md py-2 mb-2 pl-2">
               <div className="flex items-center justify-between text-gray-500 text-sm">
                 <div>
                   <span>pre-algebra</span>
