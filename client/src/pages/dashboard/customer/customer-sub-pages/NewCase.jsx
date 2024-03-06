@@ -271,7 +271,7 @@ const NewCase = () => {
                       <img
                         src={con.profile}
                         alt=""
-                        className="w-[32] h-[32px] object-fill rounded-full"
+                        className="w-[32px] h-[32px] object-cover object-center rounded-full"
                       />
                     </div>
                     <div className="flex flex-col">
