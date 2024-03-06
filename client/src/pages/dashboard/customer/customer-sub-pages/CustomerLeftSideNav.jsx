@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 
 // site logo
 import siteMainLogo from "../../../../assets/images/site-logo/jms-site-logo.jpg";
+import callCenter from "../../../../assets/images/call-center/call-center-1.png";
 
-//
+//icons
 import {
   IoIosArrowDown,
   IoMdNotifications,
@@ -21,6 +22,7 @@ import { SiCashapp } from "react-icons/si";
 import { GrCompliance } from "react-icons/gr";
 import { TiGlobe } from "react-icons/ti";
 import { IoExitSharp } from "react-icons/io5";
+import { FaPhoneVolume } from "react-icons/fa6";
 // main
 // CustomerLeftSideNav
 const CustomerLeftSideNav = () => {
@@ -412,15 +414,16 @@ const CustomerLeftSideNav = () => {
         <div className="p-3 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
           <h3 className="font-bold">Upgrade your plan</h3>
           <h3 className="font-bold">To get pro service</h3>
-          <div className="my-3">
+          <div className="my-1">
             <img
-              src="https://th.bing.com/th/id/R.b37449e1b72e11ff5dd8107308207fd3?rik=vb9G3NWALO1Hdw&pid=ImgRaw&r=0"
+              src={callCenter}
               alt=""
-              className="w-[100px] h-[100px] rounded-full"
+              className="w-[150px] h-[130px] rounded-md"
             />
           </div>
-          <button className="px-5 my-1 py-1 rounded-full text-white bg-sky-600">
-            upgrade
+          <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">
+            <FaPhoneVolume className="text-xl mr-1" />{" "}
+            <span className="font-bold text-lg">#1234</span>
           </button>
         </div>
         {/* bottom */}

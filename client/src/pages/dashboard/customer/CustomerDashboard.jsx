@@ -40,7 +40,7 @@ const CustomerDashboard = () => {
               <Outlet />
             </div>
             {/* right content */}
-            <div className="p-3">
+            <div className="p-3 hidden sm:flex sm:flex-col">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}
@@ -59,7 +59,7 @@ const CustomerDashboard = () => {
                   <span className="flexs font-bold">Meseret Seyoum</span>
                   <VscVerifiedFilled className="text-sky-500 text-lg" />
                 </div>
-                <div className="text-gray-500">College Student</div>
+                <div className="text-gray-500">Customer Account</div>
               </div>
 
               {/* total balance */}
@@ -67,16 +67,16 @@ const CustomerDashboard = () => {
                 {/* top */}
                 <div className="p-2 border-b border-gray-200">
                   <div>
-                    <span className="text-gray-500">Total Balance</span>
+                    <span className="text-gray-500">Current Balance</span>
                     <h3 className="text-lg font-bold text-gray-900 my-2">
                       $21,328.00
                     </h3>
                     <div className="flex items-center justify-between gap-2">
                       <button className="px-5 py-1 rounded-md bg-yellow-400 text-white">
-                        Request
+                        Fund
                       </button>
                       <button className="px-5 py-1 rounded-md bg-yellow-400 text-white">
-                        Transfer
+                        Refund
                       </button>
                     </div>
                   </div>
@@ -92,15 +92,17 @@ const CustomerDashboard = () => {
                   </div>
                   <div className="grid grid-cols-3 w-full mt-3">
                     <div className="w-full border-b-4 border-purple-700">
-                      <span className="text-gray-500 w-full">Food & Drink</span>
+                      <span className="text-gray-500 w-full">Total Spent</span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
                     <div className="w-full border-b-4 border-purple-500">
-                      <span className="text-gray-500 w-full">Topup</span>
+                      <span className="text-gray-500 w-full">
+                        Total Utility
+                      </span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
                     <div className="w-full border-b-4 border-purple-300">
-                      <span className="text-gray-300 w-full">Total</span>
+                      <span className="text-gray-500 w-full">Total Refund</span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
                   </div>

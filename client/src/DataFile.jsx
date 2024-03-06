@@ -1,3 +1,4 @@
+// case teams
 export const caseTeams = [
   {
     first_name: "Haddis",
@@ -58,5 +59,198 @@ export const caseTeams = [
     status: "ACTIVE",
     email: "haddisfun@gmail.com",
     phone: "+251923996736",
+  },
+];
+
+// case history
+export const caseHistory = [
+  {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "ACTIVE",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.345989",
+    case_place: "Bolle Kefele Ketema",
+    case_date: "3 weeks ",
+    status: "CLOSED",
+    lawyers: [
+      "https://th.bing.com/th/id/R.3f3b68c0fde58eea7448cef9b640e299?rik=c0t2b8nVH4v%2f2g&pid=ImgRaw&r=0",
+      "https://th.bing.com/th/id/R.1150865efae3b2f32b85f397decbbf16?rik=yLVMcyH4AxaUVw&pid=ImgRaw&r=0",
+    ],
+  },
+  {
+    file_no: "No. 977465",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "2 months",
+    status: "ACTIVE",
+    lawyers: [
+      "https://th.bing.com/th/id/R.b6350e5011a7b61996efada66d100575?rik=7D6Ni11ELDKMoA&pid=ImgRaw&r=0",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+];
+
+// cunsultations
+export const cunsultations = [
+  {
+    first_name: "Haddis",
+    last_name: "Fanat",
+    profile:
+      "https://i.pinimg.com/736x/07/33/ba/0733ba760b29378474dea0fdbcb97107.jpg",
+    proffession: "Lawyer",
+    address: "Semera",
+    rating: 4.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Hana",
+    last_name: "Teshome",
+    profile:
+      "https://th.bing.com/th/id/R.cbe9c6caa4f9030112f28aa9df8e33e2?rik=zz8Nd6%2f5sOoypA&pid=ImgRaw&r=0",
+    proffession: "Case Manager",
+    address: "Addis Ababa",
+    rating: 3.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Abebe",
+    last_name: "Tafere",
+    profile:
+      "https://th.bing.com/th/id/OIP.p59rL9MzCJtwGLUhy04orAHaJD?rs=1&pid=ImgDetMain",
+    proffession: "Case Manager",
+    address: "Adama",
+    rating: 1.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Mulatu",
+    last_name: "Astatike",
+    profile:
+      "https://th.bing.com/th/id/R.1f3cbb236d8a824596757c4ee1804bb1?rik=2T8D6EDjJzit2Q&pid=ImgRaw&r=0",
+    proffession: "Lawyer",
+    address: "Gondar",
+    rating: 4.3,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Kalkidan",
+    last_name: "Mogess",
+    profile:
+      "https://th.bing.com/th/id/R.9adc015f20559834f076a5d3af11ae36?rik=9KV29WB8gnGDfw&pid=ImgRaw&r=0",
+    proffession: "Case Manager",
+    address: "Addis Ababa",
+    rating: 2.7,
+    experiene: 2,
+    consult: 150,
+  },
+  {
+    first_name: "Abebaw",
+    last_name: "Melaku",
+    profile:
+      "https://th.bing.com/th/id/R.f067637eb08123c8ca3012f865cc3b81?rik=ssXcgy1vZkGD0A&pid=ImgRaw&r=0&sres=1&sresct=1",
+    proffession: "Lawyer",
+    address: "Mekele",
+    rating: 4.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Zewoditu",
+    last_name: "Menelik",
+    profile:
+      "https://th.bing.com/th/id/OIP.FcPyAekn2Su0cTAgbpNAAgAAAA?w=138&h=202&c=7&r=0&o=5&pid=1.7",
+    proffession: "Lawyer",
+    address: "Bahir Dar",
+    rating: 3.7,
+    experiene: 2,
+    consult: 100,
+  },
+  // repeated
+  {
+    first_name: "Haddis",
+    last_name: "Fanat",
+    profile:
+      "https://i.pinimg.com/736x/07/33/ba/0733ba760b29378474dea0fdbcb97107.jpg",
+    proffession: "Lawyer",
+    address: "Semera",
+    rating: 2.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Hana",
+    last_name: "Teshome",
+    profile:
+      "https://th.bing.com/th/id/R.cbe9c6caa4f9030112f28aa9df8e33e2?rik=zz8Nd6%2f5sOoypA&pid=ImgRaw&r=0",
+    proffession: "Case Manager",
+    address: "Addis Ababa",
+    rating: 3.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Abebe",
+    last_name: "Tafere",
+    profile:
+      "https://th.bing.com/th/id/OIP.p59rL9MzCJtwGLUhy04orAHaJD?rs=1&pid=ImgDetMain",
+    proffession: "Case Manager",
+    address: "Adama",
+    rating: 3.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Mulatu",
+    last_name: "Astatike",
+    profile:
+      "https://th.bing.com/th/id/R.1f3cbb236d8a824596757c4ee1804bb1?rik=2T8D6EDjJzit2Q&pid=ImgRaw&r=0",
+    proffession: "Lawyer",
+    address: "Gondar",
+    rating: 4.3,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Kalkidan",
+    last_name: "Mogess",
+    profile:
+      "https://th.bing.com/th/id/R.9adc015f20559834f076a5d3af11ae36?rik=9KV29WB8gnGDfw&pid=ImgRaw&r=0",
+    proffession: "Case Manager",
+    address: "Addis Ababa",
+    rating: 2.7,
+    experiene: 2,
+    consult: 150,
+  },
+  {
+    first_name: "Abebaw",
+    last_name: "Melaku",
+    profile:
+      "https://th.bing.com/th/id/R.f067637eb08123c8ca3012f865cc3b81?rik=ssXcgy1vZkGD0A&pid=ImgRaw&r=0&sres=1&sresct=1",
+    proffession: "Lawyer",
+    address: "Mekele",
+    rating: 4.7,
+    experiene: 5,
+    consult: 300,
+  },
+  {
+    first_name: "Zewoditu",
+    last_name: "Menelik",
+    profile:
+      "https://th.bing.com/th/id/OIP.FcPyAekn2Su0cTAgbpNAAgAAAA?w=138&h=202&c=7&r=0&o=5&pid=1.7",
+    proffession: "Lawyer",
+    address: "Bahir Dar",
+    rating: 3.7,
+    experiene: 2,
+    consult: 100,
   },
 ];

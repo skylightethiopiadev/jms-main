@@ -14,6 +14,9 @@ import {
 } from "react-icons/io5";
 
 // data files
+import { caseHistory } from "../../../../DataFile";
+
+// data files
 import { caseTeams } from "../../../../DataFile";
 // main
 // CustomerDashboardHome
@@ -242,7 +245,9 @@ const CustomerDashboardHome = () => {
                       </div>
                     </td>
                     <td>{team.proffession}</td>
-                    <td>{team.phone}</td>
+                    <td className="hidden xl:flex">
+                      <span className="xl:mt-2">{team.phone}</span>
+                    </td>
                     <td>
                       <button
                         className={`px-3 py-1 rounded-md ${
@@ -316,132 +321,69 @@ const CustomerDashboardHome = () => {
             </div>
           </header>
           <div className="h-[26vh] w-[230px] overflow-y-auto py-2">
-            {/* cards 1 */}
-            <div className="bg-white p-1 border-l-4 border-green-500 rounded-md shadow-md py-2 mb-3 pl-2">
-              <div className="flex items-center justify-between text-gray-500 text-sm">
-                <div>
-                  <span>pre-algebra</span>
-                </div>
-                <div>
-                  <button>
-                    <CiEdit className="text-lg" />
-                  </button>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-semibold ">Multipling Decimals</h3>
-              </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-gray-500">09:30AM-10:00AM</span>
-                </div>
-                <div className="relative flex-grow flex items-center justify-end">
-                  <div className="absolute right-6">
-                    <img
-                      src="https://th.bing.com/th/id/OIP.s3RJ4bcuEf9d2BBzCCB_0wHaHa?rs=1&pid=ImgDetMain"
-                      alt=""
-                      className="w-[22px] h-[22px] rounded-full"
-                    />
+            {/* case history cards */}
+            {caseHistory?.length > 0 ? (
+              <>
+                {caseHistory.map((history, index) => (
+                  <div
+                    key={index}
+                    className={`bg-white p-1 border-l-4 ${
+                      history.status === "ACTIVE"
+                        ? "border-green-400"
+                        : "border-red-400"
+                    } rounded-md shadow-md py-2 mb-3 pl-2`}
+                  >
+                    <div className="flex items-center justify-between text-gray-500 text-sm">
+                      <div>
+                        <span>{history.file_no}</span>
+                      </div>
+                      <div>
+                        <button>
+                          <CiEdit className="text-lg" />
+                        </button>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold ">{history.case_place}</h3>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-xs text-gray-500">
+                          {history.status === "ACTIVE" ? (
+                            <>starts {history.case_date} ago</>
+                          ) : (
+                            <>closed {history.case_date} ago</>
+                          )}
+                        </span>
+                      </div>
+                      <div className="relative flex-grow flex items-center justify-end">
+                        <div className="absolute right-6">
+                          <img
+                            src={history.lawyers[0]}
+                            alt=""
+                            className="w-[22px] h-[22px] rounded-full"
+                          />
+                        </div>
+                        <div className="absolute right-3">
+                          <img
+                            src={history.lawyers[1]}
+                            alt=""
+                            className="w-[22px] h-[22px] rounded-full"
+                          />
+                        </div>
+                        <div className="relative z-[1200] w-[22px] h-[22px] border-2 border-gray-500 rounded-full flex items-center justify-center bg-white">
+                          <span className="text-xs font-semibold text-gray-500">
+                            +5
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute right-3">
-                    <img
-                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"
-                      alt=""
-                      className="w-[22px] h-[22px] rounded-full"
-                    />
-                  </div>
-                  <div className="relative z-[1200] w-[22px] h-[22px] border-2 border-gray-500 rounded-full flex items-center justify-center bg-white">
-                    <span className="text-xs font-semibold text-gray-500">
-                      +5
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* card 2 */}
-            <div className="bg-white p-1 border-l-4 border-blue-500 rounded-md shadow-md py-2 mb-2 pl-2">
-              <div className="flex items-center justify-between text-gray-500 text-sm">
-                <div>
-                  <span>pre-algebra</span>
-                </div>
-                <div>
-                  <button>
-                    <CiEdit className="text-lg" />
-                  </button>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-semibold ">Multipling Decimals</h3>
-              </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-gray-500">09:30AM-10:00AM</span>
-                </div>
-                <div className="relative flex-grow flex items-center justify-end">
-                  <div className="absolute right-6">
-                    <img
-                      src="https://th.bing.com/th/id/OIP.s3RJ4bcuEf9d2BBzCCB_0wHaHa?rs=1&pid=ImgDetMain"
-                      alt=""
-                      className="w-[22px] h-[22px] rounded-full"
-                    />
-                  </div>
-                  <div className="absolute right-3">
-                    <img
-                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"
-                      alt=""
-                      className="w-[22px] h-[22px] rounded-full"
-                    />
-                  </div>
-                  <div className="relative z-[1200] w-[22px] h-[22px] border-2 border-gray-500 rounded-full flex items-center justify-center bg-white">
-                    <span className="text-xs font-semibold text-gray-500">
-                      +5
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* card 3 */}
-            <div className="bg-white p-1 border-l-4 border-red-500 rounded-md shadow-md py-2 mb-2 pl-2">
-              <div className="flex items-center justify-between text-gray-500 text-sm">
-                <div>
-                  <span>pre-algebra</span>
-                </div>
-                <div>
-                  <button>
-                    <CiEdit className="text-lg" />
-                  </button>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-semibold ">Multipling Decimals</h3>
-              </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-gray-500">09:30AM-10:00AM</span>
-                </div>
-                <div className="relative flex-grow flex items-center justify-end">
-                  <div className="absolute right-6">
-                    <img
-                      src="https://th.bing.com/th/id/OIP.s3RJ4bcuEf9d2BBzCCB_0wHaHa?rs=1&pid=ImgDetMain"
-                      alt=""
-                      className="w-[22px] h-[22px] rounded-full"
-                    />
-                  </div>
-                  <div className="absolute right-3">
-                    <img
-                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"
-                      alt=""
-                      className="w-[22px] h-[22px] rounded-full"
-                    />
-                  </div>
-                  <div className="relative z-[1200] w-[22px] h-[22px] border-2 border-gray-500 rounded-full flex items-center justify-center bg-white">
-                    <span className="text-xs font-semibold text-gray-500">
-                      +5
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+                ))}
+              </>
+            ) : (
+              <div>No Case History</div>
+            )}
           </div>
         </div>
       </div>
