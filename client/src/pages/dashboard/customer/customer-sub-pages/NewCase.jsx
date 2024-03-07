@@ -308,10 +308,6 @@ const NewCase = () => {
                   </div>
                   {/* btn container */}
                   <div className="flex items-center justify-center gap-x-3">
-                    <div>
-                      <h3 className="font-semibold">$50/h</h3>
-                      <span className="text-gray-500">Online</span>
-                    </div>
                     <button className="px-[15%] py-2 rounded-full bg-blue-600 text-white">
                       select
                     </button>

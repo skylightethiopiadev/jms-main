@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Calendar } from "react-calendar";
+import { Avatar, Datepicker } from "flowbite-react";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
 
@@ -111,8 +112,7 @@ const CustomerDashboard = () => {
               {/* calandaer table */}
               <div>
                 {/* <Calendar></Calendar> */}
-
-                <h3>Calendar Table</h3>
+                <Datepicker inline />
               </div>
             </div>
           </div>
