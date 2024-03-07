@@ -15,6 +15,9 @@ export default {
         hero: "url('/gedi.jpg')",
         footer: "url('/img/footer-texture.png')",
       },
+      boxShadow: {
+        "secondary-card-shadow": "0 2px 2px 1px rgba(0, 0, 0, 0.05)",
+      },
     },
     fontFamily: {
       roboto: ["Roboto Condensed", "sans-serif"],

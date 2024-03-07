@@ -7,6 +7,16 @@ import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
 
+// ////////////////////////////////////////////
+import { useSelector } from "react-redux";
+// action
+import { selectIsHeader } from "./features/globals/globalSlice";
+
+// components
+import AddisHeader from "./components/addis_components/AddisHeader";
+// pages
+import AddisHome from "./pages/addis_pages/AddisHome";
+
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
@@ -16,13 +26,18 @@ function App() {
   const jwt = localStorage.getItem("jwt");
   const user = JSON.parse(localStorage.getItem("user"));
 
+  // states
+  const isHeader = useSelector(selectIsHeader);
+
   // console.log(jwt, user);
   return (
     <Flowbite>
       <div className={`font-poppins medium   tracking-wide`}>
-        <div className="">
+        <div className="flex flex-col">
+          {isHeader ? <AddisHeader /> : <></>}
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<AddisHome />}></Route>
+            {/* <Route path="/" element={<Home />}></Route> */}
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
