@@ -27,6 +27,19 @@
   @apply border-b-2 border-gray-300;
 }
 
+/* ////////////////////////////////////// */
+.main-nav-list-item {
+  @apply text-[.95rem] text-gray-700 cursor-pointer border-b mb-1 uppercase border-gray-200 pb-2;
+}
+
+.main-nav-list-header {
+  @apply flex items-center justify-between gap-x-16 [&>*:nth-child(2)]:text-[1.3rem];
+}
+
+.second-order-ul {
+  @apply ml-5 [&>li]:border-b [&>li]:border-gray-200 [&>li]:pb-1 [&>li]:my-1;
+}
+
 /* secondary  cards background */
 .secondary-cards-bg {
   @apply bg-white bg-opacity-[.2];
