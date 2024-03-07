@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  useGetAllRolesQuery,
-  useGetAllUsersQuery,
-} from "../../../features/api/apiSlice";
+
 import Tables from "../../../components/Tables";
 
 const AllRoles = () => {
-  const { data } = useGetAllRolesQuery();
+  // const { data } = useGetAllRolesQuery();
   // const { data: role } = useGetAllUsersQuery();
   // console.log(role, "roles");
   const columns = [
@@ -78,7 +75,7 @@ const AllRoles = () => {
   ];
   return (
     <div>
-      <Tables data={data} columns={columns} title="Total roles" />
+      {/* <Tables data={data} columns={columns} title="Total roles" /> */}
     </div>
   );
 };

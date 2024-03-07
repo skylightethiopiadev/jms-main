@@ -4,6 +4,14 @@ import { selectModel } from "../utils/selectModel.js";
 import v2 from "./../config/cloudinary.js";
 import { Query } from "mongoose";
 
+const encrypt = (query) => {
+  return btoa(query);
+};
+
+const decrypt = (query) => {
+  return atob(query);
+};
+
 //create
 export const _create = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
@@ -61,17 +69,17 @@ export const _read = asyncCatch(async (req, res, next) => {
     const total = await model.countDocuments();
     const params = { ...req.query };
 
+    //removing unnecessary queries for filtering
     const remove = [
       "sort",
       "page",
       "limit",
       "fields",
-      "value",
-      "ss_ff",
-      "ss_vv",
-      "pp_tt",
-      "pp_ff",
       "limits",
+      "searchField",
+      "searchValue",
+      "populatingType",
+      "populatingValue",
     ];
     remove.forEach((el) => delete params[el]);
 
@@ -82,11 +90,14 @@ export const _read = asyncCatch(async (req, res, next) => {
         (match) => `$${match}`
       )
     );
-    // queryObject.deleted = false;
+
     //searching
-    if (req.query.ss_ff)
-      queryObject[req.query.ss_ff] = new RegExp(req.query.ss_vv, "gi");
-    // queryObject[req.query.ss_ff] = new RegExp('(>[^<.]*)(' + req.query.ss_vv + ')([^<.]*)','gi');
+    if (req.query.searchField)
+      queryObject[req.query.searchField] = new RegExp(
+        req.query.searchValue,
+        "gi"
+      );
+    // queryObject[req.query.searchField] = new RegExp('(>[^<.]*)(' + req.query.searchValue + ')([^<.]*)','gi');
 
     //sorting
     const query = model.find({ ...queryObject });
@@ -107,9 +118,9 @@ export const _read = asyncCatch(async (req, res, next) => {
     query.skip(skip).limit(limit);
 
     //populating
-    switch (req.query.pp_tt) {
+    switch (req.query.populatingType) {
       case "private":
-        query.populate(req.query.pp_ff);
+        query.populate(req.query.populatingValue);
         break;
       case "application":
         query.populate(req.query.pp_ff.split(",").join(" "));
@@ -122,9 +133,9 @@ export const _read = asyncCatch(async (req, res, next) => {
 
     //last page indicator
     if (page) {
-      const dd = await model.countDocuments();
-      if (skip >= dd)
-        return next(new AppError("you are in the last page", 404));
+      const doc = await model.countDocuments();
+      if (skip >= doc)
+        return res.status(200).json({ message: "you are in the last page" });
     }
     if (data.length < 1)
       return next(new AppError("There is no data to display", 400));
@@ -191,7 +202,7 @@ export const _read_single = asyncCatch(async (req, res, next) => {
   const query = model.find({ _id: req.params.id });
 
   //populating
-  switch (req.query.pp_tt) {
+  switch (req.query.populatingType) {
     case "private":
       query.populate(req.query.pp_ff);
       break;

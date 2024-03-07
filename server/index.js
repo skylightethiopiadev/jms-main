@@ -144,10 +144,10 @@ mongodb()
       });
 
       //send message for rooms
-      socket.on("aa", (messages, room1, room2) => {
+      socket.on("aa", (messages, room) => {
         // console.log(room1, room2, "rooms");
-        socket.join([room1, room2]);
-        socket.to(room1).to(room2).emit("bb", messages);
+        socket.join(room);
+        socket.to(room).emit("bb", messages);
         // socket.join([room1, room2]);
         // socket.to(room1).to(room2).emit("bb", messages);
       });

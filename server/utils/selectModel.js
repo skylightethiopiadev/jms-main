@@ -11,7 +11,6 @@ import { User } from "../models/userModel.js";
 import AppError from "./AppError.js";
 
 export const selectModel = (name, next) => {
-  console.log("running");
   let model;
   switch (name) {
     case "users":
