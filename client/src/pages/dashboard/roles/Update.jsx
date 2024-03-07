@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  useGetSingleRoleQuery,
-  useUpdateRoleMutation,
+  useReadQuery,
+  useUpdateMutation,
 } from "../../../features/api/apiSlice";
 import LoadingButton from "../../../components/loading/LoadingButton";
 import Response from "../../../components/Response";
@@ -10,7 +10,7 @@ import Response from "../../../components/Response";
 const Update = () => {
   const location = useLocation();
 
-  const { data } = useGetSingleRoleQuery({
+  const { data } = useReadQuery({
     id: location?.hash?.split("#")[1],
   });
 
@@ -22,7 +22,7 @@ const Update = () => {
     }
   }, [data]);
 
-  const [roleData, roleResponse] = useUpdateRoleMutation();
+  const [roleData, roleResponse] = useUpdateMutation();
   const [pending, setPending] = useState(false);
 
   const [dataToBeSent, setData] = useState({

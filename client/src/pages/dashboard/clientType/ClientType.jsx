@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
-  useCreateClientTypeMutation,
-  useGetAllClientTypeQuery,
+  useCreateMutation,
+  useReadQuery,
 } from "../../../features/api/apiSlice";
 import Response from "../../../components/Response";
 import LoadingButton from "../../../components/loading/LoadingButton";
@@ -9,8 +9,8 @@ import Tables from "../../../components/Tables";
 import { Link } from "react-router-dom";
 
 const ClientType = () => {
-  const { data } = useGetAllClientTypeQuery();
-  const [clientData, clientResponse] = useCreateClientTypeMutation();
+  const { data } = useReadQuery();
+  const [clientData, clientResponse] = useCreateMutation();
   const [pending, setPending] = useState(false);
   const [client, setClient] = useState("");
 

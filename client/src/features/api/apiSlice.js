@@ -1,7 +1,24 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+// import CryptoJS from "crypto-js";
 
-// const authorization = {
-//   authorization: `Bearer ${localStorage.getItem("jwt")}`,
+const authorization = {
+  authorization: `Bearer ${localStorage.getItem("jwt")}`,
+};
+
+// const encrypt = (data) => {
+//   const ENC = "bf3c199c2470cb477d907b1e0917c17f";
+//   const IV = "5183666c72eec9e4";
+//   const ALGO = "aes-256-cbc";
+
+//   let cipher = crypto.createCipheriv(ALGO, ENC, IV);
+//   let encrypted = cipher.update(data.split("?")[1], "utf8", "base64");
+//   encrypted += cipher.final("base64");
+
+//   const cc = data.split("?")[0].split("/").splice(1, 2).join("/");
+//   // const dd = CryptoJS.AES.encrypt(data.split("?")[1], "gedi");
+//   // console.log(data, "data", data.split("?")[1], "split", dd, "encrypted self");
+//   // const bb = CryptoJS.AES.decrypt(dd, "food").toString(CryptoJS.enc.Utf8);
+//   return `${cc}?q=${encrypted}`;
 // };
 
 let tag = [];
@@ -11,7 +28,19 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://192.168.100.12:5000/jms/app/v1",
   }),
-  tagTypes: ["categories", "cases"],
+  tagTypes: [
+    "users",
+    "institutions",
+    "permissions",
+    "cases",
+    "categories",
+    "applications",
+    "payments",
+    "case-managers",
+    "lawyers",
+    "groups",
+    "chats",
+  ],
   endpoints: (builder) => ({
     //user signup
     userRegister: builder.mutation({
@@ -19,6 +48,7 @@ export const apiSlice = createApi({
         url: "/user/signup",
         method: "POST",
         body: data,
+        credentials: "include",
       }),
     }),
 
@@ -28,6 +58,7 @@ export const apiSlice = createApi({
         url: "/user/login",
         method: "POST",
         body: data,
+        credentials: "include",
       }),
       invalidatesTags: ["get-all-users"],
     }),
@@ -36,11 +67,13 @@ export const apiSlice = createApi({
     create: builder.mutation({
       query: (data) => {
         data?.tag.map((d) => tag.push(d));
+        // console.log(data.url, encrypt(data.url), "both");
         return {
           url: data.url,
           method: "POST",
           body: data,
-          // headers: authorization,
+          credentials: "include",
+          headers: authorization,
         };
       },
       invalidatesTags: () => {
@@ -55,7 +88,9 @@ export const apiSlice = createApi({
         return {
           url: data.url,
           method: "GET",
-          // headers: authorization,
+          credentials: "include",
+
+          headers: authorization,
         };
       },
       providesTags: () => {
@@ -63,20 +98,6 @@ export const apiSlice = createApi({
       },
     }),
 
-    readChat: builder.query({
-      query: (data) => {
-        data?.tag.map((d) => tag.push(d));
-        // console.log(data, "rtkkkkkkk in api slice");
-        return {
-          url: data.url,
-          method: "GET",
-          // headers: authorization,
-        };
-      },
-      providesTags: () => {
-        return [...new Set(tag)];
-      },
-    }),
     //update
     update: builder.mutation({
       query: (data) => {
@@ -85,7 +106,9 @@ export const apiSlice = createApi({
           url: data.url,
           method: "PUT",
           body: data,
-          // headers: authorization,
+          credentials: "include",
+
+          headers: authorization,
         };
       },
       invalidatesTags: () => {
@@ -101,221 +124,41 @@ export const apiSlice = createApi({
           url: data.url,
           method: "DELETE",
           body: data,
-          // headers: authorization,
+          credentials: "include",
+
+          headers: authorization,
         };
       },
       invalidatesTags: () => {
         return [...new Set(tag)];
       },
     }),
-    //GET ALL ROLES
-    getAllUsers: builder.query({
-      query: () => ({
-        url: `/users`,
-        method: "GET",
-        // headers: authorization,
-      }),
-      provideTags: ["get-all-users"],
-    }),
 
-    //GET SINGLE ROLE
-    getSingleRole: builder.query({
-      query: (param) => ({
-        url: `/roles/view?id=${param.id}`,
-        method: "GET",
-        // headers: authorization,
-      }),
-      provideTags: ["get-all-roles"],
+    //########################### chat routing ###############################
+    readChat: builder.query({
+      query: (data) => {
+        data?.tag.map((d) => tag.push(d));
+        return {
+          url: data.url,
+          method: "GET",
+          // headers: authorization,
+        };
+      },
+      providesTags: () => {
+        return [...new Set(tag)];
+      },
     }),
-
-    //GET ALL ROLES
-    getAllRoles: builder.query({
-      query: () => ({
-        url: `/roles/all`,
-        method: "GET",
-        // headers: authorization,
-      }),
-      provideTags: ["get-all-roles"],
-    }),
-
-    //CREATE NEW ROLE
-    createRole: builder.mutation({
-      query: (data) => ({
-        url: "/roles/create",
-        method: "POST",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["get-all-roles"],
-    }),
-
-    //UPDATE ROLE
-    updateRole: builder.mutation({
-      query: (data) => ({
-        url: `/roles/update?id=${data.id}`,
-        method: "PUT",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["get-all-roles"],
-    }),
-
-    //GET ALL CLIENT TYPE
-    getAllClientType: builder.query({
-      query: () => ({
-        url: `/client_type/all`,
-        method: "GET",
-      }),
-      provideTags: ["client-type"],
-    }),
-
-    //GET SINGLE CLIENT TYPE
-    getSingleClientType: builder.query({
-      query: (data) => ({
-        url: `/client_type/single?id=${data.id}`,
-        method: "GET",
-      }),
-      provideTags: ["client-type"],
-    }),
-
-    //CREATE NEW CLIENT TYPE
-    createClientType: builder.mutation({
-      query: (data) => ({
-        url: "/client_type/create",
-        method: "POST",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["client-type"],
-    }),
-
-    //UPDATE CLIENT TYPE
-    updateClientType: builder.mutation({
-      query: (data) => ({
-        url: `/client_type/update?id=${data.id}`,
-        method: "PUT",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["client-type"],
-    }),
-
-    //CREATE NEW SERVICE AREA
-    createServiceArea: builder.mutation({
-      query: (data) => ({
-        url: "/service_area/create",
-        method: "POST",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["get-all-service-area"],
-    }),
-
-    //UPDATE CLIENT TYPE
-    updateServiceArea: builder.mutation({
-      query: (data) => ({
-        url: `/service_area/update?id=${data.id}`,
-        method: "PUT",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["get-all-service-area"],
-    }),
-
-    //GET ALL CLIENT TYPE
-    getAllServiceArea: builder.query({
-      query: () => ({
-        url: `/service_area/all`,
-        method: "GET",
-      }),
-      provideTags: ["get-all-service-area"],
-    }),
-
-    //GET ALL CLIENT TYPE
-    getSingleServiceArea: builder.query({
-      query: (data) => ({
-        url: `/service_area/all?id=${data.id}`,
-        method: "GET",
-      }),
-      provideTags: ["get-all-service-area"],
-    }),
-
-    //CREATE NEW REPRESENTATIVE
-    createRepresentative: builder.mutation({
-      query: (data) => ({
-        url: "/representatives/create",
-        method: "POST",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["get-all-representative"],
-    }),
-
-    //UPDATE REPRESENTATIVE
-    updateRepresentative: builder.mutation({
-      query: (data) => ({
-        url: `/representatives/update?id=${data.id}`,
-        method: "PUT",
-        body: data,
-        // headers: authorization,
-      }),
-      invalidatesTags: ["get-all-representative"],
-    }),
-
-    //GET ALL REPRESENTATIVE
-    getAllRepresentative: builder.query({
-      query: () => ({
-        url: `/representatives/all`,
-        method: "GET",
-      }),
-      provideTags: ["get-all-representative"],
-    }),
-
-    //GET SINGLE REPRESENTATIVE
-    getSingleRepresentative: builder.query({
-      query: (param) => ({
-        url: `/roles/view?id=${param.id}`,
-        method: "GET",
-        // headers: authorization,
-      }),
-      provideTags: ["get-all-representative"],
-    }),
-    //##############################
   }),
 });
 
 export const {
   useUserRegisterMutation,
   useUserLoginMutation,
-  useGetAllUsersQuery,
-  //role
-  useGetSingleRoleQuery,
-  useGetAllRolesQuery,
-  useCreateRoleMutation,
-  useUpdateRoleMutation,
 
-  //client type
-  useCreateClientTypeMutation,
-  useGetAllClientTypeQuery,
-  useGetSingleClientTypeQuery,
-  useUpdateClientTypeMutation,
-
-  //service
-  useCreateServiceAreaMutation,
-  useGetAllServiceAreaQuery,
-  useGetSingleServiceAreaQuery,
-  useUpdateServiceAreaMutation,
-
-  //representative
-  useCreateRepresentativeMutation,
-  useGetAllRepresentativeQuery,
-  useGetSingleRepresentativeQuery,
-  useUpdateRepresentativeMutation,
-
-  //category
   useCreateMutation,
   useReadQuery,
   useUpdateMutation,
   useDeleteMutation,
+
   useLazyReadChatQuery,
 } = apiSlice;

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Response from "../../../components/Response";
 import {
-  useGetSingleClientTypeQuery,
-  useUpdateClientTypeMutation,
+  useReadQuery,
+  useUpdateMutation,
 } from "../../../features/api/apiSlice";
 import LoadingButton from "../../../components/loading/LoadingButton";
 
 const ClientTypeUpdate = () => {
-  const { data } = useGetSingleClientTypeQuery({
+  const { data } = useReadQuery({
     id: location?.hash?.split("#")[1],
   });
 
-  const [clientData, clientResponse] = useUpdateClientTypeMutation();
+  const [clientData, clientResponse] = useUpdateMutation();
   const [pending, setPending] = useState(false);
   const [name, setName] = useState("");
 

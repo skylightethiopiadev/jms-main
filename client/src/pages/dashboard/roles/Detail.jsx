@@ -1,10 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { useGetSingleRoleQuery } from "../../../features/api/apiSlice";
+import { useReadQuery } from "../../../features/api/apiSlice";
 
 const Detail = () => {
   const location = useLocation();
-  const { data } = useGetSingleRoleQuery({
+  const { data } = useReadQuery({
     id: location?.hash?.split("#")[1],
   });
 
