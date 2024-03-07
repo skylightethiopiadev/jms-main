@@ -5,11 +5,11 @@ import HomeDashboard from "./pages/dashboard/HomeDashboard";
 import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
-import {Flowbite } from "flowbite-react";
+import { Flowbite } from "flowbite-react";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
-  const user = JSON.parse(localStorage.getItem("user"));
+  // const user = JSON.parse(localStorage.getItem("user"));
 
   // console.log(jwt, user);
   return (
@@ -21,12 +21,13 @@ function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
-            {jwt && user && (
-              <Route
-                path="/dashboard/*"
-                element={<HomeDashboard role={user?.role} />}
-              ></Route>
-            )}
+            <Route path="dashboard/customer/private" element={<Chat />}></Route>
+            {/* {jwt && user && ( */}
+            <Route
+              path="/dashboard/*"
+              element={<HomeDashboard role={"super-admin"} />}
+            ></Route>
+            {/* )} */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
