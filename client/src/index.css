@@ -1,3 +1,4 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,6 +21,17 @@
   border-color: rgb(77, 78, 78);
   border-width: 1px; */
 /* } */
+
+/* home accordion border width and color */
+.accordion-border-width-color {
+  @apply border-b-2 border-gray-300;
+}
+
+/* secondary  cards background */
+.secondary-cards-bg {
+  @apply bg-white bg-opacity-[.2];
+}
+
 .container {
   @apply w-full  text-gray-500 h-[80vh] bg-gray-200 flex items-center justify-center flex-col;
 }
@@ -36,7 +48,7 @@
   @apply text-[15px];
 }
 .medium {
-  @apply text-[12px];
+  @apply text-[14px];
 }
 .center {
   @apply flex flex-col w-full items-center justify-center h-full;

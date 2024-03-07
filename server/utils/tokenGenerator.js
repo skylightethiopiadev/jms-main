@@ -6,13 +6,20 @@ const tokenGenerator = (res, id) => {
   });
 
   const cookieOption = {
-    expires: new Date(
-      Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-    ),
+    expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
     httpOnly: true,
-    //secure:true     only for production
+    secure: true, //  only for production
+    sameSite: "none",
   };
-  res.cookie("jwt", token, cookieOption);
+
+  const MAX_AGE = 60 * 60 * 24;
+  res.cookie("token", token, {
+    maxAge: MAX_AGE * 1000,
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+  });
+
   return token;
 };
 

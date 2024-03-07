@@ -15,19 +15,19 @@ const Sidebar = (props) => {
 
   const messageHandler = () => {
     switch (role) {
-      case "customer": {
+      case "private": {
         return ["Representative", "Lawyers", "Public"];
       }
       case "super-admin": {
         return ["Representative", "Lawyers", "Public"];
       }
-      case "representative-main": {
+      case "case-manager-main": {
         return ["Representatives", "Lawyers", "Public", "CEO"];
       }
-      case "representative-regular": {
+      case "cas-manager-regular": {
         return ["Representative", "Lawyers", "Public", "CEO", "Lawyer"];
       }
-      case "representative-external": {
+      case "case-manager-external": {
         return ["Representative", "Lawyers", "Public", "CEO", "Lawyer"];
       }
       case "lawyer": {
