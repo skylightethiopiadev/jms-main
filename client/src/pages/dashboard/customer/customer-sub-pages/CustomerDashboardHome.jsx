@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Chart from "react-apexcharts";
+
 // icons
 import { CiSearch, CiPhone, CiEdit } from "react-icons/ci";
 import { MdOutlineMail, MdOutlineMoreVert } from "react-icons/md";
@@ -135,63 +137,55 @@ const CustomerDashboardHome = () => {
         </div>
       </div>
       {/* middle */}
-      <div className="grid grid-cols-3 gap-3 py-[3%]">
+      <div className="flex items-center gap-3 py-[3%]">
         {/* left */}
-        <div className="w-full p-2 rounded-md shadow-lg">
-          <div className="flex items-center justify-center gap-3">
-            <div className="flex items-center justify-center border-4 w-[64px] h-[64px] rounded-full border-l-blue-700 border-t-blue-700 border-blue-100">
-              <div className="font-semibold">50%</div>
+        <div className="p-2 rounded-md shadow-lg w-[50%] py-[4%]">
+          <div className="">
+            <h3 className="text-lg text-gray-500 font-semibold">Case Status</h3>
+            <div className="flex gap-1">
+              <span className="text-gray-500 font-semibold">
+                Current Status:
+              </span>
+              <span className="text-gray-500">Oral Litagation</span>
             </div>
             <div>
-              <h3 className="text-sky-500">UI/UX Design</h3>
-              <h2 className="font-semibold">Research</h2>
-              <h2 className="font-semibold">Objective User</h2>
-            </div>
-          </div>
-          <div className="text-gray-500 text-xs my-2">
-            <h5>
-              You marked <span>3/5</span>
-            </h5>
-            <h5>Subscriptions are done</h5>
-          </div>
-        </div>
-        {/* middle */}
-        <div className="w-full p-2 rounded-md shadow-lg">
-          <div className="flex items-center justify-center gap-3">
-            <div className="flex items-center justify-center border-4 w-[64px] h-[64px] rounded-full border-l-orange-500 border-orange-200">
-              <div className="font-semibold">25%</div>
+              <h3 className="text-lg text-gray-500 font-black my-1">
+                05-march-2024
+              </h3>
             </div>
             <div>
-              <h3 className="text-orange-500">UI/UX Design</h3>
-              <h2 className="font-semibold">Research</h2>
-              <h2 className="font-semibold">Objective User</h2>
+              <button className="px-3 py-1 cursor-default rounded-full bg-purple-700 text-white font-semibold">
+                03:15AM
+              </button>
             </div>
           </div>
-          <div className="text-gray-500 text-xs my-2">
-            <h5>
-              You marked <span>3/5</span>
-            </h5>
-            <h5>Subscriptions are done</h5>
-          </div>
         </div>
+
         {/* right */}
         <div className="w-full p-2 rounded-md shadow-lg">
-          <div className="flex items-center justify-center gap-3">
-            <div className="flex items-center justify-center border-4 w-[64px] h-[64px] rounded-full border-emerald-600 border-r-emerald-100">
-              <div className="font-semibold">75%</div>
-            </div>
-            <div>
-              <h3 className="text-emerald-600">UI/UX Design</h3>
-              <h2 className="font-semibold">Research</h2>
-              <h2 className="font-semibold">Objective User</h2>
-            </div>
-          </div>
-          <div className="text-gray-500 text-xs my-2">
-            <h5>
-              You marked <span>3/5</span>
-            </h5>
-            <h5>Subscriptions are done</h5>
-          </div>
+          <Chart
+            type="line"
+            width={"100%"}
+            height={150}
+            series={[
+              {
+                name: "Haddis",
+                data: [23, 32, 43, 34, 54, 45, 65, 0],
+              },
+              {
+                name: "Menelik",
+                data: [43, 92, 3, 75, 4, 45, 75, 6],
+              },
+            ]}
+            options={{
+              yaxis: {
+                // show: false,
+                labels: {
+                  show: false,
+                },
+              },
+            }}
+          ></Chart>
         </div>
       </div>
       {/* bottom */}
@@ -220,7 +214,7 @@ const CustomerDashboardHome = () => {
             </div>
           </header>
           {/* table container */}
-          <div className="h-[22vh] overflow-y-auto">
+          <div className="h-[28vh] overflow-y-auto">
             <table className="w-full">
               <tbody>
                 {caseTeams.map((team, index) => (
@@ -288,10 +282,6 @@ const CustomerDashboardHome = () => {
                                 Detail
                               </li>
                               <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
-                                <CiPhone className="text-lg text-gray-500" />
-                                Call
-                              </li>
-                              <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
                                 <MdOutlineMail className="text-lg text-gray-500" />
                                 Message
                               </li>
@@ -320,7 +310,7 @@ const CustomerDashboardHome = () => {
               </button>
             </div>
           </header>
-          <div className="h-[26vh] w-[230px] overflow-y-auto py-2">
+          <div className="h-[30vh] w-[230px] overflow-y-auto py-2">
             {/* case history cards */}
             {caseHistory?.length > 0 ? (
               <>
@@ -331,7 +321,7 @@ const CustomerDashboardHome = () => {
                       history.status === "ACTIVE"
                         ? "border-green-400"
                         : "border-red-400"
-                    } rounded-md shadow-md py-2 mb-3 pl-2`}
+                    } rounded-md shadow-md py-2 mb-5 pl-2`}
                   >
                     <div className="flex items-center justify-between text-gray-500 text-sm">
                       <div>

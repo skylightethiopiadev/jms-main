@@ -26,13 +26,12 @@ const CustomerDashboard = () => {
           <header className="flex items-center justify-between">
             {/* left-container */}
             <div>
-              <div className="flex items-center justify-start ml-[7%] w-full my-3">
-                <h3 className="text-lg font-bold mr-3">Order</h3>
-                <span>15 orders found</span>
+              <div className="flex items-center justify-start ml-[7%] w-full">
+                {/* <h3 className="text-lg font-bold mr-3">Order</h3> */}
               </div>
             </div>
             {/* right */}
-            <div>right</div>
+            {/* <div>right</div> */}
           </header>
           {/* content */}
           <div className="h-full flex bg-white">
@@ -64,7 +63,7 @@ const CustomerDashboard = () => {
               </div>
 
               {/* total balance */}
-              <div className="shadow-sm">
+              <div className="shadow-sm border-t-2 mt-3 border-gray-200 ">
                 {/* top */}
                 <div className="p-2 border-b border-gray-200">
                   <div>
@@ -73,10 +72,10 @@ const CustomerDashboard = () => {
                       $21,328.00
                     </h3>
                     <div className="flex items-center justify-between gap-2">
-                      <button className="px-5 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
                         Fund
                       </button>
-                      <button className="px-5 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
                         Refund
                       </button>
                     </div>
@@ -84,25 +83,26 @@ const CustomerDashboard = () => {
                 </div>
                 {/* bottom */}
                 <div className="my-3">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between my-1">
                     <h3 className="font-semibold">Expenses Analysis</h3>
                     <button className="text-gray-500 rounded-full border border-gray-500 flex items-center justify-between p-1">
                       <span>August</span>
                       <IoIosArrowDown />
                     </button>
                   </div>
-                  <div className="grid grid-cols-3 w-full mt-3">
-                    <div className="w-full border-b-4 border-purple-700">
+                  <div>
+                    <span className="text-gray-500 font-semibold">Total</span>
+                  </div>
+                  <div className="grid grid-cols-3 w-full mt-1">
+                    <div className="w-full border-b-4 border-purple-700 py-1">
                       <span className="text-gray-500 w-full">Total Spent</span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
-                    <div className="w-full border-b-4 border-purple-500">
-                      <span className="text-gray-500 w-full">
-                        Total Utility
-                      </span>
+                    <div className="w-full border-b-4 border-purple-500 py-1">
+                      <span className="text-gray-500 w-full">Utility</span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
-                    <div className="w-full border-b-4 border-purple-300">
+                    <div className="w-full border-b-4 border-purple-300 py-1">
                       <span className="text-gray-500 w-full">Total Refund</span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
@@ -113,6 +113,14 @@ const CustomerDashboard = () => {
               <div>
                 {/* <Calendar></Calendar> */}
                 <Datepicker inline />
+                {/* 
+                /////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////
+                 */}
               </div>
             </div>
           </div>

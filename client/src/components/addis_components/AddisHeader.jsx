@@ -14,6 +14,7 @@ import { FiPhone } from "react-icons/fi";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { GrClose } from "react-icons/gr";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const AddisHeader = () => {
   // local state
@@ -142,7 +143,9 @@ const AddisHeader = () => {
         )}
       </div>
       {/* bottom header */}
-      <div className="py-3 border-b border-gray-200 px-[1%] flex items-center justify-center">
+      <div className="py-3 border-b border-gray-200 px-[1%] flex items-center justify-between">
+        {/* left */}
+        <div>{/* left container */}</div>
         {/* actual nav */}
         <div>
           <ul className="flex items-center justify-center gap-x-5 uppercase">
@@ -391,6 +394,13 @@ const AddisHeader = () => {
               </NavLink>
             </li>
           </ul>
+        </div>
+        {/* right */}
+        <div>
+          {/* main menu icon */}
+          <button className="text-3xl">
+            <AiOutlineMenu />
+          </button>
         </div>
       </div>
     </header>

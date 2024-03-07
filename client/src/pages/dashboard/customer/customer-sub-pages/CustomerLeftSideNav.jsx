@@ -56,7 +56,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-full bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-full bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem] font-semibold"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}
@@ -89,7 +89,7 @@ const CustomerLeftSideNav = () => {
           </NavLink>
         </div>
         {/* nav container */}
-        <div className="pt-[9%] text-gray-700 text-[1rem]">
+        <div className="pt-[9%] text-gray-500 text-[1rem]">
           {/* Dashboard */}
           <NavLink
             to={`/dashboard/customer`}
@@ -442,7 +442,7 @@ const CustomerLeftSideNav = () => {
         </div>
         {/* bottom */}
         <div>
-          <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
+          <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700 font-normal">
             <IoExitSharp className="text-xl mr-1" />
             <span>Logout</span>
           </button>

@@ -254,7 +254,7 @@ const NewCase = () => {
         //////////////////////////////////////////
         */}
 
-        <div className="bg-gray-100 h-[52vh] overflow-y-auto p-2 grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="bg-gray-100 h-[68vh] overflow-y-auto p-2 grid grid-cols-2 md:grid-cols-3 gap-3">
           {/* cards */}
           {cunsultations?.length > 0 ? (
             <>
