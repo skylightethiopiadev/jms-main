@@ -8,67 +8,71 @@ import { Lawyer } from "../models/lawyerModel.js";
 import { CaseManager } from "../models/caseManagerModel.js";
 import { Institution } from "../models/organizationModel.js";
 import v2 from "./../config/cloudinary.js";
+import { Private } from "../models/privateModel.js";
 
 export const signupHandler = asyncCatch(async (req, res, next) => {
   const value = { ...req.body };
+  const createAccount = async (model) => {
+    const user = await User.create(req.body);
+    if (user) {
+      const account = await model.create({});
+      if (account._id) {
+        const data = await User.findByIdAndUpdate(
+          { _id: user._id },
+          {
+            $set: { user: account._id },
+          }
+        );
 
-  const createAccount = async (id) => {
-    const data = await User.create({
-      ...value,
-      user: id,
-      profilePicture: req.files.profilePicture
-        ? req.files.profilePicture[0].path
-        : undefined,
-    });
+        const token = tokenGenerator(res, data._id);
 
-    const token = tokenGenerator(res, data._id);
-
-    return res
-      .status(200)
-      .json({ message: "Account Created Successfully", token, data });
+        return res
+          .status(200)
+          .json({ message: "Account Created Successfully", token, data });
+      }
+    } else {
+      return next(new AppError("problem with creating account try again", 500));
+    }
   };
 
-  const user = await User.find({
-    $or: [{ email: req.body.email }, { userName: req.body.userName }],
-  });
-
-  if (user.length > 0) {
-    return next(new AppError(`either user name or email is taken`, 400));
-  }
-
-  switch (value.userType) {
+  switch (req.body.role) {
     case "private":
-      createAccount("");
-      break;
-    case "lawyer":
-      const lawyer = await Lawyer.create(value);
-      lawyer._id && createAccount(lawyer._id);
-      break;
+      return createAccount(Private);
     case "business":
       const remove = ["firstName", "middleName", "lastName", "gender"];
       remove.forEach((el) => delete value[el]);
       const business = await Institution.create(value);
-      business._id && createAccount(business._id);
+      if (business._id) return createAccount(business._id);
       break;
-    case "case-manager-main" ||
-      "case-manager-regular" ||
-      "case-manager-external":
-      const manager = await CaseManager.create(value);
-      manager._id && createAccount(manager._id);
+    case "lawyer":
+      // const lawyer = await Lawyer.create(value);
+      // if (lawyer._id) return createAccount(lawyer._id);
+      // break;
+      return createAccount(Lawyer);
+    case "case-manager-main":
+      const manager_main = await CaseManager.create(value);
+      if (manager_main._id) return createAccount(manager._id);
+      break;
+    case "case-manager-regular":
+      const manager_regular = await CaseManager.create(value);
+      if (manager_regular._id) return createAccount(manager._id);
+      break;
+    case "case-manager-external":
+      const manager_external = await CaseManager.create(value);
+      if (manager_external._id) return createAccount(manager._id);
       break;
     case "super-admin":
-      createAccount("");
-      break;
+      return createAccount("");
     default:
       return next(new AppError("problem with creating account try again", 500));
   }
 });
 
 export const loginHandler = asyncCatch(async (req, res, next) => {
-  const { userName, password } = req.body;
-  if (!userName || !password)
+  const { email, password } = req.body;
+  if (!email || !password)
     return next(new AppError("provide email and password", 404));
-  const user = await User.findOne({ userName }).select("+password");
+  const user = await User.findOne({ email }).select("+password");
   if (!user)
     return next(
       new AppError(
@@ -81,6 +85,15 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
   if (!isPasswordCorrect)
     return next(new AppError("Invalid user name or password", 404));
   const token = tokenGenerator(res, user._id);
+
+  // const MAX_AGE = 60 * 60 * 24;
+  // res.cookie("token", token, {
+  //   // maxAge: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+  //   expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+  //   httpOnly: true,
+  //   secure: false,
+  //   sameSite: "None",
+  // });
 
   res.status(200).json({
     status: "success",

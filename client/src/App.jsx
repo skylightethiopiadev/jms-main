@@ -7,24 +7,9 @@ import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
 
-// ////////////////////////////////////////////
-import { useSelector } from "react-redux";
-// action
-import { selectIsHeader } from "./features/globals/globalSlice";
-
-// components
-import AddisHeader from "./components/addis_components/AddisHeader";
-// pages
-import AddisHome from "./pages/addis_pages/AddisHome";
-
-// customer
-import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
-import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
-import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
-
 function App() {
   const jwt = localStorage.getItem("jwt");
-  const user = JSON.parse(localStorage.getItem("user"));
+  // const user = JSON.parse(localStorage.getItem("user"));
 
   // states
   const isHeader = useSelector(selectIsHeader);
@@ -41,23 +26,13 @@ function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
-            <Route path="/dashboard/customer" element={<CustomerDashboard />}>
-              <Route
-                // path="/dashboard/customer/home"
-                index
-                element={<CustomerDashboardHome />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/new-case"
-                element={<NewCase />}
-              ></Route>
-            </Route>
-            {jwt && user && (
-              <Route
-                path="/dashboard/*"
-                element={<HomeDashboard role={user?.role} />}
-              ></Route>
-            )}
+            <Route path="dashboard/customer/private" element={<Chat />}></Route>
+            {/* {jwt && user && ( */}
+            <Route
+              path="/dashboard/*"
+              element={<HomeDashboard role={"super-admin"} />}
+            ></Route>
+            {/* )} */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

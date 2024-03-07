@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ServiceAreaRead = () => {
   const { data, isFetching, isError } = useReadQuery({
-    url: `/categories`,
+    url: `/user/categories`,
     tag: ["categories"],
   });
 

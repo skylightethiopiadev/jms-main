@@ -3,63 +3,115 @@ import * as valid from "../utils/validator.js";
 
 const lawyerSchema = new mongoose.Schema(
   {
+    firstName: {
+      type: String,
+      default: "gedeon",
+      validate: valid.name("First name"),
+    },
+
+    middleName: {
+      default: "gedeon",
+      type: String,
+      validate: valid.name("Middle name"),
+    },
+
+    lastName: {
+      default: "gedeon",
+      type: String,
+      validate: valid.name("Last name"),
+    },
+
+    gender: {
+      default: "Male",
+      type: String,
+      validate: valid.gender("Gender"),
+    },
+
+    phone: {
+      default: "0954104637",
+      type: String,
+      validate: valid.phone("Phone"),
+    },
+
+    address: {
+      default: "gedeon",
+      type: String,
+      validate: valid.paragraph("Address", 4, 200),
+    },
+
+    nationality: {
+      default: "gedeon",
+      type: String,
+      validate: valid.paragraph("Nationality", 4, 100),
+    },
+
+    ID: {
+      default: "gedeon",
+      type: String,
+    },
+
+    acquireLicense: {
+      default: false,
+      type: Boolean,
+    },
+
+    licenseNo: {
+      default: "gedeon",
+      type: String,
+    },
+
     levelOfEducation: {
       type: String,
-      validate: valid.paragraph("Level of education", 4, 50),
-      required: [true, "Level of education is required"],
+      enum: ["LLB", "LLM", "PHD"],
+      default: "LLB",
     },
 
-    startingDate: {
+    areaOfExpertise: {
+      default: "gedeon",
       type: String,
-      // validate: valid.date("Starting date"),
-      // required: [true, "Starting date is required"],
     },
 
-    licenseType: {
-      type: String,
-      validate: valid.paragraph("License type", 4, 50),
-      required: [true, "License type is required"],
+    yearOfExperience: {
+      default: 5,
+      type: Number,
     },
 
-    licenseLevel: {
-      type: String,
-      validate: valid.numberBetween("License level", 1, 5),
-      required: [true, "License level is required"],
-    },
-
-    specializedArea: {
-      type: String,
-      validate: valid.paragraph("Specialized area", 3, 100),
-      required: [true, "Specialized area is required"],
-    },
-
-    additionalSkills: {
+    preferenceArea: {
+      default: "gedeon",
       type: [String],
-      // validate: valid.paragraph("Additional skills", 3, 100),
-      required: [true, "Additional skills is required"],
     },
 
-    languageSkills: {
-      type: [String],
-      // validate: valid.paragraph("Language skills", 3, 100),
-      required: [true, "Language skills is required"],
+    yearOfExpire: {
+      default: new Date(),
+      type: Date,
     },
 
-    lawyerType: {
+    resumeAndCoverLetter: {
+      default: "gedeon",
       type: String,
-      // validate: valid.paragraph("Language skills", 3, 100),
-      required: [true, "Lawyer type is required"],
     },
 
-    status: {
+    additionalDocuments: {
+      default: "gedeon",
       type: String,
-      default: "Active",
     },
 
-    licenseFile: {
-      type: Buffer,
+    bio: {
+      type: String,
+      default: "gedeon",
+      validate: valid.paragraph("Biography", 5, 400),
+    },
+
+    profilePicture: {
+      type: String,
+      default: "https",
+    },
+
+    profileFillStatus: {
+      type: Number,
     },
   },
+
   {
     timestamps: true,
     toJSON: {
@@ -73,6 +125,38 @@ const lawyerSchema = new mongoose.Schema(
 
 lawyerSchema.pre("findOneAndUpdate", function (next) {
   this.options.runValidators = true;
+  next();
+});
+
+lawyerSchema.pre("save", function (next) {
+  let percent = 25;
+  const fields = [
+    "firstName",
+    "middleName",
+    "lastName",
+    "gender",
+    "phone",
+    "address",
+    "nationality",
+    "ID",
+    "acquireLicense",
+    "licenseNo",
+    "levelOfEducation",
+    "areaOfExpertise",
+    "yearOfExperience",
+    "preferenceArea",
+    "yearOfExpire",
+    "profilePicture",
+    "resumeAndCoverLetter",
+    "bio",
+  ];
+  fields.map((field) => {
+    if (this[field]?.length > 0) {
+      percent += 5;
+    }
+  });
+
+  this.profileFillStatus = percent;
   next();
 });
 

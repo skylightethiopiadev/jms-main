@@ -43,7 +43,7 @@ const Chat = () => {
     isLoading: userIsFetching,
     isError: userIsError,
   } = useReadQuery({
-    url: `/user/users?limits=50`,
+    url: `/user/users?limits=40`,
     tag: ["users"],
   });
 

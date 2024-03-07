@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import AppError from "../utils/AppError.js";
 
 export const authentication = async (req, res, next) => {
+  console.log(req.cookies, req.cookie, "cookie");
   // console.log(req.headers);
   let token, user;
   const header = req.headers.authorization;
