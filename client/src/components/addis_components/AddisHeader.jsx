@@ -62,7 +62,7 @@ const AddisHeader = () => {
             </button>
             {/* call detail */}
             {isPhone ? (
-              <div className="absolute left-0 top-[160%] bg-white w-max p-5 shadow-lg">
+              <div className="absolute left-0 top-[160%] z-50 bg-white w-max p-5 shadow-lg">
                 <div className="font-semibold">
                   <h3>Talk To Legal Zoom</h3>
                   <h3>(855) 787-1922</h3>
@@ -179,7 +179,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
                 >
                   <li className="my-2">
                     <NavLink>ServiceSubMenu-1</NavLink>
@@ -239,7 +239,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
                 >
                   <li className="my-2">
                     <NavLink>TutorialSubMenu-1</NavLink>
@@ -282,7 +282,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
                 >
                   <li className="my-2">
                     <NavLink>PortfolioSubMenu-1</NavLink>
@@ -325,7 +325,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
