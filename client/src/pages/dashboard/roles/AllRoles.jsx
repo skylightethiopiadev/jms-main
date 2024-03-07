@@ -75,7 +75,7 @@ const AllRoles = () => {
   ];
   return (
     <div>
-      <Tables data={data} columns={columns} title="Total roles" />
+      {/* <Tables data={data} columns={columns} title="Total roles" /> */}
     </div>
   );
 };

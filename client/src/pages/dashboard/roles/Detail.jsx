@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 import { useReadQuery } from "../../../features/api/apiSlice";
 
@@ -14,13 +13,13 @@ const Detail = () => {
       {data ? (
         <div className="flex flex-col items-center gap-6 ">
           {Object.keys(data?.roles).map((e, i) => (
-            <div>
+            <div key={i}>
               <div className="flex gap-4 gap-y-1">
                 Table name: <p className="font-bold text-blue-500">{e} </p>{" "}
                 Permissions:{" "}
                 <div className="flex gap-1">
-                  {data?.roles[e].map((d) => (
-                    <div className="flex gap-1">
+                  {data?.roles[e].map((d, i) => (
+                    <div key={i} className="flex gap-1">
                       {d === "read" && (
                         <p className="border border-green-500 text-green-500 rounded-sm px-1 py-[1px] bg-green-100">
                           {d}

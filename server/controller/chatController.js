@@ -5,17 +5,19 @@ import { Chat } from "../models/chatModel.js";
 //create
 export const chatCreate = asyncCatch(async (req, res, next) => {
   let data;
-  const { sender, receiver } = req.body;
-  const chat = await Chat.findOne({ chatId: `${sender}.${receiver}` });
 
-  if (chat.length > 0) {
-    data = await Chat.create({ ...req.body, chatId: `${sender}.${receiver}` });
+  const { sender, receiver, chatId } = req.body;
+  const chat = await Chat.findOne({ chatId: `${sender}.${receiver}` });
+  if (chat) {
+    data = await Chat.create({ ...req.body, chatId: chat?.chatId });
   } else {
     data = await Chat.create({ ...req.body, chatId: `${receiver}.${sender}` });
   }
 
   if (!data)
-    return next(new AppError("something went wrong unable to send the message"));
+    return next(
+      new AppError("something went wrong unable to send the message")
+    );
 
   return res.status(201).json({
     status: "Success",

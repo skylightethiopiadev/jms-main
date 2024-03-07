@@ -41,7 +41,7 @@ const ServiceAreaUpdate = () => {
         pending={pending}
         onClick={serviceAreaUpdateHandler}
         title="Update"
-        color="bg-blue-500"
+        color="bg-blue-500" 
       />
     </div>
   );

@@ -11,13 +11,18 @@ function App() {
   const jwt = localStorage.getItem("jwt");
   // const user = JSON.parse(localStorage.getItem("user"));
 
+  // states
+  const isHeader = useSelector(selectIsHeader);
+
   // console.log(jwt, user);
   return (
     <Flowbite>
       <div className={`font-poppins medium   tracking-wide`}>
-        <div className="">
+        <div className="flex flex-col">
+          {isHeader ? <AddisHeader /> : <></>}
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<AddisHome />}></Route>
+            {/* <Route path="/" element={<Home />}></Route> */}
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
