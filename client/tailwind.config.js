@@ -23,6 +23,9 @@ export default {
       roboto: ["Roboto Condensed", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
     },
+    fontSize: {
+      page: ".85rem",
+    },
   },
   plugins: [require("flowbite/plugin")],
   // darkMode: 'class',

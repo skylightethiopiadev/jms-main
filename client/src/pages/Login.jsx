@@ -34,7 +34,8 @@ const Login = () => {
         response={loginResponse}
         setPending={setPending}
         redirectTo="/dashboard"
-        type="login"
+        // type="login"
+        type="loginddd"
       />
 
       <p className="text-lg font-bold">Login</p>

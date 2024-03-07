@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { MdOutlineShareLocation } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
-
 // data
 import { cunsultations } from "../../../../DataFile";
 
