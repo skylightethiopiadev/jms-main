@@ -2,6 +2,10 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
+//////////////////////////////////////////////
+import { useDispatch } from "react-redux";
+import { setIsHeader } from "../../features/globals/globalSlice";
+
 // site logo image
 import mainSiteLogo from "../../assets/images/site-logo/jms-site-logo.jpg";
 
@@ -22,6 +26,8 @@ const AddisHeader = () => {
   const [isPortfolio, setIsPortfolio] = useState(false);
   const [isOurTeam, setIsOurTeam] = useState(false);
   const [isContactUs, setIsContactUs] = useState(false);
+
+  const dispatch = useDispatch();
 
   return (
     <header className="p1-3">
@@ -91,6 +97,11 @@ const AddisHeader = () => {
           {/* singup */}
           <div>
             <NavLink
+              to={"/dashboard/customer/"}
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(setIsHeader(false));
+              }}
               className={
                 "px-5 py-2 text-lg text-white bg-black rounded-full font-semibold transition-all ease-in-out duration-150 hover:bg-gray-600"
               }
@@ -179,7 +190,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
                 >
                   <li className="my-2">
                     <NavLink>ServiceSubMenu-1</NavLink>
@@ -239,7 +250,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
                 >
                   <li className="my-2">
                     <NavLink>TutorialSubMenu-1</NavLink>
@@ -282,7 +293,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
                 >
                   <li className="my-2">
                     <NavLink>PortfolioSubMenu-1</NavLink>
@@ -325,7 +336,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-50 w-max p-3 px-5 shadow-lg font-normal"
+                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
                   onClick={(e) => {
                     e.stopPropagation();
                   }}

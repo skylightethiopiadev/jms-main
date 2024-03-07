@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-
+import { Calendar } from "react-calendar";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
 

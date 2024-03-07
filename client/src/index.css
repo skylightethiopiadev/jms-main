@@ -21,6 +21,17 @@
   border-color: rgb(77, 78, 78);
   border-width: 1px; */
 /* } */
+
+/* home accordion border width and color */
+.accordion-border-width-color {
+  @apply border-b-2 border-gray-300;
+}
+
+/* secondary  cards background */
+.secondary-cards-bg {
+  @apply bg-white bg-opacity-[.2];
+}
+
 .container {
   @apply w-full  text-gray-500 h-[80vh] bg-gray-200 flex items-center justify-center flex-col;
 }

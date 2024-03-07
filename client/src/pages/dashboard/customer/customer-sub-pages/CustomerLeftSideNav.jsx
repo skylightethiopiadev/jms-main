@@ -5,6 +5,10 @@ import { NavLink } from "react-router-dom";
 import siteMainLogo from "../../../../assets/images/site-logo/jms-site-logo.jpg";
 import callCenter from "../../../../assets/images/call-center/call-center-1.png";
 
+////////////////////////////////////////////////
+import { useDispatch } from "react-redux";
+import { setIsHeader } from "../../../../features/globals/globalSlice";
+
 //icons
 import {
   IoIosArrowDown,
@@ -33,6 +37,9 @@ const CustomerLeftSideNav = () => {
   const [isFinanceOpen, setIsFinanceOpen] = useState(false);
   const [isOtherServiceOpen, setIsOtherServiceOpen] = useState(false);
 
+  // hooks
+  const dispatch = useDispatch();
+
   // customer dashboard left side bar toggler
   const customerDashBoardLeftSideBarToggler = () => {
     let customerDashBoardLeftSideBar = document.getElementById(
@@ -49,7 +56,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-full bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[180px] flex flex-col justify-between px-[1%]"
+      className="absolute left-[-100vw] h-full bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}
@@ -68,18 +75,25 @@ const CustomerLeftSideNav = () => {
         </div>
         {/* logo */}
         <div className="flex items-center justify-center pt-[7%]">
-          <NavLink className={"flex items-center justify-center"}>
+          <NavLink
+            to={"/"}
+            className={"flex items-center justify-center"}
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(setIsHeader(true));
+            }}
+          >
             {/* icon */}
             <img src={siteMainLogo} alt="" className="w-[64px] h-[64px]" />
             <span className="text-gray-700 font-bold">MACOTA</span>
           </NavLink>
         </div>
         {/* nav container */}
-        <div className="pt-[7%] text-gray-700">
+        <div className="pt-[9%] text-gray-700 text-[1rem]">
           {/* Dashboard */}
           <NavLink
             to={`/dashboard/customer`}
-            className={`flex items-center my-4`}
+            className={`flex items-center my-5`}
             onClick={(e) => {
               setIsComplianceOpen(false);
               setIsMyChartOpen(false);
@@ -92,7 +106,7 @@ const CustomerLeftSideNav = () => {
             <span>Dashboard</span>
           </NavLink>
           {/* Compliance */}
-          <div className="my-4 relative">
+          <div className="my-5 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
@@ -145,7 +159,7 @@ const CustomerLeftSideNav = () => {
             )}
           </div>
           {/* My Chart */}
-          <div className="my-4 relative">
+          <div className="my-5 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
@@ -218,7 +232,7 @@ const CustomerLeftSideNav = () => {
           </div>
           {/* message */}
           <NavLink
-            className={`flex items-center my-4`}
+            className={`flex items-center my-5`}
             onClick={(e) => {
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
@@ -232,7 +246,7 @@ const CustomerLeftSideNav = () => {
           </NavLink>
           {/* appointment */}
           <NavLink
-            className={`flex items-center my-4`}
+            className={`flex items-center my-5`}
             onClick={(e) => {
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
@@ -245,7 +259,7 @@ const CustomerLeftSideNav = () => {
             <span>Appointment</span>
           </NavLink>
           {/* Finance */}
-          <div className="my-4 relative">
+          <div className="my-5 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
@@ -326,7 +340,7 @@ const CustomerLeftSideNav = () => {
             )}
           </div>
           {/* other services */}
-          <div className="my-4 relative">
+          <div className="my-5 relative">
             {/* main text */}
             <div
               className="flex items-center justify-between w-[85%] cursor-pointer"
