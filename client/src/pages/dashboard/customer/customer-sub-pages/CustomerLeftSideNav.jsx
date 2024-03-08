@@ -56,7 +56,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100%] bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem] font-semibold"
+      className="absolute left-[-100vw] h-[100%] bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}
@@ -74,22 +74,21 @@ const CustomerLeftSideNav = () => {
           </button>
         </div>
         {/* logo */}
-        <div className="flex items-center justify-center pt-[7%]">
+        <div className="flex items-center justify-center">
           <NavLink
             to={"/"}
-            className={"flex items-center justify-center"}
+            className={"flex items-center justify-center pr-[25%]"}
             onClick={(e) => {
               e.stopPropagation();
               dispatch(setIsHeader(true));
             }}
           >
             {/* icon */}
-            <img src={siteMainLogo} alt="" className="w-[64px] h-[64px]" />
-            <span className="text-gray-700 font-bold">MACOTA</span>
+            <img src={siteMainLogo} alt="" className="w-[200px] h-[200px] " />
           </NavLink>
         </div>
         {/* nav container */}
-        <div className="pt-[9%] text-gray-500 text-[1rem]">
+        <div className="text-gray-500 text-[1rem]">
           {/* Dashboard */}
           <NavLink
             to={`/dashboard/customer`}
@@ -423,16 +422,18 @@ const CustomerLeftSideNav = () => {
         </div>
       </div>
       {/* button container */}
-      <div>
+      <div className="mr-9 my-3">
         {/* top */}
-        <div className="p-3 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
-          <h3 className="font-bold">Upgrade your plan</h3>
-          <h3 className="font-bold">To get pro service</h3>
-          <div className="my-1">
+        <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
+          <h5 className="font-semibold text-center">Please get in touch</h5>
+          <h5 className="font-semibold text-center">
+            with your service provider
+          </h5>
+          <div className="mb-1">
             <img
               src={callCenter}
               alt=""
-              className="w-[150px] h-[130px] rounded-md"
+              className="w-[120px] h-[90px] mt-[-24px] rounded-md"
             />
           </div>
           <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">

@@ -59,7 +59,7 @@ const CustomerDashboardHeader = () => {
             <input
               type="text"
               placeholder="search"
-              className="focus:outline-none focus:ring-0 bg-transparent border-none h-[24px] md:w-[350px] text-sm"
+              className="focus:outline-none focus:ring-0 bg-transparent border-none h-[24px] w-[150px] sm:w-[200px] md:w-[350px] text-sm"
             />
             {/* search icon */}
             <FiSearch className="text-xl my-2 mr-3" />
@@ -87,7 +87,10 @@ const CustomerDashboardHeader = () => {
             alt=""
             className="w-[24px] h-[24px] rounded-sm"
           />
-          <span className="text-xs text-gray-500">Meseret Seyoum</span>
+          <div className="text-xs text-gray-500 flex gap-x-1">
+            <span>Meseret</span>
+            <span className="hidden sm:flex">Seyoum</span>
+          </div>
           {/* sub menu */}
           <div className="relative">
             {/* sub menu icon */}
