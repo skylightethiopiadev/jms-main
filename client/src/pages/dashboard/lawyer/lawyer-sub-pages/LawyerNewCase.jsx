@@ -11,7 +11,7 @@ import { cunsultations } from "../../../../DataFile";
 
 // main
 // NewCase
-const NewCase = () => {
+const LawyerNewCase = () => {
   // local states
   const [isAllTypeOpen, setIsAllTypeOpen] = useState(false);
   const [allTypeHeaderText, setAllTypeHeaderText] = useState("All Types");
@@ -48,61 +48,7 @@ const NewCase = () => {
 
   return (
     <div className="bg-gray-100 h-full">
-      <header className="h-max bg-sky-100 grid grid-cols-4">
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-      </header>
-      <header className="h-[42px] bg-sky-100 flex items-center justify-center">
+      <header className="h-[130px] bg-sky-100 flex items-center justify-center">
         {/* circle and bar */}
         <div className="flex items-center justify-center">
           {/* step-0 */}
@@ -575,4 +521,4 @@ const NewCase = () => {
   );
 };
 
-export default NewCase;
+export default LawyerNewCase;

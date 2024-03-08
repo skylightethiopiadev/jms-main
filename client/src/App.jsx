@@ -17,6 +17,11 @@ import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
 import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
 
+// lawyer
+import LawyerDashboard from "./pages/dashboard/lawyer/LawyerDashboard";
+import LawyerDashboardHome from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerDashboardHome";
+import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCase";
+
 function App() {
   const jwt = localStorage.getItem("jwt");
   const user = JSON.parse(localStorage.getItem("user"));
@@ -33,6 +38,17 @@ function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
+            <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
+              <Route
+                // path="/dashboard/customer/home"
+                index
+                element={<LawyerDashboardHome />}
+              ></Route>
+              <Route
+                path="/dashboard/lawyer/lawyer-new-case"
+                element={<LawyerNewCase />}
+              ></Route>
+            </Route>
             <Route path="/dashboard/customer" element={<CustomerDashboard />}>
               <Route
                 // path="/dashboard/customer/home"

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // site logo image
-import mainSiteLogo from "../../assets/images/site-logo/jms-site-logo.jpg";
+import mainSiteLogo from "../../assets/images/site-logo/final-logo.png";
 
 // icons
 import { FiPhone } from "react-icons/fi";
