@@ -6,11 +6,16 @@ import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
+import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
+import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
+import LawyerDashboard from "./pages/dashboard/LawyerDashboard";
+import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
+import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
 // import { useSelector } from "react-redux";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
-  // const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   // states
   // const isHeader = useSelector(selectIsHeader);
@@ -27,11 +32,36 @@ function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
-            <Route path="dashboard/customer/private" element={<Chat />}></Route>
+            {/* <Route path="dashboard/customer/private" element={<Chat />}></Route> */}
             {jwt && user && (
+              //ORIGINAL
+              // <Route
+              //   path="/dashboard/*"
+              //   element={<HomeDashboard role={"super-admin"} />}
+              // ></Route>
               <Route
                 path="/dashboard/*"
-                element={<HomeDashboard role={"super-admin"} />}
+                element={
+                  user.role === "super-admin" ||
+                  user.role === "case-manager-main" ||
+                  user.role === "case-manager-regular" ||
+                  user.role === "case-manager-external" ? (
+                    <HomeDashboard role={user?.role} />
+                  ) : user.role === "lawyer" ? (
+                    <LawyerDashboard role={user?.role} />
+                  ) : (
+                    <CustomerDashboard>
+                      <Route
+                        path="/"
+                        element={<CustomerDashboardHome />}
+                      ></Route>
+                      <Route
+                        path="/dashboard/customer/new-case"
+                        element={<NewCase />}
+                      ></Route>
+                    </CustomerDashboard>
+                  )
+                }
               ></Route>
             )}
             <Route path="*" element={<PageNotFound />} />

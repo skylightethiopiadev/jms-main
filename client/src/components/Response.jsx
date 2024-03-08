@@ -16,16 +16,25 @@ const Response = ({ response, setPending, redirectTo, type }) => {
     if (response.status === "fulfilled") {
       switch (response?.data?.data?.role) {
         case "super-admin":
-          dashboard = "/dashboard/super-admin";
+          dashboard = "/dashboard";
           break;
-        case "private":
+        case "private-customer":
+          dashboard = "/dashboard/customer";
+          break;
+        case "business-customer":
           dashboard = "/dashboard/customer";
           break;
         case "lawyer":
           dashboard = "/dashboard/lawyer";
           break;
         case "case-manager-main":
-          dashboard = "/dashboard/case-manager-main";
+          dashboard = "/dashboard/manager";
+          break;
+        case "case-manager-regular":
+          dashboard = "/dashboard/manager";
+          break;
+        case "case-manager-external":
+          dashboard = "/dashboard/manager";
           break;
       }
     }

@@ -183,10 +183,21 @@ export const caseHistory = [
     ],
   },
   {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
     file_no: "No.345989",
     case_place: "Bolle Kefele Ketema",
     case_date: "3 weeks ",
-    status: "CLOSED",
+    status: "ACTIVE",
     caseType: "fetaber chelot",
     lawyers: [
       "https://th.bing.com/th/id/R.3f3b68c0fde58eea7448cef9b640e299?rik=c0t2b8nVH4v%2f2g&pid=ImgRaw&r=0",
@@ -197,7 +208,29 @@ export const caseHistory = [
     file_no: "No. 977465",
     case_place: "Ledeta Kefele Ketema",
     case_date: "2 months",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/R.b6350e5011a7b61996efada66d100575?rik=7D6Ni11ELDKMoA&pid=ImgRaw&r=0",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.345989",
+    case_place: "Bolle Kefele Ketema",
+    case_date: "3 weeks ",
     status: "ACTIVE",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/R.3f3b68c0fde58eea7448cef9b640e299?rik=c0t2b8nVH4v%2f2g&pid=ImgRaw&r=0",
+      "https://th.bing.com/th/id/R.1150865efae3b2f32b85f397decbbf16?rik=yLVMcyH4AxaUVw&pid=ImgRaw&r=0",
+    ],
+  },
+  {
+    file_no: "No. 977465",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "2 months",
+    status: "CLOSED",
     caseType: "fetaber chelot",
     lawyers: [
       "https://th.bing.com/th/id/R.b6350e5011a7b61996efada66d100575?rik=7D6Ni11ELDKMoA&pid=ImgRaw&r=0",

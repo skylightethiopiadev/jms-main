@@ -72,10 +72,11 @@ const Sidebar = (props) => {
             title="Case chart"
             id="case-chart"
             icon={<KeyboardDoubleArrowRight sx={{ width: 12, height: 12 }} />}
-            children={["Active case", "Closed case"]}
+            children={["Create new case", "Active case", "Closed case"]}
             paths={[
-              "/dashboard/case-chart?active",
-              "/dashboard/case-chart?closed",
+              "/dashboard/create-new-case",
+              "/dashboard/active-case",
+              "/dashboard/closed-case",
             ]}
           />
 

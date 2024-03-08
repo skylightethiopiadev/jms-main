@@ -23,6 +23,9 @@ import ServiceAreaDetail from "./categories/ServiceAreaDetail";
 import ServiceAreaRead from "./categories/ServiceAreaRead";
 import ServiceAreaCreate from "./categories/ServiceAreaCreate";
 import ServiceAreaUpdate from "./categories/ServiceAreaUpdate";
+import CreateNewCase from "./caseChart/CreateNewCase";
+import ActiveCase from "./caseChart/ActiveCase";
+import ClosedCase from "./caseChart/ClosedCase";
 
 export const mobileContext = createContext();
 
@@ -77,7 +80,7 @@ const HomeDashboard = ({ role }) => {
         >
           <div className="flex items-center w-[300px] gap-2 p-2">
             <Balance fontSize="large" />{" "}
-            <p className="title font-semibold">JMS</p>
+            <p className="title font-semibold">MACUTTA</p>
           </div>
           <Header />
         </div>
@@ -168,6 +171,9 @@ const HomeDashboard = ({ role }) => {
               <Route path="/consulting" element={<Consulting />} />
               <Route path="/tutorials" element={<Tutorials />} />
               <Route path="/reports" element={<Reports />} />
+              <Route path="/create-new-case" element={<CreateNewCase />} />
+              <Route path="/active-case" element={<ActiveCase />} />
+              <Route path="/closed-case" element={<ClosedCase />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
             {/* )} */}

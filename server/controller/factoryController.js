@@ -63,7 +63,7 @@ export const _create = asyncCatch(async (req, res, next) => {
 
 //read
 export const _read = asyncCatch(async (req, res, next) => {
-  console.log(req.cookies,'cookie');
+  console.log(req.cookies, "cookie");
   const model = selectModel(req.params.table, next);
   if (model) {
     // const total = await model.find({ _id: req.params.id });
@@ -120,7 +120,7 @@ export const _read = asyncCatch(async (req, res, next) => {
 
     //populating
     switch (req.query.populatingType) {
-      case "private":
+      case "users":
         query.populate(req.query.populatingValue);
         break;
       case "application":
