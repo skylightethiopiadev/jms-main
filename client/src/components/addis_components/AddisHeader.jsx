@@ -38,7 +38,7 @@ const AddisHeader = () => {
       {/* top header */}
       <div className=" py-3 border-b border-gray-200 px-[1%] flex items-center justify-between relative">
         {/* left */}
-        <div>left</div>
+        <div></div>
         {/* center */}
         <div className="flex items-center justify-center">
           {/* site logo */}
@@ -124,7 +124,7 @@ const AddisHeader = () => {
                 <input
                   type="text"
                   placeholder="search"
-                  className="focus:outline-none focus:ring-0 bg-transparent border-none h-[20px] w-[450px]"
+                  className="focus:outline-none focus:ring-0 bg-transparent border-none h-[20px] sm:w-[450px]"
                 />
               </div>
               {/* search bar close */}

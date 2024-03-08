@@ -47,7 +47,7 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+    items: 11,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -55,11 +55,11 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 5,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 3,
   },
 };
 
@@ -81,7 +81,7 @@ const AddisHome = () => {
             className="w-full h-full opacity-[.25]"
           />
         </div>
-        <div className="relative z-40 flex flex-col items-center justify-center text-gray-100 max-w-[820px]">
+        <div className="relative z-40 flex flex-col items-center justify-center text-gray-100 max-w-[820px] mx-auto px-[1%] ">
           <h3 className="text-3xl my-1 font-bold">some text</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
@@ -90,13 +90,13 @@ const AddisHome = () => {
         </div>
       </div>
       {/* first order container */}
-      <div className="px-[10%] flex items-end justify-between gap-x-5">
+      <div className="px-[3%] sm:px-[10%] flex flex-col items-end justify-between gap-x-5 sm:flex-row">
         {/* top-left container */}
-        <div className="w-[30%] min-w-[300px]">
+        <div className="w-full sm:w-[30%] md:min-w-[250px] lg:min-w-[300px]">
           {/* card */}
-          <div className="bg-teal-500 relative text-white mt-[-38px] z-50 flex flex-col">
+          <div className="bg-teal-500 mb-5 sm:mb-0 relative text-white mt-[-38px] z-50 flex flex-col">
             {/* image */}
-            <div className="self-end w-[50%] py-[3%] overflow-hidden rounded-full">
+            <div className="self-end w-[50%] py-[1%] sm:py-[3%] overflow-hidden rounded-full">
               <img src={customerMainImage} alt="" />
             </div>
             {/* text */}
@@ -115,9 +115,9 @@ const AddisHome = () => {
         {/* bottom-right container */}
         <div className="flex-grow flex flex-col gap-y-5">
           {/* top cards */}
-          <div className="flex items-center justify-evenly my-2">
+          <div className="flex flex-col sm:flex-row items-center justify-evenly my-2">
             {/* card - 1 */}
-            <div className="flex items-center justify-center gap-x-3 p-5 shadow-md rounded-md">
+            <div className="w-[75%] flex items-center justify-evenly sm:justify-center gap-x-3 p-5 shadow-md rounded-md">
               {/* icon */}
               <div className="p-1 border-2 border-emerald-700 rounded-full bg-emerald-200">
                 <FaGlobeAfrica className="text-3xl text-emerald-700" />
@@ -129,7 +129,7 @@ const AddisHome = () => {
               </div>
             </div>
             {/* card - 2 */}
-            <div className="flex items-center justify-center gap-x-3 p-5 shadow-md rounded-md">
+            <div className="w-[75%] flex items-center justify-evenly sm:justify-center gap-x-3 p-5 shadow-md rounded-md">
               {/* icon */}
               <div className="p-1 border-2 border-blue-700 rounded-full bg-blue-200">
                 <FaShoppingCart className="text-3xl text-blue-700" />
@@ -141,7 +141,7 @@ const AddisHome = () => {
               </div>
             </div>
             {/* card - 3 */}
-            <div className="flex items-center justify-center gap-x-3 p-5 shadow-md rounded-md">
+            <div className=" w-[75%] flex items-center justify-evenly sm:justify-center gap-x-3 p-5 shadow-md rounded-md">
               {/* icon */}
               <div className="p-1 border-2 border-orange-700 rounded-full bg-orange-200">
                 <FaCarCrash className="text-3xl text-orange-700" />
@@ -205,9 +205,9 @@ const AddisHome = () => {
         </div>
       </div>
       {/* second order container */}
-      <div className="px-[10%] py-[2%] flex items-center justify-between">
+      <div className="px-[10%] py-[2%] flex flex-col lg:flex-row items-center justify-between">
         {/* top-left container */}
-        <div className="w-[50%]">
+        <div className="w-full lg:w-[50%]">
           {/* title container */}
           <div className="my-5">
             <span className="text-gray-500 text-lg">
@@ -362,7 +362,7 @@ const AddisHome = () => {
           {/* card 1 */}
           <div className="bg-green-200 flex items-center p-1 rounded-md overflow-hidden mb-7">
             {/* text - container */}
-            <div className="w-[50%] pr-1 pl-5">
+            <div className="w-[85%] sm:w-[50%] pr-1 pl-5">
               <h3 className="text-lg font-black mb-2">For Employers</h3>
               <p className="mb-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit
@@ -376,15 +376,15 @@ const AddisHome = () => {
               <img
                 src="https://th.bing.com/th/id/R.007dac57ec50e14f8d2655582b8341e9?rik=prNobX7WAqmf9A&riu=http%3a%2f%2fwww.pngplay.com%2fwp-content%2fuploads%2f1%2fWomen-In-Suit-Free-Commercial-Use-PNG-Image.png&ehk=8DtgoiFQWITVEa5tF%2f1%2fz12WQdBxclxpaV%2ffe6hZaX8%3d&risl=&pid=ImgRaw&r=0"
                 alt=""
-                className=" object-contain h-[230px] w-[230px] relative z-30 bottom-[-.53rem]"
+                className=" object-contain h-[120px] w-[120px]  sm:h-[230px] sm:w-[230px] relative z-30 bottom-[-.53rem]"
               />
-              <div className="w-[210px] h-[210px] bg-white absolute bottom-3 rounded-full z-10"></div>
+              <div className="w-[100px] h-[100px] sm:w-[210px] sm:h-[210px] bg-white absolute bottom-3 rounded-full z-10"></div>
             </div>
           </div>
           {/* card 2 */}
           <div className="bg-orange-200 flex items-center p-1 rounded-md overflow-hidden mb-2">
             {/* text - container */}
-            <div className="w-[50%] pr-1 pl-5">
+            <div className="w-[85%] sm:w-[50%] pr-1 pl-5">
               <h3 className="text-lg font-black mb-2">For Employers</h3>
               <p className="mb-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit
@@ -398,9 +398,9 @@ const AddisHome = () => {
               <img
                 src="https://medflightusa.com/wp-content/uploads/2020/06/image-insurancecoverage.png"
                 alt=""
-                className=" object-contain h-[230px] w-[230px] relative z-30 bottom-[-.53rem]"
+                className=" object-contain h-[120px] w-[120px]  sm:h-[230px] sm:w-[230px] relative z-30 bottom-[-.53rem]"
               />
-              <div className="w-[210px] h-[210px] bg-white absolute bottom-3 rounded-full z-10"></div>
+              <div className="w-[100px] h-[100px] sm:w-[210px] sm:h-[210px] bg-white absolute bottom-3 rounded-full z-10"></div>
             </div>
           </div>
         </div>
@@ -412,11 +412,11 @@ const AddisHome = () => {
          */}
       <div className="bg-gray-200 px-[5%]">
         {/* max width */}
-        <div className="flex gap-5 py-9">
+        <div className="flex flex-col-reverse lg:flex-row gap-5 py-9">
           {/* cards container */}
           <div className="w-[100%]">
             {/* cards */}
-            <div className="grid grid-cols-3 gap-7">
+            <div className="grid grid-cols-2  md:grid-cols-3 gap-7">
               {/* items */}
               {/* item - 1 */}
               <div className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow">
@@ -517,7 +517,7 @@ const AddisHome = () => {
             </div>
           </div>
           {/* texts - container */}
-          <div className="p-5 text-left self-center w-[65%] ">
+          <div className="p-5 text-left self-center w-[100%] lg:w-[65%] ">
             <span className="text-orange-700 text-xs font-serif">
               some little text
             </span>
@@ -542,7 +542,7 @@ const AddisHome = () => {
       */}
       <div className="bg-white pb-7">
         {/* top content with blue bg-element */}
-        <div className="grid grid-cols-6 gap-x-3 gap-y-1 font-semibold">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-3 gap-y-1 font-semibold">
           {/* items */}
           <div className="bg-blue-900 text-white flex items-center justify-center">
             <div className="text-lg my-1">
@@ -705,10 +705,10 @@ const AddisHome = () => {
 
       <div className="bg-black py-7 text-gray-300">
         {/* limit the width of the layout */}
-        <div className="px-[1%] flex items-center justify-evenly">
+        <div className="px-[1%] flex flex-col-reverse md:flex-row items-center justify-evenly">
           {/* left-top container */}
-          <div className="screen-7:w-[55%]">
-            <div className="grid grid-cols-4 gap-1 mb-9 sm:gap-24">
+          <div className="w-[100%] md:w-[55%]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 mb-9  sm:gap-6">
               {/* linkes */}
 
               {/* first list */}
@@ -820,7 +820,7 @@ const AddisHome = () => {
           </div>
 
           {/* right-bottom */}
-          <div className="screen-7:w-[40%]">
+          <div className="w-[100%] md:w-[40%]">
             <div className="bg-pink-800 flex items-center justify-between px-3 py-[.05rem] mb-7">
               <div className="p-2 rounded-full bg-white mr-1">
                 <MdPhoneInTalk className="text-pink-700 text-xl" />
