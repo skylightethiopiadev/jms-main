@@ -2,10 +2,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
-//////////////////////////////////////////////
-import { useDispatch } from "react-redux";
-import { setIsHeader } from "../../features/globals/globalSlice";
-
 // site logo image
 import mainSiteLogo from "../../assets/images/site-logo/jms-site-logo.jpg";
 
@@ -30,8 +26,6 @@ const AddisHeader = () => {
   const [isContactUs, setIsContactUs] = useState(false);
 
   const [isMainPopupNavOpen, setIsMainPopupNavOpen] = useState(false);
-
-  const dispatch = useDispatch();
 
   return (
     <header className="p1-3">
@@ -104,7 +98,6 @@ const AddisHeader = () => {
               to={"/dashboard/customer/"}
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(setIsHeader(false));
               }}
               className={
                 "px-5 py-2 text-lg text-white bg-black rounded-full font-semibold transition-all ease-in-out duration-150 hover:bg-gray-600"

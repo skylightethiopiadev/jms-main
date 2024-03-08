@@ -82,10 +82,10 @@
 }
 
 .stepper-bar-off {
-  @apply h-[1px] w-[130px] bg-blue-200;
+  @apply h-[1px] w-[50px] sm:w-[30px] md:w-[100px] lg:w-[150px] bg-blue-200;
 }
 .stepper-bar-on {
-  @apply h-[1px] w-[130px] bg-blue-700;
+  @apply h-[1px] w-[50px] sm:w-[30px] md:w-[100px] lg:w-[150px] bg-blue-700;
 }
 
 /* ////////////////////////////////////// */

@@ -5,16 +5,8 @@ import { NavLink } from "react-router-dom";
 import siteMainLogo from "../../../../assets/images/site-logo/jms-site-logo.jpg";
 import callCenter from "../../../../assets/images/call-center/call-center-1.png";
 
-////////////////////////////////////////////////
-import { useDispatch } from "react-redux";
-import { setIsHeader } from "../../../../features/globals/globalSlice";
-
 //icons
-import {
-  IoIosArrowDown,
-  IoMdNotifications,
-  IoIosArrowUp,
-} from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import {
   MdClose,
   MdOutlineHomeRepairService,
@@ -24,7 +16,6 @@ import {
 import { FaClock, FaRegChartBar } from "react-icons/fa";
 import { SiCashapp } from "react-icons/si";
 import { GrCompliance } from "react-icons/gr";
-import { TiGlobe } from "react-icons/ti";
 import { IoExitSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
 // main
@@ -36,9 +27,6 @@ const CustomerLeftSideNav = () => {
   const [isMyChartOpen, setIsMyChartOpen] = useState(false);
   const [isFinanceOpen, setIsFinanceOpen] = useState(false);
   const [isOtherServiceOpen, setIsOtherServiceOpen] = useState(false);
-
-  // hooks
-  const dispatch = useDispatch();
 
   // customer dashboard left side bar toggler
   const customerDashBoardLeftSideBarToggler = () => {
@@ -80,7 +68,6 @@ const CustomerLeftSideNav = () => {
             className={"flex items-center justify-center pr-[25%]"}
             onClick={(e) => {
               e.stopPropagation();
-              dispatch(setIsHeader(true));
             }}
           >
             {/* icon */}
@@ -425,10 +412,9 @@ const CustomerLeftSideNav = () => {
       <div className="mr-9 my-3">
         {/* top */}
         <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
-          <h5 className="font-semibold text-center">Please get in touch</h5>
-          <h5 className="font-semibold text-center">
-            with your service provider
-          </h5>
+          <p className="font-semibold text-center italic">
+            Please get in touch with your service provider
+          </p>
           <div className="mb-1">
             <img
               src={callCenter}
