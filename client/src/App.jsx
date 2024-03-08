@@ -50,16 +50,14 @@ function App() {
                   ) : user.role === "lawyer" ? (
                     <LawyerDashboard role={user?.role} />
                   ) : (
-                    <CustomerDashboard>
-                      <Route
-                        path="/"
-                        element={<CustomerDashboardHome />}
-                      ></Route>
-                      <Route
-                        path="/dashboard/customer/new-case"
-                        element={<NewCase />}
-                      ></Route>
-                    </CustomerDashboard>
+                    <CustomerDashboard />
+                    //   <Route
+                    //     // path="/"
+                    //     index
+                    //     element={<CustomerDashboardHome />}
+                    //   ></Route>
+                    //   <Route path="/customer/new-case" element={<NewCase />}></Route>
+                    // </CustomerDashboard>
                   )
                 }
               ></Route>

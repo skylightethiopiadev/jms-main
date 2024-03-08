@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { Calendar } from "react-calendar";
 import { Avatar, Datepicker } from "flowbite-react";
 /// images
@@ -12,10 +12,12 @@ import { VscVerifiedFilled } from "react-icons/vsc";
 import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeader";
 import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
 import { GiSevenPointedStar } from "react-icons/gi";
+import CustomerDashboardHome from "./customer-sub-pages/CustomerDashboardHome";
+import NewCase from "./customer-sub-pages/NewCase";
 
 const CustomerDashboard = () => {
   return (
-    <div className="w-full h-screen flex relative">
+    <div className="w-full h-auto relative flex ">
       <CustomerLeftSideNav />
       <div className="ml-1 w-full">
         {/* header */}
@@ -34,13 +36,21 @@ const CustomerDashboard = () => {
             {/* <div>right</div> */}
           </header>
           {/* content */}
-          <div className="h-full flex bg-white">
+          <div className="h-auto flex bg-white">
             {/* main content */}
             <div className="w-full">
-              <Outlet />
+              <Routes>
+                <Route
+                  path="/customer"
+                  index
+                  element={<CustomerDashboardHome />}
+                ></Route>
+                <Route path="/customer/new-case" element={<NewCase />}></Route>
+              </Routes>
+              {/* <Outlet /> */}
             </div>
             {/* right content */}
-            <div className="p-3 hidden sm:flex sm:flex-col">
+            <div className="p-3 hidden sm:flex sm:flex-col h-[90vh] w-[40%] overflow-y-scroll">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}

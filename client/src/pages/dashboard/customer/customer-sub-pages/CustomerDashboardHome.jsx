@@ -28,7 +28,7 @@ const CustomerDashboardHome = () => {
   const [isUserMorePopup, setIsUserMorePopup] = useState(null);
 
   return (
-    <div className="p-[2%] relative">
+    <div className="p-[2%] h-[80%] overflow-y-scroll relative">
       {isUserMorePopup ? (
         <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
