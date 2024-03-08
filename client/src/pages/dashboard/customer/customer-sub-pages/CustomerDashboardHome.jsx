@@ -120,26 +120,25 @@ const CustomerDashboardHome = () => {
             </div>
           </div>
           {/* right */}
-          <div className="flex  w-[30%]items-center justify-end">
+          <div className="w-[40%] hidden md:flex items-center  justify-end">
             <div>
               <img
                 src="https://th.bing.com/th/id/R.175b3802f7c5c4c98b9bcbdf9a7b9945?rik=98ox9lTe%2ffYIwA&pid=ImgRaw&r=0"
                 alt=""
-                className="w-[420px]"
               />
             </div>
             <div className="flex items-center justify-evenly gap-x-3">
-              <div className="w-[64px] h-[7px] bg-white"></div>
-              <div className="w-[64px] h-[7px] bg-white"></div>
-              <div className="w-[64px] h-[7px] bg-white"></div>
+              <div className="h-[7px] bg-white"></div>
+              <div className="h-[7px] bg-white"></div>
+              <div className=" h-[7px] bg-white"></div>
             </div>
           </div>
         </div>
       </div>
       {/* middle */}
-      <div className="flex items-center gap-3 py-[3%]">
+      <div className="flex flex-col md:flex-row items-center gap-3 py-[3%]">
         {/* left */}
-        <div className="p-2 rounded-md shadow-lg w-[50%] py-[4%]">
+        <div className="p-2 rounded-md shadow-lg w-[100%] md:w-[50%] py-[4%]">
           <div className="">
             <h3 className="text-lg text-gray-500 font-semibold">Case Status</h3>
             <div className="flex gap-1">
@@ -189,7 +188,7 @@ const CustomerDashboardHome = () => {
         </div>
       </div>
       {/* bottom */}
-      <div className="flex items-center justify-between gap-1">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-1">
         {/* left table */}
         <div className="w-full rounded-md bg-sky-100 p-[1%]">
           {/* header */}
@@ -203,7 +202,7 @@ const CustomerDashboardHome = () => {
                 <input
                   type="text"
                   placeholder="search ..."
-                  className="focus:outline-none focus:ring-0 bg-transparent border-none text-xs my-[.05rem] h-[28px]"
+                  className="focus:outline-none w-[120px] sm:w-[150px] focus:ring-0 bg-transparent border-none text-xs my-[.05rem] h-[28px]"
                 />
               </div>
             </div>
@@ -299,7 +298,7 @@ const CustomerDashboardHome = () => {
           </div>
         </div>
         {/* right card */}
-        <div className="shadow-sm p-[1%]">
+        <div className="shadow-sm p-[1%] w-full sm:w-[35%]">
           <header className="flex items-center justify-between border-b border-r-gray-300">
             <div>
               <h3 className="font-semibold text-gray-600">Case History</h3>
@@ -310,7 +309,7 @@ const CustomerDashboardHome = () => {
               </button>
             </div>
           </header>
-          <div className="h-[30vh] w-[230px] overflow-y-auto py-2">
+          <div className="h-[30vh] w-[100%] sm:w-[230px] overflow-y-auto py-2">
             {/* case history cards */}
             {caseHistory?.length > 0 ? (
               <>
