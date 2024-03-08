@@ -14,7 +14,13 @@ import {
   IoStarSharp,
   IoAlarmOutline,
 } from "react-icons/io5";
+import { LuAlarmClock } from "react-icons/lu";
 
+import { VscDebugStackframeActive } from "react-icons/vsc";
+import { MdOutlinePending } from "react-icons/md";
+import { GiCardboardBoxClosed } from "react-icons/gi";
+import { FaPlus } from "react-icons/fa6";
+import { FaClock } from "react-icons/fa";
 // data files
 import { caseHistory } from "../../../../DataFile";
 
@@ -140,257 +146,100 @@ const LawyerDashboardHome = () => {
         </div>
       </div>
       {/* middle */}
-      <div className="flex flex-col md:flex-row items-center gap-3 py-[3%]">
-        {/* left */}
-        <div className="p-2 rounded-md shadow-lg w-[100%] md:w-[50%] py-[4%]">
-          <div className="">
-            <h3 className="text-lg text-gray-800 font-semibold">
-              Next Appointment
-            </h3>
-            <div className="flex gap-1">
-              <span className="text-gray-500 font-semibold">
-                appointment type:
-              </span>
-              <span className="text-gray-500">Oral Litagation</span>
-            </div>
-            <div>
-              <h3 className="text-lg text-gray-500 font-black my-1">
-                5 march,2024
-              </h3>
-            </div>
-            <div className="relative w-full flex items-center justify-end mt-[-.4rem] pt-2">
-              <div className="relative flex items-center">
-                <IoAlarmOutline className=" absolute right-[65%] text-7xl text-purple-400" />
-                <span className="relative z-50 px-3 py-1 rounded-full bg-purple-700 text-sm font-semibold text-white">
-                  {new Date().getHours()}:{new Date().getMinutes()}AM
-                </span>
+      <div className="py-[1%]">
+        {/* numbers contaoner */}
+        <div className="flex items-center justify-between gap-5">
+          {/* top left */}
+          <div className="w-full shadow-md p-[1%] rounded-md">
+            {/* header */}
+            <header className="flex items-center justify-between">
+              <div>
+                <h3 className="text-gray-900 font-semibold">Total Cases</h3>
+              </div>
+              <div>
+                <button className="text-xs px-3 py-1 rounded-full border border-gray-200 transition-all ease-in-out duration-300 hover:border-gray-400">
+                  view detail
+                </button>
+              </div>
+            </header>
+            {/* content */}
+            <div className="flex items-center justify-between gap-5 py-[3%]">
+              <div>
+                <h3 className="lawyer-case-number">23.4k</h3>
+                <div className="text-green-500 flex items-center justify-center gap-1">
+                  <VscDebugStackframeActive />
+                  <span>active</span>
+                </div>
+              </div>
+              <div>
+                <h3 className="lawyer-case-number">13.4k</h3>
+                <div className="text-orange-500 flex items-center justify-center gap-1">
+                  <MdOutlinePending />
+                  <span>pending</span>
+                </div>
+              </div>
+              <div>
+                <h3 className="lawyer-case-number">17.3k</h3>
+                <div className="text-red-700 flex items-center justify-center gap-1 ">
+                  <GiCardboardBoxClosed />
+                  <span>closed</span>
+                </div>
+              </div>
+              <div className="flex flex-col items-end justify-end">
+                <h3 className="font-bold">43.7lk</h3>
+                <span className="text-xs text-gray-500">total cases </span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* right */}
-        <div className="w-full p-2 rounded-md shadow-lg">
-          <Chart
-            type="line"
-            width={"100%"}
-            height={150}
-            series={[
-              {
-                name: "Haddis",
-                data: [23, 32, 43, 34, 54, 45, 65, 0],
-              },
-              {
-                name: "Menelik",
-                data: [43, 92, 3, 75, 4, 45, 75, 6],
-              },
-            ]}
-            options={{
-              yaxis: {
-                // show: false,
-                labels: {
-                  show: false,
-                },
-              },
-            }}
-          ></Chart>
-        </div>
-      </div>
-      {/* bottom */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-1">
-        {/* left table */}
-        <div className="w-full rounded-md bg-sky-100 p-[1%]">
-          {/* header */}
-          <header className="flex items-center justify-between mb-3">
-            <div>
-              <h3 className="text-gray-700 font-bold">Case Team</h3>
-            </div>
-            <div className="flex items-center">
-              <div className="flex items-center justify-start bg-white rounded-sm">
-                <CiSearch className="text-lg ml-1" />
-                <input
-                  type="text"
-                  placeholder="search ..."
-                  className="focus:outline-none w-[120px] sm:w-[150px] md:w-[250px] focus:ring-0 bg-transparent border-none text-xs my-[.05rem] h-[28px]"
-                />
-              </div>
-            </div>
-            <div>
-              <button className="text-gray-500 text-xs font-semibold">
-                view all
-              </button>
-            </div>
-          </header>
-          {/* table container */}
-          <div
-            className="max-h-[26vh] overflow-y-auto pr-1"
-            id="case-team-table-container"
-          >
-            <table className="w-full">
-              <tbody>
-                {caseTeams.map((team, index) => (
-                  <tr
-                    key={index}
-                    className="bg-white mb-1 border-b-8 border-sky-100 text-xs text-gray-900"
-                  >
-                    <td>
-                      <div className="flex items-center justify-start gap-x-1 p-1">
-                        <div>
-                          <img
-                            src={team.profile}
-                            alt=""
-                            className="w-[24px] h-[24px] rounded-full"
-                          />
-                        </div>
-                        <div>
-                          <span>
-                            {team.first_name} {team.last_name}
-                          </span>
-                        </div>
-                      </div>
-                    </td>
-                    <td>{team.proffession}</td>
-                    <td className="hidden xl:flex">
-                      <span className="xl:mt-2">{team.phone}</span>
-                    </td>
-                    <td>
-                      <button
-                        className={`px-3 py-1 rounded-md ${
-                          team.status === "ACTIVE"
-                            ? "bg-yellow-400"
-                            : "bg-red-400"
-                        } text-white lowercase`}
-                      >
-                        {team.status}
-                      </button>
-                    </td>
-                    <td>
-                      <div className="relative">
-                        <button
-                          onClick={(e) => {
-                            if (isUserMore) {
-                              setIsUserMore(null);
-                            } else {
-                              setIsUserMore(team);
-                            }
-                          }}
-                        >
-                          <MdOutlineMoreVert className="text-xl" />
-                        </button>
-                        {caseTeams[index].first_name ===
-                        isUserMore?.first_name ? (
-                          <div className="absolute bg-white top-[100%] right-0 z-50 shadow-md border border-gray-300">
-                            <ul className="px-3 py-1">
-                              <li
-                                className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setIsUserMorePopup(team);
-                                  setIsUserMore(null);
-                                }}
-                              >
-                                <BiSolidUserDetail className="text-lg text-gray-500" />
-                                Detail
-                              </li>
-                              <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
-                                <MdOutlineMail className="text-lg text-gray-500" />
-                                Message
-                              </li>
-                            </ul>
-                          </div>
-                        ) : (
-                          <></>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        {/* right card */}
-        <div className="shadow-sm p-[1%] w-full sm:w-[35%]">
-          <header className="flex items-center justify-between border-b border-r-gray-300">
-            <div>
-              <h3 className="font-semibold text-gray-600">Case History</h3>
-            </div>
-            <div>
-              <button className="text-xs font-semibold text-gray-500">
-                view all
-              </button>
-            </div>
-          </header>
-          <div
-            className="h-[28vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2 pb-10"
-            id="case-history-list-container"
-          >
-            {/* case history cards */}
-            {caseHistory?.length > 0 ? (
-              <>
-                {caseHistory.map((history, index) => (
-                  <div
-                    key={index}
-                    className={`bg-white p-1 border-l-4 ${
-                      history.status === "ACTIVE"
-                        ? "border-green-400"
-                        : "border-red-400"
-                    } rounded-md shadow-md py-2 mb-5 pl-2`}
-                  >
-                    <div className="flex items-center justify-between text-gray-500 text-sm">
-                      <div>
-                        <span>{history.file_no}</span>
-                      </div>
-                      <div>
-                        <button>
-                          <CiEdit className="text-lg" />
-                        </button>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold ">{history.case_place}</h3>
-                      <span className="text-xs font-semibold text-gray-500">
-                        {history.caseType}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xs text-gray-500">
-                          {history.status === "ACTIVE" ? (
-                            <>starts {history.case_date} ago</>
-                          ) : (
-                            <>closed {history.case_date} ago</>
-                          )}
-                        </span>
-                      </div>
-                      <div className="relative flex-grow flex items-center justify-end">
-                        <div className="absolute right-6">
-                          <img
-                            src={history.lawyers[0]}
-                            alt=""
-                            className="w-[22px] h-[22px] rounded-full"
-                          />
-                        </div>
-                        <div className="absolute right-3">
-                          <img
-                            src={history.lawyers[1]}
-                            alt=""
-                            className="w-[22px] h-[22px] rounded-full"
-                          />
-                        </div>
-                        <div className="relative z-[1200] w-[22px] h-[22px] border-2 border-gray-500 rounded-full flex items-center justify-center bg-white">
-                          <span className="text-xs font-semibold text-gray-500">
-                            +5
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+          {/* bottom right */}
+          <div className="w-full flex items-center justify-between gap-5">
+            {/* left */}
+            <div className="w-[55%] px-[3%] rounded-md shadow-md">
+              <header className="flex items-center justify-between gap-5">
+                <div className="mb-5 mt-1">
+                  <h3 className="text-gray-700 font-semibold text-[.975rem]">
+                    customers
+                  </h3>
+                </div>
+                <div className="mb-5 mt-1">
+                  <span className="text-xs font-semibold">12.75k</span>
+                </div>
+              </header>
+              <div className="flex items-center justify-between gap-5 mt-3 mb-4">
+                <div>
+                  <h3 className="text-3xl font-black text-gray-800">789</h3>
+                </div>
+                <div>
+                  <div className="flex items-center justify-center px-2 py-1 rounded-full border border-green-500 bg-green-100 text-green-500 text-xs font-semibold">
+                    <FaPlus />
+                    <span>34.64</span>
                   </div>
-                ))}
-              </>
-            ) : (
-              <div>No Case History</div>
-            )}
+                </div>
+              </div>
+            </div>
+            {/* right */}
+            <div className="w-[40%] px-[3%] rounded-md shadow-md">
+              <header className="flex items-center justify-between gap-5">
+                <div className="mb-5 mt-1">
+                  <h3 className="text-gray-700 font-semibold text-[.975rem]">
+                    services
+                  </h3>
+                </div>
+                <div className="mb-5 mt-1">
+                  <span className="text-xs font-semibold">12.75k</span>
+                </div>
+              </header>
+              <div className="flex items-center justify-between gap-5 mt-3 mb-4">
+                <div>
+                  <h3 className="text-3xl font-black text-gray-800">7/24</h3>
+                </div>
+                <div>
+                  <div className="flex items-center justify-center px-2 py-1 text-xs font-semibold">
+                    <LuAlarmClock className="text-3xl text-blue-700" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

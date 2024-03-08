@@ -136,3 +136,8 @@
 .input {
   @apply border border-gray-300 p-2 rounded-sm;
 }
+
+/* lawyer dashboard constants */
+.lawyer-case-number {
+  @apply text-[1.2rem] font-semibold text-gray-800 text-center;
+}

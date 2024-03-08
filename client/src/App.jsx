@@ -31,7 +31,7 @@ function App() {
     <Flowbite>
       <div className={`font-poppins medium   tracking-wide`}>
         <div className="flex flex-col">
-          <AddisHeader />
+          {/* <AddisHeader /> */}
           <Routes>
             <Route path="/" element={<AddisHome />}></Route>
             {/* <Route path="/" element={<Home />}></Route> */}
