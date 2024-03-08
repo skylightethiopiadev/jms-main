@@ -12,16 +12,32 @@ const Response = ({ response, setPending, redirectTo, type }) => {
   useEffect(() => {
     response.status === "pending" ? setPending(true) : setPending(false);
 
-    response.status === "fulfilled"
+    let dashboard = "";
+    if (response.status === "fulfilled") {
+      switch (response?.data?.data?.role) {
+        case "super-admin":
+          dashboard = "/dashboard/super-admin";
+          break;
+        case "private":
+          dashboard = "/dashboard/customer";
+          break;
+        case "lawyer":
+          dashboard = "/dashboard/lawyer";
+          break;
+        case "case-manager-main":
+          dashboard = "/dashboard/case-manager-main";
+          break;
+      }
+    }
+
+    response.status === "fulfilled" && dashboard?.length > 0
       ? (setError(false),
         setSuccess(true),
         setSuccessMessage(response?.data?.message),
         type === "login"
           ? (localStorage.setItem("jwt", response?.data?.token),
             localStorage.setItem("user", JSON.stringify(response?.data?.data)),
-            redirectTo.length > 0
-              ? navigate(redirectTo, { replace: true })
-              : null)
+            navigate(dashboard, { replace: true }))
           : redirectTo && redirectTo?.length > 0
           ? (navigate(redirectTo, { replace: true }),
             window.history.pushState(-1))
@@ -80,7 +96,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
               <button
                 type="button"
                 onClick={() => setError(false)}
-                class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-800 rounded-lg focus:ring-2 focus:ring-0 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+                class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-800 rounded-lg focus:ring-0 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
                 data-dismiss-target="#alert-2"
                 aria-label="Close"
               >

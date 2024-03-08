@@ -54,12 +54,12 @@ const userSchema = new mongoose.Schema(
       // },
     },
 
-    userName: {
-      type: String,
-      // unique: [true, "This user name address is taken"],
-      validate: valid.userName("User name"),
-      // required: [true, "User name is required"],
-    },
+    // userName: {
+    //   type: String,
+    //   // unique: [true, "This user name address is taken"],
+    //   validate: valid.userName("User name"),
+    //   // required: [true, "User name is required"],
+    // },
 
     email: {
       type: String,

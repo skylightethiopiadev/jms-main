@@ -14,7 +14,7 @@ import CreateRole from "./roles/CreateRole";
 import AllRoles from "./roles/AllRoles";
 import Update from "./roles/Update";
 import Detail from "./roles/Detail";
-import Customers from "./customers/Customers";
+// import Customers from "./customers/Customers";
 import Consulting from "./consulting/Consulting";
 import Tutorials from "./tutorials/Tutorials";
 import Reports from "./reports/Reports";
@@ -164,7 +164,7 @@ const HomeDashboard = ({ role }) => {
               <Route path="/role-all" element={<AllRoles />} />
               <Route path="/role-all/update" element={<Update />} />
               <Route path="/role-all/detail" element={<Detail />} />
-              <Route path="/customers" element={<Customers />} />
+              {/* <Route path="/customers" element={<Customers />} /> */}
               <Route path="/consulting" element={<Consulting />} />
               <Route path="/tutorials" element={<Tutorials />} />
               <Route path="/reports" element={<Reports />} />

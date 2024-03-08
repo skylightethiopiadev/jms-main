@@ -6,33 +6,34 @@ import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
+// import { useSelector } from "react-redux";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
   // const user = JSON.parse(localStorage.getItem("user"));
 
   // states
-  const isHeader = useSelector(selectIsHeader);
+  // const isHeader = useSelector(selectIsHeader);
 
   // console.log(jwt, user);
   return (
     <Flowbite>
       <div className={`font-poppins medium   tracking-wide`}>
         <div className="flex flex-col">
-          {isHeader ? <AddisHeader /> : <></>}
+          {/* {isHeader ? <AddisHeader /> : <></>} */}
           <Routes>
-            <Route path="/" element={<AddisHome />}></Route>
-            {/* <Route path="/" element={<Home />}></Route> */}
+            {/* <Route path="/" element={<AddisHome />}></Route> */}
+            <Route path="/" element={<Home />}></Route>
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
             <Route path="dashboard/customer/private" element={<Chat />}></Route>
-            {/* {jwt && user && ( */}
-            <Route
-              path="/dashboard/*"
-              element={<HomeDashboard role={"super-admin"} />}
-            ></Route>
-            {/* )} */}
+            {jwt && user && (
+              <Route
+                path="/dashboard/*"
+                element={<HomeDashboard role={"super-admin"} />}
+              ></Route>
+            )}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

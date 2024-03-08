@@ -30,7 +30,7 @@ const Login = () => {
           response={loginResponse}
           setPending={setPending}
           // redirectTo=""
-          redirectTo="/dashboard/customer/private"
+          // redirectTo="/dashboard/customer/private"
           type="login"
           // type="loginddd"
         />
