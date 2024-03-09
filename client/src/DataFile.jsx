@@ -172,7 +172,7 @@ export const caseTeams = [
 // case history
 export const caseHistory = [
   {
-    file_no: "No.732164",
+    file_no: "No.732164a",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "ACTIVE",
@@ -183,7 +183,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164b",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "CLOSED",
@@ -194,7 +194,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164c",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "ACTIVE",
@@ -205,7 +205,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164d",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "CLOSED",
@@ -216,7 +216,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164e",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "ACTIVE",
@@ -227,7 +227,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164f",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "CLOSED",
@@ -238,7 +238,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164g",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "ACTIVE",
@@ -249,7 +249,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164h",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "CLOSED",
@@ -260,7 +260,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.345989",
+    file_no: "No.345989i",
     case_place: "Bolle Kefele Ketema",
     case_date: "3 weeks ",
     status: "ACTIVE",
@@ -271,7 +271,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No. 977465",
+    file_no: "No. 977465j",
     case_place: "Ledeta Kefele Ketema",
     case_date: "2 months",
     status: "CLOSED",
@@ -282,7 +282,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.345989",
+    file_no: "No.345989k",
     case_place: "Bolle Kefele Ketema",
     case_date: "3 weeks ",
     status: "ACTIVE",
@@ -293,7 +293,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No. 977465",
+    file_no: "No. 977465l",
     case_place: "Ledeta Kefele Ketema",
     case_date: "2 months",
     status: "CLOSED",

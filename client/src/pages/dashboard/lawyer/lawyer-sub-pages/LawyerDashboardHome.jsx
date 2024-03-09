@@ -13,6 +13,7 @@ import {
   IoStarHalfOutline,
   IoStarSharp,
   IoAlarmOutline,
+  IoCloseOutline,
 } from "react-icons/io5";
 import { BiSolidMessageAdd } from "react-icons/bi";
 import { IoMdMore } from "react-icons/io";
@@ -51,58 +52,138 @@ const LawyerDashboardHome = () => {
               e.stopPropagation();
             }}
           >
-            {/* user profile */}
-            <div className="p-2 shadow-md w-max rounded-md">
-              <img
-                src={isUserMorePopup?.profile}
-                alt=""
-                className="w-[200px] h-[200px] rounded-sm"
-              />
-            </div>
-            {/* username */}
-            <div className="my-1 text-gray-700 font-semibold flex items-center justify-center gap-x-1">
-              <span>
-                {isUserMorePopup?.first_name} {isUserMorePopup?.last_name}
-              </span>
-              <VscVerifiedFilled className="text-lg text-sky-500" />
-            </div>
-            {/* ratting */}
-            <div className="flex items-center justify-center gap-1 bg-emerald-500 text-white px-2 py-1 rounded-sm my-1">
-              <div className="flex items-center justify-center gap-x-1">
-                <IoStarSharp />
-                <IoStarSharp />
-                <IoStarSharp />
-                <IoStarHalfOutline />
-                <IoStarOutline />
+            <header className="flex items-center justify-between gap-16 py-2 border-b-2 border-gray-400">
+              {/* left */}
+              <div className="flex items-center gap-1">
+                <div>
+                  <img
+                    src="http://localhost:3000/src/assets/images/customers/customer-i.jpg"
+                    alt=""
+                    className="w-[32px] h-[32px] rounded-full mr-1"
+                  />
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-700">
+                    Legal Case Appointment
+                  </div>
+                  <div>
+                    <span className="text-xs text-gray-500">
+                      Meseret Seyoum
+                    </span>
+                  </div>
+                </div>
               </div>
-              <span className="font-semibold">4.35</span>
+              {/* right */}
+              <div>
+                <button
+                  className="flex items-center justify-center p-2 rounded-full bg-gray-200"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsUserMore(null);
+                    setIsUserMorePopup(null);
+                  }}
+                >
+                  <IoCloseOutline className="text-xl" />
+                </button>
+              </div>
+            </header>
+            {/* first portion */}
+            <div className="my-1 py-1 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
+              <div>
+                <h3 className="font-semibold">preivous shift</h3>
+              </div>
+              <div>
+                <h3>Arrive</h3>
+                <div>
+                  <span className="bg-blue-700 text-white rounded-sm px-1 py-[.13rem]">
+                    09:30
+                  </span>
+                  -<span>06:00</span>
+                </div>
+              </div>
+              <div>
+                <h3>depart</h3>
+                <div>
+                  <span className="bg-orange-500 text-white rounded-sm px-1 py-[.13rem]">
+                    09:30
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h3>pasue</h3>
+                <div>
+                  <span>06:00</span>
+                </div>
+              </div>
             </div>
-            {/* bio */}
-            <div>
-              <p className="w-[350px] text-xs italic my-1 p-2 border-y border-gray-200">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
-                cum quia fuga delectus dolore a aliquam accusamus.
-              </p>
+            {/* first portion */}
+            <div className="my-1 py-1 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
+              <div>
+                <h3 className="font-semibold">next shift</h3>
+              </div>
+              <div>
+                <h3>Arrive</h3>
+                <div>
+                  <span>09:30</span>-
+                  <span className="bg-blue-700 text-white rounded-sm px-1 py-[.13rem]">
+                    06:00
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h3>depart</h3>
+                <div>
+                  <span>09:30</span>
+                </div>
+              </div>
+              <div>
+                <h3>pasue</h3>
+                <div>
+                  <span className="bg-green-500 text-white rounded-sm px-1 py-[.13rem]">
+                    06:00
+                  </span>
+                </div>
+              </div>
             </div>
-            {/* logout */}
-            <div className="flex items-center justify-center gap-x-3">
-              <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
-                <CiPhone className="text-xl mr-1" />
-                <span>Call</span>
-              </button>
-              <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
-                <MdOutlineMail className="text-xl mr-1" />
-                <span>Message</span>
-              </button>
+            {/* first portion */}
+            <div className="my-1 py-1 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
+              <div>
+                <h3 className="font-semibold">final shift</h3>
+              </div>
+              <div>
+                <h3>Arrive</h3>
+                <div>
+                  <span className="bg-blue-700 text-white rounded-sm px-1 py-[.13rem]">
+                    09:30
+                  </span>
+                  -<span>06:00</span>
+                </div>
+              </div>
+              <div>
+                <h3>depart</h3>
+                <div>
+                  <span className="bg-orange-500 text-white rounded-sm px-1 py-[.13rem]">
+                    09:30
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h3>pasue</h3>
+                <div>
+                  <span>06:00</span>
+                </div>
+              </div>
+            </div>
+            <div className="my-1 py-3  w-full flex items-center justify-center">
               <button
-                className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700"
                 onClick={(e) => {
                   e.stopPropagation();
+                  setIsUserMore(null);
                   setIsUserMorePopup(null);
                 }}
+                className="text-white px-5 py-1 rounded-sm bg-blue-700"
               >
-                <IoMdClose className="text-xl mr-1" />
-                <span>close</span>
+                save chnages
               </button>
             </div>
           </motion.div>
@@ -331,7 +412,7 @@ const LawyerDashboardHome = () => {
                 </tr>
               </thead>
               <tbody>
-                {caseTeams.map((history, index) => (
+                {caseHistory.map((history, index) => (
                   <tr
                     key={index}
                     className="border-b border-emerald-900 border-opacity-[.15]"
@@ -422,12 +503,9 @@ const LawyerDashboardHome = () => {
                         <button
                           className="text-2xl"
                           onClick={(e) => {
-                            // console.log(isUserMore);
                             if (isUserMore) {
                               setIsUserMore(null);
                             } else {
-                              console.log(history);
-                              console.log("_____________________________");
                               setIsUserMore(history);
                             }
                           }}
@@ -437,7 +515,14 @@ const LawyerDashboardHome = () => {
                         {caseHistory[index].file_no === isUserMore?.file_no ? (
                           <div className="absolute right-0 top-[100%] bg-white rounded-sm shadow-md z-50">
                             <ul className="px-1 py-2">
-                              <li className="my-1 border-b border-gray-300 flex items-center gap-3 px-3">
+                              <li
+                                className="my-1 border-b border-gray-300 flex items-center gap-3 px-3 cursor-pointer"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setIsUserMorePopup(history);
+                                  setIsUserMore(null);
+                                }}
+                              >
                                 <CiEdit className="text-2xl" />
                                 <span>modify</span>
                               </li>
