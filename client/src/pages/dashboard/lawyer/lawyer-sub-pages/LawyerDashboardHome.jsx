@@ -14,7 +14,12 @@ import {
   IoStarSharp,
   IoAlarmOutline,
 } from "react-icons/io5";
+import { BiSolidMessageAdd } from "react-icons/bi";
+import { IoMdMore } from "react-icons/io";
+import { IoArrowDownSharp } from "react-icons/io5";
 import { LuAlarmClock } from "react-icons/lu";
+import { IoCalendarNumberOutline } from "react-icons/io5";
+import { FiSearch } from "react-icons/fi";
 
 import { VscDebugStackframeActive } from "react-icons/vsc";
 import { MdOutlinePending } from "react-icons/md";
@@ -207,10 +212,10 @@ const LawyerDashboardHome = () => {
               </header>
               <div className="flex items-center justify-between gap-5 mt-3 mb-4">
                 <div>
-                  <h3 className="text-3xl font-black text-gray-800">789</h3>
+                  <h3 className="text-3xl font-black text-gray-600">789</h3>
                 </div>
                 <div>
-                  <div className="flex items-center justify-center px-2 py-1 rounded-full border border-green-500 bg-green-100 text-green-500 text-xs font-semibold">
+                  <div className="flex items-center justify-center px-2 py-1 rounded-full border border-green-500 bg-green-50 text-green-500 text-xs font-semibold">
                     <FaPlus />
                     <span>34.64</span>
                   </div>
@@ -231,7 +236,7 @@ const LawyerDashboardHome = () => {
               </header>
               <div className="flex items-center justify-between gap-5 mt-3 mb-4">
                 <div>
-                  <h3 className="text-3xl font-black text-gray-800">7/24</h3>
+                  <h3 className="text-3xl font-black text-gray-600">7/24</h3>
                 </div>
                 <div>
                   <div className="flex items-center justify-center px-2 py-1 text-xs font-semibold">
@@ -240,6 +245,217 @@ const LawyerDashboardHome = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        {/* table container */}
+        <div className="mt-2">
+          {/* table header */}
+          <header className="py-1 flex items-center justify-between gap-5 ">
+            {/* left */}
+            <div className="flex items-center justify-between gap-5">
+              <span className="px-3 py-2 rounded-full bg-blue-500 text-white">
+                previus(17)
+              </span>
+              <span className="text-gray-500">absence planifies(19)</span>
+            </div>
+            {/* right */}
+            <div className="flex items-center justify-between gap-5">
+              <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center border border-gray-300 px-2 py-1 rounded-full cursor-pointer transition-all ease-in-out duration-150 hover:border-gray-500 text-gray-500">
+                  <IoCalendarNumberOutline className="text-xl mr-1" />
+                  <span>schedule</span>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center justify-center p-2 bg-gray-200 rounded-full">
+                  <button>
+                    <FiSearch className="text-xl" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </header>
+          {/* table container */}
+          <div className="mt-2 h-[35vh] overflow-y-auto">
+            <table className="w-full table-auto">
+              <thead>
+                <tr className="border-b border-emerald-900 border-opacity-[.15]">
+                  <td>
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>customers</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>shifts</span>
+                    </div>
+                  </td>
+                  <td className="border-r border-emerald-900 border-opacity-[.15]">
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>pause</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>badges</span>
+                    </div>
+                  </td>
+                  <td className="border-r border-emerald-900 border-opacity-[.15]">
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>pause</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>remindar</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>total</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <IoArrowDownSharp className="text-lg" />
+                      <span>actions</span>
+                    </div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                {caseTeams.map((history, index) => (
+                  <tr
+                    key={index}
+                    className="border-b border-emerald-900 border-opacity-[.15]"
+                  >
+                    <td>
+                      <div className="flex items-center text-gray-500 cursor-pointer py-1">
+                        <div>
+                          <img
+                            src="https://th.bing.com/th/id/R.728baddae40a137869bdf3f98679ea35?rik=A%2fktgJha6CJp8A&pid=ImgRaw&r=0"
+                            alt=""
+                            className="w-[22px] h-[22px] rounded-full object-center object-cover mr-[.1rem]"
+                          />
+                        </div>
+                        <div className="flex flex-col text-xs text-gray-500">
+                          <span className="font-semibold">Haddis</span>
+                          <span>Fanta</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        className={`flex items-center justify-center rounded-sm ${
+                          history.status === "ACTIVE"
+                            ? "text-gray-800"
+                            : "bg-gray-300 text-gray-800"
+                        } cursor-pointer py-1`}
+                      >
+                        <span>08:30 - 16:00</span>
+                      </div>
+                    </td>
+                    <td className="border-r border-emerald-900 border-opacity-[.15]">
+                      <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1">
+                        <span>60min</span>
+                      </div>
+                    </td>
+                    <td className="border-r border-emerald-900 border-opacity-[.15]">
+                      <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1">
+                        <span
+                          className={`px-1 py-[.13rem] rounded-sm  ${
+                            history.status === "ACTIVE"
+                              ? "bg-gray-200 text-gray-600"
+                              : "bg-emerald-500 text-white"
+                          }`}
+                        >
+                          08:30
+                        </span>
+                        -
+                        <span
+                          className={`px-1 py-[.13rem] rounded-sm ${
+                            history.status !== "CLOSED"
+                              ? "text-white bg-orange-500"
+                              : "text-gray-700"
+                          }`}
+                        >
+                          16:00
+                        </span>
+                      </div>
+                    </td>
+                    <td className="border-r border-emerald-900 border-opacity-[.15]">
+                      <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                        <span
+                          className={`px-2 py-[.13rem] rounded-sm ${
+                            history.status === "ACTIVE"
+                              ? "bg-purple-500 text-white"
+                              : "text-purple-700 bg-white border border-purple-500"
+                          }`}
+                        >
+                          60min
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="flex items-center text-gray-800 cursor-pointer px-1 py-[.13rem] rounded-sm bg-gray-200">
+                        <span className="mx-2">08:30</span>-
+                        <span className="mx-2">16:00</span>
+                      </div>
+                    </td>
+                    <td className="border-r border-emerald-900 border-opacity-[.15]">
+                      <div className="flex items-center text-gray-800 cursor-pointer px-1 py-[.13rem] rounded-sm bg-gray-200 ">
+                        <span className="ml-3">45</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="flex items-center justify-center gap-3 text-gray-500 cursor-pointer py-1 relative">
+                        <button className="text-2xl">
+                          <BiSolidMessageAdd />
+                        </button>
+                        <button
+                          className="text-2xl"
+                          onClick={(e) => {
+                            // console.log(isUserMore);
+                            if (isUserMore) {
+                              setIsUserMore(null);
+                            } else {
+                              console.log(history);
+                              console.log("_____________________________");
+                              setIsUserMore(history);
+                            }
+                          }}
+                        >
+                          <IoMdMore />
+                        </button>
+                        {caseHistory[index].file_no === isUserMore?.file_no ? (
+                          <div className="absolute right-0 top-[100%] bg-white rounded-sm shadow-md z-50">
+                            <ul className="px-1 py-2">
+                              <li className="my-1 border-b border-gray-300 flex items-center gap-3 px-3">
+                                <CiEdit className="text-2xl" />
+                                <span>modify</span>
+                              </li>
+                              <li className="my-1 border-b border-gray-300 flex items-center gap-3 px-3">
+                                <MdOutlineMail className="text-2xl" />
+                                <span>Message</span>
+                              </li>
+                            </ul>
+                          </div>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

@@ -194,6 +194,72 @@ export const caseHistory = [
     ],
   },
   {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "ACTIVE",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "ACTIVE",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "ACTIVE",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
     file_no: "No.345989",
     case_place: "Bolle Kefele Ketema",
     case_date: "3 weeks ",
