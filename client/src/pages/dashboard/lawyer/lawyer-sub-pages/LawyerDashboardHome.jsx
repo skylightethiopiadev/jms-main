@@ -56,7 +56,7 @@ const LawyerDashboardHome = () => {
               <div className="flex items-center gap-1">
                 <div>
                   <img
-                    src="http://localhost:3000/src/assets/images/customers/customer-i.jpg"
+                    src={isUserMorePopup.profile}
                     alt=""
                     className="w-[32px] h-[32px] rounded-full mr-1"
                   />
@@ -65,9 +65,12 @@ const LawyerDashboardHome = () => {
                   <div className="font-semibold text-gray-700">
                     Legal Case Appointment
                   </div>
-                  <div>
+                  <div className="flex items-center justify-start gap-1">
                     <span className="text-xs text-gray-500">
-                      Meseret Seyoum
+                      {isUserMorePopup.first_name}
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      {isUserMorePopup.last_name}
                     </span>
                   </div>
                 </div>
@@ -87,56 +90,56 @@ const LawyerDashboardHome = () => {
               </div>
             </header>
             {/* first portion */}
-            <div className="my-1 py-1 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
+            <div className="my-2 py-2 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
               <div>
                 <h3 className="font-semibold">preivous shift</h3>
               </div>
               <div>
-                <h3>Arrive</h3>
+                <h3 className="my-1">Arrive</h3>
                 <div>
-                  <span className="bg-blue-700 text-white rounded-sm px-1 py-[.13rem]">
+                  <span className="bg-blue-500 text-white rounded-sm px-1 py-[.13rem]">
                     09:30
                   </span>
                   -<span>06:00</span>
                 </div>
               </div>
               <div>
-                <h3>depart</h3>
+                <h3 className="my-1">depart</h3>
                 <div>
-                  <span className="bg-orange-500 text-white rounded-sm px-1 py-[.13rem]">
+                  <span className="bg-orange-400 text-white rounded-sm px-1 py-[.13rem]">
                     09:30
                   </span>
                 </div>
               </div>
               <div>
-                <h3>pasue</h3>
+                <h3 className="my-1">pasue</h3>
                 <div>
                   <span>06:00</span>
                 </div>
               </div>
             </div>
             {/* first portion */}
-            <div className="my-1 py-1 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
+            <div className="my-2 py-2 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
               <div>
                 <h3 className="font-semibold">next shift</h3>
               </div>
               <div>
-                <h3>Arrive</h3>
+                <h3 className="my-">Arrive</h3>
                 <div>
                   <span>09:30</span>-
-                  <span className="bg-blue-700 text-white rounded-sm px-1 py-[.13rem]">
+                  <span className="bg-blue-500 text-white rounded-sm px-1 py-[.13rem]">
                     06:00
                   </span>
                 </div>
               </div>
               <div>
-                <h3>depart</h3>
+                <h3 className="my-1">depart</h3>
                 <div>
                   <span>09:30</span>
                 </div>
               </div>
               <div>
-                <h3>pasue</h3>
+                <h3 className="my-1">pasue</h3>
                 <div>
                   <span className="bg-green-500 text-white rounded-sm px-1 py-[.13rem]">
                     06:00
@@ -145,21 +148,21 @@ const LawyerDashboardHome = () => {
               </div>
             </div>
             {/* first portion */}
-            <div className="my-1 py-1 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
+            <div className="my-2 py-2 border-b border-gray-200 text-gray-700 w-full flex items-center justify-between gap-3">
               <div>
                 <h3 className="font-semibold">final shift</h3>
               </div>
               <div>
-                <h3>Arrive</h3>
+                <h3 className="my-1">Arrive</h3>
                 <div>
-                  <span className="bg-blue-700 text-white rounded-sm px-1 py-[.13rem]">
+                  <span className="bg-blue-500 text-white rounded-sm px-1 py-[.13rem]">
                     09:30
                   </span>
                   -<span>06:00</span>
                 </div>
               </div>
               <div>
-                <h3>depart</h3>
+                <h3 className="my-1">depart</h3>
                 <div>
                   <span className="bg-orange-500 text-white rounded-sm px-1 py-[.13rem]">
                     09:30
@@ -167,20 +170,20 @@ const LawyerDashboardHome = () => {
                 </div>
               </div>
               <div>
-                <h3>pasue</h3>
+                <h3 className="my-1">pasue</h3>
                 <div>
                   <span>06:00</span>
                 </div>
               </div>
             </div>
-            <div className="my-1 py-3  w-full flex items-center justify-center">
+            <div className="my-2 py-3  w-full flex items-center justify-center">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsUserMore(null);
                   setIsUserMorePopup(null);
                 }}
-                className="text-white px-5 py-1 rounded-sm bg-blue-700"
+                className="text-white px-5 py-1 rounded-sm bg-blue-500"
               >
                 save chnages
               </button>
@@ -409,7 +412,7 @@ const LawyerDashboardHome = () => {
                           <img
                             src={customer.profile}
                             alt=""
-                            className="w-[32px] h-[32px] rounded-full object-center object-cover mr-[.3rem]"
+                            className="w-[28px] h-[28px] rounded-full object-center object-cover mr-[.3rem]"
                           />
                         </div>
                         <div className="flex flex-col text-xs text-gray-500">
@@ -421,14 +424,18 @@ const LawyerDashboardHome = () => {
                       </div>
                     </td>
                     <td>
-                      <div>
+                      <div
+                        className={`flex items-center justify-center text-gray-800 cursor-pointer py-1 rounded-sm ${
+                          customer.status === "pending" ? "bg-gray-200" : ""
+                        }`}
+                      >
                         <span
                           className={`${
                             customer.status === "active"
                               ? "text-green-900"
                               : customer.status === "pending"
-                              ? "text-orange-500"
-                              : "text-red-900"
+                              ? "text-gray-700"
+                              : "text-gray-700"
                           }`}
                         >
                           {customer.start_date}
@@ -436,14 +443,22 @@ const LawyerDashboardHome = () => {
                       </div>
                     </td>
                     <td className="border-r border-emerald-900 border-opacity-[.15]">
-                      <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1 bg-red-500">
+                      <div
+                        className={`flex items-center justify-center text-gray-800 cursor-pointer py-1 ${
+                          customer.status === "active"
+                            ? "bg-blue-500"
+                            : customer.status === "closed"
+                            ? "bg-gray-200"
+                            : ""
+                        }`}
+                      >
                         <span
                           className={`${
                             customer.status === "active"
-                              ? "text-green-900"
+                              ? "text-white"
                               : customer.status === "pending"
-                              ? "text-orange-500"
-                              : "text-red-900"
+                              ? "text-wite"
+                              : "text-gray-700"
                           }`}
                         >
                           {customer.end_date ? customer.end_date : "_____"}
@@ -458,19 +473,23 @@ const LawyerDashboardHome = () => {
                       </div>
                     </td>
                     <td className="border-r border-emerald-900 border-opacity-[.15]">
-                      <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
+                      <div
+                        className={`flex items-center justify-center text-gray-500 cursor-pointer py-1 rounded-sm ${
+                          customer.status === "active" ? "bg-gray-200" : ""
+                        } mx-1`}
+                      >
                         <span>{customer.court_place}</span>
                       </div>
                     </td>
 
                     <td>
                       <div
-                        className={`flex items-center justify-center text-white cursor-pointer rounded-sm mx-1 px-1 py-[.13rem] ${
+                        className={`flex items-center border justify-center text-gray-50 cursor-pointer rounded-sm mx-1 px-1 py-[.13rem] ${
                           customer.status === "active"
-                            ? "bg-green-500"
+                            ? "bg-green-400 border-green-400"
                             : customer.status === "pending"
-                            ? "bg-orange-500"
-                            : "bg-red-600"
+                            ? "bg-orange-400 border-orange-400"
+                            : "bg-red-400 border-red-400"
                         }`}
                       >
                         <span>{customer.status}</span>
@@ -487,7 +506,7 @@ const LawyerDashboardHome = () => {
                             if (isUserMore) {
                               setIsUserMore(null);
                             } else {
-                              setIsUserMore(history);
+                              setIsUserMore(customer);
                             }
                           }}
                         >

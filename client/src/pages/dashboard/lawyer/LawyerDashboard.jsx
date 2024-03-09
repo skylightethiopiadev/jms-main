@@ -6,6 +6,12 @@ import customerImage from "../../../assets/images/customers/customer-i.jpg";
 // icons
 import { IoIosArrowDown } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
+import {
+  IoStarOutline,
+  IoStarHalfOutline,
+  IoStarSharp,
+  IoExitSharp,
+} from "react-icons/io5";
 
 // customer-sub-pages
 import LawyerDashboardHeader from "./lawyer-sub-pages/LawyerDashboardHeader";
@@ -58,6 +64,17 @@ const LawyerDashboard = () => {
                   <VscVerifiedFilled className="text-sky-500 text-lg" />
                 </div>
                 <div className="text-gray-500">Lawyer Account</div>
+                {/* ratting */}
+                <div className="flex items-center justify-center gap-1 bg-emerald-500 text-white px-2 py-1 rounded-sm my-1">
+                  <div className="flex items-center justify-center gap-x-1">
+                    <IoStarSharp />
+                    <IoStarSharp />
+                    <IoStarSharp />
+                    <IoStarHalfOutline />
+                    <IoStarOutline />
+                  </div>
+                  <span className="font-semibold">4.35</span>
+                </div>
               </div>
 
               {/* total balance */}
