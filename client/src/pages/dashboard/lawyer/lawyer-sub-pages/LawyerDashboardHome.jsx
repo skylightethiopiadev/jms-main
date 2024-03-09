@@ -27,11 +27,10 @@ import { MdOutlinePending } from "react-icons/md";
 import { GiCardboardBoxClosed } from "react-icons/gi";
 import { FaPlus } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa";
-// data files
-import { caseHistory } from "../../../../DataFile";
 
 // data files
-import { caseTeams } from "../../../../DataFile";
+import { caseHistory, lawyerCustomers } from "../../../../DataFile";
+
 // main
 // CustomerDashboardHome
 const LawyerDashboardHome = () => {
@@ -335,9 +334,9 @@ const LawyerDashboardHome = () => {
             {/* left */}
             <div className="flex items-center justify-between gap-5">
               <span className="px-3 py-2 rounded-full bg-blue-500 text-white">
-                previus(17)
+                total cases(200)
               </span>
-              <span className="text-gray-500">absence planifies(19)</span>
+              <span className="text-gray-500">pending cases (250)</span>
             </div>
             {/* right */}
             <div className="flex items-center justify-between gap-5">
@@ -363,56 +362,43 @@ const LawyerDashboardHome = () => {
                 <tr className="border-b border-emerald-900 border-opacity-[.15]">
                   <td>
                     <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
                       <span>customers</span>
                     </div>
                   </td>
                   <td>
                     <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
-                      <span>shifts</span>
+                      <span>start date</span>
                     </div>
                   </td>
                   <td className="border-r border-emerald-900 border-opacity-[.15]">
                     <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
-                      <span>pause</span>
+                      <span>end date</span>
                     </div>
                   </td>
                   <td>
                     <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
-                      <span>badges</span>
+                      <span>file no</span>
                     </div>
                   </td>
                   <td className="border-r border-emerald-900 border-opacity-[.15]">
                     <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
-                      <span>pause</span>
+                      <span>court place</span>
                     </div>
                   </td>
                   <td>
                     <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
-                      <span>remindar</span>
+                      <span>status</span>
                     </div>
                   </td>
                   <td>
                     <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
-                      <span>total</span>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                      <IoArrowDownSharp className="text-lg" />
                       <span>actions</span>
                     </div>
                   </td>
                 </tr>
               </thead>
               <tbody>
-                {caseHistory.map((history, index) => (
+                {lawyerCustomers.map((customer, index) => (
                   <tr
                     key={index}
                     className="border-b border-emerald-900 border-opacity-[.15]"
@@ -421,78 +407,73 @@ const LawyerDashboardHome = () => {
                       <div className="flex items-center text-gray-500 cursor-pointer py-1">
                         <div>
                           <img
-                            src="https://th.bing.com/th/id/R.728baddae40a137869bdf3f98679ea35?rik=A%2fktgJha6CJp8A&pid=ImgRaw&r=0"
+                            src={customer.profile}
                             alt=""
-                            className="w-[22px] h-[22px] rounded-full object-center object-cover mr-[.1rem]"
+                            className="w-[32px] h-[32px] rounded-full object-center object-cover mr-[.3rem]"
                           />
                         </div>
                         <div className="flex flex-col text-xs text-gray-500">
-                          <span className="font-semibold">Haddis</span>
-                          <span>Fanta</span>
+                          <span className="font-semibold">
+                            {customer.first_name}
+                          </span>
+                          <span>{customer.last_name}</span>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div
-                        className={`flex items-center justify-center rounded-sm ${
-                          history.status === "ACTIVE"
-                            ? "text-gray-800"
-                            : "bg-gray-300 text-gray-800"
-                        } cursor-pointer py-1`}
-                      >
-                        <span>08:30 - 16:00</span>
-                      </div>
-                    </td>
-                    <td className="border-r border-emerald-900 border-opacity-[.15]">
-                      <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1">
-                        <span>60min</span>
-                      </div>
-                    </td>
-                    <td className="border-r border-emerald-900 border-opacity-[.15]">
-                      <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1">
+                      <div>
                         <span
-                          className={`px-1 py-[.13rem] rounded-sm  ${
-                            history.status === "ACTIVE"
-                              ? "bg-gray-200 text-gray-600"
-                              : "bg-emerald-500 text-white"
+                          className={`${
+                            customer.status === "active"
+                              ? "text-green-900"
+                              : customer.status === "pending"
+                              ? "text-orange-500"
+                              : "text-red-900"
                           }`}
                         >
-                          08:30
+                          {customer.start_date}
                         </span>
-                        -
+                      </div>
+                    </td>
+                    <td className="border-r border-emerald-900 border-opacity-[.15]">
+                      <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1 bg-red-500">
                         <span
-                          className={`px-1 py-[.13rem] rounded-sm ${
-                            history.status !== "CLOSED"
-                              ? "text-white bg-orange-500"
-                              : "text-gray-700"
+                          className={`${
+                            customer.status === "active"
+                              ? "text-green-900"
+                              : customer.status === "pending"
+                              ? "text-orange-500"
+                              : "text-red-900"
                           }`}
                         >
-                          16:00
+                          {customer.end_date ? customer.end_date : "_____"}
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1">
+                        <span className="text-gray-500">
+                          {customer.file_no}
                         </span>
                       </div>
                     </td>
                     <td className="border-r border-emerald-900 border-opacity-[.15]">
                       <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                        <span
-                          className={`px-2 py-[.13rem] rounded-sm ${
-                            history.status === "ACTIVE"
-                              ? "bg-purple-500 text-white"
-                              : "text-purple-700 bg-white border border-purple-500"
-                          }`}
-                        >
-                          60min
-                        </span>
+                        <span>{customer.court_place}</span>
                       </div>
                     </td>
+
                     <td>
-                      <div className="flex items-center text-gray-800 cursor-pointer px-1 py-[.13rem] rounded-sm bg-gray-200">
-                        <span className="mx-2">08:30</span>-
-                        <span className="mx-2">16:00</span>
-                      </div>
-                    </td>
-                    <td className="border-r border-emerald-900 border-opacity-[.15]">
-                      <div className="flex items-center text-gray-800 cursor-pointer px-1 py-[.13rem] rounded-sm bg-gray-200 ">
-                        <span className="ml-3">45</span>
+                      <div
+                        className={`flex items-center justify-center text-white cursor-pointer rounded-sm mx-1 px-1 py-[.13rem] ${
+                          customer.status === "active"
+                            ? "bg-green-500"
+                            : customer.status === "pending"
+                            ? "bg-orange-500"
+                            : "bg-red-600"
+                        }`}
+                      >
+                        <span>{customer.status}</span>
                       </div>
                     </td>
                     <td>
@@ -512,14 +493,15 @@ const LawyerDashboardHome = () => {
                         >
                           <IoMdMore />
                         </button>
-                        {caseHistory[index].file_no === isUserMore?.file_no ? (
+                        {lawyerCustomers[index].file_no ===
+                        isUserMore?.file_no ? (
                           <div className="absolute right-0 top-[100%] bg-white rounded-sm shadow-md z-50">
                             <ul className="px-1 py-2">
                               <li
                                 className="my-1 border-b border-gray-300 flex items-center gap-3 px-3 cursor-pointer"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  setIsUserMorePopup(history);
+                                  setIsUserMorePopup(customer);
                                   setIsUserMore(null);
                                 }}
                               >

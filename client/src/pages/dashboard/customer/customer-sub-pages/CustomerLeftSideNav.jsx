@@ -412,14 +412,14 @@ const CustomerLeftSideNav = () => {
       <div className="mr-9 my-3">
         {/* top */}
         <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
-          <p className="font-semibold text-center italic">
+          <p className="font-semibold text-center">
             Please get in touch with your service provider
           </p>
           <div className="mb-1">
             <img
               src={callCenter}
               alt=""
-              className="w-[120px] h-[90px] mt-[-24px] rounded-md"
+              className="w-[120px] h-[100px] mt-[-24px] rounded-md"
             />
           </div>
           <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">
