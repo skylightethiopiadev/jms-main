@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 // site logo
-// import siteMainLogo from "../../../../assets/images/site-logo/jms-site-logo.jpg";
+import siteMainLogo from "../../../../assets/images/site-logo/logoFinal.png";
 import callCenter from "../../../../assets/images/call-center/call-center-1.png";
 
 //icons
@@ -71,11 +71,7 @@ const CustomerLeftSideNav = () => {
             }}
           >
             {/* icon */}
-            <img
-              src="./logoFinal.png"
-              alt=""
-              className="w-[200px] h-[200px] "
-            />
+            <img src={siteMainLogo} alt="" className="w-[200px] h-[130px] " />
           </NavLink>
         </div>
         {/* nav container */}

@@ -6,12 +6,11 @@ import { MdOutlineShareLocation } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { MdAccountBalance } from "react-icons/md";
-
 // data
 import { cunsultations } from "../../../../DataFile";
-
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Backup from "@mui/icons-material/Backup";
 // main
 // NewCase
 const NewCase = () => {
@@ -26,6 +25,9 @@ const NewCase = () => {
   const [genderHeaderText, setGenderHeaderText] = useState("All");
   const [caseType, setCaseType] = useState("");
   const [serviceType, setServiceType] = useState("");
+  const [category, setCategory] = useState("");
+  const [caseName, setCaseName] = useState("");
+  const [lawyer, setLawyer] = useState("");
 
   // stepper count
   const [stepper, setStepper] = useState(0);
@@ -51,59 +53,66 @@ const NewCase = () => {
     setGenderHeaderText(text);
   };
 
+  console.log(serviceType, "service type");
   return (
     <div className="bg-gray-100 h-auto">
-      <header className="h-max bg-sky-100 grid grid-cols-4">
+      <header className="h-max bg-sky-100 -ml-10 grid grid-cols-4">
         {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
+        <div className="flex gap-2 items-center justify-center w-full">
           {/* step-0 */}
           <div>
             <h3 className="text-2xl mr-1 font-black">01</h3>
           </div>
           {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3 className="font-bold">Case Type</h3>
-            <span>Contrat Explore</span>
-            <p>name</p>
+          <div className={`${stepper > 0 ? "text-blue-700" : "text-black"}`}>
+            <h3 className="font-bold text-sm">Case Type</h3>
+            <span className="text-xs">Select your</span>
+            <p className="text-xs">case</p>
           </div>
         </div>
         {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
+        <div className="flex items-center justify-center gap-2 w-full">
           {/* step-0 */}
           <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
+            <h3 className="text-2xl mr-1 font-black">02</h3>
           </div>
           {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
+          <div
+            className={`${stepper >= 1 ? "text-blue-700" : "text-gray-700"}`}
+          >
+            <h3 className="font-bold text-sm">Service Type</h3>
+            <span className="text-xs">Select your</span>
+            <p className="text-xs">service</p>
           </div>
         </div>
         {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
+        <div className="flex items-center gap-2 justify-center w-full">
           {/* step-0 */}
           <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
+            <h3 className="text-2xl mr-1 font-black">03</h3>
           </div>
           {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
+          <div
+            className={`${stepper >= 2 ? "text-blue-700" : "text-gray-700"}`}
+          >
+            <h3 className="font-bold text-sm">Case Type</h3>
+            <span className="text-xs">Contrat Explore</span>
+            <p className="text-xs">name</p>
           </div>
         </div>
         {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
+        <div className="flex gap-2 items-center justify-center w-full">
           {/* step-0 */}
           <div>
             <h3 className="text-2xl mr-1 font-black">01</h3>
           </div>
           {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
+          <div
+            className={`${stepper >= 3 ? "text-blue-700" : "text-gray-700"}`}
+          >
+            <h3 className="font-bold text-sm">Case Type</h3>
+            <span className="text-xs">Contrat Explore</span>
+            <p className="text-xs">name</p>
           </div>
         </div>
       </header>
@@ -200,10 +209,16 @@ const NewCase = () => {
       <div className="h-[75vh] overflow-y-scroll">
         {stepper === 0 ? (
           <div className="flex items-center justify-center">
-            <div className="w-full h-auto flex flex-col items-center justify-center">
-              <h5 class="mb-2 text-2xl mt-4 font-bold tracking-tight text-gray-900 dark:text-white">
+            <div className="w-full h-auto flex flex-col items-start px-2 justify-start">
+              <h5 class="mb-2 text-2xl mt-7 font-bold tracking-tight text-gray-900 dark:text-white">
                 Select your case type
               </h5>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+                deserunt laboriosam doloribus exercitationem temporibus sint
+                molestias eius quae quam maiores obcaecati quos repellat fugit
+                mollitia repellendus dolores vero, cumque necessitatibus!
+              </p>
               <div className="flex w-full p-10 gap-10 justify-between items-center">
                 <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                   <a href="#">
@@ -222,7 +237,7 @@ const NewCase = () => {
                       setCaseType("civil");
                       setStepper(1);
                     }}
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
                     Select
                     <svg
@@ -259,7 +274,7 @@ const NewCase = () => {
                       setCaseType("criminal");
                       setStepper(1);
                     }}
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
                     Select
                     <svg
@@ -293,28 +308,94 @@ const NewCase = () => {
             </div>
           </div>
         ) : stepper === 1 ? (
-          <div className="flex items-center justify-center">
-            <div className="w-full h-auto flex flex-col items-center justify-center">
-              <h5 class="mb-2 text-2xl mt-4 font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="flex items-center pb-10 justify-center">
+            <div className="w-full h-auto flex flex-col px-3 items-start justify-start">
+              <h5 class="mb-2 text-2xl mt-7 font-bold tracking-tight text-gray-900 dark:text-white">
+                Select your case category
+              </h5>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+                deserunt laboriosam doloribus exercitationem temporibus sint
+                molestias eius quae quam maiores obcaecati quos repellat fugit
+                mollitia repellendus dolores vero, cumque necessitatibus!
+              </p>
+              <p className="py-2">Family</p>
+              <div class="flex items-center mb-4">
+                <input
+                  onChange={(e) => {
+                    setCaseName("family");
+                    setServiceType(e.target.checked ? "divorce" : null);
+                  }}
+                  id="default-radio-2"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-3"
+                  class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Divorce
+                </label>
+              </div>
+              <div class="flex items-center mb-4">
+                <input
+                  onChange={(e) => {
+                    setCaseName("family");
+                    setServiceType(e.target.checked ? "adoption" : null);
+                  }}
+                  id="default-radio-1"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-1"
+                  class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Adoption
+                </label>
+              </div>
+
+              <div className="flex my-5 items-center justify-between gap-x-5">
+                <button
+                  className="px-5 py-1 rounded-sm bg-blue-700 text-white"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setStepper(0);
+                  }}
+                >
+                  back
+                </button>
+                <button
+                  className="px-5 py-1 rounded-sm bg-blue-700 text-white"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setStepper(2);
+                  }}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : stepper === 2 ? (
+          <div className="flex items-center pb-10 justify-center">
+            <div className="w-full h-auto flex flex-col px-3 items-start justify-start">
+              <h5 class="mb-2 text-2xl mt-7 font-bold tracking-tight text-gray-900 dark:text-white">
                 Select your servic type
               </h5>
-              <div className="flex relative w-full p-10 gap-5 justify-between items-start">
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+                deserunt laboriosam doloribus exercitationem temporibus sint
+                molestias eius quae quam maiores obcaecati quos repellat fugit
+                mollitia repellendus dolores vero, cumque necessitatibus!
+              </p>
+              <div className="flex relative w-full mt-7 gap-5 justify-between items-start">
                 <div className="flex w-[200px] flex-col gap-1 items-start justify-start">
-                  <div class="flex items-center mb-4">
-                    <input
-                      id="default-radio-1"
-                      type="radio"
-                      value=""
-                      name="default-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="default-radio-1"
-                      class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Default radio
-                    </label>
-                  </div>
+                  <p className="text-lg font-bold py-1">Check your service</p>
                   <div class="flex items-center mb-4">
                     <input
                       id="default-radio-1"
@@ -332,14 +413,14 @@ const NewCase = () => {
                   </div>
                   <div class="flex items-center mb-4">
                     <input
-                      id="default-radio-1"
+                      id="default-radio-2"
                       type="radio"
                       value=""
                       name="default-radio"
                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
-                      for="default-radio-1"
+                      for="default-radio-3"
                       class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Due diligence
@@ -362,7 +443,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex items-center mb-4">
                     <input
-                      id="default-radio-1"
+                      id="default-radio-4"
                       type="radio"
                       value=""
                       name="default-radio"
@@ -377,7 +458,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex items-center mb-4">
                     <label
-                      for="default-radio-1"
+                      for="default-radio-5"
                       class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Court representation
@@ -400,7 +481,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex ml-10 items-center mb-4">
                     <input
-                      id="default-radio-1"
+                      id="default-radio-6"
                       type="radio"
                       value=""
                       name="default-radio"
@@ -414,7 +495,10 @@ const NewCase = () => {
                     </label>
                   </div>
                 </div>
-                <div className="flex max-w-[200px]  ck-editor__editable ck-editor__editable_inline flex-col gap-1 items-center justify-start">
+                <div className="flex relative ck-editor__editable ck-editor__editable_inline flex-col gap-1 items-start justify-start">
+                  <p className="text-lg font-bold py-1">
+                    Write your description
+                  </p>
                   <CKEditor
                     editor={ClassicEditor}
                     data="<p>Hello from CKEditor 5!</p>"
@@ -431,6 +515,97 @@ const NewCase = () => {
                   />
                 </div>
               </div>
+
+              <p className="text-lg flex items-center justify-center gap-1 mt-8 font-bold py-1">
+                <svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 3v4c0 .6-.4 1-1 1H5m4 6 2 2 4-4m4-8v16c0 .6-.4 1-1 1H6a1 1 0 0 1-1-1V8c0-.4.1-.6.3-.8l4-4 .6-.2H18c.6 0 1 .4 1 1Z"
+                  />
+                </svg>{" "}
+                Additional documents
+                <span className="text-xs text-gray-400 ml-1">
+                  (file must be less than 5 MB)
+                </span>
+              </p>
+
+              <div className="flex gap-2 mt-4">
+                <div className="px-3 w-36 cursor-pointer py-8 flex-col rounded-lg border hover:bg-blue-300 hover:text-white border-blue-200 flex items-center justify-center">
+                  <Backup />
+                  <p className="text-sm">upload your file</p>
+                  <p className="text-sm text-blue-500">here</p>
+                </div>
+                <div className="px-3 w-36 cursor-pointer py-8 flex-col rounded-lg border hover:bg-blue-300 hover:text-white border-blue-200 flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-blue-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 7.8v8.4M7.8 12h8.4m4.8 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </div>
+                <div className="px-3 w-36 cursor-pointer py-8 flex-col rounded-lg border hover:bg-blue-300 hover:text-white border-blue-200 flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-blue-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 7.8v8.4M7.8 12h8.4m4.8 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </div>
+                <div className="px-3 w-36 cursor-pointer py-8 flex-col rounded-lg border hover:bg-blue-300 hover:text-white border-blue-200 flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-blue-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 7.8v8.4M7.8 12h8.4m4.8 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </div>
+                <button
+                  className="px-5 self-center ml-4 py-2 rounded-md mt-3 bg-yellow-500 text-white"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setStepper(3);
+                  }}
+                >
+                  Next
+                </button>
+              </div>
+
               {/* <div className="flex items-center justify-between gap-x-5">
               <button
                 className="px-5 py-1 rounded-sm bg-blue-700 text-white"
@@ -440,43 +615,9 @@ const NewCase = () => {
                 }}
               >
                 back
-              </button>
-              <button
-                className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setStepper(2);
-                }}
-              >
-                Next
-              </button>
-            </div> */}
-            </div>
-          </div>
-        ) : stepper === 2 ? (
-          <div className="flex items-center justify-center">
-            <div>
-              <h3 className="text-gray-500 text-lg font-bold my-3">Step - 3</h3>
-              <div className="flex items-center justify-between gap-x-5">
-                <button
-                  className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setStepper(1);
-                  }}
-                >
-                  back
-                </button>
-                <button
-                  className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setStepper(3);
-                  }}
-                >
-                  Next
-                </button>
-              </div>
+              </button> */}
+
+              {/* </div> */}
             </div>
           </div>
         ) : stepper === 3 ? (
