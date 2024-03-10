@@ -1,6 +1,15 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Chart from "react-apexcharts";
+
+// tanstack table
+import {
+  useReactTable,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getFilteredRowModel,
+} from "@tanstack/react-table";
 
 // icons
 import { CiSearch, CiPhone, CiEdit } from "react-icons/ci";
@@ -37,6 +46,89 @@ const LawyerDashboardHome = () => {
   // local states
   const [isUserMore, setIsUserMore] = useState(null);
   const [isUserMorePopup, setIsUserMorePopup] = useState(null);
+
+  const [filtering, setFiltering] = useState("");
+
+  // custome cells
+  const customeCustomersCell = ({ row }) => {
+    const { first_name, last_name, profile } = row.original;
+    return (
+      <div className="flex items-center justify-start gap-1">
+        {/* profile */}
+        <div>
+          <img
+            src={profile}
+            alt="lawyer customer profile"
+            className="w-[24px] h-[24px] rounded-full object-center object-cover"
+          />
+        </div>
+        <div className="flex flex-col">
+          <span className="font-bold text-sm">{first_name}</span>
+          <span className="text-gray-500 text-xs">{last_name}</span>
+        </div>
+      </div>
+    );
+  };
+  const customeCustomersDateCell = ({ row }) => {
+    const { start_date, end_date } = row.original;
+    return <span>{start_date}</span>;
+  };
+
+  // lawyer customers columns
+  const lawyerCustomersColumns = [
+    {
+      header: "customers",
+      accessorKey: "firts_name",
+      cell: customeCustomersCell,
+    },
+    {
+      header: "start date",
+      accessorKey: "start_date",
+      // cell: customeCustomersDateCell,
+    },
+    {
+      header: "end date",
+      accessorKey: "end_date",
+      // cell: customeCustomersDateCell,
+    },
+    {
+      header: "file no",
+      accessorKey: "file_no",
+    },
+    {
+      header: "court place",
+      accessorKey: "court_place",
+    },
+    {
+      header: "court bench",
+      accessorKey: "court_bench",
+    },
+    {
+      header: "status",
+      accessorKey: "status",
+    },
+    {
+      header: "actions",
+      accessorKey: "",
+      cell: () => <button>action</button>,
+    },
+  ];
+
+  // data
+  const lawyerCustomersData = useMemo(() => lawyerCustomers, []);
+
+  // table
+  const lawyerCustomersTable = useReactTable({
+    data: lawyerCustomersData,
+    columns: lawyerCustomersColumns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    state: {
+      globalFilter: filtering,
+    },
+    onGlobalFilterChange: setFiltering,
+  });
 
   return (
     <div className="p-[2%] relative">
@@ -333,7 +425,7 @@ const LawyerDashboardHome = () => {
         {/* table container */}
         <div className="mt-2">
           {/* table header */}
-          <header className="py-1 flex items-center justify-between gap-5 ">
+          <header className="py-1 flex items-center justify-between gap-5 border-b border-gray-300">
             {/* left */}
             <div className="flex items-center justify-between gap-5">
               <span className="px-3 py-2 rounded-full bg-blue-500 text-white">
@@ -348,6 +440,7 @@ const LawyerDashboardHome = () => {
                     type="text"
                     placeholder="search"
                     className="focus:outline-none focus:ring-0 border-none bg-transparent h-[28px]"
+                    onChange={(e) => setFiltering(e.target.value)}
                   />
                 </div>
               </div>
@@ -364,7 +457,7 @@ const LawyerDashboardHome = () => {
           </header>
           {/* table container */}
           <div className="mt-2 h-[35vh] overflow-y-auto">
-            {/* <table className="w-full table-auto">
+            <table className="w-full table-auto">
               <thead>
                 <tr className="border-b border-emerald-900 border-opacity-[.15]">
                   <td>
@@ -542,6 +635,42 @@ const LawyerDashboardHome = () => {
                         )}
                       </div>
                     </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* <table className="w-full">
+              <thead className="border-b border-gray-200">
+                {lawyerCustomersTable.getHeaderGroups().map((headerGroup) => (
+                  <tr key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => (
+                      <td
+                        key={header.id}
+                        className="text-left whitespace-nowrap font-medium cursor-pointer bg-blue-500 text-gray-100 p-1 capitalize"
+                      >
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </thead>
+              <tbody>
+                {lawyerCustomersTable.getRowModel().rows.map((row) => (
+                  <tr
+                    key={row.id}
+                    className="border-b border-gray-200 text-gray-700"
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <td key={cell.id} className="p-1">
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </td>
+                    ))}
                   </tr>
                 ))}
               </tbody>
