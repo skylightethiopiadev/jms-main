@@ -19,6 +19,7 @@
     "@mui/material": "^5.15.11",
     "@reduxjs/toolkit": "^1.9.3",
     "@syncfusion/ej2-react-calendars": "^24.2.8",
+    "@tanstack/react-table": "^8.13.2",
     "apexcharts": "^3.45.1",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.2",

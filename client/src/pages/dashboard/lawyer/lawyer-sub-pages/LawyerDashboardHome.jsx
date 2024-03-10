@@ -339,7 +339,18 @@ const LawyerDashboardHome = () => {
               <span className="px-3 py-2 rounded-full bg-blue-500 text-white">
                 total cases(200)
               </span>
-              <span className="text-gray-500">pending cases (250)</span>
+              {/* search container */}
+              <div>
+                <div className="flex items-center justify-center bg-gray-200 rounded-full py-[.175rem] px-3">
+                  {/* icon */}
+                  <FiSearch className="text-xl text-gray-500" />
+                  <input
+                    type="text"
+                    placeholder="search"
+                    className="focus:outline-none focus:ring-0 border-none bg-transparent h-[28px]"
+                  />
+                </div>
+              </div>
             </div>
             {/* right */}
             <div className="flex items-center justify-between gap-5">
@@ -349,18 +360,11 @@ const LawyerDashboardHome = () => {
                   <span>schedule</span>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center justify-center p-2 bg-gray-200 rounded-full">
-                  <button>
-                    <FiSearch className="text-xl" />
-                  </button>
-                </div>
-              </div>
             </div>
           </header>
           {/* table container */}
           <div className="mt-2 h-[35vh] overflow-y-auto">
-            <table className="w-full table-auto">
+            {/* <table className="w-full table-auto">
               <thead>
                 <tr className="border-b border-emerald-900 border-opacity-[.15]">
                   <td>
@@ -541,7 +545,7 @@ const LawyerDashboardHome = () => {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table> */}
           </div>
         </div>
       </div>
