@@ -258,7 +258,7 @@ const LawyerCustomersTable = () => {
         </div>
       </header>
       {/* table container */}
-      <div className="mt-2 h-[35vh] overflow-y-auto">
+      <div className="mt-2 h-[35vh] overflow-y-auto overflow-x-auto">
         {/* <table className="w-full table-auto">
           <thead>
             <tr className="border-b border-emerald-900 border-opacity-[.15]">
@@ -473,7 +473,7 @@ const LawyerCustomersTable = () => {
         </table> */}
 
         {/* final table */}
-        <table className="w-full">
+        <table className="w-full overflow-x-auto">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id} className="border-y-2 border-gray-300">
