@@ -235,7 +235,7 @@ const LawyerCustomersTable = () => {
           </span>
           {/* search container */}
           <div>
-            <div className="flex items-center justify-center bg-gray-200 rounded-sm py-[.175rem] px-3">
+            <div className="flex items-center justify-center bg-gray-200 rounded-full py-[.175rem] px-3">
               {/* icon */}
               <FiSearch className="text-xl text-gray-500" />
               <input
