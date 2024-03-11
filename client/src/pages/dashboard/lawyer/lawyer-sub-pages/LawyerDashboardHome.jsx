@@ -289,7 +289,7 @@ const LawyerDashboardHome = () => {
         <></>
       )}
       {/* top */}
-      <div className="rounded-md relative bg-yellow-100">
+      <div className="rounded-md relative bg-sky-100">
         <div className="flex items-center justify-between px-[5%] py-[2%]">
           {/* left */}
           <div className="flex-grow w-[100%] flex flex-col gap-y-3">
@@ -390,10 +390,10 @@ const LawyerDashboardHome = () => {
               </header>
               <div className="flex items-center justify-between gap-5 mt-3 mb-4">
                 <div>
-                  <h3 className="text-3xl font-black text-gray-600">789</h3>
+                  <h3 className="text-3xl font-black text-yellow-600">789</h3>
                 </div>
                 <div>
-                  <div className="flex items-center justify-center px-2 py-1 rounded-full border border-green-500 bg-green-50 text-green-500 text-xs font-semibold">
+                  <div className="flex items-center justify-center px-2 py-1 rounded-full border border-yellow-500 bg-yellow-50 text-yellow-500 text-xs font-semibold">
                     <FaPlus />
                     <span>34.64</span>
                   </div>
@@ -414,11 +414,11 @@ const LawyerDashboardHome = () => {
               </header>
               <div className="flex items-center justify-between gap-5 mt-3 mb-4">
                 <div>
-                  <h3 className="text-3xl font-black text-gray-600">7/24</h3>
+                  <h3 className="text-3xl font-black text-yellow-600">7/24</h3>
                 </div>
                 <div>
                   <div className="flex items-center justify-center px-2 py-1 text-xs font-semibold">
-                    <LuAlarmClock className="text-3xl text-blue-700" />
+                    <LuAlarmClock className="text-3xl text-yellow-700" />
                   </div>
                 </div>
               </div>

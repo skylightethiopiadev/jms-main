@@ -44,7 +44,7 @@ const LawyerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100%] bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100%]  z-[300] border-r border-gray-100  lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}

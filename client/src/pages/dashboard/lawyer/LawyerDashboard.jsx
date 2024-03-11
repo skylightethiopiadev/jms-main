@@ -21,11 +21,11 @@ const LawyerDashboard = () => {
   return (
     <div className="w-full h-screen flex relative">
       <LawyerLeftSideNav />
-      <div className="ml-1 w-full">
+      <div className=" pl-1 w-full">
         {/* header */}
         <LawyerDashboardHeader />
         {/* components */}
-        <div className="w-full h-full bg-gray-100 p-2">
+        <div className="w-full h-full bg-white p-2">
           {/* header */}
           <header className="flex items-center justify-between">
             {/* left-container */}
