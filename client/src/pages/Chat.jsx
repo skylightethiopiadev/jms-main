@@ -227,6 +227,7 @@ const Chat = () => {
   useEffect(() => {
     socket?.emit("send-video", payload);
     socket?.on("receive-video", (payload) => {
+      console.log(payload, "inside");
       setVideoFile(payload);
     });
   }, [payload]);
