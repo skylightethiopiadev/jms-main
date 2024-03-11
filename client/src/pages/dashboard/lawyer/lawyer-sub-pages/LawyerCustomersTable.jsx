@@ -4,7 +4,7 @@ import {
   useReactTable,
   flexRender,
   getCoreRowModel,
-  getPaginationRowModel,
+  // getPaginationRowModel,
   getFilteredRowModel,
   getSortedRowModel,
 } from "@tanstack/react-table";
@@ -208,14 +208,14 @@ const LawyerCustomersTable = () => {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    initialState: {
-      pagination: {
-        pageSize: 4,
-      },
-    },
+    // initialState: {
+    //   pagination: {
+    //     pageSize: 4,
+    //   },
+    // },
     state: {
       globalFilter: filtering,
       sorting: sorting,
@@ -259,219 +259,6 @@ const LawyerCustomersTable = () => {
       </header>
       {/* table container */}
       <div className="mt-2 h-[35vh] overflow-y-auto overflow-x-auto">
-        {/* <table className="w-full table-auto">
-          <thead>
-            <tr className="border-b border-emerald-900 border-opacity-[.15]">
-              <td>
-                <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                  <span>customers</span>
-                </div>
-              </td>
-              <td>
-                <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                  <span>start date</span>
-                </div>
-              </td>
-              <td className="border-r border-emerald-900 border-opacity-[.15]">
-                <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                  <span>end date</span>
-                </div>
-              </td>
-              <td>
-                <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                  <span>file no</span>
-                </div>
-              </td>
-              <td className="border-r border-emerald-900 border-opacity-[.15]">
-                <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                  <span>court place</span>
-                </div>
-              </td>
-              <td>
-                <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                  <span>status</span>
-                </div>
-              </td>
-              <td>
-                <div className="flex items-center justify-center text-gray-500 cursor-pointer py-1">
-                  <span>actions</span>
-                </div>
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            {lawyerCustomers.map((customer, index) => (
-              <tr
-                key={index}
-                className="border-b border-emerald-900 border-opacity-[.15]"
-              >
-                <td>
-                  <div className="flex items-center text-gray-500 cursor-pointer py-1">
-                    <div>
-                      <img
-                        src={customer.profile}
-                        alt=""
-                        className="w-[28px] h-[28px] rounded-full object-center object-cover mr-[.3rem]"
-                      />
-                    </div>
-                    <div className="flex flex-col text-xs text-gray-500">
-                      <span className="font-semibold">
-                        {customer.first_name}
-                      </span>
-                      <span>{customer.last_name}</span>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div
-                    className={`flex items-center justify-center text-gray-800 cursor-pointer py-1 rounded-sm ${
-                      customer.status === "pending" ? "bg-gray-200" : ""
-                    }`}
-                  >
-                    <span
-                      className={`${
-                        customer.status === "active"
-                          ? "text-green-900"
-                          : customer.status === "pending"
-                          ? "text-gray-700"
-                          : "text-gray-700"
-                      }`}
-                    >
-                      {customer.start_date}
-                    </span>
-                  </div>
-                </td>
-                <td className="border-r border-emerald-900 border-opacity-[.15]">
-                  <div
-                    className={`flex items-center justify-center text-gray-800 cursor-pointer py-1 ${
-                      customer.status === "active"
-                        ? "bg-blue-500"
-                        : customer.status === "closed"
-                        ? "bg-gray-200"
-                        : ""
-                    }`}
-                  >
-                    <span
-                      className={`${
-                        customer.status === "active"
-                          ? "text-white"
-                          : customer.status === "pending"
-                          ? "text-wite"
-                          : "text-gray-700"
-                      }`}
-                    >
-                      {customer.end_date ? customer.end_date : "_____"}
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <div className="flex items-center justify-center text-gray-800 cursor-pointer py-1">
-                    <span className="text-gray-500">{customer.file_no}</span>
-                  </div>
-                </td>
-                <td className="border-r border-emerald-900 border-opacity-[.15]">
-                  <div
-                    className={`flex items-center justify-center text-gray-500 cursor-pointer py-1 rounded-sm ${
-                      customer.status === "active" ? "bg-gray-200" : ""
-                    } mx-1`}
-                  >
-                    <span>{customer.court_place}</span>
-                  </div>
-                </td>
-
-                <td>
-                  <div
-                    className={`flex items-center border justify-center text-gray-50 cursor-pointer rounded-sm mx-1 px-1 py-[.13rem] ${
-                      customer.status === "active"
-                        ? "bg-green-400 border-green-400"
-                        : customer.status === "pending"
-                        ? "bg-orange-400 border-orange-400"
-                        : "bg-red-400 border-red-400"
-                    }`}
-                  >
-                    <span>{customer.status}</span>
-                  </div>
-                </td>
-                <td>
-                  <div className="flex items-center justify-center gap-3 text-gray-500 cursor-pointer py-1 relative">
-                    <button className="text-2xl">
-                      <BiSolidMessageAdd />
-                    </button>
-                    <button
-                      className="text-2xl"
-                      onClick={(e) => {
-                        if (isUserMore) {
-                          setIsUserMore(null);
-                        } else {
-                          setIsUserMore(customer);
-                        }
-                      }}
-                    >
-                      <IoMdMore />
-                    </button>
-                    {lawyerCustomers[index].file_no === isUserMore?.file_no ? (
-                      <div className="absolute right-0 top-[100%] bg-white rounded-sm shadow-md z-50">
-                        <ul className="px-1 py-2">
-                          <li
-                            className="my-1 border-b border-gray-300 flex items-center gap-3 px-3 cursor-pointer"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setIsUserMorePopup(customer);
-                              setIsUserMore(null);
-                            }}
-                          >
-                            <CiEdit className="text-2xl" />
-                            <span>modify</span>
-                          </li>
-                          <li className="my-1 border-b border-gray-300 flex items-center gap-3 px-3">
-                            <MdOutlineMail className="text-2xl" />
-                            <span>Message</span>
-                          </li>
-                        </ul>
-                      </div>
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
-        {/* <table className="w-full">
-          <thead className="border-b border-gray-200">
-            {lawyerCustomersTable.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <td
-                    key={header.id}
-                    className="text-left whitespace-nowrap font-medium cursor-pointer bg-blue-500 text-gray-100 p-1 capitalize"
-                  >
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {lawyerCustomersTable.getRowModel().rows.map((row) => (
-              <tr
-                key={row.id}
-                className="border-b border-gray-200 text-gray-700"
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="p-1">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
-
         {/* final table */}
         <table className="w-full overflow-x-auto">
           <thead>
@@ -523,21 +310,21 @@ const LawyerCustomersTable = () => {
             <MdOutlineKeyboardDoubleArrowLeft />
           </button> */}
           {/* previous page */}
-          <button
+          {/* <button
             disabled={!table.getCanPreviousPage()}
             onClick={() => table.previousPage()}
             className="text-3xl text-gray-500 px-1 py-[.05rem] rounded-sm transition-all ease-in-out duration-150 hover:bg-gray-200 hover:text-gray-700"
           >
             <MdOutlineArrowLeft />
-          </button>
+          </button> */}
           {/* next page */}
-          <button
+          {/* <button
             disabled={!table.getCanNextPage()}
             onClick={() => table.nextPage()}
             className="text-3xl text-gray-500 px-1 py-[.05rem] rounded-sm transition-all ease-in-out duration-150 hover:bg-gray-200 hover:text-gray-700"
           >
             <MdOutlineArrowRight />
-          </button>
+          </button> */}
 
           {/* last page */}
           {/* <button
