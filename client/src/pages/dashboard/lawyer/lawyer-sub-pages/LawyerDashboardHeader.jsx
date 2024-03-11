@@ -40,7 +40,7 @@ const LawyerDashboardHeader = () => {
     }
   };
   return (
-    <header className="py-2 px-1 flex items-center justify-between w-full">
+    <header className="py-2 px-1 flex items-center justify-between w-full border-b border-gray-200">
       {/* left header portion */}
       <div className="flex items-center">
         {/* menu icon */}

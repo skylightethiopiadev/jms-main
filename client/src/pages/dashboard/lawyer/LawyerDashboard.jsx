@@ -23,11 +23,11 @@ const LawyerDashboard = () => {
   return (
     <div className="w-full h-screen flex relative">
       <LawyerLeftSideNav />
-      <div className="ml-1 w-full">
+      <div className=" pl-1 w-full">
         {/* header */}
         <LawyerDashboardHeader />
         {/* components */}
-        <div className="w-full h-full bg-gray-100 p-2">
+        <div className="w-full h-full bg-white p-2">
           {/* header */}
           <header className="flex items-center justify-between">
             {/* left-container */}
@@ -99,10 +99,10 @@ const LawyerDashboard = () => {
                       $21,328.00
                     </h3>
                     <div className="flex items-center justify-between gap-2">
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-10 py-1 rounded-sm bg-yellow-500 text-white">
                         Fund
                       </button>
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-10 py-1 rounded-sm bg-yellow-500 text-white">
                         Refund
                       </button>
                     </div>

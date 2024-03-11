@@ -44,7 +44,7 @@ const LawyerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100%] bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100%]  z-[300] border-r border-gray-100  lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}
@@ -411,7 +411,7 @@ const LawyerLeftSideNav = () => {
       {/* button container */}
       <div className="mr-9 my-3">
         {/* top */}
-        <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
+        <div className="py-3 px-1 rounded-md bg-yellow-100 flex flex-col items-center justify-between mb-5">
           <p className="font-semibold text-center">
             Please get in touch with your service provider
           </p>
@@ -422,7 +422,7 @@ const LawyerLeftSideNav = () => {
               className="w-[120px] h-[90px] mt-[-24px] rounded-md"
             />
           </div>
-          <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">
+          <button className="px-3 py-1 rounded-full text-white bg-yellow-500 flex items-center justify-center">
             <FaPhoneVolume className="text-xl mr-1" />{" "}
             <span className="font-bold text-lg">1234</span>
           </button>

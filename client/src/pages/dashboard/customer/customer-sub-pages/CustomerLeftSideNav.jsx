@@ -71,7 +71,7 @@ const CustomerLeftSideNav = () => {
             }}
           >
             {/* icon */}
-            <img src={siteMainLogo} alt="" className="w-[200px] h-[130px] " />
+            <img src={siteMainLogo} alt="" className="w-[200px] h-[200px] " />
           </NavLink>
         </div>
         {/* nav container */}
@@ -419,7 +419,7 @@ const CustomerLeftSideNav = () => {
             <img
               src={callCenter}
               alt=""
-              className="w-[120px] h-[90px] mt-[-24px] rounded-md"
+              className="w-[120px] h-[100px] mt-[-24px] rounded-md"
             />
           </div>
           <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">

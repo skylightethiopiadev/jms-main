@@ -32,6 +32,9 @@ const NewCase = () => {
   // stepper count
   const [stepper, setStepper] = useState(0);
 
+  // stepper count
+  // const [stepper, setStepper] = useState(0);
+
   // handle all type
   const handleAllTypeSelection = (text) => {
     // filtere here
@@ -55,7 +58,7 @@ const NewCase = () => {
 
   console.log(serviceType, "service type");
   return (
-    <div className="bg-gray-100 h-auto">
+  <div className="bg-gray-100 h-auto">
       <header className="h-max bg-sky-100 -ml-10 grid grid-cols-4">
         {/* circle and bar */}
         <div className="flex gap-2 items-center justify-center w-full">
@@ -135,6 +138,7 @@ const NewCase = () => {
           <div
             className={`${stepper > 0 ? "stepper-bar-on" : "stepper-bar-off"}`}
           ></div>
+
           {/* step 1 */}
           <div
             className={`${
@@ -153,6 +157,7 @@ const NewCase = () => {
           <div
             className={`${stepper > 1 ? "stepper-bar-on" : "stepper-bar-off"}`}
           ></div>
+
           {/* step 2 */}
           <div
             className={`${
@@ -171,6 +176,7 @@ const NewCase = () => {
           <div
             className={`${stepper > 2 ? "stepper-bar-on" : "stepper-bar-off"}`}
           ></div>
+
           {/* step 3 */}
           <div
             className={`${
@@ -189,6 +195,7 @@ const NewCase = () => {
           <div
             className={`${stepper > 3 ? "stepper-bar-on" : "stepper-bar-off"}`}
           ></div>
+
           {/* step 4 */}
           <div
             className={`${
