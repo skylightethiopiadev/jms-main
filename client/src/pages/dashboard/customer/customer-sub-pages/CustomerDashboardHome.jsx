@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Chart from "react-apexcharts";
+
 // icons
 import { CiSearch, CiPhone, CiEdit } from "react-icons/ci";
 import { MdOutlineMail, MdOutlineMoreVert } from "react-icons/md";
@@ -10,7 +12,7 @@ import {
   IoStarOutline,
   IoStarHalfOutline,
   IoStarSharp,
-  IoExitSharp,
+  IoAlarmOutline,
 } from "react-icons/io5";
 
 // data files
@@ -28,7 +30,7 @@ const CustomerDashboardHome = () => {
   return (
     <div className="p-[2%] relative">
       {isUserMorePopup ? (
-        <div className="absolute left-[25%] top-[3%] bg-white shadow-lg rounded-sm z-50">
+        <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
             initial={{ scale: 0.5 }}
             animate={{ scale: 1 }}
@@ -104,12 +106,16 @@ const CustomerDashboardHome = () => {
           <div className="flex-grow w-[100%] flex flex-col gap-y-3">
             <div>
               <h3 className="font-bold">
-                Mi<span className="text-blue-700">s</span>nton
+                Ma<span className="text-blue-700">ku</span>tta
               </h3>
             </div>
             <div>
-              <h1 className="text-xl font-bold">Go Premium</h1>
-              <p>Explore 500+ courses with lifetime menbership</p>
+              <h1 className="text-xl font-bold">Legal Management System</h1>
+              <p>
+                Explore the network of{" "}
+                <span className="font-black text-blue-700">500+</span> lawyers
+                who are members of our service
+              </p>
             </div>
             <div>
               <button className="px-3 py-1 rounded-md bg-gray-800 text-white">
@@ -118,84 +124,80 @@ const CustomerDashboardHome = () => {
             </div>
           </div>
           {/* right */}
-          <div className="flex  w-[30%]items-center justify-end">
+          <div className="w-[40%] hidden md:flex items-center  justify-end">
             <div>
               <img
                 src="https://th.bing.com/th/id/R.175b3802f7c5c4c98b9bcbdf9a7b9945?rik=98ox9lTe%2ffYIwA&pid=ImgRaw&r=0"
                 alt=""
-                className="w-[420px]"
               />
             </div>
             <div className="flex items-center justify-evenly gap-x-3">
-              <div className="w-[64px] h-[7px] bg-white"></div>
-              <div className="w-[64px] h-[7px] bg-white"></div>
-              <div className="w-[64px] h-[7px] bg-white"></div>
+              <div className="h-[7px] bg-white"></div>
+              <div className="h-[7px] bg-white"></div>
+              <div className=" h-[7px] bg-white"></div>
             </div>
           </div>
         </div>
       </div>
       {/* middle */}
-      <div className="grid grid-cols-3 gap-3 py-[3%]">
+      <div className="flex flex-col md:flex-row items-center gap-3 py-[3%]">
         {/* left */}
-        <div className="w-full p-2 rounded-md shadow-lg">
-          <div className="flex items-center justify-center gap-3">
-            <div className="flex items-center justify-center border-4 w-[64px] h-[64px] rounded-full border-l-blue-700 border-t-blue-700 border-blue-100">
-              <div className="font-semibold">50%</div>
+        <div className="p-2 rounded-md shadow-lg w-[100%] md:w-[50%] py-[4%]">
+          <div className="">
+            <h3 className="text-lg text-gray-800 font-semibold">
+              Next Appointment
+            </h3>
+            <div className="flex gap-1">
+              <span className="text-gray-500 font-semibold">
+                appointment type:
+              </span>
+              <span className="text-gray-500">Oral Litagation</span>
             </div>
             <div>
-              <h3 className="text-sky-500">UI/UX Design</h3>
-              <h2 className="font-semibold">Research</h2>
-              <h2 className="font-semibold">Objective User</h2>
+              <h3 className="text-lg text-gray-500 font-black my-1">
+                5 march,2024
+              </h3>
             </div>
-          </div>
-          <div className="text-gray-500 text-xs my-2">
-            <h5>
-              You marked <span>3/5</span>
-            </h5>
-            <h5>Subscriptions are done</h5>
+            <div className="relative w-full flex items-center justify-end mt-[-.4rem] pt-2">
+              <div className="relative flex items-center">
+                <IoAlarmOutline className=" absolute right-[65%] text-7xl text-purple-400" />
+                <span className="relative z-50 px-3 py-1 rounded-full bg-purple-700 text-sm font-semibold text-white">
+                  {new Date().getHours()}:{new Date().getMinutes()}AM
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-        {/* middle */}
-        <div className="w-full p-2 rounded-md shadow-lg">
-          <div className="flex items-center justify-center gap-3">
-            <div className="flex items-center justify-center border-4 w-[64px] h-[64px] rounded-full border-l-orange-500 border-orange-200">
-              <div className="font-semibold">25%</div>
-            </div>
-            <div>
-              <h3 className="text-orange-500">UI/UX Design</h3>
-              <h2 className="font-semibold">Research</h2>
-              <h2 className="font-semibold">Objective User</h2>
-            </div>
-          </div>
-          <div className="text-gray-500 text-xs my-2">
-            <h5>
-              You marked <span>3/5</span>
-            </h5>
-            <h5>Subscriptions are done</h5>
-          </div>
-        </div>
+
         {/* right */}
         <div className="w-full p-2 rounded-md shadow-lg">
-          <div className="flex items-center justify-center gap-3">
-            <div className="flex items-center justify-center border-4 w-[64px] h-[64px] rounded-full border-emerald-600 border-r-emerald-100">
-              <div className="font-semibold">75%</div>
-            </div>
-            <div>
-              <h3 className="text-emerald-600">UI/UX Design</h3>
-              <h2 className="font-semibold">Research</h2>
-              <h2 className="font-semibold">Objective User</h2>
-            </div>
-          </div>
-          <div className="text-gray-500 text-xs my-2">
-            <h5>
-              You marked <span>3/5</span>
-            </h5>
-            <h5>Subscriptions are done</h5>
-          </div>
+          <Chart
+            type="line"
+            width={"100%"}
+            height={150}
+            series={[
+              {
+                name: "Haddis",
+                data: [23, 32, 43, 34, 54, 45, 65, 0],
+              },
+              {
+                name: "Menelik",
+                data: [43, 92, 3, 75, 4, 45, 75, 6],
+              },
+            ]}
+            options={{
+              yaxis: {
+                // show: false,
+                labels: {
+                  show: false,
+                },
+              },
+            }}
+          ></Chart>
         </div>
       </div>
       {/* bottom */}
-      <div className="flex items-center justify-between gap-1">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-1">
         {/* left table */}
         <div className="w-full rounded-md bg-sky-100 p-[1%]">
           {/* header */}
@@ -209,7 +211,7 @@ const CustomerDashboardHome = () => {
                 <input
                   type="text"
                   placeholder="search ..."
-                  className="focus:outline-none focus:ring-0 bg-transparent border-none text-xs my-[.05rem] h-[28px]"
+                  className="focus:outline-none w-[120px] sm:w-[150px] md:w-[250px] focus:ring-0 bg-transparent border-none text-xs my-[.05rem] h-[28px]"
                 />
               </div>
             </div>
@@ -220,7 +222,10 @@ const CustomerDashboardHome = () => {
             </div>
           </header>
           {/* table container */}
-          <div className="h-[22vh] overflow-y-auto">
+          <div
+            className="max-h-[26vh] overflow-y-auto pr-1"
+            id="case-team-table-container"
+          >
             <table className="w-full">
               <tbody>
                 {caseTeams.map((team, index) => (
@@ -288,10 +293,6 @@ const CustomerDashboardHome = () => {
                                 Detail
                               </li>
                               <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
-                                <CiPhone className="text-lg text-gray-500" />
-                                Call
-                              </li>
-                              <li className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300">
                                 <MdOutlineMail className="text-lg text-gray-500" />
                                 Message
                               </li>
@@ -309,7 +310,7 @@ const CustomerDashboardHome = () => {
           </div>
         </div>
         {/* right card */}
-        <div className="shadow-sm p-[1%]">
+        <div className="shadow-sm p-[1%] w-full sm:w-[35%]">
           <header className="flex items-center justify-between border-b border-r-gray-300">
             <div>
               <h3 className="font-semibold text-gray-600">Case History</h3>
@@ -320,7 +321,10 @@ const CustomerDashboardHome = () => {
               </button>
             </div>
           </header>
-          <div className="h-[26vh] w-[230px] overflow-y-auto py-2">
+          <div
+            className="h-[28vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2 pb-10"
+            id="case-history-list-container"
+          >
             {/* case history cards */}
             {caseHistory?.length > 0 ? (
               <>
@@ -331,7 +335,7 @@ const CustomerDashboardHome = () => {
                       history.status === "ACTIVE"
                         ? "border-green-400"
                         : "border-red-400"
-                    } rounded-md shadow-md py-2 mb-3 pl-2`}
+                    } rounded-md shadow-md py-2 mb-5 pl-2`}
                   >
                     <div className="flex items-center justify-between text-gray-500 text-sm">
                       <div>

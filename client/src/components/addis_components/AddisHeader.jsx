@@ -2,18 +2,16 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
-//////////////////////////////////////////////
-import { useDispatch } from "react-redux";
-import { setIsHeader } from "../../features/globals/globalSlice";
-
 // site logo image
-import mainSiteLogo from "../../assets/images/site-logo/jms-site-logo.jpg";
+import mainSiteLogo from "../../assets/images/site-logo/final-logo.png";
 
 // icons
 import { FiPhone } from "react-icons/fi";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { GrClose } from "react-icons/gr";
+import { AiOutlineMenu } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
 
 const AddisHeader = () => {
   // local state
@@ -27,14 +25,14 @@ const AddisHeader = () => {
   const [isOurTeam, setIsOurTeam] = useState(false);
   const [isContactUs, setIsContactUs] = useState(false);
 
-  const dispatch = useDispatch();
+  const [isMainPopupNavOpen, setIsMainPopupNavOpen] = useState(false);
 
   return (
     <header className="p1-3">
       {/* top header */}
       <div className=" py-3 border-b border-gray-200 px-[1%] flex items-center justify-between relative">
         {/* left */}
-        <div>left</div>
+        <div></div>
         {/* center */}
         <div className="flex items-center justify-center">
           {/* site logo */}
@@ -68,7 +66,7 @@ const AddisHeader = () => {
             </button>
             {/* call detail */}
             {isPhone ? (
-              <div className="absolute left-0 top-[160%] z-50 bg-white w-max p-5 shadow-lg">
+              <div className="absolute left-0 top-[160%] z-[1400] bg-white w-max p-5 shadow-lg">
                 <div className="font-semibold">
                   <h3>Talk To Legal Zoom</h3>
                   <h3>(855) 787-1922</h3>
@@ -100,7 +98,6 @@ const AddisHeader = () => {
               to={"/dashboard/customer/"}
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(setIsHeader(false));
               }}
               className={
                 "px-5 py-2 text-lg text-white bg-black rounded-full font-semibold transition-all ease-in-out duration-150 hover:bg-gray-600"
@@ -120,7 +117,7 @@ const AddisHeader = () => {
                 <input
                   type="text"
                   placeholder="search"
-                  className="focus:outline-none focus:ring-0 bg-transparent border-none h-[20px] w-[450px]"
+                  className="focus:outline-none focus:ring-0 bg-transparent border-none h-[20px] sm:w-[450px]"
                 />
               </div>
               {/* search bar close */}
@@ -142,10 +139,12 @@ const AddisHeader = () => {
         )}
       </div>
       {/* bottom header */}
-      <div className="py-3 border-b border-gray-200 px-[1%] flex items-center justify-center">
+      <div className="py-3 border-b border-gray-200 px-[1%] flex items-center justify-between relative">
+        {/* left */}
+        <div>{/* left container */}</div>
         {/* actual nav */}
         <div>
-          <ul className="flex items-center justify-center gap-x-5 uppercase">
+          <ul className="hidden md:flex items-center justify-center gap-x-5 uppercase">
             <li>
               <NavLink
                 className={`${isHome ? "font-bold" : ""}`}
@@ -392,6 +391,220 @@ const AddisHeader = () => {
             </li>
           </ul>
         </div>
+        {/* right */}
+        <div>
+          {/* main menu icon */}
+          <button
+            className="text-3xl md:hidden"
+            onClick={() => {
+              setIsMainPopupNavOpen(!isMainPopupNavOpen);
+            }}
+          >
+            {isMainPopupNavOpen ? <IoMdClose /> : <AiOutlineMenu />}
+          </button>
+        </div>
+        {/* pop up nav */}
+        {isMainPopupNavOpen ? (
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0.5 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="absolute bg-white z-[1300] h-[80vh] shadow-lg px-[3%] pt-1 right-0 top-[100%]"
+          >
+            <ul>
+              <li className="main-nav-list-item">
+                <NavLink
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsServices(false);
+                    setIsTutorial(false);
+                    setIsPortfolio(false);
+                    setIsOurTeam(false);
+                    setIsBlogging(false);
+                    setIsContactUs(false);
+                    setIsHome(true);
+                  }}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="main-nav-list-item">
+                <div
+                  className="main-nav-list-header"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsHome(false);
+                    setIsBlogging(false);
+                    setIsContactUs(false);
+                    setIsTutorial(false);
+                    setIsPortfolio(false);
+                    setIsOurTeam(false);
+                    setIsServices(!isServices);
+                  }}
+                >
+                  <span>Services</span>
+                  {isServices ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                </div>
+                {isServices ? (
+                  <ul className="second-order-ul">
+                    <li>
+                      <NavLink>ss1</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>ss2</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>ss3</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>ss4</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>ss5</NavLink>
+                    </li>
+                  </ul>
+                ) : (
+                  <></>
+                )}
+              </li>
+              <li className="main-nav-list-item">
+                <NavLink
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsServices(false);
+                    setIsTutorial(false);
+                    setIsPortfolio(false);
+                    setIsOurTeam(false);
+                    setIsHome(false);
+                    setIsContactUs(false);
+                    setIsBlogging(true);
+                  }}
+                >
+                  Blogging
+                </NavLink>
+              </li>
+              <li className="main-nav-list-item">
+                <div
+                  className="main-nav-list-header"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsHome(false);
+                    setIsBlogging(false);
+                    setIsContactUs(false);
+                    setIsServices(false);
+                    setIsPortfolio(false);
+                    setIsOurTeam(false);
+                    setIsTutorial(!isTutorial);
+                  }}
+                >
+                  <span>Tutorial</span>
+                  {isTutorial ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                </div>
+                {isTutorial ? (
+                  <ul className="second-order-ul">
+                    <li>
+                      <NavLink>ts1</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>ts2</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>ts3</NavLink>
+                    </li>
+                  </ul>
+                ) : (
+                  <></>
+                )}
+              </li>
+              <li className="main-nav-list-item">
+                <div
+                  className="main-nav-list-header"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsServices(false);
+                    setIsTutorial(false);
+                    setIsOurTeam(false);
+                    setIsHome(false);
+                    setIsBlogging(false);
+                    setIsContactUs(false);
+                    setIsPortfolio(!isPortfolio);
+                  }}
+                >
+                  <span>Portfolio</span>
+                  {isPortfolio ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                </div>
+                {isPortfolio ? (
+                  <ul className="second-order-ul">
+                    <li>
+                      <NavLink>ps1</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>ps2</NavLink>
+                    </li>
+                  </ul>
+                ) : (
+                  <></>
+                )}
+              </li>
+              <li className="main-nav-list-item">
+                <div
+                  className="main-nav-list-header"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsServices(false);
+                    setIsTutorial(false);
+                    setIsPortfolio(false);
+                    setIsHome(false);
+                    setIsBlogging(false);
+                    setIsContactUs(false);
+                    setIsOurTeam(!isOurTeam);
+                  }}
+                >
+                  <span>Our Team</span>
+                  {isOurTeam ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                </div>
+                {isOurTeam ? (
+                  <ul className="second-order-ul">
+                    <li>
+                      <NavLink>os1</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>os2</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>os3</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>os4</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>os5</NavLink>
+                    </li>
+                  </ul>
+                ) : (
+                  <></>
+                )}
+              </li>
+              <li className="main-nav-list-item">
+                <NavLink
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsHome(false);
+                    setIsBlogging(false);
+                    setIsServices(false);
+                    setIsTutorial(false);
+                    setIsPortfolio(false);
+                    setIsOurTeam(false);
+                    setIsContactUs(true);
+                  }}
+                >
+                  Contact Us
+                </NavLink>
+              </li>
+            </ul>
+          </motion.div>
+        ) : (
+          <></>
+        )}
       </div>
     </header>
   );

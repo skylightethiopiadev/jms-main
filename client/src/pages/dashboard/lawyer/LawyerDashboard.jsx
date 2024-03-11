@@ -1,27 +1,31 @@
 import { Outlet } from "react-router-dom";
-import { Calendar } from "react-calendar";
-import { Avatar, Datepicker } from "flowbite-react";
+import { Datepicker } from "flowbite-react";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
 
 // icons
 import { IoIosArrowDown } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
+import {
+  IoStarOutline,
+  IoStarHalfOutline,
+  IoStarSharp,
+  IoExitSharp,
+} from "react-icons/io5";
 
 // customer-sub-pages
-import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeader";
-import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
-import { GiSevenPointedStar } from "react-icons/gi";
+import LawyerDashboardHeader from "./lawyer-sub-pages/LawyerDashboardHeader";
+import LawyerLeftSideNav from "./lawyer-sub-pages/LawyerLeftSideNav";
 
-const CustomerDashboard = () => {
+const LawyerDashboard = () => {
   return (
     <div className="w-full h-screen flex relative">
-      <CustomerLeftSideNav />
-      <div className="ml-1 w-full">
+      <LawyerLeftSideNav />
+      <div className=" pl-1 w-full">
         {/* header */}
-        <CustomerDashboardHeader />
+        <LawyerDashboardHeader />
         {/* components */}
-        <div className="w-full h-full bg-gray-100 p-2">
+        <div className="w-full h-full bg-white p-2">
           {/* header */}
           <header className="flex items-center justify-between">
             {/* left-container */}
@@ -59,7 +63,18 @@ const CustomerDashboard = () => {
                   <span className="flexs font-bold">Meseret Seyoum</span>
                   <VscVerifiedFilled className="text-sky-500 text-lg" />
                 </div>
-                <div className="text-gray-500">Customer Account</div>
+                <div className="text-gray-500">Lawyer Account</div>
+                {/* ratting */}
+                <div className="flex items-center justify-center gap-1 bg-emerald-500 text-white px-2 py-1 rounded-sm my-1">
+                  <div className="flex items-center justify-center gap-x-1">
+                    <IoStarSharp />
+                    <IoStarSharp />
+                    <IoStarSharp />
+                    <IoStarHalfOutline />
+                    <IoStarOutline />
+                  </div>
+                  <span className="font-semibold">4.35</span>
+                </div>
               </div>
 
               {/* total balance */}
@@ -72,10 +87,10 @@ const CustomerDashboard = () => {
                       $21,328.00
                     </h3>
                     <div className="flex items-center justify-between gap-2">
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-10 py-1 rounded-sm bg-yellow-500 text-white">
                         Fund
                       </button>
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-10 py-1 rounded-sm bg-yellow-500 text-white">
                         Refund
                       </button>
                     </div>
@@ -90,20 +105,19 @@ const CustomerDashboard = () => {
                       <IoIosArrowDown />
                     </button>
                   </div>
-                  <div>
-                    <span className="text-gray-500 font-semibold">Total</span>
-                  </div>
-                  <div className="grid grid-cols-3 w-full mt-1">
+
+                  <div className="grid grid-cols-2 w-full  mt-1 py-1">
                     <div className="w-full border-b-4 border-purple-700 py-1">
-                      <span className="text-gray-500 w-full">Total Spent</span>
+                      <span className="text-gray-500 w-full my-2">
+                        Total Spent
+                      </span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
-                    <div className="w-full border-b-4 border-purple-500 py-1">
-                      <span className="text-gray-500 w-full">Utility</span>
-                      <h3 className="font-semibold">$213.00</h3>
-                    </div>
+
                     <div className="w-full border-b-4 border-purple-300 py-1">
-                      <span className="text-gray-500 w-full">Total Refund</span>
+                      <span className="text-gray-500 w-full my-2">
+                        Total Refund
+                      </span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
                   </div>
@@ -130,4 +144,4 @@ const CustomerDashboard = () => {
   );
 };
 
-export default CustomerDashboard;
+export default LawyerDashboard;
