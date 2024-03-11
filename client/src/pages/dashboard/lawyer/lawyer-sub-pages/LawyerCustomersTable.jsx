@@ -554,7 +554,7 @@ const LawyerCustomersTable = () => {
           initial={{ scale: 0.5, opacity: 0.5 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="absolute top-1 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-md bg-white shadow-lg"
+          className="absolute top-1 left-[20%] -translate-y-1/2 -translate-x-1/2 rounded-md bg-white shadow-lg"
         >
           <header className="p-3 flex items-center justify-between gap-x-56 border-b border-gray-200 mb-3">
             <div className="flex items-center justify-start gap-x-1">
