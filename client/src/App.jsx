@@ -14,17 +14,14 @@ import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
 // import { useSelector } from "react-redux";
 
 // components
-import AddisHeader from "./components/addis_components/AddisHeader";
+// import AddisHeader from "./components/addis_components/AddisHeader";
 // pages
-import AddisHome from "./pages/addis_pages/AddisHome";
+// import AddisHome from "./pages/addis_pages/AddisHome";
 
 // customer
-import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
-import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
-import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
 
 // lawyer
-import LawyerDashboard from "./pages/dashboard/lawyer/LawyerDashboard";
+
 import LawyerDashboardHome from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerDashboardHome";
 import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCase";
 

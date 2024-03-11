@@ -58,7 +58,7 @@ const NewCase = () => {
 
   console.log(serviceType, "service type");
   return (
-  <div className="bg-gray-100 h-auto">
+    <div className="bg-gray-100 h-auto">
       <header className="h-max bg-sky-100 -ml-10 grid grid-cols-4">
         {/* circle and bar */}
         <div className="flex gap-2 items-center justify-center w-full">
@@ -420,6 +420,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex items-center mb-4">
                     <input
+                      onChange={(e) => setCategory("Due diligence")}
                       id="default-radio-2"
                       type="radio"
                       value=""
@@ -435,6 +436,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex items-center mb-4">
                     <input
+                      onChange={(e) => setCategory("Due diligence")}
                       id="default-radio-1"
                       type="radio"
                       value=""
@@ -450,6 +452,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex items-center mb-4">
                     <input
+                      onChange={(e) => setCategory("Due diligence")}
                       id="default-radio-4"
                       type="radio"
                       value=""
@@ -473,6 +476,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex ml-10 items-center mb-4">
                     <input
+                      onChange={(e) => setCategory("Due diligence")}
                       id="default-radio-1"
                       type="radio"
                       value=""
@@ -488,6 +492,7 @@ const NewCase = () => {
                   </div>
                   <div class="flex ml-10 items-center mb-4">
                     <input
+                      onChange={(e) => setCategory("Due diligence")}
                       id="default-radio-6"
                       type="radio"
                       value=""
@@ -517,6 +522,7 @@ const NewCase = () => {
                     }}
                     onChange={(event, editor) => {
                       const data = editor.getData();
+                      setDescription("description text here");
                       console.log({ event, editor, data });
                     }}
                   />
@@ -895,6 +901,7 @@ const NewCase = () => {
                         <button
                           className="px-[15%] py-2 rounded-full bg-blue-600 text-white"
                           onClick={(e) => {
+                            setLawyer("Hana teshome");
                             e.stopPropagation();
                             setStepper(4);
                           }}
@@ -913,7 +920,17 @@ const NewCase = () => {
         ) : stepper === 4 ? (
           <div className="flex items-center justify-center">
             <div>
-              <h3 className="text-gray-500 text-lg font-bold my-3">Final</h3>
+              <h3 className="text-gray-500 text-lg font-bold my-3">
+                Total result
+              </h3>
+              <div className="flex flex-col mb-2 gap-5 w-full px-2">
+                <p className="font-bold border py-2 px-2 border-gray-300">Case category: {category}</p>
+                <p className="font-bold border py-2 px-2 border-gray-300">Case type: {caseType}</p>
+                <p className="font-bold border py-2 px-2 border-gray-300">Case type: {caseType}</p>
+                <p className="font-bold border py-2 px-2 border-gray-300">Case name: {caseName}</p>
+                <p className="font-bold border py-2 px-2 border-gray-300">Lawyer: {lawyer}</p>
+                <p className="font-bold border py-2 px-2 border-gray-300">Case type: {caseType}</p>
+              </div>
               <div className="flex items-center justify-between gap-x-5">
                 <button
                   className="px-5 py-1 rounded-sm bg-blue-700 text-white"
@@ -930,7 +947,7 @@ const NewCase = () => {
                     setStepper(4);
                   }}
                 >
-                  Confirm
+                  Submit
                 </button>
               </div>
             </div>

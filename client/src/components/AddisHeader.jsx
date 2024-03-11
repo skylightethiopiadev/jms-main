@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 // site logo image
-import mainSiteLogo from "../../assets/images/site-logo/final-logo.png";
+import mainSiteLogo from "../../src/assets/images/site-logo/logoFinal.png";
 
 // icons
 import { FiPhone } from "react-icons/fi";
