@@ -111,25 +111,6 @@ mongodb()
     };
 
     io.on("connection", (socket) => {
-      //video ##################################################
-      socket.emit("me", socket.id);
-
-      socket.on("disconnect", () => {
-        socket.broadcast.emit("callEnded");
-      });
-
-      socket.on("callUser", (data) => {
-        io.to(data.userToCall).emit("callUser", {
-          signal: data.signalData,
-          from: data.from,
-          name: data.name,
-        });
-      });
-
-      socket.on("answerCall", (data) => {
-        io.to(data.to).emit("callAccepted", data.signal);
-      });
-      //########################################################
       //user connected
       socket.on("connect-user", (user) => {
         if (user !== "") {
@@ -199,6 +180,12 @@ mongodb()
       socket.on("ff1", (val) => {
         io.emit("ff2", val);
       });
+      //video ##################################################
+      socket.on("send-video", (payload) => {
+        console.log(payload, 'payload');
+        io.emit("receive-video", payload);
+      });
+      //########################################################
     });
 
     httpServer.listen(5000, (err) => {

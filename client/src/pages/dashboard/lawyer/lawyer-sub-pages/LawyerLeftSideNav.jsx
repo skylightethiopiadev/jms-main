@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 // site logo
-import siteMainLogo from "../../../../assets/images/site-logo/logoFinal.png";
+import logo from "../../../../assets/images/site-logo/logoFinal.png";
 import callCenter from "../../../../assets/images/call-center/call-center-1.png";
 
 //icons
@@ -20,7 +20,7 @@ import { IoExitSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
 // main
 // CustomerLeftSideNav
-const CustomerLeftSideNav = () => {
+const LawyerLeftSideNav = () => {
   // local states
   // nav controller states
   const [isComplianceOpen, setIsComplianceOpen] = useState(false);
@@ -44,7 +44,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100vh] overflow-y-scroll overflow-x-hidden bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100%] bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}
@@ -71,14 +71,14 @@ const CustomerLeftSideNav = () => {
             }}
           >
             {/* icon */}
-            <img src={siteMainLogo} alt="" className="w-[200px] h-[130px] " />
+            <img src={logo} alt="" className="w-[200px] h-[120px] " />
           </NavLink>
         </div>
         {/* nav container */}
         <div className="text-gray-500 text-[1rem]">
           {/* Dashboard */}
           <NavLink
-            to={`/dashboard/customer`}
+            to={`/dashboard/lawyer`}
             className={`flex items-center my-5`}
             onClick={(e) => {
               setIsComplianceOpen(false);
@@ -130,7 +130,7 @@ const CustomerLeftSideNav = () => {
             {isComplianceOpen ? (
               <div className="font-normal mt-2 bg-white">
                 <NavLink
-                  to={`/dashboard/customer/new-case`}
+                  to={`/dashboard/lawyer/lawyer-new-case`}
                   className="pl-[20%] py-1 bg-white"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -439,4 +439,4 @@ const CustomerLeftSideNav = () => {
   );
 };
 
-export default CustomerLeftSideNav;
+export default LawyerLeftSideNav;

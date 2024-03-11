@@ -172,7 +172,7 @@ export const caseTeams = [
 // case history
 export const caseHistory = [
   {
-    file_no: "No.732164",
+    file_no: "No.732164a",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "ACTIVE",
@@ -183,7 +183,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.732164",
+    file_no: "No.732164b",
     case_place: "Ledeta Kefele Ketema",
     case_date: "5 days",
     status: "CLOSED",
@@ -194,7 +194,73 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.345989",
+    file_no: "No.732164c",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "ACTIVE",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164d",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164e",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "ACTIVE",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164f",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164g",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "ACTIVE",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.732164h",
+    case_place: "Ledeta Kefele Ketema",
+    case_date: "5 days",
+    status: "CLOSED",
+    caseType: "fetaber chelot",
+    lawyers: [
+      "https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA?rs=1&pid=ImgDetMain",
+    ],
+  },
+  {
+    file_no: "No.345989i",
     case_place: "Bolle Kefele Ketema",
     case_date: "3 weeks ",
     status: "ACTIVE",
@@ -205,7 +271,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No. 977465",
+    file_no: "No. 977465j",
     case_place: "Ledeta Kefele Ketema",
     case_date: "2 months",
     status: "CLOSED",
@@ -216,7 +282,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No.345989",
+    file_no: "No.345989k",
     case_place: "Bolle Kefele Ketema",
     case_date: "3 weeks ",
     status: "ACTIVE",
@@ -227,7 +293,7 @@ export const caseHistory = [
     ],
   },
   {
-    file_no: "No. 977465",
+    file_no: "No. 977465l",
     case_place: "Ledeta Kefele Ketema",
     case_date: "2 months",
     status: "CLOSED",
@@ -395,5 +461,153 @@ export const cunsultations = [
     rating: 3.7,
     experiene: 2,
     consult: 100,
+  },
+];
+
+// customers
+export const lawyerCustomers = [
+  {
+    first_name: "Haddis",
+    last_name: "Fanta",
+    profile:
+      "https://th.bing.com/th/id/OIP.kT2_3MxIhqRjmWGxHfPK9wHaHa?w=540&h=540&rs=1&pid=ImgDetMain",
+    start_date: "21-march,2024",
+    end_date: "30-april,2025",
+    file_no: "112200",
+    court_place: "ledeta kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "active",
+  },
+  {
+    first_name: "Hana",
+    last_name: "Teshome",
+    profile:
+      "https://www.wallofcelebrities.com/celebrity/sara-ballantine/pictures/original/sara-ballantine_2949171.jpg",
+    start_date: "05-april,2024",
+    end_date: null,
+    file_no: "112201",
+    court_place: "bolle kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "pending",
+  },
+  {
+    first_name: "Mulatu",
+    last_name: "Astatike",
+    profile:
+      "https://i1.rgstatic.net/ii/profile.image/1177788828659716-1657818147818_Q512/Hatim-Ibrahim-Dafaalla-2.jpg",
+    start_date: "15-jan,2024",
+    end_date: "23-march,2024",
+    file_no: "112202",
+    court_place: "yeka kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "closed",
+  },
+  {
+    first_name: "Atsed",
+    last_name: "Shiferaw",
+    profile:
+      "https://img.sewasew.com/definitions/d47f26ae5c9041cf8e9cea4ec12ed779_320_427",
+    start_date: "21-march,2024",
+    end_date: "30-april,2025",
+    file_no: "112203",
+    court_place: "ledeta kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "active",
+  },
+  {
+    first_name: "Abebe",
+    last_name: "Tafere",
+    profile:
+      "https://i1.rgstatic.net/ii/profile.image/900785328115715-1591775366627_Q512/Abdelrahman-Alhadi.jpg",
+    start_date: "05-april,2024",
+    end_date: null,
+    file_no: "112204",
+    court_place: "bolle kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "pending",
+  },
+  {
+    first_name: "Seble",
+    last_name: "Nagesh",
+    profile:
+      "https://1.bp.blogspot.com/-XTsbSS8v7W4/XrrRyI2zRQI/AAAAAAAAF34/fPRZi137IHsN7Fbfx0Ur3qDMONg0hMHsgCLcBGAsYHQ/s1600/images%2B%25283%2529-1.jpg",
+    start_date: "15-jan,2024",
+    end_date: "23-march,2024",
+    file_no: "112205",
+    court_place: "yeka kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "closed",
+  },
+  {
+    first_name: "Zedingle",
+    last_name: "Addis",
+    profile:
+      "https://i1.rgstatic.net/ii/profile.image/279659511074824-1443687431873_Q512/Abdellatif-Moukrim.jpg",
+    start_date: "21-march,2024",
+    end_date: "30-april,2025",
+    file_no: "112206",
+    court_place: "ledeta kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "active",
+  },
+  {
+    first_name: "Kalkidan",
+    last_name: "Daniel",
+    profile:
+      "https://i.pinimg.com/originals/ab/7c/d8/ab7cd8cef2de65b623b75c43a6d11cf5.jpg",
+    start_date: "05-april,2024",
+    end_date: null,
+    file_no: "112207",
+    court_place: "bolle kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "pending",
+  },
+  {
+    first_name: "Addisu",
+    last_name: "Anlay",
+    profile:
+      "https://i1.rgstatic.net/ii/profile.image/1066501083758593-1631285081357_Q512/Abdulkarim-Seid-2.jpg",
+    start_date: "15-jan,2024",
+    end_date: "23-march,2024",
+    file_no: "112208",
+    court_place: "yeka kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "closed",
+  },
+  {
+    first_name: "Zewoditu",
+    last_name: "Mogess",
+    profile:
+      "https://s-media-cache-ak0.pinimg.com/564x/f7/97/70/f797704a701e02007deb84e839af56c5.jpg",
+    start_date: "21-march,2024",
+    end_date: "30-april,2025",
+    file_no: "112209",
+    court_place: "ledeta kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "active",
+  },
+  {
+    first_name: "Yidersal",
+    last_name: "Fanta",
+    profile:
+      "https://th.bing.com/th/id/OIP.VICIsECchvqIVUpBqc5SJwAAAA?w=200&h=200&rs=1&pid=ImgDetMain",
+    start_date: "05-april,2024",
+    end_date: null,
+    file_no: "112210",
+    court_place: "bolle kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "pending",
+  },
+  {
+    first_name: "Melkam",
+    last_name: "Teshome",
+    profile:
+      "https://th.bing.com/th/id/R.d525cbc635a8ae3c79d3c5ca9c6d7c37?rik=7UbqlmT416%2fbWg&riu=http%3a%2f%2fwww.expatkings.com%2fwp-content%2fuploads%2f2017%2f02%2fSara_Nuru_02.jpg&ehk=41Wm1A0eusOEGa%2fACb0LLmvdH7SepR%2fxbFd7lLo51Hs%3d&risl=&pid=ImgRaw&r=0",
+    start_date: "15-jan,2024",
+    end_date: "23-march,2024",
+    file_no: "112211",
+    court_place: "yeka kefele ketema",
+    court_bench: "fetaber chelot",
+    status: "closed",
   },
 ];

@@ -8,7 +8,7 @@ import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
-import LawyerDashboard from "./pages/dashboard/LawyerDashboard";
+import LawyerDashboard from "./pages/dashboard/lawyer/LawyerDashboard";
 import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
 import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
 // import { useSelector } from "react-redux";
