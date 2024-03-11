@@ -1,132 +1,183 @@
-import React, { useEffect, useState } from "react";
-import Facebook from "@material-ui/icons/Facebook";
-import Email from "@material-ui/icons/Email";
-import EnhancedEncryption from "@material-ui/icons/EnhancedEncryption";
-import Person from "@material-ui/icons/Person";
-import ViewHeadlineSharp from "@material-ui/icons/Gavel";
-import { Close } from "@material-ui/icons";
 import LoadingButton from "../components/loading/LoadingButton";
-import { useUserLoginMutation } from "../features/api/apiSlice";
+import { useUserRegisterMutation } from "../features/api/apiSlice";
+import Response from "../components/Response";
+import { useState } from "react";
+// import { ReactMediaRecorder } from "react-media-recorder";
 
-const SignUp = () => {
-  const [loginData, loginResponse] = useUserLoginMutation();
-  const [firstName, setFirstName] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState();
+const Signup = () => {
+  const [signupData, signupResponse] = useUserRegisterMutation();
   const [pending, setPending] = useState(false);
+  const [pass, setPass] = useState(false);
+  const [errorPopup, setErrorPopup] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const loginHandler = () => {
-    loginData({ userName, password });
-    console.log("user logged in clicked");
+  const signupHandler = () => {
+    if (!pass) {
+      setErrorPopup(true);
+    } else {
+      setErrorPopup(false);
+      signupData({ email, password, confirmPassword, role: "lawyer" });
+    }
   };
 
-  const validatorHandler = (val) => {};
-
-  useEffect(() => {
-    loginResponse.status === "fulfilled"
-      ? (setError(false),
-        sessionStorage.setItem(
-          "gsm-token",
-          "Bearer " + JSON.parse(JSON.stringify(loginResponse?.data?.token))
-        ),
-        sessionStorage.setItem(
-          "gsm-user",
-          JSON.stringify(loginResponse?.data?.data)
-        ),
-        navigate("/", { replace: true }),
-        context.setUserType(
-          JSON.parse(sessionStorage.getItem("gsm-user")).role
-        ),
-        context.setSetting(true),
-        context.setLogin(false))
-      : null;
-
-    loginResponse.status === "rejected"
-      ? (setError(true), setErrorMessage(loginResponse?.error?.data?.message))
-      : setError(false);
-    loginResponse.status === "pending" ? setPending(true) : setPending(false);
-  }, [loginResponse]);
-
   return (
-    <div className="w-full h-[100vh] flex items-center justify-center">
-      <div className="bg-blue-500 w-auto px-6 py-4 md:px-12 md:py-10 font-bold flex flex-col items-center justify-center rounded-xl h-auto">
-        <div className="flex items-center justify-center gap-4">
-          <div className="p-2 rounded-full w-auto h-auto bg-white text-black">
-            <ViewHeadlineSharp />
+    <div className="w-full gap-3 bg-gray-200 h-[100vh] flex items-start justify-start">
+      <div className="flex flex-[30%] bg-blue-500 h-[100vh]"></div>
+      <div className="flex flex-[70%]  h-[100vh]"></div>
+      <div className="absolute p-20 top-0 left-0 w-full h-[100vh] bg-transparent rounded-lg">
+        <Response
+          response={signupResponse}
+          setPending={setPending}
+          // redirectTo="/dashboard"
+          // type="login"
+          // type="loginddd"
+        />
+
+        <div className="w-full relative h-[75vh] shadow-lg flex flex-col lg:flex-row-reverse rounded-sm bg-white">
+          <div className="flex relative bg-white  flex-[50%] py-8 ">
+            <div class="max-w-sm mx-auto">
+              {" "}
+              <p className="text-xl font-bold">Sign up</p>
+              <div class="mb-5 mt-7">
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Your email
+                </label>
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  id="email"
+                  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                  placeholder="name@flowbite.com"
+                  required
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="password"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Your password
+                </label>
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  id="password"
+                  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                  required
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="repeat-password"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Repeat password
+                </label>
+                <input
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  type="password"
+                  id="repeat-password"
+                  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                  required
+                />
+              </div>
+              <div class="flex items-start mb-5">
+                <div class="flex items-center h-5">
+                  <input
+                    onChange={(e) =>
+                      e.target.checked
+                        ? (setPass(true), setErrorPopup(false))
+                        : (setPass(false), setErrorPopup(true))
+                    }
+                    id="terms"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-0 dark:bg-gray-700 dark:border-gray-600 "
+                  />
+                </div>
+
+                <label
+                  for="terms"
+                  class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  I agree with the{" "}
+                  <a
+                    href="#"
+                    class="text-blue-600 hover:underline dark:text-blue-500"
+                  >
+                    terms and conditions
+                  </a>
+                </label>
+              </div>
+              {errorPopup && (
+                <p className="font-bold py-3 -mt-4">
+                  please agree with our terms and condition
+                </p>
+              )}
+              <LoadingButton
+                pending={pending}
+                onClick={signupHandler}
+                title="Create new account"
+                color="bg-blue-500"
+                width="w-48"
+              />
+            </div>
           </div>
-
-          <p className="uppercase font-semibold text-2xl tracking-wide">
-            gsm law firm
-          </p>
-        </div>
-
-        <div className="rounded-lg p-6 md:p-10 flex flex-col mt-3 bg-white relative h-full w-auto">
-          {/* <div className=" absolute left-0 top-0 px-4 py-2 bg-red-200 text-red-500 rounded-lg rounded-b-none text-center border w-full border-red-500">
-            <Close
-              onClick={() => console.log("closed")}
-              className="absolute right-1 top-1 cursor-pointer hover:text-red-400 text-red-500"
-            />
-            <p className="text-xs">Invalid user name or password</p>
-          </div> */}
-
-          <div className="flex flex-col md:items-center md:flex-row gap-x-4 gap-y-2">
-            <p className="font-bold text-lg text-gray-800">Sign up </p>
+          <div className="flex flex-[50%] ">
+            <img src="./bg-1.jpg" alt="" className="w-full brightness-75" />
           </div>
-
-          <p className="text-xs text-gray-500 mt-3 w-full">First name</p>
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            className="border-gray-400 mt-1 text-xs w-80 border px-2 py-2 rounded-sm focus:outline-gray-500"
-            placeholder="first name"
-          />
-
-          <p className="text-xs text-gray-500 mt-3 w-full">First name</p>
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            className="border-gray-400 mt-1 text-xs w-full border px-2 py-2 rounded-sm focus:outline-gray-500"
-            placeholder="first name"
-          />
-          <p className="text-xs text-gray-500 mt-3 w-full">First name</p>
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            className="border-gray-400 mt-1 text-xs w-full border px-2 py-2 rounded-sm focus:outline-gray-500"
-            placeholder="first name"
-          />
-          <p className="text-xs text-gray-500 mt-3 w-full">First name</p>
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            className="border-gray-400 mt-1 text-xs w-full border px-2 py-2 rounded-sm focus:outline-gray-500"
-            placeholder="first name"
-          />
-          <p className="text-xs text-gray-500 mt-3 w-full">First name</p>
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            className="border-gray-400 mt-1 text-xs w-full border px-2 py-2 rounded-sm focus:outline-gray-500"
-            placeholder="first name"
-          />
-          <p className="text-xs text-gray-500 mt-3 w-full">First name</p>
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            className="border-gray-400 mt-1 text-xs w-full border px-2 py-2 rounded-sm focus:outline-gray-500"
-            placeholder="first name"
-          />
-
-          <LoadingButton
-            pending={true}
-            onClick={loginHandler}
-            title="Sign in."
-          />
         </div>
       </div>
+      {/* <ReactMediaRecorder
+        audio
+        render={({ status, startRecording, stopRecording, mediaBlobUrl,error }) => {
+          console.log(mediaBlobUrl,error,'blob');
+          return (
+            <div>
+              <p>{status}</p>
+              <button onClick={startRecording}>Start Recording</button>
+              <button onClick={stopRecording}>Stop Recording</button>
+              <video src={mediaBlobUrl?mediaBlobUrl:null} controls autoPlay loop />
+            </div>
+          );
+        }}
+      /> */}
+      {/* <Response
+        response={loginResponse}
+        setPending={setPending}
+        redirectTo="/dashboard"
+        // type="login"
+        type="loginddd"
+      />
+
+      <p className="text-lg font-bold">Login</p>
+      <input
+        type="text"
+        className="p-2 w-44 rounded-md border border-gray-300"
+        placeholder="user name"
+        onChange={(e) => setUserName(e.target.value)}
+      />
+      <input
+        type="password"
+        className="p-2 w-44 rounded-md border border-gray-300"
+        placeholder="password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <LoadingButton
+        pending={pending}
+        onClick={loginHandler}
+        title="Login"
+        color="bg-blue-500"
+        width="w-44"
+      /> */}
     </div>
   );
 };
 
-export default SignUp;
+export default Signup;

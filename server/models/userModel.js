@@ -11,23 +11,23 @@ const userSchema = new mongoose.Schema(
       validate: function () {
         return this.userType === "business" ? null : valid.name("First name");
       },
-      required: function () {
-        return this.userType === "business"
-          ? false
-          : [true, "First name is required"];
-      },
+      // required: function () {
+      //   return this.userType === "business"
+      //     ? false
+      //     : [true, "First name is required"];
+      // },
     },
 
     middleName: {
       type: String,
       validate: function () {
-        return this.userType === "business" ? null : valid.name("Middler name");
+        return this.userType === "business" ? null : valid.name("Middle name");
       },
-      required: function () {
-        return this.userType === "business"
-          ? false
-          : [true, "Middler name is required"];
-      },
+      // required: function () {
+      //   return this.userType === "business"
+      //     ? false
+      //     : [true, "Middler name is required"];
+      // },
     },
 
     lastName: {
@@ -35,11 +35,11 @@ const userSchema = new mongoose.Schema(
       validate: function () {
         return this.userType === "business" ? null : valid.name("Last name");
       },
-      required: function () {
-        return this.userType === "business"
-          ? false
-          : [true, "Last name is required"];
-      },
+      // required: function () {
+      //   return this.userType === "business"
+      //     ? false
+      //     : [true, "Last name is required"];
+      // },
     },
 
     gender: {
@@ -47,18 +47,18 @@ const userSchema = new mongoose.Schema(
       validate: function () {
         return this.userType === "business" ? null : valid.gender("Gender");
       },
-      required: function () {
-        return this.userType === "business"
-          ? false
-          : [true, "Gender is required"];
-      },
+      // required: function () {
+      //   return this.userType === "business"
+      //     ? false
+      //     : [true, "Gender is required"];
+      // },
     },
 
     userName: {
       type: String,
-      unique: [true, "This user name address is taken"],
+      // unique: [true, "This user name address is taken"],
       validate: valid.userName("User name"),
-      required: [true, "User name is required"],
+      // required: [true, "User name is required"],
     },
 
     email: {
@@ -71,34 +71,36 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
       validate: valid.phone("Phone"),
-      required: [true, "Phone is required"],
+      // required: [true, "Phone is required"],
     },
 
     address: {
       type: String,
       validate: valid.paragraph("Address", 4, 200),
-      required: [true, "Address is required"],
+      // required: [true, "Address is required"],
     },
 
-    role: { type: String, default: "customer" },
+    role: { type: String, default: "private" },
 
     nationality: {
       type: String,
       validate: valid.paragraph("Nationality", 4, 100),
     },
-    userType: { type: String, required: [true, "User type is required"] },
+    // userType: { type: String, required: [true, "User type is required"] },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: function () {
-        return this.userType === "lawyer"
+        return this.role === "lawyer"
           ? "lawyer"
-          : this.userType === "business"
+          : this.role === "business"
           ? "institute"
-          : this.userType === "representative"
-          ? "caseManager"
-          : this.userType === "superAdmin"
-          ? "superAdmin"
-          : "user";
+          : this.role === "case-manager-main" ||
+            this.role === "case-manager-regular" ||
+            this.role === "case-manager-external"
+          ? "case-manager"
+          : this.role === "super-admin"
+          ? "super-admin"
+          : "private";
       },
     },
     password: {
@@ -114,7 +116,8 @@ const userSchema = new mongoose.Schema(
       validate: valid.confirmPassword("Confirm password"),
     },
     isPro: {
-      type: String,
+      type: Boolean,
+      default: false,
     },
     modifiedDate: Number,
     passwordChangedAt: Number,
@@ -122,8 +125,8 @@ const userSchema = new mongoose.Schema(
     resetTokenExpires: Number,
     profilePicture: {
       type: String,
-      default:
-        "https://res.cloudinary.com/dkvjvnil8/image/upload/v1689691516/defaultProfile.jpg",
+      default: "",
+      // "https://res.cloudinary.com/dkvjvnil8/image/upload/v1689691516/defaultProfile.jpg",
     },
   },
   {

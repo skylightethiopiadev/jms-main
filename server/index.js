@@ -7,6 +7,7 @@ import mongodb from "./config/db.js";
 import { chatRouter, router } from "./routes/router.js";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import cookieParser from "cookie-parser";
 // import apicache from "apicache";
 
 const app = express();
@@ -24,10 +25,17 @@ const __dirname = path.resolve();
 //     methods: ["GET", "PUT", "POST", "DELETE", "PATCH"],
 //     // credentials: true,
 //   }
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    methods: ["GET", "PUT", "POST", "DELETE", "PATCH"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(cookieParser());
 app.use("/jms/app/v1/user", router);
 app.use("/jms/app/v1/chat", chatRouter);
 

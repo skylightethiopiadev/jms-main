@@ -24,7 +24,7 @@ import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCa
 
 function App() {
   const jwt = localStorage.getItem("jwt");
-  const user = JSON.parse(localStorage.getItem("user"));
+  // const user = JSON.parse(localStorage.getItem("user"));
 
   // console.log(jwt, user);
   return (
