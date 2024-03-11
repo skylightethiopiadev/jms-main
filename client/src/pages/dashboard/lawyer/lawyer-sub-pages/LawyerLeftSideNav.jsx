@@ -411,8 +411,8 @@ const LawyerLeftSideNav = () => {
       {/* button container */}
       <div className="mr-9 my-3">
         {/* top */}
-        <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
-          <p className="font-semibold text-center italic">
+        <div className="py-3 px-1 rounded-md bg-yellow-100 flex flex-col items-center justify-between mb-5">
+          <p className="font-semibold text-center">
             Please get in touch with your service provider
           </p>
           <div className="mb-1">
@@ -422,9 +422,9 @@ const LawyerLeftSideNav = () => {
               className="w-[120px] h-[90px] mt-[-24px] rounded-md"
             />
           </div>
-          <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">
+          <button className="px-3 py-1 rounded-full text-white bg-yellow-500 flex items-center justify-center">
             <FaPhoneVolume className="text-xl mr-1" />{" "}
-            <span className="font-bold text-lg">#1234</span>
+            <span className="font-bold text-lg">1234</span>
           </button>
         </div>
         {/* bottom */}
