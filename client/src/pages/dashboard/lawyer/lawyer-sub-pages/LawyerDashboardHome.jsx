@@ -393,7 +393,7 @@ const LawyerDashboardHome = () => {
                   <h3 className="text-3xl font-black text-yellow-600">789</h3>
                 </div>
                 <div>
-                  <div className="flex items-center justify-center px-2 py-1 rounded-full border border-yellow-500 bg-yellow-50 text-yellow-500 text-xs font-semibold">
+                  <div className="flex items-center justify-center px-2 py-1 rounded-full border border-blue-700 bg-blue-50 text-blue-700 text-xs font-semibold">
                     <FaPlus />
                     <span>34.64</span>
                   </div>
@@ -418,7 +418,7 @@ const LawyerDashboardHome = () => {
                 </div>
                 <div>
                   <div className="flex items-center justify-center px-2 py-1 text-xs font-semibold">
-                    <LuAlarmClock className="text-3xl text-yellow-700" />
+                    <LuAlarmClock className="text-3xl text-blue-700" />
                   </div>
                 </div>
               </div>

@@ -230,7 +230,7 @@ const LawyerCustomersTable = () => {
       <header className="py-1 flex items-center justify-between gap-5">
         {/* left */}
         <div className="flex items-center justify-between gap-5">
-          <span className="px-3 py-1 rounded-sm bg-yellow-500 text-white">
+          <span className="px-3 py-1 rounded-full bg-blue-500 text-white">
             total cases(200)
           </span>
           {/* search container */}
