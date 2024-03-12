@@ -66,7 +66,12 @@ const AddisHeader = () => {
             </button>
             {/* call detail */}
             {isPhone ? (
-              <div className="absolute left-0 top-[160%] z-[1400] bg-white w-max p-5 shadow-lg">
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0.75 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.25 }}
+                className="absolute left-0 top-[160%] z-[1400] bg-white w-max p-5 shadow-lg"
+              >
                 <div className="font-semibold">
                   <h3>Talk To Legal Zoom</h3>
                   <h3>(855) 787-1922</h3>
@@ -76,7 +81,7 @@ const AddisHeader = () => {
                   <span>Mon–Fri 5 a.m.–7 p.m. PT</span>
                   <span>Weekends 7 a.m.–4 p.m. PT</span>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}
@@ -179,9 +184,9 @@ const AddisHeader = () => {
             >
               <span>Services</span>
               {isServices ? (
-                <IoIosArrowUp className="text-xl ml-1" />
+                <IoIosArrowUp className="home-nav-list-item-icon" />
               ) : (
-                <IoIosArrowDown className="text-xl ml-1" />
+                <IoIosArrowDown className="home-nav-list-item-icon" />
               )}
               {/* pop nav */}
               {isServices ? (
@@ -189,15 +194,15 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
+                  className="home-submenu-popup-ul"
                 >
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>ServiceSubMenu-1</NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>ServiceSubMenu-2</NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>ServiceSubMenu-3</NavLink>
                   </li>
                 </motion.ul>
@@ -239,9 +244,9 @@ const AddisHeader = () => {
             >
               <span>Tutorial</span>
               {isTutorial ? (
-                <IoIosArrowUp className="ml-1 text-xl" />
+                <IoIosArrowUp className="home-nav-list-item-icon" />
               ) : (
-                <IoIosArrowDown className="ml-1 text-xl" />
+                <IoIosArrowDown className="home-nav-list-item-icon" />
               )}
               {/* pop nav */}
               {isTutorial ? (
@@ -249,15 +254,15 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
+                  className="home-submenu-popup-ul"
                 >
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>TutorialSubMenu-1</NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>TutorialSubMenu-2</NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>TutorialSubMenu-3</NavLink>
                   </li>
                 </motion.ul>
@@ -282,9 +287,9 @@ const AddisHeader = () => {
             >
               <span>Portfolio</span>
               {isPortfolio ? (
-                <IoIosArrowUp className="text-xl ml-1" />
+                <IoIosArrowUp className="home-nav-list-item-icon" />
               ) : (
-                <IoIosArrowDown className="text-xl ml-1" />
+                <IoIosArrowDown className="home-nav-list-item-icon" />
               )}
               {/* pop nav */}
               {isPortfolio ? (
@@ -292,15 +297,15 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
+                  className="home-submenu-popup-ul"
                 >
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>PortfolioSubMenu-1</NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>PortfolioSubMenu-2</NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink>PortfolioSubMenu-3</NavLink>
                   </li>
                 </motion.ul>
@@ -325,9 +330,9 @@ const AddisHeader = () => {
             >
               <span>Our Team</span>
               {isOurTeam ? (
-                <IoIosArrowUp className="text-xl ml-1" />
+                <IoIosArrowUp className="home-nav-list-item-icon" />
               ) : (
-                <IoIosArrowDown className="text-xl ml-1" />
+                <IoIosArrowDown className="home-nav-list-item-icon" />
               )}
               {/* pop nav */}
               {isOurTeam ? (
@@ -335,7 +340,7 @@ const AddisHeader = () => {
                   initial={{ scale: 0.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal"
+                  className="home-submenu-popup-ul"
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
@@ -349,7 +354,7 @@ const AddisHeader = () => {
                       OurTeamSubMenu-1
                     </NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink
                       onClick={(e) => {
                         e.stopPropagation();
@@ -358,7 +363,7 @@ const AddisHeader = () => {
                       OurTeamSubMenu-2
                     </NavLink>
                   </li>
-                  <li className="my-2">
+                  <li className="home-nav-list-item">
                     <NavLink
                       onClick={(e) => {
                         e.stopPropagation();
