@@ -199,6 +199,7 @@ const CustomerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
+                    to={`/dashboard/customer/case-team`}
                     className={`dashboard-sub-link-items ${
                       isNav === "CASE-TEAM" ? "dashboard-active-link-color" : ""
                     }`}
@@ -211,6 +212,7 @@ const CustomerLeftSideNav = () => {
                     Case Team
                   </NavLink>
                   <NavLink
+                    to={`/dashboard/customer/active-case`}
                     className={`dashboard-sub-link-items ${
                       isNav === "ACTIVE-CASE"
                         ? "dashboard-active-link-color"
@@ -225,6 +227,7 @@ const CustomerLeftSideNav = () => {
                     Active Case
                   </NavLink>
                   <NavLink
+                    to={`/dashboard/customer/closed-case`}
                     className={`pl-[20%] py-1 ${
                       isNav === "CLOSED-CASE"
                         ? "dashboard-active-link-color"
@@ -246,6 +249,7 @@ const CustomerLeftSideNav = () => {
           </div>
           {/* message */}
           <NavLink
+            to={`/dashboard/customer/message`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "MESSAGE" ? "dashboard-active-link-color" : ""
             }`}
@@ -263,6 +267,7 @@ const CustomerLeftSideNav = () => {
           </NavLink>
           {/* appointment */}
           <NavLink
+            to={`/dashboard/customer/appointment`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "APPOINTMENT" ? "dashboard-active-link-color" : ""
             }`}
@@ -321,6 +326,7 @@ const CustomerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
+                    to={`/dashboard/customer/add-funds`}
                     className={`dashboard-sub-link-items ${
                       isNav === "ADD-FUNDS" ? "dashboard-active-link-color" : ""
                     }`}
@@ -333,6 +339,7 @@ const CustomerLeftSideNav = () => {
                     Add Funds
                   </NavLink>
                   <NavLink
+                    to={`/dashboard/customer/requested-payment`}
                     className={`dashboard-sub-link-items ${
                       isNav === "REQUESTED-PAYMENT"
                         ? "dashboard-active-link-color"
@@ -347,6 +354,7 @@ const CustomerLeftSideNav = () => {
                     Requested Payment
                   </NavLink>
                   <NavLink
+                    to={`/dashboard/customer/refund-funds`}
                     className={`dashboard-sub-link-items ${
                       isNav === "REFUND-FUNDS"
                         ? "dashboard-active-link-color"
@@ -361,6 +369,7 @@ const CustomerLeftSideNav = () => {
                     Refund Funds
                   </NavLink>
                   <NavLink
+                    to={`/dashboard/customer/recent-transactions`}
                     className={`dashboard-sub-link-items ${
                       isNav === "RECENT-TRANSACTION"
                         ? "dashboard-active-link-color"
@@ -423,6 +432,7 @@ const CustomerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
+                    to={`/dashboard/customer/training`}
                     className={`dashboard-sub-link-items ${
                       isNav === "TRAINING" ? "dashboard-active-link-color" : ""
                     }`}
@@ -435,6 +445,7 @@ const CustomerLeftSideNav = () => {
                     Traning
                   </NavLink>
                   <NavLink
+                    to={`/dashboard/customer/consulting`}
                     className={`dashboard-sub-link-items ${
                       isNav === "CONSULTING"
                         ? "dashboard-active-link-color"
@@ -449,6 +460,7 @@ const CustomerLeftSideNav = () => {
                     Consulting
                   </NavLink>
                   <NavLink
+                    to={`/dashboard/customer/researches`}
                     className={`dashboard-sub-link-items ${
                       isNav === "RESEARCHES"
                         ? "dashboard-active-link-color"

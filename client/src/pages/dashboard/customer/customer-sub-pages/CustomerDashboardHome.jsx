@@ -13,6 +13,7 @@ import {
   IoStarHalfOutline,
   IoStarSharp,
   IoAlarmOutline,
+  IoReload,
 } from "react-icons/io5";
 
 // data files
@@ -26,6 +27,19 @@ const CustomerDashboardHome = () => {
   // local states
   const [isUserMore, setIsUserMore] = useState(null);
   const [isUserMorePopup, setIsUserMorePopup] = useState(null);
+
+  // charts
+  const chartType = ["bar", "area"];
+  const [chartIndex, setChartIndex] = useState(0);
+
+  // chart switcher
+  const chartTypeSwitcher = () => {
+    if (chartIndex < chartType.length - 1) {
+      setChartIndex(chartIndex + 1);
+    } else {
+      setChartIndex(0);
+    }
+  };
 
   return (
     <div className="p-[2%] relative">
@@ -172,28 +186,54 @@ const CustomerDashboardHome = () => {
         {/* right */}
         <div className="w-full p-2 rounded-md shadow-lg">
           <Chart
-            type="line"
+            type={chartType[chartIndex]}
             width={"100%"}
             height={150}
             series={[
               {
-                name: "Haddis",
-                data: [23, 32, 43, 34, 54, 45, 65, 0],
-              },
-              {
-                name: "Menelik",
-                data: [43, 92, 3, 75, 4, 45, 75, 6],
+                name: "spent",
+                data: [500, 400, 550, 350, 450, 500],
               },
             ]}
             options={{
+              colors: ["#168df5"],
+              tooltip: {
+                followCursor: true,
+              },
+              grid: {
+                show: false,
+              },
+              dataLabels: {
+                formatter: (val) => `${val}Br.`,
+                style: {
+                  colors: ["#010205"],
+                  fontSize: "14px",
+                },
+              },
               yaxis: {
-                // show: false,
                 labels: {
                   show: false,
                 },
               },
+              xaxis: {
+                tickPlacement: "on",
+                categories: [1990, 1995, 2000, 2005, 2010, 2015],
+              },
+              legend: {
+                show: false,
+              },
             }}
           ></Chart>
+          <div className="flex items-center justify-center">
+            <button
+              className="text-[1.25rem] active:animate-spin"
+              onClick={() => {
+                chartTypeSwitcher();
+              }}
+            >
+              <IoReload />
+            </button>
+          </div>
         </div>
       </div>
       {/* bottom */}
