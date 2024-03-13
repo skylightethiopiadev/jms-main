@@ -19,7 +19,7 @@ const CustomerDashboard = () => {
   const [isMonthPopup, setIsMonthPopup] = useState(false);
   const [month, setMonth] = useState("August");
   return (
-    <div className="w-full h-screen flex relative">
+    <div className="w-full h-[100vh] overflow-y-hidden flex relative">
       <CustomerLeftSideNav />
       <div className="ml-1 w-full">
         {/* header */}

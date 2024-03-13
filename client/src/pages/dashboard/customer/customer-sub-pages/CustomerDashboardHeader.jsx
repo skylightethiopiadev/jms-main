@@ -73,7 +73,8 @@ const CustomerDashboardHeader = () => {
       <div className="flex items-center gap-x-3">
         {/* notification icon */}
         <div>
-          <button className="text-xl text-gray-500">
+          <button className="text-xl text-gray-500 relative">
+            <div className="absolute top-1  right-1 z-50 w-[5px] h-[5px] rounded-full bg-red-600"></div>
             <IoMdNotifications />
           </button>
         </div>

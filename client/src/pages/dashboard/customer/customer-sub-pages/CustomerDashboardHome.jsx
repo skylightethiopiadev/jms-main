@@ -187,7 +187,6 @@ const CustomerDashboardHome = () => {
         <div className="w-full p-2 rounded-md shadow-lg">
           <Chart
             type={chartType[chartIndex]}
-            // type={"rangeBar"}
             width={"100%"}
             height={150}
             series={[
