@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Routes, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
@@ -11,6 +11,8 @@ import { VscVerifiedFilled } from "react-icons/vsc";
 // customer-sub-pages
 import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeader";
 import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
+import CustomerDashboardHome from "./customer-sub-pages/CustomerDashboardHome";
+import Message from "./customer-sub-pages/Message";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
