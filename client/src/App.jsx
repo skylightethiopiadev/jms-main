@@ -15,7 +15,24 @@ import AddisHome from "./pages/addis_pages/AddisHome";
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
+import Message from "./pages/dashboard/customer/customer-sub-pages/Message";
+import Appointment from "./pages/dashboard/customer/customer-sub-pages/Appointment";
+// customer compliance
 import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
+// customer charts pages
+import CaseTeam from "./pages/dashboard/customer/customer-charts/CaseTeam";
+import ActiveCase from "./pages/dashboard/customer/customer-charts/ActiveCase";
+import ClosedCase from "./pages/dashboard/customer/customer-charts/ClosedCase";
+// customer finance pages
+import AddFunds from "./pages/dashboard/customer/customer-finance/AddFunds";
+import RequestedPayment from "./pages/dashboard/customer/customer-finance/RequestedPayment";
+import RefundFunds from "./pages/dashboard/customer/customer-finance/RefundFunds";
+import RecentTransactions from "./pages/dashboard/customer/customer-finance/RecentTransaction";
+
+// customers  services
+import Training from "./pages/dashboard/customer/customer-services/Training";
+import Consulting from "./pages/dashboard/customer/customer-services/Consulting";
+import Researches from "./pages/dashboard/customer/customer-services/Researches";
 
 // lawyer
 import LawyerDashboard from "./pages/dashboard/lawyer/LawyerDashboard";
@@ -56,16 +73,68 @@ function App() {
                 element={<CustomerDashboardHome />}
               ></Route>
               <Route
+                path="/dashboard/customer/message"
+                element={<Message />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/appointment"
+                element={<Appointment />}
+              ></Route>
+              {/* customer compliance */}
+              <Route
                 path="/dashboard/customer/new-case"
                 element={<NewCase />}
               ></Route>
+              {/* customer charts */}
+              <Route
+                path="/dashboard/customer/case-team"
+                element={<CaseTeam />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/active-case"
+                element={<ActiveCase />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/closed-case"
+                element={<ClosedCase />}
+              ></Route>
+              {/* customer finance */}
+              <Route
+                path="/dashboard/customer/add-funds"
+                element={<AddFunds />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/requested-payment"
+                element={<RequestedPayment />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/refund-funds"
+                element={<RefundFunds />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/recent-transactions"
+                element={<RecentTransactions />}
+              ></Route>
+              {/* customer services */}
+              <Route
+                path="/dashboard/customer/training"
+                element={<Training />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/consulting"
+                element={<Consulting />}
+              ></Route>
+              <Route
+                path="/dashboard/customer/researches"
+                element={<Researches />}
+              ></Route>
             </Route>
-            {jwt && user && (
+            {/* {jwt && user && (
               <Route
                 path="/dashboard/*"
                 element={<HomeDashboard role={user?.role} />}
               ></Route>
-            )}
+            )} */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

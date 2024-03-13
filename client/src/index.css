@@ -141,3 +141,39 @@
 .lawyer-case-number {
   @apply text-[1.2rem] font-semibold text-gray-800 text-center;
 }
+
+/* home list item */
+
+.home-nav-list-item {
+  @apply my-5 pr-20;
+}
+
+.home-nav-list-item-icon {
+  @apply text-[1.25rem] ml-1;
+}
+
+/* dashboard nav */
+
+.dashboard-active-link-color {
+  @apply text-blue-700 font-semibold;
+}
+
+.dahboard-active-link-icon-color {
+  @apply text-blue-700;
+}
+
+.dashboard-link-item-my {
+  @apply my-5;
+}
+
+.dashboard-main-list-item {
+  @apply flex items-center justify-between w-[85%] cursor-pointer;
+}
+
+.dashboard-sub-link-items {
+  @apply pl-[20%] py-1 bg-white;
+}
+/* home */
+.home-submenu-popup-ul {
+  @apply bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal;
+}

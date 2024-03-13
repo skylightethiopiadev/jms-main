@@ -28,6 +28,9 @@ const LawyerLeftSideNav = () => {
   const [isFinanceOpen, setIsFinanceOpen] = useState(false);
   const [isOtherServiceOpen, setIsOtherServiceOpen] = useState(false);
 
+  // style
+  const [isNav, setIsNav] = useState("DASHBOARD");
+
   // customer dashboard left side bar toggler
   const customerDashBoardLeftSideBarToggler = () => {
     let customerDashBoardLeftSideBar = document.getElementById(
@@ -44,7 +47,7 @@ const LawyerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100%]  z-[300] border-r border-gray-100  lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100%] bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}
@@ -62,7 +65,7 @@ const LawyerLeftSideNav = () => {
           </button>
         </div>
         {/* logo */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-1">
           <NavLink
             to={"/"}
             className={"flex items-center justify-center pr-[25%]"}
@@ -79,8 +82,11 @@ const LawyerLeftSideNav = () => {
           {/* Dashboard */}
           <NavLink
             to={`/dashboard/lawyer`}
-            className={`flex items-center my-5`}
+            className={`flex items-center dashboard-link-item-my ${
+              isNav === "DASHBOARD" ? "dashboard-active-link-color" : ""
+            }`}
             onClick={(e) => {
+              setIsNav("DASHBOARD");
               setIsComplianceOpen(false);
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
@@ -92,11 +98,14 @@ const LawyerLeftSideNav = () => {
             <span>Dashboard</span>
           </NavLink>
           {/* Compliance */}
-          <div className="my-5 relative">
+          <div className="dashboard-link-item-my relative">
             {/* main text */}
             <div
-              className="flex items-center justify-between w-[85%] cursor-pointer"
+              className={`dashboard-main-list-item ${
+                isNav === "COMPLIANCE" ? "dashboard-active-link-color" : ""
+              }`}
               onClick={(e) => {
+                setIsNav("COMPLIANCE");
                 setIsMyChartOpen(false);
                 setIsFinanceOpen(false);
                 setIsOtherServiceOpen(false);
@@ -106,7 +115,7 @@ const LawyerLeftSideNav = () => {
               <div className="flex items-center">
                 <GrCompliance
                   className={`mr-2 text-lg ${
-                    isComplianceOpen ? "text-sky-500" : ""
+                    isComplianceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
                 <span>Compliance</span>
@@ -115,7 +124,7 @@ const LawyerLeftSideNav = () => {
               {isComplianceOpen ? (
                 <IoIosArrowUp
                   className={`text-lg ml-1 ${
-                    isComplianceOpen ? "text-sky-500" : ""
+                    isComplianceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
               ) : (
@@ -130,10 +139,13 @@ const LawyerLeftSideNav = () => {
             {isComplianceOpen ? (
               <div className="font-normal mt-2 bg-white">
                 <NavLink
-                  to={`/dashboard/lawyer/lawyer-new-case`}
-                  className="pl-[20%] py-1 bg-white"
+                  // to={`/dashboard/customer/new-case`}
+                  className={`dashboard-sub-link-items ${
+                    isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
+                  }`}
                   onClick={(e) => {
                     e.stopPropagation();
+                    setIsNav("NEW-CASE");
                     customerDashBoardLeftSideBarToggler();
                   }}
                 >
@@ -145,11 +157,14 @@ const LawyerLeftSideNav = () => {
             )}
           </div>
           {/* My Chart */}
-          <div className="my-5 relative">
+          <div className="dashboard-link-item-my relative">
             {/* main text */}
             <div
-              className="flex items-center justify-between w-[85%] cursor-pointer"
+              className={`dashboard-main-list-item ${
+                isNav === "MY-CHART" ? "dashboard-active-link-color" : ""
+              }`}
               onClick={(e) => {
+                setIsNav("MY-CHART");
                 setIsFinanceOpen(false);
                 setIsOtherServiceOpen(false);
                 setIsComplianceOpen(false);
@@ -159,7 +174,7 @@ const LawyerLeftSideNav = () => {
               <div className="flex items-center">
                 <FaRegChartBar
                   className={`mr-2 text-lg ${
-                    isMyChartOpen ? "text-sky-500" : ""
+                    isMyChartOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
                 <span>My Chart</span>
@@ -168,13 +183,13 @@ const LawyerLeftSideNav = () => {
               {isMyChartOpen ? (
                 <IoIosArrowUp
                   className={`text-lg ml-1 ${
-                    isMyChartOpen ? "text-sky-500" : ""
+                    isMyChartOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
               ) : (
                 <IoIosArrowDown
                   className={`text-lg ml-1 ${
-                    isMyChartOpen ? "text-sky-500" : ""
+                    isMyChartOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
               )}
@@ -184,27 +199,40 @@ const LawyerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "CASE-TEAM" ? "dashboard-active-link-color" : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("CASE-TEAM");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Case Team
                   </NavLink>
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "ACTIVE-CASE"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("ACTIVE-CASE");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Active Case
                   </NavLink>
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`pl-[20%] py-1 ${
+                      isNav === "CLOSED-CASE"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("CLOSED-CASE");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
@@ -218,8 +246,11 @@ const LawyerLeftSideNav = () => {
           </div>
           {/* message */}
           <NavLink
-            className={`flex items-center my-5`}
+            className={`flex items-center dashboard-link-item-my ${
+              isNav === "MESSAGE" ? "dashboard-active-link-color" : ""
+            }`}
             onClick={(e) => {
+              setIsNav("MESSAGE");
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
               setIsOtherServiceOpen(false);
@@ -232,8 +263,11 @@ const LawyerLeftSideNav = () => {
           </NavLink>
           {/* appointment */}
           <NavLink
-            className={`flex items-center my-5`}
+            className={`flex items-center dashboard-link-item-my ${
+              isNav === "APPOINTMENT" ? "dashboard-active-link-color" : ""
+            }`}
             onClick={(e) => {
+              setIsNav("APPOINTMENT");
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
               setIsOtherServiceOpen(false);
@@ -245,11 +279,14 @@ const LawyerLeftSideNav = () => {
             <span>Appointment</span>
           </NavLink>
           {/* Finance */}
-          <div className="my-5 relative">
+          <div className="dashboard-link-item-my relative">
             {/* main text */}
             <div
-              className="flex items-center justify-between w-[85%] cursor-pointer"
+              className={`dashboard-main-list-item ${
+                isNav === "FINANCE" ? "dashboard-active-link-color" : ""
+              }`}
               onClick={(e) => {
+                setIsNav("FINANCE");
                 setIsMyChartOpen(false);
                 setIsOtherServiceOpen(false);
                 setIsComplianceOpen(false);
@@ -259,7 +296,7 @@ const LawyerLeftSideNav = () => {
               <div className="flex items-center">
                 <SiCashapp
                   className={`mr-2 text-lg ${
-                    isFinanceOpen ? "text-sky-500" : ""
+                    isFinanceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
                 <span>Finance</span>
@@ -268,13 +305,13 @@ const LawyerLeftSideNav = () => {
               {isMyChartOpen ? (
                 <IoIosArrowUp
                   className={`text-lg ml-1 ${
-                    isFinanceOpen ? "text-sky-500" : ""
+                    isFinanceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
               ) : (
                 <IoIosArrowDown
                   className={`text-lg ml-1 ${
-                    isFinanceOpen ? "text-sky-500" : ""
+                    isFinanceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
               )}
@@ -284,36 +321,54 @@ const LawyerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "ADD-FUNDS" ? "dashboard-active-link-color" : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("ADD-FUNDS");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Add Funds
                   </NavLink>
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "REQUESTED-PAYMENT"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("REQUESTED-PAYMENT");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Requested Payment
                   </NavLink>
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "REFUND-FUNDS"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("REFUND-FUNDS");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Refund Funds
                   </NavLink>
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "RECENT-TRANSACTION"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("RECENT-TRANSACTION");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
@@ -326,11 +381,14 @@ const LawyerLeftSideNav = () => {
             )}
           </div>
           {/* other services */}
-          <div className="my-5 relative">
+          <div className="dashboard-link-item-my relative">
             {/* main text */}
             <div
-              className="flex items-center justify-between w-[85%] cursor-pointer"
+              className={`dashboard-main-list-item ${
+                isNav === "OTHER-SERVICES" ? "dashboard-active-link-color" : ""
+              }`}
               onClick={(e) => {
+                setIsNav("OTHER-SERVICES");
                 setIsMyChartOpen(false);
                 setIsFinanceOpen(false);
                 setIsComplianceOpen(false);
@@ -340,7 +398,7 @@ const LawyerLeftSideNav = () => {
               <div className="flex items-center">
                 <MdOutlineHomeRepairService
                   className={`mr-2 text-lg ${
-                    isOtherServiceOpen ? "text-sky-500" : ""
+                    isOtherServiceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
                 <span>Other Services</span>
@@ -349,13 +407,13 @@ const LawyerLeftSideNav = () => {
               {isOtherServiceOpen ? (
                 <IoIosArrowUp
                   className={`text-lg ml-1 ${
-                    isOtherServiceOpen ? "text-sky-500" : ""
+                    isOtherServiceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
               ) : (
                 <IoIosArrowDown
                   className={`text-lg ml-1 ${
-                    isOtherServiceOpen ? "text-sky-500" : ""
+                    isOtherServiceOpen ? "dahboard-active-link-icon-color" : ""
                   }`}
                 />
               )}
@@ -365,40 +423,44 @@ const LawyerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "TRAINING" ? "dashboard-active-link-color" : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("TRAINING");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Traning
                   </NavLink>
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "CONSULTING"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("CONSULTING");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Consulting
                   </NavLink>
                   <NavLink
-                    className="pl-[20%] py-1"
+                    className={`dashboard-sub-link-items ${
+                      isNav === "RESEARCHES"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      setIsNav("RESEARCHES");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
                     Researches
-                  </NavLink>
-                  <NavLink
-                    className="pl-[20%] py-1"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      customerDashBoardLeftSideBarToggler();
-                    }}
-                  >
-                    Recent Transactions
                   </NavLink>
                 </div>
               </div>
@@ -411,7 +473,7 @@ const LawyerLeftSideNav = () => {
       {/* button container */}
       <div className="mr-9 my-3">
         {/* top */}
-        <div className="py-3 px-1 rounded-md bg-yellow-100 flex flex-col items-center justify-between mb-5">
+        <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
           <p className="font-semibold text-center">
             Please get in touch with your service provider
           </p>
@@ -419,10 +481,10 @@ const LawyerLeftSideNav = () => {
             <img
               src={callCenter}
               alt=""
-              className="w-[120px] h-[90px] mt-[-24px] rounded-md"
+              className="w-[120px] h-[100px] mt-[-24px] rounded-md"
             />
           </div>
-          <button className="px-3 py-1 rounded-full text-white bg-yellow-500 flex items-center justify-center">
+          <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">
             <FaPhoneVolume className="text-xl mr-1" />{" "}
             <span className="font-bold text-lg">1234</span>
           </button>
