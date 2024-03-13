@@ -1,21 +1,23 @@
-import { Outlet, Route, Routes } from "react-router-dom";
-import { Calendar } from "react-calendar";
-import { Avatar, Datepicker } from "flowbite-react";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
 
 // icons
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 
 // customer-sub-pages
 import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeader";
 import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
-import { GiSevenPointedStar } from "react-icons/gi";
-import CustomerDashboardHome from "./customer-sub-pages/CustomerDashboardHome";
-import NewCase from "./customer-sub-pages/NewCase";
+
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const CustomerDashboard = () => {
+  // local states
+  const [isMonthPopup, setIsMonthPopup] = useState(false);
+  const [month, setMonth] = useState("August");
   return (
     <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
       <div className="fixed rounded-full border-2 border-blue-500 z-30 bottom-4 right-4 h-auto w-auto shadow-xl shadow-gray-500">
@@ -87,6 +89,51 @@ const CustomerDashboard = () => {
                 <div className="text-gray-500">Customer Account</div>
               </div>
 
+              {/* calendar */}
+              <div className="p-3 my-5 px-5 bg-gray-200 rounded-md">
+                <header className="flex items-center justify-between">
+                  <button>
+                    <FaChevronLeft />
+                  </button>
+                  <h3 className="my-1 font-bold">March 2024</h3>
+                  <button>
+                    <FaChevronRight />
+                  </button>
+                </header>
+                <div className="my-3 px-1 grid grid-cols-7 gap-x-1 [&>div]:cursor-pointer">
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>M</span>
+                    <span className="font-bold">19</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>T</span>
+                    <span className="font-bold">20</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center rounded-full bg-blue-950 text-white">
+                    <span>W</span>
+                    <span className="font-bold p-1 rounded-full bg-green-500">
+                      21
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>T</span>
+                    <span className="font-bold">22</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>F</span>
+                    <span className="font-bold">23</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>S</span>
+                    <span className="font-bold">24</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>S</span>
+                    <span className="font-bold">25</span>
+                  </div>
+                </div>
+              </div>
+
               {/* total balance */}
               <div className="shadow-sm border-t-2 mt-3 border-gray-200 ">
                 {/* top */}
@@ -108,12 +155,139 @@ const CustomerDashboard = () => {
                 </div>
                 {/* bottom */}
                 <div className="my-3">
-                  <div className="flex items-center justify-between my-1">
+                  <div className="flex items-center justify-between my-1 relative">
                     <h3 className="font-semibold">Expenses Analysis</h3>
-                    <button className="text-gray-500 rounded-full border border-gray-500 flex items-center justify-between p-1">
-                      <span>August</span>
-                      <IoIosArrowDown />
+                    <button
+                      className="text-gray-500 rounded-full border border-gray-500 flex items-center justify-between p-1 transition-all ease-in-out duration-300 hover:border-gray-900 hover:text-gray-900"
+                      onClick={() => setIsMonthPopup(!isMonthPopup)}
+                    >
+                      <span>{month}</span>
+                      {isMonthPopup ? (
+                        <IoIosArrowUp className="text-[1.3rem] ml-1" />
+                      ) : (
+                        <IoIosArrowDown className="text-[1.3rem] ml-1" />
+                      )}
                     </button>
+                    {isMonthPopup ? (
+                      <motion.div
+                        initial={{ scale: 0.35, opacity: 0.35 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-white absolute right-0 top-[100%] z-50 p-3 h-[170px] overflow-y-auto flex flex-col gap-y-1 rounded-md shadow-md"
+                      >
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("September");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          September
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("October");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          October
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("November");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          November
+                        </span>
+
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("December");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          December
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("January");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          January
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("February");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          February
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("March");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          March
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("April");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          April
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("May");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          May
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("June");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          June
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("July");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          July
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("August");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          August
+                        </span>
+                      </motion.div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                   <div>
                     <span className="text-gray-500 font-semibold">Total</span>
@@ -133,19 +307,6 @@ const CustomerDashboard = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* calandaer table */}
-              <div>
-                {/* <Calendar></Calendar> */}
-                <Datepicker inline />
-                {/* 
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                 */}
               </div>
             </div>
           </div>

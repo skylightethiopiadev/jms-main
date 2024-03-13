@@ -13,6 +13,7 @@ import {
   IoStarHalfOutline,
   IoStarSharp,
   IoAlarmOutline,
+  IoReload,
 } from "react-icons/io5";
 
 // data files
@@ -266,6 +267,16 @@ const CustomerDashboardHome = () => {
             type="rangeBar"
             height={170}
           ></Chart>
+          <div className="flex items-center justify-center">
+            <button
+              className="text-[1.25rem] active:animate-spin"
+              onClick={() => {
+                chartTypeSwitcher();
+              }}
+            >
+              <IoReload />
+            </button>
+          </div>
         </div>
       </div>
       {/* bottom */}
