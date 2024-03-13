@@ -124,7 +124,7 @@ const CustomerDashboardHeader = () => {
                   <input type="file" id="profile" accept="image/*" hidden />
                   <label
                     htmlFor="profile"
-                    className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[1.05rem] p-2 flex items-center justify-center bg-blue-500 rounded-full cursor-pointer text-gray-100 transition-all ease-in-out duration-300 hover:text-gray-100 hover:bg-blue-700"
+                    className="absolute bottom-[-.25rem] left-1/2 -translate-x-1/2 text-[1.05rem] p-2 flex items-center justify-center bg-sky-500 rounded-full cursor-pointer text-gray-100 transition-all ease-in-out duration-300 hover:text-gray-100 hover:bg-sky-700"
                   >
                     <FaCamera />
                   </label>

@@ -77,7 +77,7 @@ const CustomerDashboard = () => {
                     <FaChevronRight />
                   </button>
                 </header>
-                <div className="my-3 px-1 grid grid-cols-7 gap-x-1">
+                <div className="my-3 px-1 grid grid-cols-7 gap-x-1 [&>div]:cursor-pointer">
                   <div className="flex flex-col gap-y-5 p-1 items-center">
                     <span>M</span>
                     <span className="font-bold">19</span>
