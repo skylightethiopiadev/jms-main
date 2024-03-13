@@ -44,7 +44,7 @@ const CustomerDashboard = () => {
               <Outlet />
             </div>
             {/* right content */}
-            <div className="p-3 hidden sm:flex sm:flex-col">
+            <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}

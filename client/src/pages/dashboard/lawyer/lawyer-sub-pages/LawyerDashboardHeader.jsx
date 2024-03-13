@@ -20,6 +20,8 @@ import {
   IoStarSharp,
   IoExitSharp,
 } from "react-icons/io5";
+import { FaCamera } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 // main
 // CustomerDashboardHeader
@@ -69,9 +71,10 @@ const LawyerDashboardHeader = () => {
 
       {/* user profile container */}
       <div className="flex items-center gap-x-3">
-        {/* notification icon */}
+        {/* notification */}
         <div>
-          <button className="text-xl text-gray-500">
+          <button className="text-xl text-gray-500 relative">
+            <div className="absolute top-1  right-1 z-50 w-[5px] h-[5px] rounded-full bg-red-600"></div>
             <IoMdNotifications />
           </button>
         </div>
@@ -113,12 +116,22 @@ const LawyerDashboardHeader = () => {
                 }}
               >
                 {/* user profile */}
-                <div className="p-2 shadow-md w-max rounded-md">
+                <div className="p-2 shadow-md w-max rounded-md relative">
                   <img
                     src={customerImage}
                     alt=""
                     className="w-[200px] h-[200px] rounded-sm"
                   />
+                  <input type="file" id="profile" accept="image/*" hidden />
+                  <label
+                    htmlFor="profile"
+                    className="absolute bottom-[-.25rem] left-1/2 -translate-x-1/2 text-[1.05rem] p-2 flex items-center justify-center bg-sky-500 rounded-full cursor-pointer text-gray-100 transition-all ease-in-out duration-300 hover:text-gray-100 hover:bg-sky-700"
+                  >
+                    <FaCamera />
+                  </label>
+                  <button className="absolute top-1 right-1 p-1 rounded-full bg-gray-100 text-red-900 transition-all ease-in-out duration-300 hover:bg-gray-300 hover:text-red-600">
+                    <MdDelete className="text-[1.15rem]" />
+                  </button>
                 </div>
                 {/* username */}
                 <div className="my-1 text-gray-700 font-semibold flex items-center justify-center gap-x-1">

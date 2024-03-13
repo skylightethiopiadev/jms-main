@@ -12,6 +12,7 @@ import {
   IoStarSharp,
   IoExitSharp,
 } from "react-icons/io5";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // customer-sub-pages
 import LawyerDashboardHeader from "./lawyer-sub-pages/LawyerDashboardHeader";
@@ -44,7 +45,7 @@ const LawyerDashboard = () => {
               <Outlet />
             </div>
             {/* right content */}
-            <div className="p-3 hidden sm:flex sm:flex-col">
+            <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}
@@ -74,6 +75,51 @@ const LawyerDashboard = () => {
                     <IoStarOutline />
                   </div>
                   <span className="font-semibold">4.35</span>
+                </div>
+              </div>
+
+              {/* calendar */}
+              <div className="p-3 my-5 px-5 bg-gray-200 rounded-md">
+                <header className="flex items-center justify-between">
+                  <button>
+                    <FaChevronLeft />
+                  </button>
+                  <h3 className="my-1 font-bold">March 2024</h3>
+                  <button>
+                    <FaChevronRight />
+                  </button>
+                </header>
+                <div className="my-3 px-1 grid grid-cols-7 gap-x-1 [&>div]:cursor-pointer">
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>M</span>
+                    <span className="font-bold">19</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>T</span>
+                    <span className="font-bold">20</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center rounded-full bg-blue-950 text-white">
+                    <span>W</span>
+                    <span className="font-bold p-1 rounded-full bg-green-500">
+                      21
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>T</span>
+                    <span className="font-bold">22</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>F</span>
+                    <span className="font-bold">23</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>S</span>
+                    <span className="font-bold">24</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>S</span>
+                    <span className="font-bold">25</span>
+                  </div>
                 </div>
               </div>
 
@@ -122,19 +168,6 @@ const LawyerDashboard = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* calandaer table */}
-              <div>
-                {/* <Calendar></Calendar> */}
-                <Datepicker inline />
-                {/* 
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                 */}
               </div>
             </div>
           </div>

@@ -258,7 +258,7 @@ const LawyerCustomersTable = () => {
         </div>
       </header>
       {/* table container */}
-      <div className="mt-2 h-[35vh] overflow-y-auto overflow-x-auto">
+      <div className="mt-2 h-[42vh] overflow-y-auto overflow-x-auto">
         {/* final table */}
         <table className="w-full overflow-x-auto">
           <thead>
