@@ -21,7 +21,7 @@ import LawyerDashboardHome from "./lawyer-sub-pages/LawyerDashboardHome";
 
 const LawyerDashboard = () => {
   return (
-    <div className="w-full h-screen flex relative">
+    <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
       <LawyerLeftSideNav />
       <div className=" pl-1 w-full">
         {/* header */}

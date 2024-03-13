@@ -17,7 +17,7 @@ import NewCase from "./customer-sub-pages/NewCase";
 
 const CustomerDashboard = () => {
   return (
-    <div className="w-full h-auto relative flex ">
+    <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
       <div className="fixed rounded-full border-2 border-blue-500 z-30 bottom-4 right-4 h-auto w-auto shadow-xl shadow-gray-500">
         <div className="flex w-[140px] p-2 bg-white border border-gray-400 shadow-xl shadow-gray-500 h-full rounded-md absolute right-24">
           <div className="w-full text-sm">
