@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
