@@ -81,7 +81,7 @@ const LawyerLeftSideNav = () => {
         <div className="text-gray-500 text-[1rem]">
           {/* Dashboard */}
           <NavLink
-            to={`/dashboard/lawyer`}
+            to={`/dashboard/customer`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "DASHBOARD" ? "dashboard-active-link-color" : ""
             }`}
@@ -137,20 +137,22 @@ const LawyerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isComplianceOpen ? (
-              <div className="font-normal mt-2 bg-white">
-                <NavLink
-                  // to={`/dashboard/customer/new-case`}
-                  className={`dashboard-sub-link-items ${
-                    isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
-                  }`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsNav("NEW-CASE");
-                    customerDashBoardLeftSideBarToggler();
-                  }}
-                >
-                  New Case
-                </NavLink>
+              <div className="font-normal relative">
+                <div className="flex flex-col w-full bg-white">
+                  <NavLink
+                    // to={`/dashboard/customer/new-case`}
+                    className={`dashboard-sub-link-items bg-red-600 ${
+                      isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsNav("NEW-CASE");
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    New Case
+                  </NavLink>
+                </div>
               </div>
             ) : (
               <></>
@@ -199,6 +201,7 @@ const LawyerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
+                    // to={`/dashboard/customer/case-team`}
                     className={`dashboard-sub-link-items ${
                       isNav === "CASE-TEAM" ? "dashboard-active-link-color" : ""
                     }`}
@@ -211,6 +214,7 @@ const LawyerLeftSideNav = () => {
                     Case Team
                   </NavLink>
                   <NavLink
+                    // to={`/dashboard/customer/active-case`}
                     className={`dashboard-sub-link-items ${
                       isNav === "ACTIVE-CASE"
                         ? "dashboard-active-link-color"
@@ -225,7 +229,8 @@ const LawyerLeftSideNav = () => {
                     Active Case
                   </NavLink>
                   <NavLink
-                    className={`pl-[20%] py-1 ${
+                    // to={`/dashboard/customer/closed-case`}
+                    className={`dashboard-sub-link-items ${
                       isNav === "CLOSED-CASE"
                         ? "dashboard-active-link-color"
                         : ""
@@ -246,6 +251,7 @@ const LawyerLeftSideNav = () => {
           </div>
           {/* message */}
           <NavLink
+            // to={`/dashboard/customer/message`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "MESSAGE" ? "dashboard-active-link-color" : ""
             }`}
@@ -263,6 +269,7 @@ const LawyerLeftSideNav = () => {
           </NavLink>
           {/* appointment */}
           <NavLink
+            // to={`/dashboard/customer/appointment`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "APPOINTMENT" ? "dashboard-active-link-color" : ""
             }`}
@@ -302,7 +309,7 @@ const LawyerLeftSideNav = () => {
                 <span>Finance</span>
               </div>
               {/* icon */}
-              {isMyChartOpen ? (
+              {isFinanceOpen ? (
                 <IoIosArrowUp
                   className={`text-lg ml-1 ${
                     isFinanceOpen ? "dahboard-active-link-icon-color" : ""
@@ -321,6 +328,7 @@ const LawyerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
+                    // to={`/dashboard/customer/add-funds`}
                     className={`dashboard-sub-link-items ${
                       isNav === "ADD-FUNDS" ? "dashboard-active-link-color" : ""
                     }`}
@@ -333,6 +341,7 @@ const LawyerLeftSideNav = () => {
                     Add Funds
                   </NavLink>
                   <NavLink
+                    // to={`/dashboard/customer/requested-payment`}
                     className={`dashboard-sub-link-items ${
                       isNav === "REQUESTED-PAYMENT"
                         ? "dashboard-active-link-color"
@@ -347,6 +356,7 @@ const LawyerLeftSideNav = () => {
                     Requested Payment
                   </NavLink>
                   <NavLink
+                    // to={`/dashboard/customer/refund-funds`}
                     className={`dashboard-sub-link-items ${
                       isNav === "REFUND-FUNDS"
                         ? "dashboard-active-link-color"
@@ -361,6 +371,7 @@ const LawyerLeftSideNav = () => {
                     Refund Funds
                   </NavLink>
                   <NavLink
+                    // to={`/dashboard/customer/recent-transactions`}
                     className={`dashboard-sub-link-items ${
                       isNav === "RECENT-TRANSACTION"
                         ? "dashboard-active-link-color"
@@ -423,6 +434,7 @@ const LawyerLeftSideNav = () => {
               <div className="font-normal relative">
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
+                    // to={`/dashboard/customer/training`}
                     className={`dashboard-sub-link-items ${
                       isNav === "TRAINING" ? "dashboard-active-link-color" : ""
                     }`}
@@ -435,6 +447,7 @@ const LawyerLeftSideNav = () => {
                     Traning
                   </NavLink>
                   <NavLink
+                    // to={`/dashboard/customer/consulting`}
                     className={`dashboard-sub-link-items ${
                       isNav === "CONSULTING"
                         ? "dashboard-active-link-color"
@@ -449,6 +462,7 @@ const LawyerLeftSideNav = () => {
                     Consulting
                   </NavLink>
                   <NavLink
+                    // to={`/dashboard/customer/researches`}
                     className={`dashboard-sub-link-items ${
                       isNav === "RESEARCHES"
                         ? "dashboard-active-link-color"

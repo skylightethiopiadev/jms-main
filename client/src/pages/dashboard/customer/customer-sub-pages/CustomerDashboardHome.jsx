@@ -42,7 +42,7 @@ const CustomerDashboardHome = () => {
   };
 
   return (
-    <div className="p-[2%] relative">
+    <div className="p-[2%] relative h-[94vh] overflow-y-auto">
       {isUserMorePopup ? (
         <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
@@ -236,11 +236,11 @@ const CustomerDashboardHome = () => {
         </div>
       </div>
       {/* bottom */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-1">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-1 pb-[1%]">
         {/* left table */}
         <div className="w-full rounded-md bg-sky-100 p-[1%]">
           {/* header */}
-          <header className="flex items-center justify-between mb-3">
+          <header className="flex items-center justify-between mb-3 border-b border-gray-300 pb-1">
             <div>
               <h3 className="text-gray-700 font-bold">Case Team</h3>
             </div>

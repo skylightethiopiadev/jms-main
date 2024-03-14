@@ -137,20 +137,22 @@ const CustomerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isComplianceOpen ? (
-              <div className="font-normal mt-2 bg-white">
-                <NavLink
-                  to={`/dashboard/customer/new-case`}
-                  className={`dashboard-sub-link-items ${
-                    isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
-                  }`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsNav("NEW-CASE");
-                    customerDashBoardLeftSideBarToggler();
-                  }}
-                >
-                  New Case
-                </NavLink>
+              <div className="font-normal relative">
+                <div className="flex flex-col w-full bg-white">
+                  <NavLink
+                    to={`/dashboard/customer/new-case`}
+                    className={`dashboard-sub-link-items bg-red-600 ${
+                      isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsNav("NEW-CASE");
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    New Case
+                  </NavLink>
+                </div>
               </div>
             ) : (
               <></>
@@ -228,7 +230,7 @@ const CustomerLeftSideNav = () => {
                   </NavLink>
                   <NavLink
                     to={`/dashboard/customer/closed-case`}
-                    className={`pl-[20%] py-1 ${
+                    className={`dashboard-sub-link-items ${
                       isNav === "CLOSED-CASE"
                         ? "dashboard-active-link-color"
                         : ""
@@ -307,7 +309,7 @@ const CustomerLeftSideNav = () => {
                 <span>Finance</span>
               </div>
               {/* icon */}
-              {isMyChartOpen ? (
+              {isFinanceOpen ? (
                 <IoIosArrowUp
                   className={`text-lg ml-1 ${
                     isFinanceOpen ? "dahboard-active-link-icon-color" : ""

@@ -11,8 +11,6 @@ import { VscVerifiedFilled } from "react-icons/vsc";
 // customer-sub-pages
 import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeader";
 import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
-import CustomerDashboardHome from "./customer-sub-pages/CustomerDashboardHome";
-import Message from "./customer-sub-pages/Message";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -27,7 +25,7 @@ const CustomerDashboard = () => {
         {/* header */}
         <CustomerDashboardHeader />
         {/* components */}
-        <div className="w-full h-full bg-gray-100 p-2">
+        <div className="w-full h-full bg-white p-2">
           {/* header */}
           <header className="flex items-center justify-between">
             {/* left-container */}
@@ -69,7 +67,7 @@ const CustomerDashboard = () => {
               </div>
 
               {/* calendar */}
-              <div className="p-3 my-5 px-5 bg-gray-200 rounded-md">
+              <div className="py-3 px-1 my-5 bg-gray-200 rounded-md">
                 <header className="flex items-center justify-between">
                   <button>
                     <FaChevronLeft />
@@ -79,7 +77,7 @@ const CustomerDashboard = () => {
                     <FaChevronRight />
                   </button>
                 </header>
-                <div className="my-3 px-1 grid grid-cols-7 gap-x-1 [&>div]:cursor-pointer">
+                <div className="my-3 px-1 grid grid-cols-7 gap-x-[.05rem] [&>div]:cursor-pointer">
                   <div className="flex flex-col gap-y-5 p-1 items-center">
                     <span>M</span>
                     <span className="font-bold">19</span>
@@ -90,7 +88,7 @@ const CustomerDashboard = () => {
                   </div>
                   <div className="flex flex-col gap-y-5 p-1 items-center rounded-full bg-blue-950 text-white">
                     <span>W</span>
-                    <span className="font-bold p-1 rounded-full bg-green-500">
+                    <span className="font-bold px-1 rounded-full bg-green-500">
                       21
                     </span>
                   </div>
