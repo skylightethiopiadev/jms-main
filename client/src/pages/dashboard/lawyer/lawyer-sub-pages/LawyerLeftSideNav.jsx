@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // site logo
 import siteMainLogo from "../../../../assets/images/site-logo/final-logo.png";
@@ -18,6 +19,20 @@ import { SiCashapp } from "react-icons/si";
 import { GrCompliance } from "react-icons/gr";
 import { IoExitSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
+
+// pop up nav
+const subNavLinkPopUpVariant = {
+  initialAnim: {
+    scale: 0.75,
+  },
+  finalAnim: {
+    scale: 1,
+    transition: {
+      duration: 0.25,
+    },
+  },
+};
+
 // main
 // CustomerLeftSideNav
 const LawyerLeftSideNav = () => {
@@ -137,7 +152,12 @@ const LawyerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isComplianceOpen ? (
-              <div className="font-normal relative">
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     // to={`/dashboard/customer/new-case`}
@@ -153,7 +173,7 @@ const LawyerLeftSideNav = () => {
                     New Case
                   </NavLink>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}
@@ -198,7 +218,12 @@ const LawyerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isMyChartOpen ? (
-              <div className="font-normal relative">
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     // to={`/dashboard/customer/case-team`}
@@ -244,7 +269,7 @@ const LawyerLeftSideNav = () => {
                     Closed Case
                   </NavLink>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}
@@ -325,7 +350,12 @@ const LawyerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isFinanceOpen ? (
-              <div className="font-normal relative">
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     // to={`/dashboard/customer/add-funds`}
@@ -386,7 +416,7 @@ const LawyerLeftSideNav = () => {
                     Recent Transactions
                   </NavLink>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}
@@ -431,7 +461,12 @@ const LawyerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isOtherServiceOpen ? (
-              <div className="font-normal relative">
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     // to={`/dashboard/customer/training`}
@@ -477,7 +512,7 @@ const LawyerLeftSideNav = () => {
                     Researches
                   </NavLink>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}
