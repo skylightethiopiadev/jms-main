@@ -225,12 +225,12 @@ const LawyerCustomersTable = () => {
   });
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 text-[.8rem]">
       {/* table header */}
       <header className="py-1 flex items-center justify-between gap-5">
         {/* left */}
         <div className="flex items-center justify-between gap-5">
-          <span className="px-3 py-1 rounded-full bg-blue-500 text-white">
+          <span className="hidden sm:flex px-3 py-1 rounded-full bg-blue-500 text-white">
             total cases(200)
           </span>
           {/* search container */}
@@ -241,7 +241,7 @@ const LawyerCustomersTable = () => {
               <input
                 type="text"
                 placeholder="search"
-                className="focus:outline-none focus:ring-0 border-none bg-transparent h-[28px]"
+                className="focus:outline-none focus:ring-0 w-[170px] sm:w-auto border-none bg-transparent h-[28px]"
                 onChange={(e) => setFiltering(e.target.value)}
               />
             </div>
@@ -258,7 +258,7 @@ const LawyerCustomersTable = () => {
         </div>
       </header>
       {/* table container */}
-      <div className="mt-2 h-[35vh] overflow-y-auto overflow-x-auto">
+      <div className="mt-2 h-[50vh] overflow-y-auto overflow-x-auto">
         {/* final table */}
         <table className="w-full overflow-x-auto">
           <thead>
@@ -301,39 +301,6 @@ const LawyerCustomersTable = () => {
             ))}
           </tbody>
         </table>
-        <div className="flex items-center justify-center gap-x-1 mt-1">
-          {/* first page */}
-          {/* <button
-            onClick={() => table.setPageIndex(0)}
-            className="text-3xl text-gray-500 px-1 py-[.05rem] rounded-sm transition-all ease-in-out duration-150 hover:bg-gray-200 hover:text-gray-700"
-          >
-            <MdOutlineKeyboardDoubleArrowLeft />
-          </button> */}
-          {/* previous page */}
-          {/* <button
-            disabled={!table.getCanPreviousPage()}
-            onClick={() => table.previousPage()}
-            className="text-3xl text-gray-500 px-1 py-[.05rem] rounded-sm transition-all ease-in-out duration-150 hover:bg-gray-200 hover:text-gray-700"
-          >
-            <MdOutlineArrowLeft />
-          </button> */}
-          {/* next page */}
-          {/* <button
-            disabled={!table.getCanNextPage()}
-            onClick={() => table.nextPage()}
-            className="text-3xl text-gray-500 px-1 py-[.05rem] rounded-sm transition-all ease-in-out duration-150 hover:bg-gray-200 hover:text-gray-700"
-          >
-            <MdOutlineArrowRight />
-          </button> */}
-
-          {/* last page */}
-          {/* <button
-            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-            className="text-3xl text-gray-500 px-1 py-[.05rem] rounded-sm transition-all ease-in-out duration-150 hover:bg-gray-200 hover:text-gray-700"
-          >
-            <MdOutlineKeyboardDoubleArrowRight />
-          </button> */}
-        </div>
       </div>
       {/* user pop up */}
       {editCustomer ? (
@@ -341,9 +308,9 @@ const LawyerCustomersTable = () => {
           initial={{ scale: 0.5, opacity: 0.5 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="absolute top-1 left-[20%] -translate-y-1/2 -translate-x-1/2 rounded-md bg-white shadow-lg"
+          className="fixed top-3 left-0 sm:left-[35%] -translate-y-1/2 -translate-x-1/2 rounded-md bg-white shadow-lg"
         >
-          <header className="p-3 flex items-center justify-between gap-x-56 border-b border-gray-200 mb-3">
+          <header className="p-3 flex items-center justify-between gap-x-20 sm:gap-x-56 border-b border-gray-200 mb-3">
             <div className="flex items-center justify-start gap-x-1">
               <div>
                 <img

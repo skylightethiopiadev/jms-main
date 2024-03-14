@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Datepicker } from "flowbite-react";
+import { motion } from "framer-motion";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
 
 // icons
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import {
   IoStarOutline,
@@ -12,12 +13,16 @@ import {
   IoStarSharp,
   IoExitSharp,
 } from "react-icons/io5";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // customer-sub-pages
 import LawyerDashboardHeader from "./lawyer-sub-pages/LawyerDashboardHeader";
 import LawyerLeftSideNav from "./lawyer-sub-pages/LawyerLeftSideNav";
 
 const LawyerDashboard = () => {
+  // local states
+  const [isMonthPopup, setIsMonthPopup] = useState(false);
+  const [month, setMonth] = useState("August");
   return (
     <div className="w-full h-[100vh] overflow-y-hidden flex relative">
       <LawyerLeftSideNav />
@@ -44,7 +49,7 @@ const LawyerDashboard = () => {
               <Outlet />
             </div>
             {/* right content */}
-            <div className="p-3 hidden sm:flex sm:flex-col">
+            <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}
@@ -77,6 +82,51 @@ const LawyerDashboard = () => {
                 </div>
               </div>
 
+              {/* calendar */}
+              <div className="py-3 px-1 my-5 bg-gray-200 rounded-md">
+                <header className="flex items-center justify-between">
+                  <button>
+                    <FaChevronLeft />
+                  </button>
+                  <h3 className="my-1 font-bold">March 2024</h3>
+                  <button>
+                    <FaChevronRight />
+                  </button>
+                </header>
+                <div className="my-3 px-1 grid grid-cols-7 gap-x-[.05rem] [&>div]:cursor-pointer">
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>M</span>
+                    <span className="font-bold">19</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>T</span>
+                    <span className="font-bold">20</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center rounded-full bg-blue-950 text-white">
+                    <span>W</span>
+                    <span className="font-bold px-1 rounded-full bg-green-500">
+                      21
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>T</span>
+                    <span className="font-bold">22</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>F</span>
+                    <span className="font-bold">23</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>S</span>
+                    <span className="font-bold">24</span>
+                  </div>
+                  <div className="flex flex-col gap-y-5 p-1 items-center">
+                    <span>S</span>
+                    <span className="font-bold">25</span>
+                  </div>
+                </div>
+              </div>
+
               {/* total balance */}
               <div className="shadow-sm border-t-2 mt-3 border-gray-200 ">
                 {/* top */}
@@ -87,10 +137,10 @@ const LawyerDashboard = () => {
                       $21,328.00
                     </h3>
                     <div className="flex items-center justify-between gap-2">
-                      <button className="px-10 py-1 rounded-sm bg-yellow-500 text-white">
+                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
                         Fund
                       </button>
-                      <button className="px-10 py-1 rounded-sm bg-yellow-500 text-white">
+                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
                         Refund
                       </button>
                     </div>
@@ -98,43 +148,158 @@ const LawyerDashboard = () => {
                 </div>
                 {/* bottom */}
                 <div className="my-3">
-                  <div className="flex items-center justify-between my-1">
+                  <div className="flex items-center justify-between my-1 relative">
                     <h3 className="font-semibold">Expenses Analysis</h3>
-                    <button className="text-gray-500 rounded-full border border-gray-500 flex items-center justify-between p-1">
-                      <span>August</span>
-                      <IoIosArrowDown />
+                    <button
+                      className="text-gray-500 rounded-full border border-gray-500 flex items-center justify-between p-1 transition-all ease-in-out duration-300 hover:border-gray-900 hover:text-gray-900"
+                      onClick={() => setIsMonthPopup(!isMonthPopup)}
+                    >
+                      <span>{month}</span>
+                      {isMonthPopup ? (
+                        <IoIosArrowUp className="text-[1.3rem] ml-1" />
+                      ) : (
+                        <IoIosArrowDown className="text-[1.3rem] ml-1" />
+                      )}
                     </button>
-                  </div>
+                    {isMonthPopup ? (
+                      <motion.div
+                        initial={{ scale: 0.35, opacity: 0.35 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-white absolute right-0 top-[100%] z-50 p-3 h-[170px] overflow-y-auto flex flex-col gap-y-1 rounded-md shadow-md"
+                      >
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("September");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          September
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("October");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          October
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("November");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          November
+                        </span>
 
-                  <div className="grid grid-cols-2 w-full  mt-1 py-1">
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("December");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          December
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("January");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          January
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("February");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          February
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("March");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          March
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("April");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          April
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("May");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          May
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("June");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          June
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("July");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          July
+                        </span>
+                        <span
+                          className="border border-gray-300 rounded-sm px-3 py-1 cursor-pointer"
+                          onClick={() => {
+                            setMonth("August");
+                            setIsMonthPopup(false);
+                          }}
+                        >
+                          August
+                        </span>
+                      </motion.div>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                  <div>
+                    <span className="text-gray-500 font-semibold">Total</span>
+                  </div>
+                  <div className="grid grid-cols-3 w-full mt-1">
                     <div className="w-full border-b-4 border-purple-700 py-1">
-                      <span className="text-gray-500 w-full my-2">
-                        Total Spent
-                      </span>
+                      <span className="text-gray-500 w-full">Total Spent</span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
-
+                    <div className="w-full border-b-4 border-purple-500 py-1">
+                      <span className="text-gray-500 w-full">Utility</span>
+                      <h3 className="font-semibold">$213.00</h3>
+                    </div>
                     <div className="w-full border-b-4 border-purple-300 py-1">
-                      <span className="text-gray-500 w-full my-2">
-                        Total Refund
-                      </span>
+                      <span className="text-gray-500 w-full">Total Refund</span>
                       <h3 className="font-semibold">$213.00</h3>
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* calandaer table */}
-              <div>
-                {/* <Calendar></Calendar> */}
-                <Datepicker inline />
-                {/* 
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-                 */}
               </div>
             </div>
           </div>

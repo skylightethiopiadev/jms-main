@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // site logo
 import siteMainLogo from "../../../../assets/images/site-logo/final-logo.png";
@@ -18,6 +19,19 @@ import { SiCashapp } from "react-icons/si";
 import { GrCompliance } from "react-icons/gr";
 import { IoExitSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
+
+// pop up nav
+const subNavLinkPopUpVariant = {
+  initialAnim: {
+    scale: 0.75,
+  },
+  finalAnim: {
+    scale: 1,
+    transition: {
+      duration: 0.25,
+    },
+  },
+};
 // main
 // CustomerLeftSideNav
 const CustomerLeftSideNav = () => {
@@ -47,7 +61,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100%] bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[200px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[220px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       {/* logo and nav container */}
@@ -137,21 +151,28 @@ const CustomerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isComplianceOpen ? (
-              <div className="font-normal mt-2 bg-white">
-                <NavLink
-                  to={`/dashboard/customer/new-case`}
-                  className={`dashboard-sub-link-items ${
-                    isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
-                  }`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsNav("NEW-CASE");
-                    customerDashBoardLeftSideBarToggler();
-                  }}
-                >
-                  New Case
-                </NavLink>
-              </div>
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
+                <div className="flex flex-col w-full bg-white">
+                  <NavLink
+                    to={`/dashboard/customer/new-case`}
+                    className={`dashboard-sub-link-items bg-red-600 ${
+                      isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsNav("NEW-CASE");
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    New Case
+                  </NavLink>
+                </div>
+              </motion.div>
             ) : (
               <></>
             )}
@@ -196,7 +217,12 @@ const CustomerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isMyChartOpen ? (
-              <div className="font-normal relative">
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     to={`/dashboard/customer/case-team`}
@@ -228,7 +254,7 @@ const CustomerLeftSideNav = () => {
                   </NavLink>
                   <NavLink
                     to={`/dashboard/customer/closed-case`}
-                    className={`pl-[20%] py-1 ${
+                    className={`dashboard-sub-link-items ${
                       isNav === "CLOSED-CASE"
                         ? "dashboard-active-link-color"
                         : ""
@@ -242,7 +268,7 @@ const CustomerLeftSideNav = () => {
                     Closed Case
                   </NavLink>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}
@@ -307,7 +333,7 @@ const CustomerLeftSideNav = () => {
                 <span>Finance</span>
               </div>
               {/* icon */}
-              {isMyChartOpen ? (
+              {isFinanceOpen ? (
                 <IoIosArrowUp
                   className={`text-lg ml-1 ${
                     isFinanceOpen ? "dahboard-active-link-icon-color" : ""
@@ -323,7 +349,12 @@ const CustomerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isFinanceOpen ? (
-              <div className="font-normal relative">
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     to={`/dashboard/customer/add-funds`}
@@ -384,7 +415,7 @@ const CustomerLeftSideNav = () => {
                     Recent Transactions
                   </NavLink>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}
@@ -429,7 +460,12 @@ const CustomerLeftSideNav = () => {
             </div>
             {/* sub menu */}
             {isOtherServiceOpen ? (
-              <div className="font-normal relative">
+              <motion.div
+                variants={subNavLinkPopUpVariant}
+                initial="initialAnim"
+                animate="finalAnim"
+                className="font-normal relative"
+              >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     to={`/dashboard/customer/training`}
@@ -475,7 +511,7 @@ const CustomerLeftSideNav = () => {
                     Researches
                   </NavLink>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <></>
             )}

@@ -25,7 +25,7 @@ const CustomerDashboard = () => {
         {/* header */}
         <CustomerDashboardHeader />
         {/* components */}
-        <div className="w-full h-full bg-gray-100 p-2">
+        <div className="w-full h-full bg-white p-2">
           {/* header */}
           <header className="flex items-center justify-between">
             {/* left-container */}
@@ -44,7 +44,7 @@ const CustomerDashboard = () => {
               <Outlet />
             </div>
             {/* right content */}
-            <div className="p-3 hidden sm:flex sm:flex-col">
+            <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}
@@ -67,7 +67,7 @@ const CustomerDashboard = () => {
               </div>
 
               {/* calendar */}
-              <div className="p-3 my-5 px-5 bg-gray-200 rounded-md">
+              <div className="py-3 px-1 my-5 bg-gray-200 rounded-md">
                 <header className="flex items-center justify-between">
                   <button>
                     <FaChevronLeft />
@@ -77,7 +77,7 @@ const CustomerDashboard = () => {
                     <FaChevronRight />
                   </button>
                 </header>
-                <div className="my-3 px-1 grid grid-cols-7 gap-x-1 [&>div]:cursor-pointer">
+                <div className="my-3 px-1 grid grid-cols-7 gap-x-[.05rem] [&>div]:cursor-pointer">
                   <div className="flex flex-col gap-y-5 p-1 items-center">
                     <span>M</span>
                     <span className="font-bold">19</span>
@@ -88,7 +88,7 @@ const CustomerDashboard = () => {
                   </div>
                   <div className="flex flex-col gap-y-5 p-1 items-center rounded-full bg-blue-950 text-white">
                     <span>W</span>
-                    <span className="font-bold p-1 rounded-full bg-green-500">
+                    <span className="font-bold px-1 rounded-full bg-green-500">
                       21
                     </span>
                   </div>
@@ -121,10 +121,10 @@ const CustomerDashboard = () => {
                       $21,328.00
                     </h3>
                     <div className="flex items-center justify-between gap-2">
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
                         Fund
                       </button>
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
                         Refund
                       </button>
                     </div>
