@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { motion } from "framer-motion";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
@@ -13,6 +13,8 @@ import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeade
 import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import CustomerDashboardHome from "./customer-sub-pages/CustomerDashboardHome";
+import NewCase from "./customer-sub-pages/NewCase";
 
 const CustomerDashboard = () => {
   // local states
