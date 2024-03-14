@@ -6,6 +6,8 @@ import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat"; 
 import { Flowbite } from "flowbite-react";
+
+// customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
 import LawyerDashboard from "./pages/dashboard/lawyer/LawyerDashboard";
@@ -46,9 +48,7 @@ function App() {
     <Flowbite>
       <div className={`font-poppins medium   tracking-wide`}>
         <div className="flex flex-col">
-          {/* {isHeader ? <AddisHeader /> : <></>} */}
           <Routes>
-            {/* <Route path="/" element={<AddisHome />}></Route> */}
             <Route path="/" element={<Home />}></Route>
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>

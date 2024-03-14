@@ -42,7 +42,7 @@ const CustomerDashboardHeader = () => {
     }
   };
   return (
-    <header className="py-2 px-1 flex items-center justify-between w-full">
+    <header className="py-2 px-1 flex items-center justify-between w-full border-b border-gray-200">
       {/* left header portion */}
       <div className="flex items-center">
         {/* menu icon */}
@@ -74,7 +74,7 @@ const CustomerDashboardHeader = () => {
         {/* notification icon */}
         <div>
           <button className="text-xl text-gray-500 relative">
-            <div className="absolute top-1  right-1 z-50 w-[5px] h-[5px] rounded-full bg-red-600"></div>
+            <div className="absolute top-[.15rem] right-[.15rem] z-50 w-[5px] h-[5px] rounded-full bg-red-500"></div>
             <IoMdNotifications />
           </button>
         </div>

@@ -118,7 +118,7 @@ const CustomerDashboardHome = () => {
   };
 
   return (
-    <div className="p-[2%] h-[80%] overflow-y-scroll relative">
+    <div className="p-[2%] relative h-[94vh] overflow-y-auto pb-7">
       {isUserMorePopup ? (
         <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
@@ -230,21 +230,19 @@ const CustomerDashboardHome = () => {
         </div>
       </div>
       {/* middle */}
-      <div className="flex flex-col md:flex-row items-center gap-3 py-[3%]">
+      <div className="flex flex-col md:flex-row items-center md:items-end gap-3 py-[3%]">
         {/* left */}
         <div className="p-2 rounded-md shadow-lg w-[100%] md:w-[50%] py-[4%]">
           <div className="">
-            <h3 className="text-lg text-gray-800 font-semibold">
+            <h3 className="text-[1.1rem] text-gray-800 font-semibold">
               Next Appointment
             </h3>
             <div className="flex gap-1">
-              <span className="text-gray-500 font-semibold">
-                appointment type:
-              </span>
+              <span className="text-gray-500 font-medium">type:</span>
               <span className="text-gray-500">Oral Litagation</span>
             </div>
             <div>
-              <h3 className="text-lg text-gray-500 font-black my-1">
+              <h3 className="text-[1.1rem] text-gray-500 font-bold my-1">
                 5 march,2024
               </h3>
             </div>
@@ -261,13 +259,102 @@ const CustomerDashboardHome = () => {
 
         {/* right */}
         <div className="w-full p-2 rounded-md shadow-lg">
+          {/* <Chart
+            // type={chartType[chartIndex]}
+            type="area"
+            width={"100%"}
+            height={140}
+            series={[
+              {
+                name: "spent",
+                data: [500, 400, 550, 350, 450, 500],
+              },
+            ]}
+            options={{
+              colors: ["#168df5"],
+              tooltip: {
+                followCursor: true,
+              },
+              grid: {
+                show: false,
+              },
+              dataLabels: {
+                formatter: (val) => `${val}Br.`,
+                style: {
+                  colors: ["#010205"],
+                },
+              },
+              yaxis: {
+                labels: {
+                  show: false,
+                },
+              },
+              xaxis: {
+                tickPlacement: "on",
+                categories: [1990, 1995, 2000, 2005, 2010, 2015],
+              },
+              legend: {
+                show: false,
+              },
+            }}
+          ></Chart> */}
           <Chart
-            options={state.options}
-            series={state.series}
-            type="rangeBar"
-            height={170}
+            width={"100%"}
+            height={155}
+            type="bar"
+            series={[
+              {
+                name: "spent",
+                data: [
+                  120, 100, 145, 170, 100, 200, 125, 125, 160, 150, 130, 100,
+                ],
+              },
+            ]}
+            options={{
+              legend: {
+                show: false,
+              },
+              dataLabels: {
+                show: false,
+                formatter: (val) => ``,
+              },
+              tooltip: {
+                fillSeriesColor: true,
+              },
+              xaxis: {
+                categories: [
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Aug",
+                ],
+                tickPlacement: "off",
+              },
+              yaxis: {
+                labels: {
+                  show: false,
+                },
+              },
+              grid: {
+                show: false,
+              },
+              plotOptions: {
+                bar: {
+                  distributed: true,
+                  // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
+                },
+              },
+            }}
           ></Chart>
-          <div className="flex items-center justify-center">
+          {/* <div className="flex items-center justify-center">
             <button
               className="text-[1.25rem] active:animate-spin"
               onClick={() => {
@@ -276,15 +363,15 @@ const CustomerDashboardHome = () => {
             >
               <IoReload />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* bottom */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-1">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-1 pb-[1%]">
         {/* left table */}
         <div className="w-full rounded-md bg-sky-100 p-[1%]">
           {/* header */}
-          <header className="flex items-center justify-between mb-3">
+          <header className="flex items-center justify-between border-b border-gray-300 pb-3">
             <div>
               <h3 className="text-gray-700 font-bold">Case Team</h3>
             </div>
@@ -306,7 +393,7 @@ const CustomerDashboardHome = () => {
           </header>
           {/* table container */}
           <div
-            className="max-h-[26vh] overflow-y-auto pr-1"
+            className="max-h-[26vh] overflow-y-auto mt-[.13rem] pr-1"
             id="case-team-table-container"
           >
             <table className="w-full">
@@ -405,7 +492,7 @@ const CustomerDashboardHome = () => {
             </div>
           </header>
           <div
-            className="h-[28vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2 pb-10"
+            className="h-[28vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2"
             id="case-history-list-container"
           >
             {/* case history cards */}

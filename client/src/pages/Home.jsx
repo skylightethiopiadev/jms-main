@@ -3,6 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 // customer main image
+import customerMainImage from "../assets/images/customers/customer-i.jpg";
 
 // icons
 import {
@@ -12,7 +13,6 @@ import {
   FaPlus,
   FaMinus,
   FaFacebookF,
-  FaTwitter,
   FaRegStar,
   FaYoutube,
 } from "react-icons/fa";
@@ -34,14 +34,10 @@ import {} from "react-icons/fa";
 import { FaScaleBalanced, FaBlog, FaXTwitter } from "react-icons/fa6";
 import { IoLogoCodepen } from "react-icons/io";
 
-// left arrow
-import { TfiArrowCircleLeft } from "react-icons/tfi";
-// right arrow
-import { TfiArrowCircleRight } from "react-icons/tfi";
-
+// components
+import Header from "../components/Header";
 // data files
-import { judges } from "./../DataFile";
-import AddisHeader from "../components/AddisHeader";
+import { judges } from "../DataFile";
 
 const responsive = {
   superLargeDesktop: {
@@ -70,10 +66,12 @@ const AddisHome = () => {
   const [secondAccordion, setSecondAccodion] = useState(true);
   const [thirdAccordion, setThirdAccodion] = useState(false);
   const [forthAccordion, setForthAccodion] = useState(false);
+
   return (
-    <div className="w-full h-auto">
-      <AddisHeader />
-      <div className="flex-grow bg-gray-100 h-[80vh] overflow-y-auto">
+    <div>
+      {/* header */}
+      <Header />
+      <div className="flex-grow bg-gray-100 h-[81vh] overflow-y-auto">
         {/* banner */}
         <div className="h-[250px] flex items-center justify-center relative">
           <div className="absolute left-0 bottom-0 z-10 w-full h-full bg-black">
@@ -99,13 +97,13 @@ const AddisHome = () => {
             <div className="bg-teal-500 mb-5 sm:mb-0 relative text-white mt-[-38px] z-50 flex flex-col">
               {/* image */}
               <div className="self-end w-[50%] py-[1%] sm:py-[3%] overflow-hidden rounded-full">
-                <img src="./messi.jpg" alt="" />
+                <img src={customerMainImage} alt="" />
               </div>
               {/* text */}
               <div className="self-start w-[85%] p-[5%] text-lg">
                 <p className="text-left my-3">
                   Access
-                  <span className="text-black font-bold">2500+</span> Online
+                  <span className="text-black font-bold"> 2500+</span> Online
                   Courses From 140 Institutions
                 </p>
                 <button className="my-3 text-[.95rem] font-semibold border-2 border-gray-300 px-5 py-2 rounded-sm">
@@ -117,7 +115,7 @@ const AddisHome = () => {
           {/* bottom-right container */}
           <div className="flex-grow flex flex-col gap-y-5">
             {/* top cards */}
-            <div className="flex flex-col gap-5 sm:flex-row items-center justify-evenly my-2">
+            <div className="flex flex-col gap-y-5 sm:flex-row sm:items-center sm:justify-evenly my-2 sm:gap-10 md:gap-16">
               {/* card - 1 */}
               <div className="w-[75%] flex items-center justify-evenly sm:justify-center gap-x-3 p-5 shadow-md rounded-md">
                 {/* icon */}

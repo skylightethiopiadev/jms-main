@@ -134,7 +134,7 @@ const LawyerDashboardHome = () => {
   });
 
   return (
-    <div className="p-[2%] relative">
+    <div className="p-[2%] relative h-[94vh] overflow-y-auto">
       {isUserMorePopup ? (
         <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
@@ -331,7 +331,7 @@ const LawyerDashboardHome = () => {
       {/* middle */}
       <div className="py-[1%]">
         {/* numbers contaoner */}
-        <div className="flex items-center justify-between gap-5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
           {/* top left */}
           <div className="w-full shadow-md p-[1%] rounded-md">
             {/* header */}
