@@ -74,7 +74,7 @@ const LawyerDashboardHeader = () => {
         {/* notification */}
         <div>
           <button className="text-xl text-gray-500 relative">
-            <div className="absolute top-[.15rem] right-[.15rem] z-50 w-[7px] h-[7px] rounded-full bg-red-500"></div>
+            <div className="absolute top-[.15rem] right-[.15rem] z-50 w-[5px] h-[5px] rounded-full bg-red-500"></div>
             <IoMdNotifications />
           </button>
         </div>

@@ -239,7 +239,8 @@ const CustomerDashboardHome = () => {
                 show: false,
               },
               dataLabels: {
-                formatter: (val) => `$${val}`,
+                show: false,
+                formatter: (val) => ``,
               },
               tooltip: {
                 fillSeriesColor: true,

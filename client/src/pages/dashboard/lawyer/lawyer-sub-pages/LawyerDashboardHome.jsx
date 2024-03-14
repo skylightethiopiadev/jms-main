@@ -331,7 +331,7 @@ const LawyerDashboardHome = () => {
       {/* middle */}
       <div className="py-[1%]">
         {/* numbers contaoner */}
-        <div className="flex items-center justify-between gap-5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
           {/* top left */}
           <div className="w-full shadow-md p-[1%] rounded-md">
             {/* header */}

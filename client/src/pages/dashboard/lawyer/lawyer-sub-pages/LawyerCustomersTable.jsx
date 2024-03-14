@@ -225,12 +225,12 @@ const LawyerCustomersTable = () => {
   });
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 text-[.8rem]">
       {/* table header */}
       <header className="py-1 flex items-center justify-between gap-5">
         {/* left */}
         <div className="flex items-center justify-between gap-5">
-          <span className="px-3 py-1 rounded-full bg-blue-500 text-white">
+          <span className="hidden sm:flex px-3 py-1 rounded-full bg-blue-500 text-white">
             total cases(200)
           </span>
           {/* search container */}
@@ -241,7 +241,7 @@ const LawyerCustomersTable = () => {
               <input
                 type="text"
                 placeholder="search"
-                className="focus:outline-none focus:ring-0 border-none bg-transparent h-[28px]"
+                className="focus:outline-none focus:ring-0 w-[170px] sm:w-auto border-none bg-transparent h-[28px]"
                 onChange={(e) => setFiltering(e.target.value)}
               />
             </div>
@@ -308,9 +308,9 @@ const LawyerCustomersTable = () => {
           initial={{ scale: 0.5, opacity: 0.5 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-3 left-[35%] -translate-y-1/2 -translate-x-1/2 rounded-md bg-white shadow-lg"
+          className="fixed top-3 left-0 sm:left-[35%] -translate-y-1/2 -translate-x-1/2 rounded-md bg-white shadow-lg"
         >
-          <header className="p-3 flex items-center justify-between gap-x-56 border-b border-gray-200 mb-3">
+          <header className="p-3 flex items-center justify-between gap-x-20 sm:gap-x-56 border-b border-gray-200 mb-3">
             <div className="flex items-center justify-start gap-x-1">
               <div>
                 <img

@@ -137,10 +137,10 @@ const LawyerDashboard = () => {
                       $21,328.00
                     </h3>
                     <div className="flex items-center justify-between gap-2">
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
                         Fund
                       </button>
-                      <button className="px-10 py-1 rounded-md bg-yellow-400 text-white">
+                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
                         Refund
                       </button>
                     </div>
