@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import HomeDashboard from "./pages/dashboard/HomeDashboard";
 import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
-import Chat from "./pages/Chat"; 
+import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
 
 // customer
@@ -16,7 +16,7 @@ import Message from "./pages/dashboard/customer/customer-sub-pages/Message";
 import Appointment from "./pages/dashboard/customer/customer-sub-pages/Appointment";
 // customer compliance
 import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
-// customer charts pages 
+// customer charts pages
 import CaseTeam from "./pages/dashboard/customer/customer-charts/CaseTeam";
 import ActiveCase from "./pages/dashboard/customer/customer-charts/ActiveCase";
 import ClosedCase from "./pages/dashboard/customer/customer-charts/ClosedCase";
@@ -39,7 +39,7 @@ import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCa
 function App() {
   const jwt = localStorage.getItem("jwt");
   const user = JSON.parse(localStorage.getItem("user"));
-   
+
   // states
   // const isHeader = useSelector(selectIsHeader);
 
@@ -53,6 +53,7 @@ function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
+            <Route path="dashboard" element={<HomeDashboard />}></Route>
             <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
               <Route
                 // path="/dashboard/customer/home"
@@ -108,8 +109,8 @@ function App() {
               <Route
                 path="/dashboard/customer/refund-funds"
                 element={<RefundFunds />}
-              ></Route>  
-              <Route 
+              ></Route>
+              <Route
                 path="/dashboard/customer/recent-transactions"
                 element={<RecentTransactions />}
               ></Route>
@@ -125,7 +126,7 @@ function App() {
               <Route
                 path="/dashboard/customer/researches"
                 element={<Researches />}
-              ></Route> 
+              ></Route>
             </Route>
             {/* {jwt && user && (
               <Route

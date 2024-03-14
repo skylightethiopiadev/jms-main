@@ -67,7 +67,7 @@ const HomeDashboard = ({ role }) => {
         nightMode,
         setNightMode,
         borderColor,
-        role,
+        role: "super-admin",
       }}
     >
       <div
