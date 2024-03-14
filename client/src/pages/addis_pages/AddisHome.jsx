@@ -115,7 +115,7 @@ const AddisHome = () => {
           {/* bottom-right container */}
           <div className="flex-grow flex flex-col gap-y-5">
             {/* top cards */}
-            <div className="flex flex-col gap-y-5 sm:gap-y-0 sm:flex-row items-center justify-evenly my-2 sm:gap-10 md:gap-16">
+            <div className="flex flex-col gap-y-5 sm:flex-row sm:items-center sm:justify-evenly my-2 sm:gap-10 md:gap-16">
               {/* card - 1 */}
               <div className="w-[75%] flex items-center justify-evenly sm:justify-center gap-x-3 p-5 shadow-md rounded-md">
                 {/* icon */}
