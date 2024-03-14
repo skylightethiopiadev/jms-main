@@ -71,7 +71,7 @@ const AddisHome = () => {
     <div>
       {/* header */}
       <AddisHeader />
-      <div className="flex-grow bg-gray-100 h-[81vh] overflow-y-auto">
+      <div className="flex-grow bg-gray-100 h-[88vh] overflow-y-auto">
         {/* banner */}
         <div className="h-[250px] flex items-center justify-center relative">
           <div className="absolute left-0 bottom-0 z-10 w-full h-full bg-black">
