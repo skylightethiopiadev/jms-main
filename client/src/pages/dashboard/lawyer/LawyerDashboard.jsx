@@ -48,17 +48,7 @@ const LawyerDashboard = () => {
           <div className="h-full flex bg-white">
             {/* main content */}
             <div className="w-full">
-              <Routes>
-                <Route
-                  path="/lawyer"
-                  index
-                  element={<LawyerDashboardHome />}
-                ></Route>
-                <Route
-                  path="/lawyer/new-case"
-                  element={<LawyerNewCase />}
-                ></Route>
-              </Routes>
+              <Outlet />
             </div>
             {/* right content */}
             <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">

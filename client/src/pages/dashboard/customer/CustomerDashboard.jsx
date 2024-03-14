@@ -58,16 +58,8 @@ const CustomerDashboard = () => {
           <div className="h-auto flex bg-white">
             {/* main content */}
             <div className="w-full">
-              <Routes>
-                <Route
-                  path="/customer"
-                  index
-                  element={<CustomerDashboardHome />}
-                ></Route>
-                <Route path="/customer/new-case" element={<NewCase />}></Route>
-              </Routes>
-              {/* <Outlet /> */}
-            </div>
+              <Outlet />
+            </div>.
             {/* right content */}
             <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
               {/* user profile */}
