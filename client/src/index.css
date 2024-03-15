@@ -177,3 +177,44 @@
 .home-submenu-popup-ul {
   @apply bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal;
 }
+
+/* ///////////////////////////////// */
+/* circle */
+.step-circle {
+  @apply w-[18px] h-[18px] text-[.85rem] sm:w-[24px] sm:h-[24px] sm:text-[.9rem] shrink-0 rounded-full border-2 flex items-center justify-center cursor-pointer;
+}
+/* off circle */
+.step-circle-off {
+  @apply border-gray-400 text-gray-400;
+}
+/* on circle */
+.step-circle-on {
+  @apply border-blue-600 bg-blue-600 text-white;
+}
+
+
+/* off bar */
+.step-bar {
+  @apply w-full h-[3px] rounded-lg;
+}
+.step-bar-off {
+  @apply bg-gray-400 ;
+}
+/* on bar */
+.step-bar-on {
+  @apply bg-blue-600;
+}
+
+
+/* step hint text */
+.step-hint-text-circle {
+  @apply flex items-center justify-center p-1 w-[20px] text-[.85rem] font-black h-[20px] rounded-full border;
+}
+
+.step-hint-text-circle-off {
+  @apply border-gray-400 text-gray-400 scale-[.85] transition-all ease-in-out duration-300;
+}
+
+.step-hint-text-circle-on {
+  @apply border-blue-600 text-blue-600 scale-[1] transition-all ease-in-out duration-300;
+}
