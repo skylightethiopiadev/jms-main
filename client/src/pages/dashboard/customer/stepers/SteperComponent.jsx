@@ -5,23 +5,16 @@ import { FaCheck } from "react-icons/fa";
 // component
 import SteperElement from "./steper-sub-components/SteperElement";
 
-const SteperComponent = ({ steps, stepsHint }) => {
-  const [stepCounter, setStepCounter] = useState(0);
-
+const SteperComponent = ({
+  steps,
+  stepsHint,
+  stepCounter,
+  setStepCounter,
+  steperHandler,
+}) => {
   const stepElements = Array.apply(null, Array(steps)).map((x, i) => i + 1);
-
-  // steper handler
-  const steperHandler = (index) => {
-    if (index > 0) {
-      if (stepCounter === stepElements?.length + 1) return;
-      setStepCounter(stepCounter + 1);
-    } else {
-      if (stepCounter === 0) return;
-      setStepCounter(stepCounter - 1);
-    }
-  };
   return (
-    <div className="flex-grow">
+    <div className="flex-grow bg-white shadow-md rounded-md">
       {/* step hint */}
       <div className="flex items-center justify-center px-[3%] pt-1 gap-1">
         {stepsHint?.map((hint, index) => (
@@ -31,16 +24,46 @@ const SteperComponent = ({ steps, stepsHint }) => {
           >
             {/* title */}
             <div className="flex items-center gap-1 mr-1">
-              <div className={`step-hint-text-circle ${stepCounter > index ? 'step-hint-text-circle-on' : 'step-hint-text-circle-off'}`}>
-                <span>{ index + 1}</span>
+              <div
+                className={`step-hint-text-circle ${
+                  stepCounter > index
+                    ? "step-hint-text-circle-on"
+                    : "step-hint-text-circle-off"
+                }`}
+              >
+                <span>{index + 1}</span>
               </div>
-              <h3 className={`flex sm:hidden font-black text-sm ${stepCounter > index ? 'step-hint-text-circle-on' : 'step-hint-text-circle-off'}`}>{hint.title}</h3>
+              <h3
+                className={`flex sm:hidden font-black text-sm ${
+                  stepCounter > index
+                    ? "step-hint-text-circle-on"
+                    : "step-hint-text-circle-off"
+                }`}
+              >
+                {hint.title}
+              </h3>
             </div>
 
             {/* discrtption */}
             <div>
-              <h3 className={`hidden sm:flex font-black text-sm ${stepCounter > index ? 'step-hint-text-circle-on' : 'step-hint-text-circle-off'}`}>{hint.title}</h3>
-              <p className={`text-xs sm:text-sm ${stepCounter > index ? 'step-hint-text-circle-on' : 'step-hint-text-circle-off'}`}>{hint.description}</p>
+              <h3
+                className={`hidden sm:flex font-black text-sm ${
+                  stepCounter > index
+                    ? "step-hint-text-circle-on"
+                    : "step-hint-text-circle-off"
+                }`}
+              >
+                {hint.title}
+              </h3>
+              <p
+                className={`text-xs sm:text-sm ${
+                  stepCounter > index
+                    ? "step-hint-text-circle-on"
+                    : "step-hint-text-circle-off"
+                }`}
+              >
+                {hint.description}
+              </p>
             </div>
           </div>
         ))}
@@ -65,29 +88,13 @@ const SteperComponent = ({ steps, stepsHint }) => {
               key={index}
               stepIndex={index + 1}
               currentStep={stepCounter}
-              setStepCounter={setStepCounter} 
+              setStepCounter={setStepCounter}
               FaCheck={FaCheck}
             />
           ))}
         </div>
       </div>
 
-      <div className="flex items-center justify-center">
-        <div className="flex items-center justify-center gap-x-3">
-          <button
-            className="border border-gray-400 rounded-sm px-5 py-1"
-            onClick={() => steperHandler(-1)}
-          >
-            <IoMdArrowBack />
-          </button>
-          <button
-            className="border border-gray-400 rounded-sm px-5 py-1"
-            onClick={() => steperHandler(1)}
-          >
-            <IoMdArrowForward />
-          </button>
-        </div>
-      </div>
     </div>
   );
 };
