@@ -100,7 +100,7 @@ const Header = () => {
           {/* singup */}
           <div>
             <NavLink
-              to={"/dashboard/customer/"}
+              to={"/login"}
               onClick={(e) => {
                 e.stopPropagation();
               }}

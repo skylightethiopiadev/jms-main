@@ -48,6 +48,7 @@ function App() {
     <Flowbite>
       <div className={`font-poppins medium   tracking-wide`}>
         <div className="flex flex-col">
+          ``
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="login" element={<Login />}></Route>
