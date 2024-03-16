@@ -205,9 +205,9 @@ const AddisHome = () => {
           </div>
         </div>
         {/* second order container */}
-        <div className="px-[10%] py-[2%] flex flex-col lg:flex-row items-center justify-between">
+        <div className="px-[10%] py-[2%] flex flex-col md:flex-row lg:flex-row items-center justify-between">
           {/* top-left container */}
-          <div className="w-full lg:w-[50%]">
+          <div className="w-full lg:w-[100%]">
             {/* title container */}
             <div className="my-5">
               <span className="text-gray-500 text-lg">
