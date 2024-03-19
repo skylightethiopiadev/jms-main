@@ -226,7 +226,6 @@
   min-height: 250px;
   /* max-width: 300px; */
 }
- 
 
 /* lawyer dashboard constants */
 .lawyer-case-number {
@@ -268,3 +267,5 @@
 .home-submenu-popup-ul {
   @apply bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal;
 }
+
+/* video call styling */

@@ -35,6 +35,7 @@ import Researches from "./pages/dashboard/customer/customer-services/Researches"
 
 import LawyerDashboardHome from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerDashboardHome";
 import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCase";
+import Video from "./pages/Video";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
@@ -55,6 +56,10 @@ function App() {
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
             <Route path="dashboard" element={<HomeDashboard />}></Route>
+            <Route
+              path="/dashboard/customer/message/video"
+              element={<Video />}
+            />
             <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
               <Route
                 // path="/dashboard/customer/home"

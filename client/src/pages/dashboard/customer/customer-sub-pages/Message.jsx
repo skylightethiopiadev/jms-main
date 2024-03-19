@@ -9,17 +9,19 @@ import {
 import Response from "../../../../components/Response";
 import LoadingButton from "../../../../components/loading/LoadingButton";
 import Loading from "../../../../components/loading/Loading";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import customerImage from "../../../../assets/images/customers/customer-i.jpg";
+import Peer from "peerjs";
 
 const Message = () => {
+  const navigate = useNavigate();
   const [socket, setSocket] = useState(null);
   const location = useLocation();
   const [sendMessageData, sendMessageResponse] = useCreateMutation();
   const [sender, setSenderId] = useState("");
   const [receiver, setReceiverId] = useState("");
   const [currentUser, setCurrentUser] = useState({
-    _id: "65eaae5c42838d4af4c23d8d",
+    _id: "65eaaf5590ad7cbe46baeae7",
   });
   const [onlineUsers, setOnlineUsers] = useState();
   const [message, setMessage] = useState("");
@@ -237,6 +239,61 @@ const Message = () => {
 
   // console.log(videoFile, "received");
   // console.log(payload, "sent");
+
+  const [peerId, setPeerId] = useState("");
+  const [remotePeerIdValue, setRemotePeerIdValue] = useState("");
+  const remoteVideoRef = useRef(null);
+  const currentUserVideoRef = useRef(null);
+  const peerInstance = useRef(null);
+  const ids = [];
+
+  useEffect(() => {
+    const peer = new Peer();
+
+    peer.on("open", (id) => {
+      ids.push(id);
+      setPeerId(id);
+    });
+
+    console.log(ids, "peer ids");
+    peer.on("call", (call) => {
+      var getUserMedia =
+        navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia;
+
+      getUserMedia({ video: true, audio: true }, (mediaStream) => {
+        currentUserVideoRef.current.srcObject = mediaStream;
+        currentUserVideoRef.current.play();
+        call.answer(mediaStream);
+        call.on("stream", function (remoteStream) {
+          remoteVideoRef.current.srcObject = remoteStream;
+          remoteVideoRef.current.play();
+        });
+      });
+    });
+
+    peerInstance.current = peer;
+  }, []);
+
+  const call = (remotePeerId) => {
+    var getUserMedia =
+      navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia;
+
+    getUserMedia({ video: true, audio: true }, (mediaStream) => {
+      currentUserVideoRef.current.srcObject = mediaStream;
+      currentUserVideoRef.current.play();
+
+      const call = peerInstance.current.call(remotePeerId, mediaStream);
+
+      call.on("stream", (remoteStream) => {
+        remoteVideoRef.current.srcObject = remoteStream;
+        remoteVideoRef.current.play();
+      });
+    });
+  };
   return (
     // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full h-auto gap-10 m-10 place-items-center">
     //   {[1, 2, 3, 4].map((e, i) => {
@@ -251,7 +308,7 @@ const Message = () => {
     //     );
     //   })}
     // </div>
-    <div className="flex">
+    <div className="flex -ml-3 -mt-2d">
       {/* side navigation */}
       {/* <div className="hidden md:flex border-r py-2 items-start justify-start shadow-md"> */}
       {/* <ul className="space-y-0 font-medium">
@@ -403,57 +460,147 @@ const Message = () => {
           </li>{" "}
         </ul> */}
 
+      <div className="absolute z-20 pl-[220px] top-0 left-0 bg-gray-200 flex gap-5 items-center p-5 w-full h-[100vh]">
+        {/* <h1>Current user id is {peerId}</h1>
+        <input
+          type="text"
+          value={remotePeerIdValue}
+          onChange={(e) => setRemotePeerIdValue(e.target.value)}
+        />
+        <button onClick={() => call(remotePeerIdValue)}>Call</button>
+        <div>
+          <video ref={currentUserVideoRef} />
+        </div>
+        <div>
+          <video ref={remoteVideoRef} />
+        </div> */}
+        <div className="flex relative flex-col items-start gap-2 justify-start p-4 h-[100vh] w-[70%] bg-white">
+          <p className="text-lg font-bold mt-2">Your friend</p>
+          <img
+            src={customerImage}
+            alt=""
+            className="h-[420px] border border-gray-300 rounded-xl w-full"
+          />
+          <div className="flex gap-5 w-full items-center mt-4 justify-center">
+            <div className="p-2 hover:bg-gray-500/50 cursor-pointer  rounded-full bg-gray-400/50">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9v3a5.006 5.006 0 0 1-5 5h-4a5.006 5.006 0 0 1-5-5V9m7 9v3m-3 0h6M11 3h2a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"
+                />
+              </svg>
+            </div>
+            <button className="px-7 py-3 rounded-full bg-red-500 text-white hover:bg-red-400">
+              End call
+            </button>
+            <div className="p-2 hover:bg-gray-500/50 cursor-pointer rounded-full bg-gray-400/50">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 6H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm7 11-6-2V9l6-2v10Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-start justify-start h-[100vh] w-[30%] bg-gray-200"></div>
+      </div>
       <Response response={sendMessageResponse} setPending={setPending} />
 
       {/* search and user list */}
 
       {/* // </div> */}
-      <div id="user_list_containerd" className="w-[35%]">
+      <div id="user_list_container" className="w-[35%]">
         <div
           id="user_lists"
           className="flex border-r flex-col flex-[25%] h-[100vh]"
         >
           {/* search */}
-          {/* <form className="px-2 mt-3">
-            <label
-              htmlFor="search"
-              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-            >
-              Search
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="search"
-                id="search"
-                className="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search"
-                required
-              />
-              <button
-                type="submit"
-                className="text-white absolute end-2 bottom-[5.5px] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          <div className="w-full flex bg-gray-100 items-center justify-start border-b">
+            <div className="flex w-full px-2 bg-yellow-400 text-white cursor-pointer justify-center flex-col border-r items-center h-14">
+              <svg
+                class="w-6 h-6 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
               >
-                Search
-              </button>
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                />
+              </svg>
+              <p className="text-sm  ">Lawyer</p>
             </div>
-          </form> */}
+
+            <div className="flex w-full px-2  cursor-pointer justify-center flex-col border-r items-center h-14">
+              <svg
+                class="w-6 h-6 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                />
+              </svg>
+              <p className="text-sm  ">Manager</p>
+            </div>
+            <div className="flex w-full px-2  cursor-pointer justify-center flex-col border-r items-center h-14">
+              <svg
+                class="w-6 h-6 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                />
+              </svg>
+              <p className="text-sm  ">Groups</p>
+            </div>
+          </div>
 
           {userIsFetching && <Loading text="text-gray-500" />}
           {userIsError && <p>something went wrong unable to read the users</p>}
@@ -557,41 +704,61 @@ const Message = () => {
           {/* <div className="w-44 h-auto p-4 rounded-md bg-white absolute right-20 top-10 z-30 border border-gray-400 shadow-lg">
               hello
             </div> */}
-          <div className="flex items-center mr-4 gap-2 space-x-2">
+          <div
+            className={`flex items-center ${
+              sender && receiver ? "text-gray-600" : "text-gray-400"
+            }  mr-4 gap-2 space-x-2`}
+          >
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out text-gray-500 focus:outline-none"
+              onClick={() => {
+                navigate("/dashboard/customer/message/video", {
+                  state: {
+                    id: "65eaae5c42838d4af4c23d8d.65eaaf5590ad7cbe46baeae7",
+                  },
+                });
+              }}
+              disabled={sender && receiver ? false : true}
+              className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out  focus:outline-none"
             >
               <svg
-                className="w-7 h-7 text-gray-800 dark:text-white"
+                class="w-6 h-6 "
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
                 fill="none"
                 viewBox="0 0 24 24"
               >
                 <path
                   stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeWidth="2"
-                  d="M12 6h0m0 6h0m0 6h0"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 6H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm7 11-6-2V9l6-2v10Z"
                 />
               </svg>
             </button>
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out text-gray-500 focus:outline-none"
+              disabled={sender && receiver ? false : true}
+              className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out focus:outline-none"
             >
               <svg
-                className="w-8 h-8 text-gray-800 dark:text-white"
+                class="w-6 h-6 "
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
                 fill="none"
                 viewBox="0 0 24 24"
               >
                 <path
                   stroke="currentColor"
-                  strokeWidth="2"
-                  d="M7 17v1c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M18.427 14.768 17.2 13.542a1.733 1.733 0 0 0-2.45 0l-.613.613a1.732 1.732 0 0 1-2.45 0l-1.838-1.84a1.735 1.735 0 0 1 0-2.452l.612-.613a1.735 1.735 0 0 0 0-2.452L9.237 5.572a1.6 1.6 0 0 0-2.45 0c-3.223 3.2-1.702 6.896 1.519 10.117 3.22 3.221 6.914 4.745 10.12 1.535a1.601 1.601 0 0 0 0-2.456Z"
                 />
               </svg>
             </button>
@@ -660,7 +827,7 @@ const Message = () => {
             )
           ) : (
             <div className="flex flex-col items-center w-full h-full justify-center space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-              select a user or group to chat with them
+              select a chat to start messaging.
             </div>
           )}
           {/* <div ref={refer} />
