@@ -48,7 +48,9 @@ app.all("*", (req, res, next) => {
   next();
 });
 app.use(errorController);
+const videoUsers = {};
 
+const socketToRoom = {};
 mongodb()
   .then(() => {
     // const server = app.listen(process.env.PORT, (err) => {
@@ -181,11 +183,74 @@ mongodb()
         io.emit("ff2", val);
       });
       //video ##################################################
-      socket.on("send-video", (payload) => {
-        console.log(payload, 'payload');
-        io.emit("receive-video", payload);
-      });
+      // socket.on("send-video", (payload) => {
+      //   console.log(payload, "payload");
+      //   io.emit("receive-video", payload);
+      // });
       //########################################################
+      //group call
+      socket.on("join room", (roomID) => {
+        if (videoUsers[roomID]) {
+          const length = videoUsers[roomID].length;
+          if (length === 4) {
+            socket.emit("room full");
+            return;
+          }
+          videoUsers[roomID].push(socket.id);
+        } else {
+          videoUsers[roomID] = [socket.id];
+        }
+        socketToRoom[socket.id] = roomID;
+        const usersInThisRoom = videoUsers[roomID].filter(
+          (id) => id !== socket.id
+        );
+
+        socket.emit("all users", usersInThisRoom);
+      });
+
+      socket.on("sending signal", (payload) => {
+        io.to(payload.userToSignal).emit("user joined", {
+          signal: payload.signal,
+          callerID: payload.callerID,
+        });
+      });
+
+      socket.on("returning signal", (payload) => {
+        io.to(payload.callerID).emit("receiving returned signal", {
+          signal: payload.signal,
+          id: socket.id,
+        });
+      });
+
+      socket.on("disconnect", () => {
+        const roomID = socketToRoom[socket.id];
+        let room = videoUsers[roomID];
+        if (room) {
+          room = room.filter((id) => id !== socket.id);
+          videoUsers[roomID] = room;
+        }
+        socket.broadcast.emit("user left", socket.id);
+      });
+      //group call end
+      //#######################################################
+      //private call started
+      socket.emit("me", socket.id);
+
+      socket.on("disconnect", () => {
+        socket.broadcast.emit("callEnded");
+      });
+
+      socket.on("callUser", (data) => {
+        io.to(data.userToCall).emit("callUser", {
+          signal: data.signalData,
+          from: data.from,
+          name: data.name,
+        });
+      });
+
+      socket.on("answerCall", (data) => {
+        io.to(data.to).emit("callAccepted", data.signal);
+      });
     });
 
     httpServer.listen(5000, (err) => {
