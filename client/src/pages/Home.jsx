@@ -94,7 +94,7 @@ const Home = () => {
             <div className="flex items-center justify-end">
               <div className="w-full md:w-[50%] relative">
                 <img
-                  src={"./public/images/customer-i-removebg-preview.png"}
+                  src={"/images/customer-i-removebg-preview.png"}
                   alt=""
                   className="relative z-10"
                 />
@@ -424,7 +424,7 @@ const Home = () => {
               {/* image */}
               <div className="w-[50%] relative">
                 <img
-                  src="./public/images/man-img.png"
+                  src="/images/man-img.png"
                   alt=""
                   className="relative z-10 h-full w-full"
                 />
@@ -446,7 +446,7 @@ const Home = () => {
               {/* image */}
               <div className="w-[50%] relative">
                 <img
-                  src="./public/images/man-img.png"
+                  src="/images/man-img.png"
                   alt=""
                   className="relative z-10 h-full w-full"
                 />
