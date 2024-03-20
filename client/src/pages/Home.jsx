@@ -23,6 +23,8 @@ import {
   MdOutlineMarkEmailRead,
 } from "react-icons/md";
 
+import { AiOutlinePlus,AiOutlineMinus } from "react-icons/ai";
+
 // rating
 // full star
 import { ImStarFull } from "react-icons/im";
@@ -59,36 +61,29 @@ const responsive = {
   },
 };
 
-const AddisHome = () => {
+const Home = () => {
   // local states
-  // accoddion controllers
-  const [firstAccordion, setFirstAccodion] = useState(false);
-  const [secondAccordion, setSecondAccodion] = useState(true);
-  const [thirdAccordion, setThirdAccodion] = useState(false);
-  const [forthAccordion, setForthAccodion] = useState(false);
+  const [accordion,setAccordion] = useState(2) 
 
   return (
     <div>
       {/* header */}
       <Header />
-      <div className="flex-grow bg-gray-100 h-[81vh] overflow-y-auto">
+      <div className="flex-grow bg-gray-100 h-[calc(100vh-15.5vh)] overflow-y-auto">
         {/* banner */}
-        <div className="h-[250px] flex items-center justify-center relative">
+        <div className="h-[175px] flex items-center justify-center relative">
           <div className="absolute left-0 bottom-0 z-10 w-full h-full bg-black">
             <img
               src="https://media.istockphoto.com/id/1139699594/photo/law-concept-themis-statue-judge-hammer-and-books.jpg?s=170667a&w=0&k=20&c=PGPkWvwrenf6qzJCnHef5MpSKeSzoum2TP45HpS6aZs="
               alt=""
-              className="w-full h-full opacity-[.25]"
+              className="w-full h-full opacity-[.5]"
             />
           </div>
           <div className="relative z-40 flex flex-col items-center justify-center text-gray-100 max-w-[820px] mx-auto px-[1%] ">
-            <h3 className="text-3xl my-1 font-bold">some text</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Recusandae explicabo qui laboriosam.
-            </p>
+            {/* any slider text here */}
           </div>
         </div>
+
         {/* first order container */}
         <div className="px-[3%] sm:px-[10%] flex flex-col items-end justify-between gap-x-5 sm:flex-row">
           {/* top-left container */}
@@ -204,6 +199,7 @@ const AddisHome = () => {
             </div>
           </div>
         </div>
+
         {/* second order container */}
         <div className="px-[10%] py-[2%] flex flex-col md:flex-row lg:flex-row items-center justify-between">
           {/* top-left container */}
@@ -213,20 +209,20 @@ const AddisHome = () => {
               <span className="text-gray-500 text-lg">
                 you have to write some text here
               </span>
-              <h3 className="text-3xl font-black">Find Top Talents</h3>
+              <h3 className="text-2xl font-black my-1">Find Top Talents</h3>
             </div>
             {/* accordion */}
             {/* first accordion */}
-            <div className="p-3 pl-0 flex flex-col items-start justify-start accordion-border-width-color mb-3 w-[95%] screen-5:w-[85%] screen-7:w-[100%]">
+            <div className="home-accordion-main-container">
               <button
                 className="flex-grow flex flex-reverse items-center justify-start w-full my-1 mb-2"
-                onClick={() => setFirstAccodion(!firstAccordion)}
+                onClick={() => setAccordion(1)}
               >
-                <div className="p-1 rounded-full border-gray-700 bg-gray-300">
-                  {firstAccordion ? (
-                    <FaMinus className="text-lg" />
+                <div className="p-1 rounded-full border-gray-700 bg-gray-200">
+                  {accordion === 1 ? (
+                    <AiOutlineMinus className="text-lg" />
                   ) : (
-                    <FaPlus className="text-lg" />
+                    <AiOutlinePlus className="text-lg" />
                   )}
                 </div>
                 <span className="text-lg font-bold ml-3">
@@ -235,13 +231,13 @@ const AddisHome = () => {
               </button>
               <div
                 className={`grid overflow-hidden transition-all ease-in-out duration-300 ${
-                  firstAccordion
+                  accordion === 1
                     ? `grid-rows-[1fr] opacity-100`
                     : `grid-rows-[0fr] opacity-0`
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-justify my-3">
+                  <p className="text-justify my-3 ml-7">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Similique veniam corporis accusamus quisquam assumenda sit.
                     Corrupti fugiat unde, iste omnis fugit non ducimus qui ad
@@ -252,16 +248,16 @@ const AddisHome = () => {
               </div>
             </div>
             {/* second accordion */}
-            <div className="p-3 pl-0 flex flex-col items-start justify-start accordion-border-width-color mb-3 w-[95%] screen-5:w-[85%] screen-7:w-[100%]">
+            <div className="home-accordion-main-container">
               <button
                 className="flex-grow flex flex-reverse items-center justify-start w-full my-1 mb-2"
-                onClick={() => setSecondAccodion(!secondAccordion)}
+                onClick={() => setAccordion(2)}
               >
-                <div className="p-1 rounded-full border-gray-700 bg-gray-300">
-                  {secondAccordion ? (
-                    <FaMinus className="text-lg" />
+                <div className="p-1 rounded-full border-gray-700 bg-gray-200">
+                  {accordion === 2 ? (
+                    <AiOutlineMinus className="text-lg" />
                   ) : (
-                    <FaPlus className="text-lg" />
+                    <AiOutlinePlus className="text-lg" />
                   )}
                 </div>
                 <span className="text-lg font-bold ml-3">
@@ -270,13 +266,13 @@ const AddisHome = () => {
               </button>
               <div
                 className={`grid overflow-hidden transition-all ease-in-out duration-300 ${
-                  secondAccordion
+                  accordion === 2
                     ? `grid-rows-[1fr] opacity-100`
                     : `grid-rows-[0fr] opacity-0`
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-justify my-3">
+                  <p className="text-justify my-3 ml-7">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Similique veniam corporis accusamus quisquam assumenda sit.
                     Corrupti fugiat unde, iste omnis fugit non ducimus qui ad
@@ -287,16 +283,16 @@ const AddisHome = () => {
               </div>
             </div>
             {/* third accordion */}
-            <div className="p-3 pl-0 flex flex-col items-start justify-start accordion-border-width-color mb-3 w-[95%] screen-5:w-[85%] screen-7:w-[100%]">
+            <div className="home-accordion-main-container">
               <button
                 className="flex-grow flex flex-reverse items-center justify-start w-full my-1 mb-2"
-                onClick={() => setThirdAccodion(!thirdAccordion)}
+                onClick={() => setAccordion(3)}
               >
-                <div className="p-1 rounded-full border-gray-700 bg-gray-300">
-                  {thirdAccordion ? (
-                    <FaMinus className="text-lg" />
+                <div className="p-1 rounded-full border-gray-700 bg-gray-200">
+                  {accordion === 3 ? (
+                    <AiOutlineMinus className="text-lg" />
                   ) : (
-                    <FaPlus className="text-lg" />
+                    <AiOutlinePlus className="text-lg" />
                   )}
                 </div>
                 <span className="text-lg font-bold ml-3">
@@ -305,13 +301,13 @@ const AddisHome = () => {
               </button>
               <div
                 className={`grid overflow-hidden transition-all ease-in-out duration-300 ${
-                  thirdAccordion
+                  accordion === 3
                     ? `grid-rows-[1fr] opacity-100`
                     : `grid-rows-[0fr] opacity-0`
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-justify my-3">
+                  <p className="text-justify my-3 ml-7">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Similique veniam corporis accusamus quisquam assumenda sit.
                     Corrupti fugiat unde, iste omnis fugit non ducimus qui ad
@@ -322,16 +318,16 @@ const AddisHome = () => {
               </div>
             </div>
             {/* forth accordion */}
-            <div className="p-3 pl-0 flex flex-col items-start justify-start accordion-border-width-color mb-3 w-[95%] screen-5:w-[85%] screen-7:w-[100%]">
+            <div className="home-accordion-main-container">
               <button
                 className="flex-grow flex flex-reverse items-center justify-start w-full my-1 mb-2"
-                onClick={() => setForthAccodion(!forthAccordion)}
+                onClick={() => setAccordion(4)}
               >
-                <div className="p-1 rounded-full border-gray-700 bg-gray-300">
-                  {forthAccordion ? (
-                    <FaMinus className="text-lg" />
+                <div className="p-1 rounded-full border-gray-700 bg-gray-200">
+                  {accordion === 4 ? (
+                    <AiOutlineMinus className="text-lg" />
                   ) : (
-                    <FaPlus className="text-lg" />
+                    <AiOutlinePlus className="text-lg" />
                   )}
                 </div>
                 <span className="text-lg font-bold ml-3">
@@ -340,13 +336,13 @@ const AddisHome = () => {
               </button>
               <div
                 className={`grid overflow-hidden transition-all ease-in-out duration-300 ${
-                  forthAccordion
+                  accordion === 4
                     ? `grid-rows-[1fr] opacity-100`
                     : `grid-rows-[0fr] opacity-0`
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-justify my-3">
+                  <p className="text-justify my-3 ml-7">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Similique veniam corporis accusamus quisquam assumenda sit.
                     Corrupti fugiat unde, iste omnis fugit non ducimus qui ad
@@ -889,4 +885,4 @@ const AddisHome = () => {
   );
 };
 
-export default AddisHome;
+export default Home;

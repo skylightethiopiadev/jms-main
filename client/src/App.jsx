@@ -41,7 +41,7 @@ function App() {
   // console.log(jwt, user);
   return (
     <Flowbite>
-      <div className={`font-poppins medium   tracking-wide`}>
+      <div className={`font-workSans medium   tracking-wide`}>
         <div className="flex flex-col">
           <Routes>
             <Route path="/" element={<Home />}></Route>
