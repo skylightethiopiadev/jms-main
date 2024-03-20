@@ -18,6 +18,7 @@ export default {
       boxShadow: {
         "secondary-card-shadow": "0 2px 2px 1px rgba(0, 0, 0, 0.05)",
         bottomShadow: "0 1px 3px 1px rgba(0, 0, 0, 0.15)",
+        homeAccordionShadow: "0 1px 3px rgba(0, 0, 0, 0.15)",
       },
     },
     fontFamily: {
