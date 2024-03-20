@@ -224,7 +224,7 @@ const Home = () => {
         </div>
 
         {/* second order container */}
-        <div className="px-[1%] sm:px-[5%] py-[1%] flex flex-col items-center justify-between gap-5 md:gap-10 md:flex-row">
+        <div className="px-[1%] sm:px-[5%] py-5 md:py-[1%] flex flex-col items-center justify-between gap-5 md:gap-10 md:flex-row">
           {/* top left */}
           <div className="w-[100%] md:w-[65%]">
             {/* header */}
@@ -622,186 +622,60 @@ const Home = () => {
         </div>
 
         {/* footer container */}
-        <div className="bg-black py-7 text-gray-300">
-          {/* limit the width of the layout */}
-          <div className="px-[1%] flex flex-col-reverse md:flex-row items-center justify-evenly">
-            {/* left-top container */}
-            <div className="w-[100%] md:w-[55%]">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 mb-9  sm:gap-6">
-                {/* linkes */}
+        <div className="bg-black text-gray-300">
+          {/* footer top */}
+          <div className="px-[1%] sm:px-[5%] py-3 flex items-center justify-between gap-16">
+            {/* top right */}
+            <div className="w-[70%]">
+              <div>list</div>
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col items-center">
+                  <div className="w-[35px] aspect-square rounded-full overflow-hidden">
+                    <img className="w-full h-full" src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg" alt="" />
+                  </div>
+                  <h3 className="text-lg font-semibold mt-1">USA</h3>
+                </div>
 
-                {/* first list */}
-                <ul>
-                  <li className="py-1">
-                    <NavLink>Desktop app</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Mobile apps</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Plans</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Security</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Features</NavLink>
-                  </li>
-                </ul>
-                {/* first list */}
-                <ul>
-                  <li className="py-1">
-                    <NavLink>Pricing</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Blogs</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Case Studies</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Compliance</NavLink>
-                  </li>
-                </ul>
-                {/* first list */}
-                <ul>
-                  <li className="py-1">
-                    <NavLink>About</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>FAQs</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Press Release</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Media</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Events</NavLink>
-                  </li>
-                </ul>
-                {/* first list */}
-                <ul>
-                  <li className="py-1">
-                    <NavLink>Developers</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Referals</NavLink>
-                  </li>
-                  <li className="py-1">
-                    <NavLink>Forum</NavLink>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex items-center justify-between px-4 my-1 mt-2">
-                <div>
-                  <div className="flex flex-col items-center">
-                    <img
-                      src="https://th.bing.com/th/id/R.ad3b75b18d747a0d400b7605a1023d3a?rik=AVPHfB7i7hLzJw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fAmerican-Flag-iphone-Background-Images.jpg&ehk=KUdla5Mg0djSGpHuwDYvWDJyzaDkbzx9efBxHWXF0uA%3d&risl=&pid=ImgRaw&r=0"
-                      alt=""
-                      className="w-[32px] h-[32px] rounded-full"
-                    />
-                    <span className="font-medium my-1">USA</span>
+                <div className="flex flex-col items-center">
+                  <div className="w-[35px] aspect-square rounded-full overflow-hidden">
+                    <img className="w-full h-full" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/640px-Flag_of_Russia.svg.png" alt="" />
                   </div>
+                  <h3 className="text-lg font-semibold mt-1">Russia</h3>
                 </div>
-                <div>
-                  <div className="flex flex-col items-center">
-                    <img
-                      src="https://th.bing.com/th/id/R.b96f478b5512b142f25f67b863b8b2fa?rik=gXA08SKqGlmwdA&pid=ImgRaw&r=0"
-                      alt=""
-                      className="w-[32px] h-[32px] rounded-full"
-                    />
-                    <span className="font-medium my-1">Russia</span>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex flex-col items-center">
-                    <img
-                      src="https://th.bing.com/th/id/R.c2337b8c0772e5ebedca6970d7e019a2?rik=pLVXoUL2Gfni2Q&pid=ImgRaw&r=0"
-                      alt=""
-                      className="w-[32px] h-[32px] rounded-full"
-                    />
-                    <span className="font-medium my-1">China</span>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex flex-col items-center">
-                    <img
-                      src="https://th.bing.com/th/id/R.464367a25e478ca566d474d9c6472978?rik=7DTIeE%2b3s6WsKw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fsoKObwj.png&ehk=ME2fTlRSKvq3pP2ziKPPtHbgfhP823irznutsqCh6Ag%3d&risl=&pid=ImgRaw&r=0"
-                      alt=""
-                      className="w-[32px] h-[32px] rounded-full"
-                    />
-                    <span className="font-medium my-1">Germany</span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* right-bottom */}
-            <div className="w-[100%] md:w-[40%]">
-              <div className="bg-pink-800 flex items-center justify-between px-3 py-[.05rem] mb-7">
-                <div className="p-2 rounded-full bg-white mr-1">
-                  <MdPhoneInTalk className="text-pink-700 text-xl" />
+                <div className="flex flex-col items-center">
+                  <div className="w-[35px] aspect-square rounded-full overflow-hidden">
+                    <img className="w-full h-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2560px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="" />
+                  </div>
+                  <h3 className="text-lg font-semibold mt-1">China</h3>
                 </div>
-                <div className="flex items-center justify-center flex-grow">
-                  <h3 className="text-2xl font-semibold my-3">Let's Talk</h3>
+
+                <div className="flex flex-col items-center">
+                  <div className="w-[35px] aspect-square rounded-full overflow-hidden">
+                    <img className="w-full h-full" src="https://img.freepik.com/premium-vector/germany-flag-flag-germany-vector-illustration_685751-83.jpg" alt="" />
+                  </div>
+                  <h3 className="text-lg font-semibold mt-1">Germany</h3>
                 </div>
-              </div>
-              <div className="mb-9 flex items-center justify-start pl-5">
-                {/* icon */}
-                <div className="text-3xl text-blue-950 mr-5">
-                  <MdOutlineMarkEmailRead />
-                </div>
-                {/* text */}
-                <div className="flex flex-col text-gray-400">
-                  <span className="font-medium">Bussiness Inquires</span>
-                  <span>sales@company.com</span>
-                </div>
-              </div>
-              <div className="mb-9 flex items-center justify-start pl-5">
-                {/* icon */}
-                <div className="text-3xl text-blue-950 mr-5">
-                  <MdOutlineMediation />
-                </div>
-                {/* text */}
-                <div className="flex flex-col text-gray-400">
-                  <span className="font-medium">PR or Media</span>
-                  <span>marketing@company.com</span>
-                </div>
-              </div>
-              {/* text-input container */}
-              <div className="flex items-center justify-start my-5 pl-5">
-                <div className="bg-blue-950 rounded-full flex items-center border border-gray-500 pl-3">
-                  <input
-                    type="text"
-                    placeholder="Enter Your Email"
-                    className="focus:outline-none focus:ring-0 bg-transparent border-none focus:border-none rounded-full"
-                  />
-                  <button className="px-3 bg-pink-800 rounded-full py-1">
-                    SIGNUP
-                  </button>
-                </div>
+                
               </div>
             </div>
+            {/* bottom left */}
+            <div className="w-[45%] bg-green-500">bottom left</div>
           </div>
-          <div className="max-w-[1050px] mx-auto px-1 flex flex-col-reverse screen-5:flex-row items-center justify-between mt-3 mb-1 text-gray-500">
-            <div className="flex items-center justify-between">
-              <div className="mr-1">2021 copyright</div>
-              <NavLink>Terms and Conditions | Privacy Policy</NavLink>
+          {/* footer bottom */}
+          <footer className="px-[1%] sm:px-[5%] flex items-center justify-between font-medium py-3 text-[1rem]">
+            <div>
+              <span>2024 Copyright</span>
             </div>
-            <div className="flex items-center justify-between text-2xl gap-5 my-3">
-              <NavLink>
-                <FaFacebookF />
-              </NavLink>
-              <NavLink>
-                <FaXTwitter />
-              </NavLink>
-              <NavLink>
-                <FaYoutube />
-              </NavLink>
+            <div>
+              <span>Terms and Conditions | Privacy Policy</span>
             </div>
-          </div>
+            <div className="flex items-center justify-center gap-5 text-2xl">
+              <FaFacebookF />
+              <FaXTwitter />
+              <FaYoutube />
+            </div>
+          </footer>
         </div>
       </div>
     </div>
