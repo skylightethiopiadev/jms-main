@@ -23,18 +23,18 @@ const CustomerDashboard = () => {
   return (
     <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
       <div className="fixed rounded-full border-2 border-blue-500 z-30 bottom-4 right-4 h-auto w-auto shadow-xl shadow-gray-500">
-        <div className="flex w-[140px] p-2 bg-white border border-gray-400 shadow-xl shadow-gray-500 h-full rounded-md absolute right-24">
-          <div className="w-full text-sm">
+        <div className="flex w-[120px] py-1 px-2 bg-white border border-gray-400 shadow-xl shadow-gray-500 h-full rounded-md absolute right-14">
+          <div className="w-full text-center text-xs">
             <p>
               Hi, How can we <br />
               help you today?
             </p>
           </div>
         </div>
-        <div className="absolute h-5 w-5 rotate-45 bg-white border border-gray-400 border-l-0 border-b-0 z-30 right-[87px] top-5"></div>
+        <div className="absolute h-3 w-3 rotate-45 bg-white border border-gray-400 border-l-0 border-b-0 z-30 right-[50px] top-5"></div>
         <div class="relative">
-          <img class="w-16 h-16 rounded-full" src={customerImage} alt="" />
-          <span class="top-2 -right-2 absolute  w-5 h-5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+          <img class="w-11 h-11 rounded-full" src={customerImage} alt="" />
+          <span class="top-2 -right-2 absolute  w-4 h-4 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
         </div>
       </div>
       <CustomerLeftSideNav />

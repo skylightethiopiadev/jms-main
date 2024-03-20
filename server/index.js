@@ -152,7 +152,14 @@ mongodb()
       //typing indicator off
       socket.on("typing f", (bool, room) => {
         socket.join(room);
-        socket.broadcast.to(room).emit("typing false", bool);
+        socket.to(room).emit("typing false", bool);
+      });
+
+      //voice call incoming
+      socket.on("call-request-send", (chatId, name) => {
+        console.log(chatId, name, "is calling");
+        socket.join(chatId);
+        socket.to(chatId).emit("call-request-received", name, true);
       });
 
       socket.on("sen aaaa", (val) => {
