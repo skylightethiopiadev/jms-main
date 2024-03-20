@@ -465,102 +465,26 @@ const Home = () => {
               {/* cards */}
               <div className="grid grid-cols-2  md:grid-cols-3 gap-7">
                 {/* items */}
-                {/* item - 1 */}
-                <div className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow">
-                  {/* icon text */}
-                  <div className="flex items-center justify-center py-3 border-b-2 border-gray-300">
-                    <FaScaleBalanced className="text-3xl text-blue-600 mr-3" />
-                    <div className="flex flex-col gap-[-.3rem]">
-                      <span className="font-bold">some text</span>
-                      <span className="font-bold">some text</span>
+                {[1, 2, 3, 4, 5, 6].map((item, index) => (
+                  <div
+                    key={index}
+                    className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow"
+                  >
+                    {/* icon text */}
+                    <div className="flex items-center justify-center py-3 border-b-2 border-gray-300">
+                      <FaScaleBalanced className="text-3xl text-blue-600 mr-3" />
+                      <div className="flex flex-col gap-[-.3rem]">
+                        <span className="font-bold">some text</span>
+                        <span className="font-bold">some text</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center justify-evenly px-3 my-3">
-                    <span>text-1</span>
-                    <span>text-2</span>
-                  </div>
-                  <div className="font-bold text-center mb-3">some text</div>
-                </div>
-                {/* item - 2 */}
-                <div className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow">
-                  {/* icon text */}
-                  <div className="flex items-center justify-center py-3 border-b-2 border-gray-300">
-                    <IoLogoCodepen className="text-3xl text-orange-500 mr-3" />
-                    <div className="flex flex-col gap-[-.3rem]">
-                      <span className="font-bold">some text</span>
-                      <span className="font-bold">some text</span>
+                    <div className="flex items-center justify-evenly px-3 my-3">
+                      <span>text-1</span>
+                      <span>text-2</span>
                     </div>
+                    <div className="font-bold text-center mb-3">some text</div>
                   </div>
-                  <div className="flex items-center justify-evenly px-3 my-3">
-                    <span>text-1</span>
-                    <span>text-2</span>
-                  </div>
-                  <div className="font-bold text-center mb-3">some text</div>
-                </div>
-                {/* item - 3 */}
-                <div className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow">
-                  {/* icon text */}
-                  <div className="flex items-center justify-center py-3 border-b-2 border-gray-300">
-                    <FaBlog className="text-3xl text-green-500 mr-3" />
-                    <div className="flex flex-col gap-[-.3rem]">
-                      <span className="font-bold">some text</span>
-                      <span className="font-bold">some text</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-evenly px-3 my-3">
-                    <span>text-1</span>
-                    <span>text-2</span>
-                  </div>
-                  <div className="font-bold text-center mb-3">some text</div>
-                </div>
-                {/* item - 1 */}
-                <div className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow">
-                  {/* icon text */}
-                  <div className="flex items-center justify-center py-3 border-b-2 border-gray-300">
-                    <FaScaleBalanced className="text-3xl text-blue-600 mr-3" />
-                    <div className="flex flex-col gap-[-.3rem]">
-                      <span className="font-bold">some text</span>
-                      <span className="font-bold">some text</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-evenly px-3 my-3">
-                    <span>text-1</span>
-                    <span>text-2</span>
-                  </div>
-                  <div className="font-bold text-center mb-3">some text</div>
-                </div>
-                {/* item - 2 */}
-                <div className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow">
-                  {/* icon text */}
-                  <div className="flex items-center justify-center py-3 border-b-2 border-gray-300">
-                    <IoLogoCodepen className="text-3xl text-orange-500 mr-3" />
-                    <div className="flex flex-col gap-[-.3rem]">
-                      <span className="font-bold">some text</span>
-                      <span className="font-bold">some text</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-evenly px-3 my-3">
-                    <span>text-1</span>
-                    <span>text-2</span>
-                  </div>
-                  <div className="font-bold text-center mb-3">some text</div>
-                </div>
-                {/* item - 3 */}
-                <div className="p-3 secondary-cards-bg rounded-md shadow-secondary-card-shadow">
-                  {/* icon text */}
-                  <div className="flex items-center justify-center py-3 border-b-2 border-gray-300">
-                    <FaBlog className="text-3xl text-green-500 mr-3" />
-                    <div className="flex flex-col gap-[-.3rem]">
-                      <span className="font-bold">some text</span>
-                      <span className="font-bold">some text</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-evenly px-3 my-3">
-                    <span>text-1</span>
-                    <span>text-2</span>
-                  </div>
-                  <div className="font-bold text-center mb-3">some text</div>
-                </div>
+                ))}
               </div>
             </div>
             {/* texts - container */}
@@ -594,66 +518,21 @@ const Home = () => {
                 <div>Text - 2</div>
               </div>
             </div>
-            <div className="flex items-center justify-center p-1">
-              <div className="text-lg my-1 border-l border-gray-500 px-7 flex-grow">
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">start</span>
-                  <span>2024</span>
-                </div>
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">end</span>
-                  <span>2024</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-center p-1">
-              <div className="text-lg my-1 border-l border-gray-500 px-7 flex-grow">
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">start</span>
-                  <span>2024</span>
-                </div>
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">end</span>
-                  <span>2024</span>
+
+            {[1, 2, 3, 4, 5].map((item, index) => (
+              <div key={index} className="flex items-center justify-center p-1">
+                <div className="text-lg my-1 border-l border-gray-500 px-7 flex-grow">
+                  <div className="flex items-center justify-center gap-5">
+                    <span className="text-blue-900">start</span>
+                    <span>2024</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-5">
+                    <span className="text-blue-900">end</span>
+                    <span>2024</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="flex items-center justify-center p-1">
-              <div className="text-lg my-1 border-l border-gray-500 px-7 flex-grow">
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">start</span>
-                  <span>2024</span>
-                </div>
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">end</span>
-                  <span>2024</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-center p-1">
-              <div className="text-lg my-1 border-l border-gray-500 px-7 flex-grow">
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">start</span>
-                  <span>2024</span>
-                </div>
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">end</span>
-                  <span>2024</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-center p-1">
-              <div className="text-lg my-1 border-l border-gray-500 px-7 flex-grow">
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">start</span>
-                  <span>2024</span>
-                </div>
-                <div className="flex items-center justify-center gap-5">
-                  <span className="text-blue-900">end</span>
-                  <span>2024</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* nav-btn-container for users profiles */}
