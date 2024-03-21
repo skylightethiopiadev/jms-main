@@ -204,6 +204,12 @@ const Message = () => {
   const currentUserVideoRef = useRef(null);
   const peerInstance = useRef(null);
   const ids = [];
+  const [calling, setCalling] = useState(false);
+  const [callIndicator, setCallIndicator] = useState(false);
+  const [caller, setCaller] = useState("");
+  const [callFlag, setCallFlag] = useState(false);
+  const [callRejected, setCallRejected] = useState(false);
+  const [rejectedMessage, setRejectedMessage] = useState("");
 
   useEffect(() => {
     const peer = new Peer();
@@ -213,14 +219,13 @@ const Message = () => {
       setPeerId(id);
     });
 
-    console.log(ids, "peer ids");
     peer.on("call", (call) => {
       var getUserMedia =
         navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia;
 
-      getUserMedia({ video: true, audio: true }, (mediaStream) => {
+      getUserMedia({ video: true, audio: false }, (mediaStream) => {
         currentUserVideoRef.current.srcObject = mediaStream;
         currentUserVideoRef.current.play();
         call.answer(mediaStream);
@@ -240,39 +245,60 @@ const Message = () => {
       navigator.webkitGetUserMedia ||
       navigator.mozGetUserMedia;
 
-    getUserMedia({ video: true, audio: true }, (mediaStream) => {
+    getUserMedia({ video: true, audio: false }, (mediaStream) => {
       currentUserVideoRef.current.srcObject = mediaStream;
-      currentUserVideoRef.current.play();
+      // currentUserVideoRef.current.play();
 
       const call = peerInstance.current.call(remotePeerId, mediaStream);
 
       call.on("stream", (remoteStream) => {
         remoteVideoRef.current.srcObject = remoteStream;
-        remoteVideoRef.current.play();
+        // remoteVideoRef.current.play();
       });
     });
   };
-  console.log(displayVideo, "video");
-  const [calling, setCalling] = useState(false);
-  const [callIndicator, setCallIndicator] = useState(false);
-  const [caller, setCaller] = useState("");
 
-  const callRequest = () => {
-    console.log("rrrrrrrrrrrrrrrrrrrrrrrrr");
-    socket?.emit("call-request-send", chatId, currentUser._id);
-    socket?.on("call-request-received", (bool) => {
-      console.log(bool, "received front end");
-      setCalling(bool);
-      // setCaller(name);
-    });
+  const callAcceptHandler = () => {
+    socket?.emit("call-accepted", chatId, true, peerId);
+    // socket?.emit("call-accepted-peerIdSend", chatId, peerId);
   };
 
-  // socket?.emit("typing f", false, chatId);
-  // socket?.on("typing false", (bool) => {
-  //   setTyping(bool);
-  // });
-  console.log(calling, +"calling...", callIndicator);
+  socket?.on("call-accepted-response", (bool, peerId) => {
+    setDisplayVideo(bool);
+    // call(peerId);
+    setCallFlag(false);
+  });
 
+  // socket?.on("call-accepted-peerId", (pid) => {
+  //   console.log(pid, "peer id incomming");
+  //   setRemotePeerIdValue(pid);
+  //   call(remotePeerIdValue);
+  // });
+
+  const callRequest = () => {
+    setCallFlag(true);
+    setRejectedMessage("Calling...");
+    socket?.emit("call-request-send", chatId, currentUser._id);
+  };
+
+  socket?.on("call-request-received", (bool, name) => {
+    setCalling(bool);
+    setCaller(name);
+  });
+
+  const callRejectedHandler = () => {
+    socket?.emit("call-rejected", chatId, false, "Gedi is not answering");
+  };
+
+  socket?.on("call-rejected-response", (bool, msg) => {
+    setRejectedMessage(msg);
+    setTimeout(() => {
+      setCallFlag(bool);
+      setRejectedMessage("");
+    }, 4000);
+  });
+
+  // console.log(peerId, "peer id");
   return (
     <div className="flex -ml-3 -mt-2">
       <Response response={sendMessageResponse} setPending={setPending} />
@@ -333,6 +359,14 @@ const Message = () => {
               calling={calling}
               caller={caller}
               callRequest={callRequest}
+              callFlag={callFlag}
+              setCallFlag={setCallFlag}
+              callRejected={callRejected}
+              callRejectedHandler={callRejectedHandler}
+              setCalling={setCalling}
+              rejectedMessage={rejectedMessage}
+              setRejectedMessage={setRejectedMessage}
+              callAcceptHandler={callAcceptHandler}
             />
             <Messages
               isLoading={isLoading}

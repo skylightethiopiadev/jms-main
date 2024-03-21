@@ -157,10 +157,24 @@ mongodb()
 
       //voice call incoming
       socket.on("call-request-send", (chatId, name) => {
-        console.log(chatId, name, "is calling");
         socket.join(chatId);
-        socket.to(chatId).emit("call-request-received", name, true);
+        socket.broadcast.to(chatId).emit("call-request-received", true, name);
       });
+
+      socket.on("call-rejected", (chatId, bool, msg) => {
+        socket.join(chatId);
+        socket.broadcast.to(chatId).emit("call-rejected-response", bool, msg);
+      });
+
+      socket.on("call-accepted", (chatId, bool, peerId) => {
+        socket.join(chatId);
+        socket.to(chatId).emit("call-accepted-response", bool, peerId);
+      });
+
+      // socket.on("call-accepted-peerIdSend", (chatId, peerId) => {
+      //   socket.join(chatId);
+      //   socket.to(chatId).emit("call-accepted-peerId", peerId);
+      // });
 
       socket.on("sen aaaa", (val) => {
         io.emit("rec aaaa", val);

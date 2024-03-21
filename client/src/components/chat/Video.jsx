@@ -45,6 +45,7 @@ const Video = ({
           ref={remoteVideoRef}
           alt=""
           controls
+          muted
           className="h-[440px] object-cover object-center border border-gray-300 rounded-xl w-full"
         />
         <PushPinOutlined
@@ -54,6 +55,7 @@ const Video = ({
         <div className="absolute top-1 right-1 w-24 h-16">
           <video
             ref={currentUserVideoRef}
+            muted
             className=" border w-full object-cover object-center h-full border-gray-300  rounded-md "
           />
           <PushPinOutlined

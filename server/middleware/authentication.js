@@ -4,10 +4,13 @@ import jwt from "jsonwebtoken";
 import AppError from "../utils/AppError.js";
 
 export const authentication = async (req, res, next) => {
-  // console.log(req.cookies, "cookies");
-  // console.log(req.headers,'headers');
+  console.log(req.cookies, "cookies");
+  console.log(req.headers, "headers");
   let token, user;
-  const header = req.headers.authorization;
+  const header = req.headers.authorization
+    ? req.headers.authorization
+    : req.cookies._m_l_f_s;
+  // const header = req.headers.authorization;
   if (header && header.startsWith("Bearer") && header !== "null")
     token = header;
 

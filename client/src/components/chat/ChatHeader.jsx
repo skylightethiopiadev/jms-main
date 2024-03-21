@@ -8,8 +8,18 @@ const ChatHeader = ({
   setDisplayVideo,
   type,
   calling,
+  setCalling,
   caller,
   callRequest,
+  callFlag,
+  setCallFlag,
+  callRejected,
+  setCallRejected,
+  ringingMessage,
+  callRejectedHandler,
+  rejectedMessage,
+  setRejectedMessage,
+  callAcceptHandler,
 }) => {
   return (
     <div className="w-full relative flex border-b justify-between items-center">
@@ -47,15 +57,44 @@ const ChatHeader = ({
           </p>
         </div>
       </div>
-      {type !== "small" && (
+      {/* {callFlag && <p className="p-2 text-sm italic">Ringing...</p>} */}
+      {type !== "small" && calling ? (
+        <div className="flex text-xs py-1 mr-3 gap-1 bg-mains text-white rounded-lg px-2 flex-col items-center.justify-center">
+          {/* {caller} is calling... */}
+          <p className="text-sm text-blue-500 font-bold">
+            Gedeon <span className="text-gray-500">is calling...</span>{" "}
+          </p>
+          <div className="flex w-full items-center justify-between">
+            <button
+              onClick={() => {
+                setDisplayVideo(true);
+                callAcceptHandler();
+              }}
+              className="px-2 py-1 rounded-md bg-emerald-500"
+            >
+              Accept
+            </button>
+            <button
+              onClick={() => {
+                setCalling(false);
+                callRejectedHandler();
+              }}
+              className="px-2 py-1 rounded-md bg-red-500"
+            >
+              Reject
+            </button>
+          </div>
+        </div>
+      ) : callFlag ? (
+        <p className="p-2 mr-3 text-sm italic">{rejectedMessage}</p>
+      ) : callRejected ? (
+        <p className="p-2 mr-3 text-sm italic">Gedeon is not answering</p>
+      ) : (
         <div
           className={`flex items-center ${
             sender && receiver ? "text-gray-600" : "text-gray-400"
           }  mr-4 gap-2 space-x-2`}
         >
-          {calling && (
-            <p className="p-2 text-lg italic">{caller} is calling...</p>
-          )}
           <button
             type="button"
             // onClick={() => setCaller()}
@@ -104,8 +143,6 @@ const ChatHeader = ({
               />
             </svg>
           </button>
-
-          {/* <DarkThemeToggle /> */}
         </div>
       )}
     </div>
