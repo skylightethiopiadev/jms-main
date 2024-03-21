@@ -263,7 +263,7 @@ const Home = () => {
                 {/* content */}
                 <div
                   className={`overflow-hidden transition-all ease-in-out duration-150 ${
-                    accordion === 1 ? "h-auto" : "h-[0px]"
+                    accordion === 1 ? "h-auto" : "h-0"
                   }`}
                 >
                   <div className="ml-[5%] mr-[3%] py-3 mt-3 border-t border-gray-200">
@@ -305,7 +305,7 @@ const Home = () => {
                 {/* content */}
                 <div
                   className={`overflow-hidden transition-all ease-in-out duration-150 ${
-                    accordion === 2 ? "h-auto" : "h-[0px]"
+                    accordion === 2 ? "h-auto" : "h-0"
                   }`}
                 >
                   <div className="ml-[5%] mr-[3%] py-3 mt-3 border-t border-gray-200">
@@ -650,7 +650,9 @@ const Home = () => {
                       alt=""
                     />
                   </div>
-                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">USA</h3>
+                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">
+                    USA
+                  </h3>
                 </div>
 
                 <div className="flex flex-col items-center">
@@ -661,7 +663,9 @@ const Home = () => {
                       alt=""
                     />
                   </div>
-                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">Russia</h3>
+                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">
+                    Russia
+                  </h3>
                 </div>
 
                 <div className="flex flex-col items-center">
@@ -672,7 +676,9 @@ const Home = () => {
                       alt=""
                     />
                   </div>
-                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">China</h3>
+                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">
+                    China
+                  </h3>
                 </div>
 
                 <div className="flex flex-col items-center">
@@ -683,7 +689,9 @@ const Home = () => {
                       alt=""
                     />
                   </div>
-                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">Germany</h3>
+                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">
+                    Germany
+                  </h3>
                 </div>
               </div>
             </div>
@@ -722,12 +730,17 @@ const Home = () => {
               <footer className="mt-5 px-[5%] flex items-center">
                 {/* input */}
                 <div className="flex-grow bg-blue-900 flex items-center rounded-full border-2 border-gray-400 p-[.13rem]">
-                  <input type="text" placeholder="Enter your email" className="w-full focus:outline-none focus:ring-0 bg-transparent border-none"/>
-                  <button className="px-5 rounded-full bg-pink-600 h-full text-white py-[.5rem]">SIGNUP</button>
+                  <input
+                    type="text"
+                    placeholder="Enter your email"
+                    className="w-full focus:outline-none focus:ring-0 bg-transparent border-none"
+                  />
+                  <button className="px-5 rounded-full bg-pink-600 h-full text-white py-[.5rem]">
+                    SIGNUP
+                  </button>
                 </div>
               </footer>
             </div>
-
           </div>
           {/* footer bottom */}
           <footer className="px-[1%] mt-5 sm:px-[5%] flex items-center justify-between md:font-medium py-3  md:text-[1rem]">
