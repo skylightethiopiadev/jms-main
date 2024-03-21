@@ -212,11 +212,11 @@
 }
 
 .step-hint-text-circle-off {
-  @apply border-gray-400 text-gray-400 scale-[.85] transition-all ease-in-out duration-300;
+  @apply border-gray-400 text-gray-400 text-[.95rem]  scale-[.85] transition-all ease-in-out duration-300;
 }
 
 .step-hint-text-circle-on {
-  @apply border-blue-600 text-blue-600 scale-[1] transition-all ease-in-out duration-300;
+  @apply border-blue-600 text-blue-600 sm:text-[.85rem] md:text-[.95rem] scale-[1] transition-all ease-in-out duration-300;
 }
 
 

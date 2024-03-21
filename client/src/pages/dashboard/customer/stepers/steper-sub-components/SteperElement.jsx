@@ -19,7 +19,7 @@ const SteperElement = ({ stepIndex, currentStep, setStepCounter,FaCheck }) => {
         }}
       >
         {/* {stepIndex + 1} */}
-        <FaCheck />
+        <FaCheck className="text-[.5rem] sm:text-[.75rem] md:text-[.9rem]"/>
       </div>
     </>
   );
