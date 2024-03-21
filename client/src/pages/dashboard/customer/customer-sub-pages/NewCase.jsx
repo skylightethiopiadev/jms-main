@@ -4,7 +4,7 @@ import { useState } from "react";
 import SteperComponent from "../stepers/SteperComponent";
 
 // new case sub pages
-import CaseType from "./new-case-sub-pages/CaseType";
+import CaseCategory from "./new-case-sub-pages/CaseCategory";
 import FamilyStatus from "./new-case-sub-pages/FamilyStatus";
 import NextToFamilyStatus from "./new-case-sub-pages/NextToFamilyStatus";
 import SelectLawyer from "./new-case-sub-pages/SelectLawyer";
@@ -20,8 +20,8 @@ const NewCase = () => {
   // steper
   const stepsHint = [
     {
-      title: "case",
-      description: "start your case",
+      title: "Case Categories",
+      description: "select case category",
     },
     {
       title: "case",
@@ -37,17 +37,6 @@ const NewCase = () => {
     },
   ];
 
-  // steper handler
-  const steperHandler = (index) => {
-    if (index > 0) {
-      if (stepCounter === stepElements?.length + 1) return;
-      setStepCounter(stepCounter + 1);
-    } else {
-      if (stepCounter === 0) return;
-      setStepCounter(stepCounter - 1);
-    }
-  };
-
   return (
     <div className="bg-gray-100 h-full">
       <SteperComponent
@@ -58,7 +47,7 @@ const NewCase = () => {
       />
       {/* content here */}
       {stepCounter === 0 ? (
-        <CaseType stepCounter={stepCounter} setStepCounter={setStepCounter} />
+        <CaseCategory stepCounter={stepCounter} setStepCounter={setStepCounter} />
       ) : stepCounter === 1 ? (
         <FamilyStatus
           stepCounter={stepCounter}

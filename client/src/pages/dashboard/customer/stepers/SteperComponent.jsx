@@ -1,17 +1,9 @@
-import { useState } from "react";
-import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 
 // component
 import SteperElement from "./steper-sub-components/SteperElement";
 
-const SteperComponent = ({
-  steps,
-  stepsHint,
-  stepCounter,
-  setStepCounter,
-  steperHandler,
-}) => {
+const SteperComponent = ({ steps, stepsHint, stepCounter, setStepCounter }) => {
   const stepElements = Array.apply(null, Array(steps)).map((x, i) => i + 1);
   return (
     <div className="flex-grow bg-white shadow-md rounded-md">
@@ -81,7 +73,7 @@ const SteperComponent = ({
               setStepCounter(0);
             }}
           >
-            <FaCheck className="text-[.5rem] sm:text-[.75rem] md:text-[.9rem]"/>
+            <FaCheck className="text-[.5rem] sm:text-[.75rem] md:text-[.9rem]" />
           </div>
           {stepElements.map((step, index) => (
             <SteperElement
@@ -94,7 +86,6 @@ const SteperComponent = ({
           ))}
         </div>
       </div>
-
     </div>
   );
 };
