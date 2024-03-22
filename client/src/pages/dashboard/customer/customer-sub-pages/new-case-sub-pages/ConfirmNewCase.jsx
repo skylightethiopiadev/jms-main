@@ -1,4 +1,5 @@
 import { MdArrowRightAlt } from "react-icons/md";
+import { MdArrowForwardIos,MdOutlineKeyboardArrowRight,MdOutlineSubdirectoryArrowRight } from "react-icons/md";
 import siteLogo from "../../../../../assets/images/site-logo/final-logo.png";
 const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
   console.log(newCaseHistory);
@@ -19,17 +20,17 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
             <div className="border-b border-gray-200 pb-3">
               <div className="">
                 {/* <span>Case Category: </span> */}
-                <div className="text-gray-700 font-semibold text-lg">
+                <div className="text-gray-700 font-medium">
                   Case Category:
                 </div>
                 <div className="ml-[10%] flex items-center gap-2">
-                  <div className="w-2 bg-gradient-to-r from-gray-500 to-yellow-400 h-2 rounded-full"></div>
+                    <MdOutlineSubdirectoryArrowRight className="text-gray-700"/>
                   <span>{newCaseHistory?.caseCategory}</span>
                 </div>
               </div>
               {newCaseHistory?.subCaseCategory ? (
-                <div className="ml-[10%] whitespace-nowrap flex items-center gap-2">
-                  <div className="w-2 bg-gradient-to-r from-gray-500 to-yellow-400 h-2 rounded-full"></div>
+                <div className="ml-[15%] whitespace-nowrap flex items-center gap-2">
+                  <MdOutlineSubdirectoryArrowRight className="text-gray-700"/>
                   <span className=" text-gray-700">
                     {newCaseHistory?.subCaseCategory.title}
                   </span>
@@ -38,8 +39,8 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
                 <></>
               )}
               {newCaseHistory?.subCaseCategory?.subSubCaseCategory ? (
-                <div className="ml-[10%] whitespace-nowrap flex items-center gap-2">
-                  <div className="w-2 bg-gradient-to-r from-gray-500 to-yellow-400 h-2 rounded-full"></div>
+                <div className="ml-[20%] whitespace-nowrap flex items-center gap-2">
+                  <MdOutlineSubdirectoryArrowRight className="text-gray-700"/>
                   <span className=" text-gray-700">
                     {newCaseHistory?.subCaseCategory?.subSubCaseCategory.title}
                   </span>
@@ -50,8 +51,8 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
             </div>
             {newCaseHistory?.services?.length > 0 ? (
               <div className="border-b border-gray-200">
-                <h3 className="text-gray-700 font-semibold text-lg">
-                  Services:{" "}
+                <h3 className="text-gray-700 font-medium">
+                  Services:
                 </h3>
                 <div className="ml-[10%] flex gap-[1%] flex-wrap whitespace-nowrap">
                   {newCaseHistory?.services?.map((item, index) => (
@@ -79,7 +80,15 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
               <></>
             )}
 
-            <div className="flex items-center  my-3">
+            <div className="flex items-center justify-center gap-3  mt-5">
+              <button
+                className="px-5 py-1 rounded-sm bg-gray-400 text-white"
+                onClick={() => {
+                  setStepCounter(0);
+                }}
+              >
+                Cancel
+              </button>
               <button
                 className="px-5 py-1 rounded-sm bg-blue-600 text-white"
                 onClick={() => {
