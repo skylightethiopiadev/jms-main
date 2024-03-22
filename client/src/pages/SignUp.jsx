@@ -12,13 +12,19 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [role, setRole] = useState("private-customer");
 
   const signupHandler = () => {
     if (!pass) {
       setErrorPopup(true);
     } else {
       setErrorPopup(false);
-      signupData({ email, password, confirmPassword, role: "lawyer" });
+      signupData({
+        email,
+        password,
+        confirmPassword,
+        role: "private-customer",
+      });
     }
   };
 
@@ -30,17 +36,50 @@ const Signup = () => {
         <Response
           response={signupResponse}
           setPending={setPending}
-          // redirectTo="/dashboard"
-          // type="login"
-          // type="loginddd"
+          type="signUp"
         />
 
         <div className="w-full relative h-[75vh] shadow-lg flex flex-col lg:flex-row-reverse rounded-sm bg-white">
-          <div className="flex relative bg-white  flex-[50%] py-8 ">
-            <div class="max-w-sm mx-auto">
+          <div className="flex relative   flex-[50%]">
+            <div class="max-w-sm relative overflow-y-scroll w-full  px-5 py-5 mx-auto">
               {" "}
-              <p className="text-xl font-bold">Sign up</p>
-              <div class="mb-5 mt-7">
+              <a href="/" className="text-xl absolute -left-32 top-0 font-bold">
+                <svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h14M5 12l4-4m-4 4 4 4"
+                  />
+                </svg>
+              </a>
+              <p className="text-xl font-bold">Sign up</p>{" "}
+              <label
+                for="password"
+                class="block text-sm mt-5 font-medium text-gray-900 dark:text-white"
+              >
+                Register as
+              </label>
+              <select
+                onChange={(e) => setRole(e.target.value)}
+                name=""
+                id=""
+                className="w-full p-2 rounded-lg mt-2 border border-gray-300"
+              >
+                <option value="private-customer">Private</option>
+                <option value="business-customer">Institute</option>
+                <option value="lawyer">Lawyer</option>
+              </select>
+              <div class="mb-5 mt-5">
                 <label
                   for="email"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -126,6 +165,7 @@ const Signup = () => {
                 color="bg-blue-500"
                 width="w-48"
               />
+              <div className="mb-4"></div>
             </div>
           </div>
           <div className="flex flex-[50%] ">
@@ -133,49 +173,6 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      {/* <ReactMediaRecorder
-        audio
-        render={({ status, startRecording, stopRecording, mediaBlobUrl,error }) => {
-          console.log(mediaBlobUrl,error,'blob');
-          return (
-            <div>
-              <p>{status}</p>
-              <button onClick={startRecording}>Start Recording</button>
-              <button onClick={stopRecording}>Stop Recording</button>
-              <video src={mediaBlobUrl?mediaBlobUrl:null} controls autoPlay loop />
-            </div>
-          );
-        }}
-      /> */}
-      {/* <Response
-        response={loginResponse}
-        setPending={setPending}
-        redirectTo="/dashboard"
-        // type="login"
-        type="loginddd"
-      />
-
-      <p className="text-lg font-bold">Login</p>
-      <input
-        type="text"
-        className="p-2 w-44 rounded-md border border-gray-300"
-        placeholder="user name"
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <input
-        type="password"
-        className="p-2 w-44 rounded-md border border-gray-300"
-        placeholder="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <LoadingButton
-        pending={pending}
-        onClick={loginHandler}
-        title="Login"
-        color="bg-blue-500"
-        width="w-44"
-      /> */}
     </div>
   );
 };

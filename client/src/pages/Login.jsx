@@ -29,10 +29,7 @@ const Login = () => {
         <Response
           response={loginResponse}
           setPending={setPending}
-          // redirectTo=""
-          // redirectTo="/dashboard/customer/private"
           type="login"
-          // type="loginddd"
         />
         <div className="w-full relative h-[75vh] shadow-lg flex flex-col lg:flex-row-reverse rounded-sm bg-white">
           <div className="flex relative bg-white  flex-[50%] py-8 ">

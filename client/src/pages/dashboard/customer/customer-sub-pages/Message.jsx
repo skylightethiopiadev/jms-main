@@ -1,5 +1,5 @@
 import { DarkThemeToggle } from "flowbite-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import {
   useCreateMutation,
@@ -18,19 +18,26 @@ import MessageInput from "../../../../components/chat/MessageInput";
 import ChatHeader from "../../../../components/chat/ChatHeader";
 import UserList from "../../../../components/chat/UserList";
 import Video from "../../../../components/chat/Video";
+import { userContext } from "../../../../App";
 
 const Message = () => {
   const navigate = useNavigate();
   const [socket, setSocket] = useState(null);
-  const location = useLocation();
-  // console.log(location, "from  message");
+  const [currentUser, setCurrentUser] = useState();
+  const user = useContext(userContext)?.user;
+
   const [sendMessageData, sendMessageResponse] = useCreateMutation();
   const [sender, setSenderId] = useState("");
   const [receiver, setReceiverId] = useState("");
-  const [currentUser, setCurrentUser] = useState({
-    _id: location?.state?._id,
-    email: location?.state?.email,
-  });
+
+  useEffect(() => {
+    user &&
+      setCurrentUser({
+        _id: user?._id,
+        email: user?.email
+      });
+  }, [user]);
+
   const [onlineUsers, setOnlineUsers] = useState();
   const [message, setMessage] = useState("");
   const [pending, setPending] = useState(false);
@@ -56,7 +63,7 @@ const Message = () => {
     isLoading: userIsFetching,
     isError: userIsError,
   } = useReadQuery({
-    url: `/user/users?limits=40`,
+    url: `/user/users?limits=40&populatingType=users&populatingValue=user`,
     tag: ["users"],
   });
 
@@ -67,7 +74,6 @@ const Message = () => {
   //     setCurrentUser({ _id: location._id, email: location.email });
   //   }
   // }, []);
-
   const focusHandler = (id) => {
     ["group", "private", "manager", "lawyer", "all"].map((e) => {
       const ids = document.getElementById(e);
@@ -95,7 +101,7 @@ const Message = () => {
   }, []);
 
   useEffect(() => {
-    socket?.emit("connect-user", currentUser?.userName);
+    socket?.emit("connect-user", currentUser?.email);
     socket?.on("aaa", (val) => {
       setOnlineUsers(val);
     });

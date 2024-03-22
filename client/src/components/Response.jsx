@@ -19,7 +19,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
           dashboard = "/dashboard";
           break;
         case "private-customer":
-          dashboard = `/dashboard/customer/message`;
+          dashboard = `/dashboard/customer`;
           break;
         case "business-customer":
           dashboard = "/dashboard/customer";
@@ -43,36 +43,15 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       ? (setError(false),
         setSuccess(true),
         setSuccessMessage(response?.data?.message),
-        type === "login"
-          ? // ? (localStorage.setItem("jwt", response?.data?.token),
-            //   localStorage.setItem("user", JSON.stringify(response?.data?.data)),
-            navigate(dashboard, {
-              replace: true,
-              state: {
-                email: response?.data?.data?.email,
-                _id: response?.data?.data?._id,
-              },
-            })
+        type === "login" || "signUp"
+          ? navigate(dashboard, { replace: true })
           : redirectTo && redirectTo?.length > 0
           ? (navigate(redirectTo, { replace: true }),
             window.history.pushState(-1))
           : setTimeout(() => {
               setSuccess(false);
             }, 6000))
-      : //  navigate(
-        //   `/chat#${response?.data?.data?._id}#${response?.data?.data?.userName}`
-        // )
-        null;
-
-    //from here remove this
-    //from apiSlice uncomment authorization
-    //from router uncomment and add auth and author
-    // console.log(response?.data?.data?.userName, "rrrrrrrrrrrrrrrrr");
-    // response.status === "fulfilled"
-    //   ? navigate(
-    //       `/chat#${response?.data?.data?._id}#${response?.data?.data?.userName}`
-    //     )
-    //   : null;
+      : null;
 
     response.status === "rejected"
       ? (setError(true),

@@ -36,9 +36,9 @@ export const signupHandler = asyncCatch(async (req, res, next) => {
   };
 
   switch (req.body.role) {
-    case "private":
+    case "private-customer":
       return createAccount(Private);
-    case "business":
+    case "business-customer":
       const remove = ["firstName", "middleName", "lastName", "gender"];
       remove.forEach((el) => delete value[el]);
       const business = await Institution.create(value);
@@ -73,13 +73,7 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
   if (!email || !password)
     return next(new AppError("provide email and password", 404));
   const user = await User.findOne({ email }).select("+password");
-  if (!user)
-    return next(
-      new AppError(
-        "there is no user found by this user name please register first",
-        404
-      )
-    );
+  if (!user) return next(new AppError("Invalid user name or password", 404));
 
   const isPasswordCorrect = await user.passwordCheck(user.password, password);
   if (!isPasswordCorrect)

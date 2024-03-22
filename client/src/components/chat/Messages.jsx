@@ -1,5 +1,6 @@
 import React from "react";
 import Loading from "../loading/Loading";
+import { format } from "timeago.js";
 
 const Messages = ({
   isLoading,
@@ -12,7 +13,7 @@ const Messages = ({
   return (
     <div
       id="messages"
-      className="flex w-full flex-col h-[66vh] space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
+      className="flex w-full flex-col h-[70vh] space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
     >
       {isLoading && <Loading text="text-gray-500" />}
       {isError && <p>something went wrong unable to read the messages</p>}
@@ -28,7 +29,7 @@ const Messages = ({
                         <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
                           {message?.message?.content}
                         </span>
-                        <p className="text-xs">2 hours ago</p>
+                        <p className="text-xs">{format(message?.createdAt)}</p>
                       </div>
                     </div>
                     <img
@@ -49,7 +50,7 @@ const Messages = ({
                           {message?.message?.content}
                         </span>
                       </div>
-                      <p className="text-xs font-light self-end">2 hours ago</p>
+                      <p className="text-xs">{format(message?.createdAt)}</p>
                     </div>
                     <img
                       src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"

@@ -36,105 +36,111 @@ import Researches from "./pages/dashboard/customer/customer-services/Researches"
 import LawyerDashboardHome from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerDashboardHome";
 import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCase";
 import Video from "./pages/Video";
+import { useReadQuery } from "./features/api/apiSlice";
+import { createContext, useEffect } from "react";
+
+export const userContext = createContext();
 
 function App() {
-  const jwt = localStorage.getItem("jwt");
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { data: user } = useReadQuery({
+    url: "/user/readProfileInfo",
+    tag: ["users"],
+  });
 
-  // states
-  // const isHeader = useSelector(selectIsHeader);
+  // useEffect(() => {
+  //   console.log(user, "user data from app js");
+  // }, [user]);
 
-  // console.log(jwt, user);
   return (
     <Flowbite>
-      <div className={`font-poppins medium   tracking-wide`}>
-        <div className="flex flex-col">
-          ``
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="login" element={<Login />}></Route>
-            <Route path="signUp" element={<SignUp />}></Route>
-            <Route path="chat" element={<Chat />}></Route>
-            <Route path="dashboard" element={<HomeDashboard />}></Route>
-            <Route
-              path="/dashboard/customer/message/video"
-              element={<Video />}
-            />
-            <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
+      <userContext.Provider value={{ user: user?.data }}>
+        <div className={`font-poppins medium   tracking-wide`}>
+          <div className="flex flex-col">
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="login" element={<Login />}></Route>
+              <Route path="signUp" element={<SignUp />}></Route>
+              <Route path="chat" element={<Chat />}></Route>
+              <Route path="dashboard" element={<HomeDashboard />}></Route>
               <Route
-                // path="/dashboard/customer/home"
-                index
-                element={<LawyerDashboardHome />}
-              ></Route>
-              <Route
-                path="/dashboard/lawyer/lawyer-new-case"
-                element={<LawyerNewCase />}
-              ></Route>
-            </Route>
-            <Route path="/dashboard/customer" element={<CustomerDashboard />}>
-              <Route
-                // path="/dashboard/customer/home"
-                index
-                element={<CustomerDashboardHome />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/message"
-                element={<Message />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/appointment"
-                element={<Appointment />}
-              ></Route>
-              {/* customer compliance */}
-              <Route
-                path="/dashboard/customer/new-case"
-                element={<NewCase />}
-              ></Route>
-              {/* customer charts */}
-              <Route
-                path="/dashboard/customer/case-team"
-                element={<CaseTeam />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/active-case"
-                element={<ActiveCase />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/closed-case"
-                element={<ClosedCase />}
-              ></Route>
-              {/* customer finance */}
-              <Route
-                path="/dashboard/customer/add-funds"
-                element={<AddFunds />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/requested-payment"
-                element={<RequestedPayment />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/refund-funds"
-                element={<RefundFunds />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/recent-transactions"
-                element={<RecentTransactions />}
-              ></Route>
-              {/* customer services */}
-              <Route
-                path="/dashboard/customer/training"
-                element={<Training />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/consulting"
-                element={<Consulting />}
-              ></Route>
-              <Route
-                path="/dashboard/customer/researches"
-                element={<Researches />}
-              ></Route>
-            </Route>
-            {/* {jwt && user && (
+                path="/dashboard/customer/message/video"
+                element={<Video />}
+              />
+              <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
+                <Route
+                  // path="/dashboard/customer/home"
+                  index
+                  element={<LawyerDashboardHome />}
+                ></Route>
+                <Route
+                  path="/dashboard/lawyer/lawyer-new-case"
+                  element={<LawyerNewCase />}
+                ></Route>
+              </Route>
+              <Route path="/dashboard/customer" element={<CustomerDashboard />}>
+                <Route
+                  // path="/dashboard/customer/home"
+                  index
+                  element={<CustomerDashboardHome />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/message"
+                  element={<Message />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/appointment"
+                  element={<Appointment />}
+                ></Route>
+                {/* customer compliance */}
+                <Route
+                  path="/dashboard/customer/new-case"
+                  element={<NewCase />}
+                ></Route>
+                {/* customer charts */}
+                <Route
+                  path="/dashboard/customer/case-team"
+                  element={<CaseTeam />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/active-case"
+                  element={<ActiveCase />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/closed-case"
+                  element={<ClosedCase />}
+                ></Route>
+                {/* customer finance */}
+                <Route
+                  path="/dashboard/customer/add-funds"
+                  element={<AddFunds />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/requested-payment"
+                  element={<RequestedPayment />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/refund-funds"
+                  element={<RefundFunds />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/recent-transactions"
+                  element={<RecentTransactions />}
+                ></Route>
+                {/* customer services */}
+                <Route
+                  path="/dashboard/customer/training"
+                  element={<Training />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/consulting"
+                  element={<Consulting />}
+                ></Route>
+                <Route
+                  path="/dashboard/customer/researches"
+                  element={<Researches />}
+                ></Route>
+              </Route>
+              {/* {jwt && user && (
               <Route
                 path="/dashboard/*"
                 element={
@@ -158,12 +164,12 @@ function App() {
                 }
               ></Route>
             )} */}
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </div>
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </div>
 
-        {/* secure routes */}
-        {/* <mobileContext.Provider
+          {/* secure routes */}
+          {/* <mobileContext.Provider
         value={{
           mobile,
           setMobile,
@@ -288,7 +294,8 @@ function App() {
           </div>
         </div>
       </mobileContext.Provider> */}
-      </div>
+        </div>
+      </userContext.Provider>
     </Flowbite>
   );
 }
