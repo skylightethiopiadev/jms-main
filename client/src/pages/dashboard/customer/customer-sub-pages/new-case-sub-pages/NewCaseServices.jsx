@@ -1,4 +1,8 @@
-const NewCaseServices = ({ stepCounter, setStepCounter }) => {
+const NewCaseServices = ({
+  stepCounter,
+  setStepCounter,
+  setNewCaseHistory,
+}) => {
   // services
   const newCaseServices = [
     "Representation",
@@ -10,6 +14,24 @@ const NewCaseServices = ({ stepCounter, setStepCounter }) => {
     "Review of content",
     "Visia and Work Permit",
   ];
+
+  const inputChangeHandler = (e) => {
+    if (e.target.checked) {
+      setNewCaseHistory((prev) => {
+        return {
+          ...prev,
+          services: [...prev.services, e.target.value],
+        };
+      });
+    } else {
+      setNewCaseHistory((prev) => {
+        return {
+          ...prev,
+          services: prev.services?.filter(elm=>elm!==e.target.value),
+        };
+      });
+    }
+  };
   return (
     <div className="w-full h-[72vh] p-[1%]">
       <div className="w-full h-full bg-white rounded-sm">
@@ -18,7 +40,7 @@ const NewCaseServices = ({ stepCounter, setStepCounter }) => {
         </header>
         <div className="my-[3%] ml-[7%] mr-[1%] flex flex-col sm:flex-row gap-1">
           {/* checkbox container */}
-          <div className="h-max w-[100%] sm:w-[50%] p-[1%] py-1 whitespace-nowrap">
+          <div className="h-max w-[100%] sm:w-[50%] p-[1%] py-1">
             {newCaseServices?.map((service, index) => (
               <div
                 key={index}
@@ -29,6 +51,7 @@ const NewCaseServices = ({ stepCounter, setStepCounter }) => {
                   type="checkbox"
                   className="focus:outline-none focus:ring-0"
                   value={service}
+                  onChange={inputChangeHandler}
                 />
                 <label htmlFor={`${index}`} className="cursor-pointer">
                   {service}
@@ -36,7 +59,9 @@ const NewCaseServices = ({ stepCounter, setStepCounter }) => {
               </div>
             ))}
           </div>
-          <div className="bg-sky-100 w-[100%] sm:w-[50%] rounded-md">Text Area Box Here</div>
+          <div className="bg-sky-100 w-[100%] sm:w-[50%] rounded-md">
+            Text Area Box Here
+          </div>
         </div>
         <div className="flex items-center justify-center py-3">
           <button

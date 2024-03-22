@@ -191,6 +191,7 @@ const NewCase = () => {
         <NewCaseServices
           stepCounter={stepCounter}
           setStepCounter={setStepCounter}
+          setNewCaseHistory={setNewCaseHistory}
         />
       ) :   (
         <ConfirmNewCase
