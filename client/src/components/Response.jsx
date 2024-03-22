@@ -19,7 +19,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
           dashboard = "/dashboard";
           break;
         case "private-customer":
-          dashboard = "/dashboard/customer";
+          dashboard = `/dashboard/customer/message`;
           break;
         case "business-customer":
           dashboard = "/dashboard/customer";
@@ -44,9 +44,15 @@ const Response = ({ response, setPending, redirectTo, type }) => {
         setSuccess(true),
         setSuccessMessage(response?.data?.message),
         type === "login"
-          ? (localStorage.setItem("jwt", response?.data?.token),
-            localStorage.setItem("user", JSON.stringify(response?.data?.data)),
-            navigate(dashboard, { replace: true }))
+          ? // ? (localStorage.setItem("jwt", response?.data?.token),
+            //   localStorage.setItem("user", JSON.stringify(response?.data?.data)),
+            navigate(dashboard, {
+              replace: true,
+              state: {
+                email: response?.data?.data?.email,
+                _id: response?.data?.data?._id,
+              },
+            })
           : redirectTo && redirectTo?.length > 0
           ? (navigate(redirectTo, { replace: true }),
             window.history.pushState(-1))

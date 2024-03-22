@@ -23,11 +23,13 @@ const Message = () => {
   const navigate = useNavigate();
   const [socket, setSocket] = useState(null);
   const location = useLocation();
+  // console.log(location, "from  message");
   const [sendMessageData, sendMessageResponse] = useCreateMutation();
   const [sender, setSenderId] = useState("");
   const [receiver, setReceiverId] = useState("");
   const [currentUser, setCurrentUser] = useState({
-    _id: "65eaaf5590ad7cbe46baeae7",
+    _id: location?.state?._id,
+    email: location?.state?.email,
   });
   const [onlineUsers, setOnlineUsers] = useState();
   const [message, setMessage] = useState("");
@@ -58,13 +60,13 @@ const Message = () => {
     tag: ["users"],
   });
 
-  useEffect(() => {
-    const hash = location.hash.split("#").splice(1, 2);
-    // console.log(hash, "locations now");
-    if (location?.hash) {
-      setCurrentUser({ _id: hash[0], userName: hash[1] });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const hash = location.hash.split("#").splice(1, 2);
+  //   // console.log(hash, "locations now");
+  //   if (location?.hash) {
+  //     setCurrentUser({ _id: location._id, email: location.email });
+  //   }
+  // }, []);
 
   const focusHandler = (id) => {
     ["group", "private", "manager", "lawyer", "all"].map((e) => {
@@ -247,13 +249,13 @@ const Message = () => {
 
     getUserMedia({ video: true, audio: false }, (mediaStream) => {
       currentUserVideoRef.current.srcObject = mediaStream;
-      // currentUserVideoRef.current.play();
+      currentUserVideoRef.current.play();
 
       const call = peerInstance.current.call(remotePeerId, mediaStream);
 
       call.on("stream", (remoteStream) => {
         remoteVideoRef.current.srcObject = remoteStream;
-        // remoteVideoRef.current.play();
+        remoteVideoRef.current.play();
       });
     });
   };
@@ -314,6 +316,8 @@ const Message = () => {
             peerId={peerId}
             call={call}
             setDisplayVideo={setDisplayVideo}
+            socket={socket}
+            chatId={chatId}
           />
 
           <div className="flex flex-col items-start justify-start h-[100vh] w-[30%] bg-white border shadow-2xl rounded-sm">

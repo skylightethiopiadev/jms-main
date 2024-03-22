@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
@@ -18,6 +18,8 @@ import NewCase from "./customer-sub-pages/NewCase";
 
 const CustomerDashboard = () => {
   // local states
+  const location = useLocation();
+  // console.log(location?.state?.email, "user email");
   const [isMonthPopup, setIsMonthPopup] = useState(false);
   const [month, setMonth] = useState("August");
   return (
@@ -59,8 +61,8 @@ const CustomerDashboard = () => {
             {/* main content */}
             <div className="w-full">
               <Outlet />
-            </div>.
-            {/* right content */}
+            </div>
+            .{/* right content */}
             <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">

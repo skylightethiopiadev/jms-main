@@ -12,7 +12,7 @@ const Messages = ({
   return (
     <div
       id="messages"
-      className="flex flex-col h-[66vh] space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
+      className="flex w-full flex-col h-[66vh] space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
     >
       {isLoading && <Loading text="text-gray-500" />}
       {isError && <p>something went wrong unable to read the messages</p>}

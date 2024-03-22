@@ -168,7 +168,10 @@ mongodb()
 
       socket.on("call-accepted", (chatId, bool, peerId) => {
         socket.join(chatId);
-        socket.to(chatId).emit("call-accepted-response", bool, peerId);
+        console.log(peerId, "remote peer id");
+        socket.broadcast
+          .to(chatId)
+          .emit("call-accepted-response", bool, peerId);
       });
 
       // socket.on("call-accepted-peerIdSend", (chatId, peerId) => {
