@@ -19,10 +19,8 @@ const HeaderTop = () => {
         <NavLink className={"text-xl font-black text-gray-700"}>JMS</NavLink>
       </div>
 
-     
       <div className="flex-grow flex items-center justify-end gap-x-3">
-
-         {/* phone */}
+        {/* phone */}
         <div className="relative">
           <NavLink
             className={
@@ -65,7 +63,11 @@ const HeaderTop = () => {
         {/* search */}
 
         {isSearchBarOpen ? (
-          <div className={`flex items-center gap-x-3 absolute pl-[25%] pr-[10%] bg-white overflow-hidden transition-all ease-linear duration-300 ${ isSearchBarOpen ? 'w-full h-full' : 'w-[0px] h-[0px]'}`}>
+          <div
+            className={`flex items-center gap-x-3 absolute pl-[25%] pr-[10%] bg-white overflow-hidden transition-all ease-linear duration-300 ${
+              isSearchBarOpen ? "w-full h-full" : "w-[0px] h-[0px]"
+            }`}
+          >
             <div className="flex items-center rounded-full px-1 border-2 border-gray-700 text-gray-700 w-full overflow-hidden">
               <RiSearch2Line className="text-3xl mx-1" />
               <input
@@ -101,7 +103,7 @@ const HeaderTop = () => {
 
         {/* sign in */}
         <div className="flex items-center justify-center rounded-full px-5 py-2 text-lg bg-black text-white transition-all ease-in-out duration-300 hover:bg-gray-700">
-          <NavLink to={'/dashboard/customer'}>sign in</NavLink>
+          <NavLink to={"/login"}>sign in</NavLink>
         </div>
       </div>
     </div>

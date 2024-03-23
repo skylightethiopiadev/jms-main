@@ -4,7 +4,7 @@ import HeaderBottom from "./sub-headers/HeaderBottom";
 
 const Header = () => {
   return (
-    <header className="h-[15.5vh]">
+    <header className="h-[16.5vh]">
       <HeaderTop />
       <HeaderBottom />
     </header>

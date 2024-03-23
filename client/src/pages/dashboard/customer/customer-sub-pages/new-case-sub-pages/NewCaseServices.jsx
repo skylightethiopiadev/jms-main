@@ -28,7 +28,7 @@ const NewCaseServices = ({
       setNewCaseHistory((prev) => {
         return {
           ...prev,
-          services: prev.services?.filter(elm=>elm!==e.target.value),
+          services: prev.services?.filter((elm) => elm !== e.target.value),
         };
       });
     }
@@ -53,7 +53,9 @@ const NewCaseServices = ({
                   className="focus:outline-none focus:ring-0"
                   value={service}
                   onChange={inputChangeHandler}
-                  checked={newCaseHistory?.services?.find(item=>item===service ? true : false)}
+                  checked={newCaseHistory?.services?.find((item) =>
+                    item === service ? true : false
+                  )}
                 />
                 <label htmlFor={`${index}`} className="cursor-pointer">
                   {service}
@@ -65,7 +67,7 @@ const NewCaseServices = ({
             Text Area Box Here
           </div>
         </div>
-        <div className="flex items-center justify-center py-3">
+        <div className="flex -mt-6 items-center justify-center py-3">
           <button
             className="px-7 py-1 rounded-sm bg-blue-600 text-white"
             onClick={() => {
