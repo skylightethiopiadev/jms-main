@@ -3,39 +3,39 @@ import { motion } from "framer-motion";
 // icons
 import { MdOutlineClose } from "react-icons/md";
 
-const CaseCategory = ({ caseCategories,stepCounter, setStepCounter,newCase,setNewCase ,setNewCaseHistory}) => {
-
+const CaseCategory = ({
+  caseCategories,
+  stepCounter,
+  setStepCounter,
+  setNewCase,
+  setNewCaseHistory,
+}) => {
   const [caseCategory, setCaseCategory] = useState(null);
 
-
-
   return (
-    <div className="py-[3%] h-min overflow-y-auto relative">
+    <div className="py-[2%] h-min overflow-y-auto relative">
       <div className="w-full flex items-center justify-center">
-        <h3 className="text-2xl font-black text-gray-700 my-1">
+        <h3 className="text-2xl font-black text-gray-700">
           Case Categories
         </h3>
       </div>
       {/* case categories */}
-      <div className="flex h-[65vh] pb-5 overflow-auto flex-col lg:flex-row gap-5 p-[1%] mt-[2%]">
+      <div className="flex h-[65vh] pb-5 overflow-auto flex-col lg:flex-row gap-5 p-[1%] pt-[3%]">
         {caseCategories?.map((item, index) => (
           <div
             key={index}
-            className="w-[85%] self-center lg:w-[calc(100%/3)]  bg-gray-50 h-min p-[3%] rounded-sm shadow-md "
+            className="w-[85%] lg:w-[calc(100%/3)]  bg-white h-min p-[3%] rounded-sm shadow-md "
           >
             <div className="flex items-center justify-center">
-              <h3 className="text-2xl font-semibold text-gray-700 my-1">
-                {item.caseCategory}
+              <h3 className="text-lg font-semibold text-black my-1">
+                {item.caseCategory?.toUpperCase()}
               </h3>
             </div>
-            <div className="py-[3%] text-gray-700 border-t border-b border-gray-500 border-opacity-15">
+            <div className="py-[3%] text-gray-800 border-t border-b border-gray-500 border-opacity-15">
               <p>
-                {item.description?.substring(
-                  0,
-                  item?.caseCategory === "Commercial (Coperat Law)" ? 105 : 167
-                )}
+                {item.description?.substring(0, item.caseCategory === 'Commercial/Corporate' ? 172 : 167)}
                 <span
-                  className="font-bold cursor-pointer text-lg text-blue-600 bg-blue-50 rounded-sm px-3"
+                  className="font-bold cursor-pointer text-lg text-blue-600"
                   onClick={() => {
                     setCaseCategory(item);
                   }}
@@ -48,21 +48,21 @@ const CaseCategory = ({ caseCategories,stepCounter, setStepCounter,newCase,setNe
               <button
                 className={`px-[15%] py-1 rounded-sm text-white ${
                   item.caseCategory === "Civil"
-                    ? "bg-blue-600"
+                    ? "bg-yellow-400"
                     : item.caseCategory === "Criminal"
-                    ? "bg-red-500"
-                    : item.caseCategory === "Commercial (Coperat Law)"
-                    ? "bg-green-500"
+                    ? "bg-yellow-400"
+                    : item.caseCategory === "Commercial/Corporate"
+                    ? "bg-yellow-400"
                     : ""
                 }`}
                 onClick={() => {
-                  setNewCaseHistory(prev=>{
+                  setNewCaseHistory((prev) => {
                     return {
                       ...prev,
-                      caseCategory: item?.caseCategory
-                    }
-                  })
-                  setNewCase(item)
+                      caseCategory: item?.caseCategory,
+                    };
+                  });
+                  setNewCase(item);
                   setStepCounter(stepCounter + 1);
                 }}
               >
