@@ -147,16 +147,16 @@ const NewCase = () => {
   // steper
   const stepsHint = [
     {
-      title: "Case Categories",
-      description: "select case category",
+      title: "Case",
+      description: "category",
     },
     {
-      title: "case",
-      description: "start your case",
+      title: "Specification",
+      description: "sub category",
     },
     {
-      title: "case",
-      description: "start your case",
+      title: "Services",
+      description: "service options",
     },
   ];
 

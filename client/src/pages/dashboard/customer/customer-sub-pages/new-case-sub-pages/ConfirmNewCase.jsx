@@ -26,14 +26,14 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
                 {/* <span>Case Category: </span> */}
                 <div className="text-gray-700 font-medium">Case Category:</div>
                 <div className="ml-[10%] flex items-center gap-2">
-                  <MdOutlineSubdirectoryArrowRight className="text-gray-700" />
-                  <span>{newCaseHistory?.caseCategory}</span>
+                  <MdOutlineSubdirectoryArrowRight className="text-gray-500 text-lg" />
+                  <span className="text-gray-500 font-medium">{newCaseHistory?.caseCategory}</span>
                 </div>
               </div>
               {newCaseHistory?.subCaseCategory ? (
                 <div className="ml-[15%] whitespace-nowrap flex items-center gap-2">
-                  <MdOutlineSubdirectoryArrowRight className="text-gray-700" />
-                  <span className=" text-gray-700">
+                  <MdOutlineSubdirectoryArrowRight className="text-gray-500 text-lg" />
+                  <span className=" text-gray-500 font-medium">
                     {newCaseHistory?.subCaseCategory.title}
                   </span>
                 </div>
@@ -42,8 +42,8 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
               )}
               {newCaseHistory?.subCaseCategory?.subSubCaseCategory ? (
                 <div className="ml-[20%] whitespace-nowrap flex items-center gap-2">
-                  <MdOutlineSubdirectoryArrowRight className="text-gray-700" />
-                  <span className=" text-gray-700">
+                  <MdOutlineSubdirectoryArrowRight className="text-gray-500 text-lg" />
+                  <span className=" text-gray-500 font-medium">
                     {newCaseHistory?.subCaseCategory?.subSubCaseCategory.title}
                   </span>
                 </div>

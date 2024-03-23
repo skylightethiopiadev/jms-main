@@ -3,7 +3,12 @@ import { FaCheck } from "react-icons/fa";
 // component
 import SteperElement from "./steper-sub-components/SteperElement";
 
-const SteperComponent = ({ steps, stepsHint, stepCounter, setStepCounter }) => {
+const SteperComponent = ({
+  steps,
+  stepsHint,
+  stepCounter,
+  setStepCounter,
+}) => {
   const stepElements = Array.apply(null, Array(steps)).map((x, i) => i + 1);
   return (
     <div className="flex-grow bg-white shadow-md rounded-md">
