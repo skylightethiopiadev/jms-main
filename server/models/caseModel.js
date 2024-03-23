@@ -4,17 +4,38 @@ import * as valid from "../utils/validator.js";
 
 const caseSchema = new Schema(
   {
-    name: {
+    category: {
       type: String,
-      required: true,
-      unique: [true, "This case name is taken"],
-      required: [true, "{PATH} '{VALUE}' is taken"],
+      // unique: [true, "This case name is taken"],
+      required: [true, "Please select {PATH}"],
     },
 
-    category: {
+    // category: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "category",
+    //   required: [true, "please select a category"],
+    // },
+
+    user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "category",
-      required: [true, "please select a category"],
+      ref: "user",
+      // required: [true, "please select a category"],
+    },
+
+    type: {
+      type: String,
+      // unique: [true, "This case name is taken"],
+      required: [true, "Please select {PATH}"],
+    },
+    subType: {
+      type: String,
+      // unique: [true, "This case name is taken"],
+      required: [true, "Please select {PATH}"],
+    },
+    services: {
+      type: [String],
+      // unique: [true, "This case name is taken"],
+      required: [true, "Please select {PATH}"],
     },
 
     description: {
@@ -23,11 +44,11 @@ const caseSchema = new Schema(
       required: [true, "Description is required"],
     },
 
-    caseManager: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "case-manager",
-      required: [true, "Please select case manager"],
-    },
+    // caseManager: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "case-manager",
+    //   required: [true, "Please select case manager"],
+    // },
 
     status: {
       type: String,
@@ -39,10 +60,10 @@ const caseSchema = new Schema(
       default: new Date().getFullYear() * 1,
     },
 
-    deleted: {
-      type: Boolean,
-      default: false,
-    },
+    // deleted: {
+    //   type: Boolean,
+    //   default: false,
+    // },
   },
   {
     timestamps: true,

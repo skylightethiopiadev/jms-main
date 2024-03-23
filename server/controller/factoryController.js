@@ -118,19 +118,26 @@ export const _read = asyncCatch(async (req, res, next) => {
     query.skip(skip).limit(limit);
 
     //populating
+    console.log(req.query);
     switch (req.query.populatingType) {
       case "users":
         query.populate(req.query.populatingValue);
         break;
-      case "application":
-        query.populate(req.query.populatingValue.split(",").join(" "));
+      case "applications":
+        query.populate(req.query.populatingValue);
+        break;
+      case "cases":
+        query.populate(req.query.populatingValue);
+        break;
+      // query.populate(req.query.populatingValue.split(",").join(" "));
       default:
         query;
     }
 
-    req.query.limits ? query.limit(req.query.limits) : null;
+    // req.query.limits ? query.limit(req.query.limits) : null;
     const data = await query;
 
+    console.log(data, "user data");
     //last page indicator
     if (page) {
       const doc = await model.countDocuments();

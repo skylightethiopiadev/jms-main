@@ -38,6 +38,8 @@ export const signupHandler = asyncCatch(async (req, res, next) => {
   switch (req.body.role) {
     case "private-customer":
       return createAccount(Private);
+    case "case-manager-main":
+      return createAccount(CaseManager);
     case "business-customer":
       const remove = ["firstName", "middleName", "lastName", "gender"];
       remove.forEach((el) => delete value[el]);
@@ -94,6 +96,13 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
     message: "you are logged in successfully",
     data: user,
     token,
+  });
+});
+
+export const logoutHandler = asyncCatch(async (req, res, next) => {
+  res.cookie("_m_l_f_s", "", { maxAge: 1 });
+  res.status(200).json({
+    message: "Log out successful",
   });
 });
 

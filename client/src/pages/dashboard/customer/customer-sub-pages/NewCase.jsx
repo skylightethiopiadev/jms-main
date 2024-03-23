@@ -18,16 +18,18 @@ const NewCase = () => {
   const [stepCounter, setStepCounter] = useState(0);
   const [newCase, setNewCase] = useState(null);
 
-  const [newCaseHistory,setNewCaseHistory] = useState({
-    caseCategory: '',
+  const [newCaseHistory, setNewCaseHistory] = useState({
+    caseCategory: "",
     subCaseCategory: {
-      title: '',
+      title: "",
       subSubCaseCategory: {
-        title: '',
+        title: "",
       },
     },
     services: [],
-  })
+    description:
+      "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employement, succession of family's property. Issues related",
+  });
 
   // caste categories
   const caseCategories = [
@@ -52,7 +54,7 @@ const NewCase = () => {
         },
         {
           caseName: "Family",
-          subType: ["maintenances", "adoption", "devorce"],
+          subType: ["maintenances", "adoption", "divorce"],
         },
         {
           caseName: "Employment",
@@ -82,7 +84,7 @@ const NewCase = () => {
       ],
     },
     {
-      caseCategory: "Commercial (Coperat Law)",
+      caseCategory: "Commercial (Corporate Law)",
       description:
         "Commercial Cases are cases involving complex transactions such as international bussiness. Formation, registration, reorganization, merger, acquisition, winding up, of corporations; bankrupty (scheme of arrangement or liquidation), issues related to tax and customs assessment, joint venture, real estate and property, supply of goods and services, commercial loan, registration of trade mark, patent, utility rights",
       subCategories: [
@@ -195,7 +197,7 @@ const NewCase = () => {
           setStepCounter={setStepCounter}
           setNewCaseHistory={setNewCaseHistory}
         />
-      ) :   (
+      ) : (
         <ConfirmNewCase
           stepCounter={stepCounter}
           setStepCounter={setStepCounter}

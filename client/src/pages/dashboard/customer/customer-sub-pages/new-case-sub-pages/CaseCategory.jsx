@@ -3,11 +3,15 @@ import { motion } from "framer-motion";
 // icons
 import { MdOutlineClose } from "react-icons/md";
 
-const CaseCategory = ({ caseCategories,stepCounter, setStepCounter,newCase,setNewCase ,setNewCaseHistory}) => {
-
+const CaseCategory = ({
+  caseCategories,
+  stepCounter,
+  setStepCounter,
+  newCase,
+  setNewCase,
+  setNewCaseHistory,
+}) => {
   const [caseCategory, setCaseCategory] = useState(null);
-
-
 
   return (
     <div className="py-[3%] h-min overflow-y-auto relative">
@@ -51,18 +55,18 @@ const CaseCategory = ({ caseCategories,stepCounter, setStepCounter,newCase,setNe
                     ? "bg-blue-600"
                     : item.caseCategory === "Criminal"
                     ? "bg-red-500"
-                    : item.caseCategory === "Commercial (Coperat Law)"
+                    : item.caseCategory === "Commercial (Corporate Law)"
                     ? "bg-green-500"
                     : ""
                 }`}
                 onClick={() => {
-                  setNewCaseHistory(prev=>{
+                  setNewCaseHistory((prev) => {
                     return {
                       ...prev,
-                      caseCategory: item?.caseCategory
-                    }
-                  })
-                  setNewCase(item)
+                      caseCategory: item?.caseCategory,
+                    };
+                  });
+                  setNewCase(item);
                   setStepCounter(stepCounter + 1);
                 }}
               >

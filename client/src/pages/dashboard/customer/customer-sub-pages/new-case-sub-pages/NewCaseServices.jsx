@@ -9,11 +9,11 @@ const NewCaseServices = ({
     "Representation",
     "Mediation Center",
     "Advisory",
-    "Prepartion of documents and review",
+    "Preparation of documents and review",
     "Legal Due Diligence",
     "Legal Opinion",
     "Review of content",
-    "Visia and Work Permit",
+    "Visa and Work Permit",
   ];
 
   const inputChangeHandler = (e) => {
@@ -21,7 +21,7 @@ const NewCaseServices = ({
       setNewCaseHistory((prev) => {
         return {
           ...prev,
-          services: [...prev.services, e.target.value],
+          services: [...  prev.services, e.target.value],
         };
       });
     } else {

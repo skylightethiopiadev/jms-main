@@ -1,21 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { KeyboardDoubleArrowRight } from "@mui/icons-material";
 import SidebarItems from "./SidebarItems";
 import { useNavigate } from "react-router-dom";
 import { mobileContext } from "../pages/dashboard/HomeDashboard";
+import Response from "./Response";
+import { useUserLogoutMutation } from "../features/api/apiSlice";
+import { userContext } from "../App";
 
 const Sidebar = (props) => {
   const navigate = useNavigate();
+
+  const [logout, logoutResponse] = useUserLogoutMutation();
+  const [pending, setPending] = useState(false);
   const logoutHandler = () => {
-    sessionStorage.removeItem("gsm-user");
-    navigate("/login");
+    logout({});
   };
+
   const context = useContext(mobileContext);
-  const role = context.role;
+  const userCon = useContext(userContext);
+  const role = userCon?.user?.role;
 
   const messageHandler = () => {
-    switch (role) {
-      case "private": {
+   switch (role) {
+      case "private-customer": {
+        return ["Representative", "Lawyers", "Public"];
+      }
+      case "business-customer": {
         return ["Representative", "Lawyers", "Public"];
       }
       case "super-admin": {
@@ -38,6 +48,11 @@ const Sidebar = (props) => {
 
   return (
     <div id="sidebar" className={`${props.value}`}>
+      <Response
+        response={logoutResponse}
+        setPending={setPending}
+        redirectTo="/login"
+      />
       <div
         className={`h-[91.2vh] border border-t-0 ${context.borderColor}  overflow-hidden w-full  flex flex-col gap-1`}
       >
@@ -50,7 +65,7 @@ const Sidebar = (props) => {
             className={`w-12 h-12 border ${context.borderColor} rounded-full `}
           />
           <p className="text-[14px] mt-1 ">Gedeon agmas</p>
-          <p className="small">{role.split("-").join(" ")}</p>
+          <p className="small">{role?.split("-").join(" ")}</p>
         </div>
 
         <div className="flex mt-2 flex-col h-[90.5vh] overflow-y-scroll overflow-hidden gap-2  w-full ">
@@ -96,7 +111,7 @@ const Sidebar = (props) => {
             id="messaging"
             icon={<KeyboardDoubleArrowRight sx={{ width: 12, height: 12 }} />}
             children={messageHandler()}
-            paths={messageHandler().map(
+            paths={['manager'].map(
               (p) => `/dashboard/chat?${p.toLowerCase()}`
             )}
           />

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Close } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
+import { userContext } from "../App";
 
 const Response = ({ response, setPending, redirectTo, type }) => {
+  const context = useContext(userContext);
   const navigate = useNavigate();
   const [error, setError] = useState(true);
   const [success, setSuccess] = useState(false);
@@ -12,7 +14,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
   useEffect(() => {
     response.status === "pending" ? setPending(true) : setPending(false);
 
-    let dashboard = "";
+    let dashboard = "#";
     if (response.status === "fulfilled") {
       switch (response?.data?.data?.role) {
         case "super-admin":
@@ -28,13 +30,13 @@ const Response = ({ response, setPending, redirectTo, type }) => {
           dashboard = "/dashboard/lawyer";
           break;
         case "case-manager-main":
-          dashboard = "/dashboard/manager";
+          dashboard = "/dashboard";
           break;
         case "case-manager-regular":
-          dashboard = "/dashboard/manager";
+          dashboard = "/dashboard";
           break;
         case "case-manager-external":
-          dashboard = "/dashboard/manager";
+          dashboard = "/dashboard";
           break;
       }
     }
@@ -43,11 +45,13 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       ? (setError(false),
         setSuccess(true),
         setSuccessMessage(response?.data?.message),
+        setTimeout(() => {
+          setSuccess(false);
+        }, 6000),
         type === "login" || "signUp"
           ? navigate(dashboard, { replace: true })
           : redirectTo && redirectTo?.length > 0
-          ? (navigate(redirectTo, { replace: true }),
-            window.history.pushState(-1))
+          ? navigate(redirectTo, { replace: true })
           : setTimeout(() => {
               setSuccess(false);
             }, 6000))
