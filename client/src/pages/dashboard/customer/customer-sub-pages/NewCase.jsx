@@ -1,575 +1,205 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-// icons
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { MdOutlineShareLocation } from "react-icons/md";
-import { FaStar } from "react-icons/fa6";
-import { TiTick } from "react-icons/ti";
 
-// data
-import { cunsultations } from "../../../../DataFile";
+// steper component
+import SteperComponent from "../stepers/SteperComponent";
+
+// new case sub pages
+import CaseCategory from "./new-case-sub-pages/CaseCategory";
+import NewCaseType from "./new-case-sub-pages/NewCaseType";
+import NewCaseServices from "./new-case-sub-pages/NewCaseServices";
+import SelectLawyer from "./new-case-sub-pages/SelectLawyer";
+import ConfirmNewCase from "./new-case-sub-pages/ConfirmNewCase";
 
 // main
 // NewCase
 const NewCase = () => {
-  // local states
-  const [isAllTypeOpen, setIsAllTypeOpen] = useState(false);
-  const [allTypeHeaderText, setAllTypeHeaderText] = useState("All Types");
-  const [isCityOpen, setIsCityOpen] = useState(false);
-  const [allCityHeaderText, setAllCityHeaderText] = useState("All Cities");
-  const [isAge, setIsAge] = useState(false);
-  const [ageHeaderText, setAgeHeaderText] = useState("35+");
-  const [isGenderOpen, setIsGenderOpen] = useState(false);
-  const [genderHeaderText, setGenderHeaderText] = useState("All");
-
   // stepper count
-  const [stepper, setStepper] = useState(0);
+  // const [stepper, setStepper] = useState(0);
+  const [stepCounter, setStepCounter] = useState(0);
+  const [newCase, setNewCase] = useState(null);
 
-  // handle all type
-  const handleAllTypeSelection = (text) => {
-    // filtere here
-    setAllTypeHeaderText(text);
-  };
-  // handle all type
-  const handleCitySelection = (text) => {
-    // filtere here
-    setAllCityHeaderText(text);
-  };
-  // handle all type
-  const handleAgeSelection = (text) => {
-    // filtere here
-    setAgeHeaderText(text);
-  };
-  // handle all type
-  const handleGenderSelection = (text) => {
-    // filtere here
-    setGenderHeaderText(text);
-  };
+  const [newCaseHistory,setNewCaseHistory] = useState({
+    caseCategory: '',
+    subCaseCategory: {
+      title: '',
+      subSubCaseCategory: {
+        title: '',
+      },
+    },
+    services: [],
+  })
+
+  // caste categories
+  const caseCategories = [
+    {
+      caseCategory: "Civil",
+      description:
+        "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employement, succession of family's property. Issues related civil matters are usually settled by court proceedings. Individual clients having issues like contract of loan, sale of property, employment, divorce, partition op property, maintenance, adoption, succession are encouraged to contact our lawyers experties in areas of civil cases",
+      subCategories: [
+        {
+          caseName: "Contract",
+          subType: [
+            "contract of special movables(Vehicles)",
+            "sale or lease of buildings",
+            "Construction",
+            "Supply of goods and services",
+            "Rental of machineries and vehicles",
+            "loan",
+          ],
+        },
+        {
+          caseName: "Succession",
+        },
+        {
+          caseName: "Family",
+          subType: ["maintenances", "adoption", "devorce"],
+        },
+        {
+          caseName: "Employment",
+        },
+        {
+          caseName: "Property",
+        },
+      ],
+    },
+    {
+      caseCategory: "Criminal",
+      description:
+        "Criminal cases are cases related to different offences against laws enacted to prevent crimes. Cases related to human traffking, terrorism, curruption, tax invasion, failure of complying with different regulatory requiremnts, financial fraud, and other acts result in penalizing the offender. The suspect may be arrested by the plice for interrogation. It involves police, public prosecutor, judge and lawyer. When it it is proved , the person suspected of the crime could be convicted and sent to prison. Thus anybody encoutered such a problem can contact lawyers with requistise in areas via our portal",
+      subCategories: [
+        {
+          caseName: "Ordinary crime",
+        },
+        {
+          caseName: "Corruption",
+        },
+        {
+          caseName: "Money Laundering(Financial Froud)",
+        },
+        {
+          caseName: "Tax and Customs Related Crimes",
+        },
+      ],
+    },
+    {
+      caseCategory: "Commercial (Coperat Law)",
+      description:
+        "Commercial Cases are cases involving complex transactions such as international bussiness. Formation, registration, reorganization, merger, acquisition, winding up, of corporations; bankrupty (scheme of arrangement or liquidation), issues related to tax and customs assessment, joint venture, real estate and property, supply of goods and services, commercial loan, registration of trade mark, patent, utility rights",
+      subCategories: [
+        {
+          caseName: "International Trade and Investment",
+        },
+        {
+          caseName: "Tax",
+        },
+        {
+          caseName: "Customes",
+        },
+        {
+          caseName: "Contract",
+          subType: [
+            "contract of special movables(Vehicles)",
+            "sale or lease of buildings",
+            "Construction",
+            "Supply of goods and services",
+            "Rental of machineries and vehicles",
+            "loan",
+          ],
+        },
+        {
+          caseName: "Intellectual Property",
+          subType: [
+            "Copyright",
+            "Patent",
+            "trade mark",
+            "utilities",
+            "geographical indications",
+            "varieties and plant breeds",
+          ],
+        },
+        {
+          caseName: "Financial Sector",
+          subType: ["banking", "insurance", "capital"],
+        },
+        {
+          caseName: "Corporate",
+          subType: [
+            "incorporation",
+            "bankrupty (scheme of arrangement or dissolution)",
+            "merger",
+            "acquisition",
+            "reorganization",
+          ],
+        },
+        {
+          caseName: "Real Estate, Property, and Conveyance",
+        },
+        {
+          caseName: "Joint Venture",
+        },
+        {
+          caseName: "Torts",
+        },
+      ],
+    },
+  ];
+
+  // steper
+  const stepsHint = [
+    {
+      title: "Case",
+      description: "category",
+    },
+    {
+      title: "Specification",
+      description: "sub category",
+    },
+    {
+      title: "Services",
+      description: "service options",
+    },
+  ];
 
   return (
-    <div className="bg-gray-100 h-full">
-      <header className="h-max bg-sky-100 grid grid-cols-4">
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-        {/* circle and bar */}
-        <div className="flex items-center justify-center w-full">
-          {/* step-0 */}
-          <div>
-            <h3 className="text-2xl mr-1 font-black">01</h3>
-          </div>
-          {/* bar-0 */}
-          <div className={`${stepper > 0 ? "text-blue-700" : "text-gray-700"}`}>
-            <h3>Case Type</h3>
-            <span>Contrat Explore</span>
-            <h3>name</h3>
-          </div>
-        </div>
-      </header>
-      <header className="h-[42px] bg-sky-100 flex items-center justify-center">
-        {/* circle and bar */}
-        <div className="flex items-center justify-center">
-          {/* step-0 */}
-          <div
-            className={`${
-              stepper >= 0 ? "steper-circle-on" : "steper-circle-off"
-            }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              setStepper(0);
-            }}
-          >
-            <TiTick className="text-xl" />
-          </div>
-          {/* bar-0 */}
-          <div
-            className={`${stepper > 0 ? "stepper-bar-on" : "stepper-bar-off"}`}
-          ></div>
-
-          {/* step 1 */}
-          <div
-            className={`${
-              stepper >= 1 ? "steper-circle-on" : "steper-circle-off"
-            }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (stepper > 1) {
-                setStepper(1);
-              }
-            }}
-          >
-            <TiTick className="text-xl" />
-          </div>
-          {/* bar-1 */}
-          <div
-            className={`${stepper > 1 ? "stepper-bar-on" : "stepper-bar-off"}`}
-          ></div>
-
-          {/* step 2 */}
-          <div
-            className={`${
-              stepper >= 2 ? "steper-circle-on" : "steper-circle-off"
-            }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (stepper > 2) {
-                setStepper(2);
-              }
-            }}
-          >
-            <TiTick className="text-xl" />
-          </div>
-          {/* bar-2 */}
-          <div
-            className={`${stepper > 2 ? "stepper-bar-on" : "stepper-bar-off"}`}
-          ></div>
-
-          {/* step 3 */}
-          <div
-            className={`${
-              stepper >= 3 ? "steper-circle-on" : "steper-circle-off"
-            }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (stepper > 3) {
-                setStepper(3);
-              }
-            }}
-          >
-            <TiTick className="text-xl" />
-          </div>
-          {/* bar-3 */}
-          <div
-            className={`${stepper > 3 ? "stepper-bar-on" : "stepper-bar-off"}`}
-          ></div>
-
-          {/* step 4 */}
-          <div
-            className={`${
-              stepper >= 4 ? "steper-circle-on" : "steper-circle-off"
-            }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              console.log(4);
-            }}
-          >
-            <TiTick className="text-xl" />
-          </div>
-        </div>
-      </header>
-      {/* content */}
-      {/* steps */}
-      {stepper === 0 ? (
-        <div className="flex items-center justify-center">
-          <div>
-            <h3 className="text-gray-500 text-lg font-bold my-3">Step - 1</h3>
-            <button
-              className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-              onClick={(e) => {
-                e.stopPropagation();
-                setStepper(1);
-              }}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      ) : stepper === 1 ? (
-        <div className="flex items-center justify-center">
-          <div>
-            <h3 className="text-gray-500 text-lg font-bold my-3">Step - 2</h3>
-            <div className="flex items-center justify-between gap-x-5">
-              <button
-                className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setStepper(0);
-                }}
-              >
-                back
-              </button>
-              <button
-                className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setStepper(2);
-                }}
-              >
-                Next
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : stepper === 2 ? (
-        <div className="flex items-center justify-center">
-          <div>
-            <h3 className="text-gray-500 text-lg font-bold my-3">Step - 3</h3>
-            <div className="flex items-center justify-between gap-x-5">
-              <button
-                className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setStepper(1);
-                }}
-              >
-                back
-              </button>
-              <button
-                className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setStepper(3);
-                }}
-              >
-                Next
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : stepper === 3 ? (
-        <div className="bg-white m-2 rounded-sm">
-          <header className="flex items-center justify-between gap-3 py-2 px-[5%] border-b border-gray-200 rounded-sm">
-            {/* all type */}
-            <div className="flex flex-col gap-y-3 relative border-r border-gray-200 pr-3 w-full">
-              <span className="text-gray-500">Type of counceling</span>
-              <div className="flex items-center justify-between">
-                <h3 className="font-semibold">{allTypeHeaderText}</h3>
-                <button
-                  className="text-lg"
-                  onClick={() => {
-                    setIsAllTypeOpen(!isAllTypeOpen);
-                  }}
-                >
-                  {isAllTypeOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </button>
-              </div>
-              {isAllTypeOpen ? (
-                <div className="absolute bg-white-400  bg-white shadow-md top-[100%] p-2 right-0">
-                  <ul>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsAllTypeOpen(false);
-                        handleAllTypeSelection("All Types");
-                      }}
-                    >
-                      <NavLink>All Types</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsAllTypeOpen(false);
-                        handleAllTypeSelection("Option One");
-                      }}
-                    >
-                      <NavLink>Option One</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsAllTypeOpen(false);
-                        handleAllTypeSelection("Option Two");
-                      }}
-                    >
-                      <NavLink>Option Two</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-            {/* cities */}
-            <div className="flex flex-col gap-y-3 relative border-r border-gray-200 pr-3 w-full">
-              <span className="text-gray-500">City</span>
-              <div className="flex items-center justify-between">
-                <h3 className="font-semibold">{allCityHeaderText}</h3>
-                <button
-                  className="text-lg"
-                  onClick={() => {
-                    setIsCityOpen(!isCityOpen);
-                  }}
-                >
-                  {isCityOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </button>
-              </div>
-              {isCityOpen ? (
-                <div className="absolute bg-white-400  bg-white shadow-md top-[100%] p-2 right-0">
-                  <ul>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsCityOpen(false);
-                        handleCitySelection("All Cities");
-                      }}
-                    >
-                      <NavLink>All Cities</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsCityOpen(false);
-                        handleCitySelection("City One");
-                      }}
-                    >
-                      <NavLink>City One</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsCityOpen(false);
-                        handleCitySelection("City Two");
-                      }}
-                    >
-                      <NavLink>City Two</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-            {/* age */}
-            <div className="flex flex-col gap-y-3 relative border-r border-gray-200 pr-3 w-full">
-              <span className="text-gray-500">Age</span>
-              <div className="flex items-center justify-between">
-                <h3 className="font-semibold">{ageHeaderText}</h3>
-                <button
-                  className="text-lg"
-                  onClick={() => {
-                    setIsAge(!isAge);
-                  }}
-                >
-                  {isAge ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </button>
-              </div>
-              {isAge ? (
-                <div className="absolute bg-white-400  bg-white shadow-md top-[100%] p-2 right-0">
-                  <ul>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsAge(false);
-                        handleAgeSelection("35+");
-                      }}
-                    >
-                      <NavLink>35+</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsAge(false);
-                        handleAgeSelection("25+");
-                      }}
-                    >
-                      <NavLink>25+</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsAge(false);
-                        handleAgeSelection("45+");
-                      }}
-                    >
-                      <NavLink>45+</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-            {/* gender */}
-            <div className="flex flex-col gap-y-3 relative border-r border-gray-200 pr-3 w-full">
-              <span className="text-gray-500">Gender</span>
-              <div className="flex items-center justify-between">
-                <h3 className="font-semibold">{genderHeaderText}</h3>
-                <button
-                  className="text-lg"
-                  onClick={() => {
-                    setIsGenderOpen(!isGenderOpen);
-                  }}
-                >
-                  {isGenderOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </button>
-              </div>
-              {isGenderOpen ? (
-                <div className="absolute bg-white-400  bg-white shadow-md top-[100%] p-2 right-0">
-                  <ul>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsGenderOpen(false);
-                        handleGenderSelection("All");
-                      }}
-                    >
-                      <NavLink>All</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsGenderOpen(false);
-                        handleGenderSelection("Male");
-                      }}
-                    >
-                      <NavLink>Male</NavLink>
-                    </li>
-                    <li
-                      className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
-                      onClick={(e) => {
-                        setIsGenderOpen(false);
-                        handleGenderSelection("Female");
-                      }}
-                    >
-                      <NavLink>Female</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-          </header>
-          {/* 
-        ///////////////////////////////////////////
-        content 
-        //////////////////////////////////////////
-        */}
-
-          <div className="bg-gray-100 h-[68vh] overflow-y-auto p-2 grid grid-cols-2 md:grid-cols-3 gap-3">
-            {/* cards */}
-            {cunsultations?.length > 0 ? (
-              <>
-                {cunsultations.map((con, index) => (
-                  <div
-                    key={index}
-                    className="bg-white shadow-md rounded-md p-3 h-max"
-                  >
-                    {/* profile */}
-                    <div className="flex items-center justify-center gap-x-3 my-2">
-                      {/* image */}
-                      <div>
-                        <img
-                          src={con.profile}
-                          alt=""
-                          className="w-[32px] h-[32px] object-cover object-center rounded-full"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="font-semibold">
-                          {con.first_name} {con.last_name}
-                        </span>
-                        <span className="text-gray-500">{con.proffession}</span>
-                      </div>
-                    </div>
-                    {/* rating and address */}
-                    <div className="flex items-center justify-center gap-x-3">
-                      {/* rating btn */}
-                      <button
-                        className={`px-3 py-[.13rem] rounded-full text-gray-100 ${
-                          con.rating >= 4
-                            ? "bg-emerald-500"
-                            : con.rating >= 3
-                            ? "bg-yellow-300"
-                            : "bg-red-500"
-                        } flex items-center justify-between`}
-                      >
-                        <FaStar className="mr-1 text-lg" /> {con.rating}
-                      </button>
-                      {/* address */}
-                      <div className="flex items-center text-gray-500">
-                        <MdOutlineShareLocation className="text-xl mr-1" />
-                        <span>{con.address}</span>
-                      </div>
-                    </div>
-                    {/* expereience */}
-                    <div className="flex flex-col items-center text-gray-500 my-3">
-                      <span>{con.experiene} years of experience</span>
-                      <span>{con.consult}+ consultaions</span>
-                    </div>
-                    {/* btn container */}
-                    <div className="flex items-center justify-center gap-x-3">
-                      <button
-                        className="px-[15%] py-2 rounded-full bg-blue-600 text-white"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setStepper(4);
-                        }}
-                      >
-                        select
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <div>No Cunsultaions</div>
-            )}
-          </div>
-        </div>
-      ) : stepper === 4 ? (
-        <div className="flex items-center justify-center">
-          <div>
-            <h3 className="text-gray-500 text-lg font-bold my-3">Final</h3>
-            <div className="flex items-center justify-between gap-x-5">
-              <button
-                className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setStepper(3);
-                }}
-              >
-                back
-              </button>
-              <button
-                className="px-5 py-1 rounded-sm bg-blue-700 text-white"
-                onClick={(e) => {
-                  setStepper(4);
-                }}
-              >
-                Confirm
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <></>
+    <div className="bg-gray-100 h-full rounded-t-md">
+      <SteperComponent
+        steps={3}
+        stepsHint={stepsHint}
+        stepCounter={stepCounter}
+        setStepCounter={setStepCounter}
+      />
+      {/* content here */}
+      {stepCounter === 0 ? (
+        <CaseCategory
+          caseCategories={caseCategories}
+          newCase={newCase}
+          stepCounter={stepCounter}
+          setNewCase={setNewCase}
+          setStepCounter={setStepCounter}
+          setNewCaseHistory={setNewCaseHistory}
+        />
+      ) : stepCounter === 1 ? (
+        <NewCaseType
+          caseCategories={caseCategories}
+          newCase={newCase}
+          stepCounter={stepCounter}
+          setNewCase={setNewCase}
+          setStepCounter={setStepCounter}
+          setNewCaseHistory={setNewCaseHistory}
+        />
+      ) : stepCounter === 2 ? (
+        <NewCaseServices
+          stepCounter={stepCounter}
+          newCaseHistory={newCaseHistory}
+          setStepCounter={setStepCounter}
+          setNewCaseHistory={setNewCaseHistory}
+        />
+      ) :   (
+        <ConfirmNewCase
+          stepCounter={stepCounter}
+          setStepCounter={setStepCounter}
+          newCaseHistory={newCaseHistory}
+        />
       )}
     </div>
   );

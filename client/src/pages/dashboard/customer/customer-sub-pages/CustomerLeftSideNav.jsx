@@ -160,7 +160,7 @@ const CustomerLeftSideNav = () => {
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     to={`/dashboard/customer/new-case`}
-                    className={`dashboard-sub-link-items bg-red-600 ${
+                    className={`dashboard-sub-link-items ${
                       isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
                     }`}
                     onClick={(e) => {
