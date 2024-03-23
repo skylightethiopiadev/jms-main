@@ -54,12 +54,12 @@ const userSchema = new mongoose.Schema(
       // },
     },
 
-    userName: {
-      type: String,
-      // unique: [true, "This user name address is taken"],
-      validate: valid.userName("User name"),
-      // required: [true, "User name is required"],
-    },
+    // userName: {
+    //   type: String,
+    //   // unique: [true, "This user name address is taken"],
+    //   validate: valid.userName("User name"),
+    //   // required: [true, "User name is required"],
+    // },
 
     email: {
       type: String,
@@ -89,19 +89,20 @@ const userSchema = new mongoose.Schema(
     // userType: { type: String, required: [true, "User type is required"] },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: function () {
-        return this.role === "lawyer"
-          ? "lawyer"
-          : this.role === "business"
-          ? "institute"
-          : this.role === "case-manager-main" ||
-            this.role === "case-manager-regular" ||
-            this.role === "case-manager-external"
-          ? "case-manager"
-          : this.role === "super-admin"
-          ? "super-admin"
-          : "private";
-      },
+      // ref: function () {
+      //   return this.role === "lawyer"
+      //     ? "lawyer"
+      //     : this.role === "business"
+      //     ? "institute"
+      //     : this.role === "case-manager-main" ||
+      //       this.role === "case-manager-regular" ||
+      //       this.role === "case-manager-external"
+      //     ? "case-manager"
+      //     : this.role === "super-admin"
+      //     ? "super-admin"
+      //     : "private";
+      // },
+      ref: "lawyer",
     },
     password: {
       type: String,

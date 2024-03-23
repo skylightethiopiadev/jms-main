@@ -11,7 +11,7 @@ export const authorization = async (req, res, next) => {
   const table = selectModel(req.params.table, next)?.collection?.collectionName; //model.collection.collectionName
   const role = req.user.role; //req.user.role
   const data =
-    role === "customer" || role === "lawyer"
+    role === "private-customer" || "business-customer" || role === "lawyer"
       ? undefined
       : await Permission.findById(req.user.permission); //permission data
   let key = table === "users" ? req.query.uu_tt : table;
@@ -52,7 +52,9 @@ export const authorization = async (req, res, next) => {
         case "categories":
           //current user role
           switch (role) {
-            case "customer":
+            case "private-customer":
+              return unauthorized(next);
+            case "business-customer":
               return unauthorized(next);
             case "lawyer":
               return unauthorized(next);
@@ -67,7 +69,9 @@ export const authorization = async (req, res, next) => {
         case "cases":
           //current user role
           switch (role) {
-            case "customer":
+            case "private-customer":
+              return unauthorized(next);
+            case "business-customer":
               return unauthorized(next);
             case "lawyer":
               return unauthorized(next);
@@ -81,7 +85,9 @@ export const authorization = async (req, res, next) => {
 
         case "permissions":
           switch (role) {
-            case "customer":
+            case "private-customer":
+              return unauthorized(next);
+            case "business-customer":
               return unauthorized(next);
             case "lawyer":
               return unauthorized(next);

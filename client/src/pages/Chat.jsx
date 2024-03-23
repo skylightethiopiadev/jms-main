@@ -11,13 +11,28 @@ import LoadingButton from "../components/loading/LoadingButton";
 import Loading from "../components/loading/Loading";
 import { useLocation } from "react-router-dom";
 
+// import { DarkThemeToggle } from "flowbite-react";
+// import React, { useEffect, useRef, useState } from "react";
+// import { io } from "socket.io-client";
+// import {
+//   useCreateMutation,
+//   useLazyReadChatQuery,
+//   useReadQuery,
+// } from "./../../../../features/api/apiSlice";
+// import Response from "../../../../components/Response";
+// import LoadingButton from "../../../../components/loading/LoadingButton";
+// import Loading from "../../../../components/loading/Loading";
+// import { useLocation } from "react-router-dom";
+
 const Chat = () => {
   const [socket, setSocket] = useState(null);
   const location = useLocation();
   const [sendMessageData, sendMessageResponse] = useCreateMutation();
   const [sender, setSenderId] = useState("");
   const [receiver, setReceiverId] = useState("");
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({
+    // _id: "65eaae5c42838d4af4c23d8d",
+  });
   const [onlineUsers, setOnlineUsers] = useState();
   const [message, setMessage] = useState("");
   const [pending, setPending] = useState(false);
@@ -78,16 +93,7 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    setSocket(
-      io(
-        "http://localhost:5000"
-        // , {
-        // path: "/socket.io",
-        // transports: ["websocket"],
-        // secure: true,
-        // }
-      )
-    );
+    setSocket(io("http://localhost:5000"));
   }, []);
 
   useEffect(() => {
@@ -194,7 +200,69 @@ const Chat = () => {
     }
   }, [message]);
 
+  //##########################################################################
+  // const [payload, setPayload] = useState();
+  // const [videoFile, setVideoFile] = useState();
+
+  // navigator.getUserMedia =
+  //   navigator.getUserMedia ||
+  //   navigator.webkitGetUserMedia ||
+  //   navigator.mozGetUserMedia;
+
+  // const successCallback = (stream) => {
+  //   setPayload(stream);
+  //   const video = document.getElementById("video");
+  //   console.log(video, "video");
+  //   window.stream = stream; // stream available to console
+  //   if (window.URL && video) {
+  //     video.srcObject = stream;
+  //     video.onloadedmetadata = function (e) {
+  //       video.play();
+  //     };
+  //   } else {
+  //     video.srcObject = stream;
+  //     video.onloadedmetadata = function (e) {
+  //       video.play();
+  //     };
+  //   }
+  // };
+
+  // const errorCallback = (error) => {
+  //   console.log("navigator.getUserMedia error: ", error);
+  // };
+
+  // useEffect(() => {
+  //   navigator.getUserMedia(
+  //     { audio: false, video: true },
+  //     successCallback,
+  //     errorCallback
+  //   );
+  // }, []);
+
+  // useEffect(() => {
+  //   socket?.emit("send-video", payload);
+  //   socket?.on("receive-video", (payload) => {
+  //     console.log(payload, "inside");
+  //     setVideoFile(payload);
+  //   });
+  // }, [payload]);
+
+  // console.log(videoFile, "received");
+  // console.log(payload, "sent");
   return (
+    // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full h-auto gap-10 m-10 place-items-center">
+    //   {[1, 2, 3, 4].map((e, i) => {
+    //     return (
+    //       <video
+    //         key={i}
+    //         id="video"
+    //         autoPlay
+    //         controls
+    //         className="w-full h-52"
+    //       ></video>
+    //     );
+    //   })}
+    // </div>
     <div className="flex w-full h-[100vh">
       {/* side navigation */}
       <div className="hidden md:flex border-r py-2 items-start justify-start shadow-md">

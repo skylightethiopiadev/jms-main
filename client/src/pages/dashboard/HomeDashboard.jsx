@@ -14,7 +14,7 @@ import CreateRole from "./roles/CreateRole";
 import AllRoles from "./roles/AllRoles";
 import Update from "./roles/Update";
 import Detail from "./roles/Detail";
-import Customers from "./customers/Customers";
+// import Customers from "./customers/Customers";
 import Consulting from "./consulting/Consulting";
 import Tutorials from "./tutorials/Tutorials";
 import Reports from "./reports/Reports";
@@ -23,6 +23,9 @@ import ServiceAreaDetail from "./categories/ServiceAreaDetail";
 import ServiceAreaRead from "./categories/ServiceAreaRead";
 import ServiceAreaCreate from "./categories/ServiceAreaCreate";
 import ServiceAreaUpdate from "./categories/ServiceAreaUpdate";
+import CreateNewCase from "./caseChart/CreateNewCase";
+import ActiveCase from "./caseChart/ActiveCase";
+import ClosedCase from "./caseChart/ClosedCase";
 
 export const mobileContext = createContext();
 
@@ -64,7 +67,7 @@ const HomeDashboard = ({ role }) => {
         nightMode,
         setNightMode,
         borderColor,
-        role,
+        role: "super-admin",
       }}
     >
       <div
@@ -77,7 +80,7 @@ const HomeDashboard = ({ role }) => {
         >
           <div className="flex items-center w-[300px] gap-2 p-2">
             <Balance fontSize="large" />{" "}
-            <p className="title font-semibold">JMS</p>
+            <p className="title font-semibold">MACUTTA</p>
           </div>
           <Header />
         </div>
@@ -164,10 +167,13 @@ const HomeDashboard = ({ role }) => {
               <Route path="/role-all" element={<AllRoles />} />
               <Route path="/role-all/update" element={<Update />} />
               <Route path="/role-all/detail" element={<Detail />} />
-              <Route path="/customers" element={<Customers />} />
+              {/* <Route path="/customers" element={<Customers />} /> */}
               <Route path="/consulting" element={<Consulting />} />
               <Route path="/tutorials" element={<Tutorials />} />
               <Route path="/reports" element={<Reports />} />
+              <Route path="/create-new-case" element={<CreateNewCase />} />
+              <Route path="/active-case" element={<ActiveCase />} />
+              <Route path="/closed-case" element={<ClosedCase />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
             {/* )} */}

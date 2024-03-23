@@ -160,6 +160,7 @@ const NewCase = () => {
     },
   ];
 
+  console.log(serviceType, "service type");
   return (
     <div className="bg-gray-100 h-full rounded-t-md">
       <SteperComponent

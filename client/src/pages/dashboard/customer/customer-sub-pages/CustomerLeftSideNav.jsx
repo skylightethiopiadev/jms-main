@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // site logo
-import siteMainLogo from "../../../../assets/images/site-logo/final-logo.png";
+import siteMainLogo from "../../../../assets/images/site-logo/logoFinal.png";
 import callCenter from "../../../../assets/images/call-center/call-center-1.png";
 
 //icons

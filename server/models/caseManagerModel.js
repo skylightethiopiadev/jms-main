@@ -56,6 +56,10 @@ const caseManagerSchema = new mongoose.Schema(
     licenseFile: {
       type: Buffer,
     },
+
+    profileFillStatus: {
+      type: Number,
+    },
   },
   {
     timestamps: true,
@@ -68,4 +72,31 @@ const caseManagerSchema = new mongoose.Schema(
   }
 );
 
+caseManagerSchema.pre("findOneAndUpdate", function (next) {
+  this.options.runValidators = true;
+  next();
+});
+
+caseManagerSchema.pre("save", function (next) {
+  let percent = 28;
+  const fields = [
+    "levelOfEducation",
+    "startingDate",
+    "licenseType",
+    "licenseLevel",
+    "specializedArea",
+    "additionalSkills",
+    "languageSkills",
+    "managerType",
+    "licenseFile",
+  ];
+  fields.map((field) => {
+    if (this[field]?.length > 0) {
+      percent += 9;
+    }
+  });
+
+  this.profileFillStatus = percent;
+  next();
+});
 export const CaseManager = mongoose.model("case-manager", caseManagerSchema);

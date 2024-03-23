@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // site logo
-import siteMainLogo from "../../../../assets/images/site-logo/final-logo.png";
+import logo from "../../../../assets/images/site-logo/logoFinal.png";
 import callCenter from "../../../../assets/images/call-center/call-center-1.png";
 
 //icons
@@ -89,7 +89,7 @@ const LawyerLeftSideNav = () => {
             }}
           >
             {/* icon */}
-            <img src={siteMainLogo} alt="" className="w-[200px] h-[120px] " />
+            <img src={logo} alt="" className="w-[200px] h-[120px] " />
           </NavLink>
         </div>
         {/* nav container */}

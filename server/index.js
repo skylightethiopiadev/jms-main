@@ -48,7 +48,9 @@ app.all("*", (req, res, next) => {
   next();
 });
 app.use(errorController);
+const videoUsers = {};
 
+const socketToRoom = {};
 mongodb()
   .then(() => {
     // const server = app.listen(process.env.PORT, (err) => {
@@ -111,25 +113,6 @@ mongodb()
     };
 
     io.on("connection", (socket) => {
-      //video ##################################################
-      socket.emit("me", socket.id);
-
-      socket.on("disconnect", () => {
-        socket.broadcast.emit("callEnded");
-      });
-
-      socket.on("callUser", (data) => {
-        io.to(data.userToCall).emit("callUser", {
-          signal: data.signalData,
-          from: data.from,
-          name: data.name,
-        });
-      });
-
-      socket.on("answerCall", (data) => {
-        io.to(data.to).emit("callAccepted", data.signal);
-      });
-      //########################################################
       //user connected
       socket.on("connect-user", (user) => {
         if (user !== "") {
@@ -169,8 +152,32 @@ mongodb()
       //typing indicator off
       socket.on("typing f", (bool, room) => {
         socket.join(room);
-        socket.broadcast.to(room).emit("typing false", bool);
+        socket.to(room).emit("typing false", bool);
       });
+
+      //voice call incoming
+      socket.on("call-request-send", (chatId, name) => {
+        socket.join(chatId);
+        socket.broadcast.to(chatId).emit("call-request-received", true, name);
+      });
+
+      socket.on("call-rejected", (chatId, bool, msg) => {
+        socket.join(chatId);
+        socket.broadcast.to(chatId).emit("call-rejected-response", bool, msg);
+      });
+
+      socket.on("call-accepted", (chatId, bool, peerId) => {
+        socket.join(chatId);
+        console.log(peerId, "remote peer id");
+        socket.broadcast
+          .to(chatId)
+          .emit("call-accepted-response", bool, peerId);
+      });
+
+      // socket.on("call-accepted-peerIdSend", (chatId, peerId) => {
+      //   socket.join(chatId);
+      //   socket.to(chatId).emit("call-accepted-peerId", peerId);
+      // });
 
       socket.on("sen aaaa", (val) => {
         io.emit("rec aaaa", val);
@@ -198,6 +205,75 @@ mongodb()
 
       socket.on("ff1", (val) => {
         io.emit("ff2", val);
+      });
+      //video ##################################################
+      // socket.on("send-video", (payload) => {
+      //   console.log(payload, "payload");
+      //   io.emit("receive-video", payload);
+      // });
+      //########################################################
+      //group call
+      socket.on("join room", (roomID) => {
+        if (videoUsers[roomID]) {
+          const length = videoUsers[roomID].length;
+          if (length === 4) {
+            socket.emit("room full");
+            return;
+          }
+          videoUsers[roomID].push(socket.id);
+        } else {
+          videoUsers[roomID] = [socket.id];
+        }
+        socketToRoom[socket.id] = roomID;
+        const usersInThisRoom = videoUsers[roomID].filter(
+          (id) => id !== socket.id
+        );
+
+        socket.emit("all users", usersInThisRoom);
+      });
+
+      socket.on("sending signal", (payload) => {
+        io.to(payload.userToSignal).emit("user joined", {
+          signal: payload.signal,
+          callerID: payload.callerID,
+        });
+      });
+
+      socket.on("returning signal", (payload) => {
+        io.to(payload.callerID).emit("receiving returned signal", {
+          signal: payload.signal,
+          id: socket.id,
+        });
+      });
+
+      socket.on("disconnect", () => {
+        const roomID = socketToRoom[socket.id];
+        let room = videoUsers[roomID];
+        if (room) {
+          room = room.filter((id) => id !== socket.id);
+          videoUsers[roomID] = room;
+        }
+        socket.broadcast.emit("user left", socket.id);
+      });
+      //group call end
+      //#######################################################
+      //private call started
+      socket.emit("me", socket.id);
+
+      socket.on("disconnect", () => {
+        socket.broadcast.emit("callEnded");
+      });
+
+      socket.on("callUser", (data) => {
+        io.to(data.userToCall).emit("callUser", {
+          signal: data.signalData,
+          from: data.from,
+          name: data.name,
+        });
+      });
+
+      socket.on("answerCall", (data) => {
+        io.to(data.to).emit("callAccepted", data.signal);
       });
     });
 

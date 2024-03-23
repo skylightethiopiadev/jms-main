@@ -28,17 +28,93 @@ const CustomerDashboardHome = () => {
   const [isUserMore, setIsUserMore] = useState(null);
   const [isUserMorePopup, setIsUserMorePopup] = useState(null);
 
-  // charts
-  const chartType = ["bar", "area"];
-  const [chartIndex, setChartIndex] = useState(0);
-
-  // chart switcher
-  const chartTypeSwitcher = () => {
-    if (chartIndex < chartType.length - 1) {
-      setChartIndex(chartIndex + 1);
-    } else {
-      setChartIndex(0);
-    }
+  const state = {
+    series: [
+      {
+        data: [
+          {
+            x: "Jan 22 2024",
+            y: [2800, 4500],
+          },
+          {
+            x: "May 22 2024",
+            y: [3200, 5100],
+          },
+          {
+            x: "Jan 22 2024",
+            y: [2950, 6800],
+          },
+          {
+            x: "Feb 22 2024",
+            y: [3000, 4600],
+          },
+          {
+            x: "June 22 2024",
+            y: [3500, 5100],
+          },
+          {
+            x: "October 22 2024",
+            y: [4500, 6500],
+          },
+          // {
+          //   x: "July 22 2024",
+          //   y: [3100, 6600],
+          // },
+        ],
+      },
+    ],
+    options: {
+      chart: {
+        height: 350,
+        type: "rangeBar",
+        zoom: {
+          enabled: false,
+        },
+      },
+      plotOptions: {
+        bar: {
+          isDumbbell: true,
+          columnWidth: 3,
+          dumbbellColors: [["#008FFB", "#00E396"]],
+        },
+      },
+      legend: {
+        show: true,
+        showForSingleSeries: true,
+        position: "top",
+        horizontalAlign: "left",
+        customLegendItems: [
+          "Oral litigation",
+          "Oral ligigation",
+          "Oral litigation",
+          "Oral litigation",
+        ],
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          type: "vertical",
+          gradientToColors: ["#00E396"],
+          inverseColors: true,
+          stops: [0, 100],
+        },
+      },
+      grid: {
+        xaxis: {
+          lines: {
+            show: true,
+          },
+        },
+        yaxis: {
+          lines: {
+            show: false,
+          },
+        },
+      },
+      xaxis: {
+        tickPlacement: "on",
+      },
+    },
   };
 
   return (

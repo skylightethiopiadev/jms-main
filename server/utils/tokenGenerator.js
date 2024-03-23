@@ -12,9 +12,9 @@ const tokenGenerator = (res, id) => {
     sameSite: "none",
   };
 
-  const MAX_AGE = 60 * 60 * 24;
-  res.cookie("token", token, {
-    maxAge: MAX_AGE * 1000,
+  const MAX_AGE = 30 * 24 * 60 * 60 * 1000;
+  res.cookie("_m_l_f_s", token, {
+    maxAge: MAX_AGE,
     httpOnly: true,
     secure: true,
     sameSite: "None",

@@ -18,13 +18,15 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 // customer-sub-pages
 import LawyerDashboardHeader from "./lawyer-sub-pages/LawyerDashboardHeader";
 import LawyerLeftSideNav from "./lawyer-sub-pages/LawyerLeftSideNav";
+import LawyerNewCase from "./lawyer-sub-pages/LawyerNewCase";
+import LawyerDashboardHome from "./lawyer-sub-pages/LawyerDashboardHome";
 
 const LawyerDashboard = () => {
   // local states
   const [isMonthPopup, setIsMonthPopup] = useState(false);
   const [month, setMonth] = useState("August");
   return (
-    <div className="w-full h-[100vh] overflow-y-hidden flex relative">
+    <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
       <LawyerLeftSideNav />
       <div className=" pl-1 w-full">
         {/* header */}

@@ -110,6 +110,10 @@ const lawyerSchema = new mongoose.Schema(
     profileFillStatus: {
       type: Number,
     },
+
+    replacementAttorney: {
+      type: Number,
+    },
   },
 
   {

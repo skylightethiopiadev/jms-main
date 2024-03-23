@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 /// images
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
@@ -13,13 +13,32 @@ import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeade
 import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import CustomerDashboardHome from "./customer-sub-pages/CustomerDashboardHome";
+import NewCase from "./customer-sub-pages/NewCase";
 
 const CustomerDashboard = () => {
   // local states
+  const location = useLocation();
+  // console.log(location?.state?.email, "user email");
   const [isMonthPopup, setIsMonthPopup] = useState(false);
   const [month, setMonth] = useState("August");
   return (
-    <div className="w-full h-[100vh] overflow-y-hidden flex relative">
+    <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
+      <div className="fixed rounded-full border-2 border-blue-500 z-30 bottom-4 right-4 h-auto w-auto shadow-xl shadow-gray-500">
+        <div className="flex w-[120px] py-1 px-2 bg-white border border-gray-400 shadow-xl shadow-gray-500 h-full rounded-md absolute right-14">
+          <div className="w-full text-center text-xs">
+            <p>
+              Hi, How can we <br />
+              help you today?
+            </p>
+          </div>
+        </div>
+        <div className="absolute h-3 w-3 rotate-45 bg-white border border-gray-400 border-l-0 border-b-0 z-30 right-[50px] top-5"></div>
+        <div class="relative">
+          <img class="w-11 h-11 rounded-full" src={customerImage} alt="" />
+          <span class="top-2 -right-2 absolute  w-4 h-4 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+        </div>
+      </div>
       <CustomerLeftSideNav />
       <div className="ml-1 w-full">
         {/* header */}
@@ -38,12 +57,12 @@ const CustomerDashboard = () => {
             {/* <div>right</div> */}
           </header>
           {/* content */}
-          <div className="h-full flex bg-white">
+          <div className="h-auto flex bg-white">
             {/* main content */}
             <div className="w-full">
               <Outlet />
             </div>
-            {/* right content */}
+            .{/* right content */}
             <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
