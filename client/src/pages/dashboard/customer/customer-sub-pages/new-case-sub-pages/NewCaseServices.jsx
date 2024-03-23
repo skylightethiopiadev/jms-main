@@ -1,5 +1,6 @@
 const NewCaseServices = ({
   stepCounter,
+  newCaseHistory,
   setStepCounter,
   setNewCaseHistory,
 }) => {
@@ -52,6 +53,7 @@ const NewCaseServices = ({
                   className="focus:outline-none focus:ring-0"
                   value={service}
                   onChange={inputChangeHandler}
+                  checked={newCaseHistory?.services?.find(item=>item===service ? true : false)}
                 />
                 <label htmlFor={`${index}`} className="cursor-pointer">
                   {service}

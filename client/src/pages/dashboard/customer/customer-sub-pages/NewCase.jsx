@@ -190,6 +190,7 @@ const NewCase = () => {
       ) : stepCounter === 2 ? (
         <NewCaseServices
           stepCounter={stepCounter}
+          newCaseHistory={newCaseHistory}
           setStepCounter={setStepCounter}
           setNewCaseHistory={setNewCaseHistory}
         />
