@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { IoChevronDown } from "react-icons/io5";
 import { LuPhone } from "react-icons/lu";
 import { RiSearch2Line } from "react-icons/ri";
+import { MdOutlineClose } from "react-icons/md";
 
 const FinalHeader = () => {
   // local states
@@ -20,7 +21,7 @@ const FinalHeader = () => {
           </h3>
         </div>
         {/* right container */}
-        <div className="flex items-center justify-center flex-grow ">
+        <div className="flex items-center justify-center flex-grow relative">
           {/* nav container */}
           <div className="h-full flex-grow w-full">
             <ul className="flex items-center justify-center gap-1 h-full">
@@ -31,13 +32,13 @@ const FinalHeader = () => {
                 >
                   <NavLink
                     className={
-                      `py-7 px-3 h-full relative text-[1.075rem] font-medium flex items-center justify-between gap-3 after:absolute after:left-0 after:bottom-0 after:h-[7px] after:bg-gray-700 after:transition-all after:ease-in-out after:duration-300 hover:after:w-full transition-all ease-in-out duration-300 hover:text-gray-500 ${nav ? 'after:w-full' : 'after:w-0'}`
+                      `py-7 px-3 h-full relative text-[.875rem] font-[600] flex items-center justify-between gap-3 after:absolute after:left-0 after:bottom-0 after:h-[7px] after:bg-gray-700 after:transition-all after:ease-in-out after:duration-300 hover:after:w-full transition-all ease-in-out duration-300 hover:text-gray-500 ${nav ? 'after:w-full' : 'after:w-0'}`
                     }
                     onClick={()=>{
                         setNav(!nav)
                     }}
                   >
-                    <span>Link {index} </span>
+                    <span>Business</span>
                     <IoChevronDown className={`text-xl transition-all ease-in-out duration-300 ${nav ? 'rotate-[-180deg]' : 'rotate-0'}`} />
                   </NavLink>
                   {/* pop up */}
@@ -82,6 +83,8 @@ const FinalHeader = () => {
               <span className="font-semibold">sign up</span>
             </div>
           </div>
+          {/* search bar */}
+          
         </div>
       </div>
       {/* firs pop */}
