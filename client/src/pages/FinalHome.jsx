@@ -13,7 +13,7 @@ const FinalHome = () => {
       {/* <Header /> */}
       <FinalHeader />
       {/* first order container */}
-      <div className="w-full bg-gradient-to-r from-white to-orange-50 px-[3.75%] pb-[4.75%] pt-[1%] flex items-end justify-between gap-1 relative z-0">
+      <div className="w-full bg-gradient-to-r from-gray-50 to-orange-100 px-[3.75%] pb-[4.75%] pt-[1%] flex items-end justify-between gap-1 relative z-0">
         <div className="w-[50%] pl-[5%]">
           <div>
             <button className="px-[7%] py-[.1rem] rounded-full bg-sky-50 border border-sky-100">
