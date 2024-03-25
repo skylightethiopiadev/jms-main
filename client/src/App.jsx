@@ -6,7 +6,7 @@ import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
-
+import FinalHome from "./pages/FinalHome";
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
@@ -44,7 +44,7 @@ function App() {
       <div className={`font-workSans medium   tracking-wide`}>
         <div className="flex flex-col">
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<FinalHome />}></Route>
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>

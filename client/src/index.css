@@ -37,6 +37,25 @@
   border-radius: 4px;
 }
 
+/* home-lawyer-list-card */
+
+#home-lawyer-list-card::-webkit-scrollbar {
+  width: 0px;
+}
+
+#home-lawyer-list-card:hover::-webkit-scrollbar {
+  width: 2px;
+}
+
+#home-lawyer-list-card::-webkit-scrollbar-track {
+  background: rgb(219, 219, 219);
+  width: 2px;
+}
+#home-lawyer-list-card::-webkit-scrollbar-thumb {
+  background: rgb(185, 185, 185);
+  width: 2px;
+}
+
 /* custome header */
 /* case-team-table-container */
 #case-team-table-container::-webkit-scrollbar {

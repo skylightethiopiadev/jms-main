@@ -110,7 +110,7 @@ const HeaderBottom = () => {
   };
   return (
     <div className="w-full flex items-center justify-center">
-      <div className="flex-grow px-[.75%] flex items-center justify-between relative">
+      <div className="flex-grow flex items-center justify-between relative">
         {/* menu icon */}
         <div>
           <button
