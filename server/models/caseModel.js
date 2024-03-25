@@ -4,6 +4,12 @@ import * as valid from "../utils/validator.js";
 
 const caseSchema = new Schema(
   {
+    caseId: {
+      type: String,
+      // unique: [true, "This case name is taken"],
+      required: [true, "Please select {PATH}"],
+    },
+    
     category: {
       type: String,
       // unique: [true, "This case name is taken"],

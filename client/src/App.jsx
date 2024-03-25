@@ -59,10 +59,10 @@ function App() {
           <div className="flex flex-col">
             <Routes>
               <Route path="/" element={<Home />}></Route>
-              <Route path="login" element={<Login />}></Route>
-              <Route path="signUp" element={<SignUp />}></Route>
-              <Route path="chat" element={<Chat />}></Route>
-              <Route path="dashboard" element={<HomeDashboard />}>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/signUp" element={<SignUp />}></Route>
+              <Route path="/chat" element={<Chat />}></Route>
+              <Route path="/dashboard" element={<HomeDashboard />}>
                 <Route
                   path="/dashboard/applications"
                   element={<Applications />}

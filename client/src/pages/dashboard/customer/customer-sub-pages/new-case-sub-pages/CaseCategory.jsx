@@ -13,7 +13,7 @@ const CaseCategory = ({
 }) => {
   const [caseCategory, setCaseCategory] = useState(null);
 
-  return (
+  return ( 
     <div className="py-[3%] h-min overflow-y-auto relative">
       <div className="w-full flex items-center justify-center">
         <h3 className="text-2xl font-black text-gray-700 my-1">

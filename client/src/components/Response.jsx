@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Close } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
-import { userContext } from "../App";
+// import { userContext } from "../App";
 
 const Response = ({ response, setPending, redirectTo, type }) => {
-  const context = useContext(userContext);
+  console.log(redirectTo, type, redirectTo?.length > 0, "rrrrrrrr");
+  // const context = useContext(userContext);
   const navigate = useNavigate();
   const [error, setError] = useState(true);
   const [success, setSuccess] = useState(false);
@@ -39,23 +40,36 @@ const Response = ({ response, setPending, redirectTo, type }) => {
           dashboard = "/dashboard";
           break;
       }
-    }
 
-    response.status === "fulfilled" && dashboard?.length > 0
-      ? (setError(false),
-        setSuccess(true),
-        setSuccessMessage(response?.data?.message),
-        setTimeout(() => {
-          setSuccess(false);
-        }, 6000),
-        type === "login" || "signUp"
-          ? navigate(dashboard, { replace: true })
-          : redirectTo && redirectTo?.length > 0
-          ? navigate(redirectTo, { replace: true })
-          : setTimeout(() => {
-              setSuccess(false);
-            }, 6000))
-      : null;
+      setError(false);
+      setSuccess(true);
+      setSuccessMessage(response?.data?.message);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 6000);
+
+      if (type === "login" || type === "signUp") {
+        navigate(dashboard, { replace: true });
+      } else if (redirectTo && redirectTo?.length > 0) {
+        navigate(redirectTo, { replace: true });
+      }
+    }
+    // navigate(redirectTo);
+    // response.status === "fulfilled"
+    // ? (setError(false),
+    //   setSuccess(true),
+    //   setSuccessMessage(response?.data?.message),
+    //   setTimeout(() => {
+    //     setSuccess(false);
+    //   }, 6000),
+    //   type === "login" || "signUp"
+    //     ? navigate(dashboard, { replace: true })
+    //     : redirectTo && redirectTo?.length > 0
+    //     ? navigate(redirectTo, { replace: true })
+    //     : setTimeout(() => {
+    //         setSuccess(false);
+    //       }, 6000))
+    //   : null;
 
     response.status === "rejected"
       ? (setError(true),

@@ -21,6 +21,9 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
       url: "/user/cases",
       tag: ["cases"],
       user: context?.user?._id,
+      caseId: `${newCaseHistory.caseCategory.substring(0, 3)}--${
+        new Date().toISOString().split("T")[0]
+      }--`,
       category: newCaseHistory.caseCategory,
       type: newCaseHistory.subCaseCategory.title,
       subType: newCaseHistory.subCaseCategory.subSubCaseCategory.title,

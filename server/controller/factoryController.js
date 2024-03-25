@@ -17,10 +17,15 @@ export const _create = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
 
   if (model) {
+    const count = (await model.countDocuments()) + 1;
     if (req.files?.attachments === undefined) {
       const data = await model.create({
         ...req.body,
         // attachments: results?.length > 0 ? results : undefined,
+        caseId:
+          req.params.table === "cases"
+            ? req.body.caseId + count.toString().padStart(10, "0")
+            : undefined,
       });
 
       if (!data)
@@ -43,6 +48,10 @@ export const _create = asyncCatch(async (req, res, next) => {
           const data = await model.create({
             ...req.body,
             attachments: results,
+            caseId:
+              req.params.table === "cases"
+                ? req.body.caseId + count.toString().padStart(10, "0")
+                : undefined,
           });
 
           if (!data)
