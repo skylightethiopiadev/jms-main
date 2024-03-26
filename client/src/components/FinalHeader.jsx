@@ -306,7 +306,7 @@ const FinalHeader = () => {
                   className="h-full flex items-center justify-center relative"
                 >
                   <NavLink
-                    className={`py-7 px-3 h-full relative text-[.875rem] font-[600] flex items-center justify-between gap-3 after:absolute after:left-0 after:bottom-0 after:h-[7px] after:bg-gray-700 after:transition-all after:ease-in-out after:duration-300 hover:after:w-full transition-all ease-in-out duration-300 hover:text-gray-500 whitespace-nowrap  ${
+                    className={`py-7 px-3 h-full relative text-[.975rem] font-[600] flex items-center justify-between gap-3 after:absolute after:left-0 after:bottom-0 after:h-[7px] after:bg-gray-700 after:transition-all after:ease-in-out after:duration-300 hover:after:w-full transition-all ease-in-out duration-300 hover:text-gray-500 whitespace-nowrap  ${
                       mainNav.id === nav?.id ? "after:w-full" : "after:w-0"
                     }`}
                     onClick={() => {
@@ -317,7 +317,7 @@ const FinalHeader = () => {
                       }
                     }}
                   >
-                    <span>{mainNav.headerText.split("/")[0]}</span>
+                    <span>{mainNav.headerText.split("/")[0].toLowerCase()}</span>
                     <IoChevronDown
                       className={`text-xl transition-all ease-in-out duration-300 ${
                         mainNav.id === nav?.id ? "rotate-[-180deg]" : "rotate-0"
@@ -337,31 +337,133 @@ const FinalHeader = () => {
                       }}
                     >
                       <div className="grid grid-cols-1">
-                        {nav?.subNavList.map((subNav, index) => (
-                          <div key={index}>
-                            {subNav.subSubNavList ? (
-                              <div className="my-1">
-                                <h3 className="font-semibold">{subNav.subHeaderText}</h3>
-                                <ul className="ml-[10%]">
-                                  {
-                                    subNav.subSubNavList.map((item,index)=>(
-
-                                  <li key={index}>
-                                    <NavLink onClick={()=>{
-                                      console.log(item)
-                                    }}>{item.subSubHeaderText}</NavLink>
-                                  </li>
-                                    ))
-                                  }
-                                </ul>
-                              </div>
-                            ) : (
-                              <div className="my-1">
-                                <NavLink>{subNav.subHeaderText}</NavLink>
-                              </div>
-                            )}
+                        {nav?.id === "civil" ? (
+                          <div className="w-full px-[10%] text-black font-normal h-full flex items-start gap-[10%] flex-wrap">
+                            <div className="text-lg">
+                              <h3 className="font-bold mb-5">Contract</h3>
+                              <ul>
+                                {mainNavList[0].subNavList[0].subSubNavList.map(
+                                  (item, index) => (
+                                    <li key={index} className="my-2">
+                                      <NavLink className={"hover:underline"}>
+                                        {item.subSubHeaderText.toLowerCase()}
+                                      </NavLink>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div>
+                            <div className="text-lg">
+                              <h3 className="font-bold mb-5">Family</h3>
+                              <ul>
+                                {mainNavList[0].subNavList[2].subSubNavList.map(
+                                  (item, index) => (
+                                    <li key={index}>
+                                      <NavLink
+                                        className={"hover:underline my-1"}
+                                      >
+                                        {item.subSubHeaderText.toLowerCase()}
+                                      </NavLink>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div>
+                            <div className="text-lg">
+                              {/* <h3 className="font-bold">Family</h3> */}
+                              <ul>
+                                <li key={index}>
+                                  <NavLink className={"hover:underline my-1"}>
+                                    succession
+                                  </NavLink>
+                                </li>
+                                <li key={index}>
+                                  <NavLink className={"hover:underline my-1"}>
+                                    employment
+                                  </NavLink>
+                                </li>
+                                <li key={index}>
+                                  <NavLink className={"hover:underline my-1"}>
+                                    property
+                                  </NavLink>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        ))}
+                        ) : nav?.id === "commercial / corporate" ? (
+                          <div className="w-full px-[10%]  text-black font-normal h-full flex items-start flex-wrap gap-[10%] text-[.75rem]">
+                            <div className="text-lg">
+                              <h3 className="font-bold mb-5">Contract</h3>
+                              <ul>
+                                {mainNavList[2].subNavList[3].subSubNavList.map(
+                                  (item, index) => (
+                                    <li key={index} className="my-2">
+                                      <NavLink className={"hover:underline"}>
+                                        {item.subSubHeaderText.toLowerCase()}
+                                      </NavLink>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div>
+                            <div className="text-lg">
+                              <h3 className="font-bold mb-5">
+                                Intellectual property
+                              </h3>
+                              <ul>
+                                {mainNavList[2].subNavList[4].subSubNavList.map(
+                                  (item, index) => (
+                                    <li key={index}>
+                                      <NavLink
+                                        className={"hover:underline my-1"}
+                                      >
+                                        {item.subSubHeaderText.toLowerCase()}
+                                      </NavLink>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div>
+                            <div className="text-lg">
+                              <h3 className="font-bold mb-5">
+                                financial sector
+                              </h3>
+                              <ul>
+                                {mainNavList[2].subNavList[5].subSubNavList.map(
+                                  (item, index) => (
+                                    <li key={index}>
+                                      <NavLink
+                                        className={"hover:underline my-1"}
+                                      >
+                                        {item.subSubHeaderText.toLowerCase()}
+                                      </NavLink>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div>
+                            {/* <div className="text-lg">
+                              <h3 className="font-bold">
+                                corporate
+                              </h3>
+                              <ul>
+                                {mainNavList[2].subNavList[6].subSubNavList.map(
+                                  (item, index) => (
+                                    <li key={index}>
+                                      <NavLink
+                                        className={"hover:underline my-1"}
+                                      >
+                                        {item.subSubHeaderText.toLowerCase()}
+                                      </NavLink>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div> */}
+                          </div>
+                        ) : (
+                          <></>
+                        )}
                       </div>
                     </div>
                   ) : nav?.id === mainNav.id ? (
