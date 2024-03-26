@@ -38,9 +38,10 @@ const Applications = ({ type }) => {
   });
 
   const [payments, setPayments] = useState();
-  const [totalAmount, setTotalAmount] = useState(100);
   const [total, setTotal] = useState(0);
-  const [remaining, setRemaining] = useState(0);
+  const [remaining, setRemaining] = useState(
+    cases?.data[0]?.paymentDetail?.remaining
+  );
   const [payed, setPayed] = useState(0);
   const [onPending, setOnPending] = useState(0);
   const [pending, setPending] = useState(false);
@@ -54,8 +55,11 @@ const Applications = ({ type }) => {
   };
 
   useEffect(() => {
+    console.log(cases?.data[0]?.paymentDetail?.remaining, "llllllllllllllll");
+    setRemaining(cases?.data[0]?.paymentDetail?.remaining);
+    console.log(remaining, "fffffffffffffffffff");
     const data = cases?.data[0]?.paymentDetail;
-    if (cases?.data) {
+    if (cases?.data && data) {
       setTotal(data?.total);
       setRemaining(data?.remaining);
       setPayed(data?.payed);
@@ -63,8 +67,8 @@ const Applications = ({ type }) => {
       setPayments(data?.rounds);
       setCaseId(cases?.data[0]?._id);
     }
-    console.log(cases?.data[0]?.paymentDetail?.rounds, "payments");
-  }, [cases]);
+    // console.log(cases?.data[0]?.paymentDetail?.rounds, "payments");
+  }, [cases?.data]);
 
   const caseAcceptHandler = () => {
     updateCaseData({
@@ -74,7 +78,7 @@ const Applications = ({ type }) => {
         total,
         remaining,
         payed,
-        pending,
+        pending: onPending,
         rounds: payments,
         status: "Pending",
       },
@@ -84,7 +88,7 @@ const Applications = ({ type }) => {
   const caseRejectHandler = () => {
     //
   };
-  console.log("user data", cases?.data[0]);
+  // console.log("user data", cases?.data[0]);
   return (
     <div className="w-full flex items-center justify-center h-auto">
       <Response
@@ -208,11 +212,14 @@ const Applications = ({ type }) => {
                             lists={payments}
                             setLists={setPayments}
                             addLists={addPayments}
-                            totalAmount={total / 1}
+                            totalAmount={total}
+                            setRemaining={setRemaining}
                             remaining={remaining}
                             payed={payed}
                             setPayed={setPayed}
-                            setRemaining={setRemaining}
+                            onPending={onPending}
+                            setOnPending={setOnPending}
+                            paymentDetail={cases?.data[0].paymentDetail}
                             title="Payments"
                           />
                         </div>

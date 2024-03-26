@@ -4,28 +4,46 @@ const Lists = (props) => {
   // const [totalRemaining, props.setRemaining] = useState(0);
   let total = 0;
   useEffect(() => {
-    if (props.lists?.length > 0) {
-      props.lists.map((li) => {
-        total = props.list.amount * 1 + li.amount * 1;
-      });
-      props.setRemaining(total);
-    } else {
-      props.setRemaining(
-        props.totalAmount * 1 + props.list.amount * 1 - props.totalAmount * 1
-      );
-    }
+    console.log(props.remaining - props.list.amount * 1, "amount");
+    props.setRemaining(
+      props.totalAmount - props.onPending - props.payed - props.list.amount * 1
+    );
+    // total = props.remaining - props.list.amount * 1;
+    // props.setRemaining(total);
+    // props.setRemaining(props.remaining - props.list.amount);
+    // if (props.lists?.length > 0) {
+    //   props.lists.map((li) => {
+    //     total = props.list.amount * 1 + li.amount * 1;
+    //   });
+    // } else {
+    //   props.setRemaining(
+    //     props.totalAmount * 1 + props.list.amount * 1 - props.totalAmount * 1
+    //   );
+    // }
   }, [props.list.amount]);
 
   useEffect(() => {
     const payed = props.lists?.filter((e) => e.status === "Payed");
-    console.log(payed, "payed");
     let p = 0;
     payed?.map((e) => {
       p += e.amount;
     });
     props.setPayed(p);
-    console.log(props.payed, "summation");
+
+    const onPending = props.lists?.filter((e) => e.status === "Pending");
+    let pend = 0;
+    onPending?.map((e) => {
+      pend += e.amount;
+    });
+    props.setOnPending(pend);
+
+    props.setRemaining(props.remaining * 1 - props.list.amount * 1);
+    console.log(props.remaining, props.list.amount, "adddddddddddddddd");
   }, [props.lists]);
+
+  useEffect(() => {
+    props.setRemaining(props.paymentDetail.remaining * 1);
+  }, []);
 
   const format = (val) => {
     return (val / 1).toLocaleString("en-US", {
@@ -34,7 +52,7 @@ const Lists = (props) => {
     });
   };
 
-  console.log(props.lists, "lists");
+  // console.log(props.lists, "lists");
   return (
     <div className="flex w-full flex-col gap-2">
       <label
@@ -47,11 +65,17 @@ const Lists = (props) => {
         <div className="flex flex-col items-start">
           <p className="font-bold text-lg">Total</p>
           <p className="">
-            {props.totalAmount.toLocaleString("en-US", {
-              minimumFractionDigits: 1,
-              maximumFractionDigits: 1,
-            })}{" "}
+            {format(props.totalAmount)}
             birr <span className="text-xs font-bold text-main ml-1">100%</span>
+          </p>
+        </div>
+        <div className="flex flex-col items-start">
+          <p className="font-bold text-lg">Remaining</p>
+          <p className="">
+            {format(props.remaining)} birr
+            <span className="text-xs font-bold text-main ml-1">
+              {(((props.remaining * 1) / props.totalAmount) * 100).toFixed(2)}%
+            </span>
           </p>
         </div>
         <div className="flex flex-col items-start">
@@ -62,30 +86,9 @@ const Lists = (props) => {
           </p>
         </div>{" "}
         <div className="flex flex-col items-start">
-          <p className="font-bold text-lg">Remaining</p>
+          <p className="font-bold text-lg">Pending</p>
           <p className="">
-            {((props.totalAmount * 1 - props.remaining * 1) / 1).toLocaleString(
-              "en-US",
-              {
-                minimumFractionDigits: 1,
-                maximumFractionDigits: 1,
-              }
-            )}{" "}
-            birr{" "}
-            <span className="text-xs font-bold text-main ml-1">
-              {(
-                ((props.totalAmount - props.remaining * 1) /
-                  props.totalAmount) *
-                100
-              ).toFixed(2)}
-              %
-            </span>
-          </p>
-        </div>
-        <div className="flex flex-col items-start">
-          <p className="font-bold text-lg">On Pending</p>
-          <p className="">
-            25000 birr{" "}
+            {format(props.onPending)} birr{" "}
             <span className="text-xs font-bold text-main ml-1">13%</span>
           </p>
         </div>
@@ -102,7 +105,11 @@ const Lists = (props) => {
                   <div className="flex flex-col mt-2 gap-1 items-start">
                     <div className="flex w-full items-center justify-between">
                       <p className="">Amount</p>{" "}
-                      <p className="px-2 text-xs py-[2px] rounded-lg text-white bg-main">
+                      <p
+                        className={`px-2 text-xs py-[2px] rounded-lg text-white ${
+                          e.status === "Pending" ? "bg-main" : "bg-emerald-500"
+                        }`}
+                      >
                         {e.status}
                       </p>
                     </div>
@@ -127,8 +134,8 @@ const Lists = (props) => {
 
                   <div
                     onClick={() => {
-                      props.setRemaining(props.remaining - e.amount * 1);
                       props.setLists(props.lists.filter((d) => d !== e));
+                      props.setRemaining(props.remaining * 1 + e.amount * 1);
                     }}
                     className="flex cursor-pointer gap-2 items-center justify-center h-10 mt-2 rounded-lg w-full hover:bg-red-600 text-white bg-red-500"
                   >

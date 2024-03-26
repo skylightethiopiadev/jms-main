@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 // import { userContext } from "../App";
 
 const Response = ({ response, setPending, redirectTo, type }) => {
-  console.log(redirectTo, type, redirectTo?.length > 0, "rrrrrrrr");
+  // console.log(redirectTo, type, redirectTo?.length > 0, "rrrrrrrr");
   // const context = useContext(userContext);
   const navigate = useNavigate();
   const [error, setError] = useState(true);
