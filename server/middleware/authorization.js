@@ -73,6 +73,8 @@ export const authorization = async (req, res, next) => {
               return next();
             case "business-customer":
               return next();
+            case "case-manager-main":
+              return next();
             case "lawyer":
               return unauthorized(next);
             default:

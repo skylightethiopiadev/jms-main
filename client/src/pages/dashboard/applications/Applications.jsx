@@ -1,10 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // import { userContext } from "../../../App";
-import { useReadQuery } from "../../../features/api/apiSlice";
+import {
+  useReadQuery,
+  useUpdateMutation,
+} from "../../../features/api/apiSlice";
 import Loading from "../../../components/loading/Loading";
 import { format } from "timeago.js";
 import customerImage from "../../../assets/images/customers/customer-i.jpg";
 import Lists from "../../../components/Lists";
+import LoadingButton from "../../../components/loading/LoadingButton";
+import Response from "../../../components/Response";
 
 const Applications = ({ type }) => {
   // const context = useContext(userContext);
@@ -18,6 +23,8 @@ const Applications = ({ type }) => {
     tag: ["cases"],
   });
 
+  const [updateCaseData, updateCaseResponse] = useUpdateMutation();
+
   const [payment, setPayment] = useState({
     amount: "",
     percent: "",
@@ -27,12 +34,17 @@ const Applications = ({ type }) => {
     user: "",
     manager: "",
     case: "",
-    status: "Request",
+    status: "Pending",
   });
-  const [payments, setPayments] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
-  const [percent, setPercent] = useState(0);
-  const [amount, setAmount] = useState(0);
+
+  const [payments, setPayments] = useState();
+  const [totalAmount, setTotalAmount] = useState(100);
+  const [total, setTotal] = useState(0);
+  const [remaining, setRemaining] = useState(0);
+  const [payed, setPayed] = useState(0);
+  const [onPending, setOnPending] = useState(0);
+  const [pending, setPending] = useState(false);
+  const [caseId, setCaseId] = useState("");
 
   const addPayments = () => {
     if (payment?.amount?.length > 0 && payment?.deadline?.length > 0) {
@@ -41,9 +53,45 @@ const Applications = ({ type }) => {
     }
   };
 
-  // console.log("user data", cases?.data);
+  useEffect(() => {
+    const data = cases?.data[0]?.paymentDetail;
+    if (cases?.data) {
+      setTotal(data?.total);
+      setRemaining(data?.remaining);
+      setPayed(data?.payed);
+      setOnPending(data?.pending);
+      setPayments(data?.rounds);
+      setCaseId(cases?.data[0]?._id);
+    }
+    console.log(cases?.data[0]?.paymentDetail?.rounds, "payments");
+  }, [cases]);
+
+  const caseAcceptHandler = () => {
+    updateCaseData({
+      url: `/user/cases?id=${caseId}`,
+      tag: ["cases"],
+      paymentDetail: {
+        total,
+        remaining,
+        payed,
+        pending,
+        rounds: payments,
+        status: "Pending",
+      },
+    });
+  };
+
+  const caseRejectHandler = () => {
+    //
+  };
+  console.log("user data", cases?.data[0]);
   return (
     <div className="w-full flex items-center justify-center h-auto">
+      <Response
+        response={updateCaseResponse}
+        setPending={setPending}
+        type="signUp"
+      />
       {isFetching && <Loading width="w-40" text="text-black" />}
       {isError && <p>something went wrong unable to read the data</p>}
       {cases && cases?.data //add context here
@@ -142,12 +190,12 @@ const Applications = ({ type }) => {
                         Total salary
                       </label>
                       <input
-                        onChange={(e) => setTotalAmount(e.target.value)}
+                        onChange={(e) => setTotal(e.target.value)}
                         type="number"
                         id="first_name"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="52,000.00 birr"
-                        value={totalAmount}
+                        value={total}
                         required
                       />
                     </div>
@@ -160,19 +208,31 @@ const Applications = ({ type }) => {
                             lists={payments}
                             setLists={setPayments}
                             addLists={addPayments}
-                            totalAmount={totalAmount / 1}
+                            totalAmount={total / 1}
+                            remaining={remaining}
+                            payed={payed}
+                            setPayed={setPayed}
+                            setRemaining={setRemaining}
                             title="Payments"
                           />
                         </div>
                       </div>
                     </div>
-                    <div className="flex gap-10">
-                      <button className="py-1 px-5 bg-yellow-500 text-white rounded-full">
-                        Accept
-                      </button>
-                      <button className="py-1 px-5 bg-red-500 text-white rounded-full">
-                        Reject
-                      </button>
+                    <div className="flex p-4 items-center gap-10">
+                      <LoadingButton
+                        pending={pending}
+                        onClick={caseAcceptHandler}
+                        title="Accept"
+                        color="bg-yellow-500"
+                        width="w-48"
+                      />
+                      <LoadingButton
+                        pending={pending}
+                        onClick={caseRejectHandler}
+                        title="Reject"
+                        color="bg-red-500"
+                        width="w-48"
+                      />
                     </div>
                   </div>
                 </div>

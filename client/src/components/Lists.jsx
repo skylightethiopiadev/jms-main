@@ -1,28 +1,40 @@
 import { useEffect, useState } from "react";
 
 const Lists = (props) => {
-  const [totalRemaining, setTotalRemaining] = useState(0);
+  // const [totalRemaining, props.setRemaining] = useState(0);
   let total = 0;
   useEffect(() => {
-    if (props.lists.length > 0) {
+    if (props.lists?.length > 0) {
       props.lists.map((li) => {
-        total = total * 1 + props.list.amount * 1 + li.amount * 1;
+        total = props.list.amount * 1 + li.amount * 1;
       });
-      setTotalRemaining(total);
+      props.setRemaining(total);
     } else {
-      // total = props.totalAmount * 1 - ;
-      setTotalRemaining(props.totalAmount * 1);
+      props.setRemaining(
+        props.totalAmount * 1 + props.list.amount * 1 - props.totalAmount * 1
+      );
     }
-
-    // console.log(props.totalAmount, "total");
-    // setTotalRemaining(
-    //   props.lists.length > 0
-    //     ? total
-    //     : props.totalAmount * 1 - props.list.amount * 1
-    // );
-    console.log(totalRemaining, "total remaining", total, "total");
   }, [props.list.amount]);
 
+  useEffect(() => {
+    const payed = props.lists?.filter((e) => e.status === "Payed");
+    console.log(payed, "payed");
+    let p = 0;
+    payed?.map((e) => {
+      p += e.amount;
+    });
+    props.setPayed(p);
+    console.log(props.payed, "summation");
+  }, [props.lists]);
+
+  const format = (val) => {
+    return (val / 1).toLocaleString("en-US", {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
+  };
+
+  console.log(props.lists, "lists");
   return (
     <div className="flex w-full flex-col gap-2">
       <label
@@ -31,8 +43,8 @@ const Lists = (props) => {
       >
         {props.title}
       </label>
-      <div className="flex px-4 items-center justify-between w-full my-2">
-        <div className="flex flex-col items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 items-start flex-col lg:flex-row gap-5 justify-between w-full my-2">
+        <div className="flex flex-col items-start">
           <p className="font-bold text-lg">Total</p>
           <p className="">
             {props.totalAmount.toLocaleString("en-US", {
@@ -42,17 +54,17 @@ const Lists = (props) => {
             birr <span className="text-xs font-bold text-main ml-1">100%</span>
           </p>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-start">
           <p className="font-bold text-lg">Payed</p>
           <p className="">
-            0.0 birr{" "}
+            {format(props.payed)} birr{" "}
             <span className="text-xs font-bold text-main ml-1">0%</span>
           </p>
         </div>{" "}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-start">
           <p className="font-bold text-lg">Remaining</p>
           <p className="">
-            {((props.totalAmount * 1 - totalRemaining * 1) / 1).toLocaleString(
+            {((props.totalAmount * 1 - props.remaining * 1) / 1).toLocaleString(
               "en-US",
               {
                 minimumFractionDigits: 1,
@@ -62,14 +74,15 @@ const Lists = (props) => {
             birr{" "}
             <span className="text-xs font-bold text-main ml-1">
               {(
-                ((props.totalAmount - totalRemaining * 1) / props.totalAmount) *
+                ((props.totalAmount - props.remaining * 1) /
+                  props.totalAmount) *
                 100
               ).toFixed(2)}
               %
             </span>
           </p>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-start">
           <p className="font-bold text-lg">On Pending</p>
           <p className="">
             25000 birr{" "}
@@ -78,7 +91,7 @@ const Lists = (props) => {
         </div>
       </div>
       <div className="w-full grid grid-cols-1 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 borders rounded-lg px-4">
-        {props.lists.length > 0 ? (
+        {props.lists?.length > 0 ? (
           props.lists.map((e, i) => {
             return (
               <div
@@ -87,7 +100,12 @@ const Lists = (props) => {
               >
                 <div className="flex w-full p-2.5 h-auto flex-col gap-2">
                   <div className="flex flex-col mt-2 gap-1 items-start">
-                    <p className="">Amount</p>
+                    <div className="flex w-full items-center justify-between">
+                      <p className="">Amount</p>{" "}
+                      <p className="px-2 text-xs py-[2px] rounded-lg text-white bg-main">
+                        {e.status}
+                      </p>
+                    </div>
                     <p className="bg-gray-50 border p-2.5 w-full bg-dark mr-3 rounded-lg border-gray-300 focus:outline-0 focus:ring-0 h-10">
                       {e.amount}
                     </p>
@@ -99,6 +117,7 @@ const Lists = (props) => {
                       {e.percent}
                     </p>
                   </div>
+
                   <div className="flex flex-col mt-2 gap-1 items-start">
                     <p className="">Deadline</p>
                     <p className="bg-gray-50 border p-2.5 w-full bg-dark mr-3 rounded-lg border-gray-300 focus:outline-0 focus:ring-0 h-10">
@@ -108,7 +127,7 @@ const Lists = (props) => {
 
                   <div
                     onClick={() => {
-                      setTotalRemaining(totalRemaining - e.amount * 1);
+                      props.setRemaining(props.remaining - e.amount * 1);
                       props.setLists(props.lists.filter((d) => d !== e));
                     }}
                     className="flex cursor-pointer gap-2 items-center justify-center h-10 mt-2 rounded-lg w-full hover:bg-red-600 text-white bg-red-500"
@@ -156,11 +175,12 @@ const Lists = (props) => {
                         100
                     ).toFixed(2),
                   });
-                  // setTotalRemaining(totalRemaining * 1 + e.target.value * 1);
+                  // props.setRemaining(totalRemaining * 1 + e.target.value * 1);
                 }}
                 type="Number"
                 id="name"
                 min={0}
+                // max={props.remaining}
                 class="bg-gray-50 w-full bg-dark mr-3 rounded-lg border-gray-300 focus:outline-0 focus:ring-0 h-10 "
                 placeholder="Amount"
                 value={props.list.amount}

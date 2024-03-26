@@ -9,7 +9,7 @@ const caseSchema = new Schema(
       // unique: [true, "This case name is taken"],
       required: [true, "Please select {PATH}"],
     },
-    
+
     category: {
       type: String,
       // unique: [true, "This case name is taken"],
@@ -55,6 +55,22 @@ const caseSchema = new Schema(
     //   ref: "case-manager",
     //   required: [true, "Please select case manager"],
     // },
+    paymentDetail: {
+      total: { type: Number, default: 0 },
+      remaining: { type: Number, default: 0 },
+      payed: { type: Number, default: 0 },
+      pending: { type: Number, default: 0 },
+      rounds: {
+        type: [
+          {
+            amount: { type: Number, default: 0 },
+            percent: { type: Number, default: 0 },
+            deadline: { type: String },
+            status: { type: String, default: "Pending" },
+          },
+        ],
+      },
+    },
 
     status: {
       type: String,

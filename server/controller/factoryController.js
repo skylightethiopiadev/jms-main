@@ -127,7 +127,7 @@ export const _read = asyncCatch(async (req, res, next) => {
     query.skip(skip).limit(limit);
 
     //populating
-    console.log(req.query);
+    // console.log(req.query);
     switch (req.query.populatingType) {
       case "users":
         query.populate(req.query.populatingValue);
@@ -146,7 +146,6 @@ export const _read = asyncCatch(async (req, res, next) => {
     // req.query.limits ? query.limit(req.query.limits) : null;
     const data = await query;
 
-    console.log(data, "user data");
     //last page indicator
     if (page) {
       const doc = await model.countDocuments();
@@ -169,7 +168,7 @@ export const _read = asyncCatch(async (req, res, next) => {
 //update
 export const _update = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-
+  console.log(req.body);
   if (model) {
     const data = await model.findOneAndUpdate(
       { _id: req.query.id },
