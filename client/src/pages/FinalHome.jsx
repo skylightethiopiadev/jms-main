@@ -9,40 +9,44 @@ import FinalHeader from "../components/FinalHeader";
 // main
 const FinalHome = () => {
   return (
-    <div className="w-screen h-screen overflow-y-auto pt-[12vh] font-workSans relative">
+    <div className="w-screen h-screen overflow-y-auto pt-[9vh] font-workSans relative">
       {/* <Header /> */}
       <FinalHeader />
       {/* first order container */}
-      <div className="w-full px-[3%] bg-gradient-to-r from-gray-50 to-orange-100 pb-12">
-        <div className="w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between">
+      <div className="w-full px-[3%] pt-[1%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 pb-12 sm:pb-[90px] shadow-md">
+        <div className="w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
-          <div className="w-full mt-12 sm:mt-auto sm:w-[50%]">
+          <div className="w-full mt-12 sm:mt-10  sm:w-[45%]">
             {/* first button */}
-            <div>
+            <div className="sm:mt-7">
               <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
                 some text over here
               </button>
             </div>
             {/* bold paragraph */}
-            <div>
-              <p className="text-2xl font-semibold my-[1%] text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-                et atque quibusdam.
+            <div className="my-1">
+              <p className="text-[1.85rem] font-semibold my-[1%] text-gray-700">
+                Strength in representation, dedication to your case
               </p>
             </div>
             {/* normal paragraph */}
             <div>
               <p className="my-[3%]">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Veritatis odio officiis modi non est repellat consectetur beatae
-                nulla eum quae molestiae, provident magni hic.
+                Get the legal help you needs, with our DIY services or attorney
+                advice. Either way, we've got your back
               </p>
             </div>
-            {/* blue button */}
-            <div>
-              <button className="px-[5%] py-1 rounded-full bg-blue-900 text-white">
-                button text
-              </button>
+            {/* gold buttons */}
+            <div className="my-[1.5rem] flex items-center gap-[7%]">
+              <div className="w-full bg-yellow-400 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-yellow-300 flex items-center justify-center rounded-full py-1 text-white text-[.985rem]">
+                <span>Civil</span>
+              </div>
+              <div className="w-full bg-yellow-400 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-yellow-300 flex items-center justify-center rounded-full py-1 text-white text-[.985rem]">
+                <span>Criminal</span>
+              </div>
+              <div className="w-full bg-yellow-400 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-yellow-300 flex items-center justify-center rounded-full py-1 text-white text-[.985rem]">
+                <span>Corporate</span>
+              </div>
             </div>
             {/* cards container */}
             <div className="flex sm:flex-col lg:flex-row lg:items-end gap-3 my-[3%]">
@@ -73,7 +77,7 @@ const FinalHome = () => {
                     </div>
                   </div>
                   <div>
-                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum some other</p>
                   </div>
                 </div>
               </div>
@@ -104,7 +108,7 @@ const FinalHome = () => {
                     </div>
                   </div>
                   <div>
-                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum also here</p>
                   </div>
                 </div>
               </div>
@@ -128,7 +132,7 @@ const FinalHome = () => {
                 <div className="h-full w-full flex items-center sm:items-end  justify-end">
                   <div className="mb-5">
                     <div className="flex items-start gap-3 ">
-                      <div className="flex items-center gap-3 py-1 px-5 rounded-sm bg-yellow-300 shadow-lg">
+                      <div className="flex items-center gap-3 py-2 px-5 rounded-sm bg-yellow-300 shadow-lg">
                         <SiPostman className="text-xl text-emerald-400" />
                         <p>Lorem ipsum dolor </p>
                       </div>
@@ -147,7 +151,10 @@ const FinalHome = () => {
                         </div>
                       </header>
                       {/* lawyers */}
-                      <div className="px-3 h-[116px] mr-[.1rem] overflow-y-auto" id="home-lawyer-list-card">
+                      <div
+                        className="px-3 h-[116px] mr-[.1rem] overflow-y-auto"
+                        id="home-lawyer-list-card"
+                      >
                         {[...Array(12)].map((item, index) => (
                           <div
                             key={index}
@@ -159,7 +166,7 @@ const FinalHome = () => {
                               <div className="border-2 border-white shadow-lg w-[32px] aspect-square rounded-full overflow-hidden mr-2">
                                 <img
                                   className="h-full object-cover"
-                                  src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                                  src="/images/personnels/lawyer-two.jpg"
                                   alt=""
                                 />
                               </div>
