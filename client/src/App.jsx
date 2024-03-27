@@ -53,7 +53,7 @@ function App() {
   // useEffect(() => {
   //   console.log(user, "user data from app js");
   // }, [user]);
-  console.log(user, "user from app js");
+  // console.log(user, "user from app js");
   return (
     <Flowbite>
       <userContext.Provider value={{ user: user?.data }}>

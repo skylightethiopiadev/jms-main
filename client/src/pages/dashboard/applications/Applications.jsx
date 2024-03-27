@@ -10,6 +10,7 @@ import customerImage from "../../../assets/images/customers/customer-i.jpg";
 import Lists from "../../../components/Lists";
 import LoadingButton from "../../../components/loading/LoadingButton";
 import Response from "../../../components/Response";
+import SelectLawyer from "../customer/customer-sub-pages/new-case-sub-pages/SelectLawyer";
 
 const Applications = ({ type }) => {
   // const context = useContext(userContext);
@@ -237,6 +238,24 @@ const Applications = ({ type }) => {
                               onClick={caseAcceptHandler}
                               title="Add payment detail"
                               color="bg-yellow-500"
+                              width="w-48"
+                            />
+                            {/* <LoadingButton
+                              pending={pending}
+                              onClick={caseRejectHandler}
+                              title="Reject"
+                              color="bg-red-500"
+                              width="w-48"
+                            /> */}
+                          </div>
+
+                          <SelectLawyer />
+                          <div className="flex p-4 mt-2 items-center gap-10">
+                            <LoadingButton
+                              pending={pending}
+                              onClick={caseAcceptHandler}
+                              title="Accept"
+                              color="bg-blue-500"
                               width="w-48"
                             />
                             <LoadingButton

@@ -35,7 +35,7 @@ const OnRequest = () => {
   const paymentHandler = () => {
     //
   };
-  console.log(typeof cases?.data[0].paymentDetail.total, "cases");
+  console.log(cases?.data[0]._id, "cases");
   return (
     <div className="w-full flex flex-col items-center justify-center ">
       {/* <Response response={updateCaseResponse} setPending={setPending} /> */}
@@ -274,7 +274,7 @@ const OnRequest = () => {
                                         <Pay
                                           paymentDetail={c.paymentDetail}
                                           roundId={e._id}
-                                          caseId={cases?._id}
+                                          caseId={c?._id}
                                           amount={e.amount}
                                         />
                                       )}
@@ -296,7 +296,7 @@ const OnRequest = () => {
                             </label>
                             {c.paymentDetail.paymentDescription}
                           </div>
-                          <div className="flex p-4 mt-2 items-center gap-10">
+                          {/* <div className="flex p-4 mt-2 items-center gap-10">
                             <LoadingButton
                               pending={pending}
                               onClick={caseAcceptHandler}
@@ -311,7 +311,7 @@ const OnRequest = () => {
                               color="bg-red-500"
                               width="w-48"
                             />
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
