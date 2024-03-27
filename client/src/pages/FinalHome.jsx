@@ -2,6 +2,10 @@
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
+import { FaCarCrash, FaShoppingCart } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
+import { GiOpenFolder } from "react-icons/gi";
+import { FaCircleCheck } from "react-icons/fa6";
 
 // components
 import Header from "../components/Header";
@@ -13,10 +17,10 @@ const FinalHome = () => {
       {/* <Header /> */}
       <FinalHeader />
       {/* first order container */}
-      <div className="w-full px-[3%] pt-[1%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 pb-12 sm:pb-[90px] shadow-md">
+      <div className="w-full px-[3%] pt-[3%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] shadow-md">
         <div className="w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
-          <div className="w-full mt-12 sm:mt-10  sm:w-[45%]">
+          <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
             {/* first button */}
             <div className="sm:mt-7">
               <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
@@ -24,8 +28,8 @@ const FinalHome = () => {
               </button>
             </div>
             {/* bold paragraph */}
-            <div className="my-1">
-              <p className="text-[1.85rem] font-semibold my-[1%] text-gray-700">
+            <div className="my-5">
+              <p className="text-[2rem] leading-9 font-[700] my-[1%] text-gray-700">
                 Strength in representation, dedication to your case
               </p>
             </div>
@@ -121,7 +125,7 @@ const FinalHome = () => {
               {/* background image */}
               <div className="relative z-10 w-full h-full after:absolute after:left-1/2 after:-translate-x-1/2  after:top-1/2 after:-translate-y-1/2 after:rounded-l-[15%] after:w-[50%]  after:h-[50%] after:bg-emerald-400 after:z-0">
                 <img
-                  className="relative z-20 ml-[72px] sm:ml-auto sm:h-[350px] w-full object-contain"
+                  className="relative z-20 ml-[72px] sm:ml-auto sm:h-[400px] w-full object-contain"
                   src="/images/personnels/customer-i-removebg-preview.png"
                   alt=""
                 />
@@ -147,7 +151,7 @@ const FinalHome = () => {
                       {/* header */}
                       <header className="flex items-center p-3 border-b border-gray-100">
                         <div>
-                          <h3 className="font-semibold">Active Customers</h3>
+                          <h3 className="font-semibold">Our Lawyers</h3>
                         </div>
                       </header>
                       {/* lawyers */}
@@ -198,6 +202,208 @@ const FinalHome = () => {
                       </footer>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* second order container */}
+      <div className="w-full py-[3%] px-[3%] sm:px-[12%]">
+        {/* top container */}
+        <div className="flex items-center justify-between gap-[10%] ">
+          {/* top left container */}
+          <div className="w-[50%]">
+            {/* button container */}
+            <div>
+              <button className="px-[7%] py-1 rounded-full border border-sky-200 bg-sky-100">
+                some text here
+              </button>
+            </div>
+            {/* bold paragraph */}
+            <div className="text-[1.5rem] font-[700] my-3 leading-8">
+              <p>Lorem ipsum dolor, sit amet consectetur</p>
+            </div>
+            {/* normal paragraph */}
+            <div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti assumenda autem amet.
+              </p>
+            </div>
+          </div>
+          {/* bottom right */}
+          <div className="w-[75%] flex items-center justify-between gap-[5%]">
+            {/* left */}
+            <div className="flex flex-col gap-y-7">
+              <div className="flex items-center gap-3 ">
+                {/* icon */}
+                <div>
+                  <div className="p-2 rounded-full border border-orange-300 bg-orange-50 text-orange-500 text-[1.45rem]">
+                    <FaCarCrash />
+                  </div>
+                </div>
+                {/* text */}
+                <div>
+                  <p>Lorem ipsum dolor sit amet cons</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 ">
+                {/* icon */}
+                <div>
+                  <div className="p-2 rounded-full border border-green-300 bg-green-50 text-green-500 text-[1.45rem]">
+                    <MdDashboard />
+                  </div>
+                </div>
+                {/* text */}
+                <div>
+                  <p>Lorem ipsum dolor sit amet cons</p>
+                </div>
+              </div>
+            </div>
+            {/* right */}
+            <div className="flex flex-col gap-y-7">
+              <div className="flex items-center gap-3 ">
+                {/* icon */}
+                <div>
+                  <div className="p-2 rounded-full border border-pink-300 bg-pink-50 text-pink-500 text-[1.45rem]">
+                    <FaShoppingCart />
+                  </div>
+                </div>
+                {/* text */}
+                <div>
+                  <p>Lorem ipsum dolor sit amet cons</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 ">
+                {/* icon */}
+                <div>
+                  <div className="p-2 rounded-full border border-blue-300 bg-blue-50 text-blue-500 text-[1.45rem]">
+                    <GiOpenFolder />
+                  </div>
+                </div>
+                {/* text */}
+                <div>
+                  <p>Lorem ipsum dolor sit amet cons</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* bottom container */}
+        <div className="flex items-center justify-between gap-[7%] py-[4%]">
+          {/* left container */}
+          <div className="w-[50%] relative flex items-center justify-center">
+            {/* background image */}
+            <div className="px-[10%] flex-grow flex">
+              <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-r-full after:z-0">
+                <img
+                  className="relative z-10 h-full"
+                  src="https://pngimg.com/uploads/teacher/teacher_PNG75.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            {/* content container */}
+            <div className="absolute left-0 bottom-0 w-full h-full z-30 flex flex-col">
+              {/* top cards */}
+              <div className="flex-grow h-[65%] flex items-end">
+                <div>
+                  <div className="bg-white shadow-lg px-3 py-1">
+                    <header>
+                      <div>
+                        <h3 className="font-semibold">Active Customers</h3>
+                      </div>
+                    </header>
+                    <div className="flex items-center justify-between gap-2">
+                      {[...Array(4)].map((item, index) => (
+                        <div
+                          key={index}
+                          className="w-[32px] border-[2px] border-white shadow-md aspect-square overflow-hidden rounded-full"
+                        >
+                          <img
+                            className="h-full object-cover"
+                            src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                            alt=""
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <footer>
+                      <div>
+                        <span className="text-gray-500 text-[.65rem]">
+                          some text
+                        </span>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+              {/* bottom card */}
+              <div className="flex-grow h-[50%] flex justify-end items-end">
+                <div>
+                  <div className="bg-white shadow-lg p-1 mb-[-20px] mr-[.75rem]">
+                    {/* circle  */}
+                    <div className="w-full flex items-center justify-center p-5">
+                      <div className="w-[100px] h-[90px] border-[16px] border-b-green-500 border-r-yellow-300 rounded-full aspect-square flex items-center justify-center">
+                        <div>
+                          <h3 className="font-black text-[1rem]">75%</h3>
+                          <span>done</span>
+                        </div>
+                      </div>
+                    </div>
+                    {/* text container */}
+                    <div className="flex items-center justify-between gap-[24px] px-3 mb-2">
+                      <div>
+                        <span>customers</span>
+                        <h3 className="font-bold text-[1.3rem]">23.7k</h3>
+                      </div>
+                      <div>
+                        <span>customers</span>
+                        <h3 className="font-bold text-[1.3rem]">23.7k</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* right container */}
+          <div className="w-[50%]">
+            {/* button container */}
+            <div>
+              <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">some text</button>
+            </div>
+            {/* bold paragraph */}
+            <div className="text-[1.5rem] font-bold my-3 leading-7">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+            {/* normal paragraph */}
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ad quaerat esse. and others
+              </p>
+            </div>
+            {/* indented paragraph */}
+            <div className="my-3">
+              <div className="my-5">
+                <div className="flex items-center gap-3">
+                  <FaCircleCheck className="text-[1.25rem] text-green-400"/>
+                  <h3 className="font-semibold text-[1rem]">Ethiopian, Wisdom</h3>
+                </div>
+                <div className="pl-10">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat tempore optio enim?</p>
+                </div>
+              </div>
+              <div className="my-5">
+                <div className="flex items-center gap-3">
+                  <FaCircleCheck className="text-[1.25rem] text-green-400"/>
+                  <h3 className="font-semibold text-[1rem]">Ethiopian, Wisdom</h3>
+                </div>
+                <div className="pl-10">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat tempore optio enim?</p>
                 </div>
               </div>
             </div>
