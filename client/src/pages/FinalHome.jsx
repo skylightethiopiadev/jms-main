@@ -1,11 +1,12 @@
 // icons
-import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
+import { IoMdStar, IoMdStarHalf, IoMdStarOutline,IoMdRepeat } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
 import { FaCarCrash, FaShoppingCart } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard,MdOutlineFireplace } from "react-icons/md";
 import { GiOpenFolder } from "react-icons/gi";
 import { FaCircleCheck } from "react-icons/fa6";
+import { IoFolder } from "react-icons/io5";
 
 // components
 import Header from "../components/Header";
@@ -372,41 +373,114 @@ const FinalHome = () => {
           <div className="w-[50%]">
             {/* button container */}
             <div>
-              <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">some text</button>
+              <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
+                some text
+              </button>
             </div>
             {/* bold paragraph */}
             <div className="text-[1.5rem] font-bold my-3 leading-7">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             {/* normal paragraph */}
             <div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ad quaerat esse. and others
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                ad quaerat esse. and others
               </p>
             </div>
             {/* indented paragraph */}
             <div className="my-3">
               <div className="my-5">
                 <div className="flex items-center gap-3">
-                  <FaCircleCheck className="text-[1.25rem] text-green-400"/>
-                  <h3 className="font-semibold text-[1rem]">Ethiopian, Wisdom</h3>
+                  <FaCircleCheck className="text-[1.25rem] text-green-400" />
+                  <h3 className="font-semibold text-[1rem]">
+                    Ethiopian, Wisdom
+                  </h3>
                 </div>
                 <div className="pl-10">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat tempore optio enim?</p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellat tempore optio enim?
+                  </p>
                 </div>
               </div>
               <div className="my-5">
                 <div className="flex items-center gap-3">
-                  <FaCircleCheck className="text-[1.25rem] text-green-400"/>
-                  <h3 className="font-semibold text-[1rem]">Ethiopian, Wisdom</h3>
+                  <FaCircleCheck className="text-[1.25rem] text-green-400" />
+                  <h3 className="font-semibold text-[1rem]">
+                    Ethiopian, Wisdom
+                  </h3>
                 </div>
                 <div className="pl-10">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat tempore optio enim?</p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellat tempore optio enim?
+                  </p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* third order container */}
+      <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%]">
+        {/* top left container */}
+        <div className="w-[50%]">
+          {/* button */}
+          <div>
+            <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">some text here</button>
+          </div>
+          {/* bold paragraph */}
+          <div className="my-5 text-[1.5rem] font-[700] leading-7">
+            <p>Lorem ipsum dolor sit amet consectetur, adipi</p>
+          </div>
+          {/* normal paragraph */}
+          <div >
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni nihil explicabo consectetur doloribus saepe delectus, labore itaque.</p>
+          </div>
+          {/* text with icon */}
+          <div className="flex flex-col gap-y-5 mt-5">
+            <div className="flex items-center gap-3">
+              <div className="p-1 bg-pink-100 border border-pink-400 text-pink-600 text-[1.15rem] rounded-full">
+                <MdOutlineFireplace />
+              </div>
+              <div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id suscipit delectus tempora?</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="p-1 bg-blue-100 border border-blue-400 text-blue-600 text-[1.15rem] rounded-full">
+                <IoMdRepeat />
+              </div>
+              <div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id suscipit delectus tempora?</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="p-1 bg-green-100 border border-green-400 text-green-600 text-[1.15rem] rounded-full">
+                <IoFolder />
+              </div>
+              <div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id suscipit delectus tempora?</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        {/* bottom right container */}
+        <div className="w-[50%] flex relative">
+          {/* background image */}
+          <div className="w-full h-full flex px-[15%]">
+            <div className="flex-grow relative after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[80%] after:rounded-tl-[65%] after:bg-orange-400 z-0 flex items-end justify-end">
+              <div>
+                <img className="relative z-10" src="https://png.pngtree.com/png-vector/20231123/ourmid/pngtree-smiling-businesswoman-with-folder-and-keys-realtor-png-image_10680379.png" alt="" />
+              </div>
+            </div>
+          </div>
+          {/* content */}
+          <div className="absolute left-0 top-0 w-full h-full z-50">
+            {/* card */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/4 w-[200px] aspect-square bg-white shadow-lg">card</div>
           </div>
         </div>
       </div>
