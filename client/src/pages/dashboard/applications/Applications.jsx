@@ -24,19 +24,6 @@ const Applications = ({ type }) => {
   });
 
   const [updateCaseData, updateCaseResponse] = useUpdateMutation();
-
-  const [payment, setPayment] = useState({
-    amount: "",
-    percent: "",
-    deadline: "",
-    total: "",
-    remaining: "",
-    user: "",
-    manager: "",
-    case: "",
-    status: "Pending",
-  });
-
   const [payments, setPayments] = useState();
   const [total, setTotal] = useState(0);
   const [remaining, setRemaining] = useState(
@@ -46,18 +33,23 @@ const Applications = ({ type }) => {
   const [onPending, setOnPending] = useState(0);
   const [pending, setPending] = useState(false);
   const [caseId, setCaseId] = useState("");
+  const [paymentDescription, setPaymentDescription] = useState("");
+  const [payment, setPayment] = useState({
+    amount: "",
+    percent: "",
+    deadline: "",
+    status: "Pending",
+  });
 
   const addPayments = () => {
     if (payment?.amount?.length > 0 && payment?.deadline?.length > 0) {
       setPayments([...payments, payment]);
-      setPayment({ amount: "", percent: "", deadline: "" });
+      setPayment({ amount: "", percent: "", deadline: "", status: "Pending" });
     }
   };
 
   useEffect(() => {
-    console.log(cases?.data[0]?.paymentDetail?.remaining, "llllllllllllllll");
     setRemaining(cases?.data[0]?.paymentDetail?.remaining);
-    console.log(remaining, "fffffffffffffffffff");
     const data = cases?.data[0]?.paymentDetail;
     if (cases?.data && data) {
       setTotal(data?.total);
@@ -81,7 +73,10 @@ const Applications = ({ type }) => {
         pending: onPending,
         rounds: payments,
         status: "Pending",
+        paymentDescription,
+        customerAgreementStatus: "Pending",
       },
+      status: "Pending",
     });
   };
 
@@ -90,12 +85,8 @@ const Applications = ({ type }) => {
   };
   // console.log("user data", cases?.data[0]);
   return (
-    <div className="w-full flex items-center justify-center h-auto">
-      <Response
-        response={updateCaseResponse}
-        setPending={setPending}
-        type="signUp"
-      />
+    <div className="w-full flex flex-col items-center justify-center h-auto">
+      <Response response={updateCaseResponse} setPending={setPending} />
       {isFetching && <Loading width="w-40" text="text-black" />}
       {isError && <p>something went wrong unable to read the data</p>}
       {cases && cases?.data //add context here
@@ -222,24 +213,42 @@ const Applications = ({ type }) => {
                             paymentDetail={cases?.data[0].paymentDetail}
                             title="Payments"
                           />
+
+                          <div className="p-4">
+                            <label
+                              for="message"
+                              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >
+                              Description
+                            </label>
+                            <textarea
+                              onChange={(e) =>
+                                setPaymentDescription(e.target.value)
+                              }
+                              id="message"
+                              rows="4"
+                              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              placeholder="Write your description here..."
+                            ></textarea>
+                          </div>
+                          <div className="flex p-4 mt-2 items-center gap-10">
+                            <LoadingButton
+                              pending={pending}
+                              onClick={caseAcceptHandler}
+                              title="Add payment detail"
+                              color="bg-yellow-500"
+                              width="w-48"
+                            />
+                            <LoadingButton
+                              pending={pending}
+                              onClick={caseRejectHandler}
+                              title="Reject"
+                              color="bg-red-500"
+                              width="w-48"
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex p-4 items-center gap-10">
-                      <LoadingButton
-                        pending={pending}
-                        onClick={caseAcceptHandler}
-                        title="Accept"
-                        color="bg-yellow-500"
-                        width="w-48"
-                      />
-                      <LoadingButton
-                        pending={pending}
-                        onClick={caseRejectHandler}
-                        title="Reject"
-                        color="bg-red-500"
-                        width="w-48"
-                      />
                     </div>
                   </div>
                 </div>

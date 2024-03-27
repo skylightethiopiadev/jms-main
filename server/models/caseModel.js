@@ -28,6 +28,12 @@ const caseSchema = new Schema(
       // required: [true, "please select a category"],
     },
 
+    lawyers: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: "user",
+      // required: [true, "please select a category"],
+    },
+
     type: {
       type: String,
       // unique: [true, "This case name is taken"],
@@ -69,6 +75,14 @@ const caseSchema = new Schema(
             status: { type: String, default: "Pending" },
           },
         ],
+      },
+      paymentDescription: {
+        type: String,
+        validate: valid.paragraph("Payment Description", 0, 1000),
+      },
+      customerAgreementStatus: {
+        type: String,
+        default: "Pending",
       },
     },
 

@@ -21,12 +21,14 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
       url: "/user/cases",
       tag: ["cases"],
       user: context?.user?._id,
-      caseId: `${newCaseHistory.caseCategory.substring(0, 3)}--${
+      caseId: `${newCaseHistory.caseCategory.substring(0, 3).toUpperCase()}--${
         new Date().toISOString().split("T")[0]
-      }--`,
+      }`,
       category: newCaseHistory.caseCategory,
       type: newCaseHistory.subCaseCategory.title,
-      subType: newCaseHistory.subCaseCategory.subSubCaseCategory.title,
+      subType: newCaseHistory.subCaseCategory.subSubCaseCategory
+        ? newCaseHistory.subCaseCategory.subSubCaseCategory.title
+        : newCaseHistory.subCaseCategory.title,
       services: newCaseHistory.services,
       description: newCaseHistory.description,
     });

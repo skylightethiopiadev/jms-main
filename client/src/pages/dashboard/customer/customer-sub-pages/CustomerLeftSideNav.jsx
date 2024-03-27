@@ -173,7 +173,7 @@ const CustomerLeftSideNav = () => {
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     to={`/dashboard/customer/new-case`}
-                    className={`dashboard-sub-link-items ${
+                    className={`dashboard-sub-link-items mt-1 ${
                       isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
                     }`}
                     onClick={(e) => {
@@ -183,6 +183,21 @@ const CustomerLeftSideNav = () => {
                     }}
                   >
                     New Case
+                  </NavLink>
+                  <NavLink
+                    to={`/dashboard/customer/on-request`}
+                    className={`dashboard-sub-link-items ${
+                      isNav === "ON-REQUEST"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsNav("ON-REQUEST");
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    On Request
                   </NavLink>
                 </div>
               </motion.div>

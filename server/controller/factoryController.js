@@ -24,7 +24,7 @@ export const _create = asyncCatch(async (req, res, next) => {
         // attachments: results?.length > 0 ? results : undefined,
         caseId:
           req.params.table === "cases"
-            ? req.body.caseId + count.toString().padStart(10, "0")
+            ? req.body.caseId + count.toString().padStart(9, "0")
             : undefined,
       });
 

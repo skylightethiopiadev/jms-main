@@ -39,6 +39,8 @@ import Video from "./pages/Video";
 import { useReadQuery } from "./features/api/apiSlice";
 import { createContext, useEffect } from "react";
 import Applications from "./pages/dashboard/applications/Applications";
+import OnRequest from "./pages/dashboard/customer/customer-sub-pages/new-case-sub-pages/OnRequest";
+import Success from "./pages/Success";
 
 export const userContext = createContext();
 
@@ -98,10 +100,19 @@ function App() {
                   path="/dashboard/customer/appointment"
                   element={<Appointment />}
                 ></Route>
+                <Route
+                  path="/dashboard/customer/success"
+                  element={<Success />}
+                ></Route>
                 {/* customer compliance */}
                 <Route
                   path="/dashboard/customer/new-case"
                   element={<NewCase />}
+                ></Route>
+                {/* customer case request */}
+                <Route
+                  path="/dashboard/customer/on-request"
+                  element={<OnRequest />}
                 ></Route>
                 {/* customer charts */}
                 <Route

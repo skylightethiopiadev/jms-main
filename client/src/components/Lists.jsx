@@ -1,25 +1,11 @@
 import { useEffect, useState } from "react";
 
 const Lists = (props) => {
-  // const [totalRemaining, props.setRemaining] = useState(0);
   let total = 0;
   useEffect(() => {
-    console.log(props.remaining - props.list.amount * 1, "amount");
     props.setRemaining(
       props.totalAmount - props.onPending - props.payed - props.list.amount * 1
     );
-    // total = props.remaining - props.list.amount * 1;
-    // props.setRemaining(total);
-    // props.setRemaining(props.remaining - props.list.amount);
-    // if (props.lists?.length > 0) {
-    //   props.lists.map((li) => {
-    //     total = props.list.amount * 1 + li.amount * 1;
-    //   });
-    // } else {
-    //   props.setRemaining(
-    //     props.totalAmount * 1 + props.list.amount * 1 - props.totalAmount * 1
-    //   );
-    // }
   }, [props.list.amount]);
 
   useEffect(() => {
@@ -33,12 +19,12 @@ const Lists = (props) => {
     const onPending = props.lists?.filter((e) => e.status === "Pending");
     let pend = 0;
     onPending?.map((e) => {
-      pend += e.amount;
+      pend += e.amount * 1;
     });
     props.setOnPending(pend);
 
     props.setRemaining(props.remaining * 1 - props.list.amount * 1);
-    console.log(props.remaining, props.list.amount, "adddddddddddddddd");
+    console.log(props.lists, "adddddddddddddddd");
   }, [props.lists]);
 
   useEffect(() => {
@@ -82,14 +68,18 @@ const Lists = (props) => {
           <p className="font-bold text-lg">Payed</p>
           <p className="">
             {format(props.payed)} birr{" "}
-            <span className="text-xs font-bold text-main ml-1">0%</span>
+            <span className="text-xs font-bold text-main ml-1">
+              {(((props.payed * 1) / props.totalAmount) * 100).toFixed(2)}%
+            </span>
           </p>
         </div>{" "}
         <div className="flex flex-col items-start">
           <p className="font-bold text-lg">Pending</p>
           <p className="">
             {format(props.onPending)} birr{" "}
-            <span className="text-xs font-bold text-main ml-1">13%</span>
+            <span className="text-xs font-bold text-main ml-1">
+              {(((props.onPending * 1) / props.totalAmount) * 100).toFixed(2)}%
+            </span>
           </p>
         </div>
       </div>
@@ -131,33 +121,38 @@ const Lists = (props) => {
                       {e.deadline}
                     </p>
                   </div>
-
-                  <div
-                    onClick={() => {
-                      props.setLists(props.lists.filter((d) => d !== e));
-                      props.setRemaining(props.remaining * 1 + e.amount * 1);
-                    }}
-                    className="flex cursor-pointer gap-2 items-center justify-center h-10 mt-2 rounded-lg w-full hover:bg-red-600 text-white bg-red-500"
-                  >
-                    <svg
-                      class="w-4 h-4 cursor-pointer"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
+                  {e.status === "Payed" ? (
+                    <p className="flex  gap-2 items-center justify-center h-10 mt-2 rounded-lg w-full cursor-default text-white bg-emerald-500">
+                      No Action
+                    </p>
+                  ) : (
+                    <div
+                      onClick={() => {
+                        props.setLists(props.lists.filter((d) => d !== e));
+                        props.setRemaining(props.remaining * 1 + e.amount * 1);
+                      }}
+                      className="flex cursor-pointer gap-2 items-center justify-center h-10 mt-2 rounded-lg w-full hover:bg-red-600 text-white bg-red-500"
                     >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18 17.94 6M18 18 6.06 6"
-                      />
-                    </svg>
-                    <p>Remove</p>
-                  </div>
+                      <svg
+                        class="w-4 h-4 cursor-pointer"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M6 18 17.94 6M18 18 6.06 6"
+                        />
+                      </svg>
+                      <p>Remove</p>
+                    </div>
+                  )}
                 </div>
               </div>
             );
