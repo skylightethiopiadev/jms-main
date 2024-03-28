@@ -43,7 +43,7 @@ const FinalHome = () => {
             </div>
             {/* bold paragraph */}
             <div className="my-7">
-              <p className="text-[2rem] leading-9 font-[700] my-[1%] text-gray-700">
+              <p className="text-[1.23rem] md:text-[2rem] leading-7 md:leading-9 font-[700] my-[1%] text-gray-700">
                 Strength in representation, dedication to your case
               </p>
             </div>
@@ -95,7 +95,7 @@ const FinalHome = () => {
                     </div>
                   </div>
                   <div>
-                    <p>Lorem ipsum some other</p>
+                    <p>Lorem ipsum and</p>
                   </div>
                 </div>
               </div>
@@ -126,7 +126,7 @@ const FinalHome = () => {
                     </div>
                   </div>
                   <div>
-                    <p>Lorem ipsum also here</p>
+                    <p>Lorem ipsum also</p>
                   </div>
                 </div>
               </div>
@@ -237,9 +237,9 @@ const FinalHome = () => {
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* top container */}
-          <div className="flex items-center justify-between gap-[10%] ">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center justify-between lg:gap-[10%] ">
             {/* top left container */}
-            <div className="w-[50%]">
+            <div className="w-full lg:w-[50%]">
               {/* button container */}
               <div>
                 <button className="px-[7%] py-1 rounded-full border border-sky-200 bg-sky-100">
@@ -247,7 +247,7 @@ const FinalHome = () => {
                 </button>
               </div>
               {/* bold paragraph */}
-              <div className="text-[1.5rem] font-[700] my-3 leading-8">
+              <div className="text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] my-3 md:leading-8">
                 <p>Lorem ipsum dolor, sit amet consectetur</p>
               </div>
               {/* normal paragraph */}
@@ -259,9 +259,9 @@ const FinalHome = () => {
               </div>
             </div>
             {/* bottom right */}
-            <div className="w-[75%] flex items-center justify-between gap-[5%]">
+            <div className="w-full lg:w-[75%] flex flex-col gap-y-2 md:flex-row md:items-center justify-between md:gap-[5%]">
               {/* left */}
-              <div className="flex flex-col gap-y-7">
+              <div className="flex flex-col gap-y-2 md:gap-y-7">
                 <div className="flex items-center gap-3 ">
                   {/* icon */}
                   <div>
@@ -288,7 +288,7 @@ const FinalHome = () => {
                 </div>
               </div>
               {/* right */}
-              <div className="flex flex-col gap-y-7">
+              <div className="flex flex-col gap-y-2 md:gap-y-7">
                 <div className="flex items-center gap-3 ">
                   {/* icon */}
                   <div>
@@ -316,10 +316,11 @@ const FinalHome = () => {
               </div>
             </div>
           </div>
+
           {/* bottom container */}
-          <div className="flex items-center justify-between gap-[7%] py-[4%]">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[7%] py-[4%]">
             {/* left container */}
-            <div className="w-[50%] relative flex items-center justify-center">
+            <div className="w-full mb-14 lg:mb-auto lg:w-[50%] relative flex items-center justify-center">
               {/* background image */}
               <div className="px-[10%] flex-grow flex">
                 <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-r-full after:z-0">
@@ -368,10 +369,10 @@ const FinalHome = () => {
                 {/* bottom card */}
                 <div className="flex-grow h-[50%] flex justify-end items-end">
                   <div>
-                    <div className="bg-white shadow-lg p-1 mb-[-20px] mr-[.75rem]">
+                    <div className="bg-white shadow-lg p-1 mb-[-42px] md:mb-[-20px] mr-[.75rem]">
                       {/* circle  */}
                       <div className="w-full flex items-center justify-center p-5">
-                        <div className="w-[100px] h-[90px] border-[16px] border-b-green-500 border-r-yellow-300 rounded-full aspect-square flex items-center justify-center">
+                        <div className="w-[80px] h-[75px] md:w-[100px] md:h-[90px] border-[16px] border-b-green-500 border-r-yellow-300 rounded-full aspect-square flex items-center justify-center">
                           <div>
                             <h3 className="font-black text-[1rem]">75%</h3>
                             <span>done</span>
@@ -395,7 +396,7 @@ const FinalHome = () => {
               </div>
             </div>
             {/* right container */}
-            <div className="w-[50%]">
+            <div className="w-full lg:w-[50%]">
               {/* button container */}
               <div>
                 <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
@@ -447,6 +448,7 @@ const FinalHome = () => {
             </div>
           </div>
         </div>
+
         {/* background image */}
         <div className="absolute left-0 bottom-0 h-full w-full flex overflow-hidden">
           <div className="flex w-full h-full">
@@ -459,292 +461,7 @@ const FinalHome = () => {
         </div>
       </div>
 
-      {/* third order container */}
-      <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
-        <div>
-          <div className="flex items-center justify-between gap-[5%] relative z-30">
-            {/* top left container */}
-            <div className="w-[50%]">
-              {/* button */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  some text here
-                </button>
-              </div>
-              {/* bold paragraph */}
-              <div className="my-5 text-[1.5rem] font-[700] leading-7">
-                <p>Lorem ipsum dolor sit amet consectetur, adipi</p>
-              </div>
-              {/* normal paragraph */}
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Magni nihil explicabo consectetur doloribus saepe delectus,
-                  labore itaque.
-                </p>
-              </div>
-              {/* text with icon */}
-              <div className="flex flex-col gap-y-5 mt-5">
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-pink-100 border border-pink-400 text-pink-600 text-[1.15rem] rounded-full">
-                    <MdOutlineFireplace />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-blue-100 border border-blue-400 text-blue-600 text-[1.15rem] rounded-full">
-                    <IoMdRepeat />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-green-100 border border-green-400 text-green-600 text-[1.15rem] rounded-full">
-                    <IoFolder />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* bottom right container */}
-            <div className="w-[50%] flex relative">
-              {/* background image */}
-              <div className="w-full h-full flex px-[15%]">
-                <div className="flex-grow relative after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[80%] after:rounded-tl-[35%] after:bg-orange-400 z-0 flex items-end justify-end">
-                  <div>
-                    <img
-                      className="relative z-10"
-                      src="/images/personnels/lawyer-three.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-              {/* content */}
-              <div className="absolute left-0 top-0 w-full h-full z-50">
-                {/* card */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/4 bg-white shadow-lg">
-                  <Chart
-                    width={"100%"}
-                    height={155}
-                    type="area"
-                    series={[
-                      {
-                        name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125],
-                      },
-                    ]}
-                    options={{
-                      legend: {
-                        show: false,
-                      },
-                      dataLabels: {
-                        show: false,
-                        formatter: (val) => ``,
-                      },
-                      tooltip: {
-                        fillSeriesColor: true,
-                      },
-                      xaxis: {
-                        categories: [
-                          "Sep",
-                          "Oct",
-                          "Nov",
-                          "Dec",
-                          "Jan",
-                          "Feb",
-                          "Mar",
-                          "Apr",
-                        ],
-                        labels: {
-                          show: false,
-                        },
-                        tickPlacement: "off",
-                      },
-                      yaxis: {
-                        labels: {
-                          show: true,
-                        },
-                      },
-                      grid: {
-                        show: false,
-                      },
-                      plotOptions: {
-                        bar: {
-                          distributed: true,
-                          // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                        },
-                      },
-                    }}
-                  ></Chart>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* background image */}
-          <div className="absolute left-0 bottom-0 w-full h-full flex overflow-hidden">
-            <div className="flex-grow w-full h-full overflow-hidden">
-              <img
-                className="w-full object-cover opacity-10"
-                src="/images/bg/bg-two.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* footer */}
-      {/* footer container */}
-      <div className="bg-black text-gray-300">
-        {/* footer top */}
-        <div className="px-[1%] sm:px-[5%] py-3 flex flex-col-reverse md:flex-row items-center justify-between gap-16">
-          {/* top right */}
-          <div className="w-[100%] md:w-[70%]">
-            {/* menu list */}
-            <div className="py-1 md:py-[7%] flex items-center justify-between text-[1rem]">
-              {[1, 2, 3, 4].map((item, index) => (
-                <div key={index}>
-                  <ul className="[&>li]:my-2">
-                    <li>Desktop App</li>
-                    <li>Mobile Apps</li>
-                    <li>Plans</li>
-                    <li>Security</li>
-                    <li>Features</li>
-                  </ul>
-                </div>
-              ))}
-            </div>
-            <div className="mt-3 flex items-center justify-between">
-              <div className="flex flex-col items-center">
-                <div className="w-[35px] aspect-square rounded-full overflow-hidden">
-                  <img
-                    className="w-full h-full"
-                    src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
-                    alt=""
-                  />
-                </div>
-                <h3 className="md:text-lg font-medium md:font-semibold mt-1">
-                  USA
-                </h3>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <div className="w-[35px] aspect-square rounded-full overflow-hidden">
-                  <img
-                    className="w-full h-full"
-                    src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/640px-Flag_of_Russia.svg.png"
-                    alt=""
-                  />
-                </div>
-                <h3 className="md:text-lg font-medium md:font-semibold mt-1">
-                  Russia
-                </h3>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <div className="w-[35px] aspect-square rounded-full overflow-hidden">
-                  <img
-                    className="w-full h-full"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2560px-Flag_of_the_People%27s_Republic_of_China.svg.png"
-                    alt=""
-                  />
-                </div>
-                <h3 className="md:text-lg font-medium md:font-semibold mt-1">
-                  China
-                </h3>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <div className="w-[35px] aspect-square rounded-full overflow-hidden">
-                  <img
-                    className="w-full h-full"
-                    src="https://img.freepik.com/premium-vector/germany-flag-flag-germany-vector-illustration_685751-83.jpg"
-                    alt=""
-                  />
-                </div>
-                <h3 className="md:text-lg font-medium md:font-semibold mt-1">
-                  Germany
-                </h3>
-              </div>
-            </div>
-          </div>
-          {/* bottom left */}
-          <div className="w-[90%] sm:w-[65%] self-center md:w-[45%] md:self-start">
-            {/* header */}
-            <header className="flex items-center gap-[15%] px-[5%] py-2 text-white rounded-sm bg-pink-600">
-              <div className="p-2 rounded-full bg-white text-xl text-pink-600">
-                <MdPhoneInTalk />
-              </div>
-              <h3 className="text-2xl font-bold">Let's Talk</h3>
-            </header>
-            {/* content */}
-            <div className="flex flex-col p-[7%] gap-y-7">
-              <div className="flex items-center gap-5">
-                <div>
-                  <MdOutlineMarkEmailRead className="text-3xl text-blue-800" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium">Business Inquiries</h3>
-                  <span>sales@company.com</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-5">
-                <div>
-                  <MdOutlineMediation className="text-3xl text-blue-800" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium">PR Of Media</h3>
-                  <span>marketing@company.com</span>
-                </div>
-              </div>
-            </div>
-            {/* footer */}
-            <footer className="mt-5 px-[5%] flex items-center">
-              {/* input */}
-              <div className="flex-grow bg-blue-900 flex items-center rounded-full border-2 border-gray-400 p-[.13rem]">
-                <input
-                  type="text"
-                  placeholder="Enter your email"
-                  className="w-full focus:outline-none focus:ring-0 bg-transparent border-none"
-                />
-                <button className="px-5 rounded-full bg-pink-600 h-full text-white py-[.5rem]">
-                  SIGNUP
-                </button>
-              </div>
-            </footer>
-          </div>
-        </div>
-        {/* footer bottom */}
-        <footer className="px-[1%] mt-5 sm:px-[5%] flex items-center justify-between md:font-medium py-3  md:text-[1rem]">
-          <div>
-            <span>2024 Copyright</span>
-          </div>
-          <div>
-            <span>Terms and Conditions | Privacy Policy</span>
-          </div>
-          <div className="flex items-center justify-center gap-5 text-2xl">
-            <FaFacebookF />
-            <FaXTwitter />
-            <FaYoutube />
-          </div>
-        </footer>
-      </div>
+      
     </div>
   );
 };
