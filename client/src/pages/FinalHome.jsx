@@ -42,20 +42,20 @@ const FinalHome = () => {
               </button>
             </div>
             {/* bold paragraph */}
-            <div className="my-5">
+            <div className="my-7">
               <p className="text-[2rem] leading-9 font-[700] my-[1%] text-gray-700">
                 Strength in representation, dedication to your case
               </p>
             </div>
             {/* normal paragraph */}
             <div>
-              <p className="my-[3%]">
+              <p className="my-[5%]">
                 Get the legal help you needs, with our DIY services or attorney
                 advice. Either way, we've got your back
               </p>
             </div>
             {/* gold buttons */}
-            <div className="my-[1.5rem] flex items-center gap-[7%]">
+            <div className="my-[2.5rem] flex items-center gap-[7%]">
               <div className="w-full bg-yellow-400 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-yellow-300 flex items-center justify-center rounded-full py-1 text-white text-[.985rem]">
                 <span>Civil</span>
               </div>
