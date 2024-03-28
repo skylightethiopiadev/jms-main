@@ -19,6 +19,8 @@ import { SiCashapp } from "react-icons/si";
 import { GrCompliance } from "react-icons/gr";
 import { IoExitSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
+import { useUserLogoutMutation } from "../../../../features/api/apiSlice";
+import Response from "../../../../components/Response";
 
 // pop up nav
 const subNavLinkPopUpVariant = {
@@ -35,6 +37,12 @@ const subNavLinkPopUpVariant = {
 // main
 // CustomerLeftSideNav
 const CustomerLeftSideNav = () => {
+  const [logout, logoutResponse] = useUserLogoutMutation();
+  const [pending, setPending] = useState(false);
+
+  const logoutHandler = () => {
+    logout({});
+  };
   // local states
   // nav controller states
   const [isComplianceOpen, setIsComplianceOpen] = useState(false);
@@ -64,6 +72,11 @@ const CustomerLeftSideNav = () => {
       className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[220px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
+      <Response
+        response={logoutResponse}
+        setPending={setPending}
+        redirectTo="/login"
+      />
       {/* logo and nav container */}
       <div className="relative">
         {/* close btn container */}
@@ -160,7 +173,7 @@ const CustomerLeftSideNav = () => {
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
                     to={`/dashboard/customer/new-case`}
-                    className={`dashboard-sub-link-items ${
+                    className={`dashboard-sub-link-items mt-1 ${
                       isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
                     }`}
                     onClick={(e) => {
@@ -170,6 +183,21 @@ const CustomerLeftSideNav = () => {
                     }}
                   >
                     New Case
+                  </NavLink>
+                  <NavLink
+                    to={`/dashboard/customer/on-request`}
+                    className={`dashboard-sub-link-items ${
+                      isNav === "ON-REQUEST"
+                        ? "dashboard-active-link-color"
+                        : ""
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsNav("ON-REQUEST");
+                      customerDashBoardLeftSideBarToggler();
+                    }}
+                  >
+                    On Request
                   </NavLink>
                 </div>
               </motion.div>
@@ -539,7 +567,10 @@ const CustomerLeftSideNav = () => {
         </div>
         {/* bottom */}
         <div>
-          <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700 font-normal">
+          <button
+            onClick={logoutHandler}
+            className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700 font-normal"
+          >
             <IoExitSharp className="text-xl mr-1" />
             <span>Logout</span>
           </button>

@@ -17,10 +17,15 @@ export const _create = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
 
   if (model) {
+    const count = (await model.countDocuments()) + 1;
     if (req.files?.attachments === undefined) {
       const data = await model.create({
         ...req.body,
         // attachments: results?.length > 0 ? results : undefined,
+        caseId:
+          req.params.table === "cases"
+            ? req.body.caseId + count.toString().padStart(9, "0")
+            : undefined,
       });
 
       if (!data)
@@ -43,6 +48,10 @@ export const _create = asyncCatch(async (req, res, next) => {
           const data = await model.create({
             ...req.body,
             attachments: results,
+            caseId:
+              req.params.table === "cases"
+                ? req.body.caseId + count.toString().padStart(10, "0")
+                : undefined,
           });
 
           if (!data)
@@ -118,17 +127,23 @@ export const _read = asyncCatch(async (req, res, next) => {
     query.skip(skip).limit(limit);
 
     //populating
+    // console.log(req.query);
     switch (req.query.populatingType) {
       case "users":
         query.populate(req.query.populatingValue);
         break;
-      case "application":
-        query.populate(req.query.populatingValue.split(",").join(" "));
+      case "applications":
+        query.populate(req.query.populatingValue);
+        break;
+      case "cases":
+        query.populate(req.query.populatingValue);
+        break;
+      // query.populate(req.query.populatingValue.split(",").join(" "));
       default:
         query;
     }
 
-    req.query.limits ? query.limit(req.query.limits) : null;
+    // req.query.limits ? query.limit(req.query.limits) : null;
     const data = await query;
 
     //last page indicator
@@ -153,7 +168,7 @@ export const _read = asyncCatch(async (req, res, next) => {
 //update
 export const _update = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-
+  console.log(req.body);
   if (model) {
     const data = await model.findOneAndUpdate(
       { _id: req.query.id },

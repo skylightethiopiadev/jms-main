@@ -38,6 +38,9 @@ import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCa
 import Video from "./pages/Video";
 import { useReadQuery } from "./features/api/apiSlice";
 import { createContext, useEffect } from "react";
+import Applications from "./pages/dashboard/applications/Applications";
+import OnRequest from "./pages/dashboard/customer/customer-sub-pages/new-case-sub-pages/OnRequest";
+import Success from "./pages/Success";
 
 export const userContext = createContext();
 
@@ -50,7 +53,7 @@ function App() {
   // useEffect(() => {
   //   console.log(user, "user data from app js");
   // }, [user]);
-
+  // console.log(user, "user from app js");
   return (
     <Flowbite>
       <userContext.Provider value={{ user: user?.data }}>
@@ -58,14 +61,20 @@ function App() {
           <div className="flex flex-col">
             <Routes>
               <Route path="/" element={<Home />}></Route>
-              <Route path="login" element={<Login />}></Route>
-              <Route path="signUp" element={<SignUp />}></Route>
-              <Route path="chat" element={<Chat />}></Route>
-              <Route path="dashboard" element={<HomeDashboard />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/signUp" element={<SignUp />}></Route>
+              <Route path="/chat" element={<Chat />}></Route>
+              <Route path="/dashboard" element={<HomeDashboard />}>
+                <Route
+                  path="/dashboard/applications"
+                  element={<Applications />}
+                />
+              </Route>
               <Route
                 path="/dashboard/customer/message/video"
                 element={<Video />}
               />
+
               <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
                 <Route
                   // path="/dashboard/customer/home"
@@ -91,10 +100,19 @@ function App() {
                   path="/dashboard/customer/appointment"
                   element={<Appointment />}
                 ></Route>
+                <Route
+                  path="/dashboard/customer/success"
+                  element={<Success />}
+                ></Route>
                 {/* customer compliance */}
                 <Route
                   path="/dashboard/customer/new-case"
                   element={<NewCase />}
+                ></Route>
+                {/* customer case request */}
+                <Route
+                  path="/dashboard/customer/on-request"
+                  element={<OnRequest />}
                 ></Route>
                 {/* customer charts */}
                 <Route

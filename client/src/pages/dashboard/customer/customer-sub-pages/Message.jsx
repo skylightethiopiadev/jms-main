@@ -29,12 +29,12 @@ const Message = () => {
   const [sendMessageData, sendMessageResponse] = useCreateMutation();
   const [sender, setSenderId] = useState("");
   const [receiver, setReceiverId] = useState("");
-
+  console.log(user, "users current");
   useEffect(() => {
     user &&
       setCurrentUser({
         _id: user?._id,
-        email: user?.email
+        email: user?.email,
       });
   }, [user]);
 
@@ -63,7 +63,7 @@ const Message = () => {
     isLoading: userIsFetching,
     isError: userIsError,
   } = useReadQuery({
-    url: `/user/users?limits=40&populatingType=users&populatingValue=user`,
+    url: `/user/users`,
     tag: ["users"],
   });
 

@@ -70,9 +70,11 @@ export const authorization = async (req, res, next) => {
           //current user role
           switch (role) {
             case "private-customer":
-              return unauthorized(next);
+              return next();
             case "business-customer":
-              return unauthorized(next);
+              return next();
+            case "case-manager-main":
+              return next();
             case "lawyer":
               return unauthorized(next);
             default:

@@ -12,7 +12,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("private-customer");
+  const [role, setRole] = useState("case-manager-main");
 
   const signupHandler = () => {
     if (!pass) {
@@ -23,7 +23,7 @@ const Signup = () => {
         email,
         password,
         confirmPassword,
-        role: "private-customer",
+        role,
       });
     }
   };

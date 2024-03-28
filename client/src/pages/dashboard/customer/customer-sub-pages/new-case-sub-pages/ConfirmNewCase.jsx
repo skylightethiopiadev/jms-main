@@ -5,10 +5,39 @@ import {
   MdOutlineSubdirectoryArrowRight,
 } from "react-icons/md";
 import siteLogo from "../../../../../assets/images/site-logo/final-logo.png";
+import Response from "../../../../../components/Response";
+import LoadingButton from "../../../../../components/loading/LoadingButton";
+import { useContext, useState } from "react";
+import { userContext } from "../../../../../App";
+import { useCreateMutation } from "../../../../../features/api/apiSlice";
 
 const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
+  const context = useContext(userContext);
+  const [caseData, caseResponse] = useCreateMutation();
+  const [pending, setPending] = useState(false);
+
+  const caseCreateHandler = () => {
+    caseData({
+      url: "/user/cases",
+      tag: ["cases"],
+      user: context?.user?._id,
+      caseId: `${newCaseHistory.caseCategory.substring(0, 3).toUpperCase()}--${
+        new Date().toISOString().split("T")[0]
+      }`,
+      category: newCaseHistory.caseCategory,
+      type: newCaseHistory.subCaseCategory.title,
+      subType: newCaseHistory.subCaseCategory.subSubCaseCategory
+        ? newCaseHistory.subCaseCategory.subSubCaseCategory.title
+        : newCaseHistory.subCaseCategory.title,
+      services: newCaseHistory.services,
+      description: newCaseHistory.description,
+    });
+  };
+
+  console.log(newCaseHistory, "final data");
   return (
     <div className="w-full h-[72vh] p-[1%]">
+      <Response response={caseResponse} setPending={setPending} type="signUp" />
       <div className="w-full h-full bg-white rounded-sm">
         <header className="px-[3%] py-1 border-b border-gray-100 flex items-center justify-between">
           <div>
@@ -27,7 +56,9 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
                 <div className="text-gray-700 font-medium">Case Category:</div>
                 <div className="ml-[10%] flex items-center gap-2">
                   <MdOutlineSubdirectoryArrowRight className="text-gray-500 text-lg" />
-                  <span className="text-gray-500 font-medium">{newCaseHistory?.caseCategory}</span>
+                  <span className="text-gray-500 font-medium">
+                    {newCaseHistory?.caseCategory}
+                  </span>
                 </div>
               </div>
               {newCaseHistory?.subCaseCategory ? (
@@ -89,14 +120,22 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
               >
                 Cancel
               </button>
-              <button
+              <LoadingButton
+                pending={pending}
+                onClick={caseCreateHandler}
+                title="Submit"
+                color="bg-yellow-500"
+                width="w-48"
+              />
+              {/* <button
                 className="px-5 py-1 rounded-sm bg-blue-600 text-white"
                 onClick={() => {
+                  caseCreateHandler();
                   setStepCounter(stepCounter + 1);
                 }}
               >
                 confirm
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
