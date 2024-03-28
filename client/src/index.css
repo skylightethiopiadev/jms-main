@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 @import url("https://cdn.syncfusion.com/ej2/material.css");
 @tailwind base;
 @tailwind components;
@@ -35,6 +39,25 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgb(160, 160, 160);
   border-radius: 4px;
+}
+
+/* home-lawyer-list-card */
+
+#home-lawyer-list-card::-webkit-scrollbar {
+  width: 0px;
+}
+
+#home-lawyer-list-card:hover::-webkit-scrollbar {
+  width: 2px;
+}
+
+#home-lawyer-list-card::-webkit-scrollbar-track {
+  background: rgb(219, 219, 219);
+  width: 2px;
+}
+#home-lawyer-list-card::-webkit-scrollbar-thumb {
+  background: rgb(185, 185, 185);
+  width: 2px;
 }
 
 /* custome header */

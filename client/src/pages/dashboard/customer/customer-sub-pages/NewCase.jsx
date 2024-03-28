@@ -36,7 +36,7 @@ const NewCase = () => {
     {
       caseCategory: "Civil",
       description:
-        "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employement, succession of family's property. Issues related civil matters are usually settled by court proceedings. Individual clients having issues like contract of loan, sale of property, employment, divorce, partition op property, maintenance, adoption, succession are encouraged to contact our lawyers experties in areas of civil cases",
+        "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employment, succession of family's property. Issues related civil matters are usually settled by court proceedings. Individual clients having issues like contract of loan, sale of property, employment, divorce, partition op property, maintenance, adoption, succession are encouraged to contact our lawyers expedites in areas of civil cases",
       subCategories: [
         {
           caseName: "Contract",
@@ -67,7 +67,7 @@ const NewCase = () => {
     {
       caseCategory: "Criminal",
       description:
-        "Criminal cases are cases related to different offences against laws enacted to prevent crimes. Cases related to human traffking, terrorism, curruption, tax invasion, failure of complying with different regulatory requiremnts, financial fraud, and other acts result in penalizing the offender. The suspect may be arrested by the plice for interrogation. It involves police, public prosecutor, judge and lawyer. When it it is proved , the person suspected of the crime could be convicted and sent to prison. Thus anybody encoutered such a problem can contact lawyers with requistise in areas via our portal",
+        "Criminal cases are cases related to different offenses against laws enacted to prevent crimes. Cases related to human trafficking, terrorism, corruption, tax invasion, failure of complying with different regulatory requirements, financial fraud, and other acts result in penalizing the offender. The suspect may be arrested by the police for interrogation. It involves police, public prosecutor, judge and lawyer. When it it is proved , the person suspected of the crime could be convicted and sent to prison. Thus anybody encountered such a problem can contact lawyers with requisite in areas via our portal",
       subCategories: [
         {
           caseName: "Ordinary crime",
@@ -76,7 +76,7 @@ const NewCase = () => {
           caseName: "Corruption",
         },
         {
-          caseName: "Money Laundering(Financial Froud)",
+          caseName: "Money Laundering(Financial Fraud)",
         },
         {
           caseName: "Tax and Customs Related Crimes",
@@ -84,9 +84,9 @@ const NewCase = () => {
       ],
     },
     {
-      caseCategory: "Commercial (Corporate Law)",
+      caseCategory: "Commercial/Corporate",
       description:
-        "Commercial Cases are cases involving complex transactions such as international bussiness. Formation, registration, reorganization, merger, acquisition, winding up, of corporations; bankrupty (scheme of arrangement or liquidation), issues related to tax and customs assessment, joint venture, real estate and property, supply of goods and services, commercial loan, registration of trade mark, patent, utility rights",
+        "Commercial Cases are cases involving complex transactions such as international business. Formation, registration, reorganization, merger, acquisition, winding up, of corporations; bankruptcy (scheme of arrangement or liquidation), issues related to tax and customs assessment, joint venture, real estate and property, supply of goods and services, commercial loan, registration of trade mark, patent, utility rights",
       subCategories: [
         {
           caseName: "International Trade and Investment",
@@ -95,7 +95,7 @@ const NewCase = () => {
           caseName: "Tax",
         },
         {
-          caseName: "Customes",
+          caseName: "Customs",
         },
         {
           caseName: "Contract",
@@ -127,7 +127,7 @@ const NewCase = () => {
           caseName: "Corporate",
           subType: [
             "incorporation",
-            "bankrupty (scheme of arrangement or dissolution)",
+            "bankruptcy (scheme of arrangement or dissolution)",
             "merger",
             "acquisition",
             "reorganization",
