@@ -9,6 +9,7 @@ import { FiSearch } from "react-icons/fi";
 import { MdOutlineClose, MdMenu } from "react-icons/md";
 import { RiUserShared2Fill } from "react-icons/ri";
 
+
 const FinalHeader = () => {
   // states
   const [isPhone, setIsPhone] = useState(false);
@@ -282,7 +283,7 @@ const FinalHeader = () => {
   };
 
   return (
-    <header className="shadow-headerBottomShadow fixed left-0 top-0 z-[1000] text-[.975rem] w-full bg-white text-black">
+    <header className="shadow-bottomShadow fixed left-0 top-0 z-[1000] text-[.975rem] w-full bg-white text-black">
       <div className="px-[12%] flex items-center justify-between">
         {/* logo container */}
         <div
