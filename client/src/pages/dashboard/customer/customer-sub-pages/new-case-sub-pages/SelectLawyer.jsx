@@ -40,13 +40,14 @@ const SelectLawyer = ({ stepCounter, setStepCounter }) => {
     setGenderHeaderText(text);
   };
 
-
   return (
     <div className="bg-white m-2 rounded-sm">
       <header className="flex items-center justify-between gap-3 py-2 px-[5%] border-b border-gray-200 rounded-sm">
         {/* all type */}
         <div className="flex flex-col gap-y-3 relative border-r border-gray-200 pr-3 w-full">
-          <span className="text-gray-500"><span className="hidden sm:inline-block">Type of </span> counceling</span>
+          <span className="text-gray-500">
+            <span className="hidden sm:inline-block">Type of </span> counceling
+          </span>
           <div className="flex items-center justify-between">
             <h3 className="font-semibold">{allTypeHeaderText}</h3>
             <button
@@ -68,7 +69,9 @@ const SelectLawyer = ({ stepCounter, setStepCounter }) => {
                     handleAllTypeSelection("All");
                   }}
                 >
-                  <NavLink><span className="hidden sm:inline-block">All </span>Types</NavLink>
+                  <NavLink>
+                    <span className="hidden sm:inline-block">All </span>Types
+                  </NavLink>
                 </li>
                 <li
                   className="cursor-pointer px-3 py-1 border border-gray-200 rounded-sm my-1"
@@ -98,7 +101,9 @@ const SelectLawyer = ({ stepCounter, setStepCounter }) => {
         <div className="flex flex-col gap-y-3 relative border-r border-gray-200 pr-3 w-full">
           <span className="text-gray-500">City</span>
           <div className="flex items-center justify-between">
-            <h3 className="font-medium sm:font-semibold">{allCityHeaderText}</h3>
+            <h3 className="font-medium sm:font-semibold">
+              {allCityHeaderText}
+            </h3>
             <button
               className="text-lg"
               onClick={() => {
@@ -244,9 +249,8 @@ const SelectLawyer = ({ stepCounter, setStepCounter }) => {
             <></>
           )}
         </div>
-
       </header>
-      <div className="bg-gray-100 h-[68vh] overflow-y-auto p-2 grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="bg-gray-100 h-auto overflow-y-autos p-2 grid grid-cols-2 md:grid-cols-3 gap-3">
         {/* cards */}
         {cunsultations?.length > 0 ? (
           <>
@@ -267,9 +271,14 @@ const SelectLawyer = ({ stepCounter, setStepCounter }) => {
                   </div>
                   <div className="flex flex-col">
                     <span className="font-medium sm:font-semibold whitespace-nowrap">
-                      {con.first_name} <span className="flex sm:inline-block">{con.last_name}</span>
+                      {con.first_name}{" "}
+                      <span className="flex sm:inline-block">
+                        {con.last_name}
+                      </span>
                     </span>
-                    <span className="text-gray-500 whitespace-nowrap">{con.proffession}</span>
+                    <span className="text-gray-500 whitespace-nowrap">
+                      {con.proffession}
+                    </span>
                   </div>
                 </div>
                 {/* rating and address */}
@@ -302,8 +311,8 @@ const SelectLawyer = ({ stepCounter, setStepCounter }) => {
                   <button
                     className="px-[15%] py-2 rounded-full bg-blue-600 text-white"
                     onClick={(e) => {
-                        e.stopPropagation();
-                        setStepCounter(stepCounter + 1)
+                      e.stopPropagation();
+                      setStepCounter(stepCounter + 1);
                     }}
                   >
                     select

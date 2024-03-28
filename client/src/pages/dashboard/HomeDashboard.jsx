@@ -26,6 +26,7 @@ import ServiceAreaUpdate from "./categories/ServiceAreaUpdate";
 import CreateNewCase from "./caseChart/CreateNewCase";
 import ActiveCase from "./caseChart/ActiveCase";
 import ClosedCase from "./caseChart/ClosedCase";
+import FinalHeader from "../../components/FinalHeader";
 
 export const mobileContext = createContext();
 
@@ -82,7 +83,8 @@ const HomeDashboard = ({ role }) => {
             <Balance fontSize="large" />{" "}
             <p className="title font-semibold">MACUTTA</p>
           </div>
-          <Header />
+          {/* <Header /> */}
+          {/* <FinalHeader /> */}
         </div>
         <div className="w-full h-auto flex ">
           {mobile && (

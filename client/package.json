@@ -38,6 +38,7 @@
     "react-data-table-component": "^7.6.2",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.6",
+    "react-froala-wysiwyg": "^4.2.0",
     "react-hot-toast": "^2.4.1",
     "react-media-recorder": "^1.6.6",
     "react-multi-carousel": "^2.8.4",

@@ -16,6 +16,7 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
   const [caseData, caseResponse] = useCreateMutation();
   const [pending, setPending] = useState(false);
 
+  console.log(context?.user, "user");
   const caseCreateHandler = () => {
     caseData({
       url: "/user/cases",

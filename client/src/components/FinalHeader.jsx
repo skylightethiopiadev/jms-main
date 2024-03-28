@@ -9,7 +9,6 @@ import { FiSearch } from "react-icons/fi";
 import { MdOutlineClose, MdMenu } from "react-icons/md";
 import { RiUserShared2Fill } from "react-icons/ri";
 
-
 const FinalHeader = () => {
   // states
   const [isPhone, setIsPhone] = useState(false);
@@ -261,14 +260,14 @@ const FinalHeader = () => {
   ];
 
   // effects
-  useEffect(()=>{
-    let element = document.getElementById('main-nav-container')
-    if(element?.classList.contains('right-[-100vw] fixed')){
-      setMenuIconToggler(true)
-    }else{
-      setMenuIconToggler(false)
+  useEffect(() => {
+    let element = document.getElementById("main-nav-container");
+    if (element?.classList.contains("right-[-100vw] fixed")) {
+      setMenuIconToggler(true);
+    } else {
+      setMenuIconToggler(false);
     }
-  },[])
+  }, []);
 
   // nav drawer
   const mainNavDrawer = () => {
@@ -622,7 +621,10 @@ const FinalHeader = () => {
             </div>
             {/* sign in */}
             <div>
-              <NavLink className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap">
+              <NavLink
+                to="/login"
+                className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap"
+              >
                 {/* text */}
                 <div className="hidden md:flex">
                   <span className="font-semibold">sign in</span>
@@ -637,7 +639,7 @@ const FinalHeader = () => {
                 className="mx-2 text-[2.75rem] cursor-pointer"
                 onClick={() => {
                   mainNavDrawer();
-                  setMenuIconToggler(!menuIconToggler)
+                  setMenuIconToggler(!menuIconToggler);
                 }}
               >
                 {menuIconToggler ? <MdOutlineClose /> : <MdMenu />}

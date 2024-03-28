@@ -1,3 +1,8 @@
+import FroalaEditorComponent from "react-froala-wysiwyg";
+
+import "froala-editor/css/froala_style.min.css";
+import "froala-editor/css/froala_editor.pkgd.min.css";
+
 const NewCaseServices = ({
   stepCounter,
   newCaseHistory,
@@ -9,7 +14,7 @@ const NewCaseServices = ({
     "Representation",
     "Mediation Center",
     "Advisory",
-    "Preparation of documents and review", 
+    "Preparation of documents and review",
     "Legal Due Diligence",
     "Legal Opinion",
     "Review of content",
@@ -21,7 +26,7 @@ const NewCaseServices = ({
       setNewCaseHistory((prev) => {
         return {
           ...prev,
-          services: [...  prev.services, e.target.value],
+          services: [...prev.services, e.target.value],
         };
       });
     } else {
@@ -57,7 +62,7 @@ const NewCaseServices = ({
                     checked={newCaseHistory?.services?.find((item) =>
                       item === service ? true : false
                     )}
-                  /> 
+                  />
                   <label htmlFor={`${index}`} className="cursor-pointer">
                     {service}
                   </label>
@@ -65,8 +70,8 @@ const NewCaseServices = ({
               ))}
             </div>
 
-            <div className="bg-sky-100 w-[100%] sm:w-[50%] rounded-md">
-              Text Area Box Here
+            <div className="bg-sky-50 w-[100%] h-full sm:w-[50%] rounded-md">
+            <FroalaEditorComponent tag="textarea" />
             </div>
           </div>
 
@@ -80,16 +85,6 @@ const NewCaseServices = ({
               Next
             </button>
           </div>
-        </div>
-        <div className="flex -mt-6 items-center justify-center py-3">
-          <button
-            className="px-7 py-1 rounded-sm bg-blue-600 text-white"
-            onClick={() => {
-              setStepCounter(stepCounter + 1);
-            }}
-          >
-            Next
-          </button>
         </div>
       </div>
     </div>

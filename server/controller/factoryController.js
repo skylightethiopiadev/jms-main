@@ -77,7 +77,7 @@ export const _read = asyncCatch(async (req, res, next) => {
     // const total = await model.find({ _id: req.params.id });
     const total = await model.countDocuments();
     const params = { ...req.query };
-
+    console.log(params, "params");
     //removing unnecessary queries for filtering
     const remove = [
       "sort",
@@ -99,6 +99,7 @@ export const _read = asyncCatch(async (req, res, next) => {
         (match) => `$${match}`
       )
     );
+    console.log(queryObject, "object");
 
     //searching
     if (req.query.searchField)
@@ -168,7 +169,7 @@ export const _read = asyncCatch(async (req, res, next) => {
 //update
 export const _update = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);
-  console.log(req.body);
+  // console.log(req.body);
   if (model) {
     const data = await model.findOneAndUpdate(
       { _id: req.query.id },
