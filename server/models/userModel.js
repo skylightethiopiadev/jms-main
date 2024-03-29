@@ -165,7 +165,7 @@ userSchema.methods.createResetToken = async function () {
     .createHash("sha256")
     .update(resetToken)
     .digest("hex");
-  this.resetTokenExpires = Date.now() + 10 * 60 * 1000;
+  this.resetTokenExpires = Date.now() + 30 * 60 * 1000;
   return resetToken;
 };
 

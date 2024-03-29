@@ -1,34 +1,46 @@
 import nodemailer from "nodemailer";
+import AppError from "./AppError.js";
 
-const sendEmail = async (options) => {
+const sendEmail = async ({ email, message, subject, html, next, res }) => {
   const transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    port: 467,
+    // service: "gmail",
+    host: "mail.makutalawyerss.com",
+    port: 465,
     secure: true,
     auth: {
-      user: "gedeonagmas2580@gmail.com",
-      pass: "dkgpxlapjqdbnvql",
+      // user: "gedeonagmas2580@gmail.com",
+      // pass: "dkgpxlapjqdbnvql",
+      user: "donotreply@makutalawyers.com",
+      pass: "Maku@Mesy#2098",
     },
   });
 
   const mailOptions = {
-    from: "JMS justice management system service <gedeonagmas2580@gmail.com>",
-    to: "gedeonagmas2580@gmail.com",
-    text: options.message,
-    subject: options.subject,
-    html: options.html,
+    from: "Makuta law firm system <donotreply@makutalawyers.com>",
+    to: email,
+    text: message,
+    subject: subject,
+    html: html,
   };
 
-  transporter.sendMail(mailOptions, function (error, info) {
+  const response = transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log("Error in sending email  " + error);
-      return true;
+      // return next(
+      //   new AppError(
+      //     "Something went wrong unable to send the email please try again",
+      //     500
+      //   )
+      // );
+      val = "false";
+      return val;
     } else {
       console.log("Email sent: " + info.response);
-      return false;
+      let val = "true";
+      return val;
     }
   });
+  return response;
 };
 
 export default sendEmail;

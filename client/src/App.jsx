@@ -41,6 +41,8 @@ import { createContext, useEffect } from "react";
 import Applications from "./pages/dashboard/applications/Applications";
 import OnRequest from "./pages/dashboard/customer/customer-sub-pages/new-case-sub-pages/OnRequest";
 import Success from "./pages/Success";
+import Forget from "./pages/Forget";
+import Reset from "./pages/Reset";
 
 export const userContext = createContext();
 
@@ -56,14 +58,15 @@ function App() {
   // console.log(user, "user from app js");
   return (
     <Flowbite>
-      <userContext.Provider value={{ user: user?.data }}> 
+      <userContext.Provider value={{ user: user?.data }}>
         <div className={`font-workSans medium   tracking-wide`}>
           <div className="flex flex-col">
             <Routes>
               <Route path="/" element={<FinalHome />}></Route>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/signUp" element={<SignUp />}></Route>
-              <Route path="/chat" element={<Chat />}></Route>
+              <Route path="/forget" element={<Forget />}></Route>
+              <Route path="/reset" element={<Reset />}></Route>
               <Route path="/dashboard" element={<HomeDashboard />}>
                 <Route
                   path="/dashboard/applications"

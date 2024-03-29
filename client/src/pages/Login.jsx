@@ -109,7 +109,7 @@ const Login = () => {
               />
               <p
                 for="terms"
-                class="mt-10 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="mt-8 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Don't you have an account?
                 <a
@@ -119,6 +119,12 @@ const Login = () => {
                   Register now
                 </a>
               </p>
+              <a
+                href="/forget"
+                class="mt-2 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
+              >
+                Forget password?
+              </a>
             </div>
           </div>
           <div className="flex flex-[50%] ">
@@ -126,49 +132,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      {/* <ReactMediaRecorder
-        audio
-        render={({ status, startRecording, stopRecording, mediaBlobUrl,error }) => {
-          console.log(mediaBlobUrl,error,'blob');
-          return (
-            <div>
-              <p>{status}</p>
-              <button onClick={startRecording}>Start Recording</button>
-              <button onClick={stopRecording}>Stop Recording</button>
-              <video src={mediaBlobUrl?mediaBlobUrl:null} controls autoPlay loop />
-            </div>
-          );
-        }}
-      /> */}
-      {/* <Response
-        response={loginResponse}
-        setPending={setPending}
-        redirectTo="/dashboard"
-        // type="login"
-        type="loginddd"
-      />
-
-      <p className="text-lg font-bold">Login</p>
-      <input
-        type="text"
-        className="p-2 w-44 rounded-md border border-gray-300"
-        placeholder="user name"
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <input
-        type="password"
-        className="p-2 w-44 rounded-md border border-gray-300"
-        placeholder="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <LoadingButton
-        pending={pending}
-        onClick={loginHandler}
-        title="Login"
-        color="bg-blue-500"
-        width="w-44"
-      /> */}
     </div>
   );
 };
