@@ -40,6 +40,7 @@ const FinalHome = () => {
       <div className="w-full px-[3%] pt-[3%] sm:pt-[5%] sm:px-[12%] bg-gradient-to-r from-white to-orange-100 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
+          
           <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
             {/* first button */}
             <div className="sm:mt-7">
