@@ -3,7 +3,7 @@ import asyncCatch from "express-async-catch";
 import { User } from "../models/userModel.js";
 import { tokenGenerator } from "../utils/tokenGenerator.js";
 import crypto from "crypto";
-import { sendEmailHandler, sendEmailMessage } from "./emailController.js";
+import { sendEmailHandler } from "./emailController.js";
 import { Lawyer } from "../models/lawyerModel.js";
 import { CaseManager } from "../models/caseManagerModel.js";
 import { Institution } from "../models/organizationModel.js";
