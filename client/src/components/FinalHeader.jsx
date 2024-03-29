@@ -363,13 +363,13 @@ const FinalHeader = () => {
                       } ${
                         isNav?.navText === "Civil" ||
                         isNav?.navText === "Corporate"
-                          ? "fixed left-0 top-[12.25vh] w-screen h-[calc(100vh-9.5vh)]"
-                          : "absolute left-0 top-[100%] w-[360px] whitespace-nowrap "
+                          ? "absolute left-0 top-[100%] z-[1000] lg:fixed lg:left-0 w-[450px] lg:top-[12.25vh] lg:w-screen h-[calc(100vh-9.5vh)] bg-white"
+                          : "absolute left-0 top-[100%] z-[1000] w-[360px] whitespace-nowrap "
                       }`}
                     >
                       {isNav?.navText === "Civil" ? (
                         <div className="w-full h-full flex">
-                          <div className="flex-grow py-[3%] px-[20%] flex justify-between">
+                          <div className="flex-grow py-[3%] lg:px-[20%] h-full w-[350px] overflow-y-auto flex flex-col lg:flex-row justify-between">
                             {/* contract list */}
                             <div className="flex flex-col">
                               <div>
