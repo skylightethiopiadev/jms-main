@@ -50,8 +50,8 @@ const FinalHome = () => {
             </div>
             {/* bold paragraph */}
             <div className="my-7">
-              <p className="text-[1.23rem] md:text-[2rem] leading-7 md:leading-9 font-[700] my-[1%] text-gray-700">
-                Strength in representation, dedication to your case
+              <p className="text-[1.23rem] md:text-[2.875rem] leading-7 md:leading-10 font-[700] my-[1%]">
+                Strength in representation
               </p>
             </div>
             {/* normal paragraph */}
