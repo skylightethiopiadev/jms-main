@@ -32,7 +32,7 @@ import FinalHeader from "../components/FinalHeader";
 // main
 const FinalHome = () => {
   return (
-    <div className="w-screen h-screen overflow-y-auto pt-[8vh] font-workSans relative">
+    <div className="w-screen h-screen overflow-y-auto pt-[1vh] font-workSans relative">
       {/* <Header /> */}
       <FinalHeader />
 
@@ -43,9 +43,9 @@ const FinalHome = () => {
           
           <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
             {/* first button */}
-            <div className="sm:mt-7">
+            <div className="sm:mt-16">
               <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
-                some text over here
+                Legal Help In Ethiopia
               </button>
             </div>
             {/* bold paragraph */}
@@ -140,88 +140,83 @@ const FinalHome = () => {
             </div>
           </div>
           {/* bottom right */}
-          <div className="w-full sm:w-[50%]">
+          <div className="w-full sm:w-[50%]  h-full">
             {/* content container */}
-            <div className="w-full h-full px-[10%] relative">
-              {/* background image */}
-              <div className="relative z-10 w-full h-full after:absolute after:left-1/2 after:-translate-x-1/2  after:top-1/2 after:-translate-y-1/2 after:rounded-l-[15%] after:w-[50%]  after:h-[50%] after:bg-emerald-400 after:z-0">
-                <img
-                  className="relative z-20 ml-[72px] sm:ml-auto sm:h-[400px] w-full object-contain"
-                  src="/images/personnels/customer-i-removebg-preview.png"
-                  alt=""
-                />
+            <div className="w-full h-full relative flex">
+              {/* image */}
+              <div className="relative z-10 w-full h-full px-[15%] flex mt-[-24px]">
+                <div className="w-full h-full relative flex justify-center after:absolute after:left-0 after:bottom-0 after:w-[100%] md:after:w-[85%] after:h-[75%] after:bg-green-400 after:z-0 after:rounded-l-[15%]">
+                  <img
+                    className="h-[450px] relative z-10"
+                    src="/images/personnels/customer-i-removebg-preview.png"
+                    alt=""
+                  />
+                </div>
               </div>
-              {/* content here */}
-              <div className="absolute left-0 bottom-0 w-full h-full z-50 bg-transparent flex flex-col">
-                {/* first container */}
-                <div className="h-full w-full flex items-center sm:items-end  justify-end">
-                  <div className="mb-5">
-                    <div className="flex items-start gap-3 ">
-                      <div className="flex items-center gap-3 py-2 px-5 rounded-sm bg-yellow-300 shadow-lg">
-                        <SiPostman className="text-xl text-emerald-400" />
-                        <p>Lorem ipsum dolor </p>
-                      </div>
+              {/* content */}
+              <div className="absolute left-0 bottom-0 h-full w-full z-50 flex flex-col gap-y-5">
+                {/* yellow card div */}
+                <div className="flex-grow flex items-end justify-end h-[75%]">
+                  <div className="flex items-center gap-x-2 p-2 rounded-sm text-white bg-yellow-300">
+                    {/* icon */}
+                    <div className="rounded-full bg-white text-[1.35rem] text-green-400">
+                      <SiPostman />
+                    </div>
+                    {/* text */}
+                    <div>
+                      <p>Ethiopian, Wisdom</p>
                     </div>
                   </div>
                 </div>
-                {/* lawyers list container */}
-                <div className="h-full w-full flex sm:items-end">
-                  <div>
-                    {/* lawyer container */}
-                    <div className="mb-[-24px] bg-white shadow-lg w-max whitespace-nowrap">
-                      {/* header */}
-                      <header className="flex items-center p-3 border-b border-gray-100">
-                        <div>
-                          <h3 className="font-semibold">Our Lawyers</h3>
-                        </div>
-                      </header>
-                      {/* lawyers */}
-                      <div
-                        className="px-3 h-[116px] mr-[.1rem] overflow-y-auto"
-                        id="home-lawyer-list-card"
-                      >
-                        {[...Array(12)].map((item, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center justify-between w-full mb-1"
-                          >
-                            {/* left */}
-                            <div className="flex items-center">
-                              {/* image */}
-                              <div className="border-2 border-white shadow-lg w-[32px] aspect-square rounded-full overflow-hidden mr-2">
-                                <img
-                                  className="h-full object-cover"
-                                  src="/images/personnels/lawyer-two.jpg"
-                                  alt=""
-                                />
-                              </div>
-                              {/* text */}
-                              <div>
-                                <div className="flex items-center gap-1 text-sm font-medium mb-[-7px]">
-                                  <span>Haddis</span>
-                                  <span>Fanta</span>
-                                </div>
-                                <span className="text-xs text-gray-500">
-                                  web dev
-                                </span>
-                              </div>
+                {/* lawyers container */}
+                <div className="flex-grow h-[50%] flex items-end">
+                  <div className="bg-white shadow-lg mb-[-24px] w-max">
+                    <header className="px-3 py-2 border-b border-gray-100">
+                      <h3 className="text-[.85rem] font-[700]">
+                        Our Expert Lawyers
+                      </h3>
+                    </header>
+                    <div
+                      className="px-3 h-[19.5vh] overflow-y-auto mr-1"
+                      id="home-lawyer-list-card"
+                    >
+                      {/* lawyer container */}
+                      {[...Array(12)].map((item, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between gap-x-[50px] my-1"
+                        >
+                          <div className="flex items-center gap-x-3">
+                            <div className="w-[28px] aspect-square rounded-full overflow-hidden">
+                              <img
+                                className="w-full h-full object-cover"
+                                src="/images/personnels/lawyer-two.jpg"
+                                alt=""
+                              />
                             </div>
-                            {/* right */}
-                            <div className="ml-12">
-                              <VscVerifiedFilled className="text-xl text-emerald-400" />
+                            <div>
+                              <div className="text-[.875rem] font-semibold flex items-center gap-1 mb-[-5px]">
+                                <span>Haddis</span>
+                                <span>Fanta</span>
+                              </div>
+                              <span className="text-[.75rem] text-gray-400">
+                                web dev
+                              </span>
                             </div>
                           </div>
-                        ))}
-                      </div>
-                      {/* footer */}
-                      <footer className="flex items-center p-3 pt-0">
-                        <div>
-                          <span className="text-xs text-gray-500">
-                            some text here
-                          </span>
+                          <div>
+                            <div className="rounded-full text-[1.35rem] text-green-400">
+                              <VscVerifiedFilled />
+                            </div>
+                          </div>
                         </div>
-                      </footer>
+                      ))}
                     </div>
+                    <footer className="px-3 py-2">
+                      <span className="text-[.65rem] text-gray-400">
+                        some footer text
+                      </span>
+                    </footer>
                   </div>
                 </div>
               </div>

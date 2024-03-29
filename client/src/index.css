@@ -48,7 +48,7 @@
 }
 
 #home-lawyer-list-card:hover::-webkit-scrollbar {
-  width: 2px;
+  width: 3px;
 }
 
 #home-lawyer-list-card::-webkit-scrollbar-track {
