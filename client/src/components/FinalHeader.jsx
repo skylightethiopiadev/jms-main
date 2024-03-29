@@ -363,15 +363,15 @@ const FinalHeader = () => {
                       } ${
                         isNav?.navText === "Civil" ||
                         isNav?.navText === "Corporate"
-                          ? "absolute left-0 top-[100%] z-[1000] lg:fixed lg:left-0 w-[450px] lg:top-[12.25vh] lg:w-screen h-[calc(100vh-9.5vh)] bg-white"
+                          ? "absolute left-0 top-[100%] z-[1000] lg:fixed lg:left-0 w-full pb-[100px] lg:pb-0 lg:top-[12.25vh] lg:w-screen h-[calc(100vh-9.5vh)] bg-white"
                           : "absolute left-0 top-[100%] z-[1000] w-[360px] whitespace-nowrap "
                       }`}
                     >
                       {isNav?.navText === "Civil" ? (
                         <div className="w-full h-full flex">
-                          <div className="flex-grow py-[3%] lg:px-[20%] h-full w-[350px] overflow-y-auto flex flex-col lg:flex-row justify-between">
+                          <div className="flex-grow py-[3%] lg:px-[20%] h-full w-[350px] my-1 lg:my-auto overflow-y-auto flex flex-col lg:flex-row gap-y-0 lg:justify-between">
                             {/* contract list */}
-                            <div className="flex flex-col">
+                            <div className="flex flex-col h-[350px] lg:h-auto">
                               <div>
                                 <h3 className="font-semibold mb-3 text-[1.35rem]">
                                   {civilSubNav[0].groupOne[0].navHeaderText}
@@ -405,7 +405,7 @@ const FinalHeader = () => {
                               </div>
                             </div>
                             {/* family list */}
-                            <div className="flex flex-col">
+                            <div className="flex flex-col h-[200px] lg:h-auto">
                               <div>
                                 <h3 className="font-semibold mb-3 text-[1.35rem]">
                                   {civilSubNav[0].groupOne[1].navHeaderText}
@@ -447,7 +447,7 @@ const FinalHeader = () => {
                               </ul>
                             </div>
                             {/* see all button */}
-                            <div className="absolute right-20 bottom-20">
+                            <div className="hidden lg:flex absolute right-20 bottom-20">
                               <div className="flex items-center gap-1 font-[500] text-[1.35rem] cursor-pointer underline transition-colors ease-in-out duration-300 hover:opacity-75">
                                 <div>See all business services</div>
                                 <div>
@@ -476,7 +476,7 @@ const FinalHeader = () => {
                         </div>
                       ) : isNav?.navText === "Corporate" ? (
                         <div className="w-full h-full flex">
-                          <div className="flex-grow py-[3%] px-[2%] flex justify-between gap-5">
+                          <div className="flex-grow py-[3%] px-[2%] flex flex-col lg:flex-row h-full overflow-y-auto lg:overflow-hidden pb-[100px] my-1 lg:my-auto lg:pb-0 justify-between gap-5">
                             {/* contract list */}
                             <div className="flex flex-col">
                               <div>
