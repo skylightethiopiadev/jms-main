@@ -7,8 +7,8 @@ import { FiPhone } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineClose, MdMenu } from "react-icons/md";
-import { RiUserShared2Fill } from "react-icons/ri";
-
+import { RiUserShared2Fill, RiArrowRightLine } from "react-icons/ri";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const FinalHeader = () => {
   // states
@@ -26,7 +26,7 @@ const FinalHeader = () => {
       navText: "Criminal",
     },
     {
-      navText: "Commercial",
+      navText: "Corporate",
     },
     {
       navText: "Other Services",
@@ -41,7 +41,7 @@ const FinalHeader = () => {
           navHeaderText: "Contract",
           subNavList: [
             {
-              navHeaderText: "Contract of special movables",
+              navHeaderText: "Contract of special movables (Vehicles)",
               path: "#",
             },
             {
@@ -57,7 +57,7 @@ const FinalHeader = () => {
               path: "#",
             },
             {
-              navHeaderText: "Rental of machineries",
+              navHeaderText: "Rental of machineries and vehicles",
               path: "#",
             },
             {
@@ -70,7 +70,7 @@ const FinalHeader = () => {
           navHeaderText: "Family",
           subNavList: [
             {
-              navHeaderText: "Maintenance",
+              navHeaderText: "Maintenances",
               path: "#",
             },
             {
@@ -99,6 +99,10 @@ const FinalHeader = () => {
           navHeaderText: "Property",
           path: "#",
         },
+        {
+          navHeaderText: "Torts",
+          path: "#",
+        },
       ],
     },
   ];
@@ -113,11 +117,11 @@ const FinalHeader = () => {
       path: "#",
     },
     {
-      navHeaderText: "Money laundering",
+      navHeaderText: "Money laundering (Financial Fraud)",
       path: "#",
     },
     {
-      navHeaderText: "Tax and custom related crimes",
+      navHeaderText: "Tax and customs related crimes",
       path: "#",
     },
   ];
@@ -129,7 +133,7 @@ const FinalHeader = () => {
           navHeaderText: "Contract",
           subNavList: [
             {
-              navHeaderText: "Contract of special movables",
+              navHeaderText: "Contract of special movables (vehicles)",
               path: "#",
             },
             {
@@ -145,7 +149,7 @@ const FinalHeader = () => {
               path: "#",
             },
             {
-              navHeaderText: "Rental of machineries",
+              navHeaderText: "Rental of machineries and vehicles",
               path: "#",
             },
             {
@@ -177,6 +181,10 @@ const FinalHeader = () => {
               navHeaderText: "Geographical indications",
               path: "#",
             },
+            {
+              navHeaderText: "varieties and plant breeders' right",
+              path: "#",
+            },
           ],
         },
         {
@@ -191,24 +199,33 @@ const FinalHeader = () => {
               path: "#",
             },
             {
-              navHeaderText: "Capital",
+              navHeaderText: "Capital market",
               path: "#",
             },
           ],
         },
         {
-          navHeaderText: "Corporate",
+          navHeaderText: "International trade and investment",
           subNavList: [
             {
               navHeaderText: "Incorporation",
               path: "#",
             },
             {
-              navHeaderText: "Bankruptcy",
+              navHeaderText:
+                "Bankruptcy (scheme of arrangement or dissolution)",
               path: "#",
             },
             {
               navHeaderText: "Merger",
+              path: "#",
+            },
+            {
+              navHeaderText: "Acquisition",
+              path: "#",
+            },
+            {
+              navHeaderText: "Reorganization",
               path: "#",
             },
           ],
@@ -218,15 +235,7 @@ const FinalHeader = () => {
     {
       groupTwo: [
         {
-          navHeaderText: "International trade and investment",
-          path: "#",
-        },
-        {
-          navHeaderText: "Tax",
-          path: "#",
-        },
-        {
-          navHeaderText: "Customs",
+          navHeaderText: "Tax & customs",
           path: "#",
         },
         {
@@ -235,10 +244,6 @@ const FinalHeader = () => {
         },
         {
           navHeaderText: "Joint venture",
-          path: "#",
-        },
-        {
-          navHeaderText: "Torts",
           path: "#",
         },
       ],
@@ -261,14 +266,14 @@ const FinalHeader = () => {
   ];
 
   // effects
-  useEffect(()=>{
-    let element = document.getElementById('main-nav-container')
-    if(element?.classList.contains('right-[-100vw] fixed')){
-      setMenuIconToggler(true)
-    }else{
-      setMenuIconToggler(false)
+  useEffect(() => {
+    let element = document.getElementById("main-nav-container");
+    if (element?.classList.contains("right-[-100vw] fixed")) {
+      setMenuIconToggler(true);
+    } else {
+      setMenuIconToggler(false);
     }
-  },[])
+  }, []);
 
   // nav drawer
   const mainNavDrawer = () => {
@@ -357,58 +362,82 @@ const FinalHeader = () => {
                           : "scale-0 opacity-0"
                       } ${
                         isNav?.navText === "Civil" ||
-                        isNav?.navText === "Commercial"
+                        isNav?.navText === "Corporate"
                           ? "fixed left-0 top-[12.25vh] w-screen h-[calc(100vh-9.5vh)]"
-                          : "absolute left-0 top-[100%] w-[300px] whitespace-nowrap "
+                          : "absolute left-0 top-[100%] w-[360px] whitespace-nowrap "
                       }`}
                     >
                       {isNav?.navText === "Civil" ? (
                         <div className="w-full h-full flex">
                           <div className="flex-grow py-[3%] px-[20%] flex justify-between">
-                            <div>
-                              <h3 className="font-semibold mb-3 text-[1.35rem]">
-                                {civilSubNav[0].groupOne[0].navHeaderText}
-                              </h3>
-                              <ul>
-                                {civilSubNav[0].groupOne[0].subNavList.map(
-                                  (item, index) => (
-                                    <li
-                                      key={index}
-                                      className="my-[.3rem] text-[1.125rem]"
-                                    >
-                                      <NavLink className={"hover:underline"}>
-                                        {item.navHeaderText}
-                                      </NavLink>
-                                    </li>
-                                  )
-                                )}
-                              </ul>
+                            {/* contract list */}
+                            <div className="flex flex-col">
+                              <div>
+                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                  {civilSubNav[0].groupOne[0].navHeaderText}
+                                </h3>
+                                <ul>
+                                  {civilSubNav[0].groupOne[0].subNavList.map(
+                                    (item, index) => (
+                                      <li
+                                        key={index}
+                                        className="my-[.3rem] text-[1.125rem]"
+                                      >
+                                        <NavLink className={"hover:underline"}>
+                                          {item.navHeaderText}
+                                        </NavLink>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </div>
+                              <div className="flex-grow h-full flex items-end pb-[150px]">
+                                <div className="flex items-center justify-center gap-3 border-[4px] border-black rounded-full py-2 px-[7%] cursor-pointer hover:bg-black hover:text-white">
+                                  <div>
+                                    <span className="font-[600] text-[1.3rem]">
+                                      Explore more
+                                    </span>
+                                  </div>
+                                  <div>
+                                    <RiArrowRightLine className="text-[1.5rem]" />
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div>
-                              <h3 className="font-semibold mb-3 text-[1.35rem]">
-                                {civilSubNav[0].groupOne[1].navHeaderText}
-                              </h3>
-                              <ul>
-                                {civilSubNav[0].groupOne[1].subNavList.map(
-                                  (item, index) => (
-                                    <li
-                                      key={index}
-                                      className="my-[.3rem] text-[1.125rem]"
-                                    >
-                                      <NavLink className={"hover:underline"}>
-                                        {item.navHeaderText}
-                                      </NavLink>
-                                    </li>
-                                  )
-                                )}
-                              </ul>
+                            {/* family list */}
+                            <div className="flex flex-col">
+                              <div>
+                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                  {civilSubNav[0].groupOne[1].navHeaderText}
+                                </h3>
+                                <ul>
+                                  {civilSubNav[0].groupOne[1].subNavList.map(
+                                    (item, index) => (
+                                      <li
+                                        key={index}
+                                        className="my-[.3rem] text-[1.125rem]"
+                                      >
+                                        <NavLink className={"hover:underline"}>
+                                          {item.navHeaderText}
+                                        </NavLink>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </div>
+                              <div className="h-full flex-grow flex pb-[150px]">
+                                <h3 className="font-[500] underline transition-colors ease-in-out duration-300 hover:opacity-75 cursor-pointer text-[1.25rem]">
+                                  view all
+                                </h3>
+                              </div>
                             </div>
+                            {/* list without sub list */}
                             <div>
                               <ul>
                                 {civilSubNav[1].groupTwo.map((item, index) => (
                                   <li
                                     key={index}
-                                    className="my-[.3rem] text-[1.125rem]"
+                                    className="my-[.25rem] font-semibold text-[1.35rem]"
                                   >
                                     <NavLink className={"hover:underline"}>
                                       {item.navHeaderText}
@@ -416,6 +445,15 @@ const FinalHeader = () => {
                                   </li>
                                 ))}
                               </ul>
+                            </div>
+                            {/* see all button */}
+                            <div className="absolute right-20 bottom-20">
+                              <div className="flex items-center gap-1 font-[500] text-[1.35rem] cursor-pointer underline transition-colors ease-in-out duration-300 hover:opacity-75">
+                                <div>See all business services</div>
+                                <div>
+                                  <MdKeyboardArrowRight className="text-[2rem]" />
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -436,66 +474,112 @@ const FinalHeader = () => {
                             </ul>
                           </div>
                         </div>
-                      ) : isNav?.navText === "Commercial" ? (
+                      ) : isNav?.navText === "Corporate" ? (
                         <div className="w-full h-full flex">
-                          <div className="flex-grow py-[3%] px-[2%] flex justify-between">
-                            <div>
-                              <h3 className="font-semibold mb-3 text-[1.35rem]">
-                                {commercialSubNav[0].groupOne[0].navHeaderText}
-                              </h3>
-                              <ul>
-                                {commercialSubNav[0].groupOne[0].subNavList.map(
-                                  (item, index) => (
-                                    <li
-                                      key={index}
-                                      className="my-[.3rem] text-[1.125rem]"
-                                    >
-                                      <NavLink className={"hover:underline"}>
-                                        {item.navHeaderText}
-                                      </NavLink>
-                                    </li>
-                                  )
-                                )}
-                              </ul>
+                          <div className="flex-grow py-[3%] px-[2%] flex justify-between gap-5">
+                            {/* contract list */}
+                            <div className="flex flex-col">
+                              <div>
+                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                  {
+                                    commercialSubNav[0].groupOne[0]
+                                      .navHeaderText
+                                  }
+                                </h3>
+                                <ul>
+                                  {commercialSubNav[0].groupOne[0].subNavList.map(
+                                    (item, index) => (
+                                      <li
+                                        key={index}
+                                        className="my-[.3rem] text-[1.125rem]"
+                                      >
+                                        <NavLink className={"hover:underline"}>
+                                          {item.navHeaderText}
+                                        </NavLink>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </div>
+                              <div className="flex-grow h-full flex">
+                                <h3 className="font-[500] underline transition-colors ease-in-out duration-300 hover:opacity-75 cursor-pointer text-[1.25rem]">
+                                  view all
+                                </h3>
+                              </div>
                             </div>
-                            <div>
-                              <h3 className="font-semibold text-[1.35rem] mb-3">
-                                {commercialSubNav[0].groupOne[1].navHeaderText}
-                              </h3>
-                              <ul>
-                                {commercialSubNav[0].groupOne[1].subNavList.map(
-                                  (item, index) => (
-                                    <li
-                                      key={index}
-                                      className="my-[.3rem] text-[1.125rem]"
-                                    >
-                                      <NavLink className={"hover:underline"}>
-                                        {item.navHeaderText}
-                                      </NavLink>
-                                    </li>
-                                  )
-                                )}
-                              </ul>
+
+                            {/* intellectual property list */}
+                            <div className="flex flex-col">
+                              <div>
+                                <h3 className="font-semibold text-[1.35rem] mb-3">
+                                  {
+                                    commercialSubNav[0].groupOne[1]
+                                      .navHeaderText
+                                  }
+                                </h3>
+                                <ul>
+                                  {commercialSubNav[0].groupOne[1].subNavList.map(
+                                    (item, index) => (
+                                      <li
+                                        key={index}
+                                        className="my-[.3rem] text-[1.125rem]"
+                                      >
+                                        <NavLink className={"hover:underline"}>
+                                          {item.navHeaderText}
+                                        </NavLink>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </div>
+                              <div className="h-full">
+                                <h3 className="font-[500] underline transition-colors ease-in-out duration-300 hover:opacity-75 cursor-pointer text-[1.25rem]">
+                                  view all
+                                </h3>
+                              </div>
                             </div>
+
+                            {/* international trade and investment list */}
+
                             <div>
-                              <h3 className="font-semibold mb-3 text-[1.35rem]">
-                                {commercialSubNav[0].groupOne[3].navHeaderText}
-                              </h3>
-                              <ul>
-                                {commercialSubNav[0].groupOne[3].subNavList.map(
-                                  (item, index) => (
-                                    <li
-                                      key={index}
-                                      className="my-[.3rem] text-[1.125rem]"
-                                    >
-                                      <NavLink className={"hover:underline"}>
-                                        {item.navHeaderText}
-                                      </NavLink>
-                                    </li>
-                                  )
-                                )}
-                              </ul>
+                              <div>
+                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                  {
+                                    commercialSubNav[0].groupOne[3]
+                                      .navHeaderText
+                                  }
+                                </h3>
+                                <ul>
+                                  {commercialSubNav[0].groupOne[3].subNavList.map(
+                                    (item, index) => (
+                                      <li
+                                        key={index}
+                                        className="my-[.3rem] text-[1.125rem]"
+                                      >
+                                        <NavLink className={"hover:underline"}>
+                                          {item.navHeaderText}
+                                        </NavLink>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </div>
+                              <div className="h-full pt-[60px]">
+                                <div>
+                                  <div className="flex items-center justify-center gap-3 border-[4px] border-black rounded-full py-2 px-[3%] cursor-pointer hover:bg-black hover:text-white">
+                                    <div>
+                                      <span className="font-[600] text-[1.3rem]">
+                                        Explore more
+                                      </span>
+                                    </div>
+                                    <div>
+                                      <RiArrowRightLine className="text-[1.5rem]" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
+
                             <div>
                               <h3 className="font-semibold mb-3 text-[1.35rem]">
                                 {commercialSubNav[0].groupOne[2].navHeaderText}
@@ -515,13 +599,14 @@ const FinalHeader = () => {
                                 )}
                               </ul>
                             </div>
+
                             <div>
                               <ul>
                                 {commercialSubNav[1].groupTwo.map(
                                   (item, index) => (
                                     <li
                                       key={index}
-                                      className="my-[.3rem] text-[1.125rem]"
+                                      className="my-[.25rem] font-semibold text-[1.35rem]"
                                     >
                                       <NavLink className={"hover:underline"}>
                                         {item.navHeaderText}
@@ -530,6 +615,16 @@ const FinalHeader = () => {
                                   )
                                 )}
                               </ul>
+                            </div>
+
+                            {/* see all button */}
+                            <div className="absolute right-20 bottom-20">
+                              <div className="flex items-center gap-1 font-[500] text-[1.35rem] cursor-pointer underline transition-colors ease-in-out duration-300 hover:opacity-75">
+                                <div>See all business services</div>
+                                <div>
+                                  <MdKeyboardArrowRight className="text-[2rem]" />
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -637,7 +732,7 @@ const FinalHeader = () => {
                 className="mx-2 text-[2.75rem] cursor-pointer"
                 onClick={() => {
                   mainNavDrawer();
-                  setMenuIconToggler(!menuIconToggler)
+                  setMenuIconToggler(!menuIconToggler);
                 }}
               >
                 {menuIconToggler ? <MdOutlineClose /> : <MdMenu />}
