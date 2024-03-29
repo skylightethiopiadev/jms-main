@@ -1,3 +1,8 @@
+import FroalaEditorComponent from "react-froala-wysiwyg";
+
+import "froala-editor/css/froala_style.min.css";
+import "froala-editor/css/froala_editor.pkgd.min.css";
+
 const NewCaseServices = ({
   stepCounter,
   newCaseHistory,
@@ -65,8 +70,8 @@ const NewCaseServices = ({
               ))}
             </div>
 
-            <div className="bg-sky-100 w-[100%] sm:w-[50%] rounded-md">
-              Text Area Box Here
+            <div className="bg-sky-50 w-[100%] p-[3%] sm:w-[50%] rounded-md">
+              +6+++
             </div>
           </div>
 

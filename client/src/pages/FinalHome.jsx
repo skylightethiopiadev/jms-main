@@ -15,7 +15,13 @@ import {
   FaFacebookF,
   FaYoutube,
 } from "react-icons/fa";
-import { MdDashboard, MdOutlineFireplace,MdPhoneInTalk,MdOutlineMarkEmailRead ,MdOutlineMediation  } from "react-icons/md";
+import {
+  MdDashboard,
+  MdOutlineFireplace,
+  MdPhoneInTalk,
+  MdOutlineMarkEmailRead,
+  MdOutlineMediation,
+} from "react-icons/md";
 import { GiOpenFolder } from "react-icons/gi";
 import { FaCircleCheck, FaXTwitter } from "react-icons/fa6";
 import { IoFolder } from "react-icons/io5";
@@ -42,20 +48,20 @@ const FinalHome = () => {
               </button>
             </div>
             {/* bold paragraph */}
-            <div className="my-5">
-              <p className="text-[2rem] leading-9 font-[700] my-[1%] text-gray-700">
+            <div className="my-7">
+              <p className="text-[1.23rem] md:text-[2rem] leading-7 md:leading-9 font-[700] my-[1%] text-gray-700">
                 Strength in representation, dedication to your case
               </p>
             </div>
             {/* normal paragraph */}
             <div>
-              <p className="my-[3%]">
+              <p className="my-[5%]">
                 Get the legal help you needs, with our DIY services or attorney
                 advice. Either way, we've got your back
               </p>
             </div>
             {/* gold buttons */}
-            <div className="my-[1.5rem] flex items-center gap-[7%]">
+            <div className="my-[2.5rem] flex items-center gap-[7%]">
               <div className="w-full bg-yellow-400 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-yellow-300 flex items-center justify-center rounded-full py-1 text-white text-[.985rem]">
                 <span>Civil</span>
               </div>
@@ -95,7 +101,7 @@ const FinalHome = () => {
                     </div>
                   </div>
                   <div>
-                    <p>Lorem ipsum some other</p>
+                    <p>Lorem ipsum and</p>
                   </div>
                 </div>
               </div>
@@ -126,7 +132,7 @@ const FinalHome = () => {
                     </div>
                   </div>
                   <div>
-                    <p>Lorem ipsum also here</p>
+                    <p>Lorem ipsum also</p>
                   </div>
                 </div>
               </div>
@@ -237,9 +243,9 @@ const FinalHome = () => {
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* top container */}
-          <div className="flex items-center justify-between gap-[10%] ">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center justify-between lg:gap-[10%] ">
             {/* top left container */}
-            <div className="w-[50%]">
+            <div className="w-full lg:w-[50%]">
               {/* button container */}
               <div>
                 <button className="px-[7%] py-1 rounded-full border border-sky-200 bg-sky-100">
@@ -247,7 +253,7 @@ const FinalHome = () => {
                 </button>
               </div>
               {/* bold paragraph */}
-              <div className="text-[1.5rem] font-[700] my-3 leading-8">
+              <div className="text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] my-3 md:leading-8">
                 <p>Lorem ipsum dolor, sit amet consectetur</p>
               </div>
               {/* normal paragraph */}
@@ -259,9 +265,9 @@ const FinalHome = () => {
               </div>
             </div>
             {/* bottom right */}
-            <div className="w-[75%] flex items-center justify-between gap-[5%]">
+            <div className="w-full lg:w-[75%] flex flex-col gap-y-2 md:flex-row md:items-center justify-between md:gap-[5%]">
               {/* left */}
-              <div className="flex flex-col gap-y-7">
+              <div className="flex flex-col gap-y-2 md:gap-y-7">
                 <div className="flex items-center gap-3 ">
                   {/* icon */}
                   <div>
@@ -288,7 +294,7 @@ const FinalHome = () => {
                 </div>
               </div>
               {/* right */}
-              <div className="flex flex-col gap-y-7">
+              <div className="flex flex-col gap-y-2 md:gap-y-7">
                 <div className="flex items-center gap-3 ">
                   {/* icon */}
                   <div>
@@ -316,10 +322,11 @@ const FinalHome = () => {
               </div>
             </div>
           </div>
+
           {/* bottom container */}
-          <div className="flex items-center justify-between gap-[7%] py-[4%]">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[7%] py-[4%]">
             {/* left container */}
-            <div className="w-[50%] relative flex items-center justify-center">
+            <div className="w-full mb-14 lg:mb-auto lg:w-[50%] relative flex items-center justify-center">
               {/* background image */}
               <div className="px-[10%] flex-grow flex">
                 <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-r-full after:z-0">
@@ -368,10 +375,10 @@ const FinalHome = () => {
                 {/* bottom card */}
                 <div className="flex-grow h-[50%] flex justify-end items-end">
                   <div>
-                    <div className="bg-white shadow-lg p-1 mb-[-20px] mr-[.75rem]">
+                    <div className="bg-white shadow-lg p-1 mb-[-42px] md:mb-[-20px] mr-[.75rem]">
                       {/* circle  */}
                       <div className="w-full flex items-center justify-center p-5">
-                        <div className="w-[100px] h-[90px] border-[16px] border-b-green-500 border-r-yellow-300 rounded-full aspect-square flex items-center justify-center">
+                        <div className="w-[80px] h-[75px] md:w-[100px] md:h-[90px] border-[16px] border-b-green-500 border-r-yellow-300 rounded-full aspect-square flex items-center justify-center">
                           <div>
                             <h3 className="font-black text-[1rem]">75%</h3>
                             <span>done</span>
@@ -395,7 +402,7 @@ const FinalHome = () => {
               </div>
             </div>
             {/* right container */}
-            <div className="w-[50%]">
+            <div className="w-full lg:w-[50%]">
               {/* button container */}
               <div>
                 <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
@@ -447,6 +454,7 @@ const FinalHome = () => {
             </div>
           </div>
         </div>
+
         {/* background image */}
         <div className="absolute left-0 bottom-0 h-full w-full flex overflow-hidden">
           <div className="flex w-full h-full">
@@ -462,9 +470,9 @@ const FinalHome = () => {
       {/* third order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
-          <div className="flex items-center justify-between gap-[5%] relative z-30">
+          <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
             {/* top left container */}
-            <div className="w-[50%]">
+            <div className="w-full lg:w-[50%]">
               {/* button */}
               <div>
                 <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
@@ -472,7 +480,7 @@ const FinalHome = () => {
                 </button>
               </div>
               {/* bold paragraph */}
-              <div className="my-5 text-[1.5rem] font-[700] leading-7">
+              <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
                 <p>Lorem ipsum dolor sit amet consectetur, adipi</p>
               </div>
               {/* normal paragraph */}
@@ -521,13 +529,13 @@ const FinalHome = () => {
               </div>
             </div>
             {/* bottom right container */}
-            <div className="w-[50%] flex relative">
+            <div className="w-full lg:w-[50%] flex relative">
               {/* background image */}
               <div className="w-full h-full flex px-[15%]">
                 <div className="flex-grow relative after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[80%] after:rounded-tl-[35%] after:bg-orange-400 z-0 flex items-end justify-end">
                   <div>
                     <img
-                      className="relative z-10"
+                      className="relative z-10 max-h-[350px]"
                       src="/images/personnels/lawyer-three.png"
                       alt=""
                     />
@@ -599,7 +607,7 @@ const FinalHome = () => {
           <div className="absolute left-0 bottom-0 w-full h-full flex overflow-hidden">
             <div className="flex-grow w-full h-full overflow-hidden">
               <img
-                className="w-full object-cover opacity-10"
+                className="h-full w-full object-cover opacity-10"
                 src="/images/bg/bg-two.jpg"
                 alt=""
               />
@@ -608,7 +616,6 @@ const FinalHome = () => {
         </div>
       </div>
 
-      {/* footer */}
       {/* footer container */}
       <div className="bg-black text-gray-300">
         {/* footer top */}

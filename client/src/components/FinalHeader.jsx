@@ -284,7 +284,7 @@ const FinalHeader = () => {
 
   return (
     <header className="shadow-bottomShadow fixed left-0 top-0 z-[1000] text-[.975rem] w-full bg-white text-black">
-      <div className="px-[12%] flex items-center justify-between">
+      <div className="px-[1%] sm:px-[2%] md:px-[3%] lg:px-[5%] xl:px-[12%] flex items-center justify-between">
         {/* logo container */}
         <div
           className="
