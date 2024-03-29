@@ -71,7 +71,7 @@ const NewCaseServices = ({
             </div>
 
             <div className="bg-sky-50 w-[100%] p-[3%] sm:w-[50%] rounded-md">
-              <FroalaEditorComponent tag="textarea" />
+              +6+++
             </div>
           </div>
 
