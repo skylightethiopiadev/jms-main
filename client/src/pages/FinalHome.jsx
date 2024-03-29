@@ -49,8 +49,8 @@ const FinalHome = () => {
             </div>
             {/* bold paragraph */}
             <div className="my-7">
-              <p className="text-[1.23rem] md:text-[2.875rem] leading-7 md:leading-10 font-[700] my-[1%]">
-                Strength in representation
+              <p className="text-[1.23rem] track md:text-[2.875rem] leading-7 md:leading-[50px] font-[700] my-[1%]">
+                U.S Legal Help in Ethiopia
               </p>
             </div>
             {/* normal paragraph */}
