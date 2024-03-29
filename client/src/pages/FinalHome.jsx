@@ -26,12 +26,12 @@ import FinalHeader from "../components/FinalHeader";
 // main
 const FinalHome = () => {
   return (
-    <div className="w-screen h-screen overflow-y-auto pt-[10vh] font-workSans relative">
+    <div className="w-screen h-screen overflow-y-auto pt-[8vh] font-workSans relative">
       {/* <Header /> */}
       <FinalHeader />
 
       {/* first order container */}
-      <div className="w-full px-[3%] pt-[3%] sm:px-[12%] bg-gradient-to-r from-white to-orange-100 pb-12 sm:pb-[100px] relative shadow-md">
+      <div className="w-full px-[3%] pt-[3%] sm:pt-[5%] sm:px-[12%] bg-gradient-to-r from-white to-orange-100 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
           <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
