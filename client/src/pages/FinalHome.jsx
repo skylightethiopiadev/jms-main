@@ -37,7 +37,7 @@ const FinalHome = () => {
       <FinalHeader />
 
       {/* first order container */}
-      <div className="w-full px-[3%] pt-[3%] sm:pt-[5%] sm:px-[12%] bg-gradient-to-r from-white to-orange-100 pb-12 sm:pb-[100px] relative shadow-md">
+      <div className="w-full px-[3%] pt-[3%] sm:pt-[5%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
           <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
@@ -226,7 +226,7 @@ const FinalHome = () => {
         <div className="absolute z-0 left-0 bottom-0 h-full w-full flex overflow-hidden">
           <div className="w-full h-full">
             <img
-              className="opacity-[0.035] w-full object-cover"
+              className="opacity-[0.04] w-full object-cover"
               src="/images/bg/bg-zero.jpg"
               alt=""
             />
