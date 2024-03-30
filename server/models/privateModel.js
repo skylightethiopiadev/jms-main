@@ -68,7 +68,7 @@ privateSchema.pre("findOneAndUpdate", function (next) {
   next();
 });
 
-privateSchema.pre("init", function (next) {
+privateSchema.pre("save", function (next) {
   let percent = 20;
   const fields = [
     "firstName",
@@ -84,11 +84,11 @@ privateSchema.pre("init", function (next) {
     if (this[field]?.length > 0) {
       percent += 10;
     }
-  }); 
+  });
 
   console.log(this, percent, "percent");
   this.profileFillStatus = percent;
-  next();
+   next();
 });
 
 export const Private = mongoose.model("private", privateSchema);
