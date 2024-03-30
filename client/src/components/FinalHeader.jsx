@@ -793,16 +793,6 @@ const FinalHeader = () => {
                           <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
                             {/* icon */}
                             <div>
-                              <ImProfile className="text-[1.15rem]"/>
-                            </div>
-                            {/* text */}
-                            <div><span>Profile</span></div>
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
-                            {/* icon */}
-                            <div>
                               <IoMdSettings className="text-[1.15rem]"/>
                             </div>
                             {/* text */}
