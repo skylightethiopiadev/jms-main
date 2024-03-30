@@ -56,7 +56,7 @@ const LawyerDashboardHeader = () => {
           </button>
         </div>
         {/* search bar */}
-        <div className="pl-[9%]">
+        <div className="pl-[5%]">
           <div className="flex items-center bg-gray-100 rounded-md">
             <input
               type="text"
