@@ -13,7 +13,9 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 // menu
 import { GrMenu } from "react-icons/gr";
 import { VscVerifiedFilled } from "react-icons/vsc";
-
+import { IoIosSettings } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
+import { MdOutlineSecurity } from "react-icons/md";
 import {
   IoStarOutline,
   IoStarHalfOutline,
@@ -22,10 +24,19 @@ import {
 } from "react-icons/io5";
 import { FaCamera } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useUserLogoutMutation } from "../../../../features/api/apiSlice";
+import Response from "../../../../components/Response";
+import { NavLink } from "react-router-dom";
 
 // main
 // CustomerDashboardHeader
 const CustomerDashboardHeader = () => {
+  const [logout, logoutResponse] = useUserLogoutMutation();
+  const [pending, setPending] = useState(false);
+
+  const logoutHandler = () => {
+    logout({});
+  };
   // local state
   const [isUserProfilePopup, setIsUserProfilePopup] = useState(false);
   // customer dashboard left side bar toggler
@@ -45,6 +56,11 @@ const CustomerDashboardHeader = () => {
     <header className="py-2 px-1 flex items-center justify-between w-full border-b border-gray-200">
       {/* left header portion */}
       <div className="flex items-center">
+        <Response
+          response={logoutResponse}
+          setPending={setPending}
+          redirectTo="/login"
+        />
         {/* menu icon */}
         <div className="text-2xl text-gray-500 lg:hidden">
           <button
@@ -157,8 +173,27 @@ const CustomerDashboardHeader = () => {
                   </p>
                 </div>
                 {/* logout */}
-                <div>
-                  <button className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
+                <div className="w-full flex items-center justify-between">
+                  <a
+                    href="/dashboard/customer/profile"
+                    className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700"
+                  >
+                    <CgProfile className="text-xl mr-1" />
+                    <span>Profile</span>
+                  </a>
+
+                  <NavLink
+                    to="/dashboard/customer/change-password"
+                    className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700"
+                  >
+                    <MdOutlineSecurity className="text-xl mr-1" />
+                    <span>Security</span>
+                  </NavLink>
+
+                  <button
+                    onClick={logoutHandler}
+                    className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700"
+                  >
                     <IoExitSharp className="text-xl mr-1" />
                     <span>Logout</span>
                   </button>

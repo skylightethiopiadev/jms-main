@@ -5,30 +5,25 @@ const lawyerSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      default: "gedeon",
       validate: valid.name("First name"),
     },
 
     middleName: {
-      default: "gedeon",
       type: String,
       validate: valid.name("Middle name"),
     },
 
     lastName: {
-      default: "gedeon",
       type: String,
       validate: valid.name("Last name"),
     },
 
     gender: {
-      default: "Male",
       type: String,
       validate: valid.gender("Gender"),
     },
 
     phone: {
-      default: "0954104637",
       type: String,
       validate: valid.phone("Phone"),
     },
@@ -40,14 +35,13 @@ const lawyerSchema = new mongoose.Schema(
     },
 
     nationality: {
-      default: "gedeon",
       type: String,
       validate: valid.paragraph("Nationality", 4, 100),
     },
 
     ID: {
-      default: "gedeon",
       type: String,
+      validate: valid.paragraph("ID", 4, 100),
     },
 
     acquireLicense: {
@@ -56,49 +50,43 @@ const lawyerSchema = new mongoose.Schema(
     },
 
     licenseNo: {
-      default: "gedeon",
       type: String,
     },
 
     levelOfEducation: {
       type: String,
       enum: ["LLB", "LLM", "PHD"],
-      default: "LLB",
     },
 
     areaOfExpertise: {
-      default: "gedeon",
       type: String,
+      validate: valid.paragraph("Area of expertise", 4, 100),
     },
 
     yearOfExperience: {
-      default: 5,
       type: Number,
+      validate: valid.paragraph("Year of experience", 1, 100),
     },
 
     preferenceArea: {
-      default: "gedeon",
       type: [String],
+      validate: valid.paragraph("Preference", 4, 100),
     },
 
     yearOfExpire: {
-      default: new Date(),
       type: Date,
     },
 
     resumeAndCoverLetter: {
-      default: "gedeon",
       type: String,
     },
 
     additionalDocuments: {
-      default: "gedeon",
       type: String,
     },
 
     bio: {
       type: String,
-      default: "gedeon",
       validate: valid.paragraph("Biography", 5, 400),
     },
 

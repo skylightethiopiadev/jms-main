@@ -43,6 +43,8 @@ import OnRequest from "./pages/dashboard/customer/customer-sub-pages/new-case-su
 import Success from "./pages/Success";
 import Forget from "./pages/Forget";
 import Reset from "./pages/Reset";
+import CustomerProfile from "./pages/dashboard/customer/customer-sub-pages/CustomerProfile";
+import ChangePassword from "./pages/dashboard/customer/customer-sub-pages/ChangePassword";
 
 export const userContext = createContext();
 
@@ -117,6 +119,17 @@ function App() {
                   path="/dashboard/customer/on-request"
                   element={<OnRequest />}
                 ></Route>
+                {/* customer case request */}
+                <Route
+                  path="/dashboard/customer/profile"
+                  element={<CustomerProfile />}
+                ></Route>
+                {/* change password */}
+                <Route
+                  path="/dashboard/customer/change-password"
+                  element={<ChangePassword />}
+                ></Route>
+
                 {/* customer charts */}
                 <Route
                   path="/dashboard/customer/case-team"

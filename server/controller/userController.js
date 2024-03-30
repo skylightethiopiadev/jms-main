@@ -6,12 +6,12 @@ import crypto from "crypto";
 import { sendEmailHandler } from "./emailController.js";
 import { Lawyer } from "../models/lawyerModel.js";
 import { CaseManager } from "../models/caseManagerModel.js";
-import { Institution } from "../models/organizationModel.js";
+import { Business } from "../models/businessModel.js";
 import v2 from "./../config/cloudinary.js";
 import { Private } from "../models/privateModel.js";
 
 export const signupHandler = asyncCatch(async (req, res, next) => {
-  const value = { ...req.body };
+  // const value = { ...req.body };
   const createAccount = async (model) => {
     const user = await User.create(req.body);
     if (user) {
@@ -38,35 +38,22 @@ export const signupHandler = asyncCatch(async (req, res, next) => {
   switch (req.body.role) {
     case "private-customer":
       return createAccount(Private);
-    case "case-manager-main":
-      return createAccount(CaseManager);
     case "business-customer":
-      const remove = ["firstName", "middleName", "lastName", "gender"];
-      remove.forEach((el) => delete value[el]);
-      const business = await Institution.create(value);
-      if (business._id) return createAccount(business._id);
-      break;
+      return createAccount(Business);
     case "lawyer":
-      // const lawyer = await Lawyer.create(value);
-      // if (lawyer._id) return createAccount(lawyer._id);
-      // break;
       return createAccount(Lawyer);
     case "case-manager-main":
-      const manager_main = await CaseManager.create(value);
-      if (manager_main._id) return createAccount(manager._id);
-      break;
+      return createAccount(CaseManager);
     case "case-manager-regular":
-      const manager_regular = await CaseManager.create(value);
-      if (manager_regular._id) return createAccount(manager._id);
-      break;
+      return createAccount(CaseManager);
     case "case-manager-external":
-      const manager_external = await CaseManager.create(value);
-      if (manager_external._id) return createAccount(manager._id);
-      break;
+      return createAccount(CaseManager);
     case "super-admin":
-      return createAccount("");
+      return createAccount(CaseManager);
     default:
-      return next(new AppError("problem with creating account try again", 500));
+      return next(
+        new AppError("problem with creating your account please try again", 500)
+      );
   }
 });
 
@@ -93,7 +80,7 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    message: "you are logged in successfully",
+    message: "Logged in successfully redirecting...",
     data: user,
     token,
   });
@@ -258,6 +245,7 @@ export const updatePassword = asyncCatch(async (req, res, next) => {
     user.password,
     currentPassword
   );
+
   if (!isPasswordCorrect)
     return next(new AppError("Your current password is incorrect", 404));
 

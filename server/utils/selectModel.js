@@ -4,11 +4,12 @@ import { Case } from "../models/caseModel.js";
 import { Category } from "../models/categoryModel.js";
 import { Group } from "../models/groupModel.js";
 import { Lawyer } from "../models/lawyerModel.js";
-import { Institution } from "../models/organizationModel.js";
+import { Business } from "../models/businessModel.js";
 import { Payment } from "../models/paymentModel.js";
 import { Permission } from "../models/permissionModel.js";
 import { User } from "../models/userModel.js";
 import AppError from "./AppError.js";
+import { Private } from "../models/privateModel.js";
 
 export const selectModel = (name, next) => {
   let model;
@@ -37,8 +38,14 @@ export const selectModel = (name, next) => {
     case "case-managers":
       model = CaseManager;
       break;
+    case "businesses": 
+      model = Business;
+      break;
     case "lawyers":
       model = Lawyer;
+      break;
+    case "privates":
+      model = Private;
       break;
     case "groups":
       model = Group;

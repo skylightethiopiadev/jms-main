@@ -4,7 +4,7 @@ import path from "path";
 import cors from "cors";
 import { errorController } from "./controller/errorController.js";
 import mongodb from "./config/db.js";
-import { chatRouter, router } from "./routes/router.js";
+import { accountRouter, chatRouter, router } from "./routes/router.js";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import cookieParser from "cookie-parser";
@@ -37,6 +37,7 @@ app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser());
 app.use("/jms/app/v1/user", router);
+app.use("/jms/app/v1/account", accountRouter);
 app.use("/jms/app/v1/chat", chatRouter);
 
 app.get("/", (req, res) => {

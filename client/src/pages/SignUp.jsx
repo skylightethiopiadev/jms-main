@@ -12,7 +12,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("case-manager-main");
+  const [role, setRole] = useState("private-customer");
 
   const signupHandler = () => {
     if (!pass) {
@@ -27,7 +27,7 @@ const Signup = () => {
       });
     }
   };
-
+  console.log(role, "role");
   return (
     <div className="w-full gap-3 bg-gray-200 h-[100vh] flex items-start justify-start">
       <div className="flex flex-[30%] bg-blue-500 h-[100vh]"></div>
@@ -75,7 +75,9 @@ const Signup = () => {
                 id=""
                 className="w-full p-2 rounded-lg mt-2 border border-gray-300"
               >
-                <option value="private-customer">Private</option>
+                <option selected value="private-customer">
+                  Private
+                </option>
                 <option value="business-customer">Institute</option>
                 <option value="lawyer">Lawyer</option>
               </select>

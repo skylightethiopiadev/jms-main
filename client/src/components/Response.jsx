@@ -52,7 +52,9 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       );
 
       if (type === "login" || type === "signUp") {
-        navigate(dashboard, { replace: true });
+        setTimeout(() => {
+          navigate(dashboard, { replace: true });
+        }, 2000);
       } else if (type === "payment") {
         localStorage.removeItem("macuta_law_firm_system");
         navigate(redirectTo, { replace: true });

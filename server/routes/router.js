@@ -34,6 +34,7 @@ import asyncCatch from "express-async-catch";
 
 const router = express.Router();
 const chatRouter = express.Router();
+const accountRouter = express.Router();
 
 const files = upload.fields([
   { name: "attachments", maxCount: 10 },
@@ -53,13 +54,15 @@ router.route("/resetPassword").post(resetPassword);
 
 router.route("/readProfileInfo").get(authentication, readProfileInfo);
 
-router.route("/updateProfileInfo").put(authentication, updateProfileInfo);
+router
+  .route("/updateProfileInfo")
+  .put(authentication, updateProfileInfo);
 
 router
   .route("/updateProfilePicture")
   .put(authentication, files, updateProfilePicture);
 
-router.route("/updatePassword").put(authentication, updatePassword);
+accountRouter.route("/updatePassword").put(authentication, updatePassword);
 
 //factory route
 router.route("/:table/:id").get(authentication, authorization, _read_single);
@@ -92,7 +95,7 @@ router
   .route("/:table")
   .post(authentication, authorization, files, _create)
   .get(authentication, authorization, _read)
-  .put(authentication, authorization, files, _update)
+  .put(authentication, files, _update)
   .delete(authentication, authorization, _delete)
   .patch(authentication, authorization, aggregate);
 
@@ -107,4 +110,4 @@ chatRouter
 
 //aggregation
 // router.route("/stats/:table").patch(authentication, authorization, firstPhase);
-export { router, chatRouter };
+export { router, chatRouter, accountRouter };
