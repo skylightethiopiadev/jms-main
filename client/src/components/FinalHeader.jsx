@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 
 // icons
 import { FiPhone } from "react-icons/fi";
-import { IoIosArrowDown,IoMdSettings,IoIosExit } from "react-icons/io";
+import { IoIosArrowDown,IoIosExit } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineClose, MdMenu,MdDashboard,MdKeyboardArrowRight } from "react-icons/md";
 import { RiUserShared2Fill, RiArrowRightLine } from "react-icons/ri";
-import { ImProfile } from "react-icons/im";
+import { CgProfile } from "react-icons/cg";
 
 const FinalHeader = () => {
   // states
@@ -759,7 +759,7 @@ const FinalHeader = () => {
                 </div>
                 {/* user drop down */}
                 <div className={`absolute left-1/2 -translate-x-1/2 top-[120%] overflow-hidden transition-all ease-in-out duration-300 ${isUserDropDown ? 'max-h-[100vh]' : 'max-h-0'}`}>
-                  <div className="py-2 px-5 bg-white rounded-md shadow-lg">
+                  <div className="py-3 px-5 bg-white rounded-md shadow-lg">
                     {/* image container */}
                     <div className="w-full flex items-center justify-center border-b border-black border-opacity-10 px-10">
                       <div className="flex flex-col items-center">
@@ -793,10 +793,10 @@ const FinalHeader = () => {
                           <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
                             {/* icon */}
                             <div>
-                              <IoMdSettings className="text-[1.15rem]"/>
+                              <CgProfile className="text-[1.25rem]"/>
                             </div>
                             {/* text */}
-                            <div><span>Settings</span></div>
+                            <div><span>Profile</span></div>
                           </NavLink>
                         </li>
                         <li>
