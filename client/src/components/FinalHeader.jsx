@@ -758,10 +758,10 @@ const FinalHeader = () => {
                   </div>
                 </div>
                 {/* user drop down */}
-                <div className={`absolute left-1/2 -translate-x-1/2 top-[120%] overflow-hidden transition-all ease-in-out duration-300 ${isUserDropDown ? 'max-h-0' : 'max-h-[100vh]'}`}>
-                  <div className="py-2 px-7 bg-white rounded-sm shadow-lg">
+                <div className={`absolute left-1/2 -translate-x-1/2 top-[120%] overflow-hidden transition-all ease-in-out duration-300 ${isUserDropDown ? 'max-h-[100vh]' : 'max-h-0'}`}>
+                  <div className="py-2 px-5 bg-white rounded-md shadow-lg">
                     {/* image container */}
-                    <div className="w-full flex items-center justify-center border-b border-black border-opacity-10">
+                    <div className="w-full flex items-center justify-center border-b border-black border-opacity-10 px-10">
                       <div className="flex flex-col items-center">
                         <div className="w-[72px] aspect-square rounded-full overflow-hidden">
                           <img
