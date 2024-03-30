@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 
 // icons
 import { FiPhone } from "react-icons/fi";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown,IoMdSettings,IoIosExit } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
-import { MdOutlineClose, MdMenu } from "react-icons/md";
+import { MdOutlineClose, MdMenu,MdDashboard,MdKeyboardArrowRight } from "react-icons/md";
 import { RiUserShared2Fill, RiArrowRightLine } from "react-icons/ri";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { ImProfile } from "react-icons/im";
 
 const FinalHeader = () => {
   // states
@@ -16,6 +16,7 @@ const FinalHeader = () => {
   const [isSearch, setIsSearch] = useState(false);
   const [isNav, setIsNav] = useState(null);
   const [menuIconToggler, setMenuIconToggler] = useState(false);
+  const [isUserDropDown, setIsUserDropDown] = useState(false);
 
   // nav
   const nav = [
@@ -715,17 +716,117 @@ const FinalHeader = () => {
                 <FiSearch />
               </div>
             </div>
-            {/* sign in */}
-            <div>
-              <NavLink className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap">
-                {/* text */}
-                <div className="hidden md:flex">
-                  <span className="font-semibold">sign in</span>
+
+            {/* sign in or user */}
+            {!true ? (
+              <div>
+                <NavLink className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap">
+                  {/* text */}
+                  <div className="hidden md:flex">
+                    <span className="font-semibold">sign in</span>
+                  </div>
+                  {/* icon for small screen */}
+                  <RiUserShared2Fill className="md:hidden text-[1.75rem]" />
+                </NavLink>
+              </div>
+            ) : (
+              <div className="relative">
+                {/* image */}
+                <div
+                  className="flex items-center gap-1 p-[.1rem] rounded-sm border border-black border-opacity-0 transition-all ease-in-out duration-300 hover:border-opacity-5 cursor-pointer"
+                  onClick={() => {
+                    setIsUserDropDown(!isUserDropDown);
+                  }}
+                >
+                  <div className="w-[36px] aspect-square rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-center object-cover"
+                      src="/images/personnels/lawyer-two.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="text-[.875rem] flex items-center gap-1">
+                    <span>Haddis</span>
+                    <span>Fanta</span>
+                  </div>
+                  <div>
+                    <IoIosArrowDown
+                      className={`text-xl transition-all ease-in-out duration-300 ${
+                        isUserDropDown ? "rotate-[-180deg]" : "rotate-0"
+                      }`}
+                    />
+                  </div>
                 </div>
-                {/* icon for small screen */}
-                <RiUserShared2Fill className="md:hidden text-[1.75rem]" />
-              </NavLink>
-            </div>
+                {/* user drop down */}
+                <div className={`absolute left-1/2 -translate-x-1/2 top-[120%] overflow-hidden transition-all ease-in-out duration-300 ${isUserDropDown ? 'max-h-0' : 'max-h-[100vh]'}`}>
+                  <div className="py-2 px-7 bg-white rounded-sm shadow-lg">
+                    {/* image container */}
+                    <div className="w-full flex items-center justify-center border-b border-black border-opacity-10">
+                      <div className="flex flex-col items-center">
+                        <div className="w-[72px] aspect-square rounded-full overflow-hidden">
+                          <img
+                            className="w-full h-full object-center object-cover"
+                            src="/images/personnels/lawyer-two.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="flex items-center justify-center my-1 gap-1 font-[500]">
+                          <span>Haddis</span>
+                          <span>Fanta</span>
+                        </div>
+                      </div>
+                    </div>
+                    {/* nav */}
+                    <div>
+                      <ul>
+                        <li>
+                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
+                            {/* icon */}
+                            <div>
+                              <MdDashboard className="text-[1.15rem]"/>
+                            </div>
+                            {/* text */}
+                            <div><span>Dashboard</span></div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
+                            {/* icon */}
+                            <div>
+                              <ImProfile className="text-[1.15rem]"/>
+                            </div>
+                            {/* text */}
+                            <div><span>Profile</span></div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
+                            {/* icon */}
+                            <div>
+                              <IoMdSettings className="text-[1.15rem]"/>
+                            </div>
+                            {/* text */}
+                            <div><span>Settings</span></div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
+                            {/* icon */}
+                            <div>
+                              <IoIosExit className="text-[1.35rem]"/>
+                            </div>
+                            {/* text */}
+                            <div><span>Logout</span></div>
+                          </NavLink>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* menu drawer */}
             <div className="lg:hidden">
               <div
