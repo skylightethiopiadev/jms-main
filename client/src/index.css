@@ -186,7 +186,7 @@
 }
 
 .dashboard-link-item-my {
-  @apply my-5 text-[.85rem];
+  @apply my-5 text-[.85rem]  transition-all ease-in-out duration-300 hover:font-[600] hover:text-gray-900;
 }
 
 .dashboard-main-list-item {
@@ -194,7 +194,7 @@
 }
 
 .dashboard-sub-link-items {
-  @apply pl-[15%] py-[.35rem] bg-white rounded-sm mr-1 transition-all ease-in-out duration-300 hover:bg-gray-50;
+  @apply pl-[15%] py-[.5rem] bg-white rounded-sm mr-1 transition-all ease-in-out duration-300 hover:bg-gray-100 hover:font-[600] hover:text-gray-900;
 }
 /* home */
 .home-submenu-popup-ul {

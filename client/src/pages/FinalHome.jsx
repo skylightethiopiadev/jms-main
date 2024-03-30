@@ -146,7 +146,7 @@ const FinalHome = () => {
               <div className="relative z-10 w-full h-full px-[15%] flex mt-[-24px]">
                 <div className="w-full h-full relative flex justify-center after:absolute after:left-0 after:bottom-0 after:w-[100%] md:after:w-[85%] after:h-[75%] after:bg-green-400 after:z-0 after:rounded-l-[15%]">
                   <img
-                    className="h-[450px] relative z-10"
+                    className="h-[450px] object-cover relative z-10"
                     src="/images/personnels/customer-i-removebg-preview.png"
                     alt=""
                   />
