@@ -4,9 +4,14 @@ import { NavLink } from "react-router-dom";
 
 // icons
 import { FiPhone } from "react-icons/fi";
-import { IoIosArrowDown,IoIosExit } from "react-icons/io";
+import { IoIosArrowDown, IoIosExit } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
-import { MdOutlineClose, MdMenu,MdDashboard,MdKeyboardArrowRight } from "react-icons/md";
+import {
+  MdOutlineClose,
+  MdMenu,
+  MdDashboard,
+  MdKeyboardArrowRight,
+} from "react-icons/md";
 import { RiUserShared2Fill, RiArrowRightLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 
@@ -90,19 +95,19 @@ const FinalHeader = () => {
       groupTwo: [
         {
           navHeaderText: "Succession",
-          path: "#",
+          path: "/succession",
         },
         {
           navHeaderText: "Employment",
-          path: "#",
+          path: "/employment",
         },
         {
           navHeaderText: "Property",
-          path: "#",
+          path: "/property",
         },
         {
           navHeaderText: "Torts",
-          path: "#",
+          path: "/torts",
         },
       ],
     },
@@ -758,7 +763,11 @@ const FinalHeader = () => {
                   </div>
                 </div>
                 {/* user drop down */}
-                <div className={`absolute left-1/2 -translate-x-1/2 top-[120%] overflow-hidden transition-all ease-in-out duration-300 ${isUserDropDown ? 'max-h-[100vh]' : 'max-h-0'}`}>
+                <div
+                  className={`absolute left-1/2 -translate-x-1/2 top-[120%] overflow-hidden transition-all ease-in-out duration-300 ${
+                    isUserDropDown ? "max-h-[100vh]" : "max-h-0"
+                  }`}
+                >
                   <div className="py-3 px-5 bg-white rounded-md shadow-lg">
                     {/* image container */}
                     <div className="w-full flex items-center justify-center border-b border-black border-opacity-10 px-10">
@@ -783,33 +792,38 @@ const FinalHeader = () => {
                           <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
                             {/* icon */}
                             <div>
-                              <MdDashboard className="text-[1.15rem]"/>
+                              <MdDashboard className="text-[1.15rem]" />
                             </div>
                             {/* text */}
-                            <div><span>Dashboard</span></div>
+                            <div>
+                              <span>Dashboard</span>
+                            </div>
                           </NavLink>
                         </li>
                         <li>
                           <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
                             {/* icon */}
                             <div>
-                              <CgProfile className="text-[1.25rem]"/>
+                              <CgProfile className="text-[1.25rem]" />
                             </div>
                             {/* text */}
-                            <div><span>Profile</span></div>
+                            <div>
+                              <span>Profile</span>
+                            </div>
                           </NavLink>
                         </li>
                         <li>
                           <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
                             {/* icon */}
                             <div>
-                              <IoIosExit className="text-[1.35rem]"/>
+                              <IoIosExit className="text-[1.35rem]" />
                             </div>
                             {/* text */}
-                            <div><span>Logout</span></div>
+                            <div>
+                              <span>Logout</span>
+                            </div>
                           </NavLink>
                         </li>
-                        
                       </ul>
                     </div>
                   </div>

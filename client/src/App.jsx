@@ -34,6 +34,14 @@ import LawyerDashboard from "./pages/dashboard/lawyer/LawyerDashboard";
 import LawyerDashboardHome from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerDashboardHome";
 import LawyerNewCase from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerNewCase";
 
+// home pages
+import HomeIndex from "./pages/home-pages/HomeIndex";
+// civil
+import Succession from "./pages/civil/Succession";
+import Employment from "./pages/civil/Employment";
+import Property from "./pages/civil/Property";
+import Torts from "./pages/civil/Torts";
+
 function App() {
   const jwt = localStorage.getItem("jwt");
   // const user = JSON.parse(localStorage.getItem("user"));
@@ -44,7 +52,13 @@ function App() {
       <div className={`font-workSans medium   tracking-wide`}>
         <div className="flex flex-col">
           <Routes>
-            <Route path="/" element={<FinalHome />}></Route>
+            <Route path="/" element={<FinalHome />}>
+              <Route path="/" element={<HomeIndex />}></Route>
+              <Route path="/succession" element={<Succession />}></Route>
+              <Route path="/employment" element={<Employment />}></Route>
+              <Route path="/property" element={<Property />}></Route>
+              <Route path="/torts" element={<Torts />}></Route>
+            </Route>
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
             <Route path="chat" element={<Chat />}></Route>
