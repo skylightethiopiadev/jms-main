@@ -757,7 +757,7 @@ const FinalHeader = () => {
                   </div>
                   <div className="text-[.875rem] flex items-center gap-1">
                     <span>Haddis</span>
-                    <span>Fanta</span>
+                    <span className="hidden md:inline-block">Fanta</span>
                   </div>
                   <div>
                     <IoIosArrowDown
