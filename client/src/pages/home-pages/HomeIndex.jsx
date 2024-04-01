@@ -13,19 +13,13 @@ import { SiPostman } from "react-icons/si";
 import {
   FaCarCrash,
   FaShoppingCart,
-  FaFacebookF,
-  FaYoutube,
 } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import {
   MdDashboard,
   MdOutlineFireplace,
-  MdPhoneInTalk,
-  MdOutlineMarkEmailRead,
-  MdOutlineMediation,
 } from "react-icons/md";
 import { GiOpenFolder } from "react-icons/gi";
-import { FaCircleCheck, FaXTwitter } from "react-icons/fa6";
 import { IoFolder } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 
