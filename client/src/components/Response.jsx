@@ -16,7 +16,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
     response.status === "pending" ? setPending(true) : setPending(false);
 
     let dashboard = "#";
-    if (response.status === "fulfilled") {
+    if (response.status === "fulfilled") { 
       switch (response?.data?.data?.role) {
         case "super-admin":
           dashboard = "/dashboard";
@@ -54,7 +54,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       if (type === "login" || type === "signUp") {
         setTimeout(() => {
           navigate(dashboard, { replace: true });
-        }, 2000);
+        }, 1000);
       } else if (type === "payment") {
         localStorage.removeItem("macuta_law_firm_system");
         navigate(redirectTo, { replace: true });

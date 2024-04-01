@@ -29,8 +29,25 @@ import { IoFolder } from "react-icons/io5";
 // components
 import Header from "../components/Header";
 import FinalHeader from "../components/FinalHeader";
+import axios from "axios";
+import { useEffect, useState } from "react";
 // main
-const FinalHome = () => {
+const FinalHome = () => { 
+  const [country, setCountry] = useState("");
+  const ipHandler = async () => {
+    const ip = await axios.get(
+      "https://geolocation-db.com/json/f2e84010-e1e9-11ed-b2f8-6b70106be3c8"
+    );
+    setCountry(ip?.data?.country_name);
+
+    // const cc = await axios.get("https://restcountries.eu/rest/v2/all");
+    // console.log(cc, "cc");
+  };
+
+  useEffect(() => {
+    ipHandler();
+  }, []);
+
   return (
     <div className="w-screen h-screen overflow-y-auto pt-[6vh] font-workSans relative">
       {/* <Header /> */}
@@ -44,7 +61,8 @@ const FinalHome = () => {
             {/* first button */}
             <div className="sm:mt-7">
               <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
-                some text over here
+                Legal Help in{" "}
+                {country && <span className="text-main">{country}</span>}
               </button>
             </div>
             {/* bold paragraph */}

@@ -113,7 +113,7 @@ export const phone = (field) => {
         v
       );
     },
-    message: `${field} must must be either male or female`,
+    message: `invalid ${field} number`,
   };
 };
 

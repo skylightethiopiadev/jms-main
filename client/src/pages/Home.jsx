@@ -1,7 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // customer main image
 import customerMainImage from "../assets/images/customers/customer-i.jpg";
 
@@ -42,6 +42,7 @@ import { IoLogoCodepen } from "react-icons/io";
 import Header from "../components/Header";
 // data files
 import { judges } from "../DataFile";
+import axios from "axios";
 
 const responsive = {
   superLargeDesktop: {
@@ -66,6 +67,13 @@ const responsive = {
 const Home = () => {
   // local states
   const [accordion, setAccordion] = useState(2);
+
+  useEffect(async () => {
+    const ip = await axios.get(
+      "https://geolocation-db.com/json/f2e84010-e1e9-11ed-b2f8-6b70106be3c8"
+    );
+    console.log(ip, "ip");
+  }, []);
 
   return (
     <div>
