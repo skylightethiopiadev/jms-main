@@ -20,6 +20,7 @@ const FinalHeader = () => {
   const [isPhone, setIsPhone] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [isNav, setIsNav] = useState(null);
+  const [isNavOpen,setIsNavOpen] = useState(false)
   const [menuIconToggler, setMenuIconToggler] = useState(false);
   const [isUserDropDown, setIsUserDropDown] = useState(false);
 
@@ -301,11 +302,11 @@ const FinalHeader = () => {
           className="
         relative"
         >
-          <div className="absolute left-0 p-1 shadow-lg bg-white mt-[-36px]">
-            <NavLink>
-              <div className="w-[110px] aspect-square overflow-hidden">
+          <div className="absolute z-50 left-0 p-1 shadow-lg bg-white mt-[-36px]">
+            <NavLink className={'cursor-pointer'} to={'/'}>
+              <div className="w-[110px] h-[90px] overflow-hidden cursor-pointer">
                 <img
-                  className="h-[90px] w-full"
+                  className="h-full w-full"
                   src="/images/site-logo/final-logo.png"
                   alt=""
                 />
@@ -445,7 +446,9 @@ const FinalHeader = () => {
                                     key={index}
                                     className="my-[.25rem] font-semibold text-[1.35rem]"
                                   >
-                                    <NavLink className={"hover:underline"}>
+                                    <NavLink to={`${item?.path}`} className={"hover:underline"} onClick={()=>{
+                                      setIsNav(null)
+                                    }}> 
                                       {item.navHeaderText}
                                     </NavLink>
                                   </li>
