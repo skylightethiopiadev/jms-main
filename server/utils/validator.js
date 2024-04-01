@@ -116,3 +116,12 @@ export const phone = (field) => {
     message: `${field} must must be either male or female`,
   };
 };
+
+export const required = (field) => {
+  return {
+    validator: function (v) {
+      return v.toString().length > 0;
+    },
+    message: `${field} is required`,
+  };
+};

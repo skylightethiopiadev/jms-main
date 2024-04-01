@@ -126,7 +126,7 @@ const CustomerDashboardHeader = () => {
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.15 }}
-                className="absolute bg-white z-[1200] w-max right-0 top-[2rem] rounded-md cursor-default shadow-xl flex flex-col items-center p-3"
+                className="absolute bg-white z-50 w-max right-0 top-[2rem] rounded-md cursor-default shadow-xl flex flex-col items-center p-3"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
@@ -183,6 +183,7 @@ const CustomerDashboardHeader = () => {
                   </a>
 
                   <NavLink
+                    onClick={() => setIsUserProfilePopup(false)}
                     to="/dashboard/customer/change-password"
                     className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700"
                   >

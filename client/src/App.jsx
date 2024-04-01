@@ -45,6 +45,8 @@ import Forget from "./pages/Forget";
 import Reset from "./pages/Reset";
 import CustomerProfile from "./pages/dashboard/customer/customer-sub-pages/CustomerProfile";
 import ChangePassword from "./pages/dashboard/customer/customer-sub-pages/ChangePassword";
+import ComingSoon from "./components/ComingSoon";
+import LawyerProfile from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerProfile";
 
 export const userContext = createContext();
 
@@ -69,15 +71,17 @@ function App() {
               <Route path="/signUp" element={<SignUp />}></Route>
               <Route path="/forget" element={<Forget />}></Route>
               <Route path="/reset" element={<Reset />}></Route>
-              <Route path="/dashboard" element={<HomeDashboard />}>
-                <Route
+              {/* <Route path="/dashboard" element={<HomeDashboard />}> */}
+                {/* <Route
                   path="/dashboard/applications"
-                  element={<Applications />}
-                />
-              </Route>
+                  element={<ComingSoon />}
+                  // element={<Applications />}
+                /> */}
+              {/* </Route> */}
               <Route
                 path="/dashboard/customer/message/video"
-                element={<Video />}
+                element={<ComingSoon />}
+                // element={<Video />}
               />
 
               <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
@@ -86,9 +90,20 @@ function App() {
                   index
                   element={<LawyerDashboardHome />}
                 ></Route>
+                {/* customer case request */}
+                <Route
+                  path="/dashboard/lawyer/profile"
+                  element={<LawyerProfile />}
+                ></Route>
+                {/* change password */}
+                <Route
+                  path="/dashboard/lawyer/change-password"
+                  element={<ChangePassword />}
+                ></Route>
                 <Route
                   path="/dashboard/lawyer/lawyer-new-case"
-                  element={<LawyerNewCase />}
+                  element={<ComingSoon />}
+                  // element={<LawyerNewCase />}
                 ></Route>
               </Route>
               <Route path="/dashboard/customer" element={<CustomerDashboard />}>
@@ -99,20 +114,24 @@ function App() {
                 ></Route>
                 <Route
                   path="/dashboard/customer/message"
-                  element={<Message />}
+                  element={<ComingSoon />}
+                  // element={<Message />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/appointment"
-                  element={<Appointment />}
+                  element={<ComingSoon />}
+                  // element={<Appointment />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/success"
-                  element={<Success />}
+                  element={<ComingSoon />}
+                  // element={<Success />}
                 ></Route>
                 {/* customer compliance */}
                 <Route
                   path="/dashboard/customer/new-case"
-                  element={<NewCase />}
+                  element={<ComingSoon />}
+                  // element={<NewCase />}
                 ></Route>
                 {/* customer case request */}
                 <Route
@@ -133,45 +152,55 @@ function App() {
                 {/* customer charts */}
                 <Route
                   path="/dashboard/customer/case-team"
-                  element={<CaseTeam />}
+                  element={<ComingSoon />}
+                  // element={<CaseTeam />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/active-case"
-                  element={<ActiveCase />}
+                  element={<ComingSoon />}
+                  // element={<ActiveCase />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/closed-case"
-                  element={<ClosedCase />}
+                  element={<ComingSoon />}
+                  // element={<ClosedCase />}
                 ></Route>
                 {/* customer finance */}
                 <Route
                   path="/dashboard/customer/add-funds"
-                  element={<AddFunds />}
+                  element={<ComingSoon />}
+                  // element={<AddFunds />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/requested-payment"
-                  element={<RequestedPayment />}
+                  element={<ComingSoon />}
+                  // element={<RequestedPayment />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/refund-funds"
-                  element={<RefundFunds />}
+                  element={<ComingSoon />}
+                  // element={<RefundFunds />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/recent-transactions"
-                  element={<RecentTransactions />}
+                  element={<ComingSoon />}
+                  // element={<RecentTransactions />}
                 ></Route>
                 {/* customer services */}
                 <Route
                   path="/dashboard/customer/training"
-                  element={<Training />}
+                  element={<ComingSoon />}
+                  // element={<Training />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/consulting"
-                  element={<Consulting />}
+                  element={<ComingSoon />}
+                  // element={<Consulting />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/researches"
-                  element={<Researches />}
+                  element={<ComingSoon />}
+                  // element={<Researches />}
                 ></Route>
               </Route>
               {/* {jwt && user && (

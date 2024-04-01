@@ -39,9 +39,9 @@ const lawyerSchema = new mongoose.Schema(
       validate: valid.paragraph("Nationality", 4, 100),
     },
 
-    ID: {
+    lawyerId: {
       type: String,
-      validate: valid.paragraph("ID", 4, 100),
+      // validate: valid.paragraph("ID", 4, 100),
     },
 
     acquireLicense: {
@@ -49,28 +49,28 @@ const lawyerSchema = new mongoose.Schema(
       type: Boolean,
     },
 
-    licenseNo: {
+    licenseNumber: {
       type: String,
     },
 
     levelOfEducation: {
       type: String,
-      enum: ["LLB", "LLM", "PHD"],
+      // enum: ["LLB", "LLM", "PHD"],
     },
 
     areaOfExpertise: {
       type: String,
-      validate: valid.paragraph("Area of expertise", 4, 100),
+      // validate: valid.paragraph("Area of expertise", 4, 100),
     },
 
     yearOfExperience: {
       type: Number,
-      validate: valid.paragraph("Year of experience", 1, 100),
+      // validate: valid.required("Year of experience"),
     },
 
     preferenceArea: {
       type: [String],
-      validate: valid.paragraph("Preference", 4, 100),
+      // validate: valid.paragraph("Preference Area", 4, 100),
     },
 
     yearOfExpire: {
@@ -87,7 +87,7 @@ const lawyerSchema = new mongoose.Schema(
 
     bio: {
       type: String,
-      validate: valid.paragraph("Biography", 5, 400),
+      // validate: valid.paragraph("Biography", 5, 400),
     },
 
     profilePicture: {

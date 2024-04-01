@@ -109,7 +109,7 @@ const LawyerLeftSideNav = () => {
         <div className="text-gray-500 text-[1rem]">
           {/* Dashboard */}
           <NavLink
-            to={`/dashboard/customer`}
+            to={`/dashboard/lawyer`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "DASHBOARD" ? "dashboard-active-link-color" : ""
             }`}
