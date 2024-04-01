@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Chart from "react-apexcharts";
 
 // icons
@@ -26,8 +27,11 @@ import {
 import { GiOpenFolder } from "react-icons/gi";
 import { FaCircleCheck, FaXTwitter } from "react-icons/fa6";
 import { IoFolder } from "react-icons/io5";
+import { MdClose } from "react-icons/md";
 
 const HomeIndex = () => {
+  // local states
+  const [isOtherService, setIsOtherService] = useState(false);
   // local date
   const ourServices = [
     "Advise on investment including merger and acquisition",
@@ -412,8 +416,36 @@ const HomeIndex = () => {
                 <p>Do you want to engage in newly liberalized sectors?</p>
               </div>
               {/* normal paragraph */}
-              <div>
-                <p>
+              <div className="relative">
+                <div
+                  className={`absolute left-0 top-0 bg-transparent overflow-hidden transition-all ease-in-out duration-300 z-50 ${
+                    isOtherService ? "h-[50vh]" : "h-0"
+                  }`}
+                >
+                  <div className="p-3 bg-white shadow-lg relative">
+                    <p>
+                      Financial sector including capital market is obvious
+                      choice for foreign companies to engage in. Ethiopia is
+                      liberalizing many sectors that were otherwise reserved for
+                      local investors. One of the areas that the government is
+                      planning to liberalize is financial sector. With the
+                      opening up of various sectors for foreign investors
+                      coupled with the coming of capital market, triggers the
+                      need to have a support of law firm. We have highly
+                      regarded lawyers in the sector that can exactly meet your
+                      needs to work with your company.
+                    </p>
+                  <button
+                    className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
+                    onClick={() => {
+                      setIsOtherService(false);
+                    }}
+                  >
+                    <MdClose className="text-[1.15rem]" />
+                  </button>
+                  </div>
+                </div>
+                <p className="p-3 bg-white shadow-lg">
                   Financial sector including capital market is obvious choice
                   for foreign companies to engage in. Ethiopia is liberalizing
                   many sectors that were otherwise reserved for local investors.
@@ -423,6 +455,14 @@ const HomeIndex = () => {
                   market, triggers the need to have a support of law firm. We
                   have highly regarded lawyers in the sector that can exactly
                   meet your needs to work with your company. */}
+                  <span
+                    className="cursor-pointer ml-1 text-blue-700 font-medium"
+                    onClick={() => {
+                      setIsOtherService(true);
+                    }}
+                  >
+                    more
+                  </span>
                 </p>
               </div>
               {/* our services */}
