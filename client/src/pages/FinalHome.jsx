@@ -15,6 +15,7 @@ import {
   FaFacebookF,
   FaYoutube,
 } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
 import {
   MdDashboard,
   MdOutlineFireplace,
@@ -31,13 +32,22 @@ import Header from "../components/Header";
 import FinalHeader from "../components/FinalHeader";
 // main
 const FinalHome = () => {
+  // local date
+  const ourServices = [
+    "Advise on investment including merger and acquisition",
+    "Advise on capital market",
+    "Advise on bankruptcy and financial frameworks",
+    "Advise on syndicated loan or finance",
+    "Advise on project finance",
+    "Advise on secured lending, sovereign loans and debt restructuring",
+  ];
   return (
     <div className="w-screen h-screen overflow-y-auto pt-[1vh] font-workSans relative">
       {/* <Header /> */}
       <FinalHeader />
 
       {/* first order container */}
-      <div className="w-full px-[3%] pt-[3%] sm:pt-[5%] sm:px-[12%] bg-gradient-to-r from-white to-orange-100 pb-12 sm:pb-[100px] relative shadow-md">
+      <div className="w-full px-[3%] pt-[3%] sm:pt-[5%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
           
@@ -50,8 +60,8 @@ const FinalHome = () => {
             </div>
             {/* bold paragraph */}
             <div className="my-7">
-              <p className="text-[1.23rem] md:text-[2.875rem] leading-7 md:leading-10 font-[700] my-[1%]">
-                Strength in representation
+              <p className="text-[1.23rem] track md:text-[2.875rem] leading-7 md:leading-[50px] font-[700] my-[1%]">
+                U.S Legal Help in Ethiopia
               </p>
             </div>
             {/* normal paragraph */}
@@ -147,7 +157,7 @@ const FinalHome = () => {
               <div className="relative z-10 w-full h-full px-[15%] flex mt-[-24px]">
                 <div className="w-full h-full relative flex justify-center after:absolute after:left-0 after:bottom-0 after:w-[100%] md:after:w-[85%] after:h-[75%] after:bg-green-400 after:z-0 after:rounded-l-[15%]">
                   <img
-                    className="h-[450px] relative z-10"
+                    className="h-[450px] object-cover relative z-10"
                     src="/images/personnels/customer-i-removebg-preview.png"
                     alt=""
                   />
@@ -227,7 +237,7 @@ const FinalHome = () => {
         <div className="absolute z-0 left-0 bottom-0 h-full w-full flex overflow-hidden">
           <div className="w-full h-full">
             <img
-              className="opacity-[0.035] w-full object-cover"
+              className="opacity-[0.04] w-full object-cover"
               src="/images/bg/bg-zero.jpg"
               alt=""
             />
@@ -300,7 +310,7 @@ const FinalHome = () => {
                   </div>
                   {/* text */}
                   <div>
-                    <p>Lorem ipsum dolor sit amet cons</p>
+                    <p>Lorem ipsum dolor sit amet man</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 ">
@@ -407,44 +417,40 @@ const FinalHome = () => {
               </div>
               {/* bold paragraph */}
               <div className="text-[1.5rem] font-bold my-3 leading-7">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Do you want to engage in newly liberalized sectors?</p>
               </div>
               {/* normal paragraph */}
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                  ad quaerat esse. and others
+                  Financial sector including capital market is obvious choice
+                  for foreign companies to engage in. Ethiopia is liberalizing
+                  many sectors that were otherwise reserved for local investors.
+                  {/* One of the areas that the government is planning to liberalize
+                  is financial sector. With the opening up of various sectors
+                  for foreign investors coupled with the coming of capital
+                  market, triggers the need to have a support of law firm. We
+                  have highly regarded lawyers in the sector that can exactly
+                  meet your needs to work with your company. */}
                 </p>
               </div>
-              {/* indented paragraph */}
-              <div className="my-3">
-                <div className="my-5">
-                  <div className="flex items-center gap-3">
-                    <FaCircleCheck className="text-[1.25rem] text-green-400" />
-                    <h3 className="font-semibold text-[1rem]">
-                      Ethiopian, Wisdom
-                    </h3>
-                  </div>
-                  <div className="pl-10">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Repellat tempore optio enim?
-                    </p>
-                  </div>
-                </div>
-                <div className="my-5">
-                  <div className="flex items-center gap-3">
-                    <FaCircleCheck className="text-[1.25rem] text-green-400" />
-                    <h3 className="font-semibold text-[1rem]">
-                      Ethiopian, Wisdom
-                    </h3>
-                  </div>
-                  <div className="pl-10">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Repellat tempore optio enim?
-                    </p>
-                  </div>
+              {/* our services */}
+              <div className="mt-3">
+                {/* header */}
+                <header>
+                  <h3 className="text-[1.25rem] font-bold">Our Services</h3>
+                </header>
+                {/* list */}
+                <div className="pl-5">
+                  <ul>
+                    {ourServices?.map((service, index) => (
+                      <li key={index} className="flex items-start gap-2 py-1">
+                        <div className="w-[16px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
+                          <TiTick />
+                        </div>
+                        <div>{service}</div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
