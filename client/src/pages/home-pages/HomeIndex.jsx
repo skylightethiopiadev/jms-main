@@ -150,10 +150,10 @@ const HomeIndex = () => {
             {/* content container */}
             <div className="w-full h-full relative flex">
               {/* image */}
-              <div className="relative z-10 w-full h-full px-[15%] flex mt-[-24px]">
+              <div className="relative z-10 w-full h-full px-[5%] md:px-[15%] flex">
                 <div className="w-full h-full relative flex justify-center after:absolute after:left-0 after:bottom-0 after:w-[100%] md:after:w-[85%] after:h-[75%] after:bg-green-400 after:z-0 after:rounded-l-[15%]">
                   <img
-                    className="h-[450px] object-cover relative z-10"
+                    className="h-[450px] md:h-[500px] object-cover relative z-10"
                     src="/images/personnels/customer-i-removebg-preview.png"
                     alt=""
                   />
@@ -435,14 +435,14 @@ const HomeIndex = () => {
                       regarded lawyers in the sector that can exactly meet your
                       needs to work with your company.
                     </p>
-                  <button
-                    className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
-                    onClick={() => {
-                      setIsOtherService(false);
-                    }}
-                  >
-                    <MdClose className="text-[1.15rem]" />
-                  </button>
+                    <button
+                      className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
+                      onClick={() => {
+                        setIsOtherService(false);
+                      }}
+                    >
+                      <MdClose className="text-[1.15rem]" />
+                    </button>
                   </div>
                 </div>
                 <p className="p-3 bg-white shadow-lg">
