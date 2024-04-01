@@ -260,15 +260,15 @@ const FinalHeader = () => {
   const otherServicesSubNavList = [
     {
       navHeaderText: "Training",
-      path: "#",
+      path: "/training",
     },
     {
       navHeaderText: "Consulting",
-      path: "#",
+      path: "/consulting",
     },
     {
       navHeaderText: "Researches",
-      path: "#",
+      path: "/researches",
     },
   ];
 
@@ -646,7 +646,9 @@ const FinalHeader = () => {
                                   key={index}
                                   className="my-[.3rem]  text-[1.125rem]"
                                 >
-                                  <NavLink className={"hover:underline"}>
+                                  <NavLink to={`${item?.path}`} className={"hover:underline"} onClick={()=>{
+                                    setIsNav(null)
+                                  }}>
                                     {item.navHeaderText}
                                   </NavLink>
                                 </li>

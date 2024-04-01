@@ -41,6 +41,10 @@ import Succession from "./pages/civil/Succession";
 import Employment from "./pages/civil/Employment";
 import Property from "./pages/civil/Property";
 import Torts from "./pages/civil/Torts";
+// other services
+import HomeTraining from "./pages/other-services/Training";
+import HomeConsulting from "./pages/other-services/Consulting";
+import HomeResearches from "./pages/other-services/Researches";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
@@ -58,6 +62,10 @@ function App() {
               <Route path="/employment" element={<Employment />}></Route>
               <Route path="/property" element={<Property />}></Route>
               <Route path="/torts" element={<Torts />}></Route>
+              {/* other services */}
+              <Route path="/training" element={<HomeTraining />}></Route>
+              <Route path="/consulting" element={<HomeConsulting />}></Route>
+              <Route path="/researches" element={<HomeResearches />}></Route>
             </Route>
             <Route path="login" element={<Login />}></Route>
             <Route path="signUp" element={<SignUp />}></Route>
