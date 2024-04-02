@@ -32,8 +32,8 @@ import { NavLink } from "react-router-dom";
 // import {  IoStarHalfOutline, IoStarSharp } from "react-icons/io5";
 // import { FaCamera } from "react-icons/fa";
 // import { CgProfile } from "react-icons/cg";
-// import { IoSettingsOutline } from "react-icons/io5";
-// import { IoExitOutline } from "react-icons/io5";
+import { IoSettingsOutline } from "react-icons/io5";
+import { IoExitOutline } from "react-icons/io5";
 
 // main
 // CustomerDashboardHeader
