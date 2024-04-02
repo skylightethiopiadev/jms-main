@@ -28,15 +28,18 @@ const FinalHome = () => {
             {/* top right */}
             <div className="w-[100%] md:w-[70%]">
               {/* menu list */}
-              <div className="py-1 md:py-[7%] flex items-center justify-between gap-16 text-[1rem]">
+              <div className="py-1 md:py-[7%] flex items-start justify-between gap-16 text-[1rem]">
                 {/* about us */}
                 <div>
-                  <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[700] text-[1.25rem]">
+                  <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
                     <h3>About us</h3>
                   </header>
                   <ul className="flex flex-col gap-y-[10px] font-medium">
                     <li>
-                      <NavLink>Company Vision & Mission</NavLink>
+                      <NavLink>Company</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>Vision & Mission</NavLink>
                     </li>
                     <li>
                       <NavLink>Leadership</NavLink>
@@ -50,15 +53,12 @@ const FinalHome = () => {
                     <li>
                       <NavLink>Press</NavLink>
                     </li>
-                    <li>
-                      <NavLink>Contact Us</NavLink>
-                    </li>
                   </ul>
                 </div>
                 {/* partners */}
                 <div>
                   <div>
-                    <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[700] text-[1.25rem]">
+                    <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
                       <h3>Partners</h3>
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
@@ -71,7 +71,7 @@ const FinalHome = () => {
                     </ul>
                   </div>
                   <div>
-                    <header className=" my-3 py-1 border-b-[2px] border-gray-300 font-[700] text-[1.25rem]">
+                    <header className=" my-3 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
                       <h3>Why Skylight</h3>
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
@@ -84,10 +84,10 @@ const FinalHome = () => {
                     </ul>
                   </div>
                 </div>
-                {/* about us */}
+                {/* customers */}
                 <div>
-                  <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[700] text-[1.25rem]">
-                    <h3>About us</h3>
+                  <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
+                    <h3>Customers</h3>
                   </header>
                   <ul className="flex flex-col gap-y-[10px] font-medium">
                     <li>
@@ -101,12 +101,6 @@ const FinalHome = () => {
                     </li>
                     <li>
                       <NavLink>Event</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>Press</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>Contact Us</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -250,13 +244,22 @@ const FinalHome = () => {
                 </div>
                 <div className="pr-[5%]">
                   <div>
-                    <img className="w-[350px] opacity-85" src="/png.png" alt="" />
+                    <img
+                      className="w-[350px] opacity-85"
+                      src="/png.png"
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
               {/* final paragraph */}
               <div className="pb-5">
-                <p>Design by Skylight Technologies</p>
+                <p>
+                  Design by{" "}
+                  <span className="font-bold text-gray-400">
+                    Skylight Technologies
+                  </span>
+                </p>
               </div>
             </div>
           </div>
