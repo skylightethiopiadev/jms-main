@@ -26,11 +26,11 @@
 
 /* default scroll bar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(194, 194, 194);
+  background-color: rgb(224, 224, 224);
   border-radius: 0px;
 }
 
