@@ -334,11 +334,11 @@ const FinalHeader = () => {
                   </div>
                 </div>
               </div>
-              <ul className="sm:pl-[20%] w-[90%] sm:w-[75%] mx-[5%] lg:mx-auto lg:w-full lg:flex lg:items-center lg:justify-center lg:gap-[10%]">
+              <ul className="sm:pl-[30%] w-[90%] sm:w-[75%] mx-[5%] lg:mx-auto lg:w-full lg:flex lg:items-center lg:justify-center lg:gap-[10%]">
                 {nav.map((item, index) => (
                   <li key={index} className="relative">
                     <NavLink
-                      className={`flex items-center justify-between gap-3 py-2 md:py-[1.75rem] font-[600] text-[.975rem] transition-colors ease-in-out duration-300 hover:text-gray-500 relative after:absolute after:left-0 after:bottom-0 after:h-[6px] after:bg-black after:transition-all after:ease-in-out after:duration-300 hover:after:w-full whitespace-nowrap ${
+                      className={`flex items-center justify-between gap-1 py-2 md:py-[1.75rem] font-[600] text-[.975rem] transition-colors ease-in-out duration-300 hover:text-gray-500 relative after:absolute after:left-0 after:bottom-0 after:h-[6px] after:bg-black after:transition-all after:ease-in-out after:duration-300 hover:after:w-full whitespace-nowrap ${
                         isNav?.navText === item.navText
                           ? "after:w-full"
                           : "after:w-0"

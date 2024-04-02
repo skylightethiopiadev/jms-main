@@ -195,6 +195,7 @@ const CustomerDashboardHeader = () => {
               </div>
             </div>
           </div>
+          {/* drawer */}
           <div>
             <button>
               <IoMdMore className="text-[1.5rem] text-gray-500 transition-colors ease-in-out duration-300 hover:text-gray-900" />
