@@ -21,19 +21,19 @@ import {
   IoStarOutline,
   IoStarHalfOutline,
   IoStarSharp,
-  IoExitSharp,
+  IoExitSharp
 } from "react-icons/io5";
 import { FaCamera } from "react-icons/fa";
-import { MdDelete } from "react-icons/md"; 
+import { MdDelete } from "react-icons/md";
 import { useUserLogoutMutation } from "../../../../features/api/apiSlice";
 import Response from "../../../../components/Response";
 import { NavLink } from "react-router-dom";
 
-import { IoStarOutline, IoStarHalfOutline, IoStarSharp } from "react-icons/io5";
-import { FaCamera } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
-import { IoSettingsOutline } from "react-icons/io5";
-import { IoExitOutline } from "react-icons/io5";
+// import {  IoStarHalfOutline, IoStarSharp } from "react-icons/io5";
+// import { FaCamera } from "react-icons/fa";
+// import { CgProfile } from "react-icons/cg";
+// import { IoSettingsOutline } from "react-icons/io5";
+// import { IoExitOutline } from "react-icons/io5";
 
 // main
 // CustomerDashboardHeader
@@ -64,15 +64,20 @@ const CustomerDashboardHeader = () => {
 
   // right side nav toggler
   const rightSideNavToggler = () => {
-    let rightSideNav = document.getElementById('customer-dashboard-right-side-bar') 
-    if(rightSideNav?.classList.contains('right-[-100vw]') && rightSideNav?.classList.contains('absolute')){
-      rightSideNav?.classList.remove('right-[-100vw]')
-      rightSideNav?.classList.add('right-0')
-    }else{
-      rightSideNav?.classList.add('right-[-100vw]')
-      rightSideNav?.classList.remove('right-0')
+    let rightSideNav = document.getElementById(
+      "customer-dashboard-right-side-bar"
+    );
+    if (
+      rightSideNav?.classList.contains("right-[-100vw]") &&
+      rightSideNav?.classList.contains("absolute")
+    ) {
+      rightSideNav?.classList.remove("right-[-100vw]");
+      rightSideNav?.classList.add("right-0");
+    } else {
+      rightSideNav?.classList.add("right-[-100vw]");
+      rightSideNav?.classList.remove("right-0");
     }
-  }
+  };
   return (
     <header className="py-2 px-1 flex items-center justify-between w-full border-b border-gray-200">
       {/* left header portion */}
@@ -119,7 +124,7 @@ const CustomerDashboardHeader = () => {
         <div className="flex items-center justify-end gap-3">
           <div className="relative">
             {/* user name and profile with toggler button */}
-            <div 
+            <div
               className="flex items-center justify-center gap-1 rounded-sm px-2 py-[.15rem] cursor-pointer border-[1px] border-black border-opacity-5 transition-opacity ease-in-out duration-300 hover:border-opacity-10"
               onClick={() => {
                 setUserDetail(!userDetail);
@@ -147,7 +152,11 @@ const CustomerDashboardHeader = () => {
               </div>
             </div>
             {/* user detail pop up */}
-            <div className={`absolute top-[100%] right-0 z-[100] overflow-hidden bg-transparent transition-all ease-in-out duration-300 ${userDetail ? 'h-[450px]' : 'h-0'}`}>
+            <div
+              className={`absolute top-[100%] right-0 z-[100] overflow-hidden bg-transparent transition-all ease-in-out duration-300 ${
+                userDetail ? "h-[450px]" : "h-0"
+              }`}
+            >
               <div className="w-[290px] h-[370px] mt-[14px] rounded-md bg-gray-50 border-[1px] border-black border-opacity-5 shadow-lg relative before:absolute before:top-0 before:right-7 before:bg-inherit before:border-l before:border-t before:border-black before:border-opacity-5 before:w-[24px] before:h-[24px] before:rotate-45 before:mt-[-12px]">
                 <div className="relative z-50 w-full h-full">
                   {/* profile image container */}
@@ -197,7 +206,9 @@ const CustomerDashboardHeader = () => {
                         <IoStarHalfOutline />
                         <IoStarOutline />
                       </div>
-                      <div><span className="text-[.95rem] font-[600]">4.5</span></div>
+                      <div>
+                        <span className="text-[.95rem] font-[600]">4.5</span>
+                      </div>
                     </div>
                   </div>
                   {/* bio paragraph container */}
@@ -234,9 +245,11 @@ const CustomerDashboardHeader = () => {
           </div>
           {/* drawer */}
           <div className="xl:hidden">
-            <button onClick={()=>{
-              rightSideNavToggler()
-            }}>
+            <button
+              onClick={() => {
+                rightSideNavToggler();
+              }}
+            >
               <IoMdMore className="text-[1.5rem] text-gray-500 transition-colors ease-in-out duration-300 hover:text-gray-900" />
             </button>
           </div>
