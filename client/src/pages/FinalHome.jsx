@@ -20,7 +20,7 @@ const FinalHome = () => {
       {/* <Header /> */}
       <FinalHeader />
       <div className="h-[87.5vh] overflow-y-auto">
-        <Outlet />
+        <Outlet /> 
         {/* footer container */}
         <div className="bg-black text-gray-300">
           {/* footer top */}
