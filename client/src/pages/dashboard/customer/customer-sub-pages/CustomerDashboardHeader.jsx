@@ -41,6 +41,18 @@ const CustomerDashboardHeader = () => {
       customerDashBoardLeftSideBar?.classList.remove("left-0");
     }
   };
+
+  // right side nav toggler
+  const rightSideNavToggler = () => {
+    let rightSideNav = document.getElementById('customer-dashboard-right-side-bar') 
+    if(rightSideNav?.classList.contains('right-[-100vw]') && rightSideNav?.classList.contains('absolute')){
+      rightSideNav?.classList.remove('right-[-100vw]')
+      rightSideNav?.classList.add('right-0')
+    }else{
+      rightSideNav?.classList.add('right-[-100vw]')
+      rightSideNav?.classList.remove('right-0')
+    }
+  }
   return (
     <header className="py-2 px-1 flex items-center justify-between w-full border-b border-gray-200">
       {/* left header portion */}
@@ -90,7 +102,7 @@ const CustomerDashboardHeader = () => {
             >
               <div className="flex items-center justify-center gap-1 text-[.85rem] text-gray-500">
                 <span>Meseret</span>
-                <span>Seyoum</span>
+                <span className="hidden md:inline-block">Seyoum</span>
               </div>
               <div className="w-[26px] aspect-square rounded-md overflow-hidden">
                 <img
@@ -110,7 +122,7 @@ const CustomerDashboardHeader = () => {
               </div>
             </div>
             {/* user detail pop up */}
-            <div className={`absolute top-[100%] right-0 z-50 overflow-hidden bg-transparent transition-all ease-in-out duration-300 ${userDetail ? 'h-[450px]' : 'h-0'}`}>
+            <div className={`absolute top-[100%] right-0 z-[100] overflow-hidden bg-transparent transition-all ease-in-out duration-300 ${userDetail ? 'h-[450px]' : 'h-0'}`}>
               <div className="w-[290px] h-[370px] mt-[14px] rounded-md bg-gray-50 border-[1px] border-black border-opacity-5 shadow-lg relative before:absolute before:top-0 before:right-7 before:bg-inherit before:border-l before:border-t before:border-black before:border-opacity-5 before:w-[24px] before:h-[24px] before:rotate-45 before:mt-[-12px]">
                 <div className="relative z-50 w-full h-full">
                   {/* profile image container */}
@@ -196,8 +208,10 @@ const CustomerDashboardHeader = () => {
             </div>
           </div>
           {/* drawer */}
-          <div>
-            <button>
+          <div className="xl:hidden">
+            <button onClick={()=>{
+              rightSideNavToggler()
+            }}>
               <IoMdMore className="text-[1.5rem] text-gray-500 transition-colors ease-in-out duration-300 hover:text-gray-900" />
             </button>
           </div>

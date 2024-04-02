@@ -25,7 +25,7 @@
 /* } */
 
 /* default scroll bar */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 14px;
 }
 
@@ -37,7 +37,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgba(124, 124, 124, 0.589);
   border-radius: 0px;
-}
+} */
 
 /* home-lawyer-list-card */
 
