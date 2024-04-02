@@ -44,6 +44,20 @@ import Success from "./pages/Success";
 
 export const userContext = createContext();
 
+// home pages
+import HomeIndex from "./pages/home-pages/HomeIndex";
+// civil
+import Succession from "./pages/civil/Succession";
+import Employment from "./pages/civil/Employment";
+import Property from "./pages/civil/Property";
+import Torts from "./pages/civil/Torts";
+// civil -- contract
+import ContractOfSpecialMovables from "./pages/civil/contract/ContractOfSpecialMovables";
+// other services
+import HomeTraining from "./pages/other-services/Training";
+import HomeConsulting from "./pages/other-services/Consulting";
+import HomeResearches from "./pages/other-services/Researches";
+
 function App() {
   const { data: user } = useReadQuery({
     url: "/user/readProfileInfo",
@@ -53,28 +67,37 @@ function App() {
   // useEffect(() => {
   //   console.log(user, "user data from app js");
   // }, [user]);
-  // console.log(user, "user from app js");
+  // console.log(user, "user from app js");   
   return (
     <Flowbite>
-      <userContext.Provider value={{ user: user?.data }}> 
+      <userContext.Provider value={{ user: user?.data }}>
         <div className={`font-workSans medium   tracking-wide`}>
           <div className="flex flex-col">
             <Routes>
-              <Route path="/" element={<FinalHome />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/signUp" element={<SignUp />}></Route>
-              <Route path="/chat" element={<Chat />}></Route>
               <Route path="/dashboard" element={<HomeDashboard />}>
                 <Route
                   path="/dashboard/applications"
                   element={<Applications />}
                 />
               </Route>
-              <Route
-                path="/dashboard/customer/message/video"
-                element={<Video />}
-              />
-
+              <Route path="/" element={<FinalHome />}>
+                <Route path="/" element={<HomeIndex />}></Route>
+                <Route path="/succession" element={<Succession />}></Route>
+                <Route path="/employment" element={<Employment />}></Route>
+                <Route path="/property" element={<Property />}></Route>
+                <Route path="/torts" element={<Torts />}></Route>
+                <Route
+                  path="/contract-of-special-movables"
+                  element={<ContractOfSpecialMovables />}
+                ></Route>
+                {/* other services */}
+                <Route path="/training" element={<HomeTraining />}></Route>
+                <Route path="/consulting" element={<HomeConsulting />}></Route>
+                <Route path="/researches" element={<HomeResearches />}></Route>
+              </Route>
+              <Route path="login" element={<Login />}></Route>
+              <Route path="signUp" element={<SignUp />}></Route>
+              <Route path="chat" element={<Chat />}></Route>
               <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
                 <Route
                   // path="/dashboard/customer/home"
