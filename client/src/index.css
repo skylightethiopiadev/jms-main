@@ -1,6 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import url("https://cdn.syncfusion.com/ej2/material.css");
 @tailwind base;
@@ -27,19 +25,19 @@
 /* } */
 
 /* default scroll bar */
-::-webkit-scrollbar {
-  width: 4px;
+/* ::-webkit-scrollbar {
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(194, 194, 194);
-  border-radius: 4px;
+  background-color: rgb(224, 224, 224);
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(160, 160, 160);
-  border-radius: 4px;
-}
+  background-color: rgba(124, 124, 124, 0.589);
+  border-radius: 0px;
+} */
 
 /* home-lawyer-list-card */
 
@@ -48,7 +46,7 @@
 }
 
 #home-lawyer-list-card:hover::-webkit-scrollbar {
-  width: 2px;
+  width: 3px;
 }
 
 #home-lawyer-list-card::-webkit-scrollbar-track {
@@ -276,7 +274,7 @@
 }
 
 .dashboard-link-item-my {
-  @apply my-5 text-[.85rem];
+  @apply my-5 text-[.85rem]  transition-all ease-in-out duration-300 hover:font-[600] hover:text-gray-900;
 }
 
 .dashboard-main-list-item {
@@ -284,7 +282,7 @@
 }
 
 .dashboard-sub-link-items {
-  @apply pl-[15%] py-[.35rem] bg-white rounded-sm mr-1 transition-all ease-in-out duration-300 hover:bg-gray-50;
+  @apply pl-[15%] py-[.5rem] bg-white rounded-sm mr-1 transition-all ease-in-out duration-300 hover:bg-gray-100 hover:font-[600] hover:text-gray-900;
 }
 /* home */
 .home-submenu-popup-ul {
@@ -307,19 +305,17 @@
   @apply border-blue-600 bg-blue-600 text-white;
 }
 
-
 /* off bar */
 .step-bar {
   @apply w-full h-[3px] rounded-lg;
 }
 .step-bar-off {
-  @apply bg-gray-400 ;
+  @apply bg-gray-400;
 }
 /* on bar */
 .step-bar-on {
   @apply bg-blue-600;
 }
-
 
 /* step hint text */
 .step-hint-text-circle {
@@ -333,7 +329,6 @@
 .step-hint-text-circle-on {
   @apply border-blue-600 text-blue-600 sm:text-[.85rem] md:text-[.95rem] scale-[1] transition-all ease-in-out duration-300;
 }
-
 
 /* main link hover effect */
 .main-link-hover-effect {

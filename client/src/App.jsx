@@ -51,42 +51,68 @@ import StaticPage from "./pages/StaticPage";
 
 export const userContext = createContext();
 
+// home pages
+import HomeIndex from "./pages/home-pages/HomeIndex";
+// civil
+import Succession from "./pages/civil/Succession";
+import Employment from "./pages/civil/Employment";
+import Property from "./pages/civil/Property";
+import Torts from "./pages/civil/Torts";
+// civil -- contract
+import ContractOfSpecialMovables from "./pages/civil/contract/ContractOfSpecialMovables";
+// other services
+import HomeTraining from "./pages/other-services/Training";
+import HomeConsulting from "./pages/other-services/Consulting";
+import HomeResearches from "./pages/other-services/Researches";
+
 function App() {
   const { data: user } = useReadQuery({
     url: "/user/readProfileInfo",
-    tag: ["users"],
+    tag: ["users"]
   });
 
   // useEffect(() => {
   //   console.log(user, "user data from app js");
   // }, [user]);
-  // console.log(user, "user from app js");
+  // console.log(user, "user from app js"); 
   return (
     <Flowbite>
-      <userContext.Provider value={{ user: user?.data }}>
+      <userContext.Provider value={{ user: user?.data }}> 
         <div className={`font-workSans medium   tracking-wide`}>
           <div className="flex flex-col">
             <Routes>
-              <Route path="/" element={<FinalHome />}></Route>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/signUp" element={<SignUp />}></Route>
               <Route path="/forget" element={<Forget />}></Route>
               <Route path="/reset" element={<Reset />}></Route>
               <Route path="/business" element={<StaticPage />}></Route>
 
-              {/* <Route path="/dashboard" element={<HomeDashboard />}> */}
-              {/* <Route
+{/* ###################################### ADMIN DASHBOARD #################################### */} 
+              <Route path="/dashboard" element={<HomeDashboard />}>
+                <Route
                   path="/dashboard/applications"
-                  element={<ComingSoon />}
-                  // element={<Applications />}
-                /> */}
-              {/* </Route> */}
-              <Route
-                path="/dashboard/customer/message/video"
-                element={<ComingSoon />}
-                // element={<Video />}
-              />
+                  element={<Applications />}
+                />
+              </Route>
 
+{/* ###################################### HOME #################################### */} 
+              <Route path="/" element={<FinalHome />}>
+                <Route path="/" element={<HomeIndex />}></Route>
+                <Route path="/succession" element={<Succession />}></Route>
+                <Route path="/employment" element={<Employment />}></Route>
+                <Route path="/property" element={<Property />}></Route>
+                <Route path="/torts" element={<Torts />}></Route>
+                <Route
+                  path="/contract-of-special-movables"
+                  element={<ContractOfSpecialMovables />}
+                ></Route>
+                {/* other services */}
+                <Route path="/training" element={<HomeTraining />}></Route>
+                <Route path="/consulting" element={<HomeConsulting />}></Route>
+                <Route path="/researches" element={<HomeResearches />}></Route>
+              </Route>
+
+{/* ###################################### LAWYER DASHBOARD #################################### */}
               <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
                 <Route
                   // path="/dashboard/customer/home"
@@ -109,6 +135,8 @@ function App() {
                   // element={<LawyerNewCase />}
                 ></Route>
               </Route>
+
+{/* ###################################### CUSTOMER DASHBOARD #################################### */}
               <Route path="/dashboard/customer" element={<CustomerDashboard />}>
                 <Route
                   // path="/dashboard/customer/home"
@@ -120,6 +148,11 @@ function App() {
                   element={<ComingSoon />}
                   // element={<Message />}
                 ></Route>
+                <Route
+                  path="/dashboard/customer/message/video"
+                  element={<ComingSoon />}
+                  // element={<Video />}
+                />
                 <Route
                   path="/dashboard/customer/appointment"
                   element={<ComingSoon />}
@@ -206,160 +239,9 @@ function App() {
                   // element={<Researches />}
                 ></Route>
               </Route>
-              {/* {jwt && user && (
-              <Route
-                path="/dashboard/*"
-                element={
-                  user.role === "super-admin" ||
-                  user.role === "case-manager-main" ||
-                  user.role === "case-manager-regular" ||
-                  user.role === "case-manager-external" ? (
-                    <HomeDashboard role={user?.role} />
-                  ) : user.role === "lawyer" ? (
-                    <LawyerDashboard role={user?.role} />
-                  ) : (
-                    <CustomerDashboard />
-                    //   <Route
-                    //     // path="/"
-                    //     index
-                    //     element={<CustomerDashboardHome />}
-                    //   ></Route>
-                    //   <Route path="/customer/new-case" element={<NewCase />}></Route>
-                    // </CustomerDashboard>
-                  )
-                }
-              ></Route>
-            )} */}
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </div>
-
-          {/* secure routes */}
-          {/* <mobileContext.Provider
-        value={{
-          mobile,
-          setMobile,
-          nightMode,
-          setNightMode,
-          borderColor,
-          role,
-        }}
-      >
-        <div className="flex h-[100vh]  w-full flex-col">
-          <div
-            className={`flex border ${borderColor} justify-between items-center`}
-          >
-            <div className="flex items-center w-[300px] gap-2 p-2">
-              <Balance fontSize="large" />{" "}
-              <p className="title font-semibold">JMS</p>
-            </div>
-            <Header />
-          </div>
-          <div className="w-full h-auto flex ">
-            {mobile && (
-              <Sidebar
-                type="mobile"
-                value={`h-[91.2vh] ${
-                  nightMode
-                    ? "bg-gray-800 text-gray-500"
-                    : "bg-white text-gray-500"
-                } absolute md:hidden w-[300px] pb-5 z-20`}
-              />
-            )}
-            <Sidebar value="h-[91.2vh] hidden md:block w-[300px] pb-5  z-20" />
-            <div className="flex flex-col overflow-y-scroll w-full h-[90.5vh]  px-5 py-2">
-              <div className="w-full flex justify-between items-center py-2 px-2">
-                <div className="flex flex-col">
-                  <div className="title flex text-blue-500">
-                    <p className="uppercase">
-                      {paths[paths.length - 1].toString().split("")[0]}
-                    </p>
-                    <p>
-                      {paths[paths.length - 1]
-                        .replaceAll("-", " ")
-                        .split("")
-                        .splice(1, paths[paths.length - 1].length - 1)}
-                    </p>{" "}
-                  </div>
-                  <div className="w-auto mb-2 mt-1 flex items-center">
-                    {paths.map((path, i) => (
-                      <div key={i} className="flex gap-4">
-                        {i !== paths.length - 1 && (
-                          <Link
-                            to={location.pathname
-                              .split("/")
-                              .splice(0, paths.length - 1)
-                              .join("/")}
-                          >
-                            {path.replaceAll("-", " ")}/
-                          </Link>
-                        )}
-                        {i === paths.length - 1 && (
-                          <p className="text-blue-500">
-                            {paths.pop().replaceAll("-", " ") + " >"}
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="hidden md:flex gap-1 flex-col items-end justify-end h-auto w-auto">
-                  <p className="font-semibold">{greetingHandler()} Tewodros</p>
-                  <p className="flex text-[10px] gap-1 items-center text-gray-400">
-                    <AccessTime sx={{ width: 16, height: 16 }} />
-                    {dateHandler()}
-                  </p>
-                </div>
-              </div>
-
-              <Routes>
-                <Route path="/dashboard" element={<Dashboard />}></Route>
-                <Route
-                  path="/dashboard/service-area"
-                  element={<AllServiceArea />}
-                />
-                <Route
-                  path="/dashboard/service-rea/update"
-                  element={<ServiceAreaUpdate />}
-                />
-
-                <Route path="/dashboard/case-chart" element={<CaseChart />} />
-
-                <Route
-                  path="/dashboard/applications"
-                  element={<Applications />}
-                />
-
-                <Route path="/dashboard/chat" element={<Chat />} />
-
-                <Route
-                  path="/dashboard/representative"
-                  element={<Representative />}
-                />
-
-                <Route path="/dashboard/payment" element={<Payment />} />
-
-                <Route path="/dashboard/lawyer" element={<Lawyer />} />
-
-                <Route path="/dashboard/role-create" element={<CreateRole />} />
-                <Route path="/dashboard/role-all" element={<AllRoles />} />
-                <Route path="/dashboard/role-all/update" element={<Update />} />
-                <Route path="/dashboard/role-all/detail" element={<Detail />} />
-                <Route path="/dashboard/customers" element={<Customers />} />
-                <Route path="/dashboard/consulting" element={<Consulting />} />
-                <Route path="/dashboard/tutorials" element={<Tutorials />} />
-                <Route path="/dashboard/Client-type" element={<ClientType />} />
-                <Route
-                  path="/dashboard/Client-type/update"
-                  element={<ClientTypeUpdate />}
-                />
-                <Route path="/dashboard/reports" element={<Reports />} />
-                <Route path="*" element={<p>Path not resolved</p>} />
-              </Routes>
-            </div>
-          </div>
-        </div>
-      </mobileContext.Provider> */}
         </div>
       </userContext.Provider>
     </Flowbite>

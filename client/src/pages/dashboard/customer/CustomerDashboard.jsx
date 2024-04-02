@@ -7,6 +7,7 @@ import customerImage from "../../../assets/images/customers/customer-i.jpg";
 // icons
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
+import { MdClose } from "react-icons/md";
 
 // customer-sub-pages
 import CustomerDashboardHeader from "./customer-sub-pages/CustomerDashboardHeader";
@@ -22,6 +23,18 @@ const CustomerDashboard = () => {
   // console.log(location?.state?.email, "user email");
   const [isMonthPopup, setIsMonthPopup] = useState(false);
   const [month, setMonth] = useState("August");
+
+  // right side nav toggler
+  const rightSideNavToggler = () => {
+    let rightSideNav = document.getElementById('customer-dashboard-right-side-bar') 
+    if(rightSideNav?.classList.contains('right-[-100vw]') && rightSideNav?.classList.contains('absolute')){
+      rightSideNav?.classList.remove('right-[-100vw]')
+      rightSideNav?.classList.add('right-0')
+    }else{
+      rightSideNav?.classList.add('right-[-100vw]')
+      rightSideNav?.classList.remove('right-0')
+    }
+  }
   return (
     <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
       <div className="fixed rounded-full border-2 border-blue-500 z-30 bottom-4 right-4 h-auto w-auto shadow-xl shadow-gray-500">
@@ -57,13 +70,24 @@ const CustomerDashboard = () => {
             {/* <div>right</div> */}
           </header>
           {/* content */}
-          <div className="h-auto flex bg-white">
+          <div className="h-full flex bg-white relative overflow-hidden">
             {/* main content */}
             <div className="w-full">
               <Outlet />
             </div>
-            .{/* right content */}
-            <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
+            {/* right content */}
+            <div
+              className="p-3 overflow-y-auto pb-5 bg-white absolute right-[-100vw] z-50 xl:inline-block xl:relative xl:right-0 transition-all ease-in-out duration-150"
+              id="customer-dashboard-right-side-bar"
+            >
+              {/* close button */}
+              <div className="xl:hidden absolute left-1 top-1">
+                <button className="p-[.1rem] rounded-full bg-gray-50 transition-all ease-in-out duration-150 hover:bg-gray-100" onClick={()=>{
+                  rightSideNavToggler()
+                }}>
+                  <MdClose className="text-[1.5rem] text-gray-700"/>
+                </button>
+              </div>
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}
