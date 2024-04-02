@@ -10,18 +10,13 @@ import {
 } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
-import {
-  FaCarCrash,
-  FaShoppingCart,
-} from "react-icons/fa";
+import { FaCarCrash, FaShoppingCart } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
-import {
-  MdDashboard,
-  MdOutlineFireplace,
-} from "react-icons/md";
+import { MdDashboard, MdOutlineFireplace } from "react-icons/md";
 import { GiOpenFolder } from "react-icons/gi";
 import { IoFolder } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
+import { GoLightBulb } from "react-icons/go";
 
 const HomeIndex = () => {
   // local states
@@ -34,6 +29,13 @@ const HomeIndex = () => {
     "Advise on syndicated loan or finance",
     "Advise on project finance",
     "Advise on secured lending, sovereign loans and debt restructuring",
+  ];
+  const ourServicesTwo = [
+    "IP due diligence ",
+    "Technology transactions",
+    "Strategic IP counselling",
+    "Trademark, copyright and patent registration and renewal",
+    "Represent clients before tribunal all the way to the Federal Supreme Court",
   ];
   return (
     <>
@@ -234,6 +236,140 @@ const HomeIndex = () => {
           </div>
         </div>
       </div>
+      {/* post-first */}
+      <div className="px-[3%] sm:px-[12%] py-[5%]">
+        <div className="w-full flex items-center gap-0">
+          {/* text container */}
+          <div className="w-[50%] border-b-[7px] pb-[2%] border-black">
+            <div className="my-5 text-[1.75rem] font-bold">
+              <p>Why Choose US</p>
+            </div>
+            {/* sub texts */}
+            <div className="mb-7">
+              <div className="my-2 text-[1.35rem] font-semibold">
+                <p>Expertise</p>
+              </div>
+              <div className="text-[1rem]">
+                <p>
+                  Our team of experienced lawyers specializes in various areas
+                  of law, ensuring you receive the best legal advice tailored to
+                  your needs.
+                </p>
+              </div>
+            </div>
+
+            <div className="mb-7">
+              <div className="my-2 text-[1.35rem] font-semibold">
+                <p>Personalized Approach</p>
+              </div>
+              <div className="text-[1rem]">
+                <p>
+                  We take the time to understand your unique situation and
+                  provide personalized solutions to ensure the best possible
+                  outcome for your case.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div className="my-2 text-[1.35rem] font-semibold">
+                <p>Client-Centered Focus</p>
+              </div>
+              <div className="text-[1rem]">
+                <p>
+                  Your satisfaction is our top priority, and we strive to go
+                  above and beyond to exceed your expectations and deliver
+                  exceptional legal services.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* image container */}
+          <div className="w-[50%] h-full flex items-center justify-center">
+            {/* image container */}
+            <div className="flex items-center justify-center">
+              <div>
+                <img
+                  src="https://www.legalzoom.com/resources/img/lzr/homepage/kelly-why-us.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* pre-second order container */}
+      <div className="px-[3%] sm:px-[12%] py-[5%]">
+        {/* first container for bold text */}
+        <div className="flex items-center justify-center text-[2.5rem] font-bold text-center px-[5%]">
+          <p>
+            Comprehensive Legal Assistance for Every Aspect of Your Business
+          </p>
+        </div>
+        {/* second container */}
+        <div className="flex items-end mt-10">
+          {/* left */}
+          <div className="w-[50%] relative flex">
+            {/* image container */}
+            <div className="w-full h-full overflow-hidden">
+              <img
+                className="h-full w-full object-center object-cover"
+                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                alt=""
+              />
+            </div>
+            <div className="absolute top-0 right-0 bg-white w-[250px] h-[150px] shadow-xl p-5">
+              <div className="my-3">
+                <GoLightBulb className="text-[2.5rem]" />
+              </div>
+              <div className="font-semibold text-[.875rem] ">
+                <p>We've made dreams a reality for 2m+ entrepreneurs.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* right */}
+          <div className="w-[50%]  p-10 pb-0">
+            {/* bold paragraph */}
+            <div className="mb-4 text-[1.975rem] font-bold">
+              <p>For your business</p>
+            </div>
+            {/* normal paragraph */}
+            <div className="text-[1.05rem]">
+              <p>
+                Whether you need to establish a company, apply for licenses and
+                permits, or obtain a tax ID, we will help set your business up
+                for success.
+              </p>
+            </div>
+            {/* first button */}
+            <div className="my-7">
+              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
+                start my business
+              </button>
+            </div>
+            {/* second buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mb-3">
+              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                PLC
+              </button>
+              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Share Company
+              </button>
+            </div>
+            {/* third buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mt-5">
+              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                NGO
+              </button>
+              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Get Legal Help
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* second order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
@@ -407,7 +543,7 @@ const HomeIndex = () => {
               </div>
               {/* bold paragraph */}
               <div className="text-[1.5rem] font-bold my-3 leading-7">
-                <p>Do you want to engage in newly liberalized sectors?</p>
+                <p>Are you looking for an intellectual property lawyer?</p>
               </div>
               {/* normal paragraph */}
               <div className="relative">
@@ -439,24 +575,10 @@ const HomeIndex = () => {
                     </button>
                   </div>
                 </div>
-                <p className="p-3">
-                  Financial sector including capital market is obvious choice
-                  for foreign companies to engage in. Ethiopia is liberalizing
-                  many sectors that were otherwise reserved for local investors.
-                  {/* One of the areas that the government is planning to liberalize
-                  is financial sector. With the opening up of various sectors
-                  for foreign investors coupled with the coming of capital
-                  market, triggers the need to have a support of law firm. We
-                  have highly regarded lawyers in the sector that can exactly
-                  meet your needs to work with your company. */}
-                  <span
-                    className="cursor-pointer ml-1 text-blue-700 font-medium"
-                    onClick={() => {
-                      setIsOtherService(true);
-                    }}
-                  >
-                    more
-                  </span>
+                <p className="">
+                  You have clicked the right platform. Harnessing innovation and
+                  digital transformation is essential to the long-term success
+                  of companies and institutions.
                 </p>
               </div>
               {/* our services */}
@@ -468,12 +590,14 @@ const HomeIndex = () => {
                 {/* list */}
                 <div className="pl-5">
                   <ul>
-                    {ourServices?.map((service, index) => (
-                      <li key={index} className="flex items-start gap-2 py-1">
-                        <div className="w-[16px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
+                    {ourServicesTwo?.map((service, index) => (
+                      <li key={index} className="flex items-start gap-3 py-1">
+                        <div className="w-[14px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
                           <TiTick />
                         </div>
-                        <div>{service}</div>
+                        <div className="border-b border-black border-opacity-0">
+                          {service}
+                        </div>
                       </li>
                     ))}
                   </ul>

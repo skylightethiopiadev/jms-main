@@ -41,6 +41,8 @@ import Succession from "./pages/civil/Succession";
 import Employment from "./pages/civil/Employment";
 import Property from "./pages/civil/Property";
 import Torts from "./pages/civil/Torts";
+// civil -- contract
+import ContractOfSpecialMovables from "./pages/civil/contract/ContractOfSpecialMovables";
 // other services
 import HomeTraining from "./pages/other-services/Training";
 import HomeConsulting from "./pages/other-services/Consulting";
@@ -62,6 +64,7 @@ function App() {
               <Route path="/employment" element={<Employment />}></Route>
               <Route path="/property" element={<Property />}></Route>
               <Route path="/torts" element={<Torts />}></Route>
+              <Route path="/contract-of-special-movables" element={<ContractOfSpecialMovables />}></Route>
               {/* other services */}
               <Route path="/training" element={<HomeTraining />}></Route>
               <Route path="/consulting" element={<HomeConsulting />}></Route>

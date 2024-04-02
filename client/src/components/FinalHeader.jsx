@@ -40,7 +40,7 @@ const FinalHeader = () => {
     },
   ];
 
-  // criminal sub list
+  // civil sub list
   const civilSubNav = [
     {
       groupOne: [
@@ -49,7 +49,7 @@ const FinalHeader = () => {
           subNavList: [
             {
               navHeaderText: "Contract of special movables (Vehicles)",
-              path: "#",
+              path: "contract-of-special-movables",
             },
             {
               navHeaderText: "Sale or lease of buildings",
@@ -390,7 +390,9 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink to={`${item.path}`} className={"hover:underline"} onClick={()=>{
+                                          setIsNav(null)
+                                        }}>
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
