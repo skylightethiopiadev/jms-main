@@ -240,7 +240,7 @@ const HomeIndex = () => {
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         <div className="w-full flex items-center gap-0">
           {/* text container */}
-          <div className="w-[50%] border-b-[7px] pb-[2%] border-black">
+          <div className="w-[100%] lg:w-[50%] border-b-[7px] pb-[2%] border-black">
             <div className="my-5 text-[1.75rem] font-bold">
               <p>Why Choose US</p>
             </div>
@@ -285,7 +285,7 @@ const HomeIndex = () => {
             </div>
           </div>
           {/* image container */}
-          <div className="w-[50%] h-full flex items-center justify-center">
+          <div className="w-[50%] hidden h-full lg:flex items-center justify-center">
             {/* image container */}
             <div className="flex items-center justify-center">
               <div>
@@ -302,15 +302,15 @@ const HomeIndex = () => {
       {/* pre-second order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         {/* first container for bold text */}
-        <div className="flex items-center justify-center text-[2.5rem] font-bold text-center px-[5%]">
+        <div className="flex items-center justify-center text-[1.5rem] sm:text-[1.85rem] lg:text-[2.5rem] font-bold text-center px-[5%]">
           <p>
             Comprehensive Legal Assistance for Every Aspect of Your Business
           </p>
         </div>
         {/* second container */}
-        <div className="flex items-end mt-10">
+        <div className="flex flex-col lg:flex-row items-end mt-10">
           {/* left */}
-          <div className="w-[50%] relative flex">
+          <div className="w-[100%] lg:w-[50%] relative flex">
             {/* image container */}
             <div className="w-full h-full overflow-hidden">
               <img
@@ -330,13 +330,13 @@ const HomeIndex = () => {
           </div>
 
           {/* right */}
-          <div className="w-[50%]  p-10 pb-0">
+          <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
-            <div className="mb-4 text-[1.975rem] font-bold">
+            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
               <p>For your business</p>
             </div>
             {/* normal paragraph */}
-            <div className="text-[1.05rem]">
+            <div className="text-[.875rem] md:text-[1.05rem]">
               <p>
                 Whether you need to establish a company, apply for licenses and
                 permits, or obtain a tax ID, we will help set your business up
@@ -351,19 +351,19 @@ const HomeIndex = () => {
             </div>
             {/* second buttons */}
             <div className="flex items-center gap-5 text-[1.05rem] font-semibold mb-3">
-              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
                 PLC
               </button>
-              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
                 Share Company
               </button>
             </div>
             {/* third buttons */}
             <div className="flex items-center gap-5 text-[1.05rem] font-semibold mt-5">
-              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
                 NGO
               </button>
-              <button className="rounded-full px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
                 Get Legal Help
               </button>
             </div>

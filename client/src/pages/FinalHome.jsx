@@ -239,7 +239,7 @@ const FinalHome = () => {
               </div>
               {/* second paragraph */}
               <div className="flex items-center justify-between">
-                <div className="my-5 pr-[25%]">
+                <div className="my-5 pr-[5%] md:pr-[25%]">
                   <p>
                     Makuta Law Firm will be the first law firm of its kind in
                     the country and in the continent of Africa. It is the first
@@ -250,7 +250,7 @@ const FinalHome = () => {
                 </div>
                 <div className="pr-[5%]">
                   <div>
-                    <img className="w-[350px] " src="/png.png" alt="" />
+                    <img className="w-[350px] opacity-85" src="/png.png" alt="" />
                   </div>
                 </div>
               </div>
