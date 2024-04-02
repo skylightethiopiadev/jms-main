@@ -5,7 +5,7 @@ import {
   IoMdStar,
   IoMdStarHalf,
   IoMdStarOutline,
-  IoMdRepeat,
+  IoMdRepeat
 } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
@@ -13,14 +13,14 @@ import {
   FaCarCrash,
   FaShoppingCart,
   FaFacebookF,
-  FaYoutube,
+  FaYoutube
 } from "react-icons/fa";
 import {
   MdDashboard,
   MdOutlineFireplace,
   MdPhoneInTalk,
   MdOutlineMarkEmailRead,
-  MdOutlineMediation,
+  MdOutlineMediation
 } from "react-icons/md";
 import { GiOpenFolder } from "react-icons/gi";
 import { FaCircleCheck, FaXTwitter } from "react-icons/fa6";
@@ -31,8 +31,10 @@ import Header from "../components/Header";
 import FinalHeader from "../components/FinalHeader";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import ChatBots from "./ChatBots";
 // main
-const FinalHome = () => { 
+const FinalHome = () => {
   const [country, setCountry] = useState("");
   const ipHandler = async () => {
     const ip = await axios.get(
@@ -569,19 +571,19 @@ const FinalHome = () => {
                     series={[
                       {
                         name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125],
-                      },
+                        data: [120, 100, 145, 170, 100, 200, 125]
+                      }
                     ]}
                     options={{
                       legend: {
-                        show: false,
+                        show: false
                       },
                       dataLabels: {
                         show: false,
-                        formatter: (val) => ``,
+                        formatter: val => ``
                       },
                       tooltip: {
-                        fillSeriesColor: true,
+                        fillSeriesColor: true
                       },
                       xaxis: {
                         categories: [
@@ -592,27 +594,27 @@ const FinalHome = () => {
                           "Jan",
                           "Feb",
                           "Mar",
-                          "Apr",
+                          "Apr"
                         ],
                         labels: {
-                          show: false,
+                          show: false
                         },
-                        tickPlacement: "off",
+                        tickPlacement: "off"
                       },
                       yaxis: {
                         labels: {
-                          show: true,
-                        },
+                          show: true
+                        }
                       },
                       grid: {
-                        show: false,
+                        show: false
                       },
                       plotOptions: {
                         bar: {
-                          distributed: true,
+                          distributed: true
                           // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                        },
-                      },
+                        }
+                      }
                     }}
                   ></Chart>
                 </div>
@@ -632,8 +634,11 @@ const FinalHome = () => {
         </div>
       </div>
 
+      {/* <Outlet />  */}
       {/* footer */}
       {/* footer container */}
+
+      <ChatBots />
       <div className="bg-black text-gray-300">
         {/* footer top */}
         <div className="px-[1%] sm:px-[5%] py-3 flex flex-col-reverse md:flex-row items-center justify-between gap-16">

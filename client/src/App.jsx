@@ -47,6 +47,7 @@ import CustomerProfile from "./pages/dashboard/customer/customer-sub-pages/Custo
 import ChangePassword from "./pages/dashboard/customer/customer-sub-pages/ChangePassword";
 import ComingSoon from "./components/ComingSoon";
 import LawyerProfile from "./pages/dashboard/lawyer/lawyer-sub-pages/LawyerProfile";
+import StaticPage from "./pages/StaticPage";
 
 export const userContext = createContext();
 
@@ -71,8 +72,10 @@ function App() {
               <Route path="/signUp" element={<SignUp />}></Route>
               <Route path="/forget" element={<Forget />}></Route>
               <Route path="/reset" element={<Reset />}></Route>
+              <Route path="/business" element={<StaticPage />}></Route>
+
               {/* <Route path="/dashboard" element={<HomeDashboard />}> */}
-                {/* <Route
+              {/* <Route
                   path="/dashboard/applications"
                   element={<ComingSoon />}
                   // element={<Applications />}

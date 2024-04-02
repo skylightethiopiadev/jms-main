@@ -20,10 +20,10 @@ import { apiSlice } from "./features/api/apiSlice.js";
 // orignal
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <ApiProvider api={apiSlice}>
         <App />
       </ApiProvider>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </BrowserRouter>
 );

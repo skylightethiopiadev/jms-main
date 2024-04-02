@@ -45,6 +45,7 @@
     "react-multi-carousel": "^2.8.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.21.1",
+    "react-simple-chatbot": "^0.6.1",
     "reactjs-popup": "^2.0.6",
     "redux": "^4.2.1",
     "rollup-plugin-node-polyfills": "^0.2.1",
