@@ -384,7 +384,7 @@ const OnRequest = () => {
                 {/* header */}
                 <header className="flex items-center justify-between">
                   {/* left */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <div className="p-1 rounded-full text-white bg-green-400 font-bold">
                       civ
                     </div>
@@ -491,6 +491,14 @@ const OnRequest = () => {
             <div className="flex items-center gap-2 my-1">
               <span className="font-bold">Case Status: </span>
               <span>Pending</span>
+            </div>
+            <div className="flex items-center gap-2 my-1">
+              <span className="font-bold">Case Type: </span>
+              <span>Intellectual Property</span>
+            </div>
+            <div className="flex items-center gap-2 my-1">
+              <span className="font-bold">Case subtype: </span>
+              <span>Copyright</span>
             </div>
             <div className="max-w-[300px] whitespace-normal my-3">
               <p>
