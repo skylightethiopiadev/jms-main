@@ -172,7 +172,7 @@ const CustomerDashboardHeader = () => {
                 userDetail ? "h-[450px] border-b" : "h-0"
               }`}
             >
-              <div className="w-[320px] h-[500px] mt-[14px] rounded-md bg-gray-100 p-4 border-[1px] border-black border-opacity-5 shadow-lg relative before:absolute before:top-0 before:right-7 before:bg-inherit before:border-l before:border-t before:border-black before:border-opacity-5 before:w-[24px] before:h-[24px] before:rotate-45 before:mt-[-12px]">
+              <div className="w-[320px] h-[500px] mt-[14px] rounded-md bg-gray-50 p-4 border-[1px] border-black border-opacity-5 shadow-lg relative before:absolute before:top-0 before:right-7 before:bg-inherit before:border-l before:border-t before:border-black before:border-opacity-5 before:w-[24px] before:h-[24px] before:rotate-45 before:mt-[-12px]">
                 <div className="relative z-[45] w-full h-full">
                   {/* profile image container */}
                   <div className="w-full flex items-center justify-center p-1">
