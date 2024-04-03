@@ -31,8 +31,27 @@ const Login = () => {
           setPending={setPending}
           type="login"
         />
-        <div className="w-full relative h-[75vh] shadow-lg flex flex-col lg:flex-row-reverse rounded-sm bg-white">
+        <div className="w-full relative h-[75vh] shadow-lg flex flex-col lg:flex-row-reverse rounded-sm mt-8">
           <div className="flex relative bg-white  flex-[50%] py-8 ">
+            <a href="/" className="text-xl absolute left-5 top-2 font-bold">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14M5 12l4-4m-4 4 4 4"
+                />
+              </svg>
+            </a>
             <div class="max-w-sm mx-auto">
               {" "}
               <p className="text-xl font-bold">Login</p>
@@ -44,7 +63,7 @@ const Login = () => {
                   Your email
                 </label>
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={e => setEmail(e.target.value)}
                   type="email"
                   id="email"
                   class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
@@ -60,7 +79,7 @@ const Login = () => {
                   Your password
                 </label>
                 <input
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={e => setPassword(e.target.value)}
                   type="password"
                   id="password"
                   class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
@@ -70,7 +89,7 @@ const Login = () => {
               <div class="flex items-start mb-5">
                 <div class="flex items-center h-5">
                   <input
-                    onChange={(e) =>
+                    onChange={e =>
                       e.target.checked
                         ? (setPass(true), setErrorPopup(false))
                         : (setPass(false), setErrorPopup(true))
@@ -127,7 +146,7 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <div className="flex flex-[50%] ">
+          <div className="hidden lg:flex flex-[50%] ">
             <img src="./bg-1.jpg" alt="" className="w-full brightness-75" />
           </div>
         </div>

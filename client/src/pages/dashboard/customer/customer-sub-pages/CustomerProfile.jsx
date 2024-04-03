@@ -16,7 +16,8 @@ const CustomerProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [gender, setGender] = useState("");
+  const [bio, setBio] = useState("");
+  const [gender, setGender] = useState("male");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [nationality, setNationality] = useState("");
@@ -31,6 +32,7 @@ const CustomerProfile = () => {
       setGender(data?.gender ? data.gender : gender);
       setPhone(data?.phone ? data.phone : phone);
       setAddress(data?.address ? data.address : address);
+      setBio(data?.bio ? data.bio : bio);
       setNationality(data?.nationality ? data.nationality : nationality);
       setProfilePicture(
         data?.profilePicture ? data.profilePicture : profilePicture
@@ -48,8 +50,9 @@ const CustomerProfile = () => {
     formData.append("address", address);
     formData.append("nationality", nationality);
     formData.append("profilePicture", profilePicture);
+    formData.append("bio", bio);
     formData.append("url", `/user/privates?id=${context?.user?.user?._id}`);
-    formData.append("tag", ["users", "privates"]);
+    formData.append("tag", ["users", "privates", "lawyers"]);
     updateData(formData);
   };
 
@@ -65,7 +68,7 @@ const CustomerProfile = () => {
           First Name
         </label>
         <input
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={e => setFirstName(e.target.value)}
           value={firstName}
           type="text"
           id="name"
@@ -83,7 +86,7 @@ const CustomerProfile = () => {
           Middle Name
         </label>
         <input
-          onChange={(e) => setMiddleName(e.target.value)}
+          onChange={e => setMiddleName(e.target.value)}
           value={middleName}
           type="text"
           id="name"
@@ -101,7 +104,7 @@ const CustomerProfile = () => {
           Last Name
         </label>
         <input
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={e => setLastName(e.target.value)}
           value={lastName}
           type="text"
           id="name"
@@ -109,6 +112,26 @@ const CustomerProfile = () => {
           placeholder="Last Name"
           required
         />
+      </div>
+
+      <div className="mb-5">
+        <label
+          for="name"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Little bio
+        </label>
+        <textarea
+          onChange={e => setBio(e.target.value)}
+          value={bio}
+          type="text"
+          name=""
+          id=""
+          cols="30"
+          rows="4"
+          placeholder="About yourself"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        ></textarea>
       </div>
       <div className="mb-5">
         <label
@@ -118,13 +141,15 @@ const CustomerProfile = () => {
           Gender
         </label>
         <select
-          onChange={(e) => setGender(e.target.value)}
+          onChange={e => setGender(e.target.value)}
           //   value={gender}
           name=""
           id=""
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
-          <option value="male">Male</option>
+          <option selected value="male">
+            Male
+          </option>
           <option value="female">Female</option>
         </select>
       </div>
@@ -136,7 +161,7 @@ const CustomerProfile = () => {
           Phone
         </label>
         <input
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={e => setPhone(e.target.value)}
           value={phone}
           type="text"
           id="name"
@@ -153,7 +178,7 @@ const CustomerProfile = () => {
           Address
         </label>
         <input
-          onChange={(e) => setAddress(e.target.value)}
+          onChange={e => setAddress(e.target.value)}
           value={address}
           type="text"
           id="name"
@@ -170,7 +195,7 @@ const CustomerProfile = () => {
           Nationality
         </label>
         <input
-          onChange={(e) => setNationality(e.target.value)}
+          onChange={e => setNationality(e.target.value)}
           value={nationality}
           type="text"
           id="name"
@@ -201,19 +226,17 @@ const CustomerProfile = () => {
         )}
 
         <input
-          onChange={(e) => setProfilePicture(e.target.files[0])}
+          onChange={e => setProfilePicture(e.target.files[0])}
           type="file"
           id="profile"
-          accept="image/*"
-          hidden
+          className="opacity-0 absolute w-8 h-8 bottom-[8px] left-1/2 -translate-x-1/2 text-[1.05rem] p-2 flex items-center justify-center bg-sky-500 rounded-full cursor-pointer text-gray-100 transition-all ease-in-out duration-300 hover:text-gray-100 hover:bg-sky-700 "
         />
         <label
           htmlFor="profile"
-          className="absolute bottom-[-.25rem] left-1/2 -translate-x-1/2 text-[1.05rem] p-2 flex items-center justify-center bg-sky-500 rounded-full cursor-pointer text-gray-100 transition-all ease-in-out duration-300 hover:text-gray-100 hover:bg-sky-700"
+          className="absolute opacity-100 bottom-[8px] left-1/2 -translate-x-1/2 text-[1.05rem] p-2 flex items-center justify-center bg-sky-500 rounded-full cursor-pointer text-gray-100 transition-all ease-in-out duration-300 hover:text-gray-100 hover:bg-sky-700"
         >
           <FaCamera />
         </label>
-         
       </div>
 
       <div className="mb-10">

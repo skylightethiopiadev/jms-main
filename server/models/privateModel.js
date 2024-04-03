@@ -18,6 +18,11 @@ const privateSchema = new mongoose.Schema(
       validate: valid.name("Last name"),
     },
 
+    bio: {
+      type: String,
+      validate: valid.textMax("Bio", 100),
+    },
+
     gender: {
       type: String,
       validate: valid.gender("Gender"),
@@ -88,7 +93,7 @@ privateSchema.pre("save", function (next) {
 
   console.log(this, percent, "percent");
   this.profileFillStatus = percent;
-   next();
+  next();
 });
 
 export const Private = mongoose.model("private", privateSchema);

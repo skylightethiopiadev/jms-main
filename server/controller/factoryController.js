@@ -15,13 +15,15 @@ const decrypt = (query) => {
 };
 
 const fileHandler = (value, req) => {
+  console.log(req.files, "files", req.file);
   if (req.files) {
     if (req.files.profilePicture) {
-      value.profilePicture = api+req.files.profilePicture[0]?.filename;
+      value.profilePicture = api + req.files.profilePicture[0]?.filename;
     }
   }
   return value;
 };
+
 //create
 export const _create = asyncCatch(async (req, res, next) => {
   const model = selectModel(req.params.table, next);

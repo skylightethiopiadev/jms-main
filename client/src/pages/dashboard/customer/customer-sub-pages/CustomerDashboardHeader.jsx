@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 // image
 import customerImage from "../../../../assets/images/customers/customer-i.jpg";
@@ -34,14 +34,16 @@ import { NavLink } from "react-router-dom";
 // import { CgProfile } from "react-icons/cg";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
+import { userContext } from "../../../../App";
 
 // main
 // CustomerDashboardHeader
 const CustomerDashboardHeader = () => {
+  const context = useContext(userContext);
   const [logout, logoutResponse] = useUserLogoutMutation();
   const [pending, setPending] = useState(false);
 
-  const logoutHandler = () => { 
+  const logoutHandler = () => {
     logout({});
   };
   // local state
@@ -86,6 +88,7 @@ const CustomerDashboardHeader = () => {
           response={logoutResponse}
           setPending={setPending}
           redirectTo="/login"
+          type="logout"
         />
         {/* menu icon */}
         <div className="text-2xl text-gray-500 lg:hidden">
@@ -130,16 +133,28 @@ const CustomerDashboardHeader = () => {
                 setUserDetail(!userDetail);
               }}
             >
-              <div className="flex items-center justify-center gap-1 text-[.85rem] text-gray-500">
-                <span>Meseret</span>
-                <span className="hidden md:inline-block">Seyoum</span>
-              </div>
-              <div className="w-[26px] aspect-square rounded-md overflow-hidden">
+              {context?.user?.user?.profilePicture?.length > 1 ? (
                 <img
-                  className="w-full h-full object-cover object-center"
-                  src={customerImage}
+                  className="w-[36px] h-[36px] object-center rounded-full object-cover"
+                  src={context?.user?.user?.profilePicture}
                   alt=""
                 />
+              ) : (
+                <div className="w-[36px] h-[36px] text-xl font-bold uppercase  bg-emerald-500 text-white flex items-center justify-center rounded-full border">
+                  {context?.user?.email?.substring(0, 1)}
+                </div>
+              )}
+              <div className="text-[.875rem] flex items-center gap-1">
+                <span>
+                  {context?.user?.user?.firstName
+                    ? context?.user?.user?.firstName
+                    : context?.user?.role?.split("-")[0]}
+                </span>
+                <span className="hidden md:inline-block">
+                  {context?.user?.user?.middleName
+                    ? context?.user?.user?.middleName
+                    : ""}
+                </span>
               </div>
               <div className="flex items-center">
                 <button className="flex items-center">
@@ -153,42 +168,42 @@ const CustomerDashboardHeader = () => {
             </div>
             {/* user detail pop up */}
             <div
-              className={`absolute top-[100%] right-0 z-[100] overflow-hidden bg-transparent transition-all ease-in-out duration-300 ${
-                userDetail ? "h-[450px]" : "h-0"
+              className={`absolute top-[100%] right-0  border-gray-300 z-[45] overflow-hidden bg-transparent transition-all ease-in-out duration-300 ${
+                userDetail ? "h-[450px] border-b" : "h-0"
               }`}
             >
-              <div className="w-[290px] h-[370px] mt-[14px] rounded-md bg-gray-50 border-[1px] border-black border-opacity-5 shadow-lg relative before:absolute before:top-0 before:right-7 before:bg-inherit before:border-l before:border-t before:border-black before:border-opacity-5 before:w-[24px] before:h-[24px] before:rotate-45 before:mt-[-12px]">
-                <div className="relative z-50 w-full h-full">
+              <div className="w-[320px] h-[500px] mt-[14px] rounded-md bg-gray-100 p-4 border-[1px] border-black border-opacity-5 shadow-lg relative before:absolute before:top-0 before:right-7 before:bg-inherit before:border-l before:border-t before:border-black before:border-opacity-5 before:w-[24px] before:h-[24px] before:rotate-45 before:mt-[-12px]">
+                <div className="relative z-[45] w-full h-full">
                   {/* profile image container */}
                   <div className="w-full flex items-center justify-center p-1">
-                    <div className="relative w-[150px] aspect-square rounded-md">
+                    <div className="relative w-[250px] h-[180px] aspect-square rounded-md">
                       {/* image */}
-                      <img
-                        className="w-full h-full object-center object-cover rounded-md"
-                        src={customerImage}
-                        alt=""
-                      />
-                      {/* add new profile */}
-                      <input
-                        type="file"
-                        name="profile"
-                        id="profile"
-                        accept="image/*"
-                        hidden
-                      />
-                      <label
-                        htmlFor="profile"
-                        className="absolute bottom-[-12px] left-1/2 -translate-x-1/2 flex items-center justify-center p-2 rounded-full bg-gray-200 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-gray-300"
-                      >
-                        <FaCamera className="text-[1.25rem] text-gray-700" />
-                      </label>
+                      {context?.user?.user?.profilePicture?.length > 1 ? (
+                        <img
+                          className="w-full h-full object-center rounded-sm object-cover"
+                          src={context?.user?.user?.profilePicture}
+                          alt=""
+                        />
+                      ) : (
+                        <div className="w-full border-dotted h-full font-bold  bg-white text-gray-500 flex items-center justify-center rounded-lg border-2 border-gray-400">
+                          No profile picture!
+                        </div>
+                      )}
                     </div>
                   </div>
                   {/* username and verified icon container */}
                   <div className="flex items-center justify-center gap-1 mt-2">
-                    <div className="flex items-center justify-center  gap-1 text-[.95rem] font-[600] text-gray-700">
-                      <span>Meseret</span>
-                      <span>Seyoum</span>
+                    <div className="text-[.875rem] flex items-center gap-1">
+                      <span>
+                        {context?.user?.user?.firstName
+                          ? context?.user?.user?.firstName
+                          : context?.user?.role?.split("-")[0]}
+                      </span>
+                      <span className="hidden md:inline-block">
+                        {context?.user?.user?.middleName
+                          ? context?.user?.user?.middleName
+                          : ""}
+                      </span>
                     </div>
                     <div className="flex items-center justify-center">
                       <button>
@@ -196,10 +211,11 @@ const CustomerDashboardHeader = () => {
                       </button>
                     </div>
                   </div>
+                  <p className="w-full text-center">{context?.user?.email}</p>
                   {/* ratting */}
                   <div className="flex items-start justify-center my-2">
-                    <div className="flex items-center justify-center gap-1 bg-green-400 text-white rounded-sm px-1 py-[.13rem]">
-                      <div className="flex items-center justify-center gap-1">
+                    <div className="flex items-center justify-center text-lg px-2 font-bold p-2 gap-1 bg-green-400 text-white rounded-sm py-[.13rem]">
+                      {/* <div className="flex items-center justify-center gap-1">
                         <IoStarSharp />
                         <IoStarSharp />
                         <IoStarSharp />
@@ -208,14 +224,16 @@ const CustomerDashboardHeader = () => {
                       </div>
                       <div>
                         <span className="text-[.95rem] font-[600]">4.5</span>
-                      </div>
+                      </div> */}
+                      {context?.user?.role?.split("-")?.join(" ")}
                     </div>
                   </div>
                   {/* bio paragraph container */}
                   <div className="m-1 text-center border-y border-black border-opacity-5 text-[.75rem] text-gray-500 p-2">
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Tenetur id recusandae nemo?
+                      {context?.user?.user?.bio
+                        ? context?.user?.user?.bio
+                        : "No biography!"}
                     </p>
                   </div>
                   {/* action buttons */}
@@ -228,8 +246,25 @@ const CustomerDashboardHeader = () => {
                     </a>
                     <a href="/dashboard/customer/change-password">
                       <button className="flex items-center justify-center gap-1 p-1 border border-black border-opacity-5 rounded-full transition-opacity ease-in-out duration-300 hover:border-opacity-15">
-                        <IoSettingsOutline className="text-gray-500 text-[1.35rem]" />
-                        <span className="text-gray-700">Security</span>
+                        <svg
+                          class="w-6 h-6 text-gray-500"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9.5 11.5 11 13l4-3.5M12 20a16.405 16.405 0 0 1-5.092-5.804A16.694 16.694 0 0 1 5 6.666L12 4l7 2.667a16.695 16.695 0 0 1-1.908 7.529A16.406 16.406 0 0 1 12 20Z"
+                          />
+                        </svg>
+
+                        <span className="">Security</span>
                       </button>
                     </a>
                     <div onClick={logoutHandler}>

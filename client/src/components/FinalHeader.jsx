@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { NavLink } from "react-router-dom";
 
@@ -10,34 +10,46 @@ import {
   MdOutlineClose,
   MdMenu,
   MdDashboard,
-  MdKeyboardArrowRight,
+  MdKeyboardArrowRight
 } from "react-icons/md";
 import { RiUserShared2Fill, RiArrowRightLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
+import { userContext } from "../App";
+import Response from "./Response";
+import { useUserLogoutMutation } from "../features/api/apiSlice";
 
 const FinalHeader = () => {
   // states
+  const context = useContext(userContext);
   const [isPhone, setIsPhone] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [isNav, setIsNav] = useState(null);
-  const [isNavOpen,setIsNavOpen] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const [menuIconToggler, setMenuIconToggler] = useState(false);
   const [isUserDropDown, setIsUserDropDown] = useState(false);
 
+  const [logout, logoutResponse] = useUserLogoutMutation();
+  const [pending, setPending] = useState(false);
+
+  const logoutHandler = () => {
+    logout({});
+  };
+
+  console.log(context?.user, "context data at header");
   // nav
   const nav = [
     {
-      navText: "Civil",
+      navText: "Civil"
     },
     {
-      navText: "Criminal",
+      navText: "Criminal"
     },
     {
-      navText: "Corporate",
+      navText: "Corporate"
     },
     {
-      navText: "Other Services",
-    },
+      navText: "Other Services"
+    }
   ];
 
   // civil sub list
@@ -49,88 +61,88 @@ const FinalHeader = () => {
           subNavList: [
             {
               navHeaderText: "Contract of special movables (Vehicles)",
-              path: "contract-of-special-movables",
+              path: "contract-of-special-movables"
             },
             {
               navHeaderText: "Sale or lease of buildings",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Construction",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Supply of goods and services",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Rental of machineries and vehicles",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Loan",
-              path: "#",
-            },
-          ],
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "Family",
           subNavList: [
             {
               navHeaderText: "Maintenances",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Adoption",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Divorce",
-              path: "#",
-            },
-          ],
-        },
-      ],
+              path: "#"
+            }
+          ]
+        }
+      ]
     },
     {
       groupTwo: [
         {
           navHeaderText: "Succession",
-          path: "/succession",
+          path: "/succession"
         },
         {
           navHeaderText: "Employment",
-          path: "/employment",
+          path: "/employment"
         },
         {
           navHeaderText: "Property",
-          path: "/property",
+          path: "/property"
         },
         {
           navHeaderText: "Torts",
-          path: "/torts",
-        },
-      ],
-    },
+          path: "/torts"
+        }
+      ]
+    }
   ];
   // criminal sub list
   const criminalSubNav = [
     {
       navHeaderText: "Ordinary crime",
-      path: "#",
+      path: "#"
     },
     {
       navHeaderText: "Corruption",
-      path: "#",
+      path: "#"
     },
     {
       navHeaderText: "Money laundering (Financial Fraud)",
-      path: "#",
+      path: "#"
     },
     {
       navHeaderText: "Tax and customs related crimes",
-      path: "#",
-    },
+      path: "#"
+    }
   ];
   // commercial sub list
   const commercialSubNav = [
@@ -141,135 +153,135 @@ const FinalHeader = () => {
           subNavList: [
             {
               navHeaderText: "Contract of special movables (vehicles)",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Sale or lease of buildings",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Construction",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Supply of goods and services",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Rental of machineries and vehicles",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Loan",
-              path: "#",
-            },
-          ],
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "Intellectual property",
           subNavList: [
             {
               navHeaderText: "Copyright",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Patent",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Trade mark",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Utilities",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Geographical indications",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "varieties and plant breeders' right",
-              path: "#",
-            },
-          ],
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "Financial sector",
           subNavList: [
             {
               navHeaderText: "Banking",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Insurance",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Capital market",
-              path: "#",
-            },
-          ],
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "International trade and investment",
           subNavList: [
             {
               navHeaderText: "Incorporation",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText:
                 "Bankruptcy (scheme of arrangement or dissolution)",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Merger",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Acquisition",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Reorganization",
-              path: "#",
-            },
-          ],
-        },
-      ],
+              path: "#"
+            }
+          ]
+        }
+      ]
     },
     {
       groupTwo: [
         {
           navHeaderText: "Tax & customs",
-          path: "#",
+          path: "#"
         },
         {
           navHeaderText: "Real estate, property and conveyance",
-          path: "#",
+          path: "#"
         },
         {
           navHeaderText: "Joint venture",
-          path: "#",
-        },
-      ],
-    },
+          path: "#"
+        }
+      ]
+    }
   ];
   // other services
   const otherServicesSubNavList = [
     {
       navHeaderText: "Training",
-      path: "/training",
+      path: "/training"
     },
     {
       navHeaderText: "Consulting",
-      path: "/consulting",
+      path: "/consulting"
     },
     {
       navHeaderText: "Researches",
-      path: "/researches",
-    },
+      path: "/researches"
+    }
   ];
 
   // effects
@@ -298,12 +310,17 @@ const FinalHeader = () => {
     <header className="shadow-bottomShadow fixed left-0 top-0 z-[1000] text-[.975rem] w-full bg-white text-black">
       <div className="px-[1%] sm:px-[2%] md:px-[3%] lg:px-[5%] xl:px-[12%] flex items-center justify-between">
         {/* logo container */}
+        <Response
+          response={logoutResponse}
+          setPending={setPending}
+          redirectTo="/login"
+        />
         <div
           className="
         relative"
         >
           <div className="absolute z-50 left-0 p-1 shadow-lg bg-white mt-[-36px]">
-            <NavLink className={'cursor-pointer'} to={'/'}>
+            <NavLink className={"cursor-pointer"} to={"/"}>
               <div className="w-[110px] h-[90px] overflow-hidden cursor-pointer">
                 <img
                   className="h-full w-full"
@@ -322,7 +339,7 @@ const FinalHeader = () => {
               className="fixed w-full sm:w-[75%] md:w-[50%] h-[calc(100vh-9vh)] bg-white shadow-lg lg:shadow-none  right-[-100vw] transition-all ease-in-out duration-300 top-[9vh] lg:relative lg:bg-transparent lg:right-auto lg:top-auto lg:w-auto lg:h-auto"
               id="main-nav-container"
             >
-              <div className="w-full md:hidden flex items-center py-3 px-[5%]">
+              <div className="w-full md:hidden flex items-center py-3 pt-16 px-[5%]">
                 <div className="flex-grow flex items-center">
                   <div className="flex-grow flex items-center bg-white rounded-full sm:py-1 border-2 border-black ">
                     <FiSearch className="mx-2 text-[1.35rem]" />
@@ -390,9 +407,13 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink to={`${item.path}`} className={"hover:underline"} onClick={()=>{
-                                          setIsNav(null)
-                                        }}>
+                                        <NavLink
+                                          to={`${item.path}`}
+                                          className={"hover:underline"}
+                                          onClick={() => {
+                                            setIsNav(null);
+                                          }}
+                                        >
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -448,9 +469,13 @@ const FinalHeader = () => {
                                     key={index}
                                     className="my-[.25rem] font-semibold text-[1.35rem]"
                                   >
-                                    <NavLink to={`${item?.path}`} className={"hover:underline"} onClick={()=>{
-                                      setIsNav(null)
-                                    }}> 
+                                    <NavLink
+                                      to={`${item?.path}`}
+                                      className={"hover:underline"}
+                                      onClick={() => {
+                                        setIsNav(null);
+                                      }}
+                                    >
                                       {item.navHeaderText}
                                     </NavLink>
                                   </li>
@@ -648,9 +673,13 @@ const FinalHeader = () => {
                                   key={index}
                                   className="my-[.3rem]  text-[1.125rem]"
                                 >
-                                  <NavLink to={`${item?.path}`} className={"hover:underline"} onClick={()=>{
-                                    setIsNav(null)
-                                  }}>
+                                  <NavLink
+                                    to={`${item?.path}`}
+                                    className={"hover:underline"}
+                                    onClick={() => {
+                                      setIsNav(null);
+                                    }}
+                                  >
                                     {item.navHeaderText}
                                   </NavLink>
                                 </li>
@@ -728,20 +757,9 @@ const FinalHeader = () => {
                 <FiSearch />
               </div>
             </div>
- 
+
             {/* sign in or user */}
-            {!true ? (
-              <div>
-                <NavLink to='/login' className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap">
-                  {/* text */}
-                  <div className="hidden md:flex">
-                    <span className="font-semibold">sign in</span>
-                  </div>
-                  {/* icon for small screen */}
-                  <RiUserShared2Fill className="md:hidden text-[1.75rem]" />
-                </NavLink>
-              </div>
-            ) : (
+            {context?.user ? (
               <div className="relative">
                 {/* image */}
                 <div
@@ -750,16 +768,30 @@ const FinalHeader = () => {
                     setIsUserDropDown(!isUserDropDown);
                   }}
                 >
-                  <div className="w-[36px] aspect-square rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-center object-cover"
-                      src="/images/personnels/lawyer-two.jpg"
-                      alt=""
-                    />
+                  <div className="w-[36px] h-[36px] aspect-square rounded-full overflow-hidden">
+                    {context?.user?.user?.profilePicture?.length > 1 ? (
+                      <img
+                        className="w-full h-full object-center object-cover"
+                        src={context?.user?.user?.profilePicture}
+                        alt=""
+                      />
+                    ) : (
+                      <div className="w-[36px] text-xl font-bold uppercase h-[36px] bg-emerald-500 text-white flex items-center justify-center rounded-full border">
+                        {context?.user?.email?.substring(0, 1)}
+                      </div>
+                    )}
                   </div>
                   <div className="text-[.875rem] flex items-center gap-1">
-                    <span>Haddis</span>
-                    <span className="hidden md:inline-block">Fanta</span>
+                    <span>
+                      {context?.user?.user?.firstName
+                        ? context?.user?.user?.firstName
+                        : context?.user?.role?.split("-")[0]}
+                    </span>
+                    <span className="hidden md:inline-block">
+                      {context?.user?.user?.middleName
+                        ? context?.user?.user?.middleName
+                        : ""}
+                    </span>
                   </div>
                   <div>
                     <IoIosArrowDown
@@ -779,16 +811,30 @@ const FinalHeader = () => {
                     {/* image container */}
                     <div className="w-full flex items-center justify-center border-b border-black border-opacity-10 px-10">
                       <div className="flex flex-col items-center">
-                        <div className="w-[72px] aspect-square rounded-full overflow-hidden">
-                          <img
-                            className="w-full h-full object-center object-cover"
-                            src="/images/personnels/lawyer-two.jpg"
-                            alt=""
-                          />
+                        <div className="w-[72px] h-[72px] aspect-square rounded-full overflow-hidden">
+                          {context?.user?.user?.profilePicture?.length > 1 ? (
+                            <img
+                              className="w-full h-full object-center object-cover"
+                              src={context?.user?.user?.profilePicture}
+                              alt=""
+                            />
+                          ) : (
+                            <div className="w-[72px] h-[72px] text-xl font-bold uppercase bg-emerald-500 text-white flex items-center justify-center rounded-full border">
+                              {context?.user?.email?.substring(0, 1)}
+                            </div>
+                          )}
                         </div>
-                        <div className="flex items-center justify-center my-1 gap-1 font-[500]">
-                          <span>Haddis</span>
-                          <span>Fanta</span>
+                        <div className="text-[.875rem] flex items-center gap-1">
+                          <span>
+                            {context?.user?.user?.firstName
+                              ? context?.user?.user?.firstName
+                              : context?.user?.role?.split("-")[0]}
+                          </span>
+                          <span className="hidden md:inline-block">
+                            {context?.user?.user?.middleName
+                              ? context?.user?.user?.middleName
+                              : ""}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -796,7 +842,12 @@ const FinalHeader = () => {
                     <div>
                       <ul>
                         <li>
-                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
+                          <NavLink
+                            to={`/dashboard/${
+                              context?.user?.role?.split("-")[1]
+                            }`}
+                            className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75"
+                          >
                             {/* icon */}
                             <div>
                               <MdDashboard className="text-[1.15rem]" />
@@ -808,7 +859,12 @@ const FinalHeader = () => {
                           </NavLink>
                         </li>
                         <li>
-                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
+                          <a
+                            href={`/dashboard/${
+                              context?.user?.role?.split("-")[1]
+                            }/profile`}
+                            className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75"
+                          >
                             {/* icon */}
                             <div>
                               <CgProfile className="text-[1.25rem]" />
@@ -817,10 +873,13 @@ const FinalHeader = () => {
                             <div>
                               <span>Profile</span>
                             </div>
-                          </NavLink>
+                          </a>
                         </li>
                         <li>
-                          <NavLink className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75">
+                          <NavLink
+                            onClick={logoutHandler}
+                            className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75"
+                          >
                             {/* icon */}
                             <div>
                               <IoIosExit className="text-[1.35rem]" />
@@ -835,6 +894,20 @@ const FinalHeader = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            ) : (
+              <div>
+                <NavLink
+                  to="/login"
+                  className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap"
+                >
+                  {/* text */}
+                  <div className="hidden md:flex">
+                    <span className="font-semibold">sign in</span>
+                  </div>
+                  {/* icon for small screen */}
+                  <RiUserShared2Fill className="md:hidden text-[1.75rem]" />
+                </NavLink>
               </div>
             )}
 

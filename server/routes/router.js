@@ -54,9 +54,7 @@ router.route("/resetPassword").post(resetPassword);
 
 router.route("/readProfileInfo").get(authentication, readProfileInfo);
 
-router
-  .route("/updateProfileInfo")
-  .put(authentication, updateProfileInfo);
+router.route("/updateProfileInfo").put(authentication, updateProfileInfo);
 
 router
   .route("/updateProfilePicture")

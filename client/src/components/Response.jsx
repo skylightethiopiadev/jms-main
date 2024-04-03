@@ -16,7 +16,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
     response.status === "pending" ? setPending(true) : setPending(false);
 
     let dashboard = "#";
-    if (response.status === "fulfilled") { 
+    if (response.status === "fulfilled") {
       switch (response?.data?.data?.role) {
         case "super-admin":
           dashboard = "/dashboard";
@@ -62,9 +62,14 @@ const Response = ({ response, setPending, redirectTo, type }) => {
         setTimeout(() => {
           navigate(redirectTo, { replace: true });
         }, 3000);
+      } else if (type === "logout") {
+        navigate(redirectTo);
+        navigate(0);
       } else if (redirectTo && redirectTo?.length > 0) {
         navigate(redirectTo, { replace: true });
       }
+
+      // navigate(0);
     }
     // navigate(redirectTo);
     // response.status === "fulfilled"
@@ -97,7 +102,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
     <div>
       {error && errorMessage && (
         <div
-          class="flex p-4 mb-4 max-w-xl z-50 shadow-xl fixed top-10 right-20 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          class="flex p-4 mb-4 max-w-xl z-50 shadow-xl fixed top-24 right-20 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
           role="alert"
         >
           <div>

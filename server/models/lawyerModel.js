@@ -18,6 +18,11 @@ const lawyerSchema = new mongoose.Schema(
       validate: valid.name("Last name"),
     },
 
+    bio: {
+      type: String,
+      validate: valid.textMax("Bio", 100),
+    },
+
     gender: {
       type: String,
       validate: valid.gender("Gender"),

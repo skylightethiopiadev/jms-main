@@ -81,12 +81,6 @@ function App() {
         <div className={`font-workSans medium   tracking-wide`}>
           <div className="flex flex-col">
             <Routes>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/signUp" element={<SignUp />}></Route>
-              <Route path="/forget" element={<Forget />}></Route>
-              <Route path="/reset" element={<Reset />}></Route>
-              <Route path="/business" element={<StaticPage />}></Route>
-
               {/* ###################################### ADMIN DASHBOARD #################################### */}
               <Route path="/dashboard" element={<HomeDashboard />}>
                 <Route
@@ -98,6 +92,11 @@ function App() {
               {/* ###################################### HOME #################################### */}
               <Route path="/" element={<FinalHome />}>
                 <Route path="/" element={<HomeIndex />}></Route>
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/signUp" element={<SignUp />}></Route>
+                <Route path="/forget" element={<Forget />}></Route>
+                <Route path="/reset" element={<Reset />}></Route>
+                <Route path="/business" element={<StaticPage />}></Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>
                 <Route path="/property" element={<Property />}></Route>

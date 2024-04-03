@@ -160,7 +160,7 @@
 /* addiss */
 
 /* default scroll bar */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 4px;
 }
 
@@ -172,7 +172,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgb(160, 160, 160);
   border-radius: 4px;
-}
+} */
 
 /* custome header */
 /* case-team-table-container */

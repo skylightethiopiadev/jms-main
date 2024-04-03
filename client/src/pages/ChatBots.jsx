@@ -17,6 +17,7 @@ const text = msg => {
     </div>
   );
 };
+
 const ChatBots = () => {
   const [chat, setChat] = useState(false);
   const steps = [

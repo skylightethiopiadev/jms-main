@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 /// images
@@ -16,25 +16,31 @@ import CustomerLeftSideNav from "./customer-sub-pages/CustomerLeftSideNav";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import CustomerDashboardHome from "./customer-sub-pages/CustomerDashboardHome";
 import NewCase from "./customer-sub-pages/NewCase";
+import { userContext } from "../../../App";
 
 const CustomerDashboard = () => {
   // local states
-  const location = useLocation();
   // console.log(location?.state?.email, "user email");
+  const context = useContext(userContext);
   const [isMonthPopup, setIsMonthPopup] = useState(false);
   const [month, setMonth] = useState("August");
 
   // right side nav toggler
   const rightSideNavToggler = () => {
-    let rightSideNav = document.getElementById('customer-dashboard-right-side-bar') 
-    if(rightSideNav?.classList.contains('right-[-100vw]') && rightSideNav?.classList.contains('absolute')){
-      rightSideNav?.classList.remove('right-[-100vw]')
-      rightSideNav?.classList.add('right-0')
-    }else{
-      rightSideNav?.classList.add('right-[-100vw]')
-      rightSideNav?.classList.remove('right-0')
+    let rightSideNav = document.getElementById(
+      "customer-dashboard-right-side-bar"
+    );
+    if (
+      rightSideNav?.classList.contains("right-[-100vw]") &&
+      rightSideNav?.classList.contains("absolute")
+    ) {
+      rightSideNav?.classList.remove("right-[-100vw]");
+      rightSideNav?.classList.add("right-0");
+    } else {
+      rightSideNav?.classList.add("right-[-100vw]");
+      rightSideNav?.classList.remove("right-0");
     }
-  }
+  };
   return (
     <div className="w-full h-[100vh] overflow-y-hidden relative flex ">
       <div className="fixed rounded-full border-2 border-blue-500 z-30 bottom-4 right-4 h-auto w-auto shadow-xl shadow-gray-500">
@@ -82,31 +88,51 @@ const CustomerDashboard = () => {
             >
               {/* close button */}
               <div className="xl:hidden absolute left-1 top-1">
-                <button className="p-[.1rem] rounded-full bg-gray-50 transition-all ease-in-out duration-150 hover:bg-gray-100" onClick={()=>{
-                  rightSideNavToggler()
-                }}>
-                  <MdClose className="text-[1.5rem] text-gray-700"/>
+                <button
+                  className="p-[.1rem] rounded-full bg-gray-50 transition-all ease-in-out duration-150 hover:bg-gray-100"
+                  onClick={() => {
+                    rightSideNavToggler();
+                  }}
+                >
+                  <MdClose className="text-[1.5rem] text-gray-700" />
                 </button>
               </div>
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}
                 <div className="border-4 border-r-transparent border-t-sky-300 border-sky-700 rounded-full w-[78px] h-[78px] flex items-center justify-center">
-                  <img
-                    src={customerImage}
-                    alt=""
-                    className="w-[64px] h-[64px] rounded-full"
-                  />
+                  {context?.user?.user?.profilePicture?.length > 1 ? (
+                    <img
+                      className="w-[64px] h-[64px] object-center rounded-full object-cover"
+                      src={context?.user?.user?.profilePicture}
+                      alt=""
+                    />
+                  ) : (
+                    <div className="w-[64px] h-[64px] border-dotted font-bold  bg-white text-gray-500 flex items-center justify-center rounded-lg border-2 border-gray-400">
+                      No profile picture!
+                    </div>
+                  )}
                 </div>
               </div>
               {/* text */}
               <div className="w-full flex items-center flex-col">
                 <div className="font-semibold text-sky-500">welcome</div>
                 <div className="w-full flex items-center justify-center gap-1">
-                  <span className="flexs font-bold">Meseret Seyoum</span>
+                  <span>
+                    {context?.user?.user?.firstName
+                      ? context?.user?.user?.firstName
+                      : context?.user?.role?.split("-")[0]}
+                  </span>
+                  <span className="hidden md:inline-block">
+                    {context?.user?.user?.middleName
+                      ? context?.user?.user?.middleName
+                      : ""}
+                  </span>
                   <VscVerifiedFilled className="text-sky-500 text-lg" />
                 </div>
-                <div className="text-gray-500">Customer Account</div>
+                <div className="text-gray-500">
+                  {context?.user?.role?.split("-")[1]} Account
+                </div>
               </div>
 
               {/* calendar */}
