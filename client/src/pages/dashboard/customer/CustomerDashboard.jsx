@@ -77,7 +77,7 @@ const CustomerDashboard = () => {
             </div>
             {/* right content */}
             <div
-              className="p-3 overflow-y-auto pb-5 bg-white absolute right-[-100vw] z-50 xl:inline-block xl:relative xl:right-0 transition-all ease-in-out duration-150"
+              className="p-3 overflow-y-auto pb-5 absolute bg-white right-[-100vw] z-40 xl:inline-block xl:relative xl:right-0 transition-all ease-in-out duration-150"
               id="customer-dashboard-right-side-bar"
             >
               {/* close button */}

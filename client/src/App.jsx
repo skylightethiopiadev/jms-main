@@ -74,10 +74,10 @@ function App() {
   // useEffect(() => {
   //   console.log(user, "user data from app js");
   // }, [user]);
-  // console.log(user, "user from app js"); 
+  // console.log(user, "user from app js");
   return (
     <Flowbite>
-      <userContext.Provider value={{ user: user?.data }}> 
+      <userContext.Provider value={{ user: user?.data }}>
         <div className={`font-workSans medium   tracking-wide`}>
           <div className="flex flex-col">
             <Routes>
@@ -87,7 +87,7 @@ function App() {
               <Route path="/reset" element={<Reset />}></Route>
               <Route path="/business" element={<StaticPage />}></Route>
 
-{/* ###################################### ADMIN DASHBOARD #################################### */} 
+              {/* ###################################### ADMIN DASHBOARD #################################### */}
               <Route path="/dashboard" element={<HomeDashboard />}>
                 <Route
                   path="/dashboard/applications"
@@ -95,7 +95,7 @@ function App() {
                 />
               </Route>
 
-{/* ###################################### HOME #################################### */} 
+              {/* ###################################### HOME #################################### */}
               <Route path="/" element={<FinalHome />}>
                 <Route path="/" element={<HomeIndex />}></Route>
                 <Route path="/succession" element={<Succession />}></Route>
@@ -112,7 +112,7 @@ function App() {
                 <Route path="/researches" element={<HomeResearches />}></Route>
               </Route>
 
-{/* ###################################### LAWYER DASHBOARD #################################### */}
+              {/* ###################################### LAWYER DASHBOARD #################################### */}
               <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
                 <Route
                   // path="/dashboard/customer/home"
@@ -136,7 +136,7 @@ function App() {
                 ></Route>
               </Route>
 
-{/* ###################################### CUSTOMER DASHBOARD #################################### */}
+              {/* ###################################### CUSTOMER DASHBOARD #################################### */}
               <Route path="/dashboard/customer" element={<CustomerDashboard />}>
                 <Route
                   // path="/dashboard/customer/home"
@@ -166,8 +166,8 @@ function App() {
                 {/* customer compliance */}
                 <Route
                   path="/dashboard/customer/new-case"
-                  element={<ComingSoon />}
-                  // element={<NewCase />}
+                  // element={<ComingSoon />}
+                  element={<NewCase />}
                 ></Route>
                 {/* customer case request */}
                 <Route

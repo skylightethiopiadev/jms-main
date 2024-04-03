@@ -41,7 +41,7 @@ const CustomerDashboardHeader = () => {
   const [logout, logoutResponse] = useUserLogoutMutation();
   const [pending, setPending] = useState(false);
 
-  const logoutHandler = () => {
+  const logoutHandler = () => { 
     logout({});
   };
   // local state
@@ -229,7 +229,7 @@ const CustomerDashboardHeader = () => {
                     <a href="/dashboard/customer/change-password">
                       <button className="flex items-center justify-center gap-1 p-1 border border-black border-opacity-5 rounded-full transition-opacity ease-in-out duration-300 hover:border-opacity-15">
                         <IoSettingsOutline className="text-gray-500 text-[1.35rem]" />
-                        <span className="text-gray-700">Setting</span>
+                        <span className="text-gray-700">Security</span>
                       </button>
                     </a>
                     <div onClick={logoutHandler}>
