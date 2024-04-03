@@ -196,7 +196,7 @@ const FinalHome = () => {
             </div>
 
             {/* bottom left */}
-            <div className="w-[90%] sm:w-[65%] self-center md:w-[45%] md:self-start">
+            <div className="w-[90%] sm:w-[65%] self-center md:w-[45%] md:self-start  md:mt-12">
               {/* header */}
               <header className="flex items-center gap-[15%] px-[5%] py-2 text-white rounded-sm bg-yellow-500">
                 <div className="p-2 rounded-full bg-white text-xl text-yellow-500">
@@ -267,8 +267,8 @@ const FinalHome = () => {
                 </p>
               </div>
               {/* second paragraph */}
-              <div className="flex items-center justify-between">
-                <div className="my-5 pr-[5%] md:pr-[25%]">
+              <div className="flex items-center">
+                <div className="my-5 pr-[5%] md:pr-[5%]">
                   <p>
                     Makuta Law Firm will be the first law firm of its kind in
                     the country and in the continent of Africa. It is the first
@@ -277,10 +277,10 @@ const FinalHome = () => {
                     every country of Africa.
                   </p>
                 </div>
-                <div className="pr-[5%]">
+                <div className="w-full flex items-center justify-center">
                   <div>
                     <img
-                      className="w-[350px] opacity-85"
+                      className="w-[150px] opacity-85"
                       src="/png.png"
                       alt=""
                     />
