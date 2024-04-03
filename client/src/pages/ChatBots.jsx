@@ -9,7 +9,7 @@ const text = msg => {
       <img
         src={logo}
         alt=""
-        className="w-10 bg-black h-10 self-end rounded-full border border-gray-200"
+        className="w-10 bg-white h-10 self-end rounded-full border border-gray-300"
       />
       <p className="bg-main text-white px-4 py-1 rounded-full rounded-bl-none">
         {msg}
@@ -24,13 +24,14 @@ const ChatBots = () => {
     {
       id: "0",
       message: "Well come to Makuta",
-      // component: text,
+      // component: text("Welcome to makuta"),
       trigger: "1",
       avatar: logo
     },
     {
       id: "1",
       message: "What is your name?",
+      // component: text("What is your name?"),
       trigger: "2"
     },
     {
@@ -40,7 +41,8 @@ const ChatBots = () => {
     },
     {
       id: "3",
-      message: "Hi {previousValue}, nice to meet you!",
+      message: "Hi {previousValue}, nice to meet you",
+      // component: text("Hi {previousValue}, nice to meet you"),
       trigger: "4"
     },
     {
@@ -66,6 +68,10 @@ const ChatBots = () => {
       message: "Awesome! You are a telepath!"
     }
   ];
+  const ids = document.getElementsByClassName("embuLu");
+  ids[0]?.classList?.remove("sc-cbDaos");
+
+  console.log(ids, "ids");
   return (
     <div className="self-end fixed bottom-6 h-[500px]  right-5 z-50">
       {!chat && (
@@ -87,7 +93,10 @@ const ChatBots = () => {
       )}
       {chat && (
         <div className="relative">
-          <ChatBot steps={steps} />
+          <div className="!bg-main !text-black">
+            <ChatBot steps={steps} />
+          </div>
+
           <div className="absolute w-full h-[56px] bg-main rounded-lg rounded-b-none z-[9999] top-0 right-0 ">
             <div className="flex h-full px-4 text-white items-center justify-between w-full">
               <p className="text-lg font-bold ">Makuta</p>

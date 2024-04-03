@@ -6,19 +6,18 @@ import {
   IoMdStar,
   IoMdStarHalf,
   IoMdStarOutline,
-  IoMdRepeat,
-  
+  IoMdRepeat
 } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
 import {
   FaCarCrash,
-  FaShoppingCart,
+  FaShoppingCart
   // FaFacebookF,
   // FaYoutube
 } from "react-icons/fa";
 import {
-  MdDashboard, 
+  MdDashboard,
   MdOutlineFireplace,
   MdPhoneInTalk,
   MdOutlineMarkEmailRead,
@@ -31,7 +30,7 @@ import Header from "../components/Header";
 import FinalHeader from "../components/FinalHeader";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ChatBots from "./ChatBots"; 
+import ChatBots from "./ChatBots";
 // main
 const FinalHome = () => {
   const [country, setCountry] = useState("");
@@ -42,7 +41,7 @@ const FinalHome = () => {
     setCountry(ip?.data?.country_name);
 
     // const cc = await axios.get("https://restcountries.eu/rest/v2/all");
-    // console.log(cc, "cc");
+    console.log(ip, "cc");
   };
 
   useEffect(() => {
@@ -54,7 +53,7 @@ const FinalHome = () => {
       {/* <Header /> */}
       <FinalHeader />
       <div className="h-[87.5vh] overflow-y-auto">
-        <Outlet /> 
+        <Outlet />
         <ChatBots />
         {/* footer container */}
         <div className="bg-black text-gray-300">
