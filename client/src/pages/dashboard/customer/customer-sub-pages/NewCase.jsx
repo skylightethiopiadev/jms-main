@@ -28,7 +28,7 @@ const NewCase = () => {
     },
     services: [],
     description:
-      "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employement, succession of family's property. Issues related",
+      "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employment, succession of family's property. Issues related",
   });
 
   // caste categories
@@ -36,17 +36,17 @@ const NewCase = () => {
     {
       caseCategory: "Civil",
       description:
-        "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employment, succession of family's property. Issues related civil matters are usually settled by court proceedings. Individual clients having issues like contract of loan, sale of property, employment, divorce, partition op property, maintenance, adoption, succession are encouraged to contact our lawyers expedites in areas of civil cases",
+        "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employment, succession of family's property. Issues related civil matters are usually settled by court proceedings. Individual clients having issues like contract of loan, sale of property, employment, divorce, partition of property, maintenance, adoption, succession are encouraged to contact our lawyers expedites in areas of civil cases",
       subCategories: [
         {
           caseName: "Contract",
           subType: [
-            "contract of special movables(Vehicles)",
-            "sale or lease of buildings",
+            "Contract of special movables (vehicles)",
+            "Sale or lease of buildings",
             "Construction",
             "Supply of goods and services",
             "Rental of machineries and vehicles",
-            "loan",
+            "Loan",
           ],
         },
         {
@@ -54,7 +54,7 @@ const NewCase = () => {
         },
         {
           caseName: "Family",
-          subType: ["maintenances", "adoption", "divorce"],
+          subType: ["Maintenance", "Adoption", "Divorce"],
         },
         {
           caseName: "Employment",
@@ -76,10 +76,10 @@ const NewCase = () => {
           caseName: "Corruption",
         },
         {
-          caseName: "Money Laundering(Financial Fraud)",
+          caseName: "Money laundering (financial fraud)",
         },
         {
-          caseName: "Tax and Customs Related Crimes",
+          caseName: "Tax and customs related crimes",
         },
       ],
     },
@@ -89,7 +89,7 @@ const NewCase = () => {
         "Commercial Cases are cases involving complex transactions such as international business. Formation, registration, reorganization, merger, acquisition, winding up, of corporations; bankruptcy (scheme of arrangement or liquidation), issues related to tax and customs assessment, joint venture, real estate and property, supply of goods and services, commercial loan, registration of trade mark, patent, utility rights",
       subCategories: [
         {
-          caseName: "International Trade and Investment",
+          caseName: "International trade and investment",
         },
         {
           caseName: "Tax",
@@ -100,12 +100,12 @@ const NewCase = () => {
         {
           caseName: "Contract",
           subType: [
-            "contract of special movables(Vehicles)",
-            "sale or lease of buildings",
+            "Contract of special movables (vehicles)",
+            "Sale or lease of buildings",
             "Construction",
             "Supply of goods and services",
             "Rental of machineries and vehicles",
-            "loan",
+            "Loan",
           ],
         },
         {
@@ -113,31 +113,31 @@ const NewCase = () => {
           subType: [
             "Copyright",
             "Patent",
-            "trade mark",
-            "utilities",
-            "geographical indications",
-            "varieties and plant breeds",
+            "Trademark",
+            "Utilities",
+            "Geographical indications",
+            "Varieties and plant breeds",
           ],
         },
         {
-          caseName: "Financial Sector",
-          subType: ["banking", "insurance", "capital"],
+          caseName: "Financial sector",
+          subType: ["Banking", "Insurance", "Capital"],
         },
         {
           caseName: "Corporate",
           subType: [
-            "incorporation",
-            "bankruptcy (scheme of arrangement or dissolution)",
-            "merger",
-            "acquisition",
-            "reorganization",
+            "Incorporation",
+            "Bankruptcy (scheme of arrangement or dissolution)",
+            "Merger",
+            "Acquisition",
+            "Reorganization",
           ],
         },
         {
-          caseName: "Real Estate, Property, and Conveyance",
+          caseName: "Real estate, property, and conveyance",
         },
         {
-          caseName: "Joint Venture",
+          caseName: "Joint venture",
         },
         {
           caseName: "Torts",
@@ -154,7 +154,7 @@ const NewCase = () => {
     },
     {
       title: "Specification",
-      description: "sub category",
+      description: "sub-category",
     },
     {
       title: "Services",

@@ -6,7 +6,7 @@ import {
   IoMdStar,
   IoMdStarHalf,
   IoMdStarOutline,
-  IoMdRepeat,
+  IoMdRepeat
 } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
@@ -28,14 +28,14 @@ const HomeIndex = () => {
     "Advise on bankruptcy and financial frameworks",
     "Advise on syndicated loan or finance",
     "Advise on project finance",
-    "Advise on secured lending, sovereign loans and debt restructuring",
+    "Advise on secured lending, sovereign loans and debt restructuring"
   ];
   const ourServicesTwo = [
     "IP due diligence ",
     "Technology transactions",
     "Strategic IP counselling",
     "Trademark, copyright and patent registration and renewal",
-    "Represent clients before tribunal all the way to the Federal Supreme Court",
+    "Represent clients before tribunal all the way to the Federal Supreme Court"
   ];
   return (
     <>
@@ -47,20 +47,21 @@ const HomeIndex = () => {
             {/* first button */}
             <div className="sm:mt-16">
               <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
-                Legal Help In Ethiopia
+                Safeguard, Hope, and Promise
               </button>
             </div>
             {/* bold paragraph */}
             <div className="my-7">
               <p className="text-[1.23rem] track md:text-[2.875rem] leading-7 md:leading-[50px] font-[700] my-[1%]">
-                U.S Legal Help in Ethiopia
+                Professional Legal Service in Ethiopia
               </p>
             </div>
             {/* normal paragraph */}
             <div>
               <p className="my-[5%]">
-                Get the legal help you needs, with our DIY services or attorney
-                advice. Either way, we've got your back
+                Get qualified and efficient legal help from lawyers who are the
+                highest professionals in their field, in every area of law. We
+                have you covered.
               </p>
             </div>
             {/* gold buttons */}
@@ -175,7 +176,7 @@ const HomeIndex = () => {
                   <div className="bg-white shadow-lg mb-[-24px] w-max">
                     <header className="px-3 py-2 border-b border-gray-100">
                       <h3 className="text-[.85rem] font-[700]">
-                        Our Expert Lawyers
+                        Lawyers in Our Network
                       </h3>
                     </header>
                     <div
@@ -247,26 +248,25 @@ const HomeIndex = () => {
             {/* sub texts */}
             <div className="mb-7">
               <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Expertise</p>
+                <p>Network</p>
               </div>
               <div className="text-[1rem]">
                 <p>
-                  Our team of experienced lawyers specializes in various areas
-                  of law, ensuring you receive the best legal advice tailored to
-                  your needs.
+                  Our Network of experienced lawyers number in the hundreds
+                  throughout Africa and the world, ensuring your legal needs are
+                  met where you are.
                 </p>
               </div>
             </div>
 
             <div className="mb-7">
               <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Personalized Approach</p>
+                <p>Professionalism</p>
               </div>
               <div className="text-[1rem]">
                 <p>
-                  We take the time to understand your unique situation and
-                  provide personalized solutions to ensure the best possible
-                  outcome for your case.
+                  Our team of lawyers have superior local and international
+                  experience to meet your needs.
                 </p>
               </div>
             </div>
@@ -278,8 +278,8 @@ const HomeIndex = () => {
               <div className="text-[1rem]">
                 <p>
                   Your satisfaction is our top priority, and we strive to go
-                  above and beyond to exceed your expectations and deliver
-                  exceptional legal services.
+                  above and beyond your expectations to deliver superlative
+                  legal services.
                 </p>
               </div>
             </div>
@@ -302,9 +302,9 @@ const HomeIndex = () => {
       {/* pre-second order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         {/* first container for bold text */}
-        <div className="flex items-center justify-center text-[1.5rem] sm:text-[1.85rem] lg:text-[2.5rem] font-bold text-center px-[5%]">
+        <div className="flex items-center justify-center text-[1.5rem] sm:text-[1.85rem] lg:text-[2.5rem] font-bold text-center px-[15%]">
           <p>
-            Comprehensive Legal Assistance for Every Aspect of Your Business
+            Comprehensive Legal Assistance For Every Need
           </p>
         </div>
         {/* second container */}
@@ -324,7 +324,7 @@ const HomeIndex = () => {
                 <GoLightBulb className="text-[2.5rem]" />
               </div>
               <div className="font-semibold text-[.875rem] ">
-                <p>We've made dreams a reality for 2m+ entrepreneurs.</p>
+                <p>We'll make dreams a reality throughout the world</p>
               </div>
             </div>
           </div>
@@ -705,19 +705,19 @@ const HomeIndex = () => {
                     series={[
                       {
                         name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125],
-                      },
+                        data: [120, 100, 145, 170, 100, 200, 125]
+                      }
                     ]}
                     options={{
                       legend: {
-                        show: false,
+                        show: false
                       },
                       dataLabels: {
                         show: false,
-                        formatter: (val) => ``,
+                        formatter: val => ``
                       },
                       tooltip: {
-                        fillSeriesColor: true,
+                        fillSeriesColor: true
                       },
                       xaxis: {
                         categories: [
@@ -728,27 +728,27 @@ const HomeIndex = () => {
                           "Jan",
                           "Feb",
                           "Mar",
-                          "Apr",
+                          "Apr"
                         ],
                         labels: {
-                          show: false,
+                          show: false
                         },
-                        tickPlacement: "off",
+                        tickPlacement: "off"
                       },
                       yaxis: {
                         labels: {
-                          show: true,
-                        },
+                          show: true
+                        }
                       },
                       grid: {
-                        show: false,
+                        show: false
                       },
                       plotOptions: {
                         bar: {
-                          distributed: true,
+                          distributed: true
                           // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                        },
-                      },
+                        }
+                      }
                     }}
                   ></Chart>
                 </div>
@@ -1114,19 +1114,19 @@ const HomeIndex = () => {
                     series={[
                       {
                         name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125],
-                      },
+                        data: [120, 100, 145, 170, 100, 200, 125]
+                      }
                     ]}
                     options={{
                       legend: {
-                        show: false,
+                        show: false
                       },
                       dataLabels: {
                         show: false,
-                        formatter: (val) => ``,
+                        formatter: val => ``
                       },
                       tooltip: {
-                        fillSeriesColor: true,
+                        fillSeriesColor: true
                       },
                       xaxis: {
                         categories: [
@@ -1137,27 +1137,27 @@ const HomeIndex = () => {
                           "Jan",
                           "Feb",
                           "Mar",
-                          "Apr",
+                          "Apr"
                         ],
                         labels: {
-                          show: false,
+                          show: false
                         },
-                        tickPlacement: "off",
+                        tickPlacement: "off"
                       },
                       yaxis: {
                         labels: {
-                          show: true,
-                        },
+                          show: true
+                        }
                       },
                       grid: {
-                        show: false,
+                        show: false
                       },
                       plotOptions: {
                         bar: {
-                          distributed: true,
+                          distributed: true
                           // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                        },
-                      },
+                        }
+                      }
                     }}
                   ></Chart>
                 </div>

@@ -12,7 +12,7 @@ import {
   MdClose,
   MdOutlineHomeRepairService,
   MdMessage,
-  MdDashboard,
+  MdDashboard
 } from "react-icons/md";
 import { FaClock, FaRegChartBar } from "react-icons/fa";
 import { SiCashapp } from "react-icons/si";
@@ -25,14 +25,14 @@ import Response from "../../../../components/Response";
 // pop up nav
 const subNavLinkPopUpVariant = {
   initialAnim: {
-    scale: 0.75,
+    scale: 0.75
   },
   finalAnim: {
     scale: 1,
     transition: {
-      duration: 0.25,
-    },
-  },
+      duration: 0.25
+    }
+  }
 };
 // main
 // CustomerLeftSideNav
@@ -69,7 +69,6 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-    
       className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[220px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
@@ -84,7 +83,7 @@ const CustomerLeftSideNav = () => {
         <div className="absolute top-1 right-1 lg:hidden">
           <button
             className="text-3xl text-gray-500"
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
               customerDashBoardLeftSideBarToggler();
             }}
@@ -97,7 +96,7 @@ const CustomerLeftSideNav = () => {
           <NavLink
             to={"/"}
             className={"flex items-center justify-center pr-[25%]"}
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
             }}
           >
@@ -113,7 +112,7 @@ const CustomerLeftSideNav = () => {
             className={`flex items-center dashboard-link-item-my ${
               isNav === "DASHBOARD" ? "dashboard-active-link-color" : ""
             }`}
-            onClick={(e) => {
+            onClick={e => {
               setIsNav("DASHBOARD");
               setIsComplianceOpen(false);
               setIsMyChartOpen(false);
@@ -132,7 +131,7 @@ const CustomerLeftSideNav = () => {
               className={`dashboard-main-list-item ${
                 isNav === "COMPLIANCE" ? "dashboard-active-link-color" : ""
               }`}
-              onClick={(e) => {
+              onClick={e => {
                 setIsNav("COMPLIANCE");
                 setIsMyChartOpen(false);
                 setIsFinanceOpen(false);
@@ -177,7 +176,7 @@ const CustomerLeftSideNav = () => {
                     className={`dashboard-sub-link-items mt-1 ${
                       isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("NEW-CASE");
                       customerDashBoardLeftSideBarToggler();
@@ -192,7 +191,7 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("ON-REQUEST");
                       customerDashBoardLeftSideBarToggler();
@@ -213,7 +212,7 @@ const CustomerLeftSideNav = () => {
               className={`dashboard-main-list-item ${
                 isNav === "MY-CHART" ? "dashboard-active-link-color" : ""
               }`}
-              onClick={(e) => {
+              onClick={e => {
                 setIsNav("MY-CHART");
                 setIsFinanceOpen(false);
                 setIsOtherServiceOpen(false);
@@ -258,7 +257,7 @@ const CustomerLeftSideNav = () => {
                     className={`dashboard-sub-link-items ${
                       isNav === "CASE-TEAM" ? "dashboard-active-link-color" : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("CASE-TEAM");
                       customerDashBoardLeftSideBarToggler();
@@ -273,7 +272,7 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("ACTIVE-CASE");
                       customerDashBoardLeftSideBarToggler();
@@ -288,7 +287,7 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("CLOSED-CASE");
                       customerDashBoardLeftSideBarToggler();
@@ -308,7 +307,7 @@ const CustomerLeftSideNav = () => {
             className={`flex items-center dashboard-link-item-my ${
               isNav === "MESSAGE" ? "dashboard-active-link-color" : ""
             }`}
-            onClick={(e) => {
+            onClick={e => {
               setIsNav("MESSAGE");
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
@@ -326,7 +325,7 @@ const CustomerLeftSideNav = () => {
             className={`flex items-center dashboard-link-item-my ${
               isNav === "APPOINTMENT" ? "dashboard-active-link-color" : ""
             }`}
-            onClick={(e) => {
+            onClick={e => {
               setIsNav("APPOINTMENT");
               setIsMyChartOpen(false);
               setIsFinanceOpen(false);
@@ -345,7 +344,7 @@ const CustomerLeftSideNav = () => {
               className={`dashboard-main-list-item ${
                 isNav === "FINANCE" ? "dashboard-active-link-color" : ""
               }`}
-              onClick={(e) => {
+              onClick={e => {
                 setIsNav("FINANCE");
                 setIsMyChartOpen(false);
                 setIsOtherServiceOpen(false);
@@ -390,7 +389,7 @@ const CustomerLeftSideNav = () => {
                     className={`dashboard-sub-link-items ${
                       isNav === "ADD-FUNDS" ? "dashboard-active-link-color" : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("ADD-FUNDS");
                       customerDashBoardLeftSideBarToggler();
@@ -405,7 +404,7 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("REQUESTED-PAYMENT");
                       customerDashBoardLeftSideBarToggler();
@@ -420,7 +419,7 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("REFUND-FUNDS");
                       customerDashBoardLeftSideBarToggler();
@@ -435,7 +434,7 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("RECENT-TRANSACTION");
                       customerDashBoardLeftSideBarToggler();
@@ -456,7 +455,7 @@ const CustomerLeftSideNav = () => {
               className={`dashboard-main-list-item ${
                 isNav === "OTHER-SERVICES" ? "dashboard-active-link-color" : ""
               }`}
-              onClick={(e) => {
+              onClick={e => {
                 setIsNav("OTHER-SERVICES");
                 setIsMyChartOpen(false);
                 setIsFinanceOpen(false);
@@ -501,7 +500,7 @@ const CustomerLeftSideNav = () => {
                     className={`dashboard-sub-link-items ${
                       isNav === "TRAINING" ? "dashboard-active-link-color" : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("TRAINING");
                       customerDashBoardLeftSideBarToggler();
@@ -516,7 +515,7 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("CONSULTING");
                       customerDashBoardLeftSideBarToggler();
@@ -531,13 +530,13 @@ const CustomerLeftSideNav = () => {
                         ? "dashboard-active-link-color"
                         : ""
                     }`}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setIsNav("RESEARCHES");
                       customerDashBoardLeftSideBarToggler();
                     }}
                   >
-                    Researches
+                    Research
                   </NavLink>
                 </div>
               </motion.div>
@@ -551,10 +550,16 @@ const CustomerLeftSideNav = () => {
       <div className="mr-9 my-3">
         {/* top */}
         <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
-          <p className="font-semibold text-center">
-            Please get in touch with your service provider
+          <p className="font-medium text-left">
+            If any legal or technical difficulties, please contact the call
+            center
           </p>
-          <div className="mb-1">
+          <h3 className="mt-1 ">Local call center</h3>
+
+          <h3>Dial: 8383</h3>
+          <h3 className="mt-1 ">International call center</h3>
+          <h3>Dial: (+251) 985 228 888 </h3>
+          {/* <div className="mb-1">
             <img
               src={callCenter}
               alt=""
@@ -564,7 +569,7 @@ const CustomerLeftSideNav = () => {
           <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">
             <FaPhoneVolume className="text-xl mr-1" />{" "}
             <span className="font-bold text-lg">1234</span>
-          </button>
+          </button> */}
         </div>
         {/* bottom */}
         <div>

@@ -10,7 +10,7 @@ import {
   MdOutlineClose,
   MdMenu,
   MdDashboard,
-  MdKeyboardArrowRight,
+  MdKeyboardArrowRight
 } from "react-icons/md";
 import { RiUserShared2Fill, RiArrowRightLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
@@ -20,24 +20,24 @@ const FinalHeader = () => {
   const [isPhone, setIsPhone] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [isNav, setIsNav] = useState(null);
-  const [isNavOpen,setIsNavOpen] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const [menuIconToggler, setMenuIconToggler] = useState(false);
   const [isUserDropDown, setIsUserDropDown] = useState(false);
 
   // nav
   const nav = [
     {
-      navText: "Civil",
+      navText: "Civil"
     },
     {
-      navText: "Criminal",
+      navText: "Criminal"
     },
     {
-      navText: "Corporate",
+      navText: "Corporate"
     },
     {
-      navText: "Other Services",
-    },
+      navText: "Other Services"
+    }
   ];
 
   // civil sub list
@@ -48,89 +48,89 @@ const FinalHeader = () => {
           navHeaderText: "Contract",
           subNavList: [
             {
-              navHeaderText: "Contract of special movables (Vehicles)",
-              path: "contract-of-special-movables",
+              navHeaderText: "Contract of special movables (vehicles)",
+              path: "contract-of-special-movables"
             },
             {
               navHeaderText: "Sale or lease of buildings",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Construction",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Supply of goods and services",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Rental of machineries and vehicles",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Loan",
-              path: "#",
-            },
-          ],
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "Family",
           subNavList: [
             {
               navHeaderText: "Maintenances",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Adoption",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Divorce",
-              path: "#",
-            },
-          ],
-        },
-      ],
+              path: "#"
+            }
+          ]
+        }
+      ]
     },
     {
       groupTwo: [
         {
           navHeaderText: "Succession",
-          path: "/succession",
+          path: "/succession"
         },
         {
           navHeaderText: "Employment",
-          path: "/employment",
+          path: "/employment"
         },
         {
           navHeaderText: "Property",
-          path: "/property",
+          path: "/property"
         },
         {
           navHeaderText: "Torts",
-          path: "/torts",
-        },
-      ],
-    },
+          path: "/torts"
+        }
+      ]
+    }
   ];
   // criminal sub list
   const criminalSubNav = [
     {
       navHeaderText: "Ordinary crime",
-      path: "#",
+      path: "#"
     },
     {
       navHeaderText: "Corruption",
-      path: "#",
+      path: "#"
     },
     {
-      navHeaderText: "Money laundering (Financial Fraud)",
-      path: "#",
+      navHeaderText: "Money laundering (Financial fraud)",
+      path: "#"
     },
     {
       navHeaderText: "Tax and customs related crimes",
-      path: "#",
-    },
+      path: "#"
+    }
   ];
   // commercial sub list
   const commercialSubNav = [
@@ -141,135 +141,135 @@ const FinalHeader = () => {
           subNavList: [
             {
               navHeaderText: "Contract of special movables (vehicles)",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Sale or lease of buildings",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Construction",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Supply of goods and services",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Rental of machineries and vehicles",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Loan",
-              path: "#",
-            },
-          ],
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "Intellectual property",
           subNavList: [
             {
               navHeaderText: "Copyright",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Patent",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Trade mark",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Utilities",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Geographical indications",
-              path: "#",
+              path: "#"
             },
             {
-              navHeaderText: "varieties and plant breeders' right",
-              path: "#",
-            },
-          ],
+              navHeaderText: "Varieties and plant breeders' right",
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "Financial sector",
           subNavList: [
             {
               navHeaderText: "Banking",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Insurance",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Capital market",
-              path: "#",
-            },
-          ],
+              path: "#"
+            }
+          ]
         },
         {
           navHeaderText: "International trade and investment",
           subNavList: [
             {
               navHeaderText: "Incorporation",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText:
-                "Bankruptcy (scheme of arrangement or dissolution)",
-              path: "#",
+                "Bankruptcy (Scheme of arrangement or dissolution)",
+              path: "#"
             },
             {
               navHeaderText: "Merger",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Acquisition",
-              path: "#",
+              path: "#"
             },
             {
               navHeaderText: "Reorganization",
-              path: "#",
-            },
-          ],
-        },
-      ],
+              path: "#"
+            }
+          ]
+        }
+      ]
     },
     {
       groupTwo: [
         {
           navHeaderText: "Tax & customs",
-          path: "#",
+          path: "#"
         },
         {
           navHeaderText: "Real estate, property and conveyance",
-          path: "#",
+          path: "#"
         },
         {
           navHeaderText: "Joint venture",
-          path: "#",
-        },
-      ],
-    },
+          path: "#"
+        }
+      ]
+    }
   ];
   // other services
   const otherServicesSubNavList = [
     {
       navHeaderText: "Training",
-      path: "/training",
+      path: "/training"
     },
     {
       navHeaderText: "Consulting",
-      path: "/consulting",
+      path: "/consulting"
     },
     {
-      navHeaderText: "Researches",
-      path: "/researches",
-    },
+      navHeaderText: "Research",
+      path: "/researches"
+    }
   ];
 
   // effects
@@ -303,7 +303,7 @@ const FinalHeader = () => {
         relative"
         >
           <div className="absolute z-50 left-0 p-1 shadow-lg bg-white mt-[-36px]">
-            <NavLink className={'cursor-pointer'} to={'/'}>
+            <NavLink className={"cursor-pointer"} to={"/"}>
               <div className="w-[110px] h-[90px] overflow-hidden cursor-pointer">
                 <img
                   className="h-full w-full"
@@ -390,9 +390,13 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink to={`${item.path}`} className={"hover:underline"} onClick={()=>{
-                                          setIsNav(null)
-                                        }}>
+                                        <NavLink
+                                          to={`${item.path}`}
+                                          className={"hover:underline"}
+                                          onClick={() => {
+                                            setIsNav(null);
+                                          }}
+                                        >
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -448,9 +452,13 @@ const FinalHeader = () => {
                                     key={index}
                                     className="my-[.25rem] font-semibold text-[1.35rem]"
                                   >
-                                    <NavLink to={`${item?.path}`} className={"hover:underline"} onClick={()=>{
-                                      setIsNav(null)
-                                    }}> 
+                                    <NavLink
+                                      to={`${item?.path}`}
+                                      className={"hover:underline"}
+                                      onClick={() => {
+                                        setIsNav(null);
+                                      }}
+                                    >
                                       {item.navHeaderText}
                                     </NavLink>
                                   </li>
@@ -460,7 +468,7 @@ const FinalHeader = () => {
                             {/* see all button */}
                             <div className="hidden lg:flex absolute right-20 bottom-20">
                               <div className="flex items-center gap-1 font-[500] text-[1.35rem] cursor-pointer underline transition-colors ease-in-out duration-300 hover:opacity-75">
-                                <div>See all business services</div>
+                                <div>See all civil services</div>
                                 <div>
                                   <MdKeyboardArrowRight className="text-[2rem]" />
                                 </div>
@@ -631,7 +639,7 @@ const FinalHeader = () => {
                             {/* see all button */}
                             <div className="absolute right-20 bottom-20">
                               <div className="flex items-center gap-1 font-[500] text-[1.35rem] cursor-pointer underline transition-colors ease-in-out duration-300 hover:opacity-75">
-                                <div>See all business services</div>
+                                <div>See all corporate services</div>
                                 <div>
                                   <MdKeyboardArrowRight className="text-[2rem]" />
                                 </div>
@@ -648,9 +656,13 @@ const FinalHeader = () => {
                                   key={index}
                                   className="my-[.3rem]  text-[1.125rem]"
                                 >
-                                  <NavLink to={`${item?.path}`} className={"hover:underline"} onClick={()=>{
-                                    setIsNav(null)
-                                  }}>
+                                  <NavLink
+                                    to={`${item?.path}`}
+                                    className={"hover:underline"}
+                                    onClick={() => {
+                                      setIsNav(null);
+                                    }}
+                                  >
                                     {item.navHeaderText}
                                   </NavLink>
                                 </li>
@@ -705,15 +717,19 @@ const FinalHeader = () => {
                   </button>
                 </div>
                 <div className="font-medium">
-                  <h3>Talk to Makutta</h3>
-                  <h3>(+2519) 239-96736</h3>
+                  <h3 className="font-bold">Talk to Makuta</h3>
+
+                  <h3 className="mt-3 ">Local call center</h3>
+
+                  <h3>Dial: 8383</h3>
+                  <h3 className="mt-3 ">International call center</h3>
+                  <h3>Dial: (+251) 985 228 888 </h3>
                 </div>
                 <div className="my-3 font-medium">
-                  <h3>Customer Care hours</h3>
+                  <h3>Customer care hours</h3>
                 </div>
                 <div>
-                  <p>Mon-Fri 5 a.m. - 7 p.m. PT</p>
-                  <p>Weekends 7 a.m. - 4 p.m. PT</p>
+                  <p>24/7</p>
                 </div>
               </div>
             </div>
@@ -728,11 +744,14 @@ const FinalHeader = () => {
                 <FiSearch />
               </div>
             </div>
- 
+
             {/* sign in or user */}
             {!true ? (
               <div>
-                <NavLink to='/login' className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap">
+                <NavLink
+                  to="/login"
+                  className="md:px-5 p-[.35rem] md:py-[.5rem] bg-black rounded-full text-white transition-all ease-in-out duration-300 hover:bg-gray-500 cursor-pointer flex items-center justify-center whitespace-nowrap"
+                >
                   {/* text */}
                   <div className="hidden md:flex">
                     <span className="font-semibold">sign in</span>
