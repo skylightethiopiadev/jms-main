@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Chart from "react-apexcharts";
 
 // icons
@@ -17,6 +18,18 @@ import { GiOpenFolder } from "react-icons/gi";
 import { IoFolder } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import { GoLightBulb } from "react-icons/go";
+import { MdFamilyRestroom } from "react-icons/md";
+import { MdOutlinePersonalInjury } from "react-icons/md";
+import { FaGun } from "react-icons/fa6";
+import { PiBriefcaseMetal } from "react-icons/pi";
+import { MdNextPlan } from "react-icons/md";
+import { FaBusinessTime } from "react-icons/fa";
+import { MdOutlineRealEstateAgent } from "react-icons/md";
+import { GrShieldSecurity } from "react-icons/gr";
+import { FaPersonWalkingLuggage } from "react-icons/fa6";
+import { RiBankLine } from "react-icons/ri";
+import { AiFillPropertySafety } from "react-icons/ai";
+import { FaScaleBalanced } from "react-icons/fa6";
 
 const HomeIndex = () => {
   // local states
@@ -74,6 +87,170 @@ const HomeIndex = () => {
       last_name: "W/Gebreal",
       profession: "Lawyer/Partner",
       profile_path: "/images/lawyers/lawyer-three.jpg"
+    }
+  ];
+  // case categories
+  const caseTypes = [
+    // family
+    {
+      icon: MdFamilyRestroom,
+      title: "Family",
+      subList: [
+        {
+          text: "Divorce",
+          path: "#"
+        },
+        {
+          text: "Child Custody",
+          path: "#"
+        },
+        {
+          text: "Child Support",
+          path: "#"
+        }
+      ]
+    },
+    // personal injury
+    {
+      icon: MdOutlinePersonalInjury,
+      title: "Personal Injury",
+      subList: [
+        {
+          text: "Car Accident",
+          path: "#"
+        },
+        {
+          text: "Medical Malpractice",
+          path: "#"
+        },
+        {
+          text: "Wrongful Death",
+          path: "#"
+        }
+      ]
+    },
+    // criminal defense
+    {
+      icon: FaGun,
+      title: "Criminal Defense",
+      subList: [
+        {
+          text: "DUI and DWI",
+          path: "#"
+        },
+        {
+          text: "Traffic Violations",
+          path: "#"
+        },
+        {
+          text: "Domestic Violence",
+          path: "#"
+        }
+      ]
+    },
+    // employment
+    {
+      icon: PiBriefcaseMetal,
+      title: "Employment",
+      subList: [
+        {
+          text: "Discrimination",
+          path: "#"
+        },
+        {
+          text: "Workers Compensation",
+          path: "#"
+        },
+        {
+          text: "Wrongful Termination",
+          path: "#"
+        }
+      ]
+    },
+    // estate planning
+    {
+      icon: MdNextPlan,
+      title: "Estate Planning",
+      subList: [
+        {
+          text: "Probate",
+          path: "#"
+        },
+        {
+          text: "Trusts",
+          path: "#"
+        }
+      ]
+    },
+    // business
+    {
+      icon: FaBusinessTime,
+      title: "Business",
+      subList: [
+        {
+          text: "Corporate",
+          path: "#"
+        },
+        {
+          text: "Contracts",
+          path: "#"
+        }
+      ]
+    },
+    // real estate
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Real Estate",
+      subList: [
+        {
+          text: "Landlord and Tenant",
+          path: "#"
+        }
+      ]
+    },
+    // social security
+    {
+      icon: GrShieldSecurity,
+      title: "Social Security",
+      subList: [
+        {
+          text: "Social Security Disability",
+          path: "#"
+        }
+      ]
+    },
+    // immigration
+    {
+      icon: FaPersonWalkingLuggage,
+      title: "Immigration",
+      subList: [
+        {
+          text: "Citizenship",
+          path: "#"
+        }
+      ]
+    },
+    // bankruptcy
+    {
+      icon: RiBankLine,
+      title: "Bankruptcy",
+      subList: [
+        {
+          text: "Foreclosures",
+          path: "#"
+        }
+      ]
+    },
+    // intellectual property
+    {
+      icon: AiFillPropertySafety,
+      title: "Intellectual Property",
+      subList: [
+        {
+          text: "Patents",
+          path: "#"
+        }
+      ]
     }
   ];
   return (
@@ -328,10 +505,7 @@ const HomeIndex = () => {
             {/* image container */}
             <div className="flex items-center justify-center">
               <div>
-                <img
-                  src="/images/bg/site-image.jpg"
-                  alt=""
-                />
+                <img src="/images/bg/site-image.jpg" alt="" />
               </div>
             </div>
           </div>
@@ -475,6 +649,59 @@ const HomeIndex = () => {
       </div>
 
       {/* fifth order container */}
+      <div className="w-full py-[1%] px-[3%] sm:px-[12%]">
+        {/* text container */}
+        <div>
+          {/* bold paragraph */}
+          <div className="text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] flex items-center justify-center">
+            <p>FIND A LAWYER BY PRACTICE AREA</p>
+          </div>
+          {/* normal paragraph */}
+          <div className="flex items-center justify-center my-3">
+            <p>
+              Our directory of lawyers covers over 150 practice areas across the
+              US and Canada
+            </p>
+          </div>
+          {/* grid container */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-[3%]">
+            {/* list */}
+            {caseTypes.map((item, index) => (
+              <div key={index} className="p-3 rounded-md bg-gray-100 relative">
+                <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
+                  <item.icon className="text-[1.5rem] text-yellow-500" />
+                </div>
+                <h3 className="mt-3 flex items-center justify-center font-bold">
+                  {item.title}
+                </h3>
+                <ul className="flex flex-col items-center">
+                  {item?.subList.map((subList, index) => (
+                    <li key={index}>
+                      <NavLink>{subList.text}</NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div className="p-3 rounded-md bg-gray-100 relative">
+              <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
+                <FaScaleBalanced className="text-[1.5rem] text-yellow-500" />
+              </div>
+
+              <ul className="flex flex-col items-center font-bold my-5">
+                <li>
+                  <NavLink>Tax</NavLink>
+                </li>
+                <li>
+                  <NavLink>Civil Litigation</NavLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* sixth order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* content container */}
@@ -641,7 +868,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* sixth order container */}
+      {/* seventh order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
@@ -791,7 +1018,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* seventh order container */}
+      {/* eight order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* top container */}
@@ -1051,7 +1278,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* eighth order container */}
+      {/* ninth order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
