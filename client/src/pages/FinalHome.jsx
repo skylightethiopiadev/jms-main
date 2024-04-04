@@ -6,19 +6,18 @@ import {
   IoMdStar,
   IoMdStarHalf,
   IoMdStarOutline,
-  IoMdRepeat,
-  
+  IoMdRepeat
 } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
 import {
   FaCarCrash,
-  FaShoppingCart,
+  FaShoppingCart
   // FaFacebookF,
   // FaYoutube
 } from "react-icons/fa";
 import {
-  MdDashboard, 
+  MdDashboard,
   MdOutlineFireplace,
   MdPhoneInTalk,
   MdOutlineMarkEmailRead,
@@ -31,7 +30,7 @@ import Header from "../components/Header";
 import FinalHeader from "../components/FinalHeader";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ChatBots from "./ChatBots"; 
+import ChatBots from "./ChatBots";
 // main
 const FinalHome = () => {
   const [country, setCountry] = useState("");
@@ -54,7 +53,7 @@ const FinalHome = () => {
       {/* <Header /> */}
       <FinalHeader />
       <div className="h-[87.5vh] overflow-y-auto">
-        <Outlet /> 
+        <Outlet />
         <ChatBots />
         {/* footer container */}
         <div className="bg-black text-gray-300">
@@ -140,7 +139,21 @@ const FinalHome = () => {
                   </ul>
                 </div>
               </div>
+              {/* countries */}
               <div className="mt-3 flex items-center justify-between">
+                <div className="flex flex-col items-center">
+                  <div className="w-[35px] aspect-square rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full"
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">
+                    Ethiopia
+                  </h3>
+                </div>
+
                 <div className="flex flex-col items-center">
                   <div className="w-[35px] aspect-square rounded-full overflow-hidden">
                     <img
@@ -158,12 +171,25 @@ const FinalHome = () => {
                   <div className="w-[35px] aspect-square rounded-full overflow-hidden">
                     <img
                       className="w-full h-full"
-                      src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/640px-Flag_of_Russia.svg.png"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/255px-Flag_of_the_United_Arab_Emirates.svg.png"
                       alt=""
                     />
                   </div>
                   <h3 className="md:text-lg font-medium md:font-semibold mt-1">
-                    Russia
+                    UAE
+                  </h3>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div className="w-[35px] aspect-square rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full"
+                      src="https://cdn.britannica.com/85/185-004-1EA59040/Flag-Egypt.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 className="md:text-lg font-medium md:font-semibold mt-1">
+                    Egypt
                   </h3>
                 </div>
 
