@@ -67,7 +67,7 @@ const FinalHome = () => {
                 {/* about us */}
                 <div>
                   <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
-                    <h3>About us</h3>
+                    <h3>About Us</h3>
                   </header>
                   <ul className="flex flex-col gap-y-[10px] font-medium">
                     <li>
@@ -80,17 +80,17 @@ const FinalHome = () => {
                     </li>
                     <li>
                       <NavLink className={"hover:underline"}>
-                        Leadership
+                        Board Members
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Careers</NavLink>
+                      <NavLink className={"hover:underline"}>Our Branch Office</NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Event</NavLink>
+                      <NavLink className={"hover:underline"}>Office Staffs</NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Press</NavLink>
+                      <NavLink className={"hover:underline"}>Social Responses</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -98,59 +98,67 @@ const FinalHome = () => {
                 <div>
                   <div>
                     <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
-                      <h3>Partners</h3>
+                      <h3>Support</h3>
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
                       <li>
-                        <NavLink className={"hover:underline"}>Company</NavLink>
+                        <NavLink className={"hover:underline"}>Customer Care</NavLink>
                       </li>
                       <li>
                         <NavLink className={"hover:underline"}>
-                          Leadership
+                          Join Our Attorney Network
                         </NavLink>
                       </li>
                     </ul>
                   </div>
                   <div>
                     <header className=" my-3 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
-                      <h3>Why Skylight</h3>
+                      <h3>Learn More</h3>
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
                       <li>
-                        <NavLink className={"hover:underline"}>Company</NavLink>
+                        <NavLink className={"hover:underline"}>Legal Help Article</NavLink>
                       </li>
                       <li>
                         <NavLink className={"hover:underline"}>
-                          Leadership
+                          Legal Forms
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink className={"hover:underline"}>
+                          Library
                         </NavLink>
                       </li>
                     </ul>
                   </div>
                 </div>
-                {/* customers */}
+                {/* locations */}
                 <div>
                   <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
-                    <h3>Customers</h3>
+                    <h3>Locations</h3>
                   </header>
                   <ul className="flex flex-col gap-y-[10px] font-medium">
                     <li>
-                      <NavLink className={"hover:underline"}>Company</NavLink>
+                      <NavLink className={"hover:underline"}>Ethiopia</NavLink>
                     </li>
                     <li>
                       <NavLink className={"hover:underline"}>
-                        Vision & Mission
+                        China
                       </NavLink>
                     </li>
                     <li>
                       <NavLink className={"hover:underline"}>
-                        Leadership
+                        United Arab Emirates
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Careers</NavLink>
+                      <NavLink className={"hover:underline"}>United State of America</NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Event</NavLink>
+                      <NavLink className={"hover:underline"}>Egypt</NavLink>
+                    </li>
+                    <li>
+                      <NavLink className={"hover:underline"}>Kenya</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -241,7 +249,7 @@ const FinalHome = () => {
             <div className="w-[90%] sm:w-[65%] self-center md:w-[45%] md:self-start  md:mt-12">
               {/* header */}
               <header className="flex items-center gap-[15%] px-[5%] py-2 text-white rounded-sm bg-yellow-500">
-                <h3 className="text-2xl font-bold">About Us</h3>
+                <h3 className="text-2xl font-bold">Who we are?</h3>
               </header>
               {/* content */}
               <div className="my-5 text-[1rem]">
@@ -276,7 +284,10 @@ const FinalHome = () => {
             <div>
               <span>Terms and Conditions | Privacy Policy</span>
             </div>
-            <div></div>
+            <div className="bg-red-400 w-[calc(100%/3)]">
+              {/* download link */}
+              <div>Download Link Over Here</div>
+            </div>
           </footer>
           {/* final footer part */}
           <div className="px-[1%] sm:px-[5%] pt-[4%] text-[.75rem]">

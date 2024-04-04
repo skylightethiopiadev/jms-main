@@ -329,7 +329,7 @@ const HomeIndex = () => {
             <div className="flex items-center justify-center">
               <div>
                 <img
-                  src="https://www.legalzoom.com/resources/img/lzr/homepage/kelly-why-us.jpg"
+                  src="/images/bg/site-image.jpg"
                   alt=""
                 />
               </div>
