@@ -266,11 +266,11 @@
 /* dashboard nav */
 
 .dashboard-active-link-color {
-  @apply text-blue-700 font-semibold border-l-4 border-blue-700 pl-1;
+  @apply text-yellow-500 font-semibold border-l-4 border-yellow-500 pl-1;
 }
 
 .dahboard-active-link-icon-color {
-  @apply text-blue-700;
+  @apply text-yellow-500;
 }
 
 .dashboard-link-item-my {
@@ -282,7 +282,7 @@
 }
 
 .dashboard-sub-link-items {
-  @apply pl-[15%] py-[.5rem] bg-white rounded-sm mr-1 transition-all ease-in-out duration-300 hover:bg-gray-100 hover:font-[600] hover:text-gray-900;
+  @apply pl-[15%] py-[.25rem] bg-white rounded-sm mr-1 transition-all ease-in-out duration-300 hover:bg-gray-100 hover:font-[600] hover:text-gray-900;
 }
 /* home */
 .home-submenu-popup-ul {

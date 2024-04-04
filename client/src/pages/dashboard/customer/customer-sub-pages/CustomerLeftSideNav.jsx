@@ -69,7 +69,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[220px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[240px] flex flex-col justify-between pl-[2%] text-[1rem]"
       id="customer-dashboard-leftside-nav-bar"
     >
       <Response
@@ -549,16 +549,21 @@ const CustomerLeftSideNav = () => {
       {/* button container */}
       <div className="mr-9 my-3">
         {/* top */}
-        <div className="py-3 px-1 rounded-md bg-sky-100 flex flex-col items-center justify-between mb-5">
-          <p className="font-medium text-left">
+        <div className="py-3 px-1 rounded-md bg-sky-100 text-[.785rem] mb-5">
+          <p className="font-semibold text-left">
             If any legal or technical difficulties, please contact the call
             center
           </p>
-          <h3 className="mt-1 ">Local call center</h3>
+          <div>
+            <h3 className="mt-1 ">Local call center</h3>
+            <h3 className="font-bold text-[.85rem]">Dial: 8383</h3>
+          </div>
 
-          <h3>Dial: 8383</h3>
-          <h3 className="mt-1 ">International call center</h3>
-          <h3>Dial: (+251) 985 228 888 </h3>
+          <div>
+            <h3 className="mt-1 ">International call center</h3>
+            <h3 className="font-bold text-[.85rem]">Dial: (+251) 985 228 888 </h3>
+          </div>
+
           {/* <div className="mb-1">
             <img
               src={callCenter}
