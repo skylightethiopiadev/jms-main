@@ -414,7 +414,7 @@ const HomeIndex = () => {
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* top container */}
-          <div className="flex bg-green-400 flex-col gap-5 lg:flex-row lg:items-center justify-between lg:gap-[10%] ">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center justify-between lg:gap-[10%] ">
             {/* top left container */}
             <div className="w-full lg:w-[50%]">
               {/* button container */}
