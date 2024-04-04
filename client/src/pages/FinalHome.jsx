@@ -14,6 +14,8 @@ import {
   FaCarCrash,
   FaShoppingCart,
   FaLinkedin,
+  FaLinkedinIn,
+  FaApple,
   // FaFacebookF,
   // FaYoutube
 } from "react-icons/fa";
@@ -84,13 +86,19 @@ const FinalHome = () => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Our Branch Office</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        Our Branch Office
+                      </NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Office Staffs</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        Office Staffs
+                      </NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>Social Responses</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        Social Responses
+                      </NavLink>
                     </li>
                   </ul>
                 </div>
@@ -102,7 +110,9 @@ const FinalHome = () => {
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
                       <li>
-                        <NavLink className={"hover:underline"}>Customer Care</NavLink>
+                        <NavLink className={"hover:underline"}>
+                          Customer Care
+                        </NavLink>
                       </li>
                       <li>
                         <NavLink className={"hover:underline"}>
@@ -117,7 +127,9 @@ const FinalHome = () => {
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
                       <li>
-                        <NavLink className={"hover:underline"}>Legal Help Article</NavLink>
+                        <NavLink className={"hover:underline"}>
+                          Legal Help Article
+                        </NavLink>
                       </li>
                       <li>
                         <NavLink className={"hover:underline"}>
@@ -125,9 +137,7 @@ const FinalHome = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink className={"hover:underline"}>
-                          Library
-                        </NavLink>
+                        <NavLink className={"hover:underline"}>Library</NavLink>
                       </li>
                     </ul>
                   </div>
@@ -142,9 +152,7 @@ const FinalHome = () => {
                       <NavLink className={"hover:underline"}>Ethiopia</NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>
-                        China
-                      </NavLink>
+                      <NavLink className={"hover:underline"}>China</NavLink>
                     </li>
                     <li>
                       <NavLink className={"hover:underline"}>
@@ -152,7 +160,9 @@ const FinalHome = () => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink className={"hover:underline"}>United State of America</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        United State of America
+                      </NavLink>
                     </li>
                     <li>
                       <NavLink className={"hover:underline"}>Egypt</NavLink>
@@ -243,6 +253,14 @@ const FinalHome = () => {
                   </h3>
                 </div>
               </div>
+              <footer className="mt-7 flex items-center justify-between md:font-medium py-3  md:text-[1rem]">
+                <div>
+                  <span>2024 Copyright</span>
+                </div>
+                <div>
+                  <span>Terms and Conditions | Privacy Policy</span>
+                </div>
+              </footer>
             </div>
 
             {/* bottom left */}
@@ -270,25 +288,37 @@ const FinalHome = () => {
                     <FaFacebookF />
                     <FaXTwitter />
                     <FaYoutube />
-                    <FaLinkedin  />
+                    <FaLinkedin />
+                  </div>
+                </div>
+                <div className="mt-10 flex items-center justify-center">
+                  <div className="flex items-center justify-center gap-5">
+                    {/* android */}
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-md border-[2px] cursor-pointer transition-all ease-in-out duration-300 hover:bg-gray-300 hover:text-black border-gray-300">
+                      <div className="w-[22px] aspect-square overflow-hidden">
+                        <img className="w-full h-full object-center object-cover" src="https://www.svgrepo.com/show/223032/playstore.svg" alt="" />
+                      </div>
+                      <div>
+                        <span className="text-[.785rem]">GET IT ON</span>
+                        <h3 className="font-bold mt-[-3px]">Google Play</h3>
+                      </div>
+                    </div>
+                    {/* mac */}
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-md border-[2px] cursor-pointer transition-all ease-in-out duration-300 hover:bg-gray-300 hover:text-black border-gray-300">
+                      <div>
+                        <FaApple  className="text-[1.75rem]"/>
+                      </div>
+                      <div>
+                        <span className="text-[.785rem]">DOWNLOAD ON THE</span>
+                        <h3 className="font-bold mt-[-3px]">App Store</h3>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* footer bottom */}
-          <footer className="px-[1%] mt-5 sm:px-[5%] flex items-center justify-between md:font-medium py-3  md:text-[1rem]">
-            <div>
-              <span>2024 Copyright</span>
-            </div>
-            <div>
-              <span>Terms and Conditions | Privacy Policy</span>
-            </div>
-            <div className="bg-red-400 w-[calc(100%/3)]">
-              {/* download link */}
-              <div>Download Link Over Here</div>
-            </div>
-          </footer>
+
           {/* final footer part */}
           <div className="px-[1%] sm:px-[5%] pt-[4%] text-[.75rem]">
             <div className="w-full border-t-[2px] border-gray-400 pt-[5%]">
