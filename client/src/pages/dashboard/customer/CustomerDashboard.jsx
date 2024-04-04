@@ -163,7 +163,7 @@ const CustomerDashboard = () => {
                     <h3 className="text-lg font-bold text-gray-900 my-2">
                       $21,328.00
                     </h3>
-                    <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center justify-between gap-1 whitespace-nowrap">
                       <button className="px-1 py-1 rounded-md bg-yellow-400 text-white">
                         Add funds
                       </button>
