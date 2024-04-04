@@ -12,13 +12,14 @@ const NewCaseServices = ({
   // services
   const newCaseServices = [
     "Representation",
-    "Mediation Center",
+    "Mediation center",
     "Advisory",
     "Preparation of documents and review",
-    "Legal Due Diligence",
-    "Legal Opinion",
+    "Legal due diligence",
+    "Legal opinion",
     "Review of content",
-    "Visa and Work Permit",
+    "Visa and work permit",
+    "Others",
   ];
 
   const inputChangeHandler = (e) => {

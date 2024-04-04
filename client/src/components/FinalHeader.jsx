@@ -70,7 +70,11 @@ const FinalHeader = () => {
             {
               navHeaderText: "Loan",
               path: "#"
-            }
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
+            },
           ]
         },
         {
@@ -87,7 +91,11 @@ const FinalHeader = () => {
             {
               navHeaderText: "Divorce",
               path: "#"
-            }
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
+            },
           ]
         }
       ]
@@ -109,7 +117,11 @@ const FinalHeader = () => {
         {
           navHeaderText: "Torts",
           path: "/torts"
-        }
+        },
+        {
+          navHeaderText: "Others",
+          path: "#"
+        },
       ]
     }
   ];
@@ -162,7 +174,11 @@ const FinalHeader = () => {
             {
               navHeaderText: "Loan",
               path: "#"
-            }
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
+            },
           ]
         },
         {
@@ -177,7 +193,7 @@ const FinalHeader = () => {
               path: "#"
             },
             {
-              navHeaderText: "Trade mark",
+              navHeaderText: "Trademark",
               path: "#"
             },
             {
@@ -191,7 +207,11 @@ const FinalHeader = () => {
             {
               navHeaderText: "Varieties and plant breeders' right",
               path: "#"
-            }
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
+            },
           ]
         },
         {
@@ -208,7 +228,11 @@ const FinalHeader = () => {
             {
               navHeaderText: "Capital market",
               path: "#"
-            }
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
+            },
           ]
         },
         {
@@ -234,7 +258,11 @@ const FinalHeader = () => {
             {
               navHeaderText: "Reorganization",
               path: "#"
-            }
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
+            },
           ]
         }
       ]
@@ -252,7 +280,11 @@ const FinalHeader = () => {
         {
           navHeaderText: "Joint venture",
           path: "#"
-        }
+        },
+        {
+          navHeaderText: "Others",
+          path: "#"
+        },
       ]
     }
   ];
