@@ -70,22 +70,26 @@ const FinalHome = () => {
                   </header>
                   <ul className="flex flex-col gap-y-[10px] font-medium">
                     <li>
-                      <NavLink>Company</NavLink>
+                      <NavLink className={"hover:underline"}>Company</NavLink>
                     </li>
                     <li>
-                      <NavLink>Vision & Mission</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        Vision & Mission
+                      </NavLink>
                     </li>
                     <li>
-                      <NavLink>Leadership</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        Leadership
+                      </NavLink>
                     </li>
                     <li>
-                      <NavLink>Careers</NavLink>
+                      <NavLink className={"hover:underline"}>Careers</NavLink>
                     </li>
                     <li>
-                      <NavLink>Event</NavLink>
+                      <NavLink className={"hover:underline"}>Event</NavLink>
                     </li>
                     <li>
-                      <NavLink>Press</NavLink>
+                      <NavLink className={"hover:underline"}>Press</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -97,10 +101,12 @@ const FinalHome = () => {
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
                       <li>
-                        <NavLink>Company</NavLink>
+                        <NavLink className={"hover:underline"}>Company</NavLink>
                       </li>
                       <li>
-                        <NavLink>Leadership</NavLink>
+                        <NavLink className={"hover:underline"}>
+                          Leadership
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -110,10 +116,12 @@ const FinalHome = () => {
                     </header>
                     <ul className="flex flex-col gap-y-[10px] font-medium">
                       <li>
-                        <NavLink>Company</NavLink>
+                        <NavLink className={"hover:underline"}>Company</NavLink>
                       </li>
                       <li>
-                        <NavLink>Leadership</NavLink>
+                        <NavLink className={"hover:underline"}>
+                          Leadership
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -125,16 +133,23 @@ const FinalHome = () => {
                   </header>
                   <ul className="flex flex-col gap-y-[10px] font-medium">
                     <li>
-                      <NavLink>Company Vision & Mission</NavLink>
+                      <NavLink className={"hover:underline"}>Company</NavLink>
                     </li>
                     <li>
-                      <NavLink>Leadership</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        Vision & Mission
+                      </NavLink>
                     </li>
                     <li>
-                      <NavLink>Careers</NavLink>
+                      <NavLink className={"hover:underline"}>
+                        Leadership
+                      </NavLink>
                     </li>
                     <li>
-                      <NavLink>Event</NavLink>
+                      <NavLink className={"hover:underline"}>Careers</NavLink>
+                    </li>
+                    <li>
+                      <NavLink className={"hover:underline"}>Event</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -225,47 +240,30 @@ const FinalHome = () => {
             <div className="w-[90%] sm:w-[65%] self-center md:w-[45%] md:self-start  md:mt-12">
               {/* header */}
               <header className="flex items-center gap-[15%] px-[5%] py-2 text-white rounded-sm bg-yellow-500">
-                <div className="p-2 rounded-full bg-white text-xl text-yellow-500">
-                  <MdPhoneInTalk />
-                </div>
-                <h3 className="text-2xl font-bold">Let's Talk</h3>
+                <h3 className="text-2xl font-bold">About Us</h3>
               </header>
               {/* content */}
-              <div className="flex flex-col p-[7%] gap-y-7">
-                <div className="flex items-center gap-5">
-                  <div>
-                    <MdOutlineMarkEmailRead className="text-3xl text-blue-800" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium">Business Inquiries</h3>
-                    <span>sales@company.com</span>
+              <div className="my-5 text-[1rem]">
+                <p>
+                  Makuta Law Firm has launched a world class app, which connects
+                  clients and lawyers internationally, to meet various legal
+                  services. The app is available and will connect clients with
+                  lawyers in real-time according to their needs, 24 hours a day,
+                  internationally.
+                </p>
+                <div className="w-full flex items-center justify-center my-10">
+                  <div className="w-[45%] h-[2px] bg-gray-400 flex items-center justify-center relative">
+                    <div className="absolute w-[25%] h-[12px] rounded-full bg-inherit"></div>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-5">
-                  <div>
-                    <MdOutlineMediation className="text-3xl text-blue-800" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium">PR Of Media</h3>
-                    <span>marketing@company.com</span>
+                <div>
+                  <div className="flex items-center justify-center gap-5 text-2xl">
+                    <FaFacebookF />
+                    <FaXTwitter />
+                    <FaYoutube />
                   </div>
                 </div>
               </div>
-              {/* footer */}
-              <footer className="mt-5 px-[5%] flex items-center">
-                {/* input */}
-                <div className="flex-grow bg-blue-900 flex items-center rounded-full border-2 border-gray-400 p-[.13rem]">
-                  <input
-                    type="text"
-                    placeholder="Enter your email"
-                    className="w-full focus:outline-none focus:ring-0 bg-transparent border-none"
-                  />
-                  <button className="px-5 rounded-full bg-yellow-500 h-full text-white py-[.5rem]">
-                    SIGNUP
-                  </button>
-                </div>
-              </footer>
             </div>
           </div>
           {/* footer bottom */}
@@ -276,11 +274,7 @@ const FinalHome = () => {
             <div>
               <span>Terms and Conditions | Privacy Policy</span>
             </div>
-            <div className="flex items-center justify-center gap-5 text-2xl">
-              <FaFacebookF />
-              <FaXTwitter />
-              <FaYoutube />
-            </div>
+            <div></div>
           </footer>
           {/* final footer part */}
           <div className="px-[1%] sm:px-[5%] pt-[4%] text-[.75rem]">

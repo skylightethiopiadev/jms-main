@@ -41,41 +41,41 @@ const HomeIndex = () => {
   // lawyers
   const ourLawyers = [
     {
-      first_name: 'Betlhem',
-      middle_name: 'Melese',
-      last_name: 'Eshetu',
-      profession: 'Lawyer/Partner',
-      profile_path: '/images/lawyers/betlhem.jpg',
+      first_name: "Betlhem",
+      middle_name: "Melese",
+      last_name: "Eshetu",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/betlhem.jpg"
     },
     {
-      first_name: 'Haddis',
-      middle_name: 'Fanta',
-      last_name: 'Shiferaw',
-      profession: 'Lawyer/Partner',
-      profile_path: '/images/lawyers/lawyer-one.jpg',
+      first_name: "Haddis",
+      middle_name: "Fanta",
+      last_name: "Shiferaw",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/lawyer-one.jpg"
     },
     {
-      first_name: 'Rodas',
-      middle_name: 'Girma',
-      last_name: 'W/Gebreal',
-      profession: 'Lawyer/Partner',
-      profile_path: '/images/lawyers/rodas.jpg',
+      first_name: "Rodas",
+      middle_name: "Girma",
+      last_name: "W/Gebreal",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/rodas.jpg"
     },
     {
-      first_name: 'Gedeon',
-      middle_name: 'Agmas',
-      last_name: 'W/Gebreal',
-      profession: 'Lawyer/Partner',
-      profile_path: '/images/lawyers/lawyer-two.jpg',
+      first_name: "Gedeon",
+      middle_name: "Agmas",
+      last_name: "W/Gebreal",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/lawyer-two.jpg"
     },
     {
-      first_name: 'Andualem',
-      middle_name: 'Chane',
-      last_name: 'W/Gebreal',
-      profession: 'Lawyer/Partner',
-      profile_path: '/images/lawyers/lawyer-three.jpg',
-    },
-  ]
+      first_name: "Andualem",
+      middle_name: "Chane",
+      last_name: "W/Gebreal",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/lawyer-three.jpg"
+    }
+  ];
   return (
     <>
       {/* first order container */}
@@ -276,7 +276,7 @@ const HomeIndex = () => {
           </div>
         </div>
       </div>
-      {/* post-first */}
+      {/* second order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         <div className="w-full flex items-center gap-0">
           {/* text container */}
@@ -338,13 +338,11 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* pre-second order container */}
+      {/* third order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         {/* first container for bold text */}
         <div className="flex items-center justify-center text-[1.5rem] sm:text-[1.85rem] lg:text-[2.5rem] font-bold text-center px-[15%]">
-          <p>
-            Comprehensive Legal Assistance For Every Need
-          </p>
+          <p>Comprehensive Legal Assistance For Every Need</p>
         </div>
         {/* second container */}
         <div className="flex flex-col lg:flex-row items-end mt-10">
@@ -354,7 +352,7 @@ const HomeIndex = () => {
             <div className="w-full h-full overflow-hidden">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                src="https://www.austinchronicle.com/binary/fa07/pols_feature27.jpg"
                 alt=""
               />
             </div>
@@ -410,97 +408,87 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* second order container */}
+      {/* fourth order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
-          {/* top container */}
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-center justify-between lg:gap-[10%] ">
-            {/* top left container */}
+          {/* content container */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[7%] py-[4%]">
+            {/* left container */}
             <div className="w-full lg:w-[50%]">
               {/* button container */}
               <div>
-                <button className="px-[7%] py-1 rounded-full border border-sky-200 bg-sky-100">
-                  some text here
+                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
+                  makuta
                 </button>
               </div>
               {/* bold paragraph */}
-              <div className="text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] my-3 md:leading-8">
-                <p>Lorem ipsum dolor, sit amet consectetur Haddis</p>
+              <div className="text-[1.5rem] font-bold my-3 leading-7">
+                <p>Are you looking for an intellectual property lawyer?</p>
               </div>
               {/* normal paragraph */}
-              <div>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti assumenda autem amet.
+              <div className="relative">
+                <div
+                  className={`absolute left-0 top-0 bg-transparent overflow-hidden transition-all ease-in-out duration-300 z-50 ${
+                    isOtherService ? "h-[50vh]" : "h-0"
+                  }`}
+                >
+                  <div className="p-3 bg-inherit relative bg-white">
+                    <p>
+                      Financial sector including capital market is obvious
+                      choice for foreign companies to engage in. Ethiopia is
+                      liberalizing many sectors that were otherwise reserved for
+                      local investors. One of the areas that the government is
+                      planning to liberalize is financial sector. With the
+                      opening up of various sectors for foreign investors
+                      coupled with the coming of capital market, triggers the
+                      need to have a support of law firm. We have highly
+                      regarded lawyers in the sector that can exactly meet your
+                      needs to work with your company.
+                    </p>
+                    <button
+                      className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
+                      onClick={() => {
+                        setIsOtherService(false);
+                      }}
+                    >
+                      <MdClose className="text-[1.15rem]" />
+                    </button>
+                  </div>
+                </div>
+                <p className="">
+                  You have clicked the right platform. Harnessing innovation and
+                  digital transformation is essential to the long-term success
+                  of companies and institutions.
                 </p>
               </div>
-            </div>
-            {/* bottom right */}
-            <div className="w-full lg:w-[75%] flex flex-col gap-y-2 md:flex-row md:items-center justify-between md:gap-[5%]">
-              {/* left */}
-              <div className="flex flex-col gap-y-2 md:gap-y-7">
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-orange-300 bg-orange-50 text-orange-500 text-[1.45rem]">
-                      <FaCarCrash />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet cons</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-green-300 bg-green-50 text-green-500 text-[1.45rem]">
-                      <MdDashboard />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet cons</p>
-                  </div>
-                </div>
-              </div>
-              {/* right */}
-              <div className="flex flex-col gap-y-2 md:gap-y-7">
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-pink-300 bg-pink-50 text-pink-500 text-[1.45rem]">
-                      <FaShoppingCart />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet man</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-blue-300 bg-blue-50 text-blue-500 text-[1.45rem]">
-                      <GiOpenFolder />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet cons</p>
-                  </div>
+              {/* our services */}
+              <div className="mt-3">
+                {/* header */}
+                <header>
+                  <h3 className="text-[1.25rem] font-bold">Our Services</h3>
+                </header>
+                {/* list */}
+                <div className="pl-5">
+                  <ul>
+                    {ourServicesTwo?.map((service, index) => (
+                      <li key={index} className="flex items-start gap-3 py-1">
+                        <div className="w-[14px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
+                          <TiTick />
+                        </div>
+                        <div className="border-b border-black border-opacity-0">
+                          {service}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* bottom container */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[7%] py-[4%]">
-            {/* left container */}
+            {/* right container */}
             <div className="w-full mb-14 lg:mb-auto lg:w-[50%] relative flex items-center justify-center">
               {/* background image */}
               <div className="px-[10%] flex-grow flex">
-                <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-r-full after:z-0">
+                <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-l-full after:z-0">
                   <img
                     className="relative z-10 h-full"
                     src="/images/personnels/lawyer-five.png"
@@ -572,77 +560,6 @@ const HomeIndex = () => {
                 </div>
               </div>
             </div>
-            {/* right container */}
-            <div className="w-full lg:w-[50%]">
-              {/* button container */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  some text
-                </button>
-              </div>
-              {/* bold paragraph */}
-              <div className="text-[1.5rem] font-bold my-3 leading-7">
-                <p>Are you looking for an intellectual property lawyer?</p>
-              </div>
-              {/* normal paragraph */}
-              <div className="relative">
-                <div
-                  className={`absolute left-0 top-0 bg-transparent overflow-hidden transition-all ease-in-out duration-300 z-50 ${
-                    isOtherService ? "h-[50vh]" : "h-0"
-                  }`}
-                >
-                  <div className="p-3 bg-inherit relative bg-white">
-                    <p>
-                      Financial sector including capital market is obvious
-                      choice for foreign companies to engage in. Ethiopia is
-                      liberalizing many sectors that were otherwise reserved for
-                      local investors. One of the areas that the government is
-                      planning to liberalize is financial sector. With the
-                      opening up of various sectors for foreign investors
-                      coupled with the coming of capital market, triggers the
-                      need to have a support of law firm. We have highly
-                      regarded lawyers in the sector that can exactly meet your
-                      needs to work with your company.
-                    </p>
-                    <button
-                      className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
-                      onClick={() => {
-                        setIsOtherService(false);
-                      }}
-                    >
-                      <MdClose className="text-[1.15rem]" />
-                    </button>
-                  </div>
-                </div>
-                <p className="">
-                  You have clicked the right platform. Harnessing innovation and
-                  digital transformation is essential to the long-term success
-                  of companies and institutions.
-                </p>
-              </div>
-              {/* our services */}
-              <div className="mt-3">
-                {/* header */}
-                <header>
-                  <h3 className="text-[1.25rem] font-bold">Our Services</h3>
-                </header>
-                {/* list */}
-                <div className="pl-5">
-                  <ul>
-                    {ourServicesTwo?.map((service, index) => (
-                      <li key={index} className="flex items-start gap-3 py-1">
-                        <div className="w-[14px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
-                          <TiTick />
-                        </div>
-                        <div className="border-b border-black border-opacity-0">
-                          {service}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -658,7 +575,73 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* third order container */}
+      {/* fifth order container */}
+      <div className="px-[3%] sm:px-[12%] py-[3%]">
+        {/* content container container */}
+        <div className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row items-end">
+          {/* left */}
+          <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
+            {/* bold paragraph */}
+            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
+              <p>For your business</p>
+            </div>
+            {/* normal paragraph */}
+            <div className="text-[.875rem] md:text-[1.05rem]">
+              <p>
+                Whether you need to establish a company, apply for licenses and
+                permits, or obtain a tax ID, we will help set your business up
+                for success.
+              </p>
+            </div>
+            {/* first button */}
+            <div className="my-7">
+              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
+                start my business
+              </button>
+            </div>
+            {/* second buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mb-3">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                PLC
+              </button>
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Share Company
+              </button>
+            </div>
+            {/* third buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mt-5">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                NGO
+              </button>
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Get Legal Help
+              </button>
+            </div>
+          </div>
+
+          {/* right */}
+          <div className="w-[100%] lg:w-[50%] relative flex">
+            {/* image container */}
+            <div className="w-full h-full overflow-hidden">
+              <img
+                className="h-full w-full object-center object-cover"
+                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                alt=""
+              />
+            </div>
+            <div className="absolute top-0 left-0 bg-white w-[250px] h-[150px] shadow-xl p-5">
+              <div className="my-3">
+                <GoLightBulb className="text-[2.5rem]" />
+              </div>
+              <div className="font-semibold text-[.875rem] ">
+                <p>We'll make dreams a reality throughout the world</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* sixth order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
@@ -667,19 +650,19 @@ const HomeIndex = () => {
               {/* button */}
               <div>
                 <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  some text here
+                  makuta law firm
                 </button>
               </div>
               {/* bold paragraph */}
               <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
-                <p>Lorem ipsum dolor sit amet consectetur, adipi</p>
+                <p>For your business</p>
               </div>
               {/* normal paragraph */}
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Magni nihil explicabo consectetur doloribus saepe delectus,
-                  labore itaque.
+                  Whether you need to establish a company, apply for licenses
+                  and permits, or obtain a tax ID, we will help set your
+                  business up for success.
                 </p>
               </div>
               {/* text with icon */}
@@ -719,6 +702,7 @@ const HomeIndex = () => {
                 </div>
               </div>
             </div>
+
             {/* bottom right container */}
             <div className="w-full lg:w-[50%] flex relative">
               {/* background image */}
@@ -736,9 +720,9 @@ const HomeIndex = () => {
               {/* content */}
               <div className="absolute left-0 top-0 w-full h-full z-50">
                 {/* card */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/4 bg-white shadow-lg">
+                <div className="absolute left-[-20px] top-1/2 -translate-y-1/4 bg-white shadow-lg">
                   <Chart
-                    width={"100%"}
+                    width={"80%"}
                     height={155}
                     type="area"
                     series={[
@@ -807,7 +791,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* forth order container */}
+      {/* seventh order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* top container */}
@@ -1067,7 +1051,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* fifth order container */}
+      {/* eighth order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
