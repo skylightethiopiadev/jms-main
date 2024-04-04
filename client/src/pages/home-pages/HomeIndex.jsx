@@ -82,15 +82,15 @@ const HomeIndex = () => {
       <div className="w-full px-[3%] pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
-          <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
+          <div className="w-full mt-12 sm:mt-3  sm:w-[45%]">
             {/* first button */}
-            <div className="sm:mt-16">
+            <div className="sm:mt-10">
               <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full text-[1.15rem] font-semibold">
                 Safeguard, Hope, and Promise
               </button>
             </div>
             {/* bold paragraph */}
-            <div className="my-7">
+            <div className="my-5">
               <p className="text-[1.23rem] track md:text-[2.875rem] leading-7 md:leading-[50px] font-[700] my-[1%]">
                 Professional Legal Service in Ethiopia
               </p>

@@ -717,19 +717,23 @@ const FinalHeader = () => {
                   </button>
                 </div>
                 <div className="font-medium">
-                  <h3 className="font-bold">Talk to Makuta</h3>
+                  <h3 className="font-bold text-[1.15rem]">Talk to Makuta</h3>
 
-                  <h3 className="mt-3 ">Local call center</h3>
+                  <h3 className="mt-3 font-bold">Local call center</h3>
 
                   <h3>Dial: 8383</h3>
-                  <h3 className="mt-3 ">International call center</h3>
+                  <h3 className="mt-3 font-bold">International call center</h3>
                   <h3>Dial: (+251) 985 228 888 </h3>
                 </div>
-                <div className="my-3 font-medium">
+                <div className="mt-3 font-medium flex items-center justify-center">
                   <h3>Customer care hours</h3>
                 </div>
                 <div>
-                  <p>24/7</p>
+                  <div className="w-full flex items-center justify-center">
+                    <div className="p-2 w-[70px] aspect-square overflow-hidden rounded-full bg-black bg-opacity-5 flex items-center justify-center">
+                      <span className="text-[1.35rem] font-black">24/7</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
