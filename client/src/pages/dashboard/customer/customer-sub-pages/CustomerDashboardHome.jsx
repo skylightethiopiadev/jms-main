@@ -118,7 +118,7 @@ const CustomerDashboardHome = () => {
   };
 
   return (
-    <div className="p-[2%] relative h-[94vh] overflow-y-auto pb-7">
+    <div className="p-[2%] relative h-[91vh] overflow-y-auto pb-1">
       {isUserMorePopup ? (
         <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
@@ -503,7 +503,7 @@ const CustomerDashboardHome = () => {
             </div>
           </header>
           <div
-            className="h-[28vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2"
+            className="h-[30vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2"
             id="case-history-list-container"
           >
             {/* case history cards */}
@@ -516,7 +516,7 @@ const CustomerDashboardHome = () => {
                       history.status === "ACTIVE"
                         ? "border-green-400"
                         : "border-red-400"
-                    } rounded-md shadow-md py-2 mb-5 pl-2`}
+                    } rounded-md shadow-md py-2 mt-5 pl-2`}
                   >
                     <div className="flex items-center justify-between text-gray-500 text-sm">
                       <div>
