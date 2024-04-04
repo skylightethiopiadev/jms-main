@@ -12,7 +12,8 @@ import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
 import {
   FaCarCrash,
-  FaShoppingCart
+  FaShoppingCart,
+  FaLinkedin,
   // FaFacebookF,
   // FaYoutube
 } from "react-icons/fa";
@@ -261,6 +262,7 @@ const FinalHome = () => {
                     <FaFacebookF />
                     <FaXTwitter />
                     <FaYoutube />
+                    <FaLinkedin  />
                   </div>
                 </div>
               </div>

@@ -409,6 +409,72 @@ const HomeIndex = () => {
       </div>
 
       {/* fourth order container */}
+      <div className="px-[3%] sm:px-[12%] py-[3%]">
+        {/* content container container */}
+        <div className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row items-end">
+          {/* left */}
+          <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
+            {/* bold paragraph */}
+            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
+              <p>For your business</p>
+            </div>
+            {/* normal paragraph */}
+            <div className="text-[.875rem] md:text-[1.05rem]">
+              <p>
+                Whether you need to establish a company, apply for licenses and
+                permits, or obtain a tax ID, we will help set your business up
+                for success.
+              </p>
+            </div>
+            {/* first button */}
+            <div className="my-7">
+              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
+                start my business
+              </button>
+            </div>
+            {/* second buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mb-3">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                PLC
+              </button>
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Share Company
+              </button>
+            </div>
+            {/* third buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mt-5">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                NGO
+              </button>
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Get Legal Help
+              </button>
+            </div>
+          </div>
+
+          {/* right */}
+          <div className="w-[100%] lg:w-[50%] relative flex">
+            {/* image container */}
+            <div className="w-full h-full overflow-hidden">
+              <img
+                className="h-full w-full object-center object-cover"
+                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                alt=""
+              />
+            </div>
+            <div className="absolute top-0 left-0 bg-white w-[250px] h-[150px] shadow-xl p-5">
+              <div className="my-3">
+                <GoLightBulb className="text-[2.5rem]" />
+              </div>
+              <div className="font-semibold text-[.875rem] ">
+                <p>We'll make dreams a reality throughout the world</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* fifth order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* content container */}
@@ -571,72 +637,6 @@ const HomeIndex = () => {
               src="/images/bg/bg-one.jpg"
               alt=""
             />
-          </div>
-        </div>
-      </div>
-
-      {/* fifth order container */}
-      <div className="px-[3%] sm:px-[12%] py-[3%]">
-        {/* content container container */}
-        <div className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row items-end">
-          {/* left */}
-          <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
-            {/* bold paragraph */}
-            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
-              <p>For your business</p>
-            </div>
-            {/* normal paragraph */}
-            <div className="text-[.875rem] md:text-[1.05rem]">
-              <p>
-                Whether you need to establish a company, apply for licenses and
-                permits, or obtain a tax ID, we will help set your business up
-                for success.
-              </p>
-            </div>
-            {/* first button */}
-            <div className="my-7">
-              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
-                start my business
-              </button>
-            </div>
-            {/* second buttons */}
-            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mb-3">
-              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
-                PLC
-              </button>
-              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
-                Share Company
-              </button>
-            </div>
-            {/* third buttons */}
-            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mt-5">
-              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
-                NGO
-              </button>
-              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
-                Get Legal Help
-              </button>
-            </div>
-          </div>
-
-          {/* right */}
-          <div className="w-[100%] lg:w-[50%] relative flex">
-            {/* image container */}
-            <div className="w-full h-full overflow-hidden">
-              <img
-                className="h-full w-full object-center object-cover"
-                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
-                alt=""
-              />
-            </div>
-            <div className="absolute top-0 left-0 bg-white w-[250px] h-[150px] shadow-xl p-5">
-              <div className="my-3">
-                <GoLightBulb className="text-[2.5rem]" />
-              </div>
-              <div className="font-semibold text-[.875rem] ">
-                <p>We'll make dreams a reality throughout the world</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
