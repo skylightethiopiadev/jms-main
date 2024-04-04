@@ -37,6 +37,45 @@ const HomeIndex = () => {
     "Trademark, copyright and patent registration and renewal",
     "Represent clients before tribunal all the way to the Federal Supreme Court"
   ];
+
+  // lawyers
+  const ourLawyers = [
+    {
+      first_name: 'Betlhem',
+      middle_name: 'Melese',
+      last_name: 'Eshetu',
+      profession: 'Lawyer/Partner',
+      profile_path: '/images/lawyers/betlhem.jpg',
+    },
+    {
+      first_name: 'Haddis',
+      middle_name: 'Fanta',
+      last_name: 'Shiferaw',
+      profession: 'Lawyer/Partner',
+      profile_path: '/images/lawyers/lawyer-one.jpg',
+    },
+    {
+      first_name: 'Rodas',
+      middle_name: 'Girma',
+      last_name: 'W/Gebreal',
+      profession: 'Lawyer/Partner',
+      profile_path: '/images/lawyers/rodas.jpg',
+    },
+    {
+      first_name: 'Gedeon',
+      middle_name: 'Agmas',
+      last_name: 'W/Gebreal',
+      profession: 'Lawyer/Partner',
+      profile_path: '/images/lawyers/lawyer-two.jpg',
+    },
+    {
+      first_name: 'Andualem',
+      middle_name: 'Chane',
+      last_name: 'W/Gebreal',
+      profession: 'Lawyer/Partner',
+      profile_path: '/images/lawyers/lawyer-three.jpg',
+    },
+  ]
   return (
     <>
       {/* first order container */}
@@ -46,7 +85,7 @@ const HomeIndex = () => {
           <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
             {/* first button */}
             <div className="sm:mt-16">
-              <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
+              <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full text-[1.15rem] font-semibold">
                 Safeguard, Hope, and Promise
               </button>
             </div>
@@ -167,7 +206,7 @@ const HomeIndex = () => {
                     </div>
                     {/* text */}
                     <div>
-                      <p>Ethiopian, Wisdom</p>
+                      <p>Addis Ababa, Ethiopia</p>
                     </div>
                   </div>
                 </div>
@@ -184,7 +223,7 @@ const HomeIndex = () => {
                       id="home-lawyer-list-card"
                     >
                       {/* lawyer container */}
-                      {[...Array(12)].map((item, index) => (
+                      {ourLawyers.map((lawyer, index) => (
                         <div
                           key={index}
                           className="flex items-center justify-between gap-x-[50px] my-1"
@@ -193,17 +232,17 @@ const HomeIndex = () => {
                             <div className="w-[28px] aspect-square rounded-full overflow-hidden">
                               <img
                                 className="w-full h-full object-cover"
-                                src="/images/personnels/lawyer-two.jpg"
+                                src={lawyer.profile_path}
                                 alt=""
                               />
                             </div>
                             <div>
                               <div className="text-[.875rem] font-semibold flex items-center gap-1 mb-[-5px]">
-                                <span>Haddis</span>
-                                <span>Fanta</span>
+                                <span>{lawyer?.first_name}</span>
+                                <span>{lawyer?.middle_name}</span>
                               </div>
                               <span className="text-[.75rem] text-gray-400">
-                                web dev
+                                {lawyer?.profession}
                               </span>
                             </div>
                           </div>
