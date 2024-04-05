@@ -485,7 +485,7 @@ const HomeIndex = () => {
                     </div>
                     <footer className="px-3 py-2">
                       <span className="text-[.65rem] text-gray-400">
-                        some footer text
+                        our expert lawyers
                       </span>
                     </footer>
                   </div>
@@ -844,7 +844,7 @@ const HomeIndex = () => {
                       <footer>
                         <div>
                           <span className="text-gray-500 text-[.65rem]">
-                            some text
+                            makuta
                           </span>
                         </div>
                       </footer>
@@ -1090,7 +1090,7 @@ const HomeIndex = () => {
                       <footer>
                         <div>
                           <span className="text-gray-500 text-[.65rem]">
-                            some text
+                            makuta
                           </span>
                         </div>
                       </footer>
@@ -1131,7 +1131,7 @@ const HomeIndex = () => {
               {/* button container */}
               <div>
                 <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  some text
+                  makuta
                 </button>
               </div>
               {/* bold paragraph */}
@@ -1233,7 +1233,7 @@ const HomeIndex = () => {
               {/* button */}
               <div>
                 <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  some text here
+                  makuta law firm
                 </button>
               </div>
               {/* bold paragraph */}
