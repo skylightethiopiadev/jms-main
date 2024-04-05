@@ -27,7 +27,7 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     // baseUrl: "http://192.168.100.12:5000/jms/app/v1",
-    baseUrl: "http://localhost:5000/jms/app/v1",
+    baseUrl: "https://www.makutalawfirm.com/makuta/app/v1",
   }),
   tagTypes: [
     "users",

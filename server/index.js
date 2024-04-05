@@ -36,12 +36,12 @@ app.use(
 app.use(express.json());
 // app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser());
-app.use("/jms/app/v1/user", router);
-app.use("/jms/app/v1/account", accountRouter);
-app.use("/jms/app/v1/chat", chatRouter);
+app.use("/makuta/app/v1/user", router);
+app.use("/makuta/app/v1/account", accountRouter);
+app.use("/makuta/app/v1/chat", chatRouter);
 
 app.get("/", (req, res) => {
-  res.json("Hello from jms server");
+  res.json("Hello from makuta server");
 });
 
 app.all("*", (req, res, next) => {
