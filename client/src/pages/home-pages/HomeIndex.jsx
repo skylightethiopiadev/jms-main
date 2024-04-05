@@ -907,400 +907,14 @@ const HomeIndex = () => {
       </div>
 
       {/* seventh order container */}
-      <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
+      <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-100 to-orange-50 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
             {/* top left container */}
-            <div className="w-full lg:w-[50%]">
-              {/* button */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  makuta law firm
-                </button>
-              </div>
-              {/* bold paragraph */}
-              <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
-                <p>For your business</p>
-              </div>
-              {/* normal paragraph */}
-              <div>
-                <p>
-                  Whether you need to establish a company, apply for licenses
-                  and permits, or obtain a tax ID, we will help set your
-                  business up for success.
-                </p>
-              </div>
-              {/* text with icon */}
-              <div className="flex flex-col gap-y-5 mt-5">
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-pink-100 border border-pink-400 text-pink-600 text-[1.15rem] rounded-full">
-                    <MdOutlineFireplace />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-blue-100 border border-blue-400 text-blue-600 text-[1.15rem] rounded-full">
-                    <IoMdRepeat />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-green-100 border border-green-400 text-green-600 text-[1.15rem] rounded-full">
-                    <IoFolder />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* bottom right container */}
             <div className="w-full lg:w-[50%] flex relative">
               {/* background image */}
-              <div className="w-full h-full flex px-[15%]">
-                <div className="flex-grow relative after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[80%] after:rounded-tl-[35%] after:bg-orange-400 z-0 flex items-end justify-end">
-                  <div>
-                    <img
-                      className="relative z-10 max-h-[350px]"
-                      src="/images/personnels/lawyer-three.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-              {/* content */}
-              <div className="absolute left-0 top-0 w-full h-full z-50">
-                {/* card */}
-                <div className="absolute left-[-20px] top-1/2 -translate-y-1/4 bg-white shadow-lg">
-                  <Chart
-                    width={"80%"}
-                    height={155}
-                    type="area"
-                    series={[
-                      {
-                        name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125]
-                      }
-                    ]}
-                    options={{
-                      legend: {
-                        show: false
-                      },
-                      dataLabels: {
-                        show: false,
-                        formatter: val => ``
-                      },
-                      tooltip: {
-                        fillSeriesColor: true
-                      },
-                      xaxis: {
-                        categories: [
-                          "Sep",
-                          "Oct",
-                          "Nov",
-                          "Dec",
-                          "Jan",
-                          "Feb",
-                          "Mar",
-                          "Apr"
-                        ],
-                        labels: {
-                          show: false
-                        },
-                        tickPlacement: "off"
-                      },
-                      yaxis: {
-                        labels: {
-                          show: true
-                        }
-                      },
-                      grid: {
-                        show: false
-                      },
-                      plotOptions: {
-                        bar: {
-                          distributed: true
-                          // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                        }
-                      }
-                    }}
-                  ></Chart>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* background image */}
-          <div className="absolute left-0 bottom-0 w-full h-full flex overflow-hidden">
-            <div className="flex-grow w-full h-full overflow-hidden">
-              <img
-                className="h-full w-full object-cover opacity-10"
-                src="/images/bg/bg-two.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* eighth order container */}
-      <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
-        <div className="relative z-50">
-          {/* bottom container */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[7%] py-[4%]">
-            {/* left container */}
-            <div className="w-full mb-14 lg:mb-auto lg:w-[50%] relative flex items-center justify-center">
-              {/* background image */}
-              <div className="px-[10%] flex-grow flex">
-                <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-r-full after:z-0">
-                  <img
-                    className="relative z-10 h-full"
-                    src="/images/personnels/lawyer-five.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              {/* content container */}
-              <div className="absolute left-0 bottom-0 w-full h-full z-30 flex flex-col">
-                {/* top cards */}
-                <div className="flex-grow h-[65%] flex items-end">
-                  <div>
-                    <div className="bg-white shadow-lg px-3 py-1">
-                      <header>
-                        <div>
-                          <h3 className="font-semibold">Active Customers</h3>
-                        </div>
-                      </header>
-                      <div className="flex items-center justify-between gap-2">
-                        {[...Array(4)].map((item, index) => (
-                          <div
-                            key={index}
-                            className="w-[32px] border-[2px] border-white shadow-md aspect-square overflow-hidden rounded-full"
-                          >
-                            <img
-                              className="h-full object-cover"
-                              src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                              alt=""
-                            />
-                          </div>
-                        ))}
-                      </div>
-                      <footer>
-                        <div>
-                          <span className="text-gray-500 text-[.65rem]">
-                            makuta
-                          </span>
-                        </div>
-                      </footer>
-                    </div>
-                  </div>
-                </div>
-                {/* bottom card */}
-                <div className="flex-grow h-[50%] flex justify-end items-end">
-                  <div>
-                    <div className="bg-white shadow-lg p-1 mb-[-42px] md:mb-[-20px] mr-[.75rem]">
-                      {/* circle  */}
-                      <div className="w-full flex items-center justify-center p-5">
-                        <div className="w-[80px] h-[75px] md:w-[100px] md:h-[90px] border-[16px] border-b-green-500 border-r-yellow-300 rounded-full aspect-square flex items-center justify-center">
-                          <div>
-                            <h3 className="font-black text-[1rem]">75%</h3>
-                            <span>done</span>
-                          </div>
-                        </div>
-                      </div>
-                      {/* text container */}
-                      <div className="flex items-center justify-between gap-[24px] px-3 mb-2">
-                        <div>
-                          <span>customers</span>
-                          <h3 className="font-bold text-[1.3rem]">23.7k</h3>
-                        </div>
-                        <div>
-                          <span>customers</span>
-                          <h3 className="font-bold text-[1.3rem]">23.7k</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* right container */}
-            <div className="w-full lg:w-[50%]">
-              {/* button container */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  makuta
-                </button>
-              </div>
-              {/* bold paragraph */}
-              <div className="text-[1.5rem] font-bold my-3 leading-7">
-                <p>Do you want to engage in newly liberalized sectors?</p>
-              </div>
-              {/* normal paragraph */}
-              <div className="relative">
-                <div
-                  className={`absolute left-0 top-0 bg-transparent overflow-hidden transition-all ease-in-out duration-300 z-50 ${
-                    isOtherService ? "h-[50vh]" : "h-0"
-                  }`}
-                >
-                  <div className="p-3 bg-inherit relative bg-white">
-                    <p>
-                      Financial sector including capital market is obvious
-                      choice for foreign companies to engage in. Ethiopia is
-                      liberalizing many sectors that were otherwise reserved for
-                      local investors. One of the areas that the government is
-                      planning to liberalize is financial sector. With the
-                      opening up of various sectors for foreign investors
-                      coupled with the coming of capital market, triggers the
-                      need to have a support of law firm. We have highly
-                      regarded lawyers in the sector that can exactly meet your
-                      needs to work with your company.
-                    </p>
-                    <button
-                      className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
-                      onClick={() => {
-                        setIsOtherService(false);
-                      }}
-                    >
-                      <MdClose className="text-[1.15rem]" />
-                    </button>
-                  </div>
-                </div>
-                <p className="p-3">
-                  Financial sector including capital market is obvious choice
-                  for foreign companies to engage in. Ethiopia is liberalizing
-                  many sectors that were otherwise reserved for local investors.
-                  {/* One of the areas that the government is planning to liberalize
-                  is financial sector. With the opening up of various sectors
-                  for foreign investors coupled with the coming of capital
-                  market, triggers the need to have a support of law firm. We
-                  have highly regarded lawyers in the sector that can exactly
-                  meet your needs to work with your company. */}
-                  <span
-                    className="cursor-pointer ml-1 text-blue-700 font-medium"
-                    onClick={() => {
-                      setIsOtherService(true);
-                    }}
-                  >
-                    more
-                  </span>
-                </p>
-              </div>
-              {/* our services */}
-              <div className="mt-3">
-                {/* header */}
-                <header>
-                  <h3 className="text-[1.25rem] font-bold">Our Services</h3>
-                </header>
-                {/* list */}
-                <div className="pl-5">
-                  <ul>
-                    {ourServices?.map((service, index) => (
-                      <li key={index} className="flex items-start gap-2 py-1">
-                        <div className="w-[16px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
-                          <TiTick />
-                        </div>
-                        <div>{service}</div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* background image */}
-        <div className="absolute left-0 bottom-0 h-full w-full flex overflow-hidden">
-          <div className="flex w-full h-full">
-            <img
-              className="w-full object-cover opacity-5"
-              src="/images/bg/bg-one.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* ninth order container */}
-      <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
-        <div>
-          <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
-            {/* top left container */}
-            <div className="w-full lg:w-[50%]">
-              {/* button */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  makuta law firm
-                </button>
-              </div>
-              {/* bold paragraph */}
-              <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
-                <p>Lorem ipsum dolor sit amet consectetur, adipi</p>
-              </div>
-              {/* normal paragraph */}
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Magni nihil explicabo consectetur doloribus saepe delectus,
-                  labore itaque.
-                </p>
-              </div>
-              {/* text with icon */}
-              <div className="flex flex-col gap-y-5 mt-5">
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-pink-100 border border-pink-400 text-pink-600 text-[1.15rem] rounded-full">
-                    <MdOutlineFireplace />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-blue-100 border border-blue-400 text-blue-600 text-[1.15rem] rounded-full">
-                    <IoMdRepeat />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="p-1 bg-green-100 border border-green-400 text-green-600 text-[1.15rem] rounded-full">
-                    <IoFolder />
-                  </div>
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Id suscipit delectus tempora?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* bottom right container */}
-            <div className="w-full lg:w-[50%] flex relative">
-              {/* background image */}
-              <div className="w-full h-full flex px-[15%]">
-                <div className="flex-grow relative after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[80%] after:rounded-tl-[35%] after:bg-orange-400 z-0 flex items-end justify-end">
+              <div className="w-full h-full flex px-[10%]">
+                <div className="flex-grow relative after:absolute after:left-0 after:bottom-0 after:w-[95%] after:h-[80%] after:rounded-tr-[35%] after:bg-orange-400 z-0 flex items-end justify-end">
                   <div>
                     <img
                       className="relative z-10 max-h-[350px]"
@@ -1315,7 +929,7 @@ const HomeIndex = () => {
                 {/* card */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/4 bg-white shadow-lg">
                   <Chart
-                    width={"100%"}
+                    width={"75%"}
                     height={155}
                     type="area"
                     series={[
@@ -1370,12 +984,65 @@ const HomeIndex = () => {
                 </div>
               </div>
             </div>
+            {/* bottom right container */}
+            <div className="w-full lg:w-[50%]">
+              {/* button */}
+              <div>
+                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
+                  makuta law firm
+                </button>
+              </div>
+              {/* bold paragraph */}
+              <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
+                <p>Have you face court or arbitration case in Ethiopian?</p>
+              </div>
+              {/* normal paragraph */}
+              <div>
+                <p>
+                  Don’t worry Makuta Law Firm right behind you. Risk management
+                  and compliance are keys to avoid disruptive large scale
+                  litigation. Whenever possible, our team make sure our clients
+                  implement measures to ensure they do not become embroiled into
+                  dispute. Our Services include
+                </p>
+              </div>
+              {/* text with icon */}
+              <div className="flex flex-col gap-y-5 mt-5">
+                <div className="flex items-center gap-3">
+                  <div className="p-1 bg-pink-100 border border-pink-400 text-pink-600 text-[1.15rem] rounded-full">
+                    <MdOutlineFireplace />
+                  </div>
+                  <div>
+                    <p>Represent clients before at all levels of courts</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="p-1 bg-blue-100 border border-blue-400 text-blue-600 text-[1.15rem] rounded-full">
+                    <IoMdRepeat />
+                  </div>
+                  <div>
+                    <p>Represent clients before any administrative tribunals</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="p-1 bg-green-100 border border-green-400 text-green-600 text-[1.15rem] rounded-full">
+                    <IoFolder />
+                  </div>
+                  <div>
+                    <p>
+                      Represent clients before international and local
+                      arbitrations
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           {/* background image */}
           <div className="absolute left-0 bottom-0 w-full h-full flex overflow-hidden">
             <div className="flex-grow w-full h-full overflow-hidden">
               <img
-                className="h-full w-full object-cover opacity-10"
+                className="h-full w-full object-cover opacity-5"
                 src="/images/bg/bg-two.jpg"
                 alt=""
               />
@@ -1384,7 +1051,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* tenth order container */}
+      {/* eighth order container */}
       <div className="px-[3%] sm:px-[12%] py-[3%]">
         {/* top text container */}
         <div>
