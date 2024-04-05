@@ -440,7 +440,8 @@ const FinalHeader = () => {
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
                                         <NavLink
-                                          to={`${item.path}`}
+                                          // to={`${item.path}`}
+                                          to="/services"
                                           className={"hover:underline"}
                                           onClick={() => {
                                             setIsNav(null);
@@ -479,7 +480,11 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink
+                                          to="/services"
+                                          onClick={() => setIsNav(false)}
+                                          className={"hover:underline"}
+                                        >
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -502,7 +507,8 @@ const FinalHeader = () => {
                                     className="my-[.25rem] font-semibold text-[1.35rem]"
                                   >
                                     <NavLink
-                                      to={`${item?.path}`}
+                                      to="/services"
+                                      // to={`${item?.path}`}
                                       className={"hover:underline"}
                                       onClick={() => {
                                         setIsNav(null);
@@ -534,7 +540,11 @@ const FinalHeader = () => {
                                   key={index}
                                   className="my-[.45rem] text-[1.125rem]"
                                 >
-                                  <NavLink className={"hover:underline"}>
+                                  <NavLink
+                                    to="/services"
+                                    onClick={() => setIsNav(false)}
+                                    className={"hover:underline"}
+                                  >
                                     {item.navHeaderText}
                                   </NavLink>
                                 </li>
@@ -561,7 +571,11 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink
+                                          to="/services"
+                                          onClick={() => setIsNav(false)}
+                                          className={"hover:underline"}
+                                        >
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -592,7 +606,11 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink
+                                          to="/services"
+                                          onClick={() => setIsNav(false)}
+                                          className={"hover:underline"}
+                                        >
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -624,7 +642,11 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink
+                                          to="/services"
+                                          onClick={() => setIsNav(false)}
+                                          className={"hover:underline"}
+                                        >
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -659,7 +681,11 @@ const FinalHeader = () => {
                                       key={index}
                                       className="my-[.3rem] text-[1.125rem]"
                                     >
-                                      <NavLink className={"hover:underline"}>
+                                      <NavLink
+                                        to="/services"
+                                        onClick={() => setIsNav(false)}
+                                        className={"hover:underline"}
+                                      >
                                         {item.navHeaderText}
                                       </NavLink>
                                     </li>
@@ -676,7 +702,11 @@ const FinalHeader = () => {
                                       key={index}
                                       className="my-[.25rem] font-semibold text-[1.35rem]"
                                     >
-                                      <NavLink className={"hover:underline"}>
+                                      <NavLink
+                                        to="/services"
+                                        onClick={() => setIsNav(false)}
+                                        className={"hover:underline"}
+                                      >
                                         {item.navHeaderText}
                                       </NavLink>
                                     </li>
@@ -706,7 +736,8 @@ const FinalHeader = () => {
                                   className="my-[.3rem]  text-[1.125rem]"
                                 >
                                   <NavLink
-                                    to={`${item?.path}`}
+                                    to="/services"
+                                    // to={`${item?.path}`}
                                     className={"hover:underline"}
                                     onClick={() => {
                                       setIsNav(null);

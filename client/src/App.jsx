@@ -82,12 +82,12 @@ function App() {
           <div className="flex flex-col">
             <Routes>
               {/* ###################################### ADMIN DASHBOARD #################################### */}
-              <Route path="/dashboard" element={<HomeDashboard />}>
+              {/* <Route path="/dashboard" element={<HomeDashboard />}>
                 <Route
                   path="/dashboard/applications"
                   element={<Applications />}
                 />
-              </Route>
+              </Route> */}
 
               {/* ###################################### HOME #################################### */}
               <Route path="/" element={<FinalHome />}>
@@ -96,7 +96,7 @@ function App() {
                 <Route path="/signUp" element={<SignUp />}></Route>
                 <Route path="/forget" element={<Forget />}></Route>
                 <Route path="/reset" element={<Reset />}></Route>
-                <Route path="/business" element={<StaticPage />}></Route>
+                <Route path="/services" element={<StaticPage />}></Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>
                 <Route path="/property" element={<Property />}></Route>

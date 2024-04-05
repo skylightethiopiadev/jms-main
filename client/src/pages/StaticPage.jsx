@@ -10,19 +10,19 @@ const StaticPage = () => {
     <div className="w-full flex flex-col mt-20">
       <div className="flex flex-col lg:flex-row items-center justify-center">
         <div className="flex w-full flex-col pl-2  lg:pl-32 items-start justify-center gap-12">
-          <p className="text-lg">Some text here</p>
-          <p className="text-5xl font-semibold">Register your DBA</p>
+          <p className="text-lg">Makuta law firm</p>
+          <p className="text-5xl font-semibold">About Makuta law firm</p>
           <p className="text-lg">
-            Your business name helps establish your brand. Apply for a DBA and
-            make yours memorable. Starts at $99 + filing fees.
+            From wills to powers of attorney, the right estate planning
+            documents can safeguard you and your loved ones—both now, and later.
           </p>
           <button className="px-10 text-xl py-5 hover:text-gray-200 rounded-full bg-main text-white">
-            Register my DBA
+            Join us
           </button>
           <div className="flex items-end justify-end gap-4">
             <p className="text-lg font-bold">Excellent</p>
             <div className="flex gap-1">
-              {[0, 1, 2, 3, 4].map((e) => {
+              {[0, 1, 2, 3, 4].map(e => {
                 return (
                   <div key={e} className="bg-emerald-500 text-white p-1">
                     {e !== 4 ? (
@@ -90,15 +90,14 @@ const StaticPage = () => {
 
       <div className="flex flex-col lg:flex-row w-full px-2 lg:px-32 gap-10 mt-4 lg:mt-32 items-center justify-center">
         <div className="flex w-full flex-col gap-10">
-          <p className="text-5xl font-semibold">Register your DBA</p>
+          <p className="text-5xl font-semibold">Work with Professional</p>
           <p className="text-lg">
-            Your business name helps establish your brand. Apply for a DBA and
-            make yours memorable. Starts at $99 + filing fees. Your business
-            name helps establish your brand. Apply for a DBA and make yours
-            memorable.
+            Whether you need to establish a company, apply for licenses and
+            permits, or obtain a tax ID, we will help set your business up for
+            success.
           </p>
           <button className="w-56 text-xl py-5 hover:text-gray-200 rounded-full bg-main text-white">
-            Register my DBA
+            Register to Makuta
           </button>
         </div>
         <div className="w-full p-5">
@@ -108,22 +107,26 @@ const StaticPage = () => {
 
       <div className="flex flex-col lg:flex-row-reverse w-full px-2 lg:px-32 gap-5 mt-10 lg:mt-32 items-center justify-center">
         <div className="flex w-full flex-col gap-5">
-          <p className="text-4xl font-semibold">Register your DBA</p>
+          <p className="text-4xl font-semibold">Connect with our Business</p>
           <p className="text-lg">
-            Your business name helps establish your brand. Apply for a DBA and
-            make yours memorable. Starts at $99 + filing fees. Your business
-            name helps establish your brand. Apply for a DBA and make yours
-            memorable.
+            Whether you need to establish a company, apply for licenses and
+            permits, or obtain a tax ID, we will help set your business up for
+            success.
           </p>
 
-          <p className="text-4xl font-semibold mt-5">Register your DBA</p>
+          <p className="text-4xl font-semibold mt-5">Find best Lawyers</p>
           <p className="text-lg">
-            Your business name helps establish your brand. Apply for a DBA and
-            make yours memorable. Starts at $99 + filing fees. Your business.
+            Whether you need to establish a company, apply for licenses and
+            permits, or obtain a tax ID, we will help set your business up for
+            success.
           </p>
         </div>
         <div className="w-full p-5">
-          <img src={bg2} alt="" className="w-full border rounded-sm h-[350px]" />
+          <img
+            src={bg2}
+            alt=""
+            className="w-full border rounded-sm h-[350px]"
+          />
         </div>
       </div>
 
@@ -134,133 +137,63 @@ const StaticPage = () => {
         <Accordion>
           <Accordion.Panel>
             <Accordion.Title className="text-black font-bold">
-              What is Flowbite?
+              What is Your scope?
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 ">
-                Flowbite is an open-source library of interactive components
-                built on top of Tailwind CSS including buttons, dropdowns,
-                modals, navbars, and more.
-              </p>
-              <p className="">
-                Check out this guide to learn how to&nbsp;
-                <a
-                  href="https://flowbite.com/docs/getting-started/introduction/"
-                  className="text-cyan-600 hover:underline dark:text-cyan-500"
-                >
-                  get started&nbsp;
-                </a>
-                and start developing websites even faster with components on top
-                of Tailwind CSS.
+                Our Network of experienced lawyers number in the hundreds
+                throughout Africa and the world, ensuring your legal needs are
+                met where you are.
               </p>
             </Accordion.Content>
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title className="text-black font-bold">
-              What is Flowbite?
+              Why Makuta is special?
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 ">
-                Flowbite is an open-source library of interactive components
-                built on top of Tailwind CSS including buttons, dropdowns,
-                modals, navbars, and more.
-              </p>
-              <p className="">
-                Check out this guide to learn how to&nbsp;
-                <a
-                  href="https://flowbite.com/docs/getting-started/introduction/"
-                  className="text-cyan-600 hover:underline dark:text-cyan-500"
-                >
-                  get started&nbsp;
-                </a>
-                and start developing websites even faster with components on top
-                of Tailwind CSS.
+                Our Network of experienced lawyers number in the hundreds
+                throughout Africa and the world, ensuring your legal needs are
+                met where you are.
               </p>
             </Accordion.Content>
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title className="text-black font-bold">
-              What is Flowbite?
+              How can i get Legal Service?
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 ">
-                Flowbite is an open-source library of interactive components
-                built on top of Tailwind CSS including buttons, dropdowns,
-                modals, navbars, and more.
-              </p>
-              <p className="">
-                Check out this guide to learn how to&nbsp;
-                <a
-                  href="https://flowbite.com/docs/getting-started/introduction/"
-                  className="text-cyan-600 hover:underline dark:text-cyan-500"
-                >
-                  get started&nbsp;
-                </a>
-                and start developing websites even faster with components on top
-                of Tailwind CSS.
+                Our Network of experienced lawyers number in the hundreds
+                throughout Africa and the world, ensuring your legal needs are
+                met where you are.
               </p>
             </Accordion.Content>
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title className="text-black font-bold">
-              Is there a Figma file available?
+              Have you face court or arbitration case in Ethiopian?
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 ">
-                Flowbite is first conceptualized and designed using the Figma
-                software so everything you see in the library has a design
-                equivalent in our Figma file.
-              </p>
-              <p className="">
-                Check out the
-                <a
-                  href="https://flowbite.com/figma/"
-                  className="text-cyan-600 hover:underline dark:text-cyan-500"
-                >
-                  Figma design system
-                </a>
-                based on the utility classes from Tailwind CSS and components
-                from Flowbite.
+                Don’t worry Makuta Law Firm right behind you. Risk management
+                and compliance are keys to avoid disruptive large scale
+                litigation. Whenever possible, our team make sure our clients
+                implement measures to ensure they do not become embroiled into
+                dispute. Our Services include
               </p>
             </Accordion.Content>
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title className="text-black font-bold">
-              What are the differences between Flowbite and Tailwind UI?
+              What is intellectual property?
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 ">
-                The main difference is that the core components from Flowbite
-                are open source under the MIT license, whereas Tailwind UI is a
-                paid product. Another difference is that Flowbite relies on
-                smaller and standalone components, whereas Tailwind UI offers
-                sections of pages.
+                Need to trademark your logo, copyright a creative work, or
+                patent an invention? Protect yourself against copycats.
               </p>
-              <p className="mb-2 ">
-                However, we actually recommend using both Flowbite, Flowbite
-                Pro, and even Tailwind UI as there is no technical reason
-                stopping you from using the best of two worlds.
-              </p>
-              <p className="mb-2 ">Learn more about these technologies:</p>
-              <ul className="list-disc pl-5 ">
-                <li>
-                  <a
-                    href="https://flowbite.com/pro/"
-                    className="text-cyan-600 hover:underline dark:text-cyan-500"
-                  >
-                    Flowbite Pro
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://tailwindui.com/"
-                    rel="nofollow"
-                    className="text-cyan-600 hover:underline dark:text-cyan-500"
-                  >
-                    Tailwind UI
-                  </a>
-                </li>
-              </ul>
             </Accordion.Content>
           </Accordion.Panel>
         </Accordion>
