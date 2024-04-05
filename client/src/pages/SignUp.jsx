@@ -38,10 +38,10 @@ const Signup = () => {
         setPending={setPending}
         type="signUp"
       />{" "}
-      <div className="hidden h-auto lg:flex flex-[50%] ">
+      <div className="hidden h-auto w-full lg:flex lg:flex-[50%] ">
         <img src="./bg-1.jpg" alt="" className="w-full h-full brightness-75" />
       </div>{" "}
-      <div className="flex h-auto relative bg-white  flex-[50%]">
+      <div className="flex h-auto relative bg-white w-full  lg:flex-[50%]">
         <div class="max-w-sm relative w-full  px-5 py-5 mx-auto">
           {" "}
           <a href="/" className="text-xl absolute left-5 top-2 font-bold">

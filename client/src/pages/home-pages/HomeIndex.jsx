@@ -439,7 +439,7 @@ const HomeIndex = () => {
               <div className="absolute left-0 bottom-0 h-full w-full z-50 flex flex-col gap-y-5">
                 {/* yellow card div */}
                 <div className="flex-grow flex items-end justify-end h-[75%]">
-                  <div className="flex items-center gap-x-2 p-2 rounded-sm text-white bg-yellow-300">
+                  <div className="hidden lg:flex items-center gap-x-2 p-2 rounded-sm text-white bg-yellow-300">
                     {/* icon */}
                     <div className="rounded-full bg-white text-[1.35rem] text-green-400">
                       <SiPostman />
