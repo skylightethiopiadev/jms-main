@@ -41,7 +41,7 @@ app.use("/makuta/app/v1/account", accountRouter);
 app.use("/makuta/app/v1/chat", chatRouter);
 
 app.get("/", (req, res) => {
-  res.json("Hello from makuta server");
+  res.json("Hello from makuta server"); 
 });
 
 app.all("*", (req, res, next) => {
