@@ -30,6 +30,14 @@ import { FaPersonWalkingLuggage } from "react-icons/fa6";
 import { RiBankLine } from "react-icons/ri";
 import { AiFillPropertySafety } from "react-icons/ai";
 import { FaScaleBalanced } from "react-icons/fa6";
+import { MdInsertLink } from "react-icons/md";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { PiVanLight } from "react-icons/pi";
+import { AiOutlineFileSearch } from "react-icons/ai";
+import { FaBuilding } from "react-icons/fa";
+import { MdEngineering } from "react-icons/md";
+import { GrUserManager } from "react-icons/gr";
+import { MdOutlineElderlyWoman } from "react-icons/md";
 
 const HomeIndex = () => {
   // local states
@@ -253,6 +261,49 @@ const HomeIndex = () => {
       ]
     }
   ];
+  // legal articles
+  const legalArticles = [
+    {
+      icon: FaPeopleGroup,
+      title:'Family Law',
+      path: '#',
+    },
+    {
+      icon: PiVanLight,
+      title:'Personal Injury',
+      path: '#',
+    },
+    {
+      icon: AiOutlineFileSearch,
+      title:'Criminal Defense',
+      path: '#',
+    },
+    {
+      icon: FaBuilding,
+      title:'Estate Planning & Probate',
+      path: '#',
+    },
+    {
+      icon: MdEngineering,
+      title:'Employment & Labor',
+      path: '#',
+    },
+    {
+      icon: GrUserManager,
+      title:'Business & Corporate',
+      path: '#',
+    },
+    {
+      icon: MdOutlineElderlyWoman,
+      title:'Elder Law',
+      path: '#',
+    },
+    {
+      icon: MdOutlineRealEstateAgent,
+      title:'Real Estate',
+      path: '#',
+    },
+  ]
   return (
     <>
       {/* first order container */}
@@ -699,9 +750,56 @@ const HomeIndex = () => {
             </div>
           </div>
         </div>
+        <div className="flex items-center justify-center my-5">
+          <button className="px-3 py-[.35rem] rounded-sm bg-yellow-500 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-yellow-400 hover:underline">
+            View All Legal Issues
+          </button>
+        </div>
       </div>
 
       {/* sixth order container */}
+      <div className="px-[3%] sm:px-[12%]">
+        {/* top text container */}
+        <div>
+          {/* bold paragraph */}
+          <div className="text-[1.15rem] leading-6 md:text-[1.75rem] my-3 font-[700] flex items-center justify-center">
+            <p>Explore our legal article resources</p>
+          </div>
+          {/* normal paragraph */}
+          <div className="flex items-center justify-center my-3">
+            <p>
+              Learn more about your issue by reading helpful articles on a
+              variety of legal topics.
+            </p>
+          </div>
+        </div>
+        {/* grids */}
+        <div className="grid grid-cols-2  md:grid-cols-4 gap-5 py-5">
+          {legalArticles.map((legalArticle, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <div className="p-1 rounded-full border border-yellow-100 w-[42px] aspect-square flex items-center justify-center">
+                <legalArticle.icon className="text-[1.875rem] text-gray-500" />
+              </div>
+              <div className="flex items-center gap-1">
+                <div>
+                  <span className="font-[600] text-[1.1rem]">{legalArticle?.title}</span>
+                  <MdInsertLink className="text-gray-600 rotate-[-45deg] inline-block text-[1.25rem]" />
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* button container */}
+        <div className="flex items-center justify-center my-5">
+          <button className="px-3 py-[.35rem] rounded-sm bg-yellow-500 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-yellow-400 hover:underline">
+            View All Legal Topics
+          </button>
+        </div>
+      </div>
+
+      {/* seventh order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* content container */}
@@ -868,7 +966,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* seventh order container */}
+      {/* eight order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
@@ -1018,7 +1116,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* eight order container */}
+      {/* ninth order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* top container */}
@@ -1278,7 +1376,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* ninth order container */}
+      {/* tenth order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
