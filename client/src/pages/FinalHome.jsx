@@ -266,7 +266,7 @@ const FinalHome = () => {
             {/* bottom left */}
             <div className="w-[90%] sm:w-[65%] self-center md:w-[45%] md:self-start  md:mt-12">
               {/* header */}
-              <header className="flex items-center gap-[15%] px-[5%] py-2 text-white rounded-sm bg-yellow-500">
+              <header className="flex items-center gap-[15%] px-[5%] py-2 text-white rounded-sm bg-yellow-600">
                 <h3 className="text-2xl font-bold">Who we are?</h3>
               </header>
               {/* content */}

@@ -774,7 +774,7 @@ const FinalHeader = () => {
                   <h3 className="mt-3 font-bold">International call center</h3>
                   <h3>Dial: (+251) 985 228 888 </h3>
                 </div>
-                <div className="mt-3 font-medium flex items-center justify-center">
+                <div className="mt-3 font-bold flex items-center justify-center">
                   <h3>Customer care hours</h3>
                 </div>
                 <div>

@@ -128,10 +128,10 @@ export const caseTeams = [
     phone: "+251923996736",
   },
   {
-    first_name: "Menelik",
-    last_name: "H/Melekot",
+    first_name: "Abebe",
+    last_name: "Tafere",
     profile:
-      "https://th.bing.com/th/id/OIP.cout2uQKE3hpvfP5hnnqNQHaKE?rs=1&pid=ImgDetMain",
+      "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg",
     proffession: "Case Manager",
     status: "ACTIVE",
     email: "haddisfun@gmail.com",
