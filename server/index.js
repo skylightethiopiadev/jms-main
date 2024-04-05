@@ -30,7 +30,7 @@ app.use(
     origin: true,
     methods: ["GET", "PUT", "POST", "DELETE", "PATCH"],
     credentials: true,
-  })
+  }) 
 );
 
 app.use(express.json());
