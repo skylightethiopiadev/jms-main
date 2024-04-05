@@ -445,6 +445,8 @@ const FinalHeader = () => {
                                           className={"hover:underline"}
                                           onClick={() => {
                                             setIsNav(null);
+                                            mainNavDrawer();
+                                            setMenuIconToggler(false);
                                           }}
                                         >
                                           {item.navHeaderText}
@@ -482,7 +484,11 @@ const FinalHeader = () => {
                                       >
                                         <NavLink
                                           to="/services"
-                                          onClick={() => setIsNav(false)}
+                                          onClick={() => {
+                                            setIsNav(null);
+                                            mainNavDrawer();
+                                            setMenuIconToggler(false);
+                                          }}
                                           className={"hover:underline"}
                                         >
                                           {item.navHeaderText}
@@ -512,6 +518,8 @@ const FinalHeader = () => {
                                       className={"hover:underline"}
                                       onClick={() => {
                                         setIsNav(null);
+                                        mainNavDrawer();
+                                        setMenuIconToggler(false);
                                       }}
                                     >
                                       {item.navHeaderText}
@@ -542,7 +550,11 @@ const FinalHeader = () => {
                                 >
                                   <NavLink
                                     to="/services"
-                                    onClick={() => setIsNav(false)}
+                                    onClick={() => {
+                                      setIsNav(null);
+                                      mainNavDrawer();
+                                      setMenuIconToggler(false);
+                                    }}
                                     className={"hover:underline"}
                                   >
                                     {item.navHeaderText}
@@ -573,7 +585,11 @@ const FinalHeader = () => {
                                       >
                                         <NavLink
                                           to="/services"
-                                          onClick={() => setIsNav(false)}
+                                          onClick={() => {
+                                            setIsNav(null);
+                                            mainNavDrawer();
+                                            setMenuIconToggler(false);
+                                          }}
                                           className={"hover:underline"}
                                         >
                                           {item.navHeaderText}
@@ -608,7 +624,11 @@ const FinalHeader = () => {
                                       >
                                         <NavLink
                                           to="/services"
-                                          onClick={() => setIsNav(false)}
+                                          onClick={() => {
+                                            setIsNav(null);
+                                            mainNavDrawer();
+                                            setMenuIconToggler(false);
+                                          }}
                                           className={"hover:underline"}
                                         >
                                           {item.navHeaderText}
@@ -644,7 +664,11 @@ const FinalHeader = () => {
                                       >
                                         <NavLink
                                           to="/services"
-                                          onClick={() => setIsNav(false)}
+                                          onClick={() => {
+                                            setIsNav(null);
+                                            mainNavDrawer();
+                                            setMenuIconToggler(false);
+                                          }}
                                           className={"hover:underline"}
                                         >
                                           {item.navHeaderText}
@@ -683,7 +707,11 @@ const FinalHeader = () => {
                                     >
                                       <NavLink
                                         to="/services"
-                                        onClick={() => setIsNav(false)}
+                                        onClick={() => {
+                                          setIsNav(null);
+                                          mainNavDrawer();
+                                          setMenuIconToggler(false);
+                                        }}
                                         className={"hover:underline"}
                                       >
                                         {item.navHeaderText}
@@ -704,7 +732,11 @@ const FinalHeader = () => {
                                     >
                                       <NavLink
                                         to="/services"
-                                        onClick={() => setIsNav(false)}
+                                        onClick={() => {
+                                          setIsNav(null);
+                                          mainNavDrawer();
+                                          setMenuIconToggler(false);
+                                        }}
                                         className={"hover:underline"}
                                       >
                                         {item.navHeaderText}
@@ -741,6 +773,8 @@ const FinalHeader = () => {
                                     className={"hover:underline"}
                                     onClick={() => {
                                       setIsNav(null);
+                                      mainNavDrawer();
+                                      setMenuIconToggler(false);
                                     }}
                                   >
                                     {item.navHeaderText}

@@ -14,16 +14,16 @@ const Forget = () => {
 
   return (
     <div className="w-full gap-3 bg-gray-200 h-[100vh] flex items-start justify-start">
-      <div className="flex flex-[30%] bg-blue-500 h-[100vh]"></div>
+      {/* <div className="flex flex-[30%] bg-blue-500 h-[100vh]"></div>
       <div className="flex flex-[70%]  h-[100vh]"></div>
-      <div className="absolute p-20 top-0 left-0 w-full h-[100vh] bg-transparent rounded-lg">
+      <div className="absolute p-20 top-0 left-0 w-full h-[100vh] bg-transparent rounded-lg"> */}
         <Response
           response={forgetResponse}
           setPending={setPending}
           type="forget"
         />
         <div className="w-full relative h-[75vh] shadow-lg flex flex-col lg:flex-row-reverse rounded-sm bg-white mt-8">
-          <div className="flex relative bg-white  flex-[50%] py-8 ">
+          <div className="flex w-full relative bg-white  flex-[50%] py-8 ">
             <a href="/" className="text-xl absolute left-5 top-2 font-bold">
               <svg
                 class="w-6 h-6 text-gray-800 dark:text-white"
@@ -43,14 +43,14 @@ const Forget = () => {
                 />
               </svg>
             </a>
-            <div class="w-full flex flex-col justify-center px-20 mx-auto">
+            <div class="w-full flex flex-col justify-center px-5 lg:px-20 mx-auto">
               {" "}
               <p className="text-xl font-bold">Forget</p>
               <p className="mt-2">
                 Please insert the email that used before to register in our
                 system.
               </p>
-              <div class="mb-5 mt-4">
+              <div class="mb-5 w-full mt-4">
                 <label
                   for="email"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -80,7 +80,7 @@ const Forget = () => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
