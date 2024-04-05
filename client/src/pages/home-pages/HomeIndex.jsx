@@ -715,7 +715,7 @@ const HomeIndex = () => {
             </p>
           </div>
           {/* grid container */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-[3%]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-[3%]">
             {/* list */}
             {caseTypes.map((item, index) => (
               <div key={index} className="p-3 rounded-md bg-gray-100 relative">
