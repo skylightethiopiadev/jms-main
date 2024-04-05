@@ -305,6 +305,13 @@ const HomeIndex = () => {
       path: "#"
     }
   ];
+  // business lawyers
+  const businessLawyers = [
+    "/images/personnels/lawyer-two.jpg",
+    "/images/lawyers/betlhem.jpg",
+    "/images/lawyers/lawyer-two.jpg",
+    "/images/lawyers/rodas.jpg"
+  ];
   return (
     <>
       {/* first order container */}
@@ -372,8 +379,10 @@ const HomeIndex = () => {
                       <IoMdStarOutline />
                     </div>
                   </div>
-                  <div>
-                    <p>Lorem ipsum and</p>
+                  <div className="relative flex items-center justify-center py-2">
+                    <div className="absolute w-[75%] h-[2px] bg-yellow-500 flex items-center justify-center">
+                      <div className="absolute w-[50%] h-[7px] rounded-full bg-inherit"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -403,8 +412,10 @@ const HomeIndex = () => {
                       <IoMdStarOutline />
                     </div>
                   </div>
-                  <div>
-                    <p>Lorem ipsum also</p>
+                  <div className="relative flex items-center justify-center py-2">
+                    <div className="absolute w-[75%] h-[2px] bg-yellow-500 flex items-center justify-center">
+                      <div className="absolute w-[50%] h-[7px] rounded-full bg-inherit"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -824,18 +835,18 @@ const HomeIndex = () => {
                     <div className="bg-white shadow-lg px-3 py-1">
                       <header>
                         <div>
-                          <h3 className="font-semibold">Active Customers</h3>
+                          <h3 className="font-semibold">Business lawyers</h3>
                         </div>
                       </header>
                       <div className="flex items-center justify-between gap-2">
-                        {[...Array(4)].map((item, index) => (
+                        {businessLawyers.map((item, index) => (
                           <div
                             key={index}
                             className="w-[32px] border-[2px] border-white shadow-md aspect-square overflow-hidden rounded-full"
                           >
                             <img
                               className="h-full object-cover"
-                              src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                              src={item}
                               alt=""
                             />
                           </div>
@@ -867,11 +878,11 @@ const HomeIndex = () => {
                       {/* text container */}
                       <div className="flex items-center justify-between gap-[24px] px-3 mb-2">
                         <div>
-                          <span>customers</span>
+                          <span>Lawyers</span>
                           <h3 className="font-bold text-[1.3rem]">23.7k</h3>
                         </div>
                         <div>
-                          <span>customers</span>
+                          <span>Customers</span>
                           <h3 className="font-bold text-[1.3rem]">23.7k</h3>
                         </div>
                       </div>
@@ -1372,7 +1383,7 @@ const HomeIndex = () => {
           </div>
         </div>
       </div>
-      
+
       {/* tenth order container */}
       <div className="px-[3%] sm:px-[12%] py-[3%]">
         {/* top text container */}
