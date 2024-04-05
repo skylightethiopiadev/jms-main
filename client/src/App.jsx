@@ -112,133 +112,245 @@ function App() {
               </Route>
 
               {/* ###################################### LAWYER DASHBOARD #################################### */}
-              <Route path="/dashboard/lawyer" element={<LawyerDashboard />}>
-                <Route
+              {/* <Route path="/dashboard/lawyer" element={<LawyerDashboard />}> */}
+              {/* <Route
                   // path="/dashboard/customer/home"
                   index
                   element={<LawyerDashboardHome />}
-                ></Route>
-                {/* customer case request */}
-                <Route
+                ></Route> */}
+              {/* customer case request */}
+              {/* <Route
                   path="/dashboard/lawyer/profile"
                   element={<LawyerProfile />}
-                ></Route>
-                {/* change password */}
-                <Route
+                ></Route> */}
+              {/* change password */}
+              {/* <Route
                   path="/dashboard/lawyer/change-password"
                   element={<ChangePassword />}
-                ></Route>
-                <Route
+                ></Route> */}
+              {/* <Route
                   path="/dashboard/lawyer/lawyer-new-case"
                   element={<ComingSoon />}
                   // element={<LawyerNewCase />}
-                ></Route>
-              </Route>
+                ></Route> */}
+              {/* </Route> */}
 
               {/* ###################################### CUSTOMER DASHBOARD #################################### */}
-              <Route path="/dashboard/customer" element={<CustomerDashboard />}>
+              {user?.data?.role === "private-customer" ||
+              user?.data?.role === "private-customer" ? (
                 <Route
-                  // path="/dashboard/customer/home"
-                  index
-                  element={<CustomerDashboardHome />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/message"
-                  element={<ComingSoon />}
-                  // element={<Message />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/message/video"
-                  element={<ComingSoon />}
-                  // element={<Video />}
-                />
-                <Route
-                  path="/dashboard/customer/appointment"
-                  element={<ComingSoon />}
-                  // element={<Appointment />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/success"
-                  element={<ComingSoon />}
-                  // element={<Success />}
-                ></Route>
-                {/* customer compliance */}
-                <Route
-                  path="/dashboard/customer/new-case"
-                  // element={<ComingSoon />}
-                  element={<NewCase />}
-                ></Route>
-                {/* customer case request */}
-                <Route
-                  path="/dashboard/customer/on-request"
-                  element={<OnRequest />}
-                ></Route>
-                {/* customer case request */}
-                <Route
-                  path="/dashboard/customer/profile"
-                  element={<CustomerProfile />}
-                ></Route>
-                {/* change password */}
-                <Route
-                  path="/dashboard/customer/change-password"
-                  element={<ChangePassword />}
-                ></Route>
+                  path="/dashboard/customer"
+                  element={<CustomerDashboard />}
+                >
+                  <Route
+                    // path="/dashboard/customer/home"
+                    index
+                    element={<CustomerDashboardHome />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/message"
+                    element={<ComingSoon />}
+                    // element={<Message />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/message/video"
+                    element={<ComingSoon />}
+                    // element={<Video />}
+                  />
+                  <Route
+                    path="/dashboard/customer/appointment"
+                    element={<ComingSoon />}
+                    // element={<Appointment />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/success"
+                    element={<ComingSoon />}
+                    // element={<Success />}
+                  ></Route>
+                  {/* customer compliance */}
+                  <Route
+                    path="/dashboard/customer/new-case"
+                    // element={<ComingSoon />}
+                    element={<NewCase />}
+                  ></Route>
+                  {/* customer case request */}
+                  <Route
+                    path="/dashboard/customer/on-request"
+                    element={<OnRequest />}
+                  ></Route>
+                  {/* customer case request */}
+                  <Route
+                    path="/dashboard/customer/profile"
+                    element={<CustomerProfile />}
+                  ></Route>
+                  {/* change password */}
+                  <Route
+                    path="/dashboard/customer/change-password"
+                    element={<ChangePassword />}
+                  ></Route>
+                  {/* customer charts */}
+                  <Route
+                    path="/dashboard/customer/case-team"
+                    element={<ComingSoon />}
+                    // element={<CaseTeam />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/active-case"
+                    element={<ComingSoon />}
+                    // element={<ActiveCase />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/closed-case"
+                    element={<ComingSoon />}
+                    // element={<ClosedCase />}
+                  ></Route>
+                  {/* customer finance */}
+                  <Route
+                    path="/dashboard/customer/add-funds"
+                    element={<ComingSoon />}
+                    // element={<AddFunds />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/requested-payment"
+                    element={<ComingSoon />}
+                    // element={<RequestedPayment />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/refund-funds"
+                    element={<ComingSoon />}
+                    // element={<RefundFunds />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/recent-transactions"
+                    element={<ComingSoon />}
+                    // element={<RecentTransactions />}
+                  ></Route>
+                  {/* customer services */}
+                  <Route
+                    path="/dashboard/customer/training"
+                    element={<ComingSoon />}
+                    // element={<Training />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/consulting"
+                    element={<ComingSoon />}
+                    // element={<Consulting />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/customer/researches"
+                    element={<ComingSoon />}
+                    // element={<Researches />}
+                  ></Route>{" "}
+                  <Route path="*" element={<PageNotFound />} />
+                </Route>
+              ) : null}
 
-                {/* customer charts */}
-                <Route
-                  path="/dashboard/customer/case-team"
-                  element={<ComingSoon />}
-                  // element={<CaseTeam />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/active-case"
-                  element={<ComingSoon />}
-                  // element={<ActiveCase />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/closed-case"
-                  element={<ComingSoon />}
-                  // element={<ClosedCase />}
-                ></Route>
-                {/* customer finance */}
-                <Route
-                  path="/dashboard/customer/add-funds"
-                  element={<ComingSoon />}
-                  // element={<AddFunds />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/requested-payment"
-                  element={<ComingSoon />}
-                  // element={<RequestedPayment />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/refund-funds"
-                  element={<ComingSoon />}
-                  // element={<RefundFunds />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/recent-transactions"
-                  element={<ComingSoon />}
-                  // element={<RecentTransactions />}
-                ></Route>
-                {/* customer services */}
-                <Route
-                  path="/dashboard/customer/training"
-                  element={<ComingSoon />}
-                  // element={<Training />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/consulting"
-                  element={<ComingSoon />}
-                  // element={<Consulting />}
-                ></Route>
-                <Route
-                  path="/dashboard/customer/researches"
-                  element={<ComingSoon />}
-                  // element={<Researches />}
-                ></Route>
-              </Route>
-              <Route path="*" element={<PageNotFound />} />
+              {/* ###################################### LAWYER DASHBOARD #################################### */}
+              {user?.data?.role === "lawyer" && (
+                <Route path="/dashboard/lawyer" element={<CustomerDashboard />}>
+                  <Route
+                    // path="/dashboard/customer/home"
+                    index
+                    element={<CustomerDashboardHome />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/message"
+                    element={<ComingSoon />}
+                    // element={<Message />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/message/video"
+                    element={<ComingSoon />}
+                    // element={<Video />}
+                  />
+                  <Route
+                    path="/dashboard/lawyer/appointment"
+                    element={<ComingSoon />}
+                    // element={<Appointment />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/success"
+                    element={<ComingSoon />}
+                    // element={<Success />}
+                  ></Route>
+                  {/* customer compliance */}
+                  <Route
+                    path="/dashboard/lawyer/new-case"
+                    element={<ComingSoon />}
+                    // element={<NewCase />}
+                  ></Route>
+                  {/* customer case request */}
+                  <Route
+                    path="/dashboard/lawyer/on-request"
+                    // element={<OnRequest />}
+                    element={<ComingSoon />}
+                  ></Route>
+                  {/* customer case request */}
+                  <Route
+                    path="/dashboard/lawyer/profile"
+                    element={<CustomerProfile />}
+                  ></Route>
+                  {/* change password */}
+                  <Route
+                    path="/dashboard/lawyer/change-password"
+                    element={<ChangePassword />}
+                  ></Route>
+                  {/* customer charts */}
+                  <Route
+                    path="/dashboard/lawyer/case-team"
+                    element={<ComingSoon />}
+                    // element={<CaseTeam />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/active-case"
+                    element={<ComingSoon />}
+                    // element={<ActiveCase />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/closed-case"
+                    element={<ComingSoon />}
+                    // element={<ClosedCase />}
+                  ></Route>
+                  {/* customer finance */}
+                  <Route
+                    path="/dashboard/lawyer/add-funds"
+                    element={<ComingSoon />}
+                    // element={<AddFunds />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/requested-payment"
+                    element={<ComingSoon />}
+                    // element={<RequestedPayment />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/refund-funds"
+                    element={<ComingSoon />}
+                    // element={<RefundFunds />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/recent-transactions"
+                    element={<ComingSoon />}
+                    // element={<RecentTransactions />}
+                  ></Route>
+                  {/* customer services */}
+                  <Route
+                    path="/dashboard/lawyer/training"
+                    element={<ComingSoon />}
+                    // element={<Training />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/consulting"
+                    element={<ComingSoon />}
+                    // element={<Consulting />}
+                  ></Route>
+                  <Route
+                    path="/dashboard/lawyer/researches"
+                    element={<ComingSoon />}
+                    // element={<Researches />}
+                  ></Route>{" "}
+                  <Route path="*" element={<PageNotFound />} />
+                </Route>
+              )}
             </Routes>
           </div>
         </div>

@@ -50,6 +50,8 @@ const privateSchema = new mongoose.Schema(
 
     profilePicture: {
       type: String,
+      default:
+        "https://res.cloudinary.com/dkvjvnil8/image/upload/v1712314644/vzmlq3pntlqhnkpv5zwx.png",
     },
 
     profileFillStatus: {

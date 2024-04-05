@@ -34,7 +34,6 @@ const lawyerSchema = new mongoose.Schema(
     },
 
     address: {
-      default: "gedeon",
       type: String,
       validate: valid.paragraph("Address", 4, 200),
     },
@@ -97,7 +96,7 @@ const lawyerSchema = new mongoose.Schema(
 
     profilePicture: {
       type: String,
-      default: "https",
+      default:'https://res.cloudinary.com/dkvjvnil8/image/upload/v1712314644/vzmlq3pntlqhnkpv5zwx.png'
     },
 
     profileFillStatus: {

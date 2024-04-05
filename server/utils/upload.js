@@ -13,13 +13,13 @@ const filter = (req, file, cb) => {
 };
 
 const diskStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./uploads");
-  },
+  // destination: (req, file, cb) => {
+  //   cb(null, "./uploads");
+  // },
   filename: (req, file, cb) => {
     cb(
       null,
-      file.fieldname +
+      file.filename +
         Date.now() +
         Math.round(Math.random() * 1e9) +
         "." +

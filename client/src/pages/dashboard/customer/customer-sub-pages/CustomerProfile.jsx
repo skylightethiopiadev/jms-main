@@ -51,7 +51,15 @@ const CustomerProfile = () => {
     formData.append("nationality", nationality);
     formData.append("profilePicture", profilePicture);
     formData.append("bio", bio);
-    formData.append("url", `/user/privates?id=${context?.user?.user?._id}`);
+    formData.append(
+      "url",
+      `/user/${
+        context?.user?.role === "private-customer" ||
+        context?.user?.role === "business-customer"
+          ? "privates"
+          : "lawyers"
+      }?id=${context?.user?.user?._id}`
+    );
     formData.append("tag", ["users", "privates", "lawyers"]);
     updateData(formData);
   };

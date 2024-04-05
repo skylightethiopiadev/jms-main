@@ -882,9 +882,14 @@ const FinalHeader = () => {
                     <div>
                       <ul>
                         <li>
-                          <NavLink
-                            to={`/dashboard/${
-                              context?.user?.role?.split("-")[1]
+                          <a
+                            href={`/dashboard/${
+                              context?.user?.role === "private-customer" ||
+                              context?.user?.role === "business-customer"
+                                ? "customer"
+                                : context?.user?.role === "lawyer"
+                                ? "lawyer"
+                                : null
                             }`}
                             className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75"
                           >
@@ -896,12 +901,17 @@ const FinalHeader = () => {
                             <div>
                               <span>Dashboard</span>
                             </div>
-                          </NavLink>
+                          </a>
                         </li>
                         <li>
                           <a
                             href={`/dashboard/${
-                              context?.user?.role?.split("-")[1]
+                              context?.user?.role === "private-customer" ||
+                              context?.user?.role === "business-customer"
+                                ? "customer"
+                                : context?.user?.role === "lawyer"
+                                ? "lawyer"
+                                : null
                             }/profile`}
                             className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75"
                           >
@@ -912,6 +922,44 @@ const FinalHeader = () => {
                             {/* text */}
                             <div>
                               <span>Profile</span>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href={`/dashboard/${
+                              context?.user?.role === "private-customer" ||
+                              context?.user?.role === "business-customer"
+                                ? "customer"
+                                : context?.user?.role === "lawyer"
+                                ? "lawyer"
+                                : null
+                            }/change-password`}
+                            className="flex items-center gap-2 py-1 transition-all ease-in-out duration-300 hover:opacity-75"
+                          >
+                            {/* icon */}
+                            <div>
+                              <svg
+                                class="w-7 h-7 -ml-1"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M9.5 11.5 11 13l4-3.5M12 20a16.405 16.405 0 0 1-5.092-5.804A16.694 16.694 0 0 1 5 6.666L12 4l7 2.667a16.695 16.695 0 0 1-1.908 7.529A16.406 16.406 0 0 1 12 20Z"
+                                />
+                              </svg>
+                            </div>
+                            {/* text */}
+                            <div>
+                              <span>Security</span>
                             </div>
                           </a>
                         </li>

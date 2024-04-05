@@ -238,13 +238,31 @@ const CustomerDashboardHeader = () => {
                   </div>
                   {/* action buttons */}
                   <div className="flex items-center justify-center gap-3 mt-5">
-                    <a href="/dashboard/customer/profile">
+                    <a
+                      href={`/dashboard/${
+                        context?.user?.role === "private-customer" ||
+                        context?.user?.role === "business-customer"
+                          ? "customer"
+                          : context?.user?.role === "lawyer"
+                          ? "lawyer"
+                          : null
+                      }/profile`}
+                    >
                       <button className="flex items-center justify-center gap-1 p-1 border border-black border-opacity-5 rounded-full transition-opacity ease-in-out duration-300 hover:border-opacity-15">
                         <CgProfile className="text-gray-500 text-[1.35rem]" />
                         <span className="text-gray-700">Profile</span>
                       </button>
                     </a>
-                    <a href="/dashboard/customer/change-password">
+                    <a
+                      href={`/dashboard/${
+                        context?.user?.role === "private-customer" ||
+                        context?.user?.role === "business-customer"
+                          ? "customer"
+                          : context?.user?.role === "lawyer"
+                          ? "lawyer"
+                          : null
+                      }/change-password`}
+                    >
                       <button className="flex items-center justify-center gap-1 p-1 border border-black border-opacity-5 rounded-full transition-opacity ease-in-out duration-300 hover:border-opacity-15">
                         <svg
                           class="w-6 h-6 text-gray-500"

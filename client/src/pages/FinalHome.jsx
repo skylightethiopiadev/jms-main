@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-// icons
+// icons 
 import { FaFacebookF, FaYoutube } from "react-icons/fa";
 import {
   IoMdStar,

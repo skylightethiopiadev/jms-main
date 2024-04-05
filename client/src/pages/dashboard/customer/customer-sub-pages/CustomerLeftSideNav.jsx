@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -21,6 +21,7 @@ import { IoExitSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { useUserLogoutMutation } from "../../../../features/api/apiSlice";
 import Response from "../../../../components/Response";
+import { userContext } from "../../../../App";
 
 // pop up nav
 const subNavLinkPopUpVariant = {
@@ -37,6 +38,7 @@ const subNavLinkPopUpVariant = {
 // main
 // CustomerLeftSideNav
 const CustomerLeftSideNav = () => {
+  const user = useContext(userContext);
   const [logout, logoutResponse] = useUserLogoutMutation();
   const [pending, setPending] = useState(false);
 
@@ -109,7 +111,14 @@ const CustomerLeftSideNav = () => {
         <div className="text-gray-500 text-[1rem]">
           {/* Dashboard */}
           <NavLink
-            to={`/dashboard/customer`}
+            to={`/dashboard/${
+              user?.user?.role === "private-customer" ||
+              user?.user?.role === "business-customer"
+                ? "customer"
+                : user?.user?.role === "lawyer"
+                ? "lawyer"
+                : null
+            }`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "DASHBOARD" ? "dashboard-active-link-color" : ""
             }`}
@@ -173,7 +182,14 @@ const CustomerLeftSideNav = () => {
               >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
-                    to={`/dashboard/customer/new-case`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/new-case`}
                     className={`dashboard-sub-link-items ${
                       isNav === "NEW-CASE" ? "dashboard-active-link-color" : ""
                     }`}
@@ -186,7 +202,14 @@ const CustomerLeftSideNav = () => {
                     New Case
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/on-request`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/on-request`}
                     className={`dashboard-sub-link-items ${
                       isNav === "ON-REQUEST"
                         ? "dashboard-active-link-color"
@@ -254,7 +277,14 @@ const CustomerLeftSideNav = () => {
               >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
-                    to={`/dashboard/customer/case-team`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/case-team`}
                     className={`dashboard-sub-link-items ${
                       isNav === "CASE-TEAM" ? "dashboard-active-link-color" : ""
                     }`}
@@ -267,7 +297,14 @@ const CustomerLeftSideNav = () => {
                     Case Team
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/active-case`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/active-case`}
                     className={`dashboard-sub-link-items ${
                       isNav === "ACTIVE-CASE"
                         ? "dashboard-active-link-color"
@@ -282,7 +319,14 @@ const CustomerLeftSideNav = () => {
                     Active Case
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/closed-case`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/closed-case`}
                     className={`dashboard-sub-link-items ${
                       isNav === "CLOSED-CASE"
                         ? "dashboard-active-link-color"
@@ -304,7 +348,14 @@ const CustomerLeftSideNav = () => {
           </div>
           {/* message */}
           <NavLink
-            to={`/dashboard/customer/message`}
+            to={`/dashboard/${
+              user?.user?.role === "private-customer" ||
+              user?.user?.role === "business-customer"
+                ? "customer"
+                : user?.user?.role === "lawyer"
+                ? "lawyer"
+                : null
+            }/message`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "MESSAGE" ? "dashboard-active-link-color" : ""
             }`}
@@ -322,7 +373,14 @@ const CustomerLeftSideNav = () => {
           </NavLink>
           {/* appointment */}
           <NavLink
-            to={`/dashboard/customer/appointment`}
+            to={`/dashboard/${
+              user?.user?.role === "private-customer" ||
+              user?.user?.role === "business-customer"
+                ? "customer"
+                : user?.user?.role === "lawyer"
+                ? "lawyer"
+                : null
+            }/appointment`}
             className={`flex items-center dashboard-link-item-my ${
               isNav === "APPOINTMENT" ? "dashboard-active-link-color" : ""
             }`}
@@ -386,7 +444,14 @@ const CustomerLeftSideNav = () => {
               >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
-                    to={`/dashboard/customer/add-funds`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/add-funds`}
                     className={`dashboard-sub-link-items ${
                       isNav === "ADD-FUNDS" ? "dashboard-active-link-color" : ""
                     }`}
@@ -399,7 +464,14 @@ const CustomerLeftSideNav = () => {
                     Add Funds
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/requested-payment`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/requested-payment`}
                     className={`dashboard-sub-link-items ${
                       isNav === "REQUESTED-PAYMENT"
                         ? "dashboard-active-link-color"
@@ -414,7 +486,14 @@ const CustomerLeftSideNav = () => {
                     Requested Payment
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/refund-funds`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/refund-funds`}
                     className={`dashboard-sub-link-items ${
                       isNav === "REFUND-FUNDS"
                         ? "dashboard-active-link-color"
@@ -429,7 +508,14 @@ const CustomerLeftSideNav = () => {
                     Refund Funds
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/recent-transactions`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/recent-transactions`}
                     className={`dashboard-sub-link-items ${
                       isNav === "RECENT-TRANSACTION"
                         ? "dashboard-active-link-color"
@@ -497,7 +583,14 @@ const CustomerLeftSideNav = () => {
               >
                 <div className="flex flex-col w-full bg-white">
                   <NavLink
-                    to={`/dashboard/customer/training`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/training`}
                     className={`dashboard-sub-link-items ${
                       isNav === "TRAINING" ? "dashboard-active-link-color" : ""
                     }`}
@@ -510,7 +603,14 @@ const CustomerLeftSideNav = () => {
                     Traning
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/consulting`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/consulting`}
                     className={`dashboard-sub-link-items ${
                       isNav === "CONSULTING"
                         ? "dashboard-active-link-color"
@@ -525,7 +625,14 @@ const CustomerLeftSideNav = () => {
                     Consulting
                   </NavLink>
                   <NavLink
-                    to={`/dashboard/customer/researches`}
+                    to={`/dashboard/${
+                      user?.user?.role === "private-customer" ||
+                      user?.user?.role === "business-customer"
+                        ? "customer"
+                        : user?.user?.role === "lawyer"
+                        ? "lawyer"
+                        : null
+                    }/researches`}
                     className={`dashboard-sub-link-items ${
                       isNav === "RESEARCHES"
                         ? "dashboard-active-link-color"

@@ -54,6 +54,7 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       if (type === "login" || type === "signUp") {
         setTimeout(() => {
           navigate(dashboard, { replace: true });
+          navigate(0);
         }, 1000);
       } else if (type === "payment") {
         localStorage.removeItem("macuta_law_firm_system");
@@ -68,8 +69,6 @@ const Response = ({ response, setPending, redirectTo, type }) => {
       } else if (redirectTo && redirectTo?.length > 0) {
         navigate(redirectTo, { replace: true });
       }
-
-      // navigate(0);
     }
     // navigate(redirectTo);
     // response.status === "fulfilled"
