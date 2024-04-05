@@ -720,7 +720,7 @@ const HomeIndex = () => {
             {caseTypes.map((item, index) => (
               <div key={index} className="p-3 rounded-md bg-gray-100 relative">
                 <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
-                  <item.icon className="text-[1.5rem] text-yellow-500" />
+                  <item.icon className="text-[1.5rem] text-blue-800" />
                 </div>
                 <h3 className="mt-3 flex items-center justify-center font-bold">
                   {item.title}
@@ -736,7 +736,7 @@ const HomeIndex = () => {
             ))}
             <div className="p-3 rounded-md bg-gray-100 relative">
               <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
-                <FaScaleBalanced className="text-[1.5rem] text-yellow-500" />
+                <FaScaleBalanced className="text-[1.5rem] text-blue-800" />
               </div>
 
               <ul className="flex flex-col items-center font-bold my-5">
@@ -751,7 +751,7 @@ const HomeIndex = () => {
           </div>
         </div>
         <div className="flex items-center justify-center my-5">
-          <button className="px-3 py-[.35rem] rounded-sm bg-yellow-500 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-yellow-400 hover:underline">
+          <button className="px-3 py-[.35rem] rounded-sm bg-blue-900 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-blue-800 hover:underline">
             View All Legal Issues
           </button>
         </div>
@@ -793,7 +793,7 @@ const HomeIndex = () => {
         </div>
         {/* button container */}
         <div className="flex items-center justify-center my-5">
-          <button className="px-3 py-[.35rem] rounded-sm bg-yellow-500 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-yellow-400 hover:underline">
+          <button className="px-3 py-[.35rem] rounded-sm bg-blue-900 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-blue-800 hover:underline">
             View All Legal Topics
           </button>
         </div>
