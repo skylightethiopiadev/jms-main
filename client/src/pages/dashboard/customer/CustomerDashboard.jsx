@@ -83,7 +83,7 @@ const CustomerDashboard = () => {
             </div>
             {/* right content */}
             <div
-              className="p-3 overflow-y-auto pb-5 absolute bg-white right-[-100vw] z-40 xl:inline-block xl:relative xl:right-0 transition-all ease-in-out duration-150"
+              className="p-3 overflow-y-auto pb-5 absolute bg-white right-[-100vw] z-0 xl:inline-block xl:relative xl:right-0 transition-all ease-in-out duration-150 h-[90vh]"
               id="customer-dashboard-right-side-bar"
             >
               {/* close button */}
@@ -170,11 +170,11 @@ const CustomerDashboard = () => {
                     <span className="font-bold">23</span>
                   </div>
                   <div className="flex flex-col gap-y-5 p-1 items-center">
-                    <span>S</span>
+                    <span>Sa</span>
                     <span className="font-bold">24</span>
                   </div>
                   <div className="flex flex-col gap-y-5 p-1 items-center">
-                    <span>S</span>
+                    <span>Su</span>
                     <span className="font-bold">25</span>
                   </div>
                 </div>
@@ -189,12 +189,12 @@ const CustomerDashboard = () => {
                     <h3 className="text-lg font-bold text-gray-900 my-2">
                       $21,328.00
                     </h3>
-                    <div className="flex items-center justify-between gap-2">
-                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
-                        Fund
+                    <div className="flex items-center justify-between gap-1 whitespace-nowrap">
+                      <button className="px-1 py-1 rounded-md bg-yellow-400 text-white">
+                        Add funds
                       </button>
-                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
-                        Refund
+                      <button className="px-1 py-1 rounded-md bg-yellow-400 text-white">
+                        Withdraw funds
                       </button>
                     </div>
                   </div>
@@ -202,7 +202,7 @@ const CustomerDashboard = () => {
                 {/* bottom */}
                 <div className="my-3">
                   <div className="flex items-center justify-between my-1 relative">
-                    <h3 className="font-semibold">Expenses Analysis</h3>
+                    <h3 className="font-semibold">Expense Analysis</h3>
                     <button
                       className="text-gray-500 rounded-full border border-gray-500 flex items-center justify-between p-1 transition-all ease-in-out duration-300 hover:border-gray-900 hover:text-gray-900"
                       onClick={() => setIsMonthPopup(!isMonthPopup)}

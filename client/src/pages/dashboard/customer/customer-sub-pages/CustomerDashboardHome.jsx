@@ -13,7 +13,7 @@ import {
   IoStarHalfOutline,
   IoStarSharp,
   IoAlarmOutline,
-  IoReload,
+  IoReload
 } from "react-icons/io5";
 
 // data files
@@ -34,49 +34,49 @@ const CustomerDashboardHome = () => {
         data: [
           {
             x: "Jan 22 2024",
-            y: [2800, 4500],
+            y: [2800, 4500]
           },
           {
             x: "May 22 2024",
-            y: [3200, 5100],
+            y: [3200, 5100]
           },
           {
             x: "Jan 22 2024",
-            y: [2950, 6800],
+            y: [2950, 6800]
           },
           {
             x: "Feb 22 2024",
-            y: [3000, 4600],
+            y: [3000, 4600]
           },
           {
             x: "June 22 2024",
-            y: [3500, 5100],
+            y: [3500, 5100]
           },
           {
             x: "October 22 2024",
-            y: [4500, 6500],
-          },
+            y: [4500, 6500]
+          }
           // {
           //   x: "July 22 2024",
           //   y: [3100, 6600],
           // },
-        ],
-      },
+        ]
+      }
     ],
     options: {
       chart: {
         height: 350,
         type: "rangeBar",
         zoom: {
-          enabled: false,
-        },
+          enabled: false
+        }
       },
       plotOptions: {
         bar: {
           isDumbbell: true,
           columnWidth: 3,
-          dumbbellColors: [["#008FFB", "#00E396"]],
-        },
+          dumbbellColors: [["#008FFB", "#00E396"]]
+        }
       },
       legend: {
         show: true,
@@ -87,8 +87,8 @@ const CustomerDashboardHome = () => {
           "Oral litigation",
           "Oral ligigation",
           "Oral litigation",
-          "Oral litigation",
-        ],
+          "Oral litigation"
+        ]
       },
       fill: {
         type: "gradient",
@@ -96,29 +96,29 @@ const CustomerDashboardHome = () => {
           type: "vertical",
           gradientToColors: ["#00E396"],
           inverseColors: true,
-          stops: [0, 100],
-        },
+          stops: [0, 100]
+        }
       },
       grid: {
         xaxis: {
           lines: {
-            show: true,
-          },
+            show: true
+          }
         },
         yaxis: {
           lines: {
-            show: false,
-          },
-        },
+            show: false
+          }
+        }
       },
       xaxis: {
-        tickPlacement: "on",
-      },
-    },
+        tickPlacement: "on"
+      }
+    }
   };
 
   return (
-    <div className="p-[2%] relative h-[94vh] overflow-y-auto pb-7">
+    <div className="p-[2%] relative h-[91vh] overflow-y-auto pb-1">
       {isUserMorePopup ? (
         <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
@@ -126,7 +126,7 @@ const CustomerDashboardHome = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.15 }}
             className="bg-white z-[1200] w-max right-0 top-[2rem] rounded-md cursor-default shadow-xl flex flex-col items-center p-3"
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
             }}
           >
@@ -175,7 +175,7 @@ const CustomerDashboardHome = () => {
               </button>
               <button
                 className="flex items-center justify-between my-1 px-3 py-[.25rem] text-gray-500 border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700"
-                onClick={(e) => {
+                onClick={e => {
                   e.stopPropagation();
                   setIsUserMorePopup(null);
                 }}
@@ -196,7 +196,7 @@ const CustomerDashboardHome = () => {
           <div className="flex-grow w-[100%] flex flex-col gap-y-3">
             <div>
               <h3 className="font-bold">
-                Ma<span className="text-blue-700">ku</span>tta
+                Ma<span className="text-blue-700">ku</span>ta
               </h3>
             </div>
             <div>
@@ -204,7 +204,7 @@ const CustomerDashboardHome = () => {
               <p>
                 Explore the network of{" "}
                 <span className="font-black text-blue-700">500+</span> lawyers
-                who are members of our service
+                who are members of our service.
               </p>
             </div>
             <div>
@@ -238,12 +238,12 @@ const CustomerDashboardHome = () => {
               Next Appointment
             </h3>
             <div className="flex gap-1">
-              <span className="text-gray-500 font-medium">type:</span>
-              <span className="text-gray-500">Oral Litagation</span>
+              <span className="text-gray-500 font-medium">Type:</span>
+              <span className="text-gray-500">Oral Litigation</span>
             </div>
             <div>
               <h3 className="text-[1.1rem] text-gray-500 font-bold my-1">
-                5 march,2024
+                5 March, 2024
               </h3>
             </div>
             <div className="relative w-full flex items-center justify-end mt-[-.4rem] pt-2">
@@ -306,20 +306,31 @@ const CustomerDashboardHome = () => {
               {
                 name: "spent",
                 data: [
-                  120, 100, 145, 170, 100, 200, 125, 125, 160, 150, 130, 100,
-                ],
-              },
+                  120,
+                  100,
+                  145,
+                  170,
+                  100,
+                  200,
+                  125,
+                  125,
+                  160,
+                  150,
+                  130,
+                  100
+                ]
+              }
             ]}
             options={{
               legend: {
-                show: false,
+                show: false
               },
               dataLabels: {
                 show: false,
-                formatter: (val) => ``,
+                formatter: val => ``
               },
               tooltip: {
-                fillSeriesColor: true,
+                fillSeriesColor: true
               },
               xaxis: {
                 categories: [
@@ -334,24 +345,24 @@ const CustomerDashboardHome = () => {
                   "May",
                   "Jun",
                   "Jul",
-                  "Aug",
+                  "Aug"
                 ],
-                tickPlacement: "off",
+                tickPlacement: "off"
               },
               yaxis: {
                 labels: {
-                  show: false,
-                },
+                  show: false
+                }
               },
               grid: {
-                show: false,
+                show: false
               },
               plotOptions: {
                 bar: {
-                  distributed: true,
+                  distributed: true
                   // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                },
-              },
+                }
+              }
             }}
           ></Chart>
           {/* <div className="flex items-center justify-center">
@@ -437,7 +448,7 @@ const CustomerDashboardHome = () => {
                     <td>
                       <div className="relative">
                         <button
-                          onClick={(e) => {
+                          onClick={e => {
                             if (isUserMore) {
                               setIsUserMore(null);
                             } else {
@@ -453,7 +464,7 @@ const CustomerDashboardHome = () => {
                             <ul className="px-3 py-1">
                               <li
                                 className="flex items-center gap-x-1 py-1 font-semibold cursor-pointer mb-1 border-b border-gray-300"
-                                onClick={(e) => {
+                                onClick={e => {
                                   e.stopPropagation();
                                   setIsUserMorePopup(team);
                                   setIsUserMore(null);
@@ -492,7 +503,7 @@ const CustomerDashboardHome = () => {
             </div>
           </header>
           <div
-            className="h-[28vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2"
+            className="h-[30vh] w-[100%] sm:w-[230px] overflow-y-auto py-2 pr-2"
             id="case-history-list-container"
           >
             {/* case history cards */}
@@ -505,7 +516,7 @@ const CustomerDashboardHome = () => {
                       history.status === "ACTIVE"
                         ? "border-green-400"
                         : "border-red-400"
-                    } rounded-md shadow-md py-2 mb-5 pl-2`}
+                    } rounded-md shadow-md py-2 mt-5 pl-2`}
                   >
                     <div className="flex items-center justify-between text-gray-500 text-sm">
                       <div>

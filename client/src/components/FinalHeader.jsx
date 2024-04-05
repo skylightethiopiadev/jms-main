@@ -60,7 +60,7 @@ const FinalHeader = () => {
           navHeaderText: "Contract",
           subNavList: [
             {
-              navHeaderText: "Contract of special movables (Vehicles)",
+              navHeaderText: "Contract of special movables (vehicles)",
               path: "contract-of-special-movables"
             },
             {
@@ -82,6 +82,10 @@ const FinalHeader = () => {
             {
               navHeaderText: "Loan",
               path: "#"
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
             }
           ]
         },
@@ -98,6 +102,10 @@ const FinalHeader = () => {
             },
             {
               navHeaderText: "Divorce",
+              path: "#"
+            },
+            {
+              navHeaderText: "Others",
               path: "#"
             }
           ]
@@ -121,6 +129,10 @@ const FinalHeader = () => {
         {
           navHeaderText: "Torts",
           path: "/torts"
+        },
+        {
+          navHeaderText: "Others",
+          path: "#"
         }
       ]
     }
@@ -136,7 +148,7 @@ const FinalHeader = () => {
       path: "#"
     },
     {
-      navHeaderText: "Money laundering (Financial Fraud)",
+      navHeaderText: "Money laundering (Financial fraud)",
       path: "#"
     },
     {
@@ -174,6 +186,10 @@ const FinalHeader = () => {
             {
               navHeaderText: "Loan",
               path: "#"
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
             }
           ]
         },
@@ -189,7 +205,7 @@ const FinalHeader = () => {
               path: "#"
             },
             {
-              navHeaderText: "Trade mark",
+              navHeaderText: "Trademark",
               path: "#"
             },
             {
@@ -201,7 +217,11 @@ const FinalHeader = () => {
               path: "#"
             },
             {
-              navHeaderText: "varieties and plant breeders' right",
+              navHeaderText: "Varieties and plant breeders' right",
+              path: "#"
+            },
+            {
+              navHeaderText: "Others",
               path: "#"
             }
           ]
@@ -220,6 +240,10 @@ const FinalHeader = () => {
             {
               navHeaderText: "Capital market",
               path: "#"
+            },
+            {
+              navHeaderText: "Others",
+              path: "#"
             }
           ]
         },
@@ -232,7 +256,7 @@ const FinalHeader = () => {
             },
             {
               navHeaderText:
-                "Bankruptcy (scheme of arrangement or dissolution)",
+                "Bankruptcy (Scheme of arrangement or dissolution)",
               path: "#"
             },
             {
@@ -245,6 +269,10 @@ const FinalHeader = () => {
             },
             {
               navHeaderText: "Reorganization",
+              path: "#"
+            },
+            {
+              navHeaderText: "Others",
               path: "#"
             }
           ]
@@ -264,6 +292,10 @@ const FinalHeader = () => {
         {
           navHeaderText: "Joint venture",
           path: "#"
+        },
+        {
+          navHeaderText: "Others",
+          path: "#"
         }
       ]
     }
@@ -279,7 +311,7 @@ const FinalHeader = () => {
       path: "/consulting"
     },
     {
-      navHeaderText: "Researches",
+      navHeaderText: "Research",
       path: "/researches"
     }
   ];
@@ -485,7 +517,7 @@ const FinalHeader = () => {
                             {/* see all button */}
                             <div className="hidden lg:flex absolute right-20 bottom-20">
                               <div className="flex items-center gap-1 font-[500] text-[1.35rem] cursor-pointer underline transition-colors ease-in-out duration-300 hover:opacity-75">
-                                <div>See all business services</div>
+                                <div>See all civil services</div>
                                 <div>
                                   <MdKeyboardArrowRight className="text-[2rem]" />
                                 </div>
@@ -656,7 +688,7 @@ const FinalHeader = () => {
                             {/* see all button */}
                             <div className="absolute right-20 bottom-20">
                               <div className="flex items-center gap-1 font-[500] text-[1.35rem] cursor-pointer underline transition-colors ease-in-out duration-300 hover:opacity-75">
-                                <div>See all business services</div>
+                                <div>See all corporate services</div>
                                 <div>
                                   <MdKeyboardArrowRight className="text-[2rem]" />
                                 </div>
@@ -734,15 +766,23 @@ const FinalHeader = () => {
                   </button>
                 </div>
                 <div className="font-medium">
-                  <h3>Talk to Makutta</h3>
-                  <h3>(+2519) 239-96736</h3>
+                  <h3 className="font-bold text-[1.15rem]">Talk to Makuta</h3>
+
+                  <h3 className="mt-3 font-bold">Local call center</h3>
+
+                  <h3>Dial: 8383</h3>
+                  <h3 className="mt-3 font-bold">International call center</h3>
+                  <h3>Dial: (+251) 985 228 888 </h3>
                 </div>
-                <div className="my-3 font-medium">
-                  <h3>Customer Care hours</h3>
+                <div className="mt-3 font-medium flex items-center justify-center">
+                  <h3>Customer care hours</h3>
                 </div>
                 <div>
-                  <p>Mon-Fri 5 a.m. - 7 p.m. PT</p>
-                  <p>Weekends 7 a.m. - 4 p.m. PT</p>
+                  <div className="w-full flex items-center justify-center">
+                    <div className="p-2 w-[70px] aspect-square overflow-hidden rounded-full bg-black bg-opacity-5 flex items-center justify-center">
+                      <span className="text-[1.35rem] font-black">24/7</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -804,10 +844,10 @@ const FinalHeader = () => {
                 {/* user drop down */}
                 <div
                   className={`absolute left-1/2 -translate-x-1/2 top-[120%] overflow-hidden transition-all ease-in-out duration-300 ${
-                    isUserDropDown ? "max-h-[100vh]" : "max-h-0"
+                    isUserDropDown ? "max-h-[100vh]  shadow-xl" : "max-h-0"
                   }`}
                 >
-                  <div className="py-3 px-5 bg-white rounded-md shadow-lg">
+                  <div className="py-3 px-5 bg-white rounded-md">
                     {/* image container */}
                     <div className="w-full flex items-center justify-center border-b border-black border-opacity-10 px-10">
                       <div className="flex flex-col items-center">

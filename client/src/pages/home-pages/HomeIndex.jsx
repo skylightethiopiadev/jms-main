@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Chart from "react-apexcharts";
 
 // icons
@@ -6,7 +7,7 @@ import {
   IoMdStar,
   IoMdStarHalf,
   IoMdStarOutline,
-  IoMdRepeat,
+  IoMdRepeat
 } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { SiPostman } from "react-icons/si";
@@ -17,6 +18,26 @@ import { GiOpenFolder } from "react-icons/gi";
 import { IoFolder } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import { GoLightBulb } from "react-icons/go";
+import { MdFamilyRestroom } from "react-icons/md";
+import { MdOutlinePersonalInjury } from "react-icons/md";
+import { FaGun } from "react-icons/fa6";
+import { PiBriefcaseMetal } from "react-icons/pi";
+import { MdNextPlan } from "react-icons/md";
+import { FaBusinessTime } from "react-icons/fa";
+import { MdOutlineRealEstateAgent } from "react-icons/md";
+import { GrShieldSecurity } from "react-icons/gr";
+import { FaPersonWalkingLuggage } from "react-icons/fa6";
+import { RiBankLine } from "react-icons/ri";
+import { AiFillPropertySafety } from "react-icons/ai";
+import { FaScaleBalanced } from "react-icons/fa6";
+import { MdInsertLink } from "react-icons/md";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { PiVanLight } from "react-icons/pi";
+import { AiOutlineFileSearch } from "react-icons/ai";
+import { FaBuilding } from "react-icons/fa";
+import { MdEngineering } from "react-icons/md";
+import { GrUserManager } from "react-icons/gr";
+import { MdOutlineElderlyWoman } from "react-icons/md";
 
 const HomeIndex = () => {
   // local states
@@ -28,39 +49,286 @@ const HomeIndex = () => {
     "Advise on bankruptcy and financial frameworks",
     "Advise on syndicated loan or finance",
     "Advise on project finance",
-    "Advise on secured lending, sovereign loans and debt restructuring",
+    "Advise on secured lending, sovereign loans and debt restructuring"
   ];
   const ourServicesTwo = [
     "IP due diligence ",
     "Technology transactions",
     "Strategic IP counselling",
     "Trademark, copyright and patent registration and renewal",
-    "Represent clients before tribunal all the way to the Federal Supreme Court",
+    "Represent clients before tribunal all the way to the Federal Supreme Court"
   ];
+
+  // lawyers
+  const ourLawyers = [
+    {
+      first_name: "Betlhem",
+      middle_name: "Melese",
+      last_name: "Eshetu",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/betlhem.jpg"
+    },
+    {
+      first_name: "Haddis",
+      middle_name: "Fanta",
+      last_name: "Shiferaw",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/lawyer-one.jpg"
+    },
+    {
+      first_name: "Rodas",
+      middle_name: "Girma",
+      last_name: "W/Gebreal",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/rodas.jpg"
+    },
+    {
+      first_name: "Gedeon",
+      middle_name: "Agmas",
+      last_name: "W/Gebreal",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/lawyer-two.jpg"
+    },
+    {
+      first_name: "Andualem",
+      middle_name: "Chane",
+      last_name: "W/Gebreal",
+      profession: "Lawyer/Partner",
+      profile_path: "/images/lawyers/lawyer-three.jpg"
+    }
+  ];
+  // case categories
+  const caseTypes = [
+    // family
+    {
+      icon: MdFamilyRestroom,
+      title: "Family",
+      subList: [
+        {
+          text: "Divorce",
+          path: "#"
+        },
+        {
+          text: "Child Custody",
+          path: "#"
+        },
+        {
+          text: "Child Support",
+          path: "#"
+        }
+      ]
+    },
+    // personal injury
+    {
+      icon: MdOutlinePersonalInjury,
+      title: "Personal Injury",
+      subList: [
+        {
+          text: "Car Accident",
+          path: "#"
+        },
+        {
+          text: "Medical Malpractice",
+          path: "#"
+        },
+        {
+          text: "Wrongful Death",
+          path: "#"
+        }
+      ]
+    },
+    // criminal defense
+    {
+      icon: FaGun,
+      title: "Criminal Defense",
+      subList: [
+        {
+          text: "DUI and DWI",
+          path: "#"
+        },
+        {
+          text: "Traffic Violations",
+          path: "#"
+        },
+        {
+          text: "Domestic Violence",
+          path: "#"
+        }
+      ]
+    },
+    // employment
+    {
+      icon: PiBriefcaseMetal,
+      title: "Employment",
+      subList: [
+        {
+          text: "Discrimination",
+          path: "#"
+        },
+        {
+          text: "Workers Compensation",
+          path: "#"
+        },
+        {
+          text: "Wrongful Termination",
+          path: "#"
+        }
+      ]
+    },
+    // estate planning
+    {
+      icon: MdNextPlan,
+      title: "Estate Planning",
+      subList: [
+        {
+          text: "Probate",
+          path: "#"
+        },
+        {
+          text: "Trusts",
+          path: "#"
+        }
+      ]
+    },
+    // business
+    {
+      icon: FaBusinessTime,
+      title: "Business",
+      subList: [
+        {
+          text: "Corporate",
+          path: "#"
+        },
+        {
+          text: "Contracts",
+          path: "#"
+        }
+      ]
+    },
+    // real estate
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Real Estate",
+      subList: [
+        {
+          text: "Landlord and Tenant",
+          path: "#"
+        }
+      ]
+    },
+    // social security
+    {
+      icon: GrShieldSecurity,
+      title: "Social Security",
+      subList: [
+        {
+          text: "Social Security Disability",
+          path: "#"
+        }
+      ]
+    },
+    // immigration
+    {
+      icon: FaPersonWalkingLuggage,
+      title: "Immigration",
+      subList: [
+        {
+          text: "Citizenship",
+          path: "#"
+        }
+      ]
+    },
+    // bankruptcy
+    {
+      icon: RiBankLine,
+      title: "Bankruptcy",
+      subList: [
+        {
+          text: "Foreclosures",
+          path: "#"
+        }
+      ]
+    },
+    // intellectual property
+    {
+      icon: AiFillPropertySafety,
+      title: "Intellectual Property",
+      subList: [
+        {
+          text: "Patents",
+          path: "#"
+        }
+      ]
+    }
+  ];
+  // legal articles
+  const legalArticles = [
+    {
+      icon: FaPeopleGroup,
+      title:'Family Law',
+      path: '#',
+    },
+    {
+      icon: PiVanLight,
+      title:'Personal Injury',
+      path: '#',
+    },
+    {
+      icon: AiOutlineFileSearch,
+      title:'Criminal Defense',
+      path: '#',
+    },
+    {
+      icon: FaBuilding,
+      title:'Estate Planning & Probate',
+      path: '#',
+    },
+    {
+      icon: MdEngineering,
+      title:'Employment & Labor',
+      path: '#',
+    },
+    {
+      icon: GrUserManager,
+      title:'Business & Corporate',
+      path: '#',
+    },
+    {
+      icon: MdOutlineElderlyWoman,
+      title:'Elder Law',
+      path: '#',
+    },
+    {
+      icon: MdOutlineRealEstateAgent,
+      title:'Real Estate',
+      path: '#',
+    },
+  ]
   return (
     <>
       {/* first order container */}
       <div className="w-full px-[3%] pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
-          <div className="w-full mt-12 sm:mt-5  sm:w-[45%]">
+          <div className="w-full mt-12 sm:mt-3  sm:w-[45%]">
             {/* first button */}
-            <div className="sm:mt-16">
-              <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
-                Legal Help In Ethiopia
+            <div className="sm:mt-10">
+              <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full text-[1.15rem] font-semibold">
+                Safeguard, Hope, and Promise
               </button>
             </div>
             {/* bold paragraph */}
-            <div className="my-7">
+            <div className="my-5">
               <p className="text-[1.23rem] track md:text-[2.875rem] leading-7 md:leading-[50px] font-[700] my-[1%]">
-                U.S Legal Help in Ethiopia
+                Professional Legal Service in Ethiopia
               </p>
             </div>
             {/* normal paragraph */}
             <div>
               <p className="my-[5%]">
-                Get the legal help you needs, with our DIY services or attorney
-                advice. Either way, we've got your back
+                Get qualified and efficient legal help from lawyers who are the
+                highest professionals in their field, in every area of law. We
+                have you covered.
               </p>
             </div>
             {/* gold buttons */}
@@ -166,7 +434,7 @@ const HomeIndex = () => {
                     </div>
                     {/* text */}
                     <div>
-                      <p>Ethiopian, Wisdom</p>
+                      <p>Addis Ababa, Ethiopia</p>
                     </div>
                   </div>
                 </div>
@@ -175,7 +443,7 @@ const HomeIndex = () => {
                   <div className="bg-white shadow-lg mb-[-24px] w-max">
                     <header className="px-3 py-2 border-b border-gray-100">
                       <h3 className="text-[.85rem] font-[700]">
-                        Our Expert Lawyers
+                        Lawyers in Our Network
                       </h3>
                     </header>
                     <div
@@ -183,7 +451,7 @@ const HomeIndex = () => {
                       id="home-lawyer-list-card"
                     >
                       {/* lawyer container */}
-                      {[...Array(12)].map((item, index) => (
+                      {ourLawyers.map((lawyer, index) => (
                         <div
                           key={index}
                           className="flex items-center justify-between gap-x-[50px] my-1"
@@ -192,17 +460,17 @@ const HomeIndex = () => {
                             <div className="w-[28px] aspect-square rounded-full overflow-hidden">
                               <img
                                 className="w-full h-full object-cover"
-                                src="/images/personnels/lawyer-two.jpg"
+                                src={lawyer.profile_path}
                                 alt=""
                               />
                             </div>
                             <div>
                               <div className="text-[.875rem] font-semibold flex items-center gap-1 mb-[-5px]">
-                                <span>Haddis</span>
-                                <span>Fanta</span>
+                                <span>{lawyer?.first_name}</span>
+                                <span>{lawyer?.middle_name}</span>
                               </div>
                               <span className="text-[.75rem] text-gray-400">
-                                web dev
+                                {lawyer?.profession}
                               </span>
                             </div>
                           </div>
@@ -236,7 +504,7 @@ const HomeIndex = () => {
           </div>
         </div>
       </div>
-      {/* post-first */}
+      {/* second order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         <div className="w-full flex items-center gap-0">
           {/* text container */}
@@ -247,26 +515,25 @@ const HomeIndex = () => {
             {/* sub texts */}
             <div className="mb-7">
               <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Expertise</p>
+                <p>Network</p>
               </div>
               <div className="text-[1rem]">
                 <p>
-                  Our team of experienced lawyers specializes in various areas
-                  of law, ensuring you receive the best legal advice tailored to
-                  your needs.
+                  Our Network of experienced lawyers number in the hundreds
+                  throughout Africa and the world, ensuring your legal needs are
+                  met where you are.
                 </p>
               </div>
             </div>
 
             <div className="mb-7">
               <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Personalized Approach</p>
+                <p>Professionalism</p>
               </div>
               <div className="text-[1rem]">
                 <p>
-                  We take the time to understand your unique situation and
-                  provide personalized solutions to ensure the best possible
-                  outcome for your case.
+                  Our team of lawyers have superior local and international
+                  experience to meet your needs.
                 </p>
               </div>
             </div>
@@ -278,8 +545,8 @@ const HomeIndex = () => {
               <div className="text-[1rem]">
                 <p>
                   Your satisfaction is our top priority, and we strive to go
-                  above and beyond to exceed your expectations and deliver
-                  exceptional legal services.
+                  above and beyond your expectations to deliver superlative
+                  legal services.
                 </p>
               </div>
             </div>
@@ -289,23 +556,18 @@ const HomeIndex = () => {
             {/* image container */}
             <div className="flex items-center justify-center">
               <div>
-                <img
-                  src="https://www.legalzoom.com/resources/img/lzr/homepage/kelly-why-us.jpg"
-                  alt=""
-                />
+                <img src="/images/bg/site-image.jpg" alt="" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* pre-second order container */}
+      {/* third order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         {/* first container for bold text */}
-        <div className="flex items-center justify-center text-[1.5rem] sm:text-[1.85rem] lg:text-[2.5rem] font-bold text-center px-[5%]">
-          <p>
-            Comprehensive Legal Assistance for Every Aspect of Your Business
-          </p>
+        <div className="flex items-center justify-center text-[1.5rem] sm:text-[1.85rem] lg:text-[2.5rem] font-bold text-center px-[15%]">
+          <p>Comprehensive Legal Assistance For Every Need</p>
         </div>
         {/* second container */}
         <div className="flex flex-col lg:flex-row items-end mt-10">
@@ -315,7 +577,7 @@ const HomeIndex = () => {
             <div className="w-full h-full overflow-hidden">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                src="https://www.austinchronicle.com/binary/fa07/pols_feature27.jpg"
                 alt=""
               />
             </div>
@@ -324,7 +586,7 @@ const HomeIndex = () => {
                 <GoLightBulb className="text-[2.5rem]" />
               </div>
               <div className="font-semibold text-[.875rem] ">
-                <p>We've made dreams a reality for 2m+ entrepreneurs.</p>
+                <p>We'll make dreams a reality throughout the world</p>
               </div>
             </div>
           </div>
@@ -371,97 +633,253 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* second order container */}
-      <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
-        <div className="relative z-50">
-          {/* top container */}
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-center justify-between lg:gap-[10%] ">
-            {/* top left container */}
-            <div className="w-full lg:w-[50%]">
-              {/* button container */}
-              <div>
-                <button className="px-[7%] py-1 rounded-full border border-sky-200 bg-sky-100">
-                  some text here
-                </button>
-              </div>
-              {/* bold paragraph */}
-              <div className="text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] my-3 md:leading-8">
-                <p>Lorem ipsum dolor, sit amet consectetur</p>
-              </div>
-              {/* normal paragraph */}
-              <div>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti assumenda autem amet.
-                </p>
-              </div>
+      {/* fourth order container */}
+      <div className="px-[3%] sm:px-[12%] py-[3%]">
+        {/* content container container */}
+        <div className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row items-end">
+          {/* left */}
+          <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
+            {/* bold paragraph */}
+            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
+              <p>For your business</p>
             </div>
-            {/* bottom right */}
-            <div className="w-full lg:w-[75%] flex flex-col gap-y-2 md:flex-row md:items-center justify-between md:gap-[5%]">
-              {/* left */}
-              <div className="flex flex-col gap-y-2 md:gap-y-7">
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-orange-300 bg-orange-50 text-orange-500 text-[1.45rem]">
-                      <FaCarCrash />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet cons</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-green-300 bg-green-50 text-green-500 text-[1.45rem]">
-                      <MdDashboard />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet cons</p>
-                  </div>
-                </div>
-              </div>
-              {/* right */}
-              <div className="flex flex-col gap-y-2 md:gap-y-7">
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-pink-300 bg-pink-50 text-pink-500 text-[1.45rem]">
-                      <FaShoppingCart />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet man</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 ">
-                  {/* icon */}
-                  <div>
-                    <div className="p-2 rounded-full border border-blue-300 bg-blue-50 text-blue-500 text-[1.45rem]">
-                      <GiOpenFolder />
-                    </div>
-                  </div>
-                  {/* text */}
-                  <div>
-                    <p>Lorem ipsum dolor sit amet cons</p>
-                  </div>
-                </div>
-              </div>
+            {/* normal paragraph */}
+            <div className="text-[.875rem] md:text-[1.05rem]">
+              <p>
+                Whether you need to establish a company, apply for licenses and
+                permits, or obtain a tax ID, we will help set your business up
+                for success.
+              </p>
+            </div>
+            {/* first button */}
+            <div className="my-7">
+              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
+                start my business
+              </button>
+            </div>
+            {/* second buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mb-3">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                PLC
+              </button>
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Share Company
+              </button>
+            </div>
+            {/* third buttons */}
+            <div className="flex items-center gap-5 text-[1.05rem] font-semibold mt-5">
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                NGO
+              </button>
+              <button className="rounded-full px-5 md:px-10 py-2 border-[2px] border-gray-200  transition-all ease-in-out duration-300 hover:bg-gray-200">
+                Get Legal Help
+              </button>
             </div>
           </div>
 
-          {/* bottom container */}
+          {/* right */}
+          <div className="w-[100%] lg:w-[50%] relative flex">
+            {/* image container */}
+            <div className="w-full h-full overflow-hidden">
+              <img
+                className="h-full w-full object-center object-cover"
+                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                alt=""
+              />
+            </div>
+            <div className="absolute top-0 left-0 bg-white w-[250px] h-[150px] shadow-xl p-5">
+              <div className="my-3">
+                <GoLightBulb className="text-[2.5rem]" />
+              </div>
+              <div className="font-semibold text-[.875rem] ">
+                <p>We'll make dreams a reality throughout the world</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* fifth order container */}
+      <div className="w-full py-[1%] px-[3%] sm:px-[12%]">
+        {/* text container */}
+        <div>
+          {/* bold paragraph */}
+          <div className="text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] flex items-center justify-center">
+            <p>FIND A LAWYER BY PRACTICE AREA</p>
+          </div>
+          {/* normal paragraph */}
+          <div className="flex items-center justify-center my-3">
+            <p>
+              Our directory of lawyers covers over 150 practice areas across the
+              US and Canada
+            </p>
+          </div>
+          {/* grid container */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-[3%]">
+            {/* list */}
+            {caseTypes.map((item, index) => (
+              <div key={index} className="p-3 rounded-md bg-gray-100 relative">
+                <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
+                  <item.icon className="text-[1.5rem] text-blue-800" />
+                </div>
+                <h3 className="mt-3 flex items-center justify-center font-bold">
+                  {item.title}
+                </h3>
+                <ul className="flex flex-col items-center">
+                  {item?.subList.map((subList, index) => (
+                    <li key={index}>
+                      <NavLink>{subList.text}</NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div className="p-3 rounded-md bg-gray-100 relative">
+              <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
+                <FaScaleBalanced className="text-[1.5rem] text-blue-800" />
+              </div>
+
+              <ul className="flex flex-col items-center font-bold my-5">
+                <li>
+                  <NavLink>Tax</NavLink>
+                </li>
+                <li>
+                  <NavLink>Civil Litigation</NavLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center my-5">
+          <button className="px-3 py-[.35rem] rounded-sm bg-blue-900 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-blue-800 hover:underline">
+            View All Legal Issues
+          </button>
+        </div>
+      </div>
+
+      {/* sixth order container */}
+      <div className="px-[3%] sm:px-[12%]">
+        {/* top text container */}
+        <div>
+          {/* bold paragraph */}
+          <div className="text-[1.15rem] leading-6 md:text-[1.75rem] my-3 font-[700] flex items-center justify-center">
+            <p>Explore our legal article resources</p>
+          </div>
+          {/* normal paragraph */}
+          <div className="flex items-center justify-center my-3">
+            <p>
+              Learn more about your issue by reading helpful articles on a
+              variety of legal topics.
+            </p>
+          </div>
+        </div>
+        {/* grids */}
+        <div className="grid grid-cols-2  md:grid-cols-4 gap-5 py-5">
+          {legalArticles.map((legalArticle, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <div className="p-1 rounded-full border border-yellow-100 w-[42px] aspect-square flex items-center justify-center">
+                <legalArticle.icon className="text-[1.875rem] text-gray-500" />
+              </div>
+              <div className="flex items-center gap-1">
+                <div>
+                  <span className="font-[600] text-[1.1rem]">{legalArticle?.title}</span>
+                  <MdInsertLink className="text-gray-600 rotate-[-45deg] inline-block text-[1.25rem]" />
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* button container */}
+        <div className="flex items-center justify-center my-5">
+          <button className="px-3 py-[.35rem] rounded-sm bg-blue-900 text-white font-[600] transition-all ease-in-out duration-300 hover:bg-blue-800 hover:underline">
+            View All Legal Topics
+          </button>
+        </div>
+      </div>
+
+      {/* seventh order container */}
+      <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
+        <div className="relative z-50">
+          {/* content container */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[7%] py-[4%]">
             {/* left container */}
+            <div className="w-full lg:w-[50%]">
+              {/* button container */}
+              <div>
+                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
+                  makuta
+                </button>
+              </div>
+              {/* bold paragraph */}
+              <div className="text-[1.5rem] font-bold my-3 leading-7">
+                <p>Are you looking for an intellectual property lawyer?</p>
+              </div>
+              {/* normal paragraph */}
+              <div className="relative">
+                <div
+                  className={`absolute left-0 top-0 bg-transparent overflow-hidden transition-all ease-in-out duration-300 z-50 ${
+                    isOtherService ? "h-[50vh]" : "h-0"
+                  }`}
+                >
+                  <div className="p-3 bg-inherit relative bg-white">
+                    <p>
+                      Financial sector including capital market is obvious
+                      choice for foreign companies to engage in. Ethiopia is
+                      liberalizing many sectors that were otherwise reserved for
+                      local investors. One of the areas that the government is
+                      planning to liberalize is financial sector. With the
+                      opening up of various sectors for foreign investors
+                      coupled with the coming of capital market, triggers the
+                      need to have a support of law firm. We have highly
+                      regarded lawyers in the sector that can exactly meet your
+                      needs to work with your company.
+                    </p>
+                    <button
+                      className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
+                      onClick={() => {
+                        setIsOtherService(false);
+                      }}
+                    >
+                      <MdClose className="text-[1.15rem]" />
+                    </button>
+                  </div>
+                </div>
+                <p className="">
+                  You have clicked the right platform. Harnessing innovation and
+                  digital transformation is essential to the long-term success
+                  of companies and institutions.
+                </p>
+              </div>
+              {/* our services */}
+              <div className="mt-3">
+                {/* header */}
+                <header>
+                  <h3 className="text-[1.25rem] font-bold">Our Services</h3>
+                </header>
+                {/* list */}
+                <div className="pl-5">
+                  <ul>
+                    {ourServicesTwo?.map((service, index) => (
+                      <li key={index} className="flex items-start gap-3 py-1">
+                        <div className="w-[14px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
+                          <TiTick />
+                        </div>
+                        <div className="border-b border-black border-opacity-0">
+                          {service}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* right container */}
             <div className="w-full mb-14 lg:mb-auto lg:w-[50%] relative flex items-center justify-center">
               {/* background image */}
               <div className="px-[10%] flex-grow flex">
-                <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-r-full after:z-0">
+                <div className="h-[350px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-cyan-500 after:rounded-l-full after:z-0">
                   <img
                     className="relative z-10 h-full"
                     src="/images/personnels/lawyer-five.png"
@@ -533,77 +951,6 @@ const HomeIndex = () => {
                 </div>
               </div>
             </div>
-            {/* right container */}
-            <div className="w-full lg:w-[50%]">
-              {/* button container */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  some text
-                </button>
-              </div>
-              {/* bold paragraph */}
-              <div className="text-[1.5rem] font-bold my-3 leading-7">
-                <p>Are you looking for an intellectual property lawyer?</p>
-              </div>
-              {/* normal paragraph */}
-              <div className="relative">
-                <div
-                  className={`absolute left-0 top-0 bg-transparent overflow-hidden transition-all ease-in-out duration-300 z-50 ${
-                    isOtherService ? "h-[50vh]" : "h-0"
-                  }`}
-                >
-                  <div className="p-3 bg-inherit relative bg-white">
-                    <p>
-                      Financial sector including capital market is obvious
-                      choice for foreign companies to engage in. Ethiopia is
-                      liberalizing many sectors that were otherwise reserved for
-                      local investors. One of the areas that the government is
-                      planning to liberalize is financial sector. With the
-                      opening up of various sectors for foreign investors
-                      coupled with the coming of capital market, triggers the
-                      need to have a support of law firm. We have highly
-                      regarded lawyers in the sector that can exactly meet your
-                      needs to work with your company.
-                    </p>
-                    <button
-                      className="absolute bottom-1 right-1 rounded-full p-1 bg-gray-100 transition-all ease-in-out duration-300 hover:bg-gray-200"
-                      onClick={() => {
-                        setIsOtherService(false);
-                      }}
-                    >
-                      <MdClose className="text-[1.15rem]" />
-                    </button>
-                  </div>
-                </div>
-                <p className="">
-                  You have clicked the right platform. Harnessing innovation and
-                  digital transformation is essential to the long-term success
-                  of companies and institutions.
-                </p>
-              </div>
-              {/* our services */}
-              <div className="mt-3">
-                {/* header */}
-                <header>
-                  <h3 className="text-[1.25rem] font-bold">Our Services</h3>
-                </header>
-                {/* list */}
-                <div className="pl-5">
-                  <ul>
-                    {ourServicesTwo?.map((service, index) => (
-                      <li key={index} className="flex items-start gap-3 py-1">
-                        <div className="w-[14px] aspect-square bg-emerald-500 text-white rounded-full relative flex items-center justify-center">
-                          <TiTick />
-                        </div>
-                        <div className="border-b border-black border-opacity-0">
-                          {service}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -619,7 +966,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* third order container */}
+      {/* eight order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
@@ -628,19 +975,19 @@ const HomeIndex = () => {
               {/* button */}
               <div>
                 <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  some text here
+                  makuta law firm
                 </button>
               </div>
               {/* bold paragraph */}
               <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
-                <p>Lorem ipsum dolor sit amet consectetur, adipi</p>
+                <p>For your business</p>
               </div>
               {/* normal paragraph */}
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Magni nihil explicabo consectetur doloribus saepe delectus,
-                  labore itaque.
+                  Whether you need to establish a company, apply for licenses
+                  and permits, or obtain a tax ID, we will help set your
+                  business up for success.
                 </p>
               </div>
               {/* text with icon */}
@@ -680,6 +1027,7 @@ const HomeIndex = () => {
                 </div>
               </div>
             </div>
+
             {/* bottom right container */}
             <div className="w-full lg:w-[50%] flex relative">
               {/* background image */}
@@ -697,27 +1045,27 @@ const HomeIndex = () => {
               {/* content */}
               <div className="absolute left-0 top-0 w-full h-full z-50">
                 {/* card */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/4 bg-white shadow-lg">
+                <div className="absolute left-[-20px] top-1/2 -translate-y-1/4 bg-white shadow-lg">
                   <Chart
-                    width={"100%"}
+                    width={"80%"}
                     height={155}
                     type="area"
                     series={[
                       {
                         name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125],
-                      },
+                        data: [120, 100, 145, 170, 100, 200, 125]
+                      }
                     ]}
                     options={{
                       legend: {
-                        show: false,
+                        show: false
                       },
                       dataLabels: {
                         show: false,
-                        formatter: (val) => ``,
+                        formatter: val => ``
                       },
                       tooltip: {
-                        fillSeriesColor: true,
+                        fillSeriesColor: true
                       },
                       xaxis: {
                         categories: [
@@ -728,27 +1076,27 @@ const HomeIndex = () => {
                           "Jan",
                           "Feb",
                           "Mar",
-                          "Apr",
+                          "Apr"
                         ],
                         labels: {
-                          show: false,
+                          show: false
                         },
-                        tickPlacement: "off",
+                        tickPlacement: "off"
                       },
                       yaxis: {
                         labels: {
-                          show: true,
-                        },
+                          show: true
+                        }
                       },
                       grid: {
-                        show: false,
+                        show: false
                       },
                       plotOptions: {
                         bar: {
-                          distributed: true,
+                          distributed: true
                           // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                        },
-                      },
+                        }
+                      }
                     }}
                   ></Chart>
                 </div>
@@ -768,7 +1116,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* forth order container */}
+      {/* ninth order container */}
       <div className="w-full py-[3%] px-[3%] sm:px-[12%] relative h-max">
         <div className="relative z-50">
           {/* top container */}
@@ -1028,7 +1376,7 @@ const HomeIndex = () => {
         </div>
       </div>
 
-      {/* fifth order container */}
+      {/* tenth order container */}
       <div className="px-[3%] sm:px-[12%] bg-gradient-to-r from-gray-50 to-orange-100 py-[3%] flex items-center justify-between gap-[5%] relative">
         <div>
           <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-y-5 lg:gap-y-0 lg:gap-[5%] relative z-30">
@@ -1114,19 +1462,19 @@ const HomeIndex = () => {
                     series={[
                       {
                         name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125],
-                      },
+                        data: [120, 100, 145, 170, 100, 200, 125]
+                      }
                     ]}
                     options={{
                       legend: {
-                        show: false,
+                        show: false
                       },
                       dataLabels: {
                         show: false,
-                        formatter: (val) => ``,
+                        formatter: val => ``
                       },
                       tooltip: {
-                        fillSeriesColor: true,
+                        fillSeriesColor: true
                       },
                       xaxis: {
                         categories: [
@@ -1137,27 +1485,27 @@ const HomeIndex = () => {
                           "Jan",
                           "Feb",
                           "Mar",
-                          "Apr",
+                          "Apr"
                         ],
                         labels: {
-                          show: false,
+                          show: false
                         },
-                        tickPlacement: "off",
+                        tickPlacement: "off"
                       },
                       yaxis: {
                         labels: {
-                          show: true,
-                        },
+                          show: true
+                        }
                       },
                       grid: {
-                        show: false,
+                        show: false
                       },
                       plotOptions: {
                         bar: {
-                          distributed: true,
+                          distributed: true
                           // colors: ["#00B136", "#B23601", "#011CB2", "#A001B2"],
-                        },
-                      },
+                        }
+                      }
                     }}
                   ></Chart>
                 </div>
