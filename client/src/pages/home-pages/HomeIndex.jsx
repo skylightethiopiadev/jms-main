@@ -66,35 +66,35 @@ const HomeIndex = () => {
       first_name: "Betlhem",
       middle_name: "Melese",
       last_name: "Eshetu",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/betlhem.jpg"
     },
     {
       first_name: "Haddis",
       middle_name: "Fanta",
       last_name: "Shiferaw",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/lawyer-one.jpg"
     },
     {
       first_name: "Rodas",
       middle_name: "Girma",
       last_name: "W/Gebreal",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/rodas.jpg"
     },
     {
       first_name: "Gedeon",
       middle_name: "Agmas",
       last_name: "W/Gebreal",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/lawyer-two.jpg"
     },
     {
       first_name: "Andualem",
       middle_name: "Chane",
       last_name: "W/Gebreal",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/lawyer-three.jpg"
     }
   ];
