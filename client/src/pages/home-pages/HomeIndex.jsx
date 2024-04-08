@@ -20,7 +20,7 @@ import { MdClose } from "react-icons/md";
 import { GoLightBulb } from "react-icons/go";
 import { MdFamilyRestroom } from "react-icons/md";
 import { MdOutlinePersonalInjury } from "react-icons/md";
-import { FaGun } from "react-icons/fa6";
+import { GiHandcuffs } from "react-icons/gi";
 import { PiBriefcaseMetal } from "react-icons/pi";
 import { MdNextPlan } from "react-icons/md";
 import { FaBusinessTime } from "react-icons/fa";
@@ -140,7 +140,7 @@ const HomeIndex = () => {
     },
     // criminal defense
     {
-      icon: FaGun,
+      icon: GiHandcuffs,
       title: "Criminal Defense",
       subList: [
         {
@@ -325,6 +325,8 @@ const HomeIndex = () => {
                 Safeguard, Hope, and Promise
               </button>
             </div>
+
+            
             {/* bold paragraph */}
             <div className="my-5">
               <p className="text-[1.23rem] track md:text-[2.875rem] leading-7 md:leading-[50px] font-[700] my-[1%]">

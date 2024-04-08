@@ -88,6 +88,7 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
 
 export const logoutHandler = asyncCatch(async (req, res, next) => {
   res.cookie("_m_l_f_s", "", { maxAge: 1 });
+  res.clearCookie("_m_l_f_s");
   res.status(200).json({
     message: "Log out successful",
   });

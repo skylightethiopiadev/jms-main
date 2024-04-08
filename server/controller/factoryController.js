@@ -211,6 +211,7 @@ export const _update = asyncCatch(async (req, res, next) => {
           .status(500)
           .json({ message: "something went wrong account not created" });
       } else {
+        console.log(result, "result");
         const data = await model.findOneAndUpdate(
           { _id: req.query.id },
           { ...req.body, profilePicture: result.url },
