@@ -218,7 +218,7 @@ const AdminDashboardIndex = () => {
                         </div>
                       </td>
                       <td>
-                        <NavLink>
+                        <NavLink to={'/admin/detail'}>
                           <MdOutlineMoreVert className="text-xl text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700" />
                         </NavLink>
                       </td>
@@ -282,7 +282,7 @@ const AdminDashboardIndex = () => {
                         </div>
                       </td>
                       <td>
-                        <NavLink>
+                        <NavLink to={'/admin/detail'}>
                           <MdOutlineMoreVert className="text-xl text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700" />
                         </NavLink>
                       </td>
@@ -295,7 +295,7 @@ const AdminDashboardIndex = () => {
         </div>
       </div>
       {/* footer */}
-      <footer className="w-full bg-gray-200 text-gray-700 p-[3%] px-[5%]">
+      <footer className="w-full bg-gray-200 text-gray-700 p-[3%] py-[5%]">
         {/* top header */}
         <div className="flex justify-between">
           <div>

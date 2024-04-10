@@ -61,7 +61,7 @@ const AdminDashboardLeftSideNav = () => {
               />
             </div>
           </NavLink>
-          <div className="absolute top-1 right-1 text-gray-700">
+          <div className="md:hidden absolute top-1 right-1 text-gray-700">
             <button className="text-2xl p-1 rounded-full bg-gray-50 flex items-center justify-center transition-all ease-in-out duration-300 hover:bg-gray-200">
               <AiOutlineClose />
             </button>
