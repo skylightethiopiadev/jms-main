@@ -10,7 +10,7 @@ const AdminDashboard = () => {
         {/* left side nav */}
         <AdminDashboardLeftSideNav />
         {/* dashboard content containers */}
-        <div className="flex-grow bg-gray-50 h-[100vh] overflow-y-auto">
+        <div className="flex-grow bg-gray-50 h-full overflow-y-auto flex flex-col">
           <Outlet />
         </div>
       </div>
