@@ -7,6 +7,12 @@ import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import { Flowbite } from "flowbite-react";
 import FinalHome from "./pages/FinalHome";
+
+// admin
+import AdminDashboard from "./pages/dashboard/admin/AdminDashboard";
+// admin dashboard sub pages
+import AdminDashboardIndex from "./pages/dashboard/admin/admn-subpages/AdminDashboardIndex";
+
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -86,6 +92,9 @@ function App() {
               <Route path="/forget" element={<Forget />}></Route>
               <Route path="/reset" element={<Reset />}></Route>
               <Route path="/business" element={<StaticPage />}></Route>
+              <Route path="/admin" element={<AdminDashboard />}>
+                <Route path="/admin" element={<AdminDashboardIndex />}></Route>
+              </Route>
 
               {/* ###################################### ADMIN DASHBOARD #################################### */}
               <Route path="/dashboard" element={<HomeDashboard />}>
