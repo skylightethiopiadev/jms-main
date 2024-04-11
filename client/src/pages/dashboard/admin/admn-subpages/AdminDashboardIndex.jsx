@@ -161,7 +161,7 @@ const AdminDashboardIndex = () => {
               <FaCamera className="text-3xl" />
             </label>
           </div>
-          <div className="fixed lg:hidden left-1 top-1">
+          <div className="fixed lg:hidden left-1 top-1 z-40">
             <button
               className="text-3xl text-white z-[100] p-1 bg-black rounded-md"
               onClick={() => {
