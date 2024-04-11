@@ -1,21 +1,13 @@
-import { Outlet } from "react-router-dom";
-// admin-components
-import AdminDashboardLeftSideNav from "./admin-components/AdminDashboardLeftSideNav";
-// main
+// admin dashboard sub components
+import AdminDashboardLeftSideNav from "./admin-dashboard-components/AdminDashboardLeftSideNav";
+// admin dashboard sub pages
+import AdminDashboardHome from "./admin-dashboard-sub-pages/AdminDashboardHome";
+
 const AdminDashboard = () => {
-  return (
-    <div className="w-screen h-screen overflow-x-hidden overflow-y-auto relative">
-      {/* main content container */}
-      <div className="w-full h-full flex">
-        {/* left side nav */}
-        <AdminDashboardLeftSideNav />
-        {/* dashboard content containers */}
-        <div className="flex-grow bg-gray-50 h-full overflow-y-auto flex flex-col">
-          <Outlet />
-        </div>
-      </div>
-    </div>
-  );
+  return <div className="w-screen h-screen flex">
+    <AdminDashboardLeftSideNav />
+    <AdminDashboardHome />
+  </div>;
 };
 
 export default AdminDashboard;
