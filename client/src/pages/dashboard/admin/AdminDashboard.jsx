@@ -4,7 +4,7 @@ import AdminDashboardLeftSideNav from "./admin-components/AdminDashboardLeftSide
 // main
 const AdminDashboard = () => {
   return (
-    <div className="w-screen h-screen overflow-x-hidden overflow-y-auto">
+    <div className="w-screen h-screen overflow-x-hidden overflow-y-auto relative">
       {/* main content container */}
       <div className="w-full h-full flex">
         {/* left side nav */}

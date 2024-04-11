@@ -46,8 +46,26 @@ const AdminDashboardLeftSideNav = () => {
       subLinks: true
     }
   ];
+
+  // side nav toggler
+  const mainAdminSideNavToggler = () => {
+    let sideNav = document.getElementById("main-admin-dashboard-nav");
+    if (sideNav?.classList.contains("absolute")) {
+      if (sideNav?.classList.contains("left-[-100vw]")) {
+        sideNav?.classList.remove("left-[-100vw]");
+        sideNav?.classList.add("left-0");
+      } else {
+        sideNav?.classList.remove("left-0");
+        sideNav?.classList.add("left-[-100vw]");
+      }
+    }
+  };
+
   return (
-    <div className="min-w-[210px]">
+    <div
+      className="min-w-[210px] absolute left-[-100vw] transition-all ease-in-out duration-150 top-0 bg-white shadow-lg h-[100vh] z-50 lg:relative lg:left-auto lg:top-auto lg:bg-inherit lg:shadow-none"
+      id="main-admin-dashboard-nav"
+    >
       {/* content container */}
       <div className="flex flex-col h-full">
         {/* site logo */}
@@ -61,8 +79,10 @@ const AdminDashboardLeftSideNav = () => {
               />
             </div>
           </NavLink>
-          <div className="md:hidden absolute top-1 right-1 text-gray-700">
-            <button className="text-2xl p-1 rounded-full bg-gray-50 flex items-center justify-center transition-all ease-in-out duration-300 hover:bg-gray-200">
+          <div className="lg:hidden absolute top-1 right-1 text-gray-700">
+            <button className="text-2xl p-1 rounded-full bg-gray-50 flex items-center justify-center transition-all ease-in-out duration-300 hover:bg-gray-200" onClick={() => {
+              mainAdminSideNavToggler()
+            }}>
               <AiOutlineClose />
             </button>
           </div>
@@ -136,7 +156,7 @@ const AdminDashboardLeftSideNav = () => {
               </div>
               <div className="flex flex-col justify-between">
                 <button>
-                  <MdKeyboardArrowDown className="rotate-180"/>
+                  <MdKeyboardArrowDown className="rotate-180" />
                 </button>
                 <button>
                   <MdKeyboardArrowDown />

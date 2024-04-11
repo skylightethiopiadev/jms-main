@@ -1,5 +1,13 @@
+import { useState, useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import Chart from "react-apexcharts";
+import {
+  useReactTable,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getSortedRowModel
+} from "@tanstack/react-table";
 // icons
 import { FaCamera } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
@@ -12,8 +20,123 @@ import { FaFacebookF } from "react-icons/fa";
 import { IoLogoTwitter } from "react-icons/io5";
 import { IoWifi } from "react-icons/io5";
 import { TiSocialGooglePlus } from "react-icons/ti";
+import { CgArrowLongDown } from "react-icons/cg";
+import { CgArrowLongUp } from "react-icons/cg";
+import { AiOutlineMenu } from "react-icons/ai";
+
+// data
+import { lawyerCustomers } from "../../../../DataFile";
 // main
 const AdminDashboardIndex = () => {
+  // data
+  const lawyers = useMemo(() => lawyerCustomers, []);
+
+  // states
+  const [filtering, setFiltering] = useState("");
+  const [sorting, setSorting] = useState([]);
+
+  // custom cells
+  // lawyers cell
+  const lawyerCell = ({ row }) => {
+    const { profile, first_name, last_name } = row.original;
+    return (
+      <div className="flex items-center gap-1 py-1">
+        <div className="w-[24px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
+          <img
+            className="w-full h-full object-center object-cover"
+            src={profile}
+            alt=""
+          />
+        </div>
+        <div className="text-gray-700 text-sm flex items-center gap-1">
+          <span>{first_name}</span>
+          <span>{last_name.toString().slice(0, 1)}.</span>
+        </div>
+      </div>
+    );
+  };
+
+  // lawyer action cell
+  const lawyerActionBtn = ({ row }) => {
+    return (
+      <div>
+        <button
+          className="text-xs text-gray-500 px-2 py-[.1rem] border border-gray-100 rounded-sm transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700"
+          onClick={() => {
+            console.log(row.original);
+          }}
+        >
+          more
+        </button>
+      </div>
+    );
+  };
+
+  // court place cell
+  const lawyerCourtPlaceCell = ({ row }) => {
+    return (
+      <div>
+        <span>
+          {row.original.court_place.toString()}
+        </span>
+      </div>
+    );
+  };
+
+  // columns
+  // lawyers
+  const lawyersColumns = [
+    {
+      header: "Lawyer",
+      accessorKey: "first_name",
+      cell: lawyerCell
+    },
+    {
+      header: "File No",
+      accessorKey: "file_no"
+    },
+    {
+      header: "Court Place",
+      accessorKey: "court_place",
+      cell: lawyerCourtPlaceCell
+    },
+    {
+      header: "action",
+      accessorKey: "",
+      cell: lawyerActionBtn
+    }
+  ];
+
+  // tables
+  // lawyers table
+  const lawyersTable = useReactTable({
+    data: lawyers,
+    columns: lawyersColumns,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    state: {
+      globalFilter: filtering,
+      sorting: sorting
+    },
+    onGlobalFilterChange: setFiltering,
+    onSortingChange: setSorting
+  });
+
+  // side nav toggler
+  const mainAdminSideNavToggler = () => {
+    let sideNav = document.getElementById("main-admin-dashboard-nav");
+    if (sideNav?.classList.contains("absolute")) {
+      if (sideNav?.classList.contains("left-[-100vw]")) {
+        sideNav?.classList.remove("left-[-100vw]");
+        sideNav?.classList.add("left-0");
+      } else {
+        sideNav?.classList.remove("left-0");
+        sideNav?.classList.add("left-[-100vw]");
+      }
+    }
+  };
+
   return (
     <div className="w-full h-full">
       {/* background profile image */}
@@ -25,7 +148,7 @@ const AdminDashboardIndex = () => {
             alt=""
           />
         </div>
-        <div className="absolute left-0 top-0 w-full h-full bg-transparent cursor-pointer transition-all ease-in-out duration-150 opacity-0 hover:opacity-100">
+        <div className="absolute left-0 top-0 w-full h-full bg-transparent cursor-pointer transition-all ease-in-out duration-150 bg-opacity-0 hover:bg-opacity-100 [&>*:nth-child(1)]:opacity-0 hover:[&>*:nth-child(1)]:opacity-100">
           <div className="absolute top-1 right-1 text-gray-100">
             <input
               type="file"
@@ -37,6 +160,16 @@ const AdminDashboardIndex = () => {
             <label htmlFor="profile-bg" className="cursor-pointer">
               <FaCamera className="text-3xl" />
             </label>
+          </div>
+          <div className="fixed lg:hidden left-1 top-1">
+            <button
+              className="text-3xl text-white z-[100] p-1 bg-black rounded-md"
+              onClick={() => {
+                mainAdminSideNavToggler();
+              }}
+            >
+              <AiOutlineMenu />
+            </button>
           </div>
         </div>
       </div>
@@ -99,7 +232,7 @@ const AdminDashboardIndex = () => {
       </div>
       {/* third container cards */}
       <div className="w-full p-[3%] ">
-        <div className="w-full grid grid-cols-4 gap-5">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-5">
           {[...Array(4)].map((item, index) => (
             <div key={index} className="bg-white rounded-md p-3 shadow-md">
               <header className="flex items-center justify-between pb-1 border-b border-gray-100">
@@ -111,8 +244,9 @@ const AdminDashboardIndex = () => {
                       alt=""
                     />
                   </div>
-                  <div className="font-medium text-sm to-gray-50">
-                    <span>Haddis F.</span>
+                  <div className="font-medium text-sm to-gray-50 flex items-center gap-1">
+                    <span>Haddis</span>
+                    <span className="hidden md:inline-flex">Fanta</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-1">
@@ -161,9 +295,9 @@ const AdminDashboardIndex = () => {
       {/* fourth order container */}
       <div className="w-full px-[3%] pb-[3%]">
         {/* table container */}
-        <div className="w-full flex items-center justify-center gap-5">
+        <div className="w-full flex flex-col md:flex-row md:items-center md:justify-center gap-5">
           {/* left customers table */}
-          <div className="w-[50%] p-1 rounded-sm bg-white shadow-md">
+          <div className="w-[100%] md:w-[50%] p-1 rounded-sm bg-white shadow-md">
             <header className="flex items-center justify-between p-1 border-b border-gray-100">
               <div>
                 <h3 className="text-sm font-semibold text-gray-600">
@@ -177,6 +311,8 @@ const AdminDashboardIndex = () => {
                     type="text"
                     placeholder="search"
                     className="focus:outline-none focus:ring-0 border-none bg-transparent h-[18px] w-full text-sm"
+                    value={filtering}
+                    onChange={e => setFiltering(e.target.value)}
                   />
                 </div>
               </div>
@@ -189,47 +325,54 @@ const AdminDashboardIndex = () => {
             {/* table */}
             <div className="w-full h-[70vh] overflow-y-auto overflow-x-hidden admin-dashboard-table">
               <table className="w-full">
+                <thead>
+                  {lawyersTable.getHeaderGroups().map(headerGroup => (
+                    <tr key={headerGroup.id}>
+                      {headerGroup.headers.map(header => (
+                        <th
+                          key={header.id}
+                          className="cursor-pointer p-1 text-left whitespace-nowrap"
+                          onClick={header.column.getToggleSortingHandler()}
+                        >
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                          {
+                            {
+                              asc: (
+                                <CgArrowLongDown className="inline-flex ml-1" />
+                              ),
+                              desc: (
+                                <CgArrowLongUp className="inline-flex ml-1" />
+                              )
+                            }[header.column.getIsSorted() ?? null]
+                          }
+                        </th>
+                      ))}
+                    </tr>
+                  ))}
+                </thead>
                 <tbody>
-                  {[...Array(24)].map((customer, index) => (
-                    <tr key={index} className="border-b-[1px] border-gray-200">
-                      <td>
-                        <div className="flex items-center gap-1 py-2">
-                          <div className="w-[24px] aspect-square rounded-full overflow-hidden">
-                            <img
-                              className="w-full h-full object-center object-cover"
-                              src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                              alt=""
-                            />
-                          </div>
-                          <div className="flex items-center gap-1 text-sm text-gray-700">
-                            <span>Haddis</span>
-                            <span>Fanta</span>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div className="text-sm text-gray-700">
-                          <span>+251923996736</span>
-                        </div>
-                      </td>
-                      <td>
-                        <div className="text-sm text-gray-700">
-                          <span>haddis@gmail.com</span>
-                        </div>
-                      </td>
-                      <td>
-                        <NavLink to={'/admin/detail'}>
-                          <MdOutlineMoreVert className="text-xl text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700" />
-                        </NavLink>
-                      </td>
+                  {lawyersTable.getRowModel().rows.map(row => (
+                    <tr key={row.id}>
+                      {row.getVisibleCells().map(cell => (
+                        <td key={cell.id} className="p-1">
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </td>
+                      ))}
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           </div>
+
           {/* right lawyers table */}
-          <div className="w-[50%] p-1 rounded-sm bg-white shadow-md">
+          <div className="w-[100%] md:w-[50%] p-1 rounded-sm bg-white shadow-md">
             <header className="flex items-center justify-between p-1 border-b border-gray-100">
               <div>
                 <h3 className="text-sm font-semibold text-gray-600">Lawyers</h3>
@@ -282,7 +425,7 @@ const AdminDashboardIndex = () => {
                         </div>
                       </td>
                       <td>
-                        <NavLink to={'/admin/detail'}>
+                        <NavLink to={"/admin/detail"}>
                           <MdOutlineMoreVert className="text-xl text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700" />
                         </NavLink>
                       </td>
@@ -297,8 +440,8 @@ const AdminDashboardIndex = () => {
       {/* footer */}
       <footer className="w-full bg-gray-200 text-gray-700 p-[3%] py-[5%]">
         {/* top header */}
-        <div className="flex justify-between">
-          <div>
+        <div className="flex flex-col sm:flex-row justify-between">
+          <div className="w-full text-center sm:w-auto sm:text-left">
             <div className="w-[100px] aspect-square">
               <img
                 className="w-full h-full object-center object-contain"
@@ -307,61 +450,63 @@ const AdminDashboardIndex = () => {
               />
             </div>
           </div>
-          {/* first */}
-          <div>
-            <ul className="flex flex-col gap-y-3 font-semibold">
-              <li>
-                <NavLink>FEEBLY THEMES</NavLink>
-              </li>
-              <li>
-                <NavLink>PRE-SALE FAQS</NavLink>
-              </li>
-              <li>
-                <NavLink>SUBMIT A TICKET</NavLink>
-              </li>
-            </ul>
-          </div>
-          {/* second */}
-          <div>
-            <ul className="flex flex-col gap-y-3 font-semibold">
-              <li>
-                <NavLink>SERVICES</NavLink>
-              </li>
-              <li>
-                <NavLink>THEME TWEAK</NavLink>
-              </li>
-            </ul>
-          </div>
-          {/* third */}
-          <div>
-            <ul className="flex flex-col gap-y-3 font-semibold">
-              <li>
-                <NavLink>SHOWCASES</NavLink>
-              </li>
-              <li>
-                <NavLink>WIDGET KIT</NavLink>
-              </li>
-              <li>
-                <NavLink>SUPPORT</NavLink>
-              </li>
-            </ul>
-          </div>
-          {/* fourth */}
-          <div>
-            <ul className="flex flex-col gap-y-3 font-semibold">
-              <li>
-                <NavLink>ABOUT US</NavLink>
-              </li>
-              <li>
-                <NavLink>CONTACT US</NavLink>
-              </li>
-              <li>
-                <NavLink>AFFILIATES</NavLink>
-              </li>
-              <li>
-                <NavLink>RESOURCES</NavLink>
-              </li>
-            </ul>
+          <div className="w-full p-5 grid gap-5 grid-cols-2 sm:grid-cols-4">
+            {/* first */}
+            <div>
+              <ul className="flex flex-col gap-y-3 font-semibold">
+                <li>
+                  <NavLink>FEEBLY THEMES</NavLink>
+                </li>
+                <li>
+                  <NavLink>PRE-SALE FAQS</NavLink>
+                </li>
+                <li>
+                  <NavLink>SUBMIT A TICKET</NavLink>
+                </li>
+              </ul>
+            </div>
+            {/* second */}
+            <div>
+              <ul className="flex flex-col gap-y-3 font-semibold">
+                <li>
+                  <NavLink>SERVICES</NavLink>
+                </li>
+                <li>
+                  <NavLink>THEME TWEAK</NavLink>
+                </li>
+              </ul>
+            </div>
+            {/* third */}
+            <div>
+              <ul className="flex flex-col gap-y-3 font-semibold">
+                <li>
+                  <NavLink>SHOWCASES</NavLink>
+                </li>
+                <li>
+                  <NavLink>WIDGET KIT</NavLink>
+                </li>
+                <li>
+                  <NavLink>SUPPORT</NavLink>
+                </li>
+              </ul>
+            </div>
+            {/* fourth */}
+            <div>
+              <ul className="flex flex-col gap-y-3 font-semibold">
+                <li>
+                  <NavLink>ABOUT US</NavLink>
+                </li>
+                <li>
+                  <NavLink>CONTACT US</NavLink>
+                </li>
+                <li>
+                  <NavLink>AFFILIATES</NavLink>
+                </li>
+                <li>
+                  <NavLink>RESOURCES</NavLink>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="flex items-center justify-center py-[32px]">
