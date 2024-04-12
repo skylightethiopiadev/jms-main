@@ -12,6 +12,9 @@ import { IoIosStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
 import { IoIosStarOutline } from "react-icons/io";
 import { IoIosSunny } from "react-icons/io";
+import { AiFillPhone } from "react-icons/ai";
+import { GrVmMaintenance } from "react-icons/gr";
+import { DiRedis } from "react-icons/di";
 
 const AdminDashboardIndex = () => {
   return (
@@ -364,7 +367,7 @@ const AdminDashboardIndex = () => {
         </div>
       </div>
       {/* fifth order container */}
-      <div className="bg-white shadow-md mt-5">
+      <div className="bg-white shadow-md mt-5 pb-3">
         <header className="p-[1%] flex items-center justify-between">
           <div className="text-gray-700 font-bold">
             <h3>Customers Location</h3>
@@ -379,27 +382,316 @@ const AdminDashboardIndex = () => {
         </header>
         {/* locations grid */}
         <div className="p-[1%] grid grid-cols-4 gap-5">
-          <div>
+          <div className="rounded-md bg-white shadow-lg overflow-hidden">
             <div>
-                image
+              <div className="w-full h-full overflow-hidden">
+                <img
+                  className="w-full h-[120px] object-center object-cover"
+                  src="https://ethiopianbusinessreview.net/wp-content/uploads/2020/12/Bahir-Dar.jpg"
+                  alt=""
+                />
+              </div>
             </div>
-            <div>summary</div>
             <div>
+              <h3 className="font-bold text-xs text-gray-500 mt-1">
+                Bahir Dar, Ethiopia
+              </h3>
+            </div>
+            <div>
+              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
                 <div>
-                    <div className="relative">
-                        <div className="w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden"></div>
-                        <div className="w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden"></div>
-                        <div className="w-[24px] aspect-square bg-white rounded-full overflow-hidden"></div>
-                    </div>
+                  <span>Family</span>
+                </div>
+                <div>
+                  <span>Copyright</span>
+                </div>
+                <div>
+                  <span>Trademark</span>
+                </div>
+                <div>
+                  <span>Property</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center gap-3 p-[3px]">
+                <div className="relative h-[28px] w-full">
+                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-center object-cover"
+                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-cover object-center"
+                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
+                    <span>21+</span>
+                  </div>
                 </div>
                 <button>
-                    <IoLocationSharp className="text-lg text-blue-700"/>
+                  <IoLocationSharp className="text-lg text-blue-700" />
                 </button>
+              </div>
             </div>
           </div>
-          <div>two</div>
-          <div>three</div>
-          <div>four</div>
+
+          <div className="rounded-md bg-white shadow-lg overflow-hidden">
+            <div>
+              <div className="w-full h-full overflow-hidden">
+                <img
+                  className="w-full h-[120px] object-center object-cover"
+                  src="https://www.fanabc.com/english/wp-content/uploads/2020/05/Addis-Ababa.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div>
+              <h3 className="font-bold text-xs text-gray-500 mt-1">
+                Addis Ababa, Ethiopia
+              </h3>
+            </div>
+            <div>
+              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
+                <div>
+                  <span>Family</span>
+                </div>
+                <div>
+                  <span>Copyright</span>
+                </div>
+                <div>
+                  <span>Trademark</span>
+                </div>
+                <div>
+                  <span>Property</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center gap-3 p-[3px]">
+                <div className="relative h-[28px] w-full">
+                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-center object-cover"
+                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-cover object-center"
+                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
+                    <span>21+</span>
+                  </div>
+                </div>
+                <button>
+                  <IoLocationSharp className="text-lg text-blue-700" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-md bg-white shadow-lg overflow-hidden">
+            <div>
+              <div className="w-full h-full overflow-hidden">
+                <img
+                  className="w-full h-[120px] object-center object-cover"
+                  src="https://portal.adamacity.gov.et/gallery_images/1700586232.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div>
+              <h3 className="font-bold text-xs text-gray-500 mt-1">
+                Adama, Ethiopia
+              </h3>
+            </div>
+            <div>
+              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
+                <div>
+                  <span>Family</span>
+                </div>
+                <div>
+                  <span>Copyright</span>
+                </div>
+                <div>
+                  <span>Trademark</span>
+                </div>
+                <div>
+                  <span>Property</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center gap-3 p-[3px]">
+                <div className="relative h-[28px] w-full">
+                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-center object-cover"
+                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-cover object-center"
+                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
+                    <span>21+</span>
+                  </div>
+                </div>
+                <button>
+                  <IoLocationSharp className="text-lg text-blue-700" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-md bg-white shadow-lg overflow-hidden">
+            <div>
+              <div className="w-full h-full overflow-hidden">
+                <img
+                  className="w-full h-[120px] object-center object-cover"
+                  src="https://www.ethiosports.com/wp-content/uploads/2014/05/Mekele.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div>
+              <h3 className="font-bold text-xs text-gray-500 mt-1">
+                Mekele, Ethiopia
+              </h3>
+            </div>
+            <div>
+              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
+                <div>
+                  <span>Family</span>
+                </div>
+                <div>
+                  <span>Copyright</span>
+                </div>
+                <div>
+                  <span>Trademark</span>
+                </div>
+                <div>
+                  <span>Property</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center gap-3 p-[3px]">
+                <div className="relative h-[28px] w-full">
+                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-center object-cover"
+                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-cover object-center"
+                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
+                    <span>21+</span>
+                  </div>
+                </div>
+                <button>
+                  <IoLocationSharp className="text-lg text-blue-700" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* sixth order container */}
+      <div className="mt-5 flex gap-5">
+        {/* left */}
+        <div className="w-[50%]">
+          <header className="flex items-center justify-between pb-[3%]">
+            <div>
+              <h3 className="font-bold text-gray-700 text-[1rem]">Services</h3>
+            </div>
+            <div>
+              <div className="flex items-center gap-1 cursor-pointer px-3 py-[.13rem] border border-gray-300">
+                <div className="flex items-center justify-center text-xl text-green-500">
+                  <GrVmMaintenance />
+                </div>
+                <div className="flex items-center">
+                  <span>manage service</span>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div className="w-full grid grid-cols-3 gap-7">
+            {[...Array(6)].map((item, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-sm p-[5%] flex flex-col items-center justify-center"
+              >
+                <div>
+                  <DiRedis className="text-3xl text-gray-700" />
+                </div>
+                <div className="text-gray-700 font-semibold">
+                  <span>Consulting</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* right */}
+        <div className="w-[50%] bg-white shadow-sm p-[1%]">
+          <header className="flex items-center justify-between py-[1%]">
+            <div className="flex gap-1">
+              <div>
+                <div className="w-[48px] aspect-square border-2 shadow-md border-white rounded-full overflow-hidden">
+                  <img
+                    className="w-full h-full object-center object-cover"
+                    src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div>
+                <div className="text-gray-700 font-semibold flex gap-1">
+                  <span>Er. Haddis</span>
+                  <span>Fanta</span>
+                </div>
+                <div className="text-xs">
+                  <span>Maintenance Team Leader</span>
+                </div>
+              </div>
+            </div>
+            <div className="self-start">
+              <button className="flex items-center justify-center p-1 rounded-full bg-green-500 transition-all ease-in-out duration-300 hover:bg-green-400 text-white text-xl">
+                <AiFillPhone />
+              </button>
+            </div>
+          </header>
+          <div className="text-gray-700 text-sm p-[1%]">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+              iste maxime, aspernatur id praesentium asperiores ab facilis iure,
+              fugiat minima, dicta reprehenderit! Et odio dicta obcaecati vero?
+              Suscipit corporis expedita officia odit sed ipsum nisi placeat
+              praesentium aperiam.
+            </p>
+          </div>
         </div>
       </div>
     </div>
