@@ -367,7 +367,7 @@ const AdminDashboardIndex = () => {
         </div>
       </div>
       {/* fifth order container */}
-      <div className="bg-white shadow-md mt-5 pb-3">
+      <div className="bg-white mt-5 pb-3">
         <header className="p-[1%] flex items-center justify-between">
           <div className="text-gray-700 font-bold">
             <h3>Customers Location</h3>
