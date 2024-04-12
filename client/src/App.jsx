@@ -10,6 +10,8 @@ import FinalHome from "./pages/FinalHome";
 
 // admin
 import AdminDashboard from "./pages/dashboard/admin/AdminDashboard";
+// admin dashboard sub pages
+import AdminDashboardIndex from "./pages/dashboard/admin/admin-dashboard-sub-pages/admin-dashboard-sub-sub-pages/AdminDashboardIndex"
 
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
@@ -91,6 +93,7 @@ function App() {
               <Route path="/reset" element={<Reset />}></Route>
               <Route path="/business" element={<StaticPage />}></Route>
               <Route path="/admin" element={<AdminDashboard />}>
+                <Route path="/admin" element={<AdminDashboardIndex />}></Route>
               </Route>
 
               {/* ###################################### ADMIN DASHBOARD #################################### */}
