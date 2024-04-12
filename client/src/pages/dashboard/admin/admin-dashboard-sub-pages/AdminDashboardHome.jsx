@@ -9,7 +9,7 @@ const AdminDashboardHome = () => {
     <div className="flex-grow flex flex-col h-[100vh] relative pt-[7vh]">
       <AdminDashboardHeader />
       <div className="flex-grow flex">
-        <div className="flex-grow bg-gray-50 h-[93vh] p-[1%] overflow-y-auto">
+        <div className="flex-grow w-[100%] bg-gray-50 h-[93vh] p-[1%] overflow-y-auto">
           <Outlet />
         </div>
         <AdminDashboardRightSideComponent />
