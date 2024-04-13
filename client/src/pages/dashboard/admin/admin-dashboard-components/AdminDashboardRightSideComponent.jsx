@@ -4,7 +4,7 @@ import { GoClockFill } from "react-icons/go";
 
 const AdminDashboardRightSideComponent = () => {
   return (
-    <div className="bg-white h-[93vh] w-[350px] p-[1%]">
+    <div className="bg-white absolute right-0 top-0 z-30 shadow-lg w-[290px] xl:relative xl:right-auto xl:top-auto xl:z-0 xl:shadow-none h-[93vh] xl:w-[350px] p-[1%]">
       {/* header */}
       <header className="flex items-center justify-between py-[1%]">
         <div>
