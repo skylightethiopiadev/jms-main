@@ -1,12 +1,38 @@
 // icons
 import { BiSolidUserDetail } from "react-icons/bi";
 import { GoClockFill } from "react-icons/go";
+import { BiRightArrowCircle } from "react-icons/bi";
 
 const AdminDashboardRightSideComponent = () => {
+
+  // admin right side component toggler
+  const adminRightSideComponentToggler = () => {
+    let rightSideComponent = document.getElementById(
+      "admin-right-side-nav-component"
+    );
+    if (rightSideComponent?.classList.contains('absolute')) {
+      if (rightSideComponent?.classList.contains('right-[-100vw]')) {
+        rightSideComponent?.classList.remove('right-[-100vw]')
+        rightSideComponent?.classList.add('right-0')
+      } else {
+        rightSideComponent?.classList.remove('right-0')
+        rightSideComponent?.classList.add('right-[-100vw]')
+      }
+    }
+  };
   return (
-    <div className="bg-white absolute right-0 top-0 z-30 shadow-lg w-[290px] xl:relative xl:right-auto xl:top-auto xl:z-0 xl:shadow-none h-[93vh] xl:w-[350px] p-[1%]">
+    <div className="bg-white absolute right-[-100vw] top-0 z-30 shadow-lg w-[290px] transition-all ease-in-out duration-300 xl:relative xl:right-auto xl:top-auto xl:z-0 xl:shadow-none h-[93vh] xl:w-[350px] p-[1%]" id="admin-right-side-nav-component">
+      <div className="absolute z-30 top-1 left-1 xl:hidden">
+        <button
+          className="text-xl text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700"
+          onClick={() => {
+          adminRightSideComponentToggler()
+        }}>
+          <BiRightArrowCircle />
+        </button>
+      </div>
       {/* header */}
-      <header className="flex items-center justify-between py-[1%]">
+      <header className="flex items-center justify-between pt-[7%] xl:pt-[1%] xl:py-[1%]">
         <div>
           <h3 className="font-bold text-gray-700">My Status</h3>
         </div>

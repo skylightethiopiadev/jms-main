@@ -95,9 +95,9 @@ const AdminDashboardIndex = () => {
       {/* pre-third order container */}
       <div className="mt-5">
         {/* content container */}
-        <div className="p-[1%] flex gap-5">
+        <div className="p-[1%] flex flex-col sm:flex-row gap-5">
           {/* left */}
-          <div className="w-[50%] rounded-md overflow-hidden flex relative">
+          <div className="w-[100%] sm:w-[50%] rounded-md overflow-hidden flex relative">
             {/* background image */}
             <div className="w-full h-full bg-sky-200 relative z-10">
               <img
@@ -125,7 +125,7 @@ const AdminDashboardIndex = () => {
             </div>
           </div>
           {/* right */}
-          <div className="w-[50%] grid grid-cols-2 gap-5">
+          <div className="w-[100%] sm:w-[50%] grid grid-cols-2 gap-5">
             <div className="bg-purple-400 rounded-md text-white p-[5%]">
               <div>
                 <span>Today's Booking</span>
@@ -207,7 +207,7 @@ const AdminDashboardIndex = () => {
           </div>
         </header>
         {/* lawyers grid */}
-        <div className="p-[1%] grid grid-cols-4 gap-5 pb-[3%]">
+        <div className="p-[1%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 pb-[3%]">
           {/* add new lawyer button */}
           <div>
             <div className="flex items-center gap-1 cursor-pointer">
@@ -267,12 +267,12 @@ const AdminDashboardIndex = () => {
           </div>
         </header>
         {/* cards */}
-        <div className="bg-gray-50 py-[1%] flex gap-5 justify-between">
+        <div className="bg-gray-50 py-[1%] flex flex-col sm:flex-row gap-5 justify-between">
           {/* active cases */}
           {[...Array(3)].map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-sm shadow-md w-[calc(100%/3)]"
+              className="bg-white rounded-sm shadow-md w-[100%] sm:w-[calc(100%/3)]"
             >
               <header className="p-[3%] flex items-center justify-between">
                 {/* left */}
@@ -375,13 +375,13 @@ const AdminDashboardIndex = () => {
           <div>
             <button className="flex items-center gap-1 text-sm text-gray-700">
               <IoLocationSharp className="text-lg text-blue-700" />
-              <span>view in</span>
+              <span className="hidden md:inline-flex">view in</span>
               <span>google map</span>
             </button>
           </div>
         </header>
         {/* locations grid */}
-        <div className="p-[1%] grid grid-cols-4 gap-5">
+        <div className="p-[1%] grid grid-cols-2 sm:grid-cols-4 gap-5">
           <div className="rounded-md bg-white shadow-lg overflow-hidden">
             <div>
               <div className="w-full h-full overflow-hidden">
@@ -620,9 +620,9 @@ const AdminDashboardIndex = () => {
         </div>
       </div>
       {/* sixth order container */}
-      <div className="mt-5 flex gap-5">
+      <div className="mt-5 flex flex-col md:flex-row gap-5">
         {/* left */}
-        <div className="w-[50%]">
+        <div className="w-[100%] md:w-[50%]">
           <header className="flex items-center justify-between pb-[3%]">
             <div>
               <h3 className="font-bold text-gray-700 text-[1rem]">Services</h3>
@@ -655,7 +655,7 @@ const AdminDashboardIndex = () => {
           </div>
         </div>
         {/* right */}
-        <div className="w-[50%] bg-white shadow-sm p-[1%]">
+        <div className="w-[100%] md:w-[50%] bg-white shadow-sm p-[1%]">
           <header className="flex items-center justify-between py-[1%]">
             <div className="flex gap-1">
               <div>

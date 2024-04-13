@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from "react";
 // icons
 import { AiOutlineMenu } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
@@ -9,16 +9,50 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const AdminDashboardHeader = () => {
   // local states
-  const [isProfileDropDownOpen,setIsProfileDropDownOpen] = useState(false) 
+  const [isProfileDropDownOpen, setIsProfileDropDownOpen] = useState(false);
+
+  // admin right side component toggler
+  const adminRightSideComponentToggler = () => {
+    let rightSideComponent = document.getElementById(
+      "admin-right-side-nav-component"
+    );
+    if (rightSideComponent?.classList.contains("absolute")) {
+      if (rightSideComponent?.classList.contains("right-[-100vw]")) {
+        rightSideComponent?.classList.remove("right-[-100vw]");
+        rightSideComponent?.classList.add("right-0");
+      } else {
+        rightSideComponent?.classList.remove("right-0");
+        rightSideComponent?.classList.add("right-[-100vw]");
+      }
+    }
+  };
+
+  // admin dashboard left side nav toggle
+  const adminDashboardLeftSideNavToggler = () => {
+    let leftSideNav = document.getElementById("admin-dashboard-left-side-nav");
+    if (leftSideNav?.classList.contains("absolute")) {
+      if (leftSideNav?.classList.contains("left-[-100vw]")) {
+        leftSideNav?.classList.remove("left-[-100vw]");
+        leftSideNav?.classList.add("left-0");
+      } else {
+        leftSideNav?.classList.remove("left-0");
+        leftSideNav?.classList.add("left-[-100vw]");
+      }
+    }
+  };
 
   return (
-    <header className="w-full h-[7vh] bg-white shadow-md absolute left-0 top-0 z-50">
+    <header className="w-full h-[7vh] bg-white shadow-md absolute left-0 top-0 z-40">
       <div className="w-full h-full px-[1%] flex items-center justify-between">
         {/* header left container */}
         <div className="flex items-center gap-3">
           {/* menu drawer icon */}
-          <div>
-            <button>
+          <div className="lg:hidden">
+            <button
+              onClick={() => {
+                adminDashboardLeftSideNavToggler();
+              }}
+            >
               <AiOutlineMenu className="text-[1.7rem] text-gray-700 mt-1" />
             </button>
           </div>
@@ -29,7 +63,7 @@ const AdminDashboardHeader = () => {
               <input
                 type="text"
                 placeholder="search"
-                className="focus:outline-none focus:ring-0 bg-transparent border-none h-[18px] text-sm w-full"
+                className="focus:outline-none focus:ring-0 bg-transparent border-none w-[150px] h-[18px] text-sm sm:w-full"
               />
             </div>
           </div>
@@ -57,11 +91,14 @@ const AdminDashboardHeader = () => {
           {/* user and button */}
           <div className="flex items-center gap-1">
             {/* user */}
-            <div className='relative'>
+            <div className="relative">
               {/* user content */}
-              <div className="flex items-center gap-1 cursor-pointer" onClick={()=>{
-                setIsProfileDropDownOpen(!isProfileDropDownOpen)
-              }}>
+              <div
+                className="flex items-center gap-1 cursor-pointer"
+                onClick={() => {
+                  setIsProfileDropDownOpen(!isProfileDropDownOpen);
+                }}
+              >
                 <div className="w-[28px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
                   <img
                     className="w-full h-full object-center object-cover"
@@ -70,23 +107,33 @@ const AdminDashboardHeader = () => {
                   />
                 </div>
                 <div className="flex items-center text-[.75rem] text-gray-700 gap-1">
-                  <span>Haddis</span>
-                  <span>Fanta</span>
+                  <span className="hidden sm:inline-flex">Haddis</span>
+                  <span className="hidden md:inline-flex">Fanta</span>
                 </div>
                 <div>
-                  <MdKeyboardArrowDown className={`text-[1.3rem] text-gray-700 transition-all ease-in-out duration-300 ${isProfileDropDownOpen ? 'rotate-[-180deg]' : 'rotate-0'}`}/>
+                  <MdKeyboardArrowDown
+                    className={`text-[1.3rem] text-gray-700 transition-all ease-in-out duration-300 ${
+                      isProfileDropDownOpen ? "rotate-[-180deg]" : "rotate-0"
+                    }`}
+                  />
                 </div>
               </div>
               {/* pop up */}
-              <div className={`absolute right-0 top-[80%] w-[190px] overflow-hidden transition-all ease-in-out duration-300 ${isProfileDropDownOpen ? 'h-[250px]' : 'h-[0px]'}`}>
-                <div className='absolute z-50 left-0 top-[.85rem] p-5 bg-gray-100 shadow-xl w-full h-full before:absolute before:left-1/2 before:top-[-10px] before:w-[20px] before:h-[20px] before:bg-inherit before:rotate-45'>
-
-                </div>
+              <div
+                className={`absolute right-0 top-[80%] w-[190px] overflow-hidden transition-all ease-in-out duration-300 ${
+                  isProfileDropDownOpen ? "h-[250px]" : "h-[0px]"
+                }`}
+              >
+                <div className="absolute z-50 left-0 top-[.85rem] p-5 bg-gray-100 shadow-xl w-full h-full before:absolute before:left-1/2 before:top-[-10px] before:w-[20px] before:h-[20px] before:bg-inherit before:rotate-45"></div>
               </div>
             </div>
             {/* button */}
-            <div>
-              <button>
+            <div className="xl:hidden">
+              <button
+                onClick={() => {
+                  adminRightSideComponentToggler();
+                }}
+              >
                 <IoEllipsisVertical className="text-[1.13rem] text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700" />
               </button>
             </div>

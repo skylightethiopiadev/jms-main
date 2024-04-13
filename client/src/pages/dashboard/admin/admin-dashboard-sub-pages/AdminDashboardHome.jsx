@@ -8,7 +8,7 @@ const AdminDashboardHome = () => {
   return (
     <div className="flex-grow flex flex-col h-[100vh] relative pt-[7vh]">
       <AdminDashboardHeader />
-      <div className="flex-grow flex relative">
+      <div className="flex-grow flex relative overflow-x-hidden">
         <div className="flex-grow w-[100%] bg-gray-50 h-[93vh] p-[1%] overflow-y-auto">
           <Outlet />
         </div>

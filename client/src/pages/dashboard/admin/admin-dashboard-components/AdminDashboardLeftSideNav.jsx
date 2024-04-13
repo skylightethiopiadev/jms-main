@@ -11,6 +11,7 @@ import { MdSettings } from "react-icons/md";
 import { MdChevronRight } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
+import { AiOutlineClose } from "react-icons/ai";
 
 const AdminDashboardLeftSideNav = () => {
   // main nav links
@@ -58,8 +59,34 @@ const AdminDashboardLeftSideNav = () => {
       subLinks: false
     }
   ];
+
+  // admin dashboard left side nav toggle
+  const adminDashboardLeftSideNavToggler = () => {
+    let leftSideNav = document.getElementById("admin-dashboard-left-side-nav");
+    if (leftSideNav?.classList.contains("absolute")) {
+      if (leftSideNav?.classList.contains("left-[-100vw]")) {
+        leftSideNav?.classList.remove("left-[-100vw]");
+        leftSideNav?.classList.add("left-0");
+      } else {
+        leftSideNav?.classList.remove("left-0");
+        leftSideNav?.classList.add("left-[-100vw]");
+      }
+    }
+  };
+
   return (
-    <div className="min-w-[180px] h-full p-[1%] flex flex-col">
+    <div
+      className="absolute left-[-100vw] transition-all ease-in-out duration-300 top-0 h-[100vh] bg-white z-50 w-[200px] lg:min-w-[180px] lg:h-full p-[1%] flex flex-col lg:relative lg:left-auto lg:top-auto lg:bg-inherit"
+      id="admin-dashboard-left-side-nav"
+    >
+      {/* hide toggler */}
+      <div className="absolute top-1 right-1 lg:hidden">
+        <button onClick={() => {
+          adminDashboardLeftSideNavToggler()
+        }}>
+          <AiOutlineClose className="text-[1.5rem] text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700"/>
+        </button>
+      </div>
       {/* site logo */}
       <div className="flex items-center justify-center">
         <NavLink>
@@ -122,7 +149,6 @@ const AdminDashboardLeftSideNav = () => {
             </button>
           </div>
         </div>
-        
       </div>
     </div>
   );

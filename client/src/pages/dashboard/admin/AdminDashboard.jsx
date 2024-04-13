@@ -4,7 +4,7 @@ import AdminDashboardLeftSideNav from "./admin-dashboard-components/AdminDashboa
 import AdminDashboardHome from "./admin-dashboard-sub-pages/AdminDashboardHome";
 
 const AdminDashboard = () => {
-  return <div className="w-screen h-screen flex">
+  return <div className="w-screen h-screen flex relative overflow-x-hidden">
     <AdminDashboardLeftSideNav />
     <AdminDashboardHome />
   </div>;
