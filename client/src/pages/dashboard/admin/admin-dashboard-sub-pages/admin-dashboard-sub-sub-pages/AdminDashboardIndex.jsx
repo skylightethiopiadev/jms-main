@@ -1,3 +1,5 @@
+import Chart from "react-apexcharts";
+
 // icons
 import { RiArrowRightUpFill } from "react-icons/ri";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -90,6 +92,72 @@ const AdminDashboardIndex = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      {/* post-second order container */}
+      <div className="mt-5">
+        {/* chart container */}
+        <div className="p-[1%] flex gap-5">
+          {/* left */}
+          <div className="w-[50%] grid grid-cols-2 gap-3">
+            <div className="bg-white rounded-md p-1">
+              <Chart
+                type="radialBar"
+                series={[35, 50, 70, 65]}
+                options={{
+                  plotOptions: {
+                    radialBar: {
+                      hollow: {
+                        size: "15%"
+                      }
+                    }
+                  },
+                  labels: ["family", "copyright", "trademark", "loan"],
+                  legend: {
+                    floating: true,
+                    position: "left"
+                  }
+                }}
+              />
+            </div>
+            <div className="bg-white rounded-md p-1">
+              <Chart
+                type="bar"
+                series={[
+                  {
+                    name: "family",
+                    data: [130, 150, 200, 230, 250]
+                  }
+                  // {
+                  //   name: "trademark",
+                  //   data: [160, 130, 150, 230, 150]
+                  // },
+                  // {
+                  //   name: "copyright",
+                  //   data: [180, 200, 150, 190, 210]
+                  // },
+                ]}
+                height={"100%"}
+                width={"100%"}
+                options={{
+                  yaxis: {
+                    show: false
+                  },
+                  xaxis: {
+                    show: false
+                  },
+                  grid: {
+                    show: false
+                  },
+                  legend: {
+                    show: false
+                  }
+                }}
+              />
+            </div>
+          </div>
+          {/* right */}
+          <div className="w-[50%] bg-red-400">right</div>
         </div>
       </div>
       {/* pre-third order container */}
