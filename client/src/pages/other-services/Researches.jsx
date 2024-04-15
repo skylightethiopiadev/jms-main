@@ -1,6 +1,9 @@
 // icons
 import { RiMicroscopeFill } from "react-icons/ri";
 import { MdArrowRightAlt } from "react-icons/md";
+import { MdOutlineNoteAlt } from "react-icons/md";
+import { RiStethoscopeFill } from "react-icons/ri";
+import { GoLightBulb } from "react-icons/go";
 
 const Researches = () => {
   return (
@@ -53,7 +56,7 @@ const Researches = () => {
         <div className="px-[12%] py-[5%] grid grid-cols-4 gap-5">
           {[...Array(4)].map((item, index) => (
             <div key={index} className="p-5 rounded-md bg-white shadow-md">
-              <div className="my-3 text-5xl text-blue-500">
+              <div className="my-3 text-5xl text-yellow-400">
                 <RiMicroscopeFill />
               </div>
               <div className="font-bold my-1">
@@ -78,14 +81,14 @@ const Researches = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Veritatis, voluptas maiores impedit minus ipsum, incidunt
               reiciendis earum, dolorum{" "}
-              <span className="font-bold text-blue-700">voluptatem</span> cumque
-              quae unde ex natus laudantium amet! Laborum, asperiores aliquam.
-              Eos labore dolor rem. Fugiat esse placeat aliquid consectetur
-              atque accusamus. Libero, ab!
+              <span className="font-bold text-yellow-400">voluptatem</span>{" "}
+              cumque quae unde ex natus laudantium amet! Laborum, asperiores
+              aliquam. Eos labore dolor rem. Fugiat esse placeat aliquid
+              consectetur atque accusamus. Libero, ab!
             </p>
           </div>
           <div className="flex items-center justify-center mt-3">
-            <div className="w-[15%] h-[5px] bg-blue-700 rounded-full"></div>
+            <div className="w-[15%] h-[5px] bg-yellow-400 rounded-full"></div>
           </div>
         </div>
       </div>
@@ -96,7 +99,11 @@ const Researches = () => {
           {/* left */}
           <div className="w-[50%] bg-blue-300">
             <div className="w-full h-full">
-              <img src="" alt="" />
+              <img
+                className="w-full h-full object-center object-cover"
+                src="https://images.unsplash.com/photo-1501290741922-b56c0d0884af?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzZWFyY2h8ZW58MHx8MHx8fDA%3D"
+                alt=""
+              />
             </div>
           </div>
           {/* right */}
@@ -120,10 +127,155 @@ const Researches = () => {
             </div>
             {/* button */}
             <div>
-              <button className="flex items-center gap-1 font-semibold text-blue-700 transition-all ease-in-out duration-300 hover:text-blue-600">
+              <button className="flex items-center gap-1 font-semibold text-yellow-400 transition-all ease-in-out duration-300 hover:text-yellow-300">
                 <span>More About Us</span>
-                <MdArrowRightAlt className="text-xl"/>
+                <MdArrowRightAlt className="text-xl" />
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* fifth order container */}
+      <div>
+        {/* content container */}
+        <div className="px-[12%] py-[1%] flex">
+          {/* left top */}
+          <div className="w-[50%] flex items-center justify-evenly">
+            <div className="flex gap-1">
+              <div>
+                <MdOutlineNoteAlt className="text-3xl text-gray-700" />
+              </div>
+              <div>
+                <div className="font-bold">
+                  <h3>Research Center</h3>
+                </div>
+                <div>In every city</div>
+              </div>
+            </div>
+
+            <div className="flex gap-1">
+              <div>
+                <RiStethoscopeFill className="text-3xl text-gray-700" />
+              </div>
+              <div>
+                <div className="font-bold">
+                  <h3>Research Technician</h3>
+                </div>
+                <div>Powerful & Skilled</div>
+              </div>
+            </div>
+          </div>
+          {/* bottom right */}
+          <div className="w-[50%] flex items-center justify-evenly">
+            <div className="flex gap-1">
+              <div>
+                <MdOutlineNoteAlt className="text-3xl text-gray-700" />
+              </div>
+              <div>
+                <div className="font-bold">
+                  <h3>Research Center</h3>
+                </div>
+                <div>In every city</div>
+              </div>
+            </div>
+
+            <div className="flex gap-1">
+              <div>
+                <RiStethoscopeFill className="text-3xl text-gray-700" />
+              </div>
+              <div>
+                <div className="font-bold">
+                  <h3>Research Technician</h3>
+                </div>
+                <div>Powerful & Skilled</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* sixth order container */}
+      <div>
+        {/* content container */}
+        <div className="px-[12%] py-[5%] flex gap-5">
+          {/* left */}
+          <div className="w-[50%]">
+            {/* header */}
+            <header className="font-bold text-2xl">
+              <h3>Header Info</h3>
+            </header>
+            {/* sub header */}
+            <header className="flex items-center justify-center font-semibold">
+              <h3>sub-header Info</h3>
+            </header>
+            {/* bold paragraph */}
+            <div className="font-semibold text-2xl my-2">
+              <p>Ipsum dolor sit amet consectetur adipisicing elit</p>
+            </div>
+            {/* normal paragraph */}
+            <div className="my-5">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Impedit, veniam optio perspiciatis rem deleniti animi quisquam
+                unde hic! Reiciendis doloremque modi tenetur corporis quas
+                debitis qui. Reprehenderit dicta officia modi, mollitia officiis
+                pariatur, ipsam repellendus enim doloremque dolore molestiae
+                vero consequatur hic incidunt aperiam labore architecto dolores
+                deserunt!
+              </p>
+            </div>
+            {/* cards container */}
+            <div className="mt-5 flex items-center gap-3">
+              {[...Array(3)].map((item, index) => (
+                <div
+                  key={index}
+                  className="w-[calc(100%/3)] flex items-center gap-1"
+                >
+                  <div className="w-[46px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
+                    <img
+                      className="w-full h-full object-center object-cover"
+                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1 font-semibold">
+                      <span>Haddis</span>
+                      <span>Fanta</span>
+                    </div>
+                    <div>
+                      <span>web dev</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* right */}
+          <div className="w-[50%] relative">
+            {/* background image */}
+            <div className="w-full h-full overflow-hidden">
+              <img
+                className="w-full h-full object-center object-cover"
+                src="https://blog.researcher.life/wp-content/uploads/2023/11/male-hands-with-pencil-magnifying-glass-1-1.jpg"
+                alt=""
+              />
+            </div>
+            {/* content container */}
+            <div className="absolute left-0 top-0 w-full h-full">
+              {/* top */}
+              <div className="absolute top-0 right-0 bg-white p-5 shadow-md max-w-[250px]">
+                <div>
+                  <GoLightBulb className="text-5xl text-gray-700" />
+                </div>
+                <div className="font-bold my-1 text-gray-600">
+                  <h3>Ethiopia The Land Of Wisdom</h3>
+                </div>
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
