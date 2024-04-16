@@ -394,6 +394,36 @@ const Training = () => {
           </footer>
         </div>
       </div>
+      {/* sixth order container */}
+      <div>
+        {/* content container */}
+        <div className='w-full px-[12%] py-[5%] flex items-center justify-center'>
+          <div className='rounded-md py-[3%] px-[10%] bg-yellow-400'>
+            {/* bold text */}
+            <header className='flex items-center justify-center font-bold text-3xl'>
+              <h3>Subscribe to Our News Letter</h3>
+            </header>
+            {/* normal text */}
+            <div className='flex items-center justify-center'>
+              <p>
+                Bahir Dar, dolor sit amet consectetur adipisicing elit. Exercitationem, officia.
+              </p>
+            </div>
+            {/* input container */}
+            <div className='flex items-center justify-center gap-5 mt-5'>
+              <div className='flex items-center rounded-sm bg-white px-3 py-1'>
+                <input
+                  className='focus:ring-0 focus:outline-none py-2 border-none bg-transparent h-[32px] w-full'
+                  type="text"
+                  placeholder='your email' />
+              </div>
+              <div>
+                <button className='px-3 py-2 rounded-sm bg-blue-700 text-white'>send message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
