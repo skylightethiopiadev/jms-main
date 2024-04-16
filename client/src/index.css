@@ -159,6 +159,20 @@
 }
 /* addiss */
 
+/*
+///////////////////////
+container padding
+////////////////////// */
+
+.padding-x {
+  @apply px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[12%];
+}
+.padding-y-lg {
+  @apply py-[5%];
+}
+.padding-y-md {
+  @apply py-[3%];
+}
 /* default scroll bar */
 /* ::-webkit-scrollbar {
   width: 4px;

@@ -13,13 +13,13 @@ const Training = () => {
   return (
     <div className="w-full">
       {/* first order container */}
-      <div className="w-full bg-white py-[3%] px-[12%]">
+      <div className="w-full bg-white padding-y-md  padding-x">
         {/* content container */}
         <div>
           {/* top */}
-          <div className="w-full flex ">
+          <div className="w-full flex flex-col-reverse md:flex-row">
             {/* left */}
-            <div className="w-[50%]">
+            <div className="w-[100%] md:w-[50%]">
               {/* bold paragraph */}
               <div className="my-[7px] text-5xl leading-[64px] font-bold text-gray-700">
                 <p>Improve your Skill with Different Way</p>
@@ -36,15 +36,15 @@ const Training = () => {
               {/* button container */}
               <div className="relative w-full">
                 <div className="my-[24px] flex items-center gap-[12px]">
-                  <button className="px-[12px] py-1 rounded-md bg-yellow-400 text-white">
+                  <button className="px-[12px] w-max py-1 rounded-md bg-yellow-400 text-white">
                     Get Started
                   </button>
-                  <button className="flex items-center justify-center gap-1 px-[12px] py-1 border-2 border-yellow-400 rounded-md transition-all ease-in-out duration-300 hover:bg-yellow-400 hover:text-white">
+                  <button className="flex w-max items-center justify-center gap-1 px-[12px] py-1 border-2 border-yellow-400 rounded-md transition-all ease-in-out duration-300 hover:bg-yellow-400 hover:text-white">
                     <IoIosPlay />
                     <span>Watch Video</span>
                   </button>
                 </div>
-                <div className="absolute right-[-64px] top-1/2 -translate-y-1/2 bg-white shadow-md p-[12px] flex gap-3">
+                <div className="absolute md:relative top-[-28px] md:top-auto lg:absolute right-0 lg:right-[-64px] lg:top-1/2 lg:w-auto w-max lg:-translate-y-1/2 bg-white shadow-md p-[3px] md:p-[12px] flex gap-3">
                   <div className="self-center text-yellow-400 text-5xl">
                     <GiGraduateCap />
                   </div>
@@ -62,7 +62,7 @@ const Training = () => {
               </div>
             </div>
             {/* right */}
-            <div className="w-[50%]">
+            <div className="w-[100%] md:w-[50%]">
               {/* image container */}
               <div className="w-full">
                 <img
@@ -109,13 +109,13 @@ const Training = () => {
       {/* second order container */}
       <div>
         {/* content container */}
-        <div className="w-full bg-gray-100 py-[3%] px-[12%]">
+        <div className="w-full bg-gray-100 padding-y-md  padding-x">
           {/* header */}
           <header className="flex items-center justify-center font-bold text-2xl">
             <h3>Most Popular Courses</h3>
           </header>
           {/* course cards */}
-          <div className="grid grid-cols-4 gap-5 mt-[24px]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-[24px]">
             {[...Array(4)].map((item, index) => (
               <div
                 key={index}
@@ -163,9 +163,9 @@ const Training = () => {
       {/* third order container */}
       <div>
         {/* content container */}
-        <div className="w-full bg-white py-[5%] px-[12%] flex gap-5">
+        <div className="w-full bg-white padding-y-lg  padding-x flex flex-col md:flex-row gap-5">
           {/* left */}
-          <div className="w-[50%] relative">
+          <div className="w-[100%] md:w-[50%] relative">
             {/* background image */}
             <div className="w-full h-full bg-white">
               <img
@@ -229,7 +229,7 @@ const Training = () => {
             </div>
           </div>
           {/* right */}
-          <div className="w-[50%]">
+          <div className="w-[100%] md:w-[50%]">
             {/* bold paragraph */}
             <div className="font-bold text-2xl">
               <p>
