@@ -39,6 +39,8 @@ import { MdEngineering } from "react-icons/md";
 import { GrUserManager } from "react-icons/gr";
 import { MdOutlineElderlyWoman } from "react-icons/md";
 import { RiContactsBookLine } from "react-icons/ri";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { AiOutlineGlobal } from "react-icons/ai";
 
 const HomeIndex = () => {
   // local states
@@ -571,6 +573,59 @@ const HomeIndex = () => {
                 <img src="/images/bg/site-image.jpg" alt="" />
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* banner container */}
+      <div className="bg-yellow-400 h-[350px] box-border relative">
+        <div className="bg-white h-full clip-path-i box-border">
+          <div className="w-[50%] h-full bg-transparent pl-[12%] box-border">
+            <header className="my-3 font-bold text-3xl">
+              <h3>
+                Call <span>Center</span>
+              </h3>
+            </header>
+            <div className="text-[1.25rem]">
+              <p>
+                If any legal or technical difficulties, please contact our call
+                center
+              </p>
+            </div>
+            {/* contact */}
+            <div className="flex mt-5 gap-10">
+              <div className="flex flex-col">
+                <div>
+                  <div className="w-[32px] aspect-square text-2xl rounded-full bg-yellow-400 text-white flex items-center justify-center">
+                    <BiSolidPhoneCall />
+                  </div>
+                </div>
+                <div className="font-bold text-xl my-3">
+                  <span>Local</span>
+                </div>
+                <div className="text-3xl font-bold text-yellow-400">
+                  <span>8383</span>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div>
+                  <div className="w-[32px] aspect-square text-2xl rounded-full bg-yellow-400 text-white flex items-center justify-center">
+                    <AiOutlineGlobal />
+                  </div>
+                </div>
+                <div className="font-bold text-xl my-3">
+                  <span>International</span>
+                </div>
+                <div className="text-3xl font-bold text-yellow-400">
+                  <span>(+251) 985 228 888</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-[50%] absolute right-0 top-0 h-full bg-transparent flex items-center">
+          <div className="w-[45%] h-[75%]">
+            <img className="w-full h-full object-center object-cover" src="https://cdn.marketing.dixa.com/app/uploads/2023/06/15103251/Best-Call-Center-Software.png" alt="" />
           </div>
         </div>
       </div>
