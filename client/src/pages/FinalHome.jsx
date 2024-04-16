@@ -65,7 +65,7 @@ const FinalHome = () => {
             {/* top right */}
             <div className="w-[100%] md:w-[70%]">
               {/* menu list */}
-              <div className="py-1 md:py-[7%] flex items-start justify-between gap-16 text-[1rem]">
+              <div className="py-1 md:py-[7%] flex items-start justify-between gap-16 text-[1.15rem]">
                 {/* about us */}
                 <div>
                   <header className=" mb-5 py-1 border-b-[2px] border-gray-300 font-[600] text-[1.25rem]">
@@ -270,7 +270,7 @@ const FinalHome = () => {
                 <h3 className="text-2xl font-bold">Who we are?</h3>
               </header>
               {/* content */}
-              <div className="my-5 text-[1rem]">
+              <div className="my-5 text-[1.25rem]">
                 <p>
                   Makuta Law Firm has launched a world class app, which connects
                   clients and lawyers internationally, to meet various legal
@@ -331,7 +331,7 @@ const FinalHome = () => {
               </div>
               {/* second paragraph */}
               <div className="flex items-center">
-                <div className="my-5 pr-[5%] md:pr-[5%]">
+                <div className="my-5 pr-[5%] md:pr-[5%] text-[.85rem]">
                   <p>
                     Makuta Law Firm will be the first law firm of its kind in
                     the country and in the continent of Africa. It is the first

@@ -315,7 +315,7 @@ const HomeIndex = () => {
   return (
     <>
       {/* first order container */}
-      <div className="w-full px-[3%] pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
+      <div className="w-full px-[3%] text-[1.25rem] text-black pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
           <div className="w-full mt-12 sm:mt-3  sm:w-[45%]">
@@ -529,7 +529,7 @@ const HomeIndex = () => {
               <div className="my-2 text-[1.35rem] font-semibold">
                 <p>Network</p>
               </div>
-              <div className="text-[1rem]">
+              <div className="text-[1.25rem]">
                 <p>
                   Our Network of experienced lawyers number in the hundreds
                   throughout Africa and the world, ensuring your legal needs are
@@ -542,7 +542,7 @@ const HomeIndex = () => {
               <div className="my-2 text-[1.35rem] font-semibold">
                 <p>Professionalism</p>
               </div>
-              <div className="text-[1rem]">
+              <div className="text-[1.25rem]">
                 <p>
                   Our team of lawyers have superior local and international
                   experience to meet your needs.
@@ -554,7 +554,7 @@ const HomeIndex = () => {
               <div className="my-2 text-[1.35rem] font-semibold">
                 <p>Client-Centered Focus</p>
               </div>
-              <div className="text-[1rem]">
+              <div className="text-[1.25rem]">
                 <p>
                   Your satisfaction is our top priority, and we strive to go
                   above and beyond your expectations to deliver superlative
@@ -610,7 +610,7 @@ const HomeIndex = () => {
               <p>For your business</p>
             </div>
             {/* normal paragraph */}
-            <div className="text-[.875rem] md:text-[1.05rem]">
+            <div className="text-[.875rem] md:text-[1.25rem]">
               <p>
                 Whether you need to establish a company, apply for licenses and
                 permits, or obtain a tax ID, we will help set your business up
@@ -656,7 +656,7 @@ const HomeIndex = () => {
               <p>For you and your family</p>
             </div>
             {/* normal paragraph */}
-            <div className="text-[.875rem] md:text-[1.05rem]">
+            <div className="text-[.875rem] md:text-[1.25rem]">
               <p>
                 From wills to powers of attorney, the right estate planning
                 documents can safeguard you and your loved ones—both now, and
@@ -723,14 +723,14 @@ const HomeIndex = () => {
             <p>FIND A LAWYER BY PRACTICE AREA</p>
           </div>
           {/* normal paragraph */}
-          <div className="flex items-center justify-center my-3">
+          <div className="flex items-center justify-center my-3 text-[1.25rem]">
             <p>
               Our directory of lawyers covers over 150 practice areas across the
               US and Canada
             </p>
           </div>
           {/* grid container */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-[3%]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-7 py-[3%]">
             {/* list */}
             {caseTypes.map((item, index) => (
               <div
@@ -740,10 +740,10 @@ const HomeIndex = () => {
                 <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
                   <item.icon className="text-[1.5rem] text-yellow-700" />
                 </div>
-                <h3 className="mt-3 flex items-center justify-center font-bold">
+                <h3 className="mt-3 flex items-center justify-center font-bold text-[1.25rem]">
                   {item.title}
                 </h3>
-                <ul className="flex flex-col items-center">
+                <ul className="flex flex-col items-center justify-center text-[1.15rem]">
                   {item?.subList.map((subList, index) => (
                     <li key={index}>
                       <NavLink>{subList.text}</NavLink>
@@ -757,7 +757,7 @@ const HomeIndex = () => {
                 <FaScaleBalanced className="text-[1.5rem] text-yellow-700" />
               </div>
 
-              <ul className="flex flex-col items-center font-bold my-5">
+              <ul className="flex flex-col items-center justify-center font-bold my-5">
                 <li>
                   <NavLink>Tax</NavLink>
                 </li>
@@ -787,7 +787,7 @@ const HomeIndex = () => {
                 <p>For your intellectual property</p>
               </div>
               {/* normal paragraph */}
-              <div className="text-[.875rem] md:text-[1.05rem]">
+              <div className="text-[.875rem] md:text-[1.25rem]">
                 <p>
                   Need to trademark your logo, copyright a creative work, or
                   patent an invention? Protect yourself against copycats.
@@ -997,17 +997,15 @@ const HomeIndex = () => {
                 <p>Have you face court or arbitration case in Ethiopian?</p>
               </div>
               {/* normal paragraph */}
-              <div>
+              <div className="text-[.85rem] md:text-[1.25rem]">
                 <p>
                   Don’t worry Makuta Law Firm right behind you. Risk management
                   and compliance are keys to avoid disruptive large scale
-                  litigation. Whenever possible, our team make sure our clients
-                  implement measures to ensure they do not become embroiled into
-                  dispute. Our Services include
+                  litigation.
                 </p>
               </div>
               {/* text with icon */}
-              <div className="flex flex-col gap-y-5 mt-5">
+              <div className="flex flex-col gap-y-5 mt-5 text-[.85rem] md:text-[1.25rem]">
                 <div className="flex items-center gap-3">
                   <div className="p-1 bg-pink-100 border border-pink-400 text-pink-600 text-[1.15rem] rounded-full">
                     <MdOutlineFireplace />
@@ -1060,7 +1058,7 @@ const HomeIndex = () => {
             <p>Explore our legal article resources</p>
           </div>
           {/* normal paragraph */}
-          <div className="flex items-center justify-center my-3">
+          <div className="flex items-center justify-center my-3 text-[.875rem] md:text-[1.25rem]">
             <p>
               Learn more about your issue by reading helpful articles on a
               variety of legal topics.
