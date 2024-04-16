@@ -94,7 +94,7 @@ const CustomerLeftSideNav = () => {
           </button>
         </div>
         {/* logo */}
-        <div className="flex items-center justify-center mt-1 mb-10">
+        <div className="flex items-center justify-center my-5 mb-10">
           <NavLink
             to={"/"}
             className={"flex items-center justify-center pr-[25%]"}
