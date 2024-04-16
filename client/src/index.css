@@ -188,6 +188,16 @@ container padding
   border-radius: 4px;
 } */
 
+#customer-dashboard-leftside-nav-bar::-webkit-scrollbar{
+  width: 3px;
+}
+#customer-dashboard-leftside-nav-bar::-webkit-scrollbar-track{
+  background: #d8dee8;
+}
+#customer-dashboard-leftside-nav-bar::-webkit-scrollbar-thumb{
+  background: #9ca0a6;
+}
+
 /* admin-dashboard-table */
 .admin-dashboard-table::-webkit-scrollbar {
   width: 4px;
@@ -294,7 +304,7 @@ container padding
 /* dashboard nav */
 
 .dashboard-active-link-color {
-  @apply text-yellow-500 font-semibold border-l-4 border-yellow-500 pl-1;
+  @apply text-yellow-500 border-l-4 border-yellow-500 pl-1;
 }
 
 .dahboard-active-link-icon-color {
@@ -302,7 +312,7 @@ container padding
 }
 
 .dashboard-link-item-my {
-  @apply my-5 text-[.85rem]  transition-all ease-in-out duration-300 hover:font-[600] hover:text-gray-900;
+  @apply my-7 text-[1.25rem]  transition-all ease-in-out text-black duration-300 hover:text-gray-500;
 }
 
 .dashboard-main-list-item {
@@ -310,7 +320,7 @@ container padding
 }
 
 .dashboard-sub-link-items {
-  @apply pl-[15%] py-[.25rem] bg-white rounded-sm mr-1 mt-1 transition-all ease-in-out duration-300 hover:bg-gray-100 hover:font-[600] hover:text-gray-900;
+  @apply pl-[15%] py-[.25rem] bg-white rounded-sm mr-1 mt-1 transition-all ease-in-out duration-300 hover:bg-gray-100 text-black hover:text-gray-700;
 }
 /* home */
 .home-submenu-popup-ul {
