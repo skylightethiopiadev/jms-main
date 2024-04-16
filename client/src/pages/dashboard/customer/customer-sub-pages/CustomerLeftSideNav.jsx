@@ -71,7 +71,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[300px] flex flex-col pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-100 l:border-none lg:relative lg:left-0 w-[20%] min-w-[300px] flex flex-col pl-[2%] text-[1rem] "
       id="customer-dashboard-leftside-nav-bar"
     >
       <Response
