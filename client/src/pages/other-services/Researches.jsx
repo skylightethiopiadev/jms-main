@@ -87,8 +87,10 @@ const Researches = () => {
               consectetur atque accusamus. Libero, ab!
             </p>
           </div>
-          <div className="flex items-center justify-center mt-3">
-            <div className="w-[15%] h-[5px] bg-yellow-400 rounded-full"></div>
+          <div className="flex items-center justify-center mt-5">
+            <div className="w-[18%] h-[5px] bg-yellow-400 rounded-full relative flex items-center justify-center">
+              <div className="absolute w-[50px] h-[10px] rounded-full bg-inherit"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -277,6 +279,35 @@ const Researches = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* seventh order container */}
+      <div className="flex items-center justify-center py-[1%]">
+        <div className="relative w-[200px] h-[5px] rounded-full bg-yellow-400 flex items-center justify-center">
+          <div className="absolute w-[50px] h-[10px] rounded-full bg-yellow-400"></div>
+        </div>
+      </div>
+      {/* eight order container */}
+      <div>
+        {/* content container */}
+        <div className="w-full px-[12%] py-[5%]">
+          {/* bold text */}
+          <div className="font-bold text-2xl w-[75%]">
+            <p>
+              Bahir Dar ipsum dolor sit amet consectetur adipisicing elit. Eius
+              animi excepturi nulla.
+            </p>
+          </div>
+          {/* normal text */}
+          <div className="my-5">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa aut
+              tenetur minima fugiat provident hic neque at quo autem aliquam
+              blanditiis, placeat distinctio vitae eos. Qui ea repellat a
+              incidunt quaerat fuga recusandae labore voluptatum accusamus.
+              Pariatur magni doloremque nostrum laboriosam porro!
+            </p>
           </div>
         </div>
       </div>

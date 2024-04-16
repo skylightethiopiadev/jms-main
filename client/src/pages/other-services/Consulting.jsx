@@ -105,11 +105,11 @@ const Consulting = () => {
             {/* normal paragraph */}
             <div className="my-3">
               <p>
-                Consectetur adipisicing elit. Qui
-                consequuntur ipsa sapiente non voluptatibus, facere nemo maxime?
-                Illum possimus officia impedit minima sapiente tempore pariatur,
-                ab consequuntur. Placeat doloribus ex corporis distinctio,
-                deserunt voluptas natus maiores eveniet? Ducimus.
+                Consectetur adipisicing elit. Qui consequuntur ipsa sapiente non
+                voluptatibus, facere nemo maxime? Illum possimus officia impedit
+                minima sapiente tempore pariatur, ab consequuntur. Placeat
+                doloribus ex corporis distinctio, deserunt voluptas natus
+                maiores eveniet? Ducimus.
               </p>
             </div>
             {/* text */}
@@ -143,6 +143,34 @@ const Consulting = () => {
                 <span>21+</span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* fourth order container */}
+      <div className="flex items-center justify-center py-3">
+        <div className="relative w-[200px] h-[5px] rounded-full bg-yellow-400 flex items-center justify-center">
+          <div className="absolute w-[50px] h-[10px] rounded-full bg-inherit"></div>
+        </div>
+      </div>
+      {/* fifth order container */}
+      <div>
+        {/* content container */}
+        <div className="w-full px-[12%] py-[3%]">
+          {/* bold text */}
+          <div className="font-bold text-2xl w-[75%]">
+            <p>
+              Ethiopia ipsum dolor sit amet consectetur, adipisicing elit. Eos
+              fugiat reprehenderit repellendus?
+            </p>
+          </div>
+          {/* normal text */}
+          <div className="my-5">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Laudantium, ut ad aliquam sed eius nihil ratione quod expedita
+              alias magnam in sunt eos quam. Sunt repudiandae similique facere
+              repellendus optio non ducimus!
+            </p>
           </div>
         </div>
       </div>
