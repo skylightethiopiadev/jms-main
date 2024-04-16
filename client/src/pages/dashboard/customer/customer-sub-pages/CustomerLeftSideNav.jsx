@@ -150,19 +150,7 @@ const CustomerLeftSideNav = () => {
                 <span>Compliance</span>
               </div>
               {/* icon */}
-              {isComplianceOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isComplianceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isComplianceOpen ? "text-sky-500" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isComplianceOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
             </div>
             {/* sub menu */}
             {isComplianceOpen ? (
@@ -231,19 +219,7 @@ const CustomerLeftSideNav = () => {
                 <span>My Chart</span>
               </div>
               {/* icon */}
-              {isMyChartOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isMyChartOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isMyChartOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isMyChartOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
             </div>
             {/* sub menu */}
             {isMyChartOpen ? (
@@ -363,19 +339,8 @@ const CustomerLeftSideNav = () => {
                 <span>Finance</span>
               </div>
               {/* icon */}
-              {isFinanceOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isFinanceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isFinanceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isFinanceOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
+
             </div>
             {/* sub menu */}
             {isFinanceOpen ? (
@@ -474,19 +439,8 @@ const CustomerLeftSideNav = () => {
                 <span>Other Services</span>
               </div>
               {/* icon */}
-              {isOtherServiceOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isOtherServiceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isOtherServiceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isOtherServiceOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
+              
             </div>
             {/* sub menu */}
             {isOtherServiceOpen ? (
