@@ -225,7 +225,7 @@ const HomeIndex = () => {
       title: "Social Security",
       subList: [
         {
-          text: "Social Security Disability",
+          text: "Disability",
           path: "#"
         }
       ]
@@ -314,6 +314,7 @@ const HomeIndex = () => {
     "/images/lawyers/lawyer-two.jpg",
     "/images/lawyers/rodas.jpg"
   ];
+
   return (
     <>
       {/* first order container */}
@@ -447,7 +448,7 @@ const HomeIndex = () => {
                       <SiPostman />
                     </div>
                     {/* text */}
-                    <div>
+                    <div className="text-sm">
                       <p>Addis Ababa, Ethiopia</p>
                     </div>
                   </div>
@@ -461,7 +462,7 @@ const HomeIndex = () => {
                       </h3>
                     </header>
                     <div
-                      className="px-3 h-[19.5vh] overflow-y-auto mr-1"
+                      className="px-3 h-[22.5vh] overflow-y-auto mr-1"
                       id="home-lawyer-list-card"
                     >
                       {/* lawyer container */}
@@ -816,7 +817,7 @@ const HomeIndex = () => {
                 <FaScaleBalanced className="text-[1.5rem] text-yellow-700" />
               </div>
 
-              <ul className="flex flex-col items-center justify-center font-bold my-5">
+              <ul className="flex flex-col items-center justify-center text-[1.15rem] font-bold my-5">
                 <li>
                   <NavLink>Tax</NavLink>
                 </li>
