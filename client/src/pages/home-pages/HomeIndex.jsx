@@ -41,6 +41,8 @@ import { MdOutlineElderlyWoman } from "react-icons/md";
 import { RiContactsBookLine } from "react-icons/ri";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { AiOutlineGlobal } from "react-icons/ai";
+import { LuPhoneCall } from "react-icons/lu";
+import { FaGlobeAfrica } from "react-icons/fa";
 
 const HomeIndex = () => {
   // local states
@@ -649,59 +651,68 @@ const HomeIndex = () => {
       </div>
 
       {/* banner container */}
-      <div className="bg-yellow-400 h-[350px] box-border relative">
-        <div className="bg-white h-full clip-path-i box-border">
-          <div className="w-[50%] h-full bg-transparent pl-[12%] box-border">
-            <header className="my-3 font-bold text-3xl">
-              <h3>
-                Call <span>Center</span>
+      <div className="h-[300px] flex bg-yellow-400 relative">
+        {/* left */}
+        <div className="w-[60%] flex-grow bg-white [clip-path:polygon(-1%_-1%,100%_-1%,75%_85%,0%_85%)] flex flex-col">
+          <div className="h-[50%] w-full bg-white flex-grow"></div>
+          <div className="h-[50%] w-full flex-grow bg-yellow-300 [clip-path:polygon(0%_60%,70%_60%,78%_0%,100%_0%,100%_100%,0%_100%)]"></div>
+        </div>
+        {/* right */}
+        <div className="w-[40%] flex-grow bg-black flex relative [clip-path:polygon(33%_15%,100%_15%,101%_101%,0%_101%)] ml-[-10%]">
+          <div className="w-full h-full overflow-hidden">
+            <img
+              className="w-full h-full object-center object-cover opacity-55"
+              src="https://www.shutterstock.com/image-photo/statue-justice-symbol-legal-law-600nw-681265648.jpg"
+              alt=""
+            />
+          </div>
+          <div className="absolute left-0 top-0 w-full h-full z-10 bg-yellow-400 opacity-15 [clip-path:polygon(0%_0%,100%_0%,100%_25%,45%_25%,15%_100%,0%_100%)]"></div>
+        </div>
+        <div className="absolute z-30 left-0 top-0 w-full h-full px-[3%] sm:px-[12%] py-[1%] flex">
+          {/* left */}
+          <div className="w-[100%] lg:w-[65%] flex-grow">
+            <div>
+              <h3 className="font-bold text-3xl">
+                <span className="text-blue-900">Makuta</span> Call Center
               </h3>
-            </header>
-            <div className="text-[1.25rem]">
+            </div>
+            <div className="my-2 font-medium text-xl w-[100%] lg:w-[75%]">
               <p>
-                If any legal or technical difficulties, please contact our call
+                If any legal or technical difficulties, please contact the call
                 center
               </p>
             </div>
-            {/* contact */}
-            <div className="flex mt-5 gap-10">
-              <div className="flex flex-col">
+            <div className="flex items-center gap-5 mt-3">
+              <div className="flex flex-col items-start justify-center">
                 <div>
-                  <div className="w-[32px] aspect-square text-2xl rounded-full bg-yellow-400 text-white flex items-center justify-center">
-                    <BiSolidPhoneCall />
+                  <div className="aspect-square p-2 rounded-full bg-yellow-400 text-white text-xl">
+                    <LuPhoneCall />
                   </div>
                 </div>
-                <div className="font-bold text-xl my-3">
-                  <span>Local</span>
+                <div className="my-1 font-bold">
+                  <span>Local Call Center</span>
                 </div>
-                <div className="text-3xl font-bold text-yellow-400">
+                <div className="font-bold text-blue-900 text-3xl">
                   <span>8383</span>
                 </div>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col items-start justify-center">
                 <div>
-                  <div className="w-[32px] aspect-square text-2xl rounded-full bg-yellow-400 text-white flex items-center justify-center">
-                    <AiOutlineGlobal />
+                  <div className="aspect-square p-1 rounded-full bg-yellow-400 text-white text-3xl">
+                    <FaGlobeAfrica />
                   </div>
                 </div>
-                <div className="font-bold text-xl my-3">
-                  <span>International</span>
+                <div className="my-1 font-bold">
+                  <span>International Call Center</span>
                 </div>
-                <div className="text-3xl font-bold text-yellow-400">
+                <div className="font-bold text-blue-900 text-3xl">
                   <span>(+251) 985 228 888</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-[50%] absolute right-0 top-0 h-full bg-transparent flex items-center">
-          <div className="w-[45%] h-[75%]">
-            <img
-              className="w-full h-full object-center object-cover"
-              src="https://cdn.marketing.dixa.com/app/uploads/2023/06/15103251/Best-Call-Center-Software.png"
-              alt=""
-            />
-          </div>
+          {/* right */}
+          <div className="w-[0%] lg:w-[35%] lg:flex-grow"></div>
         </div>
       </div>
 
@@ -1149,6 +1160,62 @@ const HomeIndex = () => {
           <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
             View All Legal Topics
           </button>
+        </div>
+      </div>
+      {/* just for test */}
+      <div className="bg-yellow-400 h-[350px] box-border relative">
+        <div className="bg-white h-full clip-path-i box-border">
+          <div className="w-[50%] h-full bg-transparent pl-[12%] box-border">
+            <header className="my-3 font-bold text-3xl">
+              <h3>
+                Call <span>Center</span>
+              </h3>
+            </header>
+            <div className="text-[1.25rem]">
+              <p>
+                If any legal or technical difficulties, please contact our call
+                center
+              </p>
+            </div>
+            {/* contact */}
+            <div className="flex mt-5 gap-10">
+              <div className="flex flex-col">
+                <div>
+                  <div className="w-[32px] aspect-square text-2xl rounded-full bg-yellow-400 text-white flex items-center justify-center">
+                    <BiSolidPhoneCall />
+                  </div>
+                </div>
+                <div className="font-bold text-xl my-3">
+                  <span>Local</span>
+                </div>
+                <div className="text-3xl font-bold text-yellow-400">
+                  <span>8383</span>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div>
+                  <div className="w-[32px] aspect-square text-2xl rounded-full bg-yellow-400 text-white flex items-center justify-center">
+                    <AiOutlineGlobal />
+                  </div>
+                </div>
+                <div className="font-bold text-xl my-3">
+                  <span>International</span>
+                </div>
+                <div className="text-3xl font-bold text-yellow-400">
+                  <span>(+251) 985 228 888</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-[50%] absolute right-0 top-0 h-full bg-transparent flex items-center">
+          <div className="w-[45%] h-[75%]">
+            <img
+              className="w-full h-full object-center object-cover"
+              src="https://cdn.marketing.dixa.com/app/uploads/2023/06/15103251/Best-Call-Center-Software.png"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </>
