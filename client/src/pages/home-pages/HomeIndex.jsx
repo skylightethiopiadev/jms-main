@@ -1162,6 +1162,7 @@ const HomeIndex = () => {
           </button>
         </div>
       </div>
+
       {/* just for test */}
       <div className="bg-yellow-400 h-[350px] box-border relative">
         <div className="bg-white h-full clip-path-i box-border">
