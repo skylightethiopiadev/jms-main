@@ -683,7 +683,7 @@ const HomeIndex = () => {
               </p>
             </div>
             <div className="flex items-center gap-5 mt-3">
-              <div className="flex flex-col items-start justify-center">
+              <div className="flex flex-col items-center justify-center">
                 <div>
                   <div className="aspect-square p-2 rounded-full bg-yellow-400 text-white text-xl">
                     <LuPhoneCall />
@@ -692,11 +692,11 @@ const HomeIndex = () => {
                 <div className="my-1 font-bold normal-text">
                   <span>Local Call Center</span>
                 </div>
-                <div className="font-bold text-blue-900 text-3xl">
+                <div className="font-bold text-blue-900 text-2xl">
                   <span>8383</span>
                 </div>
               </div>
-              <div className="flex flex-col items-start justify-center">
+              <div className="flex flex-col items-center justify-center">
                 <div>
                   <div className="aspect-square p-1 rounded-full bg-yellow-400 text-white text-3xl">
                     <FaGlobeAfrica />
@@ -705,7 +705,7 @@ const HomeIndex = () => {
                 <div className="my-1 font-bold normal-text">
                   <span>International Call Center</span>
                 </div>
-                <div className="font-bold text-blue-900 text-3xl">
+                <div className="font-bold text-blue-900 text-2xl">
                   <span>(+251) 985 228 888</span>
                 </div>
               </div>
