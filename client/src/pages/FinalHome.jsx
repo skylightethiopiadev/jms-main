@@ -270,7 +270,7 @@ const FinalHome = () => {
                 <h3 className="text-2xl font-bold">Who we are?</h3>
               </header>
               {/* content */}
-              <div className="my-5 text-[1.25rem]">
+              <div className="my-5 normal-text">
                 <p>
                   Makuta Law Firm has launched a world class app, which connects
                   clients and lawyers internationally, to meet various legal

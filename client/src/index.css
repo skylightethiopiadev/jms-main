@@ -386,3 +386,16 @@ clip path
     clip-path: polygon(-1% -1%,55% -1%,40% 88%,0% 88%)
   }
 }
+
+/* 
+
+/////////////////////////////////////////
+font size
+////////////////////////////////////////
+
+ */
+
+/* normal text */
+.normal-text {
+  @apply text-[16px] md:text-[18px] xl:text-[20px] leading-[28px] tracking-[.3px] ;
+}
