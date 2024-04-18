@@ -526,13 +526,13 @@ const HomeIndex = () => {
         <div className="w-full flex items-center gap-0">
           {/* text container */}
           <div className="w-[100%] lg:w-[50%] border-b-[7px] pb-[2%] border-black">
-            <div className="my-5 text-[1.75rem] font-bold">
-              <p>Why Choose US</p>
+            <div className="my-3">
+              <h2 className="header-level-2">Why Choose US</h2>
             </div>
             {/* sub texts */}
             <div className="mb-7">
-              <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Network</p>
+              <div className="my-2">
+                <h3 className="header-level-3">Network</h3>
               </div>
               <div className="normal-text">
                 <p>
@@ -544,8 +544,8 @@ const HomeIndex = () => {
             </div>
 
             <div className="mb-7">
-              <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Professionalism</p>
+              <div className="my-2">
+                <h3 className="header-level-3">Professionalism</h3>
               </div>
               <div className="normal-text">
                 <p>
@@ -556,8 +556,8 @@ const HomeIndex = () => {
             </div>
 
             <div>
-              <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Client-Centered Focus</p>
+              <div className="my-2">
+                <h3 className="header-level-3">Client-Centered Focus</h3>
               </div>
               <div className="normal-text">
                 <p>
@@ -611,8 +611,8 @@ const HomeIndex = () => {
           {/* right */}
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
-            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
-              <p>For your business</p>
+            <div className="mb-1">
+              <h2 className="header-level-2">For your business</h2>
             </div>
             {/* normal paragraph */}
             <div className="normal-text">
@@ -651,7 +651,7 @@ const HomeIndex = () => {
       </div>
 
       {/* banner container */}
-      <div className="h-[300px] flex bg-yellow-400 relative">
+      <div className="h-[350px] flex bg-yellow-400 relative">
         {/* left */}
         <div className="w-[60%] flex-grow bg-white [clip-path:polygon(-1%_-1%,100%_-1%,75%_85%,0%_85%)] flex flex-col">
           <div className="h-[50%] w-full bg-white flex-grow"></div>
@@ -672,9 +672,9 @@ const HomeIndex = () => {
           {/* left */}
           <div className="w-[100%] lg:w-[65%] flex-grow">
             <div>
-              <h3 className="font-bold text-3xl">
+              <h2 className="header-level-2">
                 <span className="text-blue-900">Makuta</span> Call Center
-              </h3>
+              </h2>
             </div>
             <div className="normal-text my-2 font-medium w-[100%] lg:w-[75%]">
               <p>
@@ -723,8 +723,8 @@ const HomeIndex = () => {
           {/* left */}
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
-            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
-              <p>For you and your family</p>
+            <div className="mb-4">
+              <h2 className="header-level-2">For you and your family</h2>
             </div>
             {/* normal paragraph */}
             <div className="normal-text">
@@ -854,8 +854,8 @@ const HomeIndex = () => {
             {/* left container */}
             <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
               {/* bold paragraph */}
-              <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
-                <p>For your intellectual property</p>
+              <div className="mb-4">
+                <h2 className="header-level-2">For your intellectual property</h2>
               </div>
               {/* normal paragraph */}
               <div className="normal-text">
@@ -1064,8 +1064,8 @@ const HomeIndex = () => {
                 </button>
               </div>
               {/* bold paragraph */}
-              <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
-                <p>Have you face court or arbitration case in Ethiopian?</p>
+              <div className="my-5">
+                <h2 className="header-level-2">Have you face court or arbitration case in Ethiopian?</h2>
               </div>
               {/* normal paragraph */}
               <div className="normal-text">

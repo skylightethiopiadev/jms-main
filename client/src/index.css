@@ -399,3 +399,13 @@ font size
 .normal-text {
   @apply text-[16px] md:text-[18px] xl:text-[20px] leading-[28px] tracking-[.3px] ;
 }
+
+/* level-2 header */
+.header-level-2 {
+  @apply font-bold text-[26px] md:text-[28px]  xl:text-[32px];
+}
+
+/* level-3 header */
+.header-level-3 {
+  @apply font-semibold text-[22px] sm:text-[24px] md:text-[26px];
+}
