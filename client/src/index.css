@@ -312,7 +312,7 @@ container padding
 }
 
 .dashboard-link-item-my {
-  @apply my-5 text-[1.25rem]  transition-all ease-in-out text-black duration-300 hover:text-gray-500;
+  @apply my-4 text-[1.15rem]  transition-all ease-in-out text-black duration-300 hover:text-gray-500;
 }
 
 .dashboard-main-list-item {
