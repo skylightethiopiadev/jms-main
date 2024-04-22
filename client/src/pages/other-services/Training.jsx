@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import Chart from "react-apexcharts";
 // icons
 import { IoIosPlay } from "react-icons/io";
@@ -25,17 +25,16 @@ const Training = () => {
                 <p>Improve your Skill with Different Way</p>
               </div>
               {/* normal paragraph */}
-              <div className="my-[12px] text-gray-700 w-[80%]">
+              <div className="my-[12px] normal-text text-gray-700 w-[80%]">
                 <p>
                   dolor sit amet consectetur adipisicing elit. Obcaecati numquam
                   tempora cupiditate esse et enim vero error nobis deleniti,
-                  accusantium quibusdam laudantium, unde voluptas, assumenda
-                  quis adipisci ratione amet ducimus tempore ex.
+                  accusantium quibusdam laudantium.
                 </p>
               </div>
               {/* button container */}
               <div className="relative w-full">
-                <div className="my-[24px] flex items-center gap-[12px]">
+                <div className="my-[24px] flex items-center gap-[12px] normal-text">
                   <button className="px-[12px] w-max py-1 rounded-md bg-yellow-400 text-white">
                     Get Started
                   </button>
@@ -44,7 +43,7 @@ const Training = () => {
                     <span>Watch Video</span>
                   </button>
                 </div>
-                <div className="absolute md:relative top-[-28px] md:top-auto lg:absolute right-0 lg:right-[-64px] lg:top-1/2 lg:w-auto w-max lg:-translate-y-1/2 bg-white shadow-md p-[3px] md:p-[12px] flex gap-3">
+                <div className="absolute md:relative top-[-28px] md:top-auto lg:absolute right-0 lg:right-[-120px] normal-text lg:top-1/2 lg:w-auto w-max lg:-translate-y-1/2 bg-white shadow-md p-[3px] md:p-[12px] flex gap-3">
                   <div className="self-center text-yellow-400 text-5xl">
                     <GiGraduateCap />
                   </div>
@@ -75,7 +74,7 @@ const Training = () => {
           </div>
           {/* bottom */}
           <div>
-            <div className="w-full rounded-md bg-white shadow-md p-[24px] mt-[7px] flex ice justify-evenly">
+            <div className="w-full rounded-md normal-text bg-white shadow-md p-[24px] mt-[7px] flex ice justify-evenly">
               <div className="flex flex-col items-center justify-center">
                 <div className="my-3 font-bold text-xl text-yellow-400">
                   <h3>10K+</h3>
@@ -129,8 +128,8 @@ const Training = () => {
                     alt=""
                   />
                 </div>
-                <div className="my-1 mx-3 font-bold text-gray-700">
-                  <h3>Android Development from Zero to Hero</h3>
+                <div className="my-1 mx-3 normal-text text-gray-700">
+                  <h3>Android Development</h3>
                 </div>
                 <div className="my-1 mx-3 flex ice gap-1">
                   <div className="flex items-center gap-1 text-xl text-yellow-400">
@@ -238,7 +237,7 @@ const Training = () => {
               </p>
             </div>
             {/* normal paragraph */}
-            <div className="my-3">
+            <div className="my-3 normal-text">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Provident id recusandae quisquam quas. Ratione facere illo sint
@@ -259,8 +258,8 @@ const Training = () => {
                     <div className="font-bold text-lg text-yellow-400">
                       <h3>E-Learning</h3>
                     </div>
-                    <div>
-                      <p>Ipsum dolor sit amet consectetur adipisice</p>
+                    <div className="normal-text">
+                      <p>Consectetur adipisice</p>
                     </div>
                   </div>
                 </div>
@@ -283,7 +282,7 @@ const Training = () => {
               </p>
             </div>
             {/* normal paragraph */}
-            <div className="my-3">
+            <div className="my-3 normal-text">
               <h1 className="font-bold my-3">some title text</h1>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -357,8 +356,8 @@ const Training = () => {
                     <span>Software Engineer</span>
                   </div>
                 </div>
-                <div className="my-2">
-                  <p>Haddis ipsum, dolor sit amet consectetur adipisicing.</p>
+                <div className="my-2 normal-text">
+                  <p>Haddis consectetur adipisicing.</p>
                 </div>
                 <div>
                   <button className="text-gray-500 font-medium hover:text-gray-700">
@@ -371,9 +370,11 @@ const Training = () => {
           {/* footer */}
           <footer className="flex items-center justify-between mt-10">
             <div>
-              <ul className='flex items-center gap-3 text-gray-500 font-medium'>
+              <ul className="flex items-center gap-3 text-gray-500 font-medium">
                 <li>
-                  <NavLink className={'text-yellow-400 underline'}>Home</NavLink>
+                  <NavLink className={"text-yellow-400 underline"}>
+                    Home
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink>Courses</NavLink>
@@ -397,28 +398,32 @@ const Training = () => {
       {/* sixth order container */}
       <div>
         {/* content container */}
-        <div className='w-full px-[12%] py-[5%] flex items-center justify-center'>
-          <div className='rounded-md py-[3%] px-[10%] bg-yellow-400'>
+        <div className="w-full px-[12%] py-[5%] flex items-center justify-center">
+          <div className="rounded-md py-[3%] px-[10%] bg-yellow-400">
             {/* bold text */}
-            <header className='flex items-center justify-center font-bold text-3xl'>
+            <header className="flex items-center justify-center font-bold text-3xl">
               <h3>Subscribe to Our News Letter</h3>
             </header>
             {/* normal text */}
-            <div className='flex items-center justify-center'>
+            <div className="flex items-center justify-center">
               <p>
-                Bahir Dar, dolor sit amet consectetur adipisicing elit. Exercitationem, officia.
+                Bahir Dar, dolor sit amet consectetur adipisicing elit.
+                Exercitationem, officia.
               </p>
             </div>
             {/* input container */}
-            <div className='flex items-center justify-center gap-5 mt-5'>
-              <div className='flex items-center rounded-sm bg-white px-3 py-1'>
+            <div className="flex items-center justify-center gap-5 mt-5">
+              <div className="flex items-center rounded-sm bg-white px-3 py-1">
                 <input
-                  className='focus:ring-0 focus:outline-none py-2 border-none bg-transparent h-[32px] w-full'
+                  className="focus:ring-0 focus:outline-none py-2 border-none bg-transparent h-[32px] w-full"
                   type="text"
-                  placeholder='your email' />
+                  placeholder="your email"
+                />
               </div>
               <div>
-                <button className='px-3 py-2 rounded-sm bg-blue-700 text-white'>send message</button>
+                <button className="px-3 py-2 rounded-sm bg-blue-700 text-white">
+                  send message
+                </button>
               </div>
             </div>
           </div>
