@@ -12,6 +12,7 @@ import { MdChevronRight } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
+import { IoIosBriefcase } from "react-icons/io";
 
 const AdminDashboardLeftSideNav = () => {
   // main nav links
@@ -19,13 +20,19 @@ const AdminDashboardLeftSideNav = () => {
     {
       header: "Home",
       icon: MdHome,
-      path: "#",
+      path: "/admin",
       subLinks: false
     },
     {
       header: "Dashboard",
       icon: MdDashboard,
       path: "#",
+      subLinks: false
+    },
+    {
+      header: "Cases",
+      icon: IoIosBriefcase,
+      path: "/admin/case",
       subLinks: false
     },
     {
@@ -76,15 +83,17 @@ const AdminDashboardLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] transition-all ease-in-out duration-300 top-0 h-[100vh] bg-white z-50 w-[200px] lg:min-w-[180px] lg:h-full p-[1%] flex flex-col lg:relative lg:left-auto lg:top-auto lg:bg-inherit"
+      className="absolute left-[-100vw] transition-all ease-in-out duration-300 top-0 h-[100vh] bg-white z-50 w-[200px] lg:w-[180px] lg:h-full p-[1%] flex flex-col lg:relative lg:left-auto lg:top-auto lg:bg-inherit"
       id="admin-dashboard-left-side-nav"
     >
       {/* hide toggler */}
       <div className="absolute top-1 right-1 lg:hidden">
-        <button onClick={() => {
-          adminDashboardLeftSideNavToggler()
-        }}>
-          <AiOutlineClose className="text-[1.5rem] text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700"/>
+        <button
+          onClick={() => {
+            adminDashboardLeftSideNavToggler();
+          }}
+        >
+          <AiOutlineClose className="text-[1.5rem] text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700" />
         </button>
       </div>
       {/* site logo */}
@@ -105,6 +114,7 @@ const AdminDashboardLeftSideNav = () => {
           {mainNavLinks?.map((navLink, index) => (
             <li key={index}>
               <NavLink
+                to={`${navLink.path}`}
                 className={
                   "flex items-center justify-between px-[3px] py-[7px] text-gray-600 transition-all ease-in-out duration-150 hover:bg-gray-100 hover:text-blue-700 border-l-8 border-transparent hover:border-blue-700"
                 }
