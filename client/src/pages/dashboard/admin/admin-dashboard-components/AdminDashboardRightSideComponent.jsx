@@ -65,7 +65,7 @@ const AdminDashboardRightSideComponent = () => {
           <h3 className="font-bold">Tags</h3>
         </div>
         <div className="ml-3 flex flex-wrap gap-3">
-          {[...Array(5)].map((item, index) => (
+          {[...Array(2)].map((item, index) => (
             <div key={index} className="py-1 px-3 bg-white shadow-md">
               <span>Consulting</span>
             </div>
@@ -83,7 +83,7 @@ const AdminDashboardRightSideComponent = () => {
           <h3 className="font-bold">Timeline</h3>
         </div>
         <div className="ml-3">
-          {[...Array(3)].map((item, index) => (
+          {[...Array(2)].map((item, index) => (
             <div key={index} className="py-1 px-3 my-1 flex gap-1 text-xs">
               <div>
                 <GoClockFill className="text-xl text-green-400"/>

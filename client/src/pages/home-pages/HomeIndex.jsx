@@ -692,7 +692,7 @@ const HomeIndex = () => {
                 <div className="my-1 font-bold normal-text">
                   <span>Local Call Center</span>
                 </div>
-                <div className="font-bold text-blue-900 text-2xl">
+                <div className="font-bold text-blue-900 text-2credxl">
                   <span>8383</span>
                 </div>
               </div>

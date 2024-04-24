@@ -8,7 +8,7 @@ const SuperAdminCases = () => {
       className="w-full h-full overflow-y-auto pr-1"
       id="super-admin-case-management-container"
     >
-      <div className="w-full h-full bg-white rounded-xl">
+      <div className="w-full h-max min-h-[90vh] bg-white rounded-xl">
         <CasesHeader />
         <CasesManagement />
       </div>

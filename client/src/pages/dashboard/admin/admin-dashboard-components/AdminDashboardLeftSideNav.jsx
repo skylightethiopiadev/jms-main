@@ -83,7 +83,7 @@ const AdminDashboardLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] transition-all ease-in-out duration-300 top-0 h-[100vh] bg-white z-50 w-[200px] lg:w-[180px] lg:h-full p-[1%] flex flex-col lg:relative lg:left-auto lg:top-auto lg:bg-inherit"
+      className="absolute left-[-100vw] transition-all ease-in-out duration-300 top-0 h-[100vh] bg-white z-50 w-[200px] lg:w-[180px] lg:h-full p-[1%] flex flex-col lg:relative lg:left-auto lg:top-auto lg:bg-inherit lg:min-w-[250px]"
       id="admin-dashboard-left-side-nav"
     >
       {/* hide toggler */}
@@ -116,7 +116,7 @@ const AdminDashboardLeftSideNav = () => {
               <NavLink
                 to={`${navLink.path}`}
                 className={
-                  "flex items-center justify-between px-[3px] py-[12px] text-gray-600 transition-all ease-in-out duration-150 hover:bg-gray-100 hover:text-blue-700 border-l-8 border-transparent hover:border-blue-700"
+                  "flex items-center justify-between px-[3px] py-[7px] text-gray-600 transition-all ease-in-out duration-150 hover:bg-gray-100 hover:text-blue-700 border-l-8 border-transparent hover:border-blue-700"
                 }
               >
                 <div className="flex items-center gap-1">

@@ -45,6 +45,10 @@
   width: 0px;
 }
 
+#case-description::-webkit-scrollbar {
+  width: 0px;
+}
+
 #home-lawyer-list-card:hover::-webkit-scrollbar {
   width: 3px;
 }
@@ -408,6 +412,10 @@ font size
 /* normal text */
 .normal-text {
   @apply text-[16px] md:text-[18px] xl:text-[20px] leading-[28px] tracking-[.3px];
+}
+
+.super-admin-normal-text {
+  @apply text-[14px] md:text-[16px] xl:text-[18px] leading-[24px] tracking-[.25px];
 }
 
 /* level-2 header */
