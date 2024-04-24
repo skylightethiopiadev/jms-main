@@ -8,6 +8,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { IoSaveSharp } from "react-icons/io5";
 import { AiOutlinePlus } from "react-icons/ai";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 const CasesManagement = () => {
   // states
@@ -17,6 +18,9 @@ const CasesManagement = () => {
   const [isEdit, setIsEdit] = useState(null);
   const [editMode, setEditMode] = useState("");
   const [isFirstOrderSubCase, setIsFirstOrderSubCase] = useState(false);
+  const [isSecondOrderSubCase, setIsSecondOrderSubCase] = useState(false);
+  const [manageCase, setManageCase] = useState(false);
+  const [manageSubCase, setManageSubCase] = useState(false);
 
   // local data
   // case categories
@@ -25,7 +29,21 @@ const CasesManagement = () => {
       _id: 0,
       caseTitle: "Criminal",
       caseDescription:
-        "In 1855 the vigorous emperor of Ethiopia, Tewodros II, invaded the then semi-independent kingdom of Shewa"
+        "In 1855 the vigorous emperor of Ethiopia, Tewodros II, invaded the then semi-independent kingdom of Shewa",
+      subCases: [
+        {
+          _id: 11,
+          title: "Intellectual Property"
+        },
+        {
+          _id: 12,
+          title: "Family"
+        },
+        {
+          _id: 13,
+          title: "Construction"
+        }
+      ]
     },
     {
       _id: 1,
@@ -301,9 +319,18 @@ const CasesManagement = () => {
                   </div>
                   <div className="my-2 pl-9">
                     <div className="flex items-center gap-1">
-                      <button className="flex items-center gap-1 text-sm text-blue-500">
+                      <button
+                        className="flex items-center gap-1 text-sm text-blue-500"
+                        onClick={() => {
+                          setManageCase(!manageCase);
+                        }}
+                      >
                         <span>manage case</span>
-                        <MdKeyboardArrowDown className="text-lg" />
+                        <MdKeyboardArrowDown
+                          className={`text-lg transition-all ease-in-out duration-150 ${
+                            manageCase ? "rotate-[-180deg]" : "rotate-0"
+                          }`}
+                        />
                       </button>
 
                       <button
@@ -319,13 +346,112 @@ const CasesManagement = () => {
                   </div>
                   {/* sub component container */}
                   <div>
-                    <div className="pl-20">
+                    <div
+                      className={`pl-20 overflow-hidden ${
+                        manageCase ? "h-max" : "h-0"
+                      }`}
+                    >
                       <div className="p-2 rounded-sm border border-gray-200">
-                        <div>LIST</div>
+                        <div>
+                          {/* list */}
+                          <div>
+                            {item?.subCases?.map((subItem, index) => (
+                              <div
+                                key={index}
+                                className="w-full bg-white p-1 rounded-sm shadow-md"
+                              >
+                                <header
+                                  className="flex items-center justify-between cursor-pointer pl-3"
+                                  onClick={() => {
+                                    setManageSubCase(!manageSubCase);
+                                  }}
+                                >
+                                  <div className="flex items-center gap-1">
+                                    <div className="w-[9px] aspect-square bg-blue-500 rounded-full"></div>
+                                    <h3 className="text-[1rem]">
+                                      {subItem?.title}
+                                    </h3>
+                                  </div>
+                                  <div>
+                                    <button>
+                                      <MdKeyboardArrowDown
+                                        className={`text-xl text-blue-500 transition-all ease-in-out duration-300 ${
+                                          manageSubCase
+                                            ? "rotate-[-180deg]"
+                                            : "rotate-0"
+                                        }`}
+                                      />
+                                    </button>
+                                  </div>
+                                </header>
+
+                                {/* sub-container */}
+                                <div
+                                  className={`overflow-hidden transition-all ease-in-out duration-300 ${
+                                    manageSubCase ? "h-auto" : "h-0"
+                                  }`}
+                                >
+                                  {/* bar */}
+                                  <div className="w-full h-[1px] bg-gray-100"></div>
+                                  <div className="w-full pl-10">
+                                    <div className=" p-3 border border-gray-100 rounded-sm my-1">
+                                      <div>list</div>
+                                      {/* btn */}
+                                      <div>
+                                        {/* btn */}
+                                        <div className="my-1">
+                                          <button
+                                            className="flex items-center gap-1 text-[.875rem] text-blue-500"
+                                            onClick={() => {
+                                              setIsSecondOrderSubCase(
+                                                !isSecondOrderSubCase
+                                              );
+                                            }}
+                                          >
+                                            <AiFillPlusCircle />
+                                            <span>add new sub types</span>
+                                            <MdKeyboardArrowDown
+                                              className={`text-xl transition-all ease-in-out duration-300 ${
+                                                isSecondOrderSubCase
+                                                  ? "rotate-[-180deg]"
+                                                  : "rotate-0"
+                                              }`}
+                                            />
+                                          </button>
+                                        </div>
+                                      </div>
+                                      {/* input */}
+                                      <div
+                                        className={`overflow-hidden transition-all ease-in-out duration-300 ${
+                                          isSecondOrderSubCase
+                                            ? "h-[75px]"
+                                            : "h-0"
+                                        }`}
+                                      >
+                                        <div className="w-full flex items-center bg-gray-50 rounded-sm">
+                                          <input
+                                            className="w-full focus:outline-none focus:ring-0 border-none bg-transparent"
+                                            placeholder="enter sub type here"
+                                            type="text"
+                                          />
+                                        </div>
+                                        <div className="my-2">
+                                          <button className="px-3 rounded-sm text-[1rem] transition-all ease-in-out duration-300 hover:bg-blue-500 hover:text-white border border-blue-500 text-blue-500">
+                                            save new
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                         {/* new btn */}
                         <div>
                           <button
-                            className="flex items-center gap-1 text-[.875rem] text-blue-500"
+                            className="flex items-center gap-1 text-[.875rem] text-blue-500 my-1"
                             onClick={() => {
                               setIsFirstOrderSubCase(!isFirstOrderSubCase);
                             }}
