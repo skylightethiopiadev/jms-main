@@ -17,6 +17,9 @@ import { IoIosSunny } from "react-icons/io";
 import { AiFillPhone } from "react-icons/ai";
 import { GrVmMaintenance } from "react-icons/gr";
 import { DiRedis } from "react-icons/di";
+import { MdDashboard } from "react-icons/md";
+import { MdGroups } from "react-icons/md";
+import { FaBalanceScale } from "react-icons/fa";
 
 const AdminDashboardIndex = () => {
   return (
@@ -39,11 +42,11 @@ const AdminDashboardIndex = () => {
         </div>
       </header>
       {/* second order container */}
-      <div className="bg-white shadow-md rounded-md overflow-hidden">
+      <div className="bg-yellow-100 shadow-md rounded-md overflow-hidden">
         {/* background image */}
         <div className="relative z-0">
           <img
-            className="w-full h-[100px] object-center object-cover"
+            className="w-full h-[100px] object-center object-cover opacity-75"
             src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjgyMi1hZXctMDJfMS5qcGc.jpg"
             alt=""
           />
@@ -95,69 +98,449 @@ const AdminDashboardIndex = () => {
         </div>
       </div>
       {/* post-second order container */}
-      <div className="mt-5">
+      <div className="mt-5 grid grid-cols-3 gap-5">
         {/* chart container */}
-        <div className="p-[1%] flex gap-5">
-          {/* left */}
-          <div className="w-[50%] grid grid-cols-2 gap-3">
-            <div className="bg-white rounded-md p-1">
-              <Chart
-                type="radialBar"
-                series={[35, 50, 70, 65]}
-                options={{
-                  plotOptions: {
-                    radialBar: {
-                      hollow: {
-                        size: "15%"
-                      }
-                    }
-                  },
-                  labels: ["family", "copyright", "trademark", "loan"],
-                  legend: {
-                    floating: true,
-                    position: "left"
-                  }
-                }}
-              />
+        {/* chart-1 */}
+        <div className="bg-white p-3 rounded-sm shadow-md">
+          <div>
+            <div className="flex items-center gap-1">
+              <div>
+                <MdDashboard className="text-xl" />
+              </div>
+              <div>
+                <h3 className="font-semibold">Service Area</h3>
+              </div>
             </div>
-            <div className="bg-white rounded-md p-1">
-              <Chart
-                type="bar"
-                series={[
-                  {
-                    name: "family",
-                    data: [130, 150, 200, 230, 250]
-                  }
-                  // {
-                  //   name: "trademark",
-                  //   data: [160, 130, 150, 230, 150]
-                  // },
-                  // {
-                  //   name: "copyright",
-                  //   data: [180, 200, 150, 190, 210]
-                  // },
-                ]}
-                height={"100%"}
-                width={"100%"}
-                options={{
-                  yaxis: {
-                    show: false
-                  },
-                  xaxis: {
-                    show: false
-                  },
-                  grid: {
-                    show: false
-                  },
-                  legend: {
-                    show: false
-                  }
-                }}
-              />
+            <div className="flex items-center gap-3 my-1">
+              <div className="flex items-center gap-1">
+                <h3 className="font-bold">20</h3>
+                <span className="font-medium text-sm">total area</span>
+              </div>
+              <div>
+                <span className="text-xs text-emerald-500 font-bold">
+                  12% in last week
+                </span>
+              </div>
             </div>
           </div>
-          {/* right */}
-          <div className="w-[50%] bg-red-400">right</div>
+          <div className="my-[-30px] ml-[-16px]">
+            <Chart
+              series={[
+                {
+                  name: "Haddis",
+                  data: [5, 12, 5, 21, 2, 12, 3, 22, 9, 32, 2, 19, 2]
+                }
+              ]}
+              options={{
+                chart: {
+                  type: "area",
+                  height: 50,
+                  toolbar: {
+                    show: false
+                  },
+                  zoom: {
+                    enabled: false
+                  }
+                },
+                grid: {
+                  xaxis: {
+                    lines: {
+                      show: false
+                    }
+                  },
+                  yaxis: {
+                    lines: {
+                      show: false
+                    }
+                  }
+                },
+                stroke: {
+                  curve: "smooth",
+                  width: 1
+                },
+                xaxis: {
+                  labels: {
+                    show: false
+                  },
+                  axisBorder: {
+                    show: false
+                  },
+                  axisTicks: {
+                    show: false
+                  }
+                },
+                yaxis: {
+                  labels: {
+                    show: false
+                  }
+                },
+                tooltip: {
+                  show: false
+                },
+                dataLabels: {
+                  enabled: false
+                },
+                colors: ["#10e83f", "#10e83f", "#532dfc"],
+                fill: {
+                  type: "gradient",
+                  gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.1,
+                    opacityTo: 1,
+                    stops: [0, 100]
+                  }
+                }
+              }}
+              type="area"
+              height={100}
+            />
+          </div>
+        </div>
+        {/* chart-2 */}
+        <div className="bg-white p-3 rounded-sm shadow-md">
+          <div>
+            <div className="flex items-center gap-1">
+              <div>
+                <MdGroups className="text-xl" />
+              </div>
+              <div>
+                <h3 className="font-semibold">Customers</h3>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 my-1">
+              <div className="flex items-center gap-1">
+                <h3 className="font-bold">20</h3>
+                <span className="font-medium text-sm">total area</span>
+              </div>
+              <div>
+                <span className="text-xs text-purple-700 font-bold">
+                  12% in last week
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="my-[-30px] ml-[-16px]">
+            <Chart
+              series={[
+                {
+                  name: "",
+                  data: [5, 12, 5, 21, 2, 12, 3, 22, 9, 32, 2, 19, 2]
+                }
+              ]}
+              options={{
+                chart: {
+                  type: "area",
+                  height: 50,
+                  toolbar: {
+                    show: false
+                  },
+                  zoom: {
+                    enabled: false
+                  }
+                },
+                grid: {
+                  xaxis: {
+                    lines: {
+                      show: false
+                    }
+                  },
+                  yaxis: {
+                    lines: {
+                      show: false
+                    }
+                  }
+                },
+                stroke: {
+                  curve: "smooth",
+                  width: 1
+                },
+                xaxis: {
+                  labels: {
+                    show: false
+                  },
+                  axisBorder: {
+                    show: false
+                  },
+                  axisTicks: {
+                    show: false
+                  }
+                },
+                yaxis: {
+                  labels: {
+                    show: false
+                  }
+                },
+                tooltip: {
+                  show: false
+                },
+                dataLabels: {
+                  enabled: false
+                },
+                colors: ["#9d04bf", "#10e83f", "#532dfc"],
+                fill: {
+                  type: "gradient",
+                  gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.1,
+                    opacityTo: 1,
+                    stops: [0, 100]
+                  }
+                }
+              }}
+              type="area"
+              height={100}
+            />
+          </div>
+        </div>
+        {/* chart-3 */}
+        <div className="bg-white p-3 rounded-sm shadow-md">
+          <div>
+            <div className="flex items-center gap-1">
+              <div>
+                <FaBalanceScale className="text-xl" />
+              </div>
+              <div>
+                <h3 className="font-semibold">Cases</h3>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 my-1">
+              <div className="flex items-center gap-1">
+                <h3 className="font-bold">20</h3>
+                <span className="font-medium text-sm">total area</span>
+              </div>
+              <div>
+                <span className="text-xs text-yellow-500 font-bold">
+                  12% in last week
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="my-[-30px] ml-[-16px]">
+            <Chart
+              series={[
+                {
+                  name: "Haddis",
+                  data: [5, 12, 5, 21, 2, 12, 3, 22, 9, 32, 2, 19, 2]
+                }
+              ]}
+              options={{
+                chart: {
+                  type: "area",
+                  height: 50,
+                  toolbar: {
+                    show: false
+                  },
+                  zoom: {
+                    enabled: false
+                  }
+                },
+                grid: {
+                  xaxis: {
+                    lines: {
+                      show: false
+                    }
+                  },
+                  yaxis: {
+                    lines: {
+                      show: false
+                    }
+                  }
+                },
+                stroke: {
+                  curve: "smooth",
+                  width: 1
+                },
+                xaxis: {
+                  labels: {
+                    show: false
+                  },
+                  axisBorder: {
+                    show: false
+                  },
+                  axisTicks: {
+                    show: false
+                  }
+                },
+                yaxis: {
+                  labels: {
+                    show: false
+                  }
+                },
+                tooltip: {
+                  show: false
+                },
+                dataLabels: {
+                  enabled: false
+                },
+                colors: ["#f2c202", "#10e83f", "#532dfc"],
+                fill: {
+                  type: "gradient",
+                  gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.1,
+                    opacityTo: 1,
+                    stops: [0, 100]
+                  }
+                }
+              }}
+              type="area"
+              height={100}
+            />
+          </div>
+        </div>
+      </div>
+      {/* pre-pre-third order container */}
+      <div className="mt-5 grid grid-cols-2 gap-5">
+        {/* left */}
+        <div className="">
+          <div className="p-3 rounded-sm bg-white shadow-md">
+            <header className="border-b border-gray-100">
+              <h3 className="uppercase">Total Profit</h3>
+            </header>
+            <div className="flex items-center justify-between gap-1 my-2">
+              <div>
+                <div>
+                  <span className="text-sm">Total Income</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="font-bold text-gray-700">
+                    <h3>320,000</h3>
+                  </div>
+                  <div>
+                    <span className="text-red-600 font-medium text-xs">
+                      21% last month
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-2 text-sm text-gray-700">
+                  <p>
+                    Menilek’s father was Haile Malakot, later negus (king) of
+                    Shewa.
+                  </p>
+                </div>
+              </div>
+              <div className="">
+                <div className="w-[90px] border-8 border-blue-400 border-l-gray-100 aspect-square rounded-full flex items-center justify-center">
+                  <span className="font-bold text-blue-400">75%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="p-3 bg-white rounded-sm shadow-md mt-3">
+            <header className="mb-3">
+              <h3 className="uppercase">payment status</h3>
+            </header>
+            <div className="flex items-center justify-between my-1 px-5">
+              {/* cirlce 1 */}
+              <div className="flex flex-col items-center justify-center">
+                <div className="w-[42px] aspect-square border-[10px] border-gray-100 border-t-blue-500  rounded-full"></div>
+                <div>
+                  <h3 className="font-bold">133,455</h3>
+                </div>
+                <div>
+                  <span className="text-sm font-medium text-gray-500">
+                    PAYED
+                  </span>
+                </div>
+              </div>
+              {/* circle 2 */}
+              <div className="flex flex-col items-center justify-center">
+                <div className="w-[42px] aspect-square border-[10px] border-gray-100 border-t-green-500  rounded-full"></div>
+                <div>
+                  <h3 className="font-bold">122</h3>
+                </div>
+                <div>
+                  <span className="text-sm font-medium text-gray-500">
+                    PENDING
+                  </span>
+                </div>
+              </div>
+              {/* circle 3 */}
+              <div className="flex flex-col items-center justify-center">
+                <div className="w-[42px] aspect-square border-[10px] border-gray-100 border-t-red-500  rounded-full"></div>
+                <div>
+                  <h3 className="font-bold">96</h3>
+                </div>
+                <div>
+                  <span className="text-sm font-medium text-gray-500">
+                    CANCELED
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className=" bg-white rounded-sm shadow-md p-1">
+          <Chart
+            type="bar"
+            height={"100%"}
+            series={[
+              {
+                name: "Net Profit",
+                data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+              },
+              {
+                name: "Revenue",
+                data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+              },
+              {
+                name: "Free Cash Flow",
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+              }
+            ]}
+            options={{
+              chart: {
+                type: "bar",
+                height: 350,
+                toolbar: {
+                  show: false,
+                }
+              },
+              plotOptions: {
+                bar: {
+                  horizontal: false,
+                  columnWidth: "55%",
+                  endingShape: "rounded"
+                }
+              },
+              dataLabels: {
+                enabled: false
+              },
+              stroke: {
+                show: true,
+                width: 2,
+                colors: ["transparent"]
+              },
+              xaxis: {
+                categories: [
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Aug",
+                  "Sep",
+                  "Oct"
+                ]
+              },
+              yaxis: {
+                title: {
+                  text: "$ (thousands)"
+                }
+              },
+              fill: {
+                opacity: 1
+              },
+              tooltip: {
+                y: {
+                  formatter: function(val) {
+                    return "$ " + val + " thousands";
+                  }
+                }
+              }
+            }}
+          />
         </div>
       </div>
       {/* pre-third order container */}
@@ -289,7 +672,7 @@ const AdminDashboardIndex = () => {
           </div>
           {/* lawyer */}
           {[...Array(11)].map((lawyer, index) => (
-            <div key={index} className="flex gap-1">
+            <div key={index} className="flex gap-1 text-sm">
               <div className="self-baseline w-[36px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
                 <img
                   className="w-full h-full object-cover object-center"
@@ -298,7 +681,7 @@ const AdminDashboardIndex = () => {
                 />
               </div>
               <div>
-                <div className="flex gap-1 text-gray-700 font-bold">
+                <div className="flex gap-1 text-gray-700 font-medium">
                   <span>Haddis</span>
                   <span>Fanta</span>
                 </div>
