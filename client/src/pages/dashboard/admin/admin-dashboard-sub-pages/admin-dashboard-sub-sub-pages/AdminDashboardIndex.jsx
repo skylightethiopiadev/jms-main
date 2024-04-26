@@ -493,7 +493,7 @@ const AdminDashboardIndex = () => {
                 type: "bar",
                 height: 350,
                 toolbar: {
-                  show: false,
+                  show: false
                 }
               },
               plotOptions: {
@@ -729,7 +729,7 @@ const AdminDashboardIndex = () => {
                 {/* left */}
                 <div className="flex gap-1">
                   <div>
-                    <div className="w-[28px] aspect-square rounded-full overflow-hidden bg-emerald-500 flex items-center justify-center font-bold text-white">
+                    <div className="w-[28px] aspect-square rounded-full overflow-hidden bg-emerald-500 flex items-center justify-center text-[1rem] font-bold text-white">
                       <span>AC</span>
                     </div>
                   </div>
@@ -849,7 +849,7 @@ const AdminDashboardIndex = () => {
               </h3>
             </div>
             <div>
-              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
+              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
                 <div>
                   <span>Family</span>
                 </div>
@@ -908,7 +908,7 @@ const AdminDashboardIndex = () => {
               </h3>
             </div>
             <div>
-              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
+              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
                 <div>
                   <span>Family</span>
                 </div>
@@ -967,7 +967,7 @@ const AdminDashboardIndex = () => {
               </h3>
             </div>
             <div>
-              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
+              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
                 <div>
                   <span>Family</span>
                 </div>
@@ -1026,7 +1026,7 @@ const AdminDashboardIndex = () => {
               </h3>
             </div>
             <div>
-              <div className="py-[1%] px-[3%] grid grid-cols-2 gap-1 font-medium text-gray-700">
+              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
                 <div>
                   <span>Family</span>
                 </div>
