@@ -662,18 +662,18 @@ const AdminDashboardIndex = () => {
           {/* add new lawyer button */}
           <div>
             <div className="flex items-center gap-1 cursor-pointer">
-              <div className="w-[38px] aspect-square rounded-full border-2 border-white shadow-md overflow-hidden flex items-center justify-center bg-gray-50">
+              <div className="w-[34px] aspect-square rounded-full border-2 border-white shadow-md overflow-hidden flex items-center justify-center bg-gray-50">
                 <span className="text-xl text-gray-500 font-bold">+</span>
               </div>
               <div>
-                <span className="font-semibold text-gray-700">Add Lawyer</span>
+                <span className="font-medium text-gray-700">Add Lawyer</span>
               </div>
             </div>
           </div>
           {/* lawyer */}
           {[...Array(11)].map((lawyer, index) => (
             <div key={index} className="flex gap-1 text-sm">
-              <div className="self-baseline w-[36px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
+              <div className="self-baseline w-[32px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
                 <img
                   className="w-full h-full object-cover object-center"
                   src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
