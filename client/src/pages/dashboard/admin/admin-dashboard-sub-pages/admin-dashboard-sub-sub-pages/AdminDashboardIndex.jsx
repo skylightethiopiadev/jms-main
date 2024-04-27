@@ -543,6 +543,213 @@ const AdminDashboardIndex = () => {
           />
         </div>
       </div>
+      {/* pre-third order  */}
+      <div className="mt-5">
+        <div className="p-[1%] bg-white rounded-sm shadow-md">
+          <Chart
+            type="line"
+            height={380}
+            width={"100%"}
+            series={[
+              {
+                name: "legal service since - 1990",
+                data: [
+                  8107.85,
+                  8128.0,
+                  8122.9,
+                  8165.5,
+                  8340.7,
+                  8323.7,
+                  8423.5,
+                  8514.3,
+                  8481.85,
+                  8487.7,
+                  8506.9,
+                  8626.2,
+                  8668.95,
+                  8602.3,
+                  8607.55,
+                  8512.9,
+                  8496.25,
+                  8600.65,
+                  8881.1,
+                  9340.85
+                ]
+              }
+            ]}
+            options={{
+              colors: ["#0242a8"],
+              chart: {
+                zoom: {
+                  enabled: true
+                },
+                toolbar: {
+                  show: false
+                },
+                dropShadow: {
+                  enabled: true,
+                  color: "#0242a8",
+                  top: 12,
+                  blur: 3,
+                  opacity: 0.15
+                }
+              },
+              grid: {
+                padding: {
+                  top: -12,
+                  bottom: -12
+                }
+              },
+              stroke: {
+                curve: "smooth",
+                width: 2
+              },
+              markers: {
+                size: 0,
+                shape: "square"
+              },
+              annotations: {
+                yaxis: [
+                  {
+                    y: 8100,
+                    borderColor: "#eb0725",
+                    strokeDashArray: 0,
+                    label: {
+                      text: "low status",
+                      borderColor: "#eb0725",
+                      borderRadius: 0,
+                      style: {
+                        color: "#fff",
+                        background: "#eb0725",
+                        fontSize: 16
+                      }
+                    }
+                  },
+                  {
+                    y: 8400,
+                    y2: 9000,
+                    fillColor: "#f7be02",
+                    opacity: 0.15,
+                    label: {
+                      text: "medium status",
+                      borderColor: "#f7be02",
+                      borderRadius: 0,
+                      style: {
+                        color: "#fff",
+                        background: "#f7be02",
+                        fontSize: 14
+                      }
+                    }
+                  },
+                  {
+                    y: 9300,
+                    borderColor: "#04c441",
+                    strokeDashArray: 0,
+                    label: {
+                      text: "climax status",
+                      borderColor: "#04c441",
+                      borderRadius: 0,
+                      style: {
+                        color: "#fff",
+                        background: "#04c441",
+                        fontSize: 14
+                      }
+                    }
+                  }
+                ],
+                xaxis: [
+                  {
+                    x: 3,
+                    strokeDashArray: 0,
+                    borderColor: "#0575e6",
+                    label: {
+                      text: "starting point",
+                      borderColor: "#0575e6",
+                      borderRadius: 0,
+                      style: {
+                        color: "#fff",
+                        background: "#0575e6",
+                        fontSize: 14
+                      }
+                    }
+                  },
+                  {
+                    x: 7,
+                    x2: 12,
+                    fillColor: "#3c07db",
+                    opacity: 0.15,
+                    label: {
+                      text: "middle state",
+                      borderColor: "#3c07db",
+                      borderRadius: 0,
+                      style: {
+                        color: "#fff",
+                        background: "#3c07db",
+                        fontSize: 14
+                      }
+                    }
+                  },
+                  {
+                    x: 16,
+                    borderColor: "#de6502",
+                    strokeDashArray: 0,
+                    label: {
+                      text: "final state",
+                      borderColor: "#de6502",
+                      borderRadius: 0,
+                      style: {
+                        color: "#fff",
+                        background: "#de6502",
+                        fontSize: 14
+                      }
+                    }
+                  }
+                ],
+                points: [
+                  {
+                    x: 8,
+                    y: 8514.3,
+                    marker: {
+                      size: 12,
+                      fillColor: "#fff",
+                      strokeColor: "#04c227"
+                    },
+                    label: {
+                      text: "Critical Appointment",
+                      borderColor: "#04c227",
+                      borderRadius: 0,
+                      style: {
+                        color: "#fff",
+                        background: "#04c227",
+                        fontSize: 14
+                      }
+                    }
+                  },
+                  {
+                    x: 14,
+                    y: 8602.30,
+                    marker: {
+                      size: 12,
+                      fillColor: '#fff',
+                      strokeColor: '#ba0462',
+                    },
+                    label: {
+                      text: 'danger zone',
+                      borderColor: '#ba0462',
+                      borderRadius: 0,
+                      style: {
+                        color: '#fff',
+                        background: '#ba0462',
+                        fontSize: 14
+                      }
+                    }
+                  }
+                ]
+              }
+            }}
+          />
+        </div>
+      </div>
       {/* pre-third order container */}
       <div className="mt-5">
         {/* content container */}
