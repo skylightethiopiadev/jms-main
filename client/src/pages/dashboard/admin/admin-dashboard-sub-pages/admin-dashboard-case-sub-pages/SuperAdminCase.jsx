@@ -126,28 +126,27 @@ const MainCaseCategoryItem = props => {
   const [editMode, setEditMode] = useState('')
   const [isAddCaseDescription, setIsAddCaseDescription] = useState(false)
   const [isPrimarySubListExpanded, setIsPrimarySubListExpanded] = useState(false)
+  const [height, setHeight] = useState(0)
 
   console.log(caseCategory.primarySubList?.length)
 
   // sub list container height container
   const primarySubListContainerHeightContainer = (primaryListCount) => {
     console.log(primaryListCount)
-
-    let height = 0 
-    if (primaryListCount && isPrimarySubListExpanded){
-      height = 37.3438 * primaryListCount + 25.3438
-    }else {
-      height = 25.3438
+    if (primaryListCount && isPrimarySubListExpanded) {
+      setHeight(37.3438 * primaryListCount + 25.3438)
+    } else {
+      setHeight(25.3438)
     }
     return 450
-  
+
   }
   return (
     <div className="p-1 my-3 mx-1 border border-gray-100 rounded-sm">
       <header className="p-1 flex items-center justify-between gap-1">
         {/* left */}
         <div className="flex-grow flex items-center gap-1">
-          <div className="w-[22px] aspect-square flex items-center justify-center rounded-full bg-green-500 overflow-hidden cursor-pointer text-white text-3xl" onClick={()=>{
+          <div className="w-[22px] aspect-square flex items-center justify-center rounded-full bg-green-500 overflow-hidden cursor-pointer text-white text-3xl" onClick={() => {
             setIsPrimarySubListExpanded(!isPrimarySubListExpanded)
           }}>
             <MdKeyboardArrowRight />
@@ -248,7 +247,7 @@ const MainCaseCategoryItem = props => {
           </div>
       }
 
-      <div className={`pl-8 overflow-hidden transition-all ease-in-out duration-300 bg-red-600 h-[${primarySubListContainerHeightContainer(caseCategory?.primarySubList?.length)}px]`}>
+      <div className={`pl-8 overflow-hidden transition-all ease-in-out duration-300 bg-red-600 `}>
         <div className="border border-gray-100 rounded-sm p-1 my-1">
 
           {caseCategory.primarySubList?.length ? (
@@ -256,7 +255,7 @@ const MainCaseCategoryItem = props => {
               <div >
 
                 {caseCategory.primarySubList?.map((item, index) => {
-                  return <PrimarySubListItem key={index} primarySubListItem={item}  />;
+                  return <PrimarySubListItem key={index} primarySubListItem={item} />;
                 })}
               </div>
             </div>
