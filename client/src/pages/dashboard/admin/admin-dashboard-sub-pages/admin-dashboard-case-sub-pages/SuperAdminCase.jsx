@@ -18,10 +18,45 @@ const Header = () => {
 
 // secondary sub list
 const SecondarySubList = props => {
-  let { seondarySubListItem } = props;
+  let { secondarySubListItem } = props;
+  const [isEdit,setIsEdit] = useState(null)
   return (
     <div>
-      <header>{seondarySubListItem.title}</header>
+      <header className="flex items-center justify-between gap-1">
+        {/* left */}
+        <div className="flex-grow flex items-center gap-1">
+          <div className="w-[9px] aspect-square flex items-center justify-center rounded-full bg-green-500 overflow-hidden cursor-pointer text-white text-3xl">
+            
+          </div>
+          <div className={`flex-grow bg-red-20 my-[.105rem] border  ${isEdit?._id === secondarySubListItem._id ? 'border-green-500' : 'border-transparent'}`}>
+            <input className="focus:outline-none focus:ring-0 p-1 w-full bg-transparent border-none" type="text" value={secondarySubListItem?.title} disabled={isEdit?._id === secondarySubListItem._id ? false : true} />
+          </div>
+        </div>
+        <div className="self-start flex items-center gap-1">
+          <div>
+            {
+              isEdit?._id === secondarySubListItem._id
+                ?
+                <div className="w-[22px] aspect-square rounded-full overflow-hidden bg-green-500 flex items-center justify-center  text-white cursor-pointer" onClick={() => {
+                  setIsEdit(null)
+                  // setEditMode('')
+                }}>
+                  <MdSave />
+                </div>
+                :
+                <div className="w-[22px] transition-all ease-in-out duration-300 hover:opacity-100 opacity-50 aspect-square rounded-full overflow-hidden bg-green-500 flex items-center justify-center  text-white cursor-pointer" onClick={() => {
+                  setIsEdit(secondarySubListItem)
+                  // setEditMode('TITLE')
+                }}>
+                  <CiEdit />
+                </div>
+            }
+          </div>
+          <div className="w-[22px] transition-all ease-in-out duration-300 hover:opacity-100 opacity-50 aspect-square rounded-full overflow-hidden bg-red-600 flex items-center justify-center  text-white cursor-pointer">
+            <RiDeleteBin5Line />
+          </div>
+        </div>
+      </header>
     </div>
   );
 };
@@ -30,13 +65,17 @@ const SecondarySubList = props => {
 const PrimarySubListItem = props => {
   let { primarySubListItem } = props;
   const [isEdit, setIsEdit] = useState(null)
+  const [isAddNewSecondarySubList, setIsAddNewSecondarySubList] = useState(false)
+  const [isSecondarySubListExpanded, setIsSecondarySubListExpanded] = useState(false)
   return (
     <div>
       <header className="flex items-center justify-between gap-1">
         {/* left */}
         <div className="flex-grow flex items-center gap-2">
-          <div className="w-[22px] aspect-square flex items-center justify-center rounded-full bg-green-500 overflow-hidden cursor-pointer text-white text-3xl">
-            <MdKeyboardArrowRight />
+          <div className="w-[22px] aspect-square flex items-center justify-center rounded-full bg-green-500 overflow-hidden cursor-pointer text-white text-3xl" onClick={()=>{
+            setIsSecondarySubListExpanded(!isSecondarySubListExpanded)
+          }}>
+            <MdKeyboardArrowRight className={`transition-transform ease-in-out duration-300 ${isSecondarySubListExpanded ? 'rotate-90' : 'rotate-0'}`}/>
           </div>
           <div className={`flex-grow bg-red-20 my-[.105rem] border  ${isEdit?._id === primarySubListItem._id ? 'border-green-500' : 'border-transparent'}`}>
             <input className="focus:outline-none focus:ring-0 p-1 w-full bg-transparent border-none" type="text" value={primarySubListItem.title} disabled={isEdit?._id === primarySubListItem._id ? false : true} />
@@ -67,18 +106,46 @@ const PrimarySubListItem = props => {
           </div>
         </div>
       </header>
-      <div>
-        {primarySubListItem.secondarySubList?.length ? (
-          <div className="h-0 overflow-hidden">
-            {primarySubListItem.secondarySubList?.map((item, index) => {
-              return (
-                <SecondarySubList key={index} seondarySubListItem={item} />
-              );
-            })}
+
+      <div className={`pl-14 overflow-hidden ${isSecondarySubListExpanded ? 'h-auto' : 'h-0'}`}>
+        <div className="p-2 border border-gray-100 rounded-sm mb-1">
+
+          <div>
+            {primarySubListItem.secondarySubList?.length ? (
+              <div>
+                {primarySubListItem.secondarySubList?.map((item, index) => {
+                  return (
+                    <SecondarySubList key={index} secondarySubListItem={item} />
+                  );
+                })}
+              </div>
+            ) : (
+              <div>vvvv</div>
+            )}
           </div>
-        ) : (
-          <div>vvvv</div>
-        )}
+
+          {/* add new list btn */}
+          <div>
+            <div className="flex items-center gap-3 cursor-pointer border border-blue-700 text-blue-700 w-max p-1 py-[.105rem] rounded-sm transition-colors ease-in-out duration-300 hover:bg-blue-700 hover:text-white mt-1 select-none" onClick={()=>{
+              setIsAddNewSecondarySubList(!isAddNewSecondarySubList)
+            }}>
+              <span className="text-sm lowercase">add new {primarySubListItem.title} subvvv list</span>
+              <AiOutlineClose className={`transition-transform ease-in-out duration-300 ${isAddNewSecondarySubList ? 'rotate-0' : '-rotate-45'}`} />
+            </div>
+          </div>
+          {/* input */}
+          <div className={`overflow-hidden transition-all ease-in-out duration-300 ${isAddNewSecondarySubList ? 'h-[92px]' : 'h-0'}`}>
+            <div className="mt-1 p-2 rounded-sm bg-gray-200">
+              <div className="bg-white rounded-sm overflow-hidden">
+                <input className="focus:outline-none focus:ring-0 p-1 w-full bg-transparent border-none" type="text" placeholder="sub list title" />
+              </div>
+              <div className="mt-3 flex items-center gap-5">
+                <button className="px-5 rounded-sm bg-blue-700 border transition-colors ease-in-out duration-300 hover:bg-blue-500 hover:border-blue-500 border-blue-700 text-white">save</button>
+                <button className="px-5 border border-gray-400 text-gray-500 rounded-sm transition-colors ease-in-out duration-300 hover:border-gray-700 hover:text-black">cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -93,9 +160,8 @@ const AddNewPrimarySubList = props => {
     <div>
       {/* button */}
       <div>
-        <div className="flex items-center gap-3 cursor-pointer border border-blue-700 text-blue-700 w-max p-1 py-[.105rem] rounded-sm transition-colors ease-in-out duration-300 hover:bg-blue-700 hover:text-white mt-1 select-none" id="iddd" onClick={() => {
+        <div className="flex items-center gap-3 cursor-pointer border border-blue-700 text-blue-700 w-max p-1 py-[.105rem] rounded-sm transition-colors ease-in-out duration-300 hover:bg-blue-700 hover:text-white mt-1 select-none" onClick={()=>{
           setIsAddNewPrimaryList(!isAddNewPrimaryList)
-          console.log(window.getComputedStyle(document.getElementById('iddd')).height)
         }}>
           <span className="text-sm lowercase">add new {caseCategory.title} sub list</span>
           <AiOutlineClose className={`transition-transform ease-in-out duration-300 ${isAddNewPrimaryList ? 'rotate-0' : '-rotate-45'}`} />
@@ -126,21 +192,7 @@ const MainCaseCategoryItem = props => {
   const [editMode, setEditMode] = useState('')
   const [isAddCaseDescription, setIsAddCaseDescription] = useState(false)
   const [isPrimarySubListExpanded, setIsPrimarySubListExpanded] = useState(false)
-  const [height, setHeight] = useState(0)
 
-  console.log(caseCategory.primarySubList?.length)
-
-  // sub list container height container
-  const primarySubListContainerHeightContainer = (primaryListCount) => {
-    console.log(primaryListCount)
-    if (primaryListCount && isPrimarySubListExpanded) {
-      setHeight(37.3438 * primaryListCount + 25.3438)
-    } else {
-      setHeight(25.3438)
-    }
-    return 450
-
-  }
   return (
     <div className="p-1 my-3 mx-1 border border-gray-100 rounded-sm">
       <header className="p-1 flex items-center justify-between gap-1">
@@ -149,7 +201,7 @@ const MainCaseCategoryItem = props => {
           <div className="w-[22px] aspect-square flex items-center justify-center rounded-full bg-green-500 overflow-hidden cursor-pointer text-white text-3xl" onClick={() => {
             setIsPrimarySubListExpanded(!isPrimarySubListExpanded)
           }}>
-            <MdKeyboardArrowRight />
+            <MdKeyboardArrowRight className={`transition-transform ease-in-out duration-300 ${isPrimarySubListExpanded ? 'rotate-90' : 'rotate-0'}`} />
           </div>
           <div className="flex-grow">
             <div className={`border ${isEdit && editMode === 'TITLE' ? 'border-green-500' : 'border-transparent'}`}>
@@ -247,7 +299,7 @@ const MainCaseCategoryItem = props => {
           </div>
       }
 
-      <div className={`pl-8 overflow-hidden transition-all ease-in-out duration-300 bg-red-600 `}>
+      <div className={`pl-8 overflow-hidden transition-all ease-in-out duration-300 ${isPrimarySubListExpanded ? 'h-auto' : 'h-0'}`}>
         <div className="border border-gray-100 rounded-sm p-1 my-1">
 
           {caseCategory.primarySubList?.length ? (
@@ -342,7 +394,7 @@ const SuperAdminCase = () => {
   ]);
 
   return (
-    <div className="bg-white rounded-md min-h-[89vh]">
+    <div className="bg-white rounded-md min-h-[89vh] select-none">
       <Header />
       {/* content container */}
       <div>
