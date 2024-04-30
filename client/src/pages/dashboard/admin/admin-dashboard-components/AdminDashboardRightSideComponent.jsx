@@ -21,7 +21,7 @@ const AdminDashboardRightSideComponent = () => {
     }
   };
   return (
-    <div className="bg-white absolute right-[-100vw] top-0 z-30 shadow-lg w-[290px] transition-all ease-in-out duration-300 xl:relative xl:right-auto xl:top-auto xl:z-0 xl:shadow-none h-[93vh] xl:w-[350px] p-[1%]" id="admin-right-side-nav-component">
+    <div className="bg-white absolute right-[-100vw] top-0 z-30 shadow-lg w-[290px] transition-all ease-in-out duration-300 xl:relative xl:right-auto xl:top-auto xl:z-0 xl:shadow-none h-[93vh] xl:w-[350px] p-[1%] pr-[24px]" id="admin-right-side-nav-component">
       <div className="absolute z-30 top-1 left-1 xl:hidden">
         <button
           className="text-xl text-gray-500 transition-all ease-in-out duration-150 hover:text-gray-700"

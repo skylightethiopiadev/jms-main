@@ -42,11 +42,11 @@ const AdminDashboardIndex = () => {
         </div>
       </header>
       {/* second order container */}
-      <div className="bg-yellow-100 shadow-md rounded-md overflow-hidden">
+      <div className="bg-white shadow-md rounded-md overflow-hidden">
         {/* background image */}
-        <div className="relative z-0">
+        <div className="relative z-0 bg-blue-700">
           <img
-            className="w-full h-[100px] object-center object-cover opacity-75"
+            className="w-full h-[100px] object-center object-cover opacity-65"
             src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjgyMi1hZXctMDJfMS5qcGc.jpg"
             alt=""
           />
@@ -76,7 +76,7 @@ const AdminDashboardIndex = () => {
             </div>
           </div>
           {/* right */}
-          <div className="flex gap-3 pt-[10px] text-[.875rem]">
+          {/* <div className="flex gap-3 pt-[10px] text-[.875rem]">
             <div>
               <FaFacebookF className="text-blue-700" />
             </div>
@@ -94,7 +94,7 @@ const AdminDashboardIndex = () => {
                 <FaPlus className="text-emerald-500" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* post-second order container */}
@@ -545,7 +545,7 @@ const AdminDashboardIndex = () => {
       </div>
       {/* pre-third order  */}
       <div className="mt-5">
-        <div className="p-[1%] bg-white rounded-sm shadow-md">
+        <div className="p-[1%] bg-white rounded-sm shadow-md grid grid-cols-1">
           <Chart
             type="line"
             height={380}
@@ -727,19 +727,19 @@ const AdminDashboardIndex = () => {
                   },
                   {
                     x: 14,
-                    y: 8602.30,
+                    y: 8602.3,
                     marker: {
                       size: 12,
-                      fillColor: '#fff',
-                      strokeColor: '#ba0462',
+                      fillColor: "#fff",
+                      strokeColor: "#ba0462"
                     },
                     label: {
-                      text: 'danger zone',
-                      borderColor: '#ba0462',
+                      text: "danger zone",
+                      borderColor: "#ba0462",
                       borderRadius: 0,
                       style: {
-                        color: '#fff',
-                        background: '#ba0462',
+                        color: "#fff",
+                        background: "#ba0462",
                         fontSize: 14
                       }
                     }
@@ -750,98 +750,7 @@ const AdminDashboardIndex = () => {
           />
         </div>
       </div>
-      {/* pre-third order container */}
-      <div className="mt-5">
-        {/* content container */}
-        <div className="p-[1%] flex flex-col sm:flex-row gap-5">
-          {/* left */}
-          <div className="w-[100%] sm:w-[50%] rounded-md overflow-hidden flex relative">
-            {/* background image */}
-            <div className="w-full h-full bg-sky-200 relative z-10">
-              <img
-                className="w-full h-full opacity-95 object-center object-cover"
-                src="https://png.pngtree.com/thumb_back/fh260/background/20190221/ourmid/pngtree-poly-cost-effective-discount-offer-clearance-image_16482.jpg"
-                alt=""
-              />
-            </div>
-            {/* card */}
-            <div className="absolute top-5 right-5 z-20">
-              <div className="flex items-center gap-1 text-white">
-                <div>
-                  <IoIosSunny className="text-5xl" />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold">
-                    31<sup>c</sup>{" "}
-                  </h3>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-[-5px]">Addis Ababa</h3>
-                  <span>Ethiopia</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* right */}
-          <div className="w-[100%] sm:w-[50%] grid grid-cols-2 gap-5">
-            <div className="bg-purple-400 rounded-md text-white p-[5%]">
-              <div>
-                <span>Today's Booking</span>
-              </div>
-              <div className="mt-2">
-                <div className="text-2xl font-semibold">
-                  <h3>4006</h3>
-                </div>
-                <div>
-                  <span>10.00% (30 days) </span>
-                </div>
-              </div>
-            </div>
 
-            <div className="bg-green-400 rounded-md text-white p-[5%]">
-              <div>
-                <span>Today's Booking</span>
-              </div>
-              <div className="mt-2">
-                <div className="text-2xl font-semibold">
-                  <h3>4006</h3>
-                </div>
-                <div>
-                  <span>10.00% (30 days) </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-red-400 rounded-md text-white p-[5%]">
-              <div>
-                <span>Today's Booking</span>
-              </div>
-              <div className="mt-2">
-                <div className="text-2xl font-semibold">
-                  <h3>4006</h3>
-                </div>
-                <div>
-                  <span>10.00% (30 days) </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-orange-300 rounded-md text-white p-[5%]">
-              <div>
-                <span>Today's Booking</span>
-              </div>
-              <div className="mt-2">
-                <div className="text-2xl font-semibold">
-                  <h3>4006</h3>
-                </div>
-                <div>
-                  <span>10.00% (30 days) </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       {/* third order container */}
       <div className="mt-5 bg-white rounded-sm shadow-md">
         {/* header */}
@@ -869,18 +778,20 @@ const AdminDashboardIndex = () => {
           {/* add new lawyer button */}
           <div>
             <div className="flex items-center gap-1 cursor-pointer">
-              <div className="w-[34px] aspect-square rounded-full border-2 border-white shadow-md overflow-hidden flex items-center justify-center bg-gray-50">
+              <div className="w-[26px] aspect-square rounded-full border-2 border-white shadow-md overflow-hidden flex items-center justify-center bg-gray-50">
                 <span className="text-xl text-gray-500 font-bold">+</span>
               </div>
               <div>
-                <span className="font-medium text-gray-700">Add Lawyer</span>
+                <span className="font-medium text-gray-700 text-sm">
+                  Add Lawyer
+                </span>
               </div>
             </div>
           </div>
           {/* lawyer */}
-          {[...Array(11)].map((lawyer, index) => (
-            <div key={index} className="flex gap-1 text-sm">
-              <div className="self-baseline w-[32px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
+          {[...Array(7)].map((lawyer, index) => (
+            <div key={index} className="flex gap-1 text-xs">
+              <div className="self-baseline w-[24px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
                 <img
                   className="w-full h-full object-cover object-center"
                   src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
@@ -909,447 +820,6 @@ const AdminDashboardIndex = () => {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-      {/* fourth order container */}
-      <div className="mt-5 bg-white rounded-sm">
-        {/* header */}
-        <header className="p-[1%] flex items-center justify-between">
-          <div>
-            <h3 className="text-gray-700 font-bold">Customers' Case Status</h3>
-          </div>
-          <div>
-            <button className="px-5 py-[.135rem] rounded-md border border-gray-100 text-sm text-gray-500 transition-all ease-in-out duration-150 hover:border-gray-300 hover:text-gray-700">
-              view all
-            </button>
-          </div>
-        </header>
-        {/* cards */}
-        <div className="bg-gray-50 py-[1%] flex flex-col sm:flex-row gap-5 justify-between">
-          {/* active cases */}
-          {[...Array(3)].map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-sm shadow-md w-[100%] sm:w-[calc(100%/3)]"
-            >
-              <header className="p-[3%] flex items-center justify-between">
-                {/* left */}
-                <div className="flex gap-1">
-                  <div>
-                    <div className="w-[28px] aspect-square rounded-full overflow-hidden bg-emerald-500 flex items-center justify-center text-[1rem] font-bold text-white">
-                      <span>AC</span>
-                    </div>
-                  </div>
-                  <div className="text-gray-700">
-                    <h3 className="font-bold mb-[-5px]">Active Cases</h3>
-                    <span className="text-xs font-bold">1.3k cases</span>
-                  </div>
-                </div>
-                {/* right */}
-                <div>
-                  <div>
-                    <div className="flex relative h-[26px]">
-                      <div className="absolute right-7 z-10 w-[24px] aspect-square rounded-full overflow-hidden bg-red-300">
-                        <img
-                          className="w-full h-full object-cover object-center"
-                          src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="absolute right-4 z-20 w-[24px] aspect-square rounded-full overflow-hidden bg-green-300">
-                        <img
-                          className="w-full h-full object-cover object-center"
-                          src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="absolute right-0 z-30 w-[26px] aspect-square rounded-full overflow-hidden bg-white border-2 border-white shadow-md flex items-center justify-center">
-                        <span className="text-xs font-bold text-gray-700">
-                          7+
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="font-bold text-xs text-gray-700">
-                    <span>lawyers</span>
-                  </div>
-                </div>
-              </header>
-              <div className="m-[1%] p-[2%] border-y border-gray-100">
-                <div className="text-sm text-gray-700">
-                  <p>
-                    dolor sit amet, consectetur adipisicing elit. Est maxime
-                    facere culpa deleniti ab amet eaque? Quod, sunt.
-                  </p>
-                </div>
-              </div>
-              {/* footer */}
-              <footer className="p-[2%] flex items-center justify-between">
-                <div>
-                  <div>
-                    <div className="flex relative h-[26px]">
-                      <div className="absolute left-0 z-10 w-[24px] aspect-square rounded-full overflow-hidden bg-red-300">
-                        <img
-                          className="w-full h-full object-cover object-center"
-                          src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="absolute left-4 z-20 w-[24px] aspect-square rounded-full overflow-hidden bg-green-300">
-                        <img
-                          className="w-full h-full object-cover object-center"
-                          src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="absolute left-7 z-30 w-[26px] aspect-square rounded-full overflow-hidden bg-white border-2 border-white shadow-md flex items-center justify-center">
-                        <span className="text-xs font-bold text-gray-700">
-                          7+
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="font-bold text-xs text-gray-700">
-                    <span>customers</span>
-                  </div>
-                </div>
-                <div>
-                  <button className="flex items-center gap-1 px-1 py-[.13rem] text-gray-700 text-sm bg-gray-100 transition-all ease-in-out duration-150 hover:bg-gray-200">
-                    <span>view all</span>
-                    <RiArrowRightUpFill />
-                  </button>
-                </div>
-              </footer>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* fifth order container */}
-      <div className="bg-white mt-5 pb-3">
-        <header className="p-[1%] flex items-center justify-between">
-          <div className="text-gray-700 font-bold">
-            <h3>Customers Location</h3>
-          </div>
-          <div>
-            <button className="flex items-center gap-1 text-sm text-gray-700">
-              <IoLocationSharp className="text-lg text-blue-700" />
-              <span className="hidden md:inline-flex">view in</span>
-              <span>google map</span>
-            </button>
-          </div>
-        </header>
-        {/* locations grid */}
-        <div className="p-[1%] grid grid-cols-2 sm:grid-cols-4 gap-5">
-          <div className="rounded-md bg-white shadow-lg overflow-hidden">
-            <div>
-              <div className="w-full h-full overflow-hidden">
-                <img
-                  className="w-full h-[120px] object-center object-cover"
-                  src="https://ethiopianbusinessreview.net/wp-content/uploads/2020/12/Bahir-Dar.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-bold text-xs text-gray-500 mt-1">
-                Bahir Dar, Ethiopia
-              </h3>
-            </div>
-            <div>
-              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
-                <div>
-                  <span>Family</span>
-                </div>
-                <div>
-                  <span>Copyright</span>
-                </div>
-                <div>
-                  <span>Trademark</span>
-                </div>
-                <div>
-                  <span>Property</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-3 p-[3px]">
-                <div className="relative h-[28px] w-full">
-                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-center object-cover"
-                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover object-center"
-                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
-                    <span>21+</span>
-                  </div>
-                </div>
-                <button>
-                  <IoLocationSharp className="text-lg text-blue-700" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-md bg-white shadow-lg overflow-hidden">
-            <div>
-              <div className="w-full h-full overflow-hidden">
-                <img
-                  className="w-full h-[120px] object-center object-cover"
-                  src="https://www.fanabc.com/english/wp-content/uploads/2020/05/Addis-Ababa.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-bold text-xs text-gray-500 mt-1">
-                Addis Ababa, Ethiopia
-              </h3>
-            </div>
-            <div>
-              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
-                <div>
-                  <span>Family</span>
-                </div>
-                <div>
-                  <span>Copyright</span>
-                </div>
-                <div>
-                  <span>Trademark</span>
-                </div>
-                <div>
-                  <span>Property</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-3 p-[3px]">
-                <div className="relative h-[28px] w-full">
-                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-center object-cover"
-                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover object-center"
-                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
-                    <span>21+</span>
-                  </div>
-                </div>
-                <button>
-                  <IoLocationSharp className="text-lg text-blue-700" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-md bg-white shadow-lg overflow-hidden">
-            <div>
-              <div className="w-full h-full overflow-hidden">
-                <img
-                  className="w-full h-[120px] object-center object-cover"
-                  src="https://portal.adamacity.gov.et/gallery_images/1700586232.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-bold text-xs text-gray-500 mt-1">
-                Adama, Ethiopia
-              </h3>
-            </div>
-            <div>
-              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
-                <div>
-                  <span>Family</span>
-                </div>
-                <div>
-                  <span>Copyright</span>
-                </div>
-                <div>
-                  <span>Trademark</span>
-                </div>
-                <div>
-                  <span>Property</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-3 p-[3px]">
-                <div className="relative h-[28px] w-full">
-                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-center object-cover"
-                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover object-center"
-                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
-                    <span>21+</span>
-                  </div>
-                </div>
-                <button>
-                  <IoLocationSharp className="text-lg text-blue-700" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-md bg-white shadow-lg overflow-hidden">
-            <div>
-              <div className="w-full h-full overflow-hidden">
-                <img
-                  className="w-full h-[120px] object-center object-cover"
-                  src="https://www.ethiosports.com/wp-content/uploads/2014/05/Mekele.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-bold text-xs text-gray-500 mt-1">
-                Mekele, Ethiopia
-              </h3>
-            </div>
-            <div>
-              <div className="py-[1%] px-[3%] text-sm grid grid-cols-2 gap-1 font-medium text-gray-700">
-                <div>
-                  <span>Family</span>
-                </div>
-                <div>
-                  <span>Copyright</span>
-                </div>
-                <div>
-                  <span>Trademark</span>
-                </div>
-                <div>
-                  <span>Property</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-3 p-[3px]">
-                <div className="relative h-[28px] w-full">
-                  <div className="absolute left-0 z-0 w-[24px] aspect-square bg-blue-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-center object-cover"
-                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-3 z-10 w-[24px] aspect-square bg-red-500 rounded-full overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover object-center"
-                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute left-5 z-20 w-[26px] aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center text-gray-600 font-bold text-xs border-2 border-white shadow-md">
-                    <span>21+</span>
-                  </div>
-                </div>
-                <button>
-                  <IoLocationSharp className="text-lg text-blue-700" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* sixth order container */}
-      <div className="mt-5 flex flex-col md:flex-row gap-5">
-        {/* left */}
-        <div className="w-[100%] md:w-[50%]">
-          <header className="flex items-center justify-between pb-[3%]">
-            <div>
-              <h3 className="font-bold text-gray-700 text-[1rem]">Services</h3>
-            </div>
-            <div>
-              <div className="flex items-center gap-1 cursor-pointer px-3 py-[.13rem] border border-gray-300">
-                <div className="flex items-center justify-center text-xl text-green-500">
-                  <GrVmMaintenance />
-                </div>
-                <div className="flex items-center">
-                  <span>manage service</span>
-                </div>
-              </div>
-            </div>
-          </header>
-          <div className="w-full grid grid-cols-3 gap-7">
-            {[...Array(6)].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-sm p-[5%] flex flex-col items-center justify-center"
-              >
-                <div>
-                  <DiRedis className="text-3xl text-gray-700" />
-                </div>
-                <div className="text-gray-700 font-semibold">
-                  <span>Consulting</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* right */}
-        <div className="w-[100%] md:w-[50%] bg-white shadow-sm p-[1%]">
-          <header className="flex items-center justify-between py-[1%]">
-            <div className="flex gap-1">
-              <div>
-                <div className="w-[48px] aspect-square border-2 shadow-md border-white rounded-full overflow-hidden">
-                  <img
-                    className="w-full h-full object-center object-cover"
-                    src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yX3Bob3RvX29mX2FfYmxhY2tfYnVzaW5lc3NtYW5faXNvbGF0ZWRfb25fb2ZmX19lZmMxZDllNC1iNzQ5LTQ2NzMtYjRmMS1lYjI0NTBiYzNiOGRfMS5qcGc.jpg"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div>
-                <div className="text-gray-700 font-semibold flex gap-1">
-                  <span>Er. Haddis</span>
-                  <span>Fanta</span>
-                </div>
-                <div className="text-xs">
-                  <span>Maintenance Team Leader</span>
-                </div>
-              </div>
-            </div>
-            <div className="self-start">
-              <button className="flex items-center justify-center p-1 rounded-full bg-green-500 transition-all ease-in-out duration-300 hover:bg-green-400 text-white text-xl">
-                <AiFillPhone />
-              </button>
-            </div>
-          </header>
-          <div className="text-gray-700 text-sm p-[1%]">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
-              iste maxime, aspernatur id praesentium asperiores ab facilis iure,
-              fugiat minima, dicta reprehenderit! Et odio dicta obcaecati vero?
-              Suscipit corporis expedita officia odit sed ipsum nisi placeat
-              praesentium aperiam.
-            </p>
-          </div>
         </div>
       </div>
     </div>

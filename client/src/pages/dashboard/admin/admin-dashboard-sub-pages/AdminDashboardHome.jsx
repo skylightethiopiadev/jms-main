@@ -6,7 +6,7 @@ import AdminDashboardRightSideComponent from "../admin-dashboard-components/Admi
 
 const AdminDashboardHome = () => {
   return (
-    <div className="flex-grow flex flex-col h-[100vh] relative pt-[7vh]">
+    <div className="flex-grow flex flex-col h-[100vh] relative pt-[9vh]">
       <AdminDashboardHeader />
       <div className="flex-grow flex relative overflow-x-hidden">
         <div className="flex-grow w-[100%] bg-gray-50  p-[1%] overflow-y-auto">

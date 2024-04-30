@@ -42,8 +42,8 @@ const AdminDashboardHeader = () => {
   };
 
   return (
-    <header className="w-full h-[7vh] bg-white shadow-md absolute left-0 top-0 z-40">
-      <div className="w-full h-full px-[1%] flex items-center justify-between">
+    <header className="w-full h-[9vh] bg-white shadow-md absolute left-0 top-0 z-40">
+      <div className="w-full h-full px-[1%] pr-[24px] flex items-center justify-between">
         {/* header left container */}
         <div className="flex items-center gap-3">
           {/* menu drawer icon */}
