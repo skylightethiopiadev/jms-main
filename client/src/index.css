@@ -427,3 +427,7 @@ font size
 .header-level-3 {
   @apply font-semibold text-[22px] sm:text-[24px] md:text-[26px];
 }
+/* level-4 header */
+.header-level-4 {
+  @apply font-semibold text-[14px] sm:text-[16px] md:text-[16px];
+}

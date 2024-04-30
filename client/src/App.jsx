@@ -15,6 +15,10 @@ import AdminDashboardIndex from "./pages/dashboard/admin/admin-dashboard-sub-pag
 // sub pages
 import SuperAdminCase from "./pages/dashboard/admin/admin-dashboard-sub-pages/admin-dashboard-case-sub-pages/SuperAdminCase";
 import SuperAdminCases from "./pages/dashboard/admin/admin-dashboard-sub-pages/admin-dashboard-case-sub-pages/SuperAdminCases";
+
+// customers
+import CustomersDashboard from './pages/dashboard/customers/CustomersDashboard'
+import CustomersDashboardIndex from "./pages/dashboard/customers/customers-pages/CustomersDashboardIndex";
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -148,7 +152,7 @@ function App() {
                 <Route
                   path="/dashboard/lawyer/lawyer-new-case"
                   element={<ComingSoon />}
-                  // element={<LawyerNewCase />}
+                // element={<LawyerNewCase />}
                 ></Route>
               </Route>
 
@@ -162,22 +166,22 @@ function App() {
                 <Route
                   path="/dashboard/customer/message"
                   element={<ComingSoon />}
-                  // element={<Message />}
+                // element={<Message />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/message/video"
                   element={<ComingSoon />}
-                  // element={<Video />}
+                // element={<Video />}
                 />
                 <Route
                   path="/dashboard/customer/appointment"
                   element={<ComingSoon />}
-                  // element={<Appointment />}
+                // element={<Appointment />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/success"
                   element={<ComingSoon />}
-                  // element={<Success />}
+                // element={<Success />}
                 ></Route>
                 {/* customer compliance */}
                 <Route
@@ -205,55 +209,59 @@ function App() {
                 <Route
                   path="/dashboard/customer/case-team"
                   element={<ComingSoon />}
-                  // element={<CaseTeam />}
+                // element={<CaseTeam />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/active-case"
                   element={<ComingSoon />}
-                  // element={<ActiveCase />}
+                // element={<ActiveCase />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/closed-case"
                   element={<ComingSoon />}
-                  // element={<ClosedCase />}
+                // element={<ClosedCase />}
                 ></Route>
                 {/* customer finance */}
                 <Route
                   path="/dashboard/customer/add-funds"
                   element={<ComingSoon />}
-                  // element={<AddFunds />}
+                // element={<AddFunds />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/requested-payment"
                   element={<ComingSoon />}
-                  // element={<RequestedPayment />}
+                // element={<RequestedPayment />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/refund-funds"
                   element={<ComingSoon />}
-                  // element={<RefundFunds />}
+                // element={<RefundFunds />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/recent-transactions"
                   element={<ComingSoon />}
-                  // element={<RecentTransactions />}
+                // element={<RecentTransactions />}
                 ></Route>
                 {/* customer services */}
                 <Route
                   path="/dashboard/customer/training"
                   element={<ComingSoon />}
-                  // element={<Training />}
+                // element={<Training />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/consulting"
                   element={<ComingSoon />}
-                  // element={<Consulting />}
+                // element={<Consulting />}
                 ></Route>
                 <Route
                   path="/dashboard/customer/researches"
                   element={<ComingSoon />}
-                  // element={<Researches />}
+                // element={<Researches />}
                 ></Route>
+              </Route>
+              {/* customers */}
+              <Route path="/dashboard/customers" element={<CustomersDashboard />}>
+                <Route path="/dashboard/customers" element={<CustomersDashboardIndex />}></Route>
               </Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>
