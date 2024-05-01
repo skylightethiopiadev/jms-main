@@ -843,7 +843,7 @@ const FinalHeader = () => {
                   </div>
                   <div>
                     <IoIosArrowDown
-                      className={`text-xl transition-all ease-in-out duration-300 ${isUserDropDown ? "rotate-[-180deg]" : "rotate-0"
+                      className={`text-xs transition-all ease-in-out duration-300 ${isUserDropDown ? "rotate-[-180deg]" : "rotate-0"
                         }`}
                     />
                   </div>
