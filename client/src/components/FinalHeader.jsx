@@ -932,7 +932,7 @@ const FinalHeader = () => {
                 </div>
               </div>
               {/* language list */}
-              <div className={`absolute right-0 top-[300%] bg-transparent z-50 transition-all ease-in-out duration-300 overflow-hidden ${languageOption ? 'h-[100vh]' : 'h-0'}`}>
+              <div className={`absolute right-0 top-[300%] bg-transparent z-50 transition-all ease-in-out duration-300 overflow-hidden ${languageOption ? 'h-[64vh]' : 'h-0'}`}>
                 <div className="w-[10ww0px] whitespace-nowrap bg-white shadow-md py-1 px-3">
                   <ul>
                     {
