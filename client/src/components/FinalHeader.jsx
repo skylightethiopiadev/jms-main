@@ -51,8 +51,12 @@ const FinalHeader = () => {
           navHeaderText: "Contract",
           subNavList: [
             {
-              navHeaderText: "Contract of special movables (vehicles)",
+              navHeaderText: "General contracts",
               path: "contract-of-special-movables"
+            },
+            {
+              navHeaderText: "Contract of special movables",
+              path: "#"
             },
             {
               navHeaderText: "Sale or lease of buildings",
@@ -76,6 +80,7 @@ const FinalHeader = () => {
             },
             {
               navHeaderText: "Others",
+              // navHeaderText: "Others(suretyship, mortgage, pledge, and agency and sale contracts)",
               path: "#"
             },
           ]
@@ -93,6 +98,10 @@ const FinalHeader = () => {
             },
             {
               navHeaderText: "Divorce",
+              path: "#"
+            },
+            {
+              navHeaderText: "Irregular Union",
               path: "#"
             },
             {
@@ -459,7 +468,7 @@ const FinalHeader = () => {
                                   )}
                                 </ul>
                               </div>
-                              <div className="flex-grow h-full flex items-end pb-[150px]">
+                              <div className="flex-grow h-full flex items-end pb-[120px]">
                                 <div className="flex items-center justify-center gap-3 border-[4px] border-black rounded-full py-2 px-[7%] cursor-pointer hover:bg-black hover:text-white">
                                   <div>
                                     <span className="font-[600] text-[1.3rem]">
