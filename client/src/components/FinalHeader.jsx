@@ -242,25 +242,25 @@ const FinalHeader = () => {
               path: "#"
             },
             {
+              navHeaderText: "Payment instrument issuers",
+              path: "#"
+            },
+            {
               navHeaderText: "Others",
               path: "#"
             },
           ]
         },
         {
-          navHeaderText: "International trade and investment",
+          navHeaderText: "Trade and investment",
           subNavList: [
             {
-              navHeaderText: "Incorporation",
+              navHeaderText: "Incorporation (Business formation)",
               path: "#"
             },
             {
               navHeaderText:
-                "Bankruptcy (Scheme of arrangement or dissolution)",
-              path: "#"
-            },
-            {
-              navHeaderText: "Merger",
+                "Merger",
               path: "#"
             },
             {
@@ -272,7 +272,19 @@ const FinalHeader = () => {
               path: "#"
             },
             {
-              navHeaderText: "Others",
+              navHeaderText: "Conversion of business organization",
+              path: "#"
+            },
+            {
+              navHeaderText: "Bankruptcy (Scheme of arrangement or dissolution)",
+              path: "#"
+            },
+            {
+              navHeaderText: "Investment (FDI)",
+              path: "#"
+            },
+            {
+              navHeaderText: "Others(international business transactions)",
               path: "#"
             },
           ]
@@ -286,11 +298,7 @@ const FinalHeader = () => {
           path: "#"
         },
         {
-          navHeaderText: "Real estate, property and conveyance",
-          path: "#"
-        },
-        {
-          navHeaderText: "Joint venture",
+          navHeaderText: "Real estate, land and  property",
           path: "#"
         },
         {
@@ -313,7 +321,23 @@ const FinalHeader = () => {
     {
       navHeaderText: "Research",
       path: "/researches"
-    }
+    },
+    {
+      navHeaderText: "Serve as member of the board of directors",
+      path: "/researches"
+    },
+    {
+      navHeaderText: "Pro bono services",
+      path: "/researches"
+    },
+    {
+      navHeaderText: "Risk Management and Crisis Intervention",
+      path: "/researches"
+    },
+    {
+      navHeaderText: "Public Policy and Government Relations",
+      path: "/researches"
+    },
   ];
 
   // languages
@@ -713,7 +737,7 @@ const FinalHeader = () => {
                         </div>
                       ) : isNav?.navText === "Other Services" ? (
                         <div>
-                          <div className="p-[5%]">
+                          <div className="p-[5%] bg-white w-[430px]">
                             <ul>
                               {otherServicesSubNavList.map((item, index) => (
                                 <li
