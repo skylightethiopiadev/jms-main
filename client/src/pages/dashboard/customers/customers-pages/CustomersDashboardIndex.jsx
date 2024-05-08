@@ -1,5 +1,11 @@
+import {NavLink} from 'react-router-dom'
+
 // icons
 import { AiOutlineClose } from "react-icons/ai";
+import { VscNewFolder } from "react-icons/vsc";
+import { PiStack } from "react-icons/pi";
+import { CiClock1 } from "react-icons/ci";
+import { PiBankThin } from "react-icons/pi";
 
 const CustomersDashboardIndex = () => {
     return (
@@ -19,23 +25,59 @@ const CustomersDashboardIndex = () => {
                 </header>
                 {/* cards container */}
                 <div className="mt-2 grid grid-cols-4 gap-3">
-                    {
-                        [...Array(4)].map((item, index) => {
-                            return (
-                                <div key={index} className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
-                                    <div className="w-[48px] bg-pink-700 aspect-square rounded-md overflow-hidden">
-                                        <img className="w-full opacity-90 h-full object-center object-cover" src="https://i0.wp.com/lbcommuter.com/wp-content/uploads/2023/01/22874414_6682385.jpg?fit=1024%2C1024&ssl=1" alt="" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold">Project Plan</h3>
-                                        <p>
-                                            create a project plan
-                                        </p>
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
+
+                    {/* first card */}
+                    <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
+                        <div className="w-[48px] bg-yellow-100 flex items-center justify-center aspect-square rounded-md overflow-hidden">
+                            <VscNewFolder className='text-2xl text-blue-900'/>
+                        </div>
+                        <div>
+                            <h3 className="font-semibold">New Case</h3>
+                            <p>
+                                Start New Case
+                            </p>
+                        </div>
+                    </NavLink>
+
+                    {/* second card */}
+                    <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
+                        <div className="w-[48px] bg-blue-100 flex items-center justify-center aspect-square rounded-md overflow-hidden">
+                            <CiClock1 className='text-3xl text-blue-900' />
+                        </div>
+                        <div>
+                            <h3 className="font-semibold">Office Appointment</h3>
+                            <p>
+                                make appointment
+                            </p>
+                        </div>
+                    </NavLink>
+
+                    {/* third card */}
+                    <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
+                        <div className="w-[48px] bg-orange-100 flex items-center justify-center aspect-square rounded-md overflow-hidden">
+                            <PiStack className='text-2xl text-blue-900' />
+                        </div>
+                        <div>
+                            <h3 className="font-semibold">Attachments</h3>
+                            <p>
+                                all attachments
+                            </p>
+                        </div>
+                    </NavLink>
+
+                    {/* fourth card */}
+                    <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
+                        <div className="w-[48px] bg-green-100 flex items-center justify-center aspect-square rounded-md overflow-hidden">
+                            <PiBankThin className='text-3xl text-blue-900' />
+                        </div>
+                        <div>
+                            <h3 className="font-semibold">Billing </h3>
+                            <p>
+                                bill service
+                            </p>
+                        </div>
+                    </NavLink>
+
                 </div>
             </div>
 
