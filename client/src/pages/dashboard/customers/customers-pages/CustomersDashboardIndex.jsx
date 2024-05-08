@@ -1,4 +1,9 @@
+import { useRef } from 'react'
+import Slider from "react-slick";
 import { NavLink } from 'react-router-dom'
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // icons
 import { AiOutlineClose } from "react-icons/ai";
@@ -9,8 +14,24 @@ import { PiBankThin } from "react-icons/pi";
 import { MdChevronRight } from "react-icons/md";
 import { GiAlarmClock } from "react-icons/gi";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineChevronRight } from "react-icons/md";
+import { MdOutlineChevronLeft } from "react-icons/md";
 
 const CustomersDashboardIndex = () => {
+
+    // refs
+    // case slider ref
+    let caseHistorySliderRef = useRef(null)
+
+    // case history slider settings
+    const caseHistorySliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1
+    }
+
     return (
         <div>
             {/* first order container */}
@@ -232,7 +253,7 @@ const CustomersDashboardIndex = () => {
                                 <div className='flex items-center gap-1 cursor-pointer border border-gray-100 px-2 rounded-full transition-colors ease-in-out duration-150 hover:border-gray-300'>
                                     <div><span>Sep</span></div>
                                     <div>
-                                        <MdKeyboardArrowDown className={`text-xl`}/>
+                                        <MdKeyboardArrowDown className={`text-xl`} />
                                     </div>
                                 </div>
                             </div>
@@ -280,34 +301,39 @@ const CustomersDashboardIndex = () => {
             <div className="mt-7 px-[3%] py-[2%] rounded-md border border-gray-200">
                 <header className="flex items-center justify-between">
                     <div>
-                        <h3 className="header-level-4 whitespace-nowrap">Create first wiki</h3>
+                        <h3 className="header-level-4 whitespace-nowrap">Case History</h3>
                     </div>
-                    <div>
-                        <p className="text-xs text-gray-600">
-                            use wikis to organize information, and prioritize it as results when you ask AI.  you can <span className="underline transition-colors ease-in-out duration-300 hover:text-black cursor-pointer">create a new wiki</span> or <span className="underline transition-colors ease-in-out duration-300 hover:text-black cursor-pointer">import from confluence</span>.
-                        </p>
+                    <div className='flex items-center justify-end gap-3'>
+                        <div className='w-[20px] aspect-square border border-blue-900 rounded-full overflow-hidden flex items-center justify-center text-blue-900 text-lg cursor-pointer transition-colors ease-in-out duration-150 hover:bg-blue-900 hover:text-white'>
+                            <MdOutlineChevronLeft />
+                        </div>
+                        <div className='w-[20px] aspect-square border border-blue-900 rounded-full overflow-hidden flex items-center justify-center text-blue-900 text-lg cursor-pointer transition-colors ease-in-out duration-150 hover:bg-blue-900 hover:text-white'>
+                            <MdOutlineChevronRight />
+                        </div>
                     </div>
                 </header>
-                <div className="mt-4 grid grid-cols-4 gap-3">
-                    {
-                        [...Array(4)].map((item, index) => {
-                            return (
+                <div className="mt-4 h-[210px] max-w-[1133.86px] overflow-y-hidde overflow-x-hidden flex gap-5" id='www' onClick={() => {
+                    console.log(window.getComputedStyle(document.getElementById('www')).width)
+                }}>
+                    <div className='w-full'>
+                        <Slider {...caseHistorySliderSettings}>
+                            {
+                                [...Array(12)].map((item, index) => {
+                                    return (
+                                        <div key={index} className='px-3'>
+                                            <div>
+                                                <h3>One</h3>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae dolore laborum quaerat, voluptas, ea, officia non obcaecati perspiciatis aperiam maiores ullam earum molestias optio?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
 
-                                <div key={index} className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
-                                    <div className="w-[48px] bg-pink-700 aspect-square rounded-md overflow-hidden">
-                                        <img className="w-full opacity-90 h-full object-center object-cover" src="https://i0.wp.com/lbcommuter.com/wp-content/uploads/2023/01/22874414_6682385.jpg?fit=1024%2C1024&ssl=1" alt="" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold">Project Plan</h3>
-                                        <p>
-                                            create a project plan
-                                        </p>
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
-
+                        </Slider>
+                    </div>
                 </div>
             </div>
 
