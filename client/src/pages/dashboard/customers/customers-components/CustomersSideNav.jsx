@@ -46,6 +46,7 @@ const CustomersSideNav = () => {
         path: '#',
     })
     const [subLinks, setSubLinks] = useState(null)
+    const [activeSubLink, setActiveSubLink] = useState(null)
 
     // link items
     const linkItems = [
@@ -70,7 +71,7 @@ const CustomersSideNav = () => {
                     title: 'On Request',
                     path: '#',
                 },
-                
+
             ]
         },
         {
@@ -156,7 +157,7 @@ const CustomersSideNav = () => {
                     title: 'Research',
                     path: '#',
                 },
-                
+
             ]
         },
     ]
@@ -181,6 +182,9 @@ const CustomersSideNav = () => {
                                             <div key={index} className='flex items-center mb-3'>
                                                 <NavLink className={`w-full flex items-center justify-between p-1 rounded-sm  transition-colors ease-in-out duration-300  ${activeLink?.title === linkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={() => {
                                                     setActiveLink(linkItem)
+                                                    if (!linkItem.subLinkItems) {
+                                                        setActiveSubLink(null)
+                                                    }
                                                     if (activeLink?.title === linkItem.title && subLinks) {
                                                         setSubLinks(null)
                                                     } else {
@@ -214,8 +218,12 @@ const CustomersSideNav = () => {
                                                             {
                                                                 linkItem.subLinkItems?.map((subLinkItem, index) => {
                                                                     return (
-                                                                        <li key={index} className='flex items-center my-1'>
-                                                                            <NavLink className={'w-full bg-transparent p-1 transition-colors ease-in-out duration-300 hover:bg-gray-200'}>
+                                                                        <li key={index} className='flex items-center my-1 relative z-30'>
+                                                                            <NavLink className={`w-full p-1  transition-colors ease-in-out duration-300 ${activeSubLink?.title === subLinkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={() => {
+
+                                                                                setActiveSubLink(subLinkItem)
+                                                                                setSubLinks(null)
+                                                                            }}>
                                                                                 <div className='flex items-center gap-3'>
                                                                                     <div>
                                                                                         <subLinkItem.icon className='text-lg' />
