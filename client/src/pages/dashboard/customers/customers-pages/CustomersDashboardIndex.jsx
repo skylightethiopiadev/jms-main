@@ -322,6 +322,9 @@ const CustomersDashboardIndex = () => {
                         <h3 className="header-level-4 whitespace-nowrap">Case History</h3>
                     </div>
                     <div className='flex items-center justify-end gap-3'>
+                        <div className='text-gray-500 transition-colors text-xs ease-in-out duration-150 hover:text-blue-600 hover:underline cursor-pointer'>
+                            <span>view all case histories</span>
+                        </div>
                         <div className='w-[20px] aspect-square border border-blue-900 rounded-full overflow-hidden flex items-center justify-center text-blue-900 text-lg cursor-pointer transition-colors ease-in-out duration-150 hover:bg-blue-900 hover:text-white' onClick={() => {
                             showPreviousCaseHistory()
                         }}>
