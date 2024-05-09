@@ -156,24 +156,36 @@ const CustomersDashboardIndex = () => {
                         {/* bg */}
                         <div className='absolute left-0 top-0 w-full h-full z-0'>
                             <div className='w-full h-full overflow-hidden rounded-md bg-gradient-to-r from-white to-green-200'>
-                                
+
                             </div>
                         </div>
-                        <div className='p-1 relative z-10 bg-white w-max pr-7 rounded-sm shadow-2xl'>
-                            
-                            <div className='my-1'>
-                                <span>Type: </span>
-                                <span className='font-semibold'>Oral Litigation</span>
+                        <div className='relative z-10 flex items-center gap-2'>
+                            <div className='p-1 bg-white flex-grow pr-6 rounded-sm shadow-2xl'>
+                                <div className='my-1'>
+                                    <span>Type: </span>
+                                    <span className='font-semibold'>Oral Litigation</span>
+                                </div>
+                                <div className='my-1'>
+                                    <span>Court: </span>
+                                    <span className='font-semibold'>Ledeta</span>
+                                </div>
+                                <div>
+                                    <span className='font-bold text-lg'>5 march, 2024</span>
+                                </div>
                             </div>
-                            <div className='my-1'>
-                                <span>Court: </span>
-                                <span className='font-semibold'>Ledeta</span>
-                            </div>
-                            <div>
-                                <span className='font-bold text-lg'>5 march, 2024</span>
+                            <div className='p-1 bg-white rounded-sm shadow-2xl py-[.65rem] self-start min-w-[90px]'>
+                                <div className='flex flex-col items-center'>
+                                    <div className='w-[28px] aspect-square rounded-full overflow-hidden'>
+                                        <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="" />
+                                    </div>
+                                    <div className='text-xs flex flex-col items-center my-1'>
+                                        <h3 className='font-semibold'>Haddis Fanta</h3>
+                                        <span>lawyer</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className='absolute bottom-0 right-20'>
+                        <div className='absolute bottom-1 right-20'>
                             <div className='text-5xl'>
                                 <GiAlarmClock />
                             </div>
