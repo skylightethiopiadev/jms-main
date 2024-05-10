@@ -54,7 +54,7 @@ const CustomersSideNav = () => {
         {
             icon: RxDashboard,
             title: 'Dashboard',
-            path: '#',
+            path: '/dashboard/customers',
         },
         {
             icon: CiMedicalCase,
@@ -65,12 +65,12 @@ const CustomersSideNav = () => {
                 {
                     icon: VscNewFolder,
                     title: 'New Case',
-                    path: '#',
+                    path: '/dashboard/customers/compliance',
                 },
                 {
                     icon: CiViewTable,
                     title: 'On Request',
-                    path: '#',
+                    path: '/dashboard/customers/compliance/on-request',
                 },
 
             ]
@@ -205,7 +205,7 @@ const CustomersSideNav = () => {
                                     return (
                                         <li key={index} className='relative'>
                                             <div key={index} className='flex items-center mb-3'>
-                                                <NavLink className={`w-full flex items-center justify-between p-1 rounded-sm  transition-colors ease-in-out duration-300  ${activeLink?.title === linkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={(e) => {
+                                                <NavLink to={linkItem.subLinkItems ? '#' : linkItem.path} className={`w-full flex items-center justify-between p-1 rounded-sm  transition-colors ease-in-out duration-300  ${activeLink?.title === linkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={(e) => {
                                                     e.stopPropagation()
                                                     setActiveLink(linkItem)
                                                     if (!linkItem.subLinkItems) {
@@ -246,7 +246,7 @@ const CustomersSideNav = () => {
                                                                 linkItem.subLinkItems?.map((subLinkItem, index) => {
                                                                     return (
                                                                         <li key={index} className='flex items-center my-1 relative z-30'>
-                                                                            <NavLink className={`w-full p-1  transition-colors ease-in-out duration-300 ${activeSubLink?.title === subLinkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={(e) => {
+                                                                            <NavLink to={subLinkItem.path} className={`w-full p-1  transition-colors ease-in-out duration-300 ${activeSubLink?.title === subLinkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={(e) => {
                                                                                 e.stopPropagation()
                                                                                 setActiveSubLink(subLinkItem)
                                                                                 setSubLinks(null)

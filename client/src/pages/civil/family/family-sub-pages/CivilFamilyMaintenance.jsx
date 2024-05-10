@@ -12,6 +12,7 @@ import { FaHandsHelping } from "react-icons/fa";
 const CivilFamilyMaintenance = () => {
   return (
     <div className="pt-16">
+
       {/* first order container */}
       <div className="mb-16">
         <div className="flex gap-10">
@@ -30,7 +31,7 @@ const CivilFamilyMaintenance = () => {
             </div>
           </div>
 
-          
+
           <div className="w-[50%]">
             <div>
 
@@ -303,9 +304,10 @@ const CivilFamilyMaintenance = () => {
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
+
     </div>
   )
 }

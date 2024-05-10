@@ -19,6 +19,10 @@ import SuperAdminCases from "./pages/dashboard/admin/admin-dashboard-sub-pages/a
 // customers
 import CustomersDashboard from './pages/dashboard/customers/CustomersDashboard'
 import CustomersDashboardIndex from "./pages/dashboard/customers/customers-pages/CustomersDashboardIndex";
+// customers dashboard compliance
+import CustomersDashboardCompliance from "./pages/dashboard/customers/customers-pages/compliance/CustomersDashboardCompliance";
+import CustomersDashboardNewCase from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/CustomersDashboardNewCase";
+import CustomersDashboardOnRequest from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/CustomersDashboardOnRequest";
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -278,6 +282,10 @@ function App() {
               {/* customers */}
               <Route path="/dashboard/customers" element={<CustomersDashboard />}>
                 <Route path="/dashboard/customers" element={<CustomersDashboardIndex />}></Route>
+                <Route path="/dashboard/customers/compliance" element={<CustomersDashboardCompliance />}>
+                  <Route path="/dashboard/customers/compliance" element={<CustomersDashboardNewCase />}></Route>
+                  <Route path="/dashboard/customers/compliance/on-request" element={<CustomersDashboardOnRequest />}></Route>
+                </Route>
               </Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>
