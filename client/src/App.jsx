@@ -128,7 +128,7 @@ function App() {
                 <Route path="/" element={<HomeIndex />}></Route>
                 {/* civil-family */}
                 <Route path="/family" element={<CivilFamily />}>
-                  <Route path="/family" element={<CivilFamilyMaintenance />}></Route>
+                  <Route index element={<CivilFamilyMaintenance />}></Route>
                   <Route path="/family/divorce" element={<CivilFamilyDivorce />}></Route>
                   <Route path="/family/irregular-union" element={<CivilFamilyIrregularUnion />}></Route>
                   <Route path="/family/adoption" element={<CivilFamilyAdoption />}></Route>

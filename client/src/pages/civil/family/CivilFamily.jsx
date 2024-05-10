@@ -1,10 +1,116 @@
-import {Outlet} from 'react-router-dom'
+import { Outlet, NavLink } from 'react-router-dom'
+
+// icons
+import { MdArrowRightAlt } from "react-icons/md";
 
 const CivilFamily = () => {
+
+    // active link style
+    const activeLinkStyle = ({ isActive }) => {
+        return {
+            background: isActive ? '#f5f5f5' : 'white'
+        }
+    }
     return (
-        <div>
-            <Outlet />
-            <h3>Civil Family</h3>
+        <div className='w-screen overflow-x-hidden overflow-y-auto'>
+            <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
+                <Outlet />
+                <div className='my-10'>
+                    <div className='grid gap-7 grid-cols-5'>
+                        <NavLink to={'/family'} style={activeLinkStyle} className={'cursor-default shadow-xl p-1 rounded-md'}>
+                            <div className='p-3'>
+                                <div>
+                                    <h3 className='header-level-4'>Maintenance</h3>
+                                </div>
+                                <div>
+                                    <p>
+                                        maintenance consectetur adipisicing elit. Aliquid
+                                    </p>
+                                </div>
+                                <div className='flex items-center my-2 '>
+                                    <div className='flex items-center px-3 py-1 border  border-blue-900 rounded-full  gap-1 cursor-pointer text-blue-900 transition-colors ease-in-out duration-300 hover:bg-blue-900 hover:text-white'>
+                                        <div>view more</div>
+                                        <MdArrowRightAlt className='text-xl' />
+                                    </div>
+                                </div>
+                            </div>
+                        </NavLink>
+
+                        <NavLink to={'/family/divorce'} style={activeLinkStyle} className={'cursor-default shadow-xl p-1 rounded-md'}>
+                            <div className='p-3'>
+                                <div>
+                                    <h3 className='header-level-4'>Divorce</h3>
+                                </div>
+                                <div>
+                                    <p>
+                                        maintenance consectetur adipisicing elit. Aliquid
+                                    </p>
+                                </div>
+                                <div className='flex items-center my-2 '>
+                                    <div className='flex items-center px-3 py-1 border  border-blue-900 rounded-full  gap-1 cursor-pointer text-blue-900 transition-colors ease-in-out duration-300 hover:bg-blue-900 hover:text-white'>
+                                        <div>view more</div>
+                                        <MdArrowRightAlt className='text-xl' />
+                                    </div>
+                                </div>
+                            </div>
+                        </NavLink>
+                        <NavLink to={'/family/irregular-union'} style={activeLinkStyle} className={'cursor-default shadow-xl p-1 rounded-md'}>
+                            <div className='p-3'>
+                                <div>
+                                    <h3 className='header-level-4'>Irregular Union</h3>
+                                </div>
+                                <div>
+                                    <p>
+                                        maintenance consectetur adipisicing elit. Aliquid
+                                    </p>
+                                </div>
+                                <div className='flex items-center my-2 '>
+                                    <div className='flex items-center px-3 py-1 border  border-blue-900 rounded-full  gap-1 cursor-pointer text-blue-900 transition-colors ease-in-out duration-300 hover:bg-blue-900 hover:text-white'>
+                                        <div>view more</div>
+                                        <MdArrowRightAlt className='text-xl' />
+                                    </div>
+                                </div>
+                            </div>
+                        </NavLink>
+                        <NavLink to={'/family/adoption'} style={activeLinkStyle} className={'cursor-default shadow-xl p-1 rounded-md'}>
+                            <div className='p-3'>
+                                <div>
+                                    <h3 className='header-level-4'>Adoption</h3>
+                                </div>
+                                <div>
+                                    <p>
+                                        maintenance consectetur adipisicing elit. Aliquid
+                                    </p>
+                                </div>
+                                <div className='flex items-center my-2 '>
+                                    <div className='flex items-center px-3 py-1 border  border-blue-900 rounded-full  gap-1 cursor-pointer text-blue-900 transition-colors ease-in-out duration-300 hover:bg-blue-900 hover:text-white'>
+                                        <div>view more</div>
+                                        <MdArrowRightAlt className='text-xl' />
+                                    </div>
+                                </div>
+                            </div>
+                        </NavLink>
+                        <NavLink to={'/family/others'} style={activeLinkStyle} className={'cursor-default shadow-xl p-1 rounded-md'}>
+                            <div className='p-3'>
+                                <div>
+                                    <h3 className='header-level-4'>Others</h3>
+                                </div>
+                                <div>
+                                    <p>
+                                        maintenance consectetur adipisicing elit. Aliquid
+                                    </p>
+                                </div>
+                                <div className='flex items-center my-2 '>
+                                    <div className='flex items-center px-3 py-1 border  border-blue-900 rounded-full  gap-1 cursor-pointer text-blue-900 transition-colors ease-in-out duration-300 hover:bg-blue-900 hover:text-white'>
+                                        <div>view more</div>
+                                        <MdArrowRightAlt className='text-xl' />
+                                    </div>
+                                </div>
+                            </div>
+                        </NavLink>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
