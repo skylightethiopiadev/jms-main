@@ -48,7 +48,7 @@ const CustomersDashboardIndex = () => {
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 375,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -69,9 +69,9 @@ const CustomersDashboardIndex = () => {
     }
 
     return (
-        <div>
+        <div className='overflow-x-hidden'>
             {/* first order container */}
-            <div className="p-[3%] border-gray-200 border bg-gray-100 rounded-md">
+            <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border bg-gray-100 rounded-md">
                 <header className="flex items-center justify-between">
                     <div>
                         <h3 className="header-level-4">Start with template</h3>
@@ -84,7 +84,7 @@ const CustomersDashboardIndex = () => {
                     </div>
                 </header>
                 {/* cards container */}
-                <div className="mt-2 grid grid-cols-4 gap-3">
+                <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 md:gap-2 xl:gap-3">
 
                     {/* first card */}
                     <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
@@ -142,10 +142,10 @@ const CustomersDashboardIndex = () => {
             </div>
 
             {/* second order container */}
-            <div className="mt-7 grid grid-cols-3 gap-5">
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
 
                 {/* first card */}
-                <div className="border border-gray-200 rounded-md px-7 py-5">
+                <div className="border border-gray-200 rounded-md px-1 sm:px-2 md:px-3 lg:px-5 xl:px-7 py-5">
                     <header className="flex items-center justify-between">
                         <div>
                             <h3 className="header-level-4">Next Appointment</h3>
@@ -176,7 +176,9 @@ const CustomersDashboardIndex = () => {
                             <div className='p-1 bg-white rounded-sm shadow-2xl py-[.65rem] self-start min-w-[90px]'>
                                 <div className='flex flex-col items-center'>
                                     <div className='w-[28px] aspect-square rounded-full overflow-hidden'>
-                                        <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="" />
+                                        <img className='w-full h-full object-center object-cover'
+                                            src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                                            alt="" />
                                     </div>
                                     <div className='text-xs flex flex-col items-center my-1'>
                                         <h3 className='font-semibold'>Haddis Fanta</h3>
@@ -189,7 +191,8 @@ const CustomersDashboardIndex = () => {
                             <div className='text-5xl'>
                                 <GiAlarmClock />
                             </div>
-                            <div className='absolute right-0 top-1/2 -translate-y-1/2 mr-[-64px] flex items-center justify-center rounded-full bg-purple-700 text-white font-bold px-2 py-[.1rem]'>
+                            <div
+                                className='absolute right-0 top-1/2 -translate-y-1/2 mr-[-64px] flex items-center justify-center rounded-full bg-purple-700 text-white font-bold px-2 py-[.1rem]'>
                                 <span>07:45am</span>
                             </div>
                         </div>
@@ -197,7 +200,7 @@ const CustomersDashboardIndex = () => {
                 </div>
 
                 {/* second card */}
-                <div className="border border-gray-200 rounded-md px-7 py-5">
+                <div className="border border-gray-200 rounded-md px-1 sm:px-2 md:px-3 lg:px-5 xl:px-7 py-5">
                     <header className="flex items-center justify-between">
                         <div>
                             <h3 className="header-level-4">Schedule</h3>
@@ -229,12 +232,15 @@ const CustomersDashboardIndex = () => {
                                     <div>11</div>
                                 </div>
                             </div>
-                            <div className='flex flex-col items-center justify-between gap-5 p-[.13rem] rounded-full bg-gray-700 text-white'>
+                            <div
+                                className='flex flex-col items-center justify-between gap-5 p-[.13rem] rounded-full bg-gray-700 text-white'>
                                 <div>
                                     <div>t</div>
                                 </div>
                                 <div>
-                                    <div className='bg-red-600 text-white flex items-center justify-center rounded-full overflow-hidden p-[.1rem] w-[20px] aspect-square'><span className='text-sm font-medium'>12</span></div>
+                                    <div
+                                        className='bg-red-600 text-white flex items-center justify-center rounded-full overflow-hidden p-[.1rem] w-[20px] aspect-square'>
+                                        <span className='text-sm font-medium'>12</span></div>
                                 </div>
                             </div>
 
@@ -288,7 +294,7 @@ const CustomersDashboardIndex = () => {
                 </div>
 
                 {/* third card */}
-                <div className="border border-gray-200 rounded-md px-7 py-5">
+                <div className="border border-gray-200 rounded-md px-1 sm:px-2 md:px-3 lg:px-5 xl:px-7 py-5 col-span-1 sm:col-span-2 md:col-span-1">
                     <header className="flex items-center justify-between">
                         <div>
                             <h3 className="header-level-4">Current Balance</h3>
@@ -301,7 +307,8 @@ const CustomersDashboardIndex = () => {
                                 <h3 className='font-medium'></h3>
                             </div>
                             <div>
-                                <div className='flex items-center gap-1 cursor-pointer border border-gray-100 px-2 rounded-full transition-colors ease-in-out duration-150 hover:border-gray-300'>
+                                <div
+                                    className='flex items-center gap-1 cursor-pointer border border-gray-100 px-2 rounded-full transition-colors ease-in-out duration-150 hover:border-gray-300'>
                                     <div><span>Sep</span></div>
                                     <div>
                                         <MdKeyboardArrowDown className={`text-xl`} />
@@ -319,8 +326,12 @@ const CustomersDashboardIndex = () => {
                             </div>
                         </div>
                         <div className='mt-2 flex items-center gap-5'>
-                            <button className='px-3 py-[.15rem] rounded-full border border-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white'>Add fund</button>
-                            <button className='px-3 py-[.15rem] rounded-full border border-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white'>Withdraw funds</button>
+                            <button
+                                className='px-3 py-[.15rem] rounded-full border border-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white'>Add
+                                fund</button>
+                            <button
+                                className='px-3 py-[.15rem] rounded-full border border-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white'>Withdraw
+                                funds</button>
                         </div>
                     </div>
                 </div>
@@ -334,22 +345,25 @@ const CustomersDashboardIndex = () => {
                         <h3 className="header-level-4 whitespace-nowrap">Case History</h3>
                     </div>
                     <div className='flex items-center justify-end gap-3'>
-                        <div className='text-gray-500 transition-colors text-xs ease-in-out duration-150 hover:text-blue-600 hover:underline cursor-pointer'>
+                        <div
+                            className='text-gray-500 transition-colors text-xs ease-in-out duration-150 hover:text-blue-600 hover:underline cursor-pointer'>
                             <span>view all case histories</span>
                         </div>
-                        <div className='w-[20px] aspect-square border border-blue-900 rounded-full overflow-hidden flex items-center justify-center text-blue-900 text-lg cursor-pointer transition-colors ease-in-out duration-150 hover:bg-blue-900 hover:text-white' onClick={() => {
-                            showPreviousCaseHistory()
-                        }}>
+                        <div className='w-[20px] aspect-square border border-blue-900 rounded-full overflow-hidden flex items-center justify-center text-blue-900 text-lg cursor-pointer transition-colors ease-in-out duration-150 hover:bg-blue-900 hover:text-white'
+                            onClick={() => {
+                                showPreviousCaseHistory()
+                            }}>
                             <MdOutlineChevronLeft />
                         </div>
-                        <div className='w-[20px] aspect-square border border-blue-900 rounded-full overflow-hidden flex items-center justify-center text-blue-900 text-lg cursor-pointer transition-colors ease-in-out duration-150 hover:bg-blue-900 hover:text-white' onClick={() => {
-                            showNextCaseHistory()
-                        }}>
+                        <div className='w-[20px] aspect-square border border-blue-900 rounded-full overflow-hidden flex items-center justify-center text-blue-900 text-lg cursor-pointer transition-colors ease-in-out duration-150 hover:bg-blue-900 hover:text-white'
+                            onClick={() => {
+                                showNextCaseHistory()
+                            }}>
                             <MdOutlineChevronRight />
                         </div>
                     </div>
                 </header>
-                <div className="mt-4 h-[110px] overflow-y-hidden max-w-[1133.86px] overflow-x-hidden flex gap-5">
+                <div className="mt-4 h-[110px] overflow-y-hidden max-w-[380px] sm:max-w-[700px] md:max-w-[900px] lg:max-w-[1024px] xl:max-w-[1133.86px] overflow-x-hidden flex gap-5">
                     <div className='w-full'>
                         <Slider ref={slider => {
                             caseHistorySliderRef = slider;
@@ -357,14 +371,16 @@ const CustomersDashboardIndex = () => {
                             {
                                 [...Array(12)].map((item, index) => {
                                     return (
-                                        <div key={index} className='px-3 pb-5'>
-                                            <div className={`px-2 py-3 rounded-md bg-white shadow-md border-l-[3px] ${index % 3 === 0 ? 'border-green-400' : index % 2 === 0 ? 'border-yellow-400' : 'border-red-500'}`}>
+                                        <div key={index} className='px-1 md:px-3 pb-5'>
+                                            <div className={`px-2 py-3 rounded-md bg-white shadow-md border-l-[3px] ${index % 3 === 0
+                                                ? 'border-green-400' : index % 2 === 0 ? 'border-yellow-400' : 'border-red-500'}`}>
                                                 <header className='flex items-center justify-between'>
                                                     <div>
                                                         <span className='text-gray-700 font-medium text-sm'>No.732164a</span>
                                                     </div>
                                                     <div>
-                                                        <div className='w-[24px] rounded-sm border border-gray-200 flex items-center justify-center text-gray-600 cursor-pointer transition-colors ease-in-out duration-150 hover:border-gray-400 hover:text-black'>
+                                                        <div
+                                                            className='w-[24px] rounded-sm border border-gray-200 flex items-center justify-center text-gray-600 cursor-pointer transition-colors ease-in-out duration-150 hover:border-gray-400 hover:text-black'>
                                                             <GoArrowUpRight />
                                                         </div>
                                                     </div>
@@ -381,13 +397,20 @@ const CustomersDashboardIndex = () => {
                                                     </div>
                                                     <div>
                                                         <div className='relative flex items-center justify-end cursor-pointer'>
-                                                            <div className='absolute right-7 z-0 w-[24px] aspect-square rounded-full overflow-hidden bg-red-500'>
-                                                                <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="" />
+                                                            <div
+                                                                className='absolute right-7 z-0 w-[24px] aspect-square rounded-full overflow-hidden bg-red-500'>
+                                                                <img className='w-full h-full object-center object-cover'
+                                                                    src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                                                                    alt="" />
                                                             </div>
-                                                            <div className='absolute right-4 z-10 w-[24px] aspect-square rounded-full overflow-hidden bg-green-500'>
-                                                                <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/cheerful-dark-skinned-woman-smiling-broadly-rejoicing-her-victory-competition-among-young-writers-standing-isolated-against-grey-wall-people-success-youth-happiness-concept_273609-1246.jpg" alt="" />
+                                                            <div
+                                                                className='absolute right-4 z-10 w-[24px] aspect-square rounded-full overflow-hidden bg-green-500'>
+                                                                <img className='w-full h-full object-center object-cover'
+                                                                    src="https://img.freepik.com/free-photo/cheerful-dark-skinned-woman-smiling-broadly-rejoicing-her-victory-competition-among-young-writers-standing-isolated-against-grey-wall-people-success-youth-happiness-concept_273609-1246.jpg"
+                                                                    alt="" />
                                                             </div>
-                                                            <div className='absolute right-0 z-20 w-[26px] aspect-square rounded-full overflow-hidden bg-white shadow-md border border-white flex items-center justify-center'>
+                                                            <div
+                                                                className='absolute right-0 z-20 w-[26px] aspect-square rounded-full overflow-hidden bg-white shadow-md border border-white flex items-center justify-center'>
                                                                 <span className='text-xs font-bold'>5+</span>
                                                             </div>
 

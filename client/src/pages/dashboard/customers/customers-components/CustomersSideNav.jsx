@@ -36,6 +36,7 @@ import { VscLayersActive } from "react-icons/vsc";
 import { HiOutlineLockClosed } from "react-icons/hi";
 import { VscNewFolder } from "react-icons/vsc";
 import { CiViewTable } from "react-icons/ci";
+import { AiOutlineClose } from "react-icons/ai";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 
@@ -161,9 +162,33 @@ const CustomersSideNav = () => {
             ]
         },
     ]
+
+    // customers dashboard toggler
+    const customersDashboardToggler = () => {
+        let sideNav = document.getElementById('customers-dashboard-side-nav')
+
+        if (sideNav?.classList.contains('absolute')) {
+            if (sideNav?.classList.contains('left-[-100vw]')) {
+                sideNav?.classList.remove('left-[-100vw]')
+                sideNav?.classList.add('left-0')
+            } else {
+                sideNav?.classList.remove('left-0')
+                sideNav?.classList.add('left-[-100vw]')
+            }
+        }
+    }
+
     return (
-        <div className="w-[180px] min-w-[180px] bg-gray-100 border-r border-gray-200 pr-3">
-            <div className="w-full h-full flex flex-col ">
+        <div className="w-[180px] absolute left-[-100vw] top-0 h-full z-50 xl:relative xl:left-auto xl:top-auto min-w-[180px] bg-gray-100 border-r border-gray-200 pr-3 transition-all ease-in-out duration-300" id='customers-dashboard-side-nav'>
+            <div className="w-full h-full flex flex-col relative">
+                {/* close side nav */}
+                <div className='absolute top-1 right-1 xl:hidden'>
+                    <div className='text-3xl text-blue-900 cursor-pointer' onClick={() => {
+                        customersDashboardToggler()
+                    }}>
+                        <AiOutlineClose />
+                    </div>
+                </div>
                 {/* site logo */}
                 <NavLink className="flex items-center justify-center border-b border-gray-200">
                     <div className="w-[90px] aspect-square overflow-hidden">
@@ -180,10 +205,12 @@ const CustomersSideNav = () => {
                                     return (
                                         <li key={index} className='relative'>
                                             <div key={index} className='flex items-center mb-3'>
-                                                <NavLink className={`w-full flex items-center justify-between p-1 rounded-sm  transition-colors ease-in-out duration-300  ${activeLink?.title === linkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={() => {
+                                                <NavLink className={`w-full flex items-center justify-between p-1 rounded-sm  transition-colors ease-in-out duration-300  ${activeLink?.title === linkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={(e) => {
+                                                    e.stopPropagation()
                                                     setActiveLink(linkItem)
                                                     if (!linkItem.subLinkItems) {
                                                         setActiveSubLink(null)
+                                                        customersDashboardToggler()
                                                     }
                                                     if (activeLink?.title === linkItem.title && subLinks) {
                                                         setSubLinks(null)
@@ -219,10 +246,11 @@ const CustomersSideNav = () => {
                                                                 linkItem.subLinkItems?.map((subLinkItem, index) => {
                                                                     return (
                                                                         <li key={index} className='flex items-center my-1 relative z-30'>
-                                                                            <NavLink className={`w-full p-1  transition-colors ease-in-out duration-300 ${activeSubLink?.title === subLinkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={() => {
-
+                                                                            <NavLink className={`w-full p-1  transition-colors ease-in-out duration-300 ${activeSubLink?.title === subLinkItem.title ? 'bg-blue-200' : 'bg-transparent hover:bg-gray-200'}`} onClick={(e) => {
+                                                                                e.stopPropagation()
                                                                                 setActiveSubLink(subLinkItem)
                                                                                 setSubLinks(null)
+                                                                                customersDashboardToggler()
                                                                             }}>
                                                                                 <div className='flex items-center gap-3'>
                                                                                     <div>

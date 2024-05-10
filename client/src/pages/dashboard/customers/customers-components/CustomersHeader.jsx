@@ -14,16 +14,41 @@ import { CiLogout } from "react-icons/ci";
 const CustomersHeader = () => {
     // states
     const [isUserProfilePopUpOpen, setIsUserProfilePopUpOpen] = useState(false)
+
+    // customers dashboard toggler
+    const customersDashboardToggler = () => {
+        let sideNav = document.getElementById('customers-dashboard-side-nav') 
+
+        if (sideNav?.classList.contains('absolute')) {
+            if (sideNav?.classList.contains('left-[-100vw]')) {
+                sideNav?.classList.remove('left-[-100vw]')
+                sideNav?.classList.add('left-0') 
+            } else {
+                sideNav?.classList.remove('left-0')
+                sideNav?.classList.add('left-[-100vw]') 
+            }
+        }
+    }
     return (
-        <div className="h-[7vh] px-[2%] bg-white border-b border-gray-200 flex items-center justify-between">
+        <div className="h-[7vh] px-[.5%] sm:[.75%] md:[1%] lg:px-[2%] bg-white border-b border-gray-200 flex items-center justify-between">
             {/* left */}
-            <div>
+            <div className='flex items-center gap-3'>
+                {/* menu drawer */}
+                <div className='xl:hidden'>
+                    <div className='flex flex-col items-start justify-between gap-[5px] cursor-pointer' onClick={() => {
+                        customersDashboardToggler()
+                    }}>
+                        <div className='w-[20px] h-[2px] rounded-full bg-blue-900' ></div>
+                        <div className='w-[16px] h-[2px] rounded-full bg-yellow-400'></div>
+                        <div className='w-[20px] h-[2px] rounded-full bg-blue-900'></div>
+                    </div>
+                </div>
                 <NavLink className={'header-level-4'}>
                     <span>Dashboard</span>
                 </NavLink>
             </div>
             {/* search */}
-            <div>
+            <div className='hidden md:flex'>
                 <div className='flex items-center bg-gray-100 rounded-sm px-1 py-[.13rem]'>
                     <button>
                         <CiSearch className='text-xl mr-1' />
@@ -32,7 +57,7 @@ const CustomersHeader = () => {
                 </div>
             </div>
             {/* right */}
-            <div className='flex items-center gap-10'>
+            <div className='flex items-center gap-2 sm:gap-3 md:gap-5 xl:gap-10'>
                 {/* language */}
                 <div>
                     <div className='flex items-center gap-1 cursor-pointer px-1 py-[.25rem] border border-transparent rounded-sm transition-colors ease-in-out duration-300 hover:border-gray-200'>
@@ -47,7 +72,7 @@ const CustomersHeader = () => {
                         </div>
                     </div>
                 </div>
-                <div className='flex items-center gap-3'>
+                <div className='flex items-center gap-1 md:gap-3'>
                     {/* notification */}
                     <div>
                         <div className='relative flex items-center justify-center cursor-pointer bg-transparent transition-colors ease-in-out duration-300 hover:bg-orange-100 p-[.15rem] rounded-sm'>
