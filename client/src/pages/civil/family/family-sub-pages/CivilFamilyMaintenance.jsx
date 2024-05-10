@@ -19,16 +19,18 @@ const CivilFamilyMaintenance = () => {
             {/* absolute */}
             <div className="absolute top-0 mt-[-24px] left-0 w-[60%] h-[75%] bg-yellow-500 z-30">
               <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://onecms-res.cloudinary.com/image/upload/s--9JcjOGK---/f_auto,q_auto/c_fill,g_auto,h_622,w_830/v1/mediacorp/tdy/image/2023/01/27/20230127_istock_tqdivorce.jpg?itok=TcPyvIX2" alt="" />
+                <img className="w-full h-full object-center object-cover" src="https://www.womenspodium.com/wp-content/uploads/2020/12/feature-img.jpg" alt="" />
               </div>
             </div>
             <div className="w-[30%] h-full"></div>
             <div className="w-[70%] h-full bg-blue-900 flex">
               <div className="h-full w-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://bloximages.newyork1.vip.townnews.com/trinidadexpress.com/content/tncms/assets/v3/editorial/c/0b/c0b1b098-92fd-11ee-89a8-7fd8ad588c06/656e625c9c656.image.jpg?resize=812%2C500" alt="" />
+                <img className="w-full h-full object-center object-cover" src="https://ipscommons.sg/wp-content/uploads/2015/09/ThinkstockPhotos-170081482.jpg" alt="" />
               </div>
             </div>
           </div>
+
+          
           <div className="w-[50%]">
             <div>
 
@@ -291,13 +293,13 @@ const CivilFamilyMaintenance = () => {
             {/* absolute */}
             <div className="absolute top-0 mt-[-24px] left-0 w-[60%] h-[75%] bg-yellow-500 z-30">
               <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://www.womenspodium.com/wp-content/uploads/2020/12/feature-img.jpg" alt="" />
+                <img className="w-full h-full object-center object-cover" src="https://onecms-res.cloudinary.com/image/upload/s--9JcjOGK---/f_auto,q_auto/c_fill,g_auto,h_622,w_830/v1/mediacorp/tdy/image/2023/01/27/20230127_istock_tqdivorce.jpg?itok=TcPyvIX2" alt="" />
               </div>
             </div>
             <div className="w-[30%] h-full"></div>
             <div className="w-[70%] h-full bg-blue-900 flex">
               <div className="h-full w-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://ipscommons.sg/wp-content/uploads/2015/09/ThinkstockPhotos-170081482.jpg" alt="" />
+                <img className="w-full h-full object-center object-cover" src="https://bloximages.newyork1.vip.townnews.com/trinidadexpress.com/content/tncms/assets/v3/editorial/c/0b/c0b1b098-92fd-11ee-89a8-7fd8ad588c06/656e625c9c656.image.jpg?resize=812%2C500" alt="" />
               </div>
             </div>
           </div>
