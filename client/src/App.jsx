@@ -72,6 +72,14 @@ import Property from "./pages/civil/Property";
 import Torts from "./pages/civil/Torts";
 // civil -- contract
 import ContractOfSpecialMovables from "./pages/civil/contract/ContractOfSpecialMovables";
+// civil -- family
+import CivilFamily from "./pages/civil/family/CivilFamily";
+import CivilFamilyMaintenance from "./pages/civil/family/family-sub-pages/CivilFamilyMaintenance";
+import CivilFamilyDivorce from "./pages/civil/family/family-sub-pages/CivilFamilyDivorce";
+import CivilFamilyIrregularUnion from "./pages/civil/family/family-sub-pages/CivilFamilyIrregularUnion";
+import CivilFamilyAdoption from "./pages/civil/family/family-sub-pages/CivilFamilyAdoption";
+import CivilFamilyOthers from "./pages/civil/family/family-sub-pages/CivilFamilyOthers";
+
 // other services
 import HomeTraining from "./pages/other-services/Training";
 import HomeConsulting from "./pages/other-services/Consulting";
@@ -118,6 +126,14 @@ function App() {
               {/* ###################################### HOME #################################### */}
               <Route path="/" element={<FinalHome />}>
                 <Route path="/" element={<HomeIndex />}></Route>
+                {/* civil-family */}
+                <Route path="/family" element={<CivilFamily />}>
+                  <Route path="/family" element={<CivilFamilyMaintenance />}></Route>
+                  <Route path="/family/divorce" element={<CivilFamilyDivorce />}></Route>
+                  <Route path="/family/irregular-union" element={<CivilFamilyIrregularUnion />}></Route>
+                  <Route path="/family/adoption" element={<CivilFamilyAdoption />}></Route>
+                  <Route path="/family/others" element={<CivilFamilyOthers />}></Route>
+                </Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>
                 <Route path="/property" element={<Property />}></Route>
