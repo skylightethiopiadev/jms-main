@@ -183,7 +183,7 @@ const CustomersSideNav = () => {
             <div className="w-full h-full flex flex-col relative">
                 {/* close side nav */}
                 <div className='absolute top-1 right-1 xl:hidden'>
-                    <div className='text-3xl text-blue-900 cursor-pointer' onClick={() => {
+                    <div className='text-2xl text-blue-900 cursor-pointer' onClick={() => {
                         customersDashboardToggler()
                     }}>
                         <AiOutlineClose />
