@@ -82,12 +82,12 @@ function App() {
           <div className="flex flex-col">
             <Routes>
               {/* ###################################### ADMIN DASHBOARD #################################### */}
-              {/* <Route path="/dashboard" element={<HomeDashboard />}>
+              <Route path="/dashboard" element={<HomeDashboard />}>
                 <Route
                   path="/dashboard/applications"
                   element={<Applications />}
                 />
-              </Route> */}
+              </Route>
 
               {/* ###################################### HOME #################################### */}
               <Route path="/" element={<FinalHome />}>
@@ -137,7 +137,7 @@ function App() {
 
               {/* ###################################### CUSTOMER DASHBOARD #################################### */}
               {user?.data?.role === "private-customer" ||
-              user?.data?.role === "private-customer" ? (
+              true ? (
                 <Route
                   path="/dashboard/customer"
                   element={<CustomerDashboard />}
@@ -149,23 +149,23 @@ function App() {
                   ></Route>
                   <Route
                     path="/dashboard/customer/message"
-                    element={<ComingSoon />}
-                    // element={<Message />}
+                    // element={<ComingSoon />}
+                    element={<Message />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/message/video"
-                    element={<ComingSoon />}
-                    // element={<Video />}
+                    // element={<ComingSoon />}
+                    element={<Video />}
                   />
                   <Route
                     path="/dashboard/customer/appointment"
-                    element={<ComingSoon />}
-                    // element={<Appointment />}
+                    // element={<ComingSoon />}
+                    element={<Appointment />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/success"
-                    element={<ComingSoon />}
-                    // element={<Success />}
+                    // element={<ComingSoon />}
+                    element={<Success />}
                   ></Route>
                   {/* customer compliance */}
                   <Route
@@ -191,50 +191,50 @@ function App() {
                   {/* customer charts */}
                   <Route
                     path="/dashboard/customer/case-team"
-                    element={<ComingSoon />}
-                    // element={<CaseTeam />}
+                    // element={<ComingSoon />}
+                    element={<CaseTeam />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/active-case"
-                    element={<ComingSoon />}
+                    // element={<ComingSoon />}
                     // element={<ActiveCase />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/closed-case"
-                    element={<ComingSoon />}
-                    // element={<ClosedCase />}
+                    // element={<ComingSoon />}
+                    element={<ClosedCase />}
                   ></Route>
                   {/* customer finance */}
                   <Route
                     path="/dashboard/customer/add-funds"
-                    element={<ComingSoon />}
-                    // element={<AddFunds />}
+                    // element={<ComingSoon />}
+                    element={<AddFunds />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/requested-payment"
-                    element={<ComingSoon />}
-                    // element={<RequestedPayment />}
+                    // element={<ComingSoon />}
+                    element={<RequestedPayment />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/refund-funds"
-                    element={<ComingSoon />}
-                    // element={<RefundFunds />}
+                    // element={<ComingSoon />}
+                    element={<RefundFunds />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/recent-transactions"
-                    element={<ComingSoon />}
-                    // element={<RecentTransactions />}
+                    // element={<ComingSoon />}
+                    element={<RecentTransactions />}
                   ></Route>
                   {/* customer services */}
                   <Route
                     path="/dashboard/customer/training"
-                    element={<ComingSoon />}
-                    // element={<Training />}
+                    // element={<ComingSoon />}
+                    element={<Training />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/consulting"
-                    element={<ComingSoon />}
-                    // element={<Consulting />}
+                    // element={<ComingSoon />}
+                    element={<Consulting />}
                   ></Route>
                   <Route
                     path="/dashboard/customer/researches"
