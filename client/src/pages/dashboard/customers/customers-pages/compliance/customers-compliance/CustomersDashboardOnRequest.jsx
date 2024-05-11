@@ -1,9 +1,9 @@
-
+import {Outlet} from 'react-router-dom'
 
 const CustomersDashboardOnRequest = () => {
     return (
         <div>
-            customers dashboard on request
+            <Outlet />
         </div>
     )
 }

@@ -23,6 +23,8 @@ import CustomersDashboardIndex from "./pages/dashboard/customers/customers-pages
 import CustomersDashboardCompliance from "./pages/dashboard/customers/customers-pages/compliance/CustomersDashboardCompliance";
 import CustomersDashboardNewCase from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/CustomersDashboardNewCase";
 import CustomersDashboardOnRequest from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/CustomersDashboardOnRequest";
+import CustomersDashboardOnRequestList from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/customers-dashboard-on-request/CustomersDashboardOnRequestList";
+import CustomersDashboardOnRequestDetail from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/customers-dashboard-on-request/CustomersDashboardOnRequestDetail";
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -284,7 +286,10 @@ function App() {
                 <Route path="/dashboard/customers" element={<CustomersDashboardIndex />}></Route>
                 <Route path="/dashboard/customers/compliance" element={<CustomersDashboardCompliance />}>
                   <Route path="/dashboard/customers/compliance" element={<CustomersDashboardNewCase />}></Route>
-                  <Route path="/dashboard/customers/compliance/on-request" element={<CustomersDashboardOnRequest />}></Route>
+                  <Route path="/dashboard/customers/compliance/on-request" element={<CustomersDashboardOnRequest />}>
+                    <Route path="/dashboard/customers/compliance/on-request" element={<CustomersDashboardOnRequestList />}></Route>
+                    <Route path="/dashboard/customers/compliance/on-request/detail" element={<CustomersDashboardOnRequestDetail />}></Route>
+                  </Route>
                 </Route>
               </Route>
               <Route path="*" element={<PageNotFound />} />
