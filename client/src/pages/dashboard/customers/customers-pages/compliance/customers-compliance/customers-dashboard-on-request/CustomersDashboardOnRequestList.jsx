@@ -71,7 +71,7 @@ const CustomersDashboardOnRequestList = () => {
                         {
                             [...Array(3)].map((item, index) => {
                                 return (
-                                    <NavLink key={index} className="grid grid-cols-4 mt-2 p-2 bg-white border-b border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-default">
+                                    <NavLink to={'/dashboard/customers/compliance/on-request/detail'} key={index} className="grid grid-cols-4 mt-2 p-2 bg-white border-b border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-default">
                                         <div>
                                             <span>CVI--2024-04-01000002</span>
                                         </div>
