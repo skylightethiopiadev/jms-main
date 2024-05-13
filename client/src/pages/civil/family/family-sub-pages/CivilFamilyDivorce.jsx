@@ -22,12 +22,12 @@ const CivilFamilyDivorce = () => {
           <div className="w-[55%] py-16">
             {/* bold text */}
             <div>
-              <h3 className="text-5xl font-semibold">Your uncontested divorce, done online</h3>
+              <h3 className="text-4xl font-semibold">Your uncontested divorce, done online</h3>
             </div>
             {/* normal text */}
             <div className="my-3">
               <p>
-                Consectetur adipisicing elit. Quis illo, harum quam nihil ullam debitis saepe earum sit assumenda pariatur vel, illum unde nam delectus consectetur ipsam iste dolorem maiores iure dolor. Quaerat, repudiandae! Non dolores consequuntur porro doloribus assumenda magnam obcaecati tenetur vero in, facilis ratione placeat voluptatum, voluptatem accusamus dolor.
+                Consectetur adipisicing elit. Quis illo, harum quam nihil ullam debitis saepe earum sit assumenda pariatur vel, illum unde nam delectus consectetur ipsam iste dolorem maiores iure dolor.
               </p>
             </div>
             {/* button */}
@@ -180,6 +180,7 @@ const CivilFamilyDivorce = () => {
           </ul>
         </div>
       </div>
+
     </div>
   )
 }

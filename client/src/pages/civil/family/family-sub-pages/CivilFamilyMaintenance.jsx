@@ -11,7 +11,40 @@ import { FaHandsHelping } from "react-icons/fa";
 
 const CivilFamilyMaintenance = () => {
   return (
-    <div className="pt-16">
+    <div className="mt-1">
+
+      {/* banner */}
+      <div className="relative mb-16">
+        {/* background */}
+        <div className="absolute left-0 top-0 z-0 w-full h-full bg-gradient-to-r from-white to-transparent">
+
+        </div>
+        <div className="absolute left-0 top-0 w-full h-full -z-10">
+          <div className="w-full h-full overflow-hidden">
+            <img className="w-full h-full object-center object-cover" src="https://www.perrknight.com/wp-content/uploads/2007/02/meeting-for-sake-of-meeting.jpg" alt="" />
+          </div>
+        </div>
+        {/* content container */}
+        <div className="w-full h-full flex relative z-10 bg-gradient-to-r from-white to-transparent">
+          <div className="w-[55%] py-16">
+            {/* bold text */}
+            <div>
+              <h3 className="text-5xl font-semibold">You online</h3>
+            </div>
+            {/* normal text */}
+            <div className="my-3">
+              <p>
+                Consectetur adipisicing elit. Quis illo, harum quam nihil ullam debitis saepe earum sit assumenda pariatur vel, illum unde.
+              </p>
+            </div>
+            {/* button */}
+            <div className="mt-5">
+              <button className="px-7 py-2 border border-yellow-500 rounded-full bg-yellow-500 text-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-yellow-500">learn more</button>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
 
       {/* first order container */}
       <div className="mb-16">
