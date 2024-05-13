@@ -1,4 +1,4 @@
-
+import { useRef } from "react";
 // icons
 import { IoMdStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
@@ -10,6 +10,14 @@ import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { FaHandsHelping } from "react-icons/fa";
 
 const CivilFamilyMaintenance = () => {
+
+  const maintenanceRef = useRef(null)
+
+  // scroll ref
+  const scrollToMaintenanceRef = () => {
+    maintenanceRef?.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div className="mt-1">
 
@@ -29,17 +37,19 @@ const CivilFamilyMaintenance = () => {
           <div className="w-[55%] py-16">
             {/* bold text */}
             <div>
-              <h3 className="text-5xl font-semibold">You online</h3>
+              <h3 className="text-5xl font-semibold">Family Maintenance</h3>
             </div>
             {/* normal text */}
             <div className="my-3">
               <p>
-                Consectetur adipisicing elit. Quis illo, harum quam nihil ullam debitis saepe earum sit assumenda pariatur vel, illum unde.
+                Family maintenance encompasses various legal and practical aspects related to supporting family members. It is an order of a law that requires one family member to provide financial assistance to the other members of the family.
               </p>
             </div>
             {/* button */}
             <div className="mt-5">
-              <button className="px-7 py-2 border border-yellow-500 rounded-full bg-yellow-500 text-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-yellow-500">learn more</button>
+              <button className="px-7 py-2 border border-yellow-500 rounded-full bg-yellow-500 text-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-yellow-500" onClick={() => {
+                scrollToMaintenanceRef()
+              }}>read more</button>
             </div>
           </div>
           <div></div>
@@ -69,12 +79,12 @@ const CivilFamilyMaintenance = () => {
             <div>
 
               <div>
-                <h1 className="header-level-3">Maintenance</h1>
+                <h1 className="header-level-3">Ethiopian Legal System</h1>
               </div>
 
               <div>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit omnis nulla sunt cumque perspiciatis inventore rem animi officia nisi eligendi nesciunt saepe vel, nam quas autem velit quisquam odit harum quae quo.
+                  Having different objectives at hand states have issued different family maintenance laws. These Family maintenance laws serve a dual purpose: they alleviate potential financial burdens on the state and uphold the integrity of family relationships.
                 </p>
               </div>
 
@@ -148,8 +158,8 @@ const CivilFamilyMaintenance = () => {
 
               <footer className="mt-10">
                 <div>
-                  <div className="flex items-center gap-2 px-3 py-1 border w-max rounded-md border-yellow-400 text-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white cursor-pointer">
-                    <div className="text-gray-800">get legal help</div>
+                  <div className="flex items-center gap-2 px-3 py-1 border w-max rounded-md border-yellow-500 text-yellow-500 transition-colors ease-in-out duration-300 hover:bg-yellow-500 hover:text-white cursor-pointer">
+                    <div>get legal help</div>
                     <IoIosHelpCircle className="text-2xl" />
                   </div>
                 </div>
@@ -161,7 +171,7 @@ const CivilFamilyMaintenance = () => {
       </div>
 
       {/* second order container */}
-      <div className="mb-16">
+      <div className="my-24">
         <div className="my-2">
           <h3 className="header-level-3">
             Our services
@@ -233,94 +243,16 @@ const CivilFamilyMaintenance = () => {
         <div className="flex gap-10">
           <div className="w-[50%]">
             <div>
-
+              <div ref={maintenanceRef} />
               <div>
-                <h1 className="header-level-3">Maintenance</h1>
+                <h1 className="header-level-3">Legal Framework</h1>
               </div>
 
               <div>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit omnis nulla sunt cumque perspiciatis inventore rem animi officia nisi eligendi nesciunt saepe vel, nam quas autem velit quisquam odit harum quae quo.
+                  In the context of maintenance, the legal landscape encompasses a diverse array of cases that affect various individuals. These cases often involve issues such as the determination of maintenance amounts, methods of payment, locations where payments should be effected, prioritization of claimants in the event of multiple maintenance requests, and the establishment of alternate payment solutions.
                 </p>
               </div>
-
-              <div className="my-3">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <footer className="mt-10">
-                <div>
-                  <div className="flex items-center gap-2 px-3 py-1 border w-max rounded-md border-yellow-400 text-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white cursor-pointer">
-                    <div className="text-gray-800">get legal help</div>
-                    <IoIosHelpCircle className="text-2xl" />
-                  </div>
-                </div>
-              </footer>
-
             </div>
           </div>
           <div className="w-[50%] relative flex">
@@ -338,6 +270,29 @@ const CivilFamilyMaintenance = () => {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* fourth order container */}
+      <div className="my-16 relative">
+        {/* background */}
+        <div className="absolute left-0 top-0 z-10 w-full h-full bg-gradient-to-r from-transparent to-white"></div>
+        <div className="absolute -z-10 top-0 left-0 w-full h-full overflow-hidden">
+          <img className="w-full h-full object-center object-cover" src="https://www.sinclairlaw.co.uk/wp-content/uploads/Transparency-in-the-Family-Courts.-What-is-the-impact-of-the-pilot-scheme-on-clients-web.jpg" alt="" />
+        </div>
+        {/* content container */}
+        <div className="flex py-5 bg-gradient-to-r from-transparent to-white relative z-20">
+          <div className="w-[50%]"></div>
+          <div className="w-[50%]">
+            <header>
+              <h4 className="header-level-4">Family Maintenance Detail</h4>
+            </header>
+            <div>
+              <p>
+                These Family maintenance laws serve a dual purpose: they alleviate potential financial burdens on the state and uphold the integrity of family relationships. These laws are enacted to ensure that individuals who are unable to sustain themselves due to various vulnerabilities are not left destitute, thereby preventing them from becoming reliant on state resources.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
