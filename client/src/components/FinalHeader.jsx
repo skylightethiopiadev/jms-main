@@ -396,7 +396,9 @@ const FinalHeader = () => {
         relative"
         >
           <div className="absolute z-50 left-0 p-1 shadow-lg bg-white mt-[-36px]">
-            <NavLink className={"cursor-pointer"} to={"/"}>
+            <NavLink className={"cursor-pointer"} to={"/"} onClick={() => {
+              setIsNav(null)
+            }}>
               <div className="w-[110px] h-[90px] overflow-hidden cursor-pointer">
                 <img
                   className="h-full w-full"
