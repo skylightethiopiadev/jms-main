@@ -12,10 +12,10 @@ const CivilFamily = () => {
         }
     }
     return (
-        <div className='w-screen overflow-x-hidden overflow-y-auto'>
+        <div className='w-screen overflow-x-hidden overflow-y-auto text-[1.05rem]'>
             <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
                 <Outlet />
-                <div className='my-10'>
+                <div className='my-10 text-[.875rem]'>
                     <div className='grid gap-7 grid-cols-5'>
                         <NavLink to={'/family'} style={activeLinkStyle} className={'cursor-default shadow-xl p-1 rounded-md'}>
                             <div className='p-3'>
