@@ -22,17 +22,13 @@ const CivilFamilyDivorce = () => {
           <div className="w-[55%] py-16">
             {/* bold text */}
             <div>
-              <h3 className="text-4xl font-semibold">Your uncontested divorce, done online</h3>
+              <h3 className="text-4xl font-semibold">Mankuta network, equipped to offer comprehensive legal services</h3>
             </div>
             {/* normal text */}
             <div className="my-3">
               <p>
-                Consectetur adipisicing elit. Quis illo, harum quam nihil ullam debitis saepe earum sit assumenda pariatur vel, illum unde nam delectus consectetur ipsam iste dolorem maiores iure dolor.
+                Divorce signifies the formal end of a marriage and is a procedure that can be emotionally challenging and legally intricate.
               </p>
-            </div>
-            {/* button */}
-            <div>
-              <button className="px-7 py-2 border border-yellow-500 rounded-full bg-yellow-500 text-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-yellow-500">learn more</button>
             </div>
           </div>
           <div></div>
@@ -48,11 +44,11 @@ const CivilFamilyDivorce = () => {
               <FaBalanceScale className="text-3xl" />
             </div>
             <div>
-              <h4 className="header-level-4">The Title Here</h4>
+              <h4 className="header-level-4">Legal Assist</h4>
             </div>
             <div>
               <p className="text-center">
-                Amet consectetur adipisicing elit.
+                comprehensive legal services
               </p>
             </div>
           </div>
@@ -93,21 +89,17 @@ const CivilFamilyDivorce = () => {
           <div className="w-[50%]">
             <div>
               <header>
-                <div className="text-xs">
-                  <span>smaller text here</span>
+                <div className="text-xs uppercase">
+                  <span>formal end of a marriage</span>
                 </div>
               </header>
               <div>
-                <h3 className="header-level-3">Larger Title</h3>
+                <h3 className="header-level-3">Divorce</h3>
               </div>
               <div className="my-2">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vitae in corporis autem ipsum, id nihil ullam nobis vel incidunt nam pariatur rerum, alias ut quae qui voluptates, ipsam minima perferendis porro?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vitae in corporis autem ipsum, id nihil ullam nobis vel incidunt nam pariatur rerum, alias ut quae qui voluptates, ipsam minima perferendis porro?
+                  In addition to the dissolution of marriage, divorce proceedings also entail significant repercussions regarding the division of assets, liabilities, and child custody arrangements. The Ethiopian Family Code offers a mechanism to mitigate disputes over asset distribution through marriage or divorce agreements. Spouses are afforded the autonomy to dictate their financial relations via marital contracts, which can be established prior to or during the marriage.
                 </p>
-              </div>
-              <div>
-                <button className="text-blue-800 hover:underline">more</button>
               </div>
             </div>
           </div>
