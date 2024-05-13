@@ -36,7 +36,7 @@ const CivilFamilyIrregularUnion = () => {
             {/* normal text */}
             <div className="my-3">
               <p>
-                Consectetur adipisicing elit. Quis illo, harum quam nihil ullam debitis saepe earum sit assumenda pariatur vel, illum unde nam delectus consectetur ipsam iste dolorem maiores iure dolor.
+                In Ethiopia, a man and a woman cohabitating as a couple without formalizing their relationship through marriage are engaged in what’s known as an irregular union.
               </p>
             </div>
             {/* button */}
@@ -71,12 +71,12 @@ const CivilFamilyIrregularUnion = () => {
             <div>
 
               <div>
-                <h1 className="header-level-3">Irregular union</h1>
+                <h1 className="header-level-3">Ethiopian family laws being considered to have an irregular union</h1>
               </div>
 
               <div>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit omnis nulla sunt cumque perspiciatis inventore rem animi officia nisi eligendi nesciunt saepe vel, nam quas autem velit quisquam odit harum quae quo.
+                  While not officially recognized by law as a marriage, this arrangement nonetheless carries certain legal ramifications akin to those of a legally married couple. Essentially, it’s a non-formalized domestic partnership that is treated in some ways like a marriage in terms of legal outcomes.
                 </p>
               </div>
 
@@ -175,7 +175,7 @@ const CivilFamilyIrregularUnion = () => {
             <FaRightLong className="text-3xl" />
             <div>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus natus aliquam culpa, est quod pariatur dolores quae sint quas libero maxime excepturi corporis! Sint adipisci voluptate eaque dolorem. Ipsam officiis ipsa voluptates.
+                Preparation of Legal Documents: our team draft agreements pertinent to the irregular union, like separation agreements or asset distribution contracts. They ensure these documents are in line with Ethiopian family law and safeguard the rights of all involved parties.
               </p>
             </div>
           </div>
@@ -184,7 +184,7 @@ const CivilFamilyIrregularUnion = () => {
             <FaRightLong className="text-3xl" />
             <div>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus natus aliquam culpa, est quod pariatur dolores quae sint quas libero maxime excepturi corporis! Sint adipisci voluptate eaque dolorem. Ipsam officiis ipsa voluptates.
+                Informed counsel on the nuances of an irregular union, detailing the involved parties’ legal rights and duties. We provide direction on legal procedures, whether the couple intends to formalize their relationship or part ways.
               </p>
             </div>
           </div>
@@ -193,7 +193,7 @@ const CivilFamilyIrregularUnion = () => {
             <FaRightLong className="text-3xl" />
             <div>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus natus aliquam culpa, est quod pariatur dolores quae sint quas libero maxime excepturi corporis! Sint adipisci voluptate eaque dolorem. Ipsam officiis ipsa voluptates.
+                Dissolution and Legal Outcomes: We can facilitate the dissolution process for those opting to terminate their irregular union. They clarify the legal ramifications of the union, including any marital resemblances.
               </p>
             </div>
           </div>
@@ -202,7 +202,7 @@ const CivilFamilyIrregularUnion = () => {
             <FaRightLong className="text-3xl" />
             <div>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus natus aliquam culpa, est quod pariatur dolores quae sint quas libero maxime excepturi corporis! Sint adipisci voluptate eaque dolorem. Ipsam officiis ipsa voluptates.
+                Legal Representation: In the event of disputes, our team act as representatives in legal proceedings concerning the irregular union. They provide representation for matters such as recognition, asset division, or conflict resolution in court.
               </p>
             </div>
           </div>
@@ -211,18 +211,18 @@ const CivilFamilyIrregularUnion = () => {
       </div>
 
       {/* third order container */}
-      <div className="mb-16">
+      <div className="my-28">
         <div className="flex gap-10">
           <div className="w-[50%]">
             <div>
 
               <div>
-                <h1 className="header-level-3">Irregular union</h1>
+                <h1 className="header-level-3">Non-formalized domestic partnership</h1>
               </div>
 
               <div>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit omnis nulla sunt cumque perspiciatis inventore rem animi officia nisi eligendi nesciunt saepe vel, nam quas autem velit quisquam odit harum quae quo.
+                  Under the revised family code of the Federal Democratic Republic of Ethiopia, along with other regional codes, the concept of an irregular union is established. This includes the criteria that must be met, the evidence required to demonstrate such a union, and the legal implications it carries.
                 </p>
               </div>
 
@@ -294,14 +294,7 @@ const CivilFamilyIrregularUnion = () => {
 
               </div>
 
-              <footer className="mt-10">
-                <div>
-                  <div className="flex items-center gap-2 px-3 py-1 border w-max rounded-md border-yellow-400 text-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white cursor-pointer">
-                    <div className="text-gray-800">get legal help</div>
-                    <IoIosHelpCircle className="text-2xl" />
-                  </div>
-                </div>
-              </footer>
+              
 
             </div>
           </div>
