@@ -25,7 +25,7 @@ const FinalHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [menuIconToggler, setMenuIconToggler] = useState(false);
   const [isUserDropDown, setIsUserDropDown] = useState(false);
-  const [languageOption,setLanguageOption] = useState(false)
+  const [languageOption, setLanguageOption] = useState(false)
 
   // nav
   const nav = [
@@ -87,26 +87,27 @@ const FinalHeader = () => {
         },
         {
           navHeaderText: "Family",
+          path: '/family',
           subNavList: [
             {
               navHeaderText: "Maintenances",
-              path: "#"
+              path: "/family"
             },
             {
               navHeaderText: "Adoption",
-              path: "#"
+              path: "/family/adoption"
             },
             {
               navHeaderText: "Divorce",
-              path: "#"
+              path: "/family/divorce"
             },
             {
               navHeaderText: "Irregular Union",
-              path: "#"
+              path: "/family/irregular-union"
             },
             {
               navHeaderText: "Others",
-              path: "#"
+              path: "/family/others"
             },
           ]
         }
@@ -508,9 +509,11 @@ const FinalHeader = () => {
                             {/* family list */}
                             <div className="flex flex-col h-[200px] lg:h-auto">
                               <div>
-                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                <NavLink className="font-semibold mb-3 text-[1.35rem] hover:underline" to={civilSubNav[0].groupOne[1].path} onClick={() => {
+                                  setIsNav(null)
+                                }}>
                                   {civilSubNav[0].groupOne[1].navHeaderText}
-                                </h3>
+                                </NavLink>
                                 <ul>
                                   {civilSubNav[0].groupOne[1].subNavList.map(
                                     (item, index) => (
@@ -518,7 +521,9 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink className={"hover:underline"} to={item.path} onClick={() => {
+                                          setIsNav(null)
+                                        }}>
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -947,7 +952,7 @@ const FinalHeader = () => {
 
             {/* language */}
             <div className="relative">
-              <div className="flex items-center gap-1 cursor-pointer" onClick={()=>{
+              <div className="flex items-center gap-1 cursor-pointer" onClick={() => {
                 setLanguageOption(!languageOption)
               }}>
                 <div className="w-[20px] aspect-square rounded-full overflow-hidden">
@@ -957,7 +962,7 @@ const FinalHeader = () => {
                   <span className="text-black text-[1.125rem]">Eng(US)</span>
                 </div>
                 <div>
-                  <MdKeyboardArrowDown className={`transition-transform ease-in-out duration-300 ${languageOption ? 'rotate-[-180deg]' : 'rotate-0'}`}/>
+                  <MdKeyboardArrowDown className={`transition-transform ease-in-out duration-300 ${languageOption ? 'rotate-[-180deg]' : 'rotate-0'}`} />
                 </div>
               </div>
               {/* language list */}
