@@ -60,12 +60,3 @@ const CaseCategory = props => {
 export default CaseCategory;
 
 
-// {
-//     caseCategories,
-//         stepCounter,
-//         setStepCounter,
-//         setNewCase,
-//         setNewCaseHistory,
-// }
-
-

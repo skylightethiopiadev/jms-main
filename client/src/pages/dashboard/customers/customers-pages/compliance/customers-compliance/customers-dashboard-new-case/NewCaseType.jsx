@@ -1,115 +1,107 @@
 import { useState } from "react";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
-import { MdArrowRightAlt } from "react-icons/md";
 
-const NewCaseType = ({
-    stepCounter,
-    setStepCounter,
-    newCase,
-    setNewCase,
-    setNewCaseHistory,
-}) => {
+// icons
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { BiSolidCheckboxChecked } from "react-icons/bi";
+
+const NewCaseType = props => {
     const [drop, setDrop] = useState(null);
 
     return (
-        <div className="w-full h-[72vh] p-[1%]">
-            <div className="w-full h-full bg-white rounded-sm">
-                <header className="px-[3%] py-1 border-b border-gray-100">
-                    <div>
-                        <h3 className="text-xl font-bold text-gray-700">
-                            {newCase?.caseCategory}
-                        </h3>
-                    </div>
-                </header>
-                <div className="my-[1%] ml-[7%] h-[58vh] overflow-y-auto">
-                    {newCase?.subCategories.map((item, index) => (
-                        <div key={index}>
-                            {/* header */}
-                            {item?.subType ? (
-                                <div>
-                                    <header
-                                        className={`p-[1%] font-semibold cursor-pointer  flex items-center justify-between gap-[5%] transition-all ease-in-out duration-300 hover:shadow-md shadow-sm my-1 w-[85%] ${drop === item?.caseName
-                                            ? "text-blue-700 text-lg font-bold"
-                                            : "text-gray-700"
-                                            }`}
-                                        onClick={() => {
-                                            if (drop === item?.caseName) {
-                                                setDrop(null);
-                                            } else {
-                                                setDrop(item?.caseName);
-                                            }
-                                        }}
-                                    >
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-2 bg-gradient-to-r from-gray-500 to-yellow-400 h-2 rounded-full"></div>
+        <div className="overflow-y-auto h-[66vh] p-2 flex flex-col gap-y-3">
+            <header>
+                <h4 className="header-level-4">{props?.newCase?.caseCategory}</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae sit adipisci harum vero nam quibusdam, exercitationem ex nihil cum consequuntur libero voluptates ut possimus!
+                </p>
+            </header>
+            <div className="flex-grow border border-gray-200 rounded-md p-2 bg-white flex flex-col gap-y-3">
+                {
+                    props?.newCase?.subCategories.map((item, index) => {
+                        return (
+                            <div key={index}>
+                                {
+                                    item?.subType
+                                        ?
+                                        <div className="p-2 border border-gray-200 rounded-md">
+                                            <header className="flex items-center justify-between cursor-pointer" onClick={() => {
+                                                if (drop === item?.caseName) {
+                                                    setDrop(null);
+                                                } else {
+                                                    setDrop(item?.caseName);
+                                                }
+                                            }}>
+                                                <div>
+                                                    <h4 className="font-medium">{item?.caseName}</h4>
+                                                </div>
+                                                <div>
+                                                    <button>
+                                                        <MdKeyboardArrowDown className={`text-xl transition-transform ease-in-out duration-150 ${drop === item?.caseName ? '-rotate-180' : 'rotate-0'}`} />
+                                                    </button>
+                                                </div>
+                                            </header>
+                                            <div className={`overflow-hidden ${drop === item?.caseName ? 'h-auto' : 'h-0'}`}>
+                                                <div className="mt-2 border-t border-gray-200 pl-10 p-2 flex flex-col gap-y-3">
+                                                    {
+                                                        item?.subType.map((subItem, index) => {
+                                                            return (
+                                                                <div
+                                                                    key={index} className="border border-gray-200 rounded-md p-2 cursor-pointer flex items-center gap-2 transition-colors ease-in-out duration-150 hover:bg-gray-100"
+                                                                    onClick={() => {
+                                                                        props?.setStepCounter(props?.stepCounter + 1);
+                                                                        props?.setNewCaseHistory((prev) => {
+                                                                            return {
+                                                                                ...prev,
+                                                                                subCaseCategory: {
+                                                                                    title: item?.caseName,
+                                                                                },
+                                                                            };
+                                                                        });
+                                                                    }}
+                                                                >
+                                                                    <BiSolidCheckboxChecked className="text-xl" />
+                                                                    <div>
+                                                                        <span>{subItem}</span>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        :
+                                        <div
+                                            className="p-2 py-3 border border-gray-200 rounded-md cursor-pointer transition-colors ease-in-out duration-300 hover:bg-gray-100"
+                                            onClick={() => {
+                                                props?.setStepCounter(props?.stepCounter + 1);
+                                                props?.setNewCaseHistory((prev) => {
+                                                    return {
+                                                        ...prev,
+                                                        subCaseCategory: {
+                                                            title: item?.caseName,
+                                                        },
+                                                    };
+                                                });
+                                            }}
+                                        >
                                             <span>{item?.caseName}</span>
                                         </div>
-                                        {drop === item?.caseName ? (
-                                            <IoMdArrowDropup className="text-lg" />
-                                        ) : (
-                                            <IoMdArrowDropdown className="text-lg" />
-                                        )}
-                                    </header>
-                                    <div
-                                        className={`ml-[5%] overflow-hidden transition-all ease-in-out duration-300 ${drop === item?.caseName ? "max-h-max" : "max-h-0"
-                                            }`}
-                                    >
-                                        {item?.subType.map((subItem, index) => (
-                                            <div
-                                                key={index}
-                                                className="cursor-pointer py-[1%] px-[1%] transition-all ease-in-out duration-300 hover:shadow-md shadow-sm w-[84.5%] my-2 font-semibold text-gray-700 flex items-center justify-between"
-                                                onClick={() => {
-                                                    setStepCounter(stepCounter + 1);
-                                                    setNewCaseHistory((prev) => {
-                                                        return {
-                                                            ...prev,
-                                                            subCaseCategory: {
-                                                                title: item?.caseName,
-                                                                subSubCaseCategory: {
-                                                                    title: subItem,
-                                                                },
-                                                            },
-                                                        };
-                                                    });
-                                                }}
-                                            >
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-2 bg-gradient-to-r from-gray-500 to-yellow-400 h-2 rounded-full"></div>
-                                                    <span>{subItem}</span>
-                                                </div>
-                                                <MdArrowRightAlt className="text-lg" />
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div
-                                    className="cursor-pointer p-[1%] transition-all ease-in-out duration-300 hover:shadow-md shadow-sm w-[85%] my-1 font-semibold text-gray-700 flex items-center justify-between gap-[1%]"
-                                    onClick={() => {
-                                        setStepCounter(stepCounter + 1);
-                                        setNewCaseHistory((prev) => {
-                                            return {
-                                                ...prev,
-                                                subCaseCategory: {
-                                                    title: item?.caseName,
-                                                },
-                                            };
-                                        });
-                                    }}
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-2 bg-gradient-to-r from-gray-400 to-yellow-400 h-2 rounded-full"></div>
-                                        <span>{item?.caseName}</span>
-                                    </div>
-                                    <MdArrowRightAlt className="text-lg" />
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
+
+                                }
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     );
 };
 
 export default NewCaseType;
+
+// stepCounter,
+//     setStepCounter,
+//     newCase,
+//     setNewCaseHistory,
