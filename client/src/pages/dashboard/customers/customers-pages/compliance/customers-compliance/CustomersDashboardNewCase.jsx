@@ -14,7 +14,7 @@ const CustomersDashboardNewCase = () => {
     // states
     const [stepCounter, setStepCounter] = useState(0)
 
-    // steper
+    // stepper
     const stepsHint = [
         {
             title: "Case",
@@ -55,7 +55,8 @@ const CustomersDashboardNewCase = () => {
                 {
                     caseName: "Contract",
                     subType: [
-                        "Contract of special movables (vehicles)",
+                        "General contracts",
+                        "Contract of special movables",
                         "Sale or lease of buildings",
                         "Construction",
                         "Supply of goods and services",
@@ -64,17 +65,20 @@ const CustomersDashboardNewCase = () => {
                     ],
                 },
                 {
-                    caseName: "Succession",
+                    caseName: "Family",
+                    subType: ["Maintenance", "Adoption", "Divorce", "Irregular Union"],
                 },
                 {
-                    caseName: "Family",
-                    subType: ["Maintenance", "Adoption", "Divorce"],
+                    caseName: "Succession",
                 },
                 {
                     caseName: "Employment",
                 },
                 {
                     caseName: "Property",
+                },
+                {
+                    caseName: "Torts",
                 },
             ],
         },
@@ -98,19 +102,10 @@ const CustomersDashboardNewCase = () => {
             ],
         },
         {
-            caseCategory: "Commercial/Corporate",
+            caseCategory: "Corporate",
             description:
                 "Commercial Cases are cases involving complex transactions such as international business. Formation, registration, reorganization, merger, acquisition, winding up, of corporations; bankruptcy (scheme of arrangement or liquidation), issues related to tax and customs assessment, joint venture, real estate and property, supply of goods and services, commercial loan, registration of trade mark, patent, utility rights",
             subCategories: [
-                {
-                    caseName: "International trade and investment",
-                },
-                {
-                    caseName: "Tax",
-                },
-                {
-                    caseName: "Customs",
-                },
                 {
                     caseName: "Contract",
                     subType: [
@@ -148,6 +143,15 @@ const CustomersDashboardNewCase = () => {
                     ],
                 },
                 {
+                    caseName: "International trade and investment",
+                },
+                {
+                    caseName: "Tax",
+                },
+                {
+                    caseName: "Customs",
+                },
+                {
                     caseName: "Real estate, property, and conveyance",
                 },
                 {
@@ -161,7 +165,7 @@ const CustomersDashboardNewCase = () => {
     ];
 
     return (
-        <div>
+        <div className="flex-grow">
             <SteperComponent
                 steps={3}
                 stepsHint={stepsHint}

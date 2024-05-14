@@ -69,7 +69,7 @@ const CustomersDashboardIndex = () => {
     }
 
     return (
-        <div className='overflow-x-hidden'>
+        <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
             <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border bg-gray-100 rounded-md">
                 <header className="flex items-center justify-between">
