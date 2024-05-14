@@ -54,6 +54,9 @@ const NewCaseType = props => {
                                                                                 ...prev,
                                                                                 subCaseCategory: {
                                                                                     title: item?.caseName,
+                                                                                    subSubCaseCategory: {
+                                                                                        title: subItem,
+                                                                                    },
                                                                                 },
                                                                             };
                                                                         });
@@ -101,7 +104,3 @@ const NewCaseType = props => {
 
 export default NewCaseType;
 
-// stepCounter,
-//     setStepCounter,
-//     newCase,
-//     setNewCaseHistory,

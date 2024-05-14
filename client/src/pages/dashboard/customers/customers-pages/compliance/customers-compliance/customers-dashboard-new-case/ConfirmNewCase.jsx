@@ -1,62 +1,41 @@
-import { MdArrowRightAlt } from "react-icons/md";
-import {
-    MdArrowForwardIos,
-    MdOutlineKeyboardArrowRight,
-    MdOutlineSubdirectoryArrowRight,
-} from "react-icons/md";
 
-const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
+const ConfirmNewCase = props => {
+
+    console.log(props?.newCaseHistory)
 
     return (
-        <div className="w-full h-[72vh] p-[1%]">
-            <div className="w-full h-full bg-white rounded-sm">
-                <header className="px-[3%] py-1 border-b border-gray-100 flex items-center justify-between">
-                    <div>
-                        <h3 className="text-xl font-bold text-gray-700">Summary</h3>
-                    </div>
+        <div className="overflow-y-auto h-[66vh] p-2 flex flex-col gap-y-3 items-center">
+            <div className="p-5 px-10 border border-gray-200 rounded-md bg-white shadow-xl flex flex-col gap-y-1">
+                <header className="flex items-center justify-center py-1 border-b border-gray-200">
+                    <h3 className="font-blackk text-2xl">Summary</h3>
                 </header>
+                <div>
+                    <h3 className="text-xl">{props?.newCaseHistory?.caseCategory}</h3>
+                    {
+                        props?.newCaseHistory?.subCaseCategory
+                            ?
+                            <h4 className="text-lg ml-5d">{props?.newCaseHistory?.subCaseCategory.title}</h4>
+                            :
+                            <></>
+                    }
+                    {
+                        props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory
+                            ?
+                            <h5 className="ml-10d">{props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory.title}</h5>
+                            :
+                            <></>
+                    }
+                    {
+                        props?.newCaseHistory?.services?.length > 0
+                            ?
+                            <div>
 
-                <div className="">
-                    <div className="p-[3%] ">
-                        <div className="border-b border-gray-200 pb-3">
-                            <div className="">
-                                <div className="text-gray-700 font-medium">Case Category:</div>
-                                <div className="ml-[10%] flex items-center gap-2">
-                                    <MdOutlineSubdirectoryArrowRight className="text-gray-500 text-lg" />
-                                    <span className="text-gray-500 font-medium">
-                                        {newCaseHistory?.caseCategory}
-                                    </span>
-                                </div>
-                            </div>
-                            {newCaseHistory?.subCaseCategory ? (
-                                <div className="ml-[15%] whitespace-nowrap flex items-center gap-2">
-                                    <MdOutlineSubdirectoryArrowRight className="text-gray-500 text-lg" />
-                                    <span className=" text-gray-500 font-medium">
-                                        {newCaseHistory?.subCaseCategory.title}
-                                    </span>
-                                </div>
-                            ) : (
-                                <></>
-                            )}
-                            {newCaseHistory?.subCaseCategory?.subSubCaseCategory ? (
-                                <div className="ml-[20%] whitespace-nowrap flex items-center gap-2">
-                                    <MdOutlineSubdirectoryArrowRight className="text-gray-500 text-lg" />
-                                    <span className=" text-gray-500 font-medium">
-                                        {newCaseHistory?.subCaseCategory?.subSubCaseCategory.title}
-                                    </span>
-                                </div>
-                            ) : (
-                                <></>
-                            )}
-                        </div>
-                        {newCaseHistory?.services?.length > 0 ? (
-                            <div className="border-b border-gray-200">
-                                <h3 className="text-gray-700 font-medium">Services:</h3>
-                                <div className="ml-[10%] flex gap-[1%] flex-wrap whitespace-nowrap">
-                                    {newCaseHistory?.services?.map((item, index) => (
+                                <h3 className="text-xl">Services</h3>
+                                <div className="ml-5">
+                                    {props?.newCaseHistory?.services?.map((item, index) => (
                                         <div
                                             key={index}
-                                            className="mb-2 font-medium flex items-center gap-[3%] text-gray-700 px-[2%] py-[1%] transition-all ease-in-out duration-300 hover:shadow-md shadow-sm"
+                                            className="mb-2 font-medium flex items-center gap-[3%] text-gray-700 px-[2%] py-[1%] transition-all ease-in-out duration-300 hover:shadow-md shadow-sm whitespace-nowrap"
                                         >
                                             <input
                                                 id={`${index}`}
@@ -65,6 +44,7 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
                                                 value={item}
                                                 checked
                                                 disabled
+                                            // onChange={inputChangeHandler}
                                             />
                                             <label htmlFor={`${index}`} className="cursor-pointer">
                                                 {item}
@@ -73,31 +53,15 @@ const ConfirmNewCase = ({ stepCounter, setStepCounter, newCaseHistory }) => {
                                     ))}
                                 </div>
                             </div>
-                        ) : (
+                            :
                             <></>
-                        )}
-
-                        <div className="flex items-center justify-center gap-3  mt-5">
-                            <button
-                                className="px-5 py-1 rounded-sm bg-gray-400 text-white"
-                                onClick={() => {
-                                    setStepCounter(0);
-                                }}
-                            >
-                                Cancel
-                            </button>
-
-                            <button
-                                className="px-5 py-1 rounded-sm bg-blue-600 text-white"
-                                onClick={() => {
-                                    caseCreateHandler();
-                                    setStepCounter(stepCounter + 1);
-                                }}
-                            >
-                                confirm
-                            </button>
-                        </div>
-                    </div>
+                    }
+                </div>
+                <div className="w-full flex items-center justify-center bg-blue-700 py-1 rounded-md text-white mt-3 my-1 transition-colors ease-in-out duration-150 hover:bg-blue-600 cursor-pointer">
+                    <span>Submit</span>
+                </div>
+                <div className="w-full flex items-center justify-center bg-gray-700 py-1 rounded-md text-white my-1 transition-colors ease-in-out duration-150 hover:bg-gray-600 cursor-pointer">
+                    <span>Cancel</span>
                 </div>
             </div>
         </div>
