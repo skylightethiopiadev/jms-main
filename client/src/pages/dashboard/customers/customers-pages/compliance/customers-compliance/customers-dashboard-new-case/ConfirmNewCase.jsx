@@ -1,8 +1,5 @@
 
 const ConfirmNewCase = props => {
-
-    console.log(props?.newCaseHistory)
-
     return (
         <div className="overflow-y-auto h-[66vh] p-2 flex">
             <div className="flex-grow bg-white rounded-md border border-gray-200 p-3 h-max">
@@ -54,8 +51,8 @@ const ConfirmNewCase = props => {
                         </div>
                         {/* services */}
                         {
-                            props?.newCaseHistory.services.length > 0 
-                            ?
+                            props?.newCaseHistory.services.length > 0
+                                ?
                                 <div className="pl-5 mt-2">
                                     <div className="p-2 border border-gray-200">
                                         <header>
@@ -84,8 +81,8 @@ const ConfirmNewCase = props => {
                                         </div>
                                     </div>
                                 </div>
-                            :
-                            <></>
+                                :
+                                <></>
                         }
                         <div className="flex items-center gap-5 mt-3">
                             <button className="border border-transparent px-5 py-1 transition-colors ease-in-out duration-150 hover:border-red-600 hover:text-red-600 rounded-sm">cancel</button>
