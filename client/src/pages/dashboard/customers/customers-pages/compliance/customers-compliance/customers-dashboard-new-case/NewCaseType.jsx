@@ -2,7 +2,7 @@ import { useState } from "react";
 
 // icons
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { BiSolidCheckboxChecked } from "react-icons/bi";
+import { IoMdArrowForward } from "react-icons/io";
 
 const NewCaseType = props => {
     const [drop, setDrop] = useState(null);
@@ -23,8 +23,8 @@ const NewCaseType = props => {
                                 {
                                     item?.subType
                                         ?
-                                        <div className="p-2 border border-gray-200 rounded-md">
-                                            <header className="flex items-center justify-between cursor-pointer" onClick={() => {
+                                        <div className="border border-gray-200 rounded-md">
+                                            <header className="p-2 flex items-center justify-between cursor-pointer transition-colors ease-in-out duration-300 hover:bg-gray-100" onClick={() => {
                                                 if (drop === item?.caseName) {
                                                     setDrop(null);
                                                 } else {
@@ -62,7 +62,10 @@ const NewCaseType = props => {
                                                                         });
                                                                     }}
                                                                 >
-                                                                    <BiSolidCheckboxChecked className="text-xl" />
+                                                                    
+                                                                    {/* <div className="w-[7px] aspect-square rounded-full bg-gray-700"></div> */}
+
+                                                                    <IoMdArrowForward className="text-gray-700"/>
                                                                     <div>
                                                                         <span>{subItem}</span>
                                                                     </div>
