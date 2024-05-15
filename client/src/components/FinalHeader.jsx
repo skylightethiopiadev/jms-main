@@ -131,10 +131,6 @@ const FinalHeader = () => {
           navHeaderText: "Torts",
           path: "/torts"
         },
-        {
-          navHeaderText: "Others",
-          path: "#"
-        },
       ]
     }
   ];

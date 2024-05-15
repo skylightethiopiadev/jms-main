@@ -1,11 +1,8 @@
-import { useState } from 'react'
+
 // icons
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Succession = () => {
-  // local states
-  const [isServiceOpen, setIsServiceOpen] = useState("Assisting the creation of Wills")
 
   return <div className="text-[1.05rem]">
     <div className="px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]">
