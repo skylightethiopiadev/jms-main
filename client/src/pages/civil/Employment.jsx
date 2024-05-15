@@ -1,5 +1,6 @@
 // icons
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { FaTools } from "react-icons/fa";
 
 const Employment = () => {
   return <div className="text-[1.05rem]">
@@ -10,12 +11,15 @@ const Employment = () => {
         <div className="relative z-10">
           <div className="w-[95%] sm:w-[85%] md:[75%] lg:w-[50%] py-16">
             <div>
-              <h1 className="text-4xl font-bold">Law of succession or Inheritance law</h1>
+              <h1 className="text-4xl font-bold">Safeguarding the rights of all parties involved</h1>
             </div>
             <div className="my-3">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aliquam, cum praesentium consequuntur blanditiis dolor minus incidunt animi, cupiditate repudiandae assumenda iure ea enim.
+                Employment law covers a wider spectrum of workplace issues beyond union relations.
               </p>
+            </div>
+            <div className="my-3">
+              <button className="px-10 py-2 border-2 border-blue-800 rounded-full text-blue-800 transition-colors ease-in-out duration-300 hover:bg-blue-800 hover:text-white">Get Legal Help</button>
             </div>
           </div>
         </div>
@@ -30,62 +34,36 @@ const Employment = () => {
           <div className="w-[100%] sm:w-[85%] md:[75%] lg:w-[50%] bg-gradient-to-r from-white to-transparent"></div>
         </div>
       </div>
-      {/* second order container */}
-      <div className="mt-3">
-        <div className="flex items-center justify-center px-[1%] sm:px-[3%] md:px-[7%] lg:px-[15%]">
-          <div className="grid grid-cols-3 gap-3 sm:gap-5 md:gap-7 lg:gap-10 mt-[-50px] relative z-20">
 
-            <div className="flex flex-col items-center p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-md bg-white shadow-xl">
-              <header>
-                <h3 className="header-level-4 w-min border-b border-gray-200 whitespace-nowrap">Public</h3>
-              </header>
-              <div>
-                <p className="text-center">
-                  Ducimus possimus dignissimos facilis et. Accusamus dolores optio perferendis porro non.
-                </p>
-              </div>
-            </div>
+      
 
-            <div className="flex flex-col items-center p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-md bg-white shadow-xl">
-              <header>
-                <h3 className="header-level-4 w-min border-b border-gray-200 whitespace-nowrap">Holographic</h3>
-              </header>
-              <div>
-                <p className="text-center">
-                  Ducimus possimus dignissimos facilis et. Accusamus dolores optio perferendis porro non.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-md bg-white shadow-xl">
-              <header>
-                <h3 className="header-level-4 w-min border-b border-gray-200 whitespace-nowrap">Oral</h3>
-              </header>
-              <div>
-                <p className="text-center">
-                  Ducimus possimus dignissimos facilis et. Accusamus dolores optio perferendis porro non.
-                </p>
-              </div>
-            </div>
-
-          </div>
+      {/* post second order container */}
+      <div className="mt-20">
+        <header>
+          <h3 className="header-level-3">Working hour, weekly rests and public holidays</h3>
+        </header>
+        <div>
+          <p>
+            Ethiopian labor regulations stipulate that the standard work schedule should not surpass 8 hours per day or 48 hours per week.
+          </p>
         </div>
       </div>
+
       {/* third order container */}
-      <div className="mt-20">
+      <div className="mt-16">
         <div className="flex gap-10">
           <div className="w-[50%] relative">
             <div className="absolute left-0 top-0 w-full h-full bg-yellow-500">
               <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://www.onboardmeetings.com/wp-content/uploads/2022/04/What-Is-a-Nonprofit-Advisory-Board-2-1024x536.jpeg" alt="" />
+                <img className="w-full h-full object-center object-cover" src="https://mcm.edu/app/uploads/2022/08/AdobeStock_280792377-scaled.jpeg" alt="" />
               </div>
               <div className="absolute left-0 top-0 w-[45%] aspect-[3/2] mt-[-32px] ml-[-24px] bg-white shadow-xl p-3">
-                <header className="flex items-center gap-1">
+                <header className="flex items-center gap-2">
                   <div>
-                    <MdOutlineAccountBalanceWallet className="text-3xl" />
+                    <FaTools className="" />
                   </div>
                   <div>
-                    <h4 className="font-bold">Succession</h4>
+                    <h4 className="font-bold">Employment</h4>
                   </div>
                 </header>
                 <div className="text-[.985rem]">
@@ -98,11 +76,11 @@ const Employment = () => {
           </div>
           <div className="w-[50%] py-7">
             <header>
-              <h3 className="header-level-3 capitalize">legal framework</h3>
+              <h3 className="header-level-3 capitalize">Special employees</h3>
             </header>
             <div>
               <p>
-                Debitis distinctio doloremque vel quibusdam repudiandae. Minus autem, vel facere culpa enim aliquam est ea eaque hic fugit. Itaque aliquam voluptate odio quod est, aliquid rerum delectus ducimus amet nostrum, officiis dolorum, velit porro.
+                Ethiopian labor legislation acknowledges the unique circumstances of certain groups of workers by categorizing them as “special employees.” This category encompasses probationary workers, apprentices, young workers, women, individuals with disabilities, and foreign workers.
               </p>
             </div>
             <div className="my-3">
@@ -111,53 +89,45 @@ const Employment = () => {
           </div>
         </div>
       </div>
-      {/* fourth order container */}
-      <div className="mt-20">
-        <header className="py-2">
-          <h3 className="header-level-3">Legal services we offer</h3>
-        </header>
-        <div className='grid grid-cols-2 gap-7'>
-          <div className='p-3 bg-white rounded-sm shadow-md'>
+
+      {/* third order container */}
+      <div className="mb-20 mt-32">
+        <div className="flex gap-10">
+
+          <div className="w-[50%] py-7">
             <header>
-              <h3 className='header-level-4'>Assisting the creation of Wills</h3>
+              <h3 className="header-level-3 capitalize">Foreign employees</h3>
             </header>
             <div>
               <p>
-                Assist individuals in formulating wills that are legally sound and reflect their desires for asset distribution post-mortem. We ensure these documents adhere to legal standards and address all pertinent details.
+                Under the labor law, foreign individuals seeking employment in Ethiopia, as well as employers wishing to hire expats, are required to obtain a work permit.
               </p>
+            </div>
+            <div className="my-3">
+              <button className="px-10 py-2 border-2 border-yellow-500 bg-yellow-500 text-white rounded-full transition-colors ease-in-out duration-300 hover:text-yellow-500 hover:bg-white">Get Legal Help</button>
             </div>
           </div>
 
-          <div className='p-3 bg-white rounded-sm shadow-md'>
-            <header>
-              <h3 className='header-level-4'>Securing Legal Documentation</h3>
-            </header>
-            <div>
-              <p>
-                Navigate the process of acquiring essential documents like succession certificates or letters of administration, crucial for their asset transfer.
-              </p>
-            </div>
-          </div>
-
-          <div className='p-3 bg-white rounded-sm shadow-md'>
-            <header>
-              <h3 className='header-level-4'>Court Representation</h3>
-            </header>
-            <div>
-              <p>
-                Act on behalf of clients in court, advocating for asset distribution in alignment with the deceased’s intentions or the law, while providing ongoing legal counsel.
-              </p>
-            </div>
-          </div>
-
-          <div className='p-3 bg-white rounded-sm shadow-md'>
-            <header>
-              <h3 className='header-level-4'>International Succession Consultation</h3>
-            </header>
-            <div>
-              <p>
-                Offer guidance on the implications of international wills and manage the intricacies of cross-border inheritance for clients with global assets.
-              </p>
+          <div className="w-[50%] relative">
+            <div className="absolute left-0 top-0 w-full h-full bg-yellow-500">
+              <div className="w-full h-full overflow-hidden">
+                <img className="w-full h-full object-center object-cover" src="https://images.fastcompany.com/image/upload/f_auto,c_fit,w_3840,q_auto/wp-cms/uploads/2017/10/p-1-handshake.jpg" alt="" />
+              </div>
+              <div className="absolute left-0 top-0 w-[45%] aspect-[3/2] mt-[-32px] ml-[-24px] bg-white shadow-xl p-3">
+                <header className="flex items-center gap-2">
+                  <div>
+                    <FaTools className="" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Employment</h4>
+                  </div>
+                </header>
+                <div className="text-[.985rem]">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo distinctio vitae sint!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -166,42 +136,51 @@ const Employment = () => {
 
       {/* fourth order container */}
       <div className="my-20">
-        <div className="flex gap-10">
-
-          <div className="w-[50%] py-7">
+        <header className="py-2">
+          <h3 className="header-level-3">Legal services we offer</h3>
+        </header>
+        <div className='grid grid-cols-2 gap-7'>
+          <div className='p-3 bg-white rounded-sm shadow-md'>
             <header>
-              <h3 className="header-level-3 capitalize">legal framework</h3>
+              <h3 className='header-level-4'>Drafting and Reviewing Employment Contracts</h3>
             </header>
             <div>
               <p>
-                Debitis distinctio doloremque vel quibusdam repudiandae. Minus autem, vel facere culpa enim aliquam est ea eaque hic fugit. Itaque aliquam voluptate odio quod est, aliquid rerum delectus ducimus amet nostrum, officiis dolorum, velit porro.
+                Assist in creating legally sound employment contracts that outline the rights and obligations of both employers and employees.
               </p>
-            </div>
-            <div className="my-3">
-              <button className="px-10 py-2 border-2 border-yellow-500 bg-yellow-500 text-white rounded-full transition-colors ease-in-out duration-300 hover:text-yellow-500 hover:bg-white">Get Legal Help</button>
             </div>
           </div>
 
-          <div className="w-[50%] relative">
-            <div className="absolute left-0 top-0 w-full h-full bg-yellow-500">
-              <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://www.onboardmeetings.com/wp-content/uploads/2022/04/What-Is-a-Nonprofit-Advisory-Board-2-1024x536.jpeg" alt="" />
-              </div>
-              <div className="absolute left-0 top-0 w-[45%] aspect-[3/2] mt-[-32px] ml-[-24px] bg-white shadow-xl p-3">
-                <header className="flex items-center gap-1">
-                  <div>
-                    <MdOutlineAccountBalanceWallet className="text-3xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold">Succession</h4>
-                  </div>
-                </header>
-                <div className="text-[.985rem]">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo distinctio vitae sint!
-                  </p>
-                </div>
-              </div>
+          <div className='p-3 bg-white rounded-sm shadow-md'>
+            <header>
+              <h3 className='header-level-4'>Termination and Severance Advice</h3>
+            </header>
+            <div>
+              <p>
+                Advise on lawful termination procedures, including notice periods and severance pay
+              </p>
+            </div>
+          </div>
+
+          <div className='p-3 bg-white rounded-sm shadow-md'>
+            <header>
+              <h3 className='header-level-4'>Collective Bargaining and Labor Relations</h3>
+            </header>
+            <div>
+              <p>
+                Represent employers or employee unions during collective bargaining negotiations
+              </p>
+            </div>
+          </div>
+
+          <div className='p-3 bg-white rounded-sm shadow-md'>
+            <header>
+              <h3 className='header-level-4'>Labor Litigation and Dispute Resolution</h3>
+            </header>
+            <div>
+              <p>
+                Handle cases involving wage disputes, discrimination claims, workplace injuries, and more
+              </p>
             </div>
           </div>
 
