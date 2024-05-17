@@ -35,6 +35,7 @@ const CorporateIntellectualProperty = () => {
                                     <h1 className='text-4xl font-bold my-3 capitalize'>
                                         {content?.firstOrder.title}
                                     </h1>
+                                    <h3 className='header-level-3'>{content?.firstOrder.subTitle}</h3>
                                     <div>
                                         <p>
                                             {content?.firstOrder.text}

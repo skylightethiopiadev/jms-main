@@ -199,8 +199,9 @@ const FinalHeader = () => {
               path: "/corporate/intellectual-property",
               content: {
                 firstOrder: {
-                  title: "legal protection for original creators",
-                  text: 'protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions',
+                  title: "Intellectual Property Rights ",
+                  subTitle: 'Copyright',
+                  text: 'Copyrights constitute a segment of intellectual property rights that afford authors exclusive legal protection for their original creations. These protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions.',
                   btn: 'read more',
                   bg: 'https://t3.ftcdn.net/jpg/05/36/91/78/240_F_536917849_OdIcpNCD5pNnr8Qc5p7Cje1VVLvSCUoJ.jpg'
                 },
@@ -219,8 +220,8 @@ const FinalHeader = () => {
                   },
                 ],
                 thirdOrder: {
-                  title: 'Conditions for copyrights protection',
-                  text: 'The law confers copyright protection upon a work immediately upon its creation, without necessitating any formal procedure, regardless of the work’s intent or merit.',
+                  title: 'Creative works which are not qualified for copyrights protection',
+                  text: 'Historically, copyright law is predicated on the principle of protecting the expression of ideas rather than the ideas themselves. Consequently, the Ethiopian Copyrights Proclamation has delineated exclusions from copyright protection, which encompass not only ideas but also other categories of creation. These categories are not subject to copyright restrictions, allowing for their free use and dissemination.',
                 },
                 fourthOrder: {
                   left: {
