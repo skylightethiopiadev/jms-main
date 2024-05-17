@@ -153,22 +153,22 @@ const CorporateIntellectualProperty = () => {
             }
             {/* fifth order container */}
             {
-                content?.fifthOrder
+                content?.cardsContent
 
                     ?
                     <div>
                         <div>
                             <div>
-                                <h3 className='header-level-3'>{content?.fifthOrder.title}</h3>
+                                <h3 className='header-level-3'>{content?.cardsContent.title}</h3>
                             </div>
                             <div>
                                 <p>
-                                    {content?.fifthOrder.text}
+                                    {content?.cardsContent.text}
                                 </p>
                             </div>
-                            <div className='grid grid-cols-3 gap-5 my-4'>
+                            <div className='grid grid-cols-2 gap-10 my-4'>
                                 {
-                                    content?.fifthOrder.services.map((item, index) => {
+                                    content?.cardsContent?.cards.map((item, index) => {
                                         return (
                                             <div key={index} className='bg-white p-3 shadow-xl'>
                                                 <div>
@@ -196,11 +196,11 @@ const CorporateIntellectualProperty = () => {
                     ?
                     <div>
                         <header className='py-1 border-b-8 border-yellow-400'>
-                            <h3 className='header-level-3'>Frequently asked questions</h3>
+                            <h3 className='header-level-3'>{content?.accordionContent.title}</h3>
                         </header>
                         <div>
                             {
-                                [...Array(7)].map((item, index) => {
+                                content?.accordionContent.items.map((item, index) => {
                                     return (
                                         <div key={index} className='my-3 py-2 border-b-2 border-yellow-400'>
                                             <header className='flex items-center justify-between py-2 cursor-pointer' onClick={() => {
@@ -211,7 +211,7 @@ const CorporateIntellectualProperty = () => {
                                                 }
                                             }}>
                                                 <div>
-                                                    <h3 className='header-level-4 hover:underline'>What is Biology ?</h3>
+                                                    <h3 className='header-level-4 hover:underline'>{item.title}</h3>
                                                 </div>
                                                 <div>
                                                     <FaChevronDown className={`text-2xl transition-transform ease-in-out duration-300 ${isAccordion === index ? '-rotate-180' : 'rotate-0'}`} />
@@ -221,7 +221,7 @@ const CorporateIntellectualProperty = () => {
                                                 <div className={`overflow-hidden ${isAccordion === index ? 'h-auto' : 'h-0'}`}>
                                                     <div className='my-3'>
                                                         <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sed temporibus dolorum ex facilis fugiat provident cumque magni tenetur? Rem quo, accusamus animi eveniet repudiandae itaque numquam soluta vitae alias eum explicabo!
+                                                            {item.text}
                                                         </p>
                                                     </div>
                                                 </div>
