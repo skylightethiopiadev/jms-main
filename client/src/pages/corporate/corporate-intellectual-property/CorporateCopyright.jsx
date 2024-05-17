@@ -224,7 +224,7 @@ const CorporateCopyright = () => {
                     <div className='absolute z-10 top-0 left-1/2 h-full w-[75%] sm:w-[50%] md:w-[35%] bg-gradient-to-r from-white to-transparent'></div>
                     <div className='w-[50%]'>
                         <div className='w-full h-full overflow-hidden bg-yellow-400'>
-                            <img className='w-full h-full object-center object-cover' src="https://www.shutterstock.com/image-photo/law-justice-concept-judge-hammer-260nw-1078173260.jpg" alt="" />
+                            <img className='w-full h-full object-center object-cover' src="https://business-review.eu/wp-content/uploads/2018/06/law-hummer.jpg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@ const CorporateCopyright = () => {
             <div className='mb-28'>
                 {/* content container */}
                 <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-                    <header className='w-[75%] mb-5'>
+                    <header className='md:w-[75%] mb-5'>
                         <h1 className='header-level-3'>
                             Copyrights, afford authors exclusive legal protection for their original creations
                         </h1>
