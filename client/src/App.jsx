@@ -86,6 +86,8 @@ import CivilFamilyIrregularUnion from "./pages/civil/family/family-sub-pages/Civ
 import CivilFamilyAdoption from "./pages/civil/family/family-sub-pages/CivilFamilyAdoption";
 import CivilFamilyOthers from "./pages/civil/family/family-sub-pages/CivilFamilyOthers";
 
+// corporate 
+import CorporateIntellectualProperty from "./pages/corporate/CorporateIntellectualProperty";
 // other services
 import HomeTraining from "./pages/other-services/Training";
 import HomeConsulting from "./pages/other-services/Consulting";
@@ -139,6 +141,10 @@ function App() {
                   <Route path="/family/irregular-union" element={<CivilFamilyIrregularUnion />}></Route>
                   <Route path="/family/adoption" element={<CivilFamilyAdoption />}></Route>
                   <Route path="/family/others" element={<CivilFamilyOthers />}></Route>
+                </Route>
+                {/* corporate */}
+                {/* corporate-intellectual property */}
+                <Route path="/corporate/intellectual-property" element={<CorporateIntellectualProperty />}>
                 </Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>

@@ -192,34 +192,489 @@ const FinalHeader = () => {
         },
         {
           navHeaderText: "Intellectual property",
+          path: "/corporate/intellectual-property",
           subNavList: [
             {
               navHeaderText: "Copyright",
-              path: "#"
+              path: "/corporate/intellectual-property",
+              content: {
+                firstOrder: {
+                  title: "legal protection for original creators",
+                  text: 'protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions',
+                  btn: 'read more',
+                  bg: 'https://t3.ftcdn.net/jpg/05/36/91/78/240_F_536917849_OdIcpNCD5pNnr8Qc5p7Cje1VVLvSCUoJ.jpg'
+                },
+                secondOrder: [
+                  {
+                    title: '',
+                    text: 'Books, computer programs',
+                  },
+                  {
+                    title: '',
+                    text: 'Speeches, lectures, addresses',
+                  },
+                  {
+                    title: '',
+                    text: 'pantomimes, choreographic works',
+                  },
+                ],
+                thirdOrder: {
+                  title: 'Conditions for copyrights protection',
+                  text: 'The law confers copyright protection upon a work immediately upon its creation, without necessitating any formal procedure, regardless of the work’s intent or merit.',
+                },
+                fourthOrder: {
+                  left: {
+                    bg: 'https://t3.ftcdn.net/jpg/03/73/51/10/240_F_373511095_SnBIfitEDC1HUxKMt4CZlvUYj5sO7pQP.jpg',
+                    title: 'Collective Works',
+                    text: 'Ownership may be assigned to the person who initiated and supervised the assembly of the work.',
+                  },
+                  right: {
+                    title: 'Copyright infringement and remedies of the law',
+                    text: 'Copyright infringement involves the unauthorized utilization of an author’s work, which is legally protected and should only be used in accordance with the stipulations and conditions outlined by law.',
+                    cards: [
+                      {
+                        title: 'Provisional measures'
+                      },
+                      {
+                        title: 'Civil Remedies'
+                      },
+                    ],
+                  },
+                },
+                fifthOrder: {
+                  title: 'Legal service we offer',
+                  text: 'The law provides specific remedies for these infringements to uphold the rights of the creators and maintain the integrity of their works',
+                  services: [
+                    {
+                      title: 'Copyright Registration',
+                      text: 'will assist with the registration process, ensuring correctness and enforceability',
+                    },
+                    {
+                      title: 'Fair Use and Counseling',
+                      text: 'We will counsel clients on acquiring, protecting, and exploiting copyrights',
+                    },
+                    {
+                      title: 'Fair Use and Counseling',
+                      text: 'We will counsel clients on acquiring, protecting, and exploiting copyrights',
+                    },
+                    {
+                      title: 'Fair Use and Counseling',
+                      text: 'We will counsel clients on acquiring, protecting, and exploiting copyrights',
+                    },
+                    {
+                      title: 'Litigation Support',
+                      text: 'In cases where a copyrighted idea has been unlawfully used, we can assist with litigation',
+                    },
+                    {
+                      title: 'Drafting Contracts',
+                      text: 'Draft licensing agreements, assignments, and work-for-hire contracts',
+                    },
+                  ],
+                },
+                accordionContent: {
+                  title: 'Frequently asked questions',
+                  items: [
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                  ]
+                }
+              },
             },
             {
               navHeaderText: "Patent",
-              path: "#"
+              path: "/corporate/intellectual-property",
+              content: {
+                firstOrder: {
+                  title: "Copyright",
+                  text: 'text',
+                  btn: 'button',
+                  bg: 'path to image'
+                },
+                secondOrder: [
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                ],
+                thirdOrder: {
+                  title: 'third order title',
+                  text: 'third order text',
+                },
+                fourthOrder: {
+                  left: {
+                    bg: 'bg image path',
+                    title: 'left title',
+                    text: 'text',
+                  },
+                  right: {
+                    title: 'title',
+                    text: 'text',
+                    cards: [
+                      {
+                        title: 'title'
+                      },
+                    ],
+                  },
+                },
+                fifthOrder: {
+                  title: 'title',
+                  services: [
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                  ],
+                },
+              },
             },
             {
               navHeaderText: "Trademark",
-              path: "#"
+              path: "/corporate/intellectual-property",
+              content: {
+                firstOrder: {
+                  title: "Copyright",
+                  text: 'text',
+                  btn: 'button',
+                  bg: 'path to image'
+                },
+                secondOrder: [
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                ],
+                thirdOrder: {
+                  title: 'third order title',
+                  text: 'third order text',
+                },
+                fourthOrder: {
+                  left: {
+                    bg: 'bg image path',
+                    title: 'left title',
+                    text: 'text',
+                  },
+                  right: {
+                    title: 'title',
+                    text: 'text',
+                    cards: [
+                      {
+                        title: 'title'
+                      },
+                    ],
+                  },
+                },
+                fifthOrder: {
+                  title: 'title',
+                  services: [
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                  ],
+                },
+              },
             },
             {
               navHeaderText: "Utilities",
-              path: "#"
+              path: "/corporate/intellectual-property",
+              content: {
+                firstOrder: {
+                  title: "Copyright",
+                  text: 'text',
+                  btn: 'button',
+                  bg: 'path to image'
+                },
+                secondOrder: [
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                ],
+                thirdOrder: {
+                  title: 'third order title',
+                  text: 'third order text',
+                },
+                fourthOrder: {
+                  left: {
+                    bg: 'bg image path',
+                    title: 'left title',
+                    text: 'text',
+                  },
+                  right: {
+                    title: 'title',
+                    text: 'text',
+                    cards: [
+                      {
+                        title: 'title'
+                      },
+                    ],
+                  },
+                },
+                fifthOrder: {
+                  title: 'title',
+                  services: [
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                  ],
+                },
+              },
             },
             {
               navHeaderText: "Geographical indications",
-              path: "#"
+              path: "/corporate/intellectual-property",
+              content: {
+                firstOrder: {
+                  title: "Copyright",
+                  text: 'text',
+                  btn: 'button',
+                  bg: 'path to image'
+                },
+                secondOrder: [
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                ],
+                thirdOrder: {
+                  title: 'third order title',
+                  text: 'third order text',
+                },
+                fourthOrder: {
+                  left: {
+                    bg: 'bg image path',
+                    title: 'left title',
+                    text: 'text',
+                  },
+                  right: {
+                    title: 'title',
+                    text: 'text',
+                    cards: [
+                      {
+                        title: 'title'
+                      },
+                    ],
+                  },
+                },
+                fifthOrder: {
+                  title: 'title',
+                  services: [
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                  ],
+                },
+              },
             },
             {
               navHeaderText: "Varieties and plant breeders' right",
-              path: "#"
+              path: "/corporate/intellectual-property",
+              content: {
+                firstOrder: {
+                  title: "Copyright",
+                  text: 'text',
+                  btn: 'button',
+                  bg: 'path to image'
+                },
+                secondOrder: [
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                ],
+                thirdOrder: {
+                  title: 'third order title',
+                  text: 'third order text',
+                },
+                fourthOrder: {
+                  left: {
+                    bg: 'bg image path',
+                    title: 'left title',
+                    text: 'text',
+                  },
+                  right: {
+                    title: 'title',
+                    text: 'text',
+                    cards: [
+                      {
+                        title: 'title'
+                      },
+                    ],
+                  },
+                },
+                fifthOrder: {
+                  title: 'title',
+                  services: [
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                  ],
+                },
+              },
             },
             {
               navHeaderText: "Others",
-              path: "#"
+              path: "/corporate/intellectual-property",
+              content: {
+                firstOrder: {
+                  title: "Copyright",
+                  text: 'text',
+                  btn: 'button',
+                  bg: 'path to image'
+                },
+                secondOrder: [
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                  {
+                    title: 'title',
+                    text: 'text',
+                  },
+                ],
+                thirdOrder: {
+                  title: 'third order title',
+                  text: 'third order text',
+                },
+                fourthOrder: {
+                  left: {
+                    bg: 'bg image path',
+                    title: 'left title',
+                    text: 'text',
+                  },
+                  right: {
+                    title: 'title',
+                    text: 'text',
+                    cards: [
+                      {
+                        title: 'title'
+                      },
+                    ],
+                  },
+                },
+                fifthOrder: {
+                  title: 'title',
+                  services: [
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                    {
+                      title: 'title',
+                      text: 'text',
+                    },
+                  ],
+                },
+              },
             },
           ]
         },
@@ -621,12 +1076,14 @@ const FinalHeader = () => {
                             {/* intellectual property list */}
                             <div className="flex flex-col">
                               <div>
-                                <h3 className="font-semibold text-[1.35rem] mb-3">
+                                <NavLink className="font-semibold text-[1.35rem] mb-3 hover:underline" to={commercialSubNav[0].groupOne[1].path} onClick={() => {
+                                  setIsNav(null)
+                                }}>
                                   {
                                     commercialSubNav[0].groupOne[1]
                                       .navHeaderText
                                   }
-                                </h3>
+                                </NavLink>
                                 <ul>
                                   {commercialSubNav[0].groupOne[1].subNavList.map(
                                     (item, index) => (
@@ -634,7 +1091,9 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink className={"hover:underline"} to={{ pathname: item.path }} state={item.content} onClick={() => {
+                                          setIsNav(null)
+                                        }}>
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
@@ -1032,7 +1491,7 @@ const FinalHeader = () => {
           )}
         </div>
       </div>
-    </header>
+    </header >
   );
 };
 
