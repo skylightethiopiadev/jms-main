@@ -88,6 +88,8 @@ import CivilFamilyOthers from "./pages/civil/family/family-sub-pages/CivilFamily
 
 // corporate 
 import CorporateIntellectualProperty from "./pages/corporate/CorporateIntellectualProperty";
+import CorporateCopyright from "./pages/corporate/corporate-intellectual-property/CorporateCopyright";
+import CorporatePatent from "./pages/corporate/corporate-intellectual-property/CorporatePatent";
 // other services
 import HomeTraining from "./pages/other-services/Training";
 import HomeConsulting from "./pages/other-services/Consulting";
@@ -145,6 +147,8 @@ function App() {
                 {/* corporate */}
                 {/* corporate-intellectual property */}
                 <Route path="/corporate/intellectual-property" element={<CorporateIntellectualProperty />}>
+                  <Route path="/corporate/intellectual-property" element={<CorporateCopyright />}></Route>
+                  <Route path="/corporate/intellectual-property/patent" element={<CorporatePatent />}></Route>
                 </Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>

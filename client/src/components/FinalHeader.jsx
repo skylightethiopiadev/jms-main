@@ -197,175 +197,10 @@ const FinalHeader = () => {
             {
               navHeaderText: "Copyright",
               path: "/corporate/intellectual-property",
-              content: {
-                firstOrder: {
-                  title: "Intellectual Property Rights ",
-                  subTitle: 'Copyright',
-                  text: 'Copyrights constitute a segment of intellectual property rights that afford authors exclusive legal protection for their original creations. These protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions.',
-                  btn: 'read more',
-                  bg: 'https://t3.ftcdn.net/jpg/05/36/91/78/240_F_536917849_OdIcpNCD5pNnr8Qc5p7Cje1VVLvSCUoJ.jpg'
-                },
-                secondOrder: [
-                  {
-                    title: '',
-                    text: 'Books, computer programs',
-                  },
-                  {
-                    title: '',
-                    text: 'Speeches, lectures, addresses',
-                  },
-                  {
-                    title: '',
-                    text: 'pantomimes, choreographic works',
-                  },
-                ],
-                thirdOrder: {
-                  title: 'Creative works which are not qualified for copyrights protection',
-                  text: 'Historically, copyright law is predicated on the principle of protecting the expression of ideas rather than the ideas themselves. Consequently, the Ethiopian Copyrights Proclamation has delineated exclusions from copyright protection, which encompass not only ideas but also other categories of creation. These categories are not subject to copyright restrictions, allowing for their free use and dissemination.',
-                },
-                fourthOrder: {
-                  left: {
-                    bg: 'https://t3.ftcdn.net/jpg/03/73/51/10/240_F_373511095_SnBIfitEDC1HUxKMt4CZlvUYj5sO7pQP.jpg',
-                    title: 'Collective Works',
-                    text: 'Ownership may be assigned to the person who initiated and supervised the assembly of the work.',
-                  },
-                  right: {
-                    title: 'Copyright infringement and remedies of the law',
-                    text: 'Copyright infringement involves the unauthorized utilization of an author’s work, which is legally protected and should only be used in accordance with the stipulations and conditions outlined by law.',
-                    cards: [
-                      {
-                        title: 'Provisional measures'
-                      },
-                      {
-                        title: 'Civil Remedies'
-                      },
-                    ],
-                  },
-                },
-                cardsContent: {
-                  title: 'Persons entitled to copyright protection',
-                  text: 'In the realm of legal matters addressed by copyright law, the ownership of creative works is a key aspect. The law typically presumes that the creator of a work is its original owner. However, there are notable exceptions where ownership may be attributed to someone other than the creator. These exceptions include:',
-                  cards: [
-                    {
-                      title: 'Co-authorship',
-                      text: 'When a work is created jointly, ownership may be shared',
-                    },
-                    {
-                      title: 'Collective Works',
-                      text: 'Ownership may be assigned to the person who initiated and supervised the assembly of the work.',
-                    },
-                    {
-                      title: 'Works Made for Hire',
-                      text: 'The employer or commissioning party may be considered the owner.',
-                    },
-                    {
-                      title: 'Audiovisual Works',
-                      text: 'Specific rules may apply to the ownership of these works.',
-                    },
-                    
-                  ],
-                },
-                accordionContent: {
-                  title: 'Legal services we offer include',
-                  items: [
-                    {
-                      title: 'Determining the Appropriate Copyright Type',
-                      text: 'Helps you understand which type of copyright protection is suitable for your creative work. Whether it’s a song, novel, movie, computer software, poetry, or architecture, and guide you through the process.',
-                    },
-                    {
-                      title: 'Copyright Registration',
-                      text: 'While copyright automatically applies to original works as soon as they’re created, formal registration is essential for enforcement purposes. Hence, we will assist with the registration process, ensuring correctness and enforceability.',
-                    },
-                    {
-                      title: 'Drafting Contracts',
-                      text: 'Draft licensing agreements, assignments, and work-for-hire contracts. These contracts define terms for using copyrighted material, transfer ownership, and outline rights and responsibilities.',
-                    },
-                    {
-                      title: 'Fair Use and Counseling',
-                      text: 'Copyright law includes the concept of fair use, allowing limited use of copyrighted works without permission (e.g., for commentary or criticism). We will counsel clients on acquiring, protecting, and exploiting copyrights.',
-                    },
-                    {
-                      title: 'Handling Copyright Infringement',
-                      text: 'If someone uses your copyrighted material without permission, we can help you address the issue. we handle infringement disputes, whether it’s defending your rights or requesting others to cease using your copyrighted items.',
-                    },
-                    {
-                      title: 'Legal Expertise and Strategy Development',
-                      text: 'Provide legal expertise to determine the legality of third-party actions and the existence of actual violations of the law. We develop strategies to protect your interest, ensuring effective representation.',
-                    },
-                    {
-                      title: 'Investigation and Clarification',
-                      text: 'Conduct detailed investigations into copyright infringement circumstances by examine all available evidence, including contracts, witness statements, or digital footprints.',
-                    },
-                    {
-                      title: 'Litigation Support',
-                      text: 'In cases where a copyrighted idea has been unlawfully used, we can assist with litigation. We will help you navigate complex legal processes and ensure that all paperwork submitted is legally valid.',
-                    },
-                  ]
-                }
-              },
             },
             {
               navHeaderText: "Patent",
-              path: "/corporate/intellectual-property",
-              content: {
-                firstOrder: {
-                  title: "Copyright",
-                  text: 'text',
-                  btn: 'button',
-                  bg: 'path to image'
-                },
-                secondOrder: [
-                  {
-                    title: 'title',
-                    text: 'text',
-                  },
-                  {
-                    title: 'title',
-                    text: 'text',
-                  },
-                  {
-                    title: 'title',
-                    text: 'text',
-                  },
-                ],
-                thirdOrder: {
-                  title: 'third order title',
-                  text: 'third order text',
-                },
-                fourthOrder: {
-                  left: {
-                    bg: 'bg image path',
-                    title: 'left title',
-                    text: 'text',
-                  },
-                  right: {
-                    title: 'title',
-                    text: 'text',
-                    cards: [
-                      {
-                        title: 'title'
-                      },
-                    ],
-                  },
-                },
-                fifthOrder: {
-                  title: 'title',
-                  services: [
-                    {
-                      title: 'title',
-                      text: 'text',
-                    },
-                    {
-                      title: 'title',
-                      text: 'text',
-                    },
-                    {
-                      title: 'title',
-                      text: 'text',
-                    },
-                  ],
-                },
-              },
+              path: "/corporate/intellectual-property/patent",
             },
             {
               navHeaderText: "Trademark",
@@ -1097,7 +932,7 @@ const FinalHeader = () => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"} to={{ pathname: item.path }} state={item.content} onClick={() => {
+                                        <NavLink className={"hover:underline"} to={{ pathname: item.path }} onClick={() => {
                                           setIsNav(null)
                                         }}>
                                           {item.navHeaderText}
