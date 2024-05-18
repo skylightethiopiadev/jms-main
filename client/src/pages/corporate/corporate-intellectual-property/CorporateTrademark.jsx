@@ -16,36 +16,44 @@ const CorporateTrademark = () => {
     title: 'Legal services we offer include',
     items: [
       {
-        title: 'Determining the Appropriate Copyright Type',
-        text: 'Helps you understand which type of copyright protection is suitable for your creative work. Whether it’s a song, novel, movie, computer software, poetry, or architecture, and guide you through the process.'
+        title: 'Trademark Search and Clearance',
+        text: 'Conducting comprehensive searches to determine the availability of a proposed trademark and assessing the risk of potential conflicts with existing trademarks.'
       },
       {
-        title: 'Copyright Registration',
-        text: 'While copyright automatically applies to original works as soon as they’re created, formal registration is essential for enforcement purposes. Hence, we will assist with the registration process, ensuring correctness and enforceability.'
+        title: 'Trademark Registration',
+        text: 'Assisting clients with the preparation, filing, and prosecution of trademark applications before the relevant intellectual property offices, including responding to office actions and objections.'
       },
       {
-        title: 'Drafting Contracts',
-        text: 'Draft licensing agreements, assignments, and work-for-hire contracts. These contracts define terms for using copyrighted material, transfer ownership, and outline rights and responsibilities.'
+        title: 'Trademark Portfolio Management',
+        text: 'Managing and maintaining a client\'s portfolio of trademarks, including monitoring deadlines for renewals and filing additional applications as needed to protect new trademarks.'
       },
       {
-        title: 'Fair Use and Counseling',
-        text: 'Copyright law includes the concept of fair use, allowing limited use of copyrighted works without permission (e.g., for commentary or criticism). We will counsel clients on acquiring, protecting, and exploiting copyrights.'
+        title: 'Trademark Enforcement and Litigation',
+        text: 'Representing clients in trademark disputes, including infringement actions, opposition proceedings, and cancellation actions before administrative bodies or courts.'
       },
       {
-        title: 'Handling Copyright Infringement',
-        text: 'If someone uses your copyrighted material without permission, we can help you address the issue. we handle infringement disputes, whether it’s defending your rights or requesting others to cease using your copyrighted items.'
+        title: 'Trademark Licensing and Assignments',
+        text: 'Drafting and negotiating agreements for the licensing, assignment, or transfer of trademark rights, as well as advising on the implications of such transactions.'
       },
       {
-        title: 'Legal Expertise and Strategy Development',
-        text: 'Provide legal expertise to determine the legality of third-party actions and the existence of actual violations of the law. We develop strategies to protect your interest, ensuring effective representation.'
+        title: 'Trademark Counseling and Strategy',
+        text: 'Providing strategic advice on trademark selection, protection, and enforcement, tailored to the client\'s business objectives and industry- specific considerations.'
       },
       {
-        title: 'Investigation and Clarification',
-        text: 'Conduct detailed investigations into copyright infringement circumstances by examine all available evidence, including contracts, witness statements, or digital footprints.'
+        title: 'Trademark Watching and Monitoring',
+        text: 'Monitoring trademark databases and other sources for potential infringement or unauthorized use of a client\'s trademarks and taking appropriate enforcement actions.'
       },
       {
-        title: 'Litigation Support',
-        text: 'In cases where a copyrighted idea has been unlawfully used, we can assist with litigation. We will help you navigate complex legal processes and ensure that all paperwork submitted is legally valid.'
+        title: 'Trademark Due Diligence',
+        text: 'Conducting due diligence reviews of trademark portfolios in corporate transactions, such as mergers, acquisitions, or licensing deals, to assess the strength and value of the trademarks involved.'
+      },
+      {
+        title: 'Domain Name Disputes',
+        text: 'Representing clients in disputes related to domain names that infringe their trademarks, including filing complaints or pursuing litigation.'
+      },
+      {
+        title: 'Customs Recordation',
+        text: 'Assisting clients with the recordation of their trademarks with customs authorities to facilitate the detection and seizure of counterfeit goods at the border.'
       },
     ]
   }
@@ -64,7 +72,7 @@ const CorporateTrademark = () => {
           <div className='absolute z-10 top-0 left-1/2 h-full w-[75%] sm:w-[50%] md:w-[35%] bg-gradient-to-r from-white to-transparent'></div>
           <div className='w-[50%]'>
             <div className='w-full h-full overflow-hidden bg-yellow-400'>
-              <img className='w-full h-full object-center object-cover' src="https://dfadvisors.gr/wp-content/uploads/2021/01/business-legal-protection.jpg" alt="" />
+              <img className='w-full h-full object-center object-cover' src="https://investip.vn/wp-content/uploads/2023/01/legal-proceeding-certificate.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -74,12 +82,12 @@ const CorporateTrademark = () => {
             <div className='w-[95%] sm:[85%] md:w-[65%] py-16'>
               {/* title */}
               <div>
-                <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold'>Legal Protection for Original Owners</h1>
+                <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold'>Trademarks, Brand Recognition</h1>
               </div>
               {/* intro text */}
               <div className='my-2'>
                 <p>
-                  These protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions.
+                  A trademark acts as a unique identifier, distinguishing a company’s goods or services from those of others. It serves several key purposes: it promotes brand recognition, helping customers to easily spot and tell apart the offerings of a business.
                 </p>
               </div>
               {/* read more btn */}
@@ -92,6 +100,7 @@ const CorporateTrademark = () => {
           </div>
         </div>
       </div>
+
       {/* second order container */}
       <div className='mb-28'>
         {/* content container */}
@@ -100,16 +109,16 @@ const CorporateTrademark = () => {
 
             <div className='w-[100%] lg:w-[50%] bg-yellow-400 relative'>
               <div className='w-full h-full overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://www.drakelawfirmpc.com/wp-content/uploads/2012/10/img-civil-litigation2.jpg" alt="" />
+                <img className='w-full h-full object-center object-cover' src="https://alvarez.legal/wp-content/uploads/2022/08/Trademark.png" alt="" />
               </div>
 
               <div className='absolute top-[-58px] z-10 right-0 lg:right-[-50px] w-[50%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
                 <header>
-                  <h4 className='font-bold'>Collective Works</h4>
+                  <h4 className='font-bold'>Right to use</h4>
                 </header>
                 <div>
                   <p>
-                    Ownership may be assigned to the person who initiated and supervised the assembly of the work
+                    The owner of a registered trademark shall have the right to use trademark in relation to any goods or services for which it has been registered.
                   </p>
                 </div>
               </div>
@@ -117,11 +126,11 @@ const CorporateTrademark = () => {
 
             <div className='w-[100%] lg:w-[50%] py-5'>
               <header>
-                <h4 className='header-level-3'>Rights protected </h4>
+                <h4 className='header-level-3'>Trademark registration in Ethiopia</h4>
               </header>
               <div>
                 <p>
-                  The Ethiopian Copyrights Proclamation articulates that within the nation’s jurisdiction, copyright encompasses the economic rights bestowed upon authors over their creative outputs. These rights extend beyond mere economic interests to include moral rights, provided certain legal conditions are met. The scope of protection under this law covers works produced in literary, scientific, and artistic domains, ensuring they are legally safeguarded.
+                  Securing a trademark registration in Ethiopia is a critical measure for safeguarding your brand’s distinctiveness. Prior to filing a registration application, it is crucial to conduct a comprehensive trademark search to verify that the intended trademark is not previously registered or utilized by another entity within Ethiopia. Engaging a specialized trademark lawyer is advisable for this process.
                 </p>
               </div>
             </div>
@@ -129,54 +138,133 @@ const CorporateTrademark = () => {
           </div>
         </div>
       </div>
+
       {/* grid container */}
       <div className='mb-28'>
         {/* content */}
         <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <header className='mb-5'>
-            <h1 className='header-level-3'>The creative outputs protected includes</h1>
+          <header className='mb-5 w-[75%]'>
+            <h1 className='header-level-3'>Professionally articulated guide on the procedural steps to register a trademark in Ethiopia</h1>
           </header>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+          <div className='px-10'>
+            <div className='border border-yellow-500 py-3 rounded-md'>
 
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Books, booklets, articles in reviews and newspaper, computer programs
-              </p>
+              <div className='my-5'>
+                <header className='px-3 py-2 flex items-center relative'>
+                  <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>1</span></div>
+                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                </header>
+                <div className='px-5'>
+                  <p>
+                    Initiate the process by completing the designated application form in accordance with the regulations set forth by the Ethiopian Intellectual Property Office (EIPO). It is important to note that each application is specific to a single trademark; therefore, select the trademark that most accurately reflects your company’s brand and identity.
+                  </p>
+                </div>
+              </div>
+
+              <div className='my-5'>
+                <header className='px-3 py-2 flex items-center relative'>
+                  <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>2</span></div>
+                  <h4 className='font-bold ml-2'>Submit Required Documents</h4>
+                </header>
+                <div className='px-5'>
+
+                  <p>
+                    Along with the application form, the following documents must be submitted to the EIPO:
+                  </p>
+                  <ul className='ml-5'>
+                    <li className='flex gap-1 my-1'>
+                      <div className='flex items-center'>
+                        <div className='w-[6px] aspect-square rounded-full bg-gray-700'></div>
+                      </div>
+                      <p>Three copies of a reproduction of the trademark.</p>
+                    </li>
+                    <li className='flex gap-1 my-1'>
+                      <div className='flex items-center'>
+                        <div className='w-[6px] aspect-square rounded-full bg-gray-700'></div>
+                      </div>
+                      <p>A list of goods and services classified according to the international classification system.</p>
+                    </li>
+                    <li className='flex gap-1 my-1'>
+                      <div className='flex items-center'>
+                        <div className='w-[6px] aspect-square rounded-full bg-gray-700'></div>
+                      </div>
+                      <p>A duly authenticated power of attorney if filed through an agent.</p>
+                    </li>
+                    <li className='flex gap-1 my-1'>
+                      <div className='flex items-center'>
+                        <div className='w-[6px] aspect-square rounded-full bg-gray-700'></div>
+                      </div>
+                      <p>A document certifying payment of the application fee.</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className='my-5'>
+                <header className='px-3 py-2 flex items-center relative'>
+                  <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>3</span></div>
+                  <h4 className='font-bold ml-2'>Foreign Applicants</h4>
+                </header>
+                <div className='px-5'>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                  </p>
+                </div>
+              </div>
+
+              <div className='my-5'>
+                <header className='px-3 py-2 flex items-center relative'>
+                  <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>4</span></div>
+                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                </header>
+                <div className='px-5'>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                  </p>
+                </div>
+              </div>
+
+              <div className='my-5'>
+                <header className='px-3 py-2 flex items-center relative'>
+                  <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>5</span></div>
+                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                </header>
+                <div className='px-5'>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                  </p>
+                </div>
+              </div>
+
+              <div className='my-5'>
+                <header className='px-3 py-2 flex items-center relative'>
+                  <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>6</span></div>
+                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                </header>
+                <div className='px-5'>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                  </p>
+                </div>
+              </div>
+
+              <div className='my-5'>
+                <header className='px-3 py-2 flex items-center relative'>
+                  <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>7</span></div>
+                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                </header>
+                <div className='px-5'>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                  </p>
+                </div>
+              </div>
+
             </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Dramatic, dramatic co-musical works, pantomimes, choreographic works, and other works created for stage production
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Speeches, lectures, addresses, sermons, and other oral works
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Musical compositions, Audiovisual works, Works of architecture, Photographic works, Applied art
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Collection of works such as encyclopedia or anthologies or databases whether in machine readable or other form provided that such collections are original by reason of the selection or arrangement of their contents
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Illustrations, maps, plans, sketches, and three-dimensional works related to geography, topography, architecture or science
-              </p>
-            </div>
-
           </div>
         </div>
       </div>
+
       {/* flex container */}
       <div className='mb-28'>
         {/* content container */}
@@ -214,6 +302,7 @@ const CorporateTrademark = () => {
           </div>
         </div>
       </div>
+
       {/* gradient container */}
       <div className='mt-1 mb-28 relative'>
         {/* bg-image */}
@@ -244,6 +333,7 @@ const CorporateTrademark = () => {
           </div>
         </div>
       </div>
+
       {/* more section container */}
       <div ref={readMoreRef} />
       <div className='mb-28'>
@@ -257,12 +347,14 @@ const CorporateTrademark = () => {
           <div>
             <div>
               <p>
-                Copyrights constitute a segment of intellectual property rights that afford authors exclusive legal protection for their original creations. These protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions. Copyrights bestow upon creators certain exclusive rights over their creative and innovative outputs, playing a vital role in defending creators’ interests and fostering a milieu that is conducive to creative and innovative pursuits. As a facet of intellectual property law, copyrights aim to strike a balance between the proprietary interests of creators and the broader public good, thereby stimulating a culture of artistic advancement and innovation. The spectrum of works shielded by copyrights spans literary, dramatic, musical, and artistic domains, encompassing novels, compositions, artworks, and cinematography.
+                A trademark acts as a unique identifier, distinguishing a company’s goods or services from those of others. It serves several key purposes: it promotes brand recognition, helping customers to easily spot and tell apart the offerings of a business; it offers legal defense against unauthorized usage, protecting the brand from potential imitations; and it stands as a significant asset, contributing to the enhancement of a company’s reputation and value. Trademarks play a crucial role in promoting honest competition by protecting a brand’s identity and its investments. They also aid in the expansion of international trade by allowing brands to gain recognition across borders. In essence, trademarks are essential in building and maintaining consumer confidence and allegiance, which in turn propels business development and encourages innovation.
               </p>
               <div className={`overflow-hidden ${isMore ? 'h-auto' : 'h-0'}`}>
                 <div>
                   <p>
-                    Within the Ethiopian legal framework, copyrights represent a significant category of intellectual property rights that are expressly safeguarded by legislation. The Federal Democratic Republic of Ethiopia’s Constitution, specifically Article 93, unequivocally endorses copyright protection. This constitutional endorsement has led to the enactment of the Copyrights and Neighboring Rights Protection Proclamation No. 410/2004, along with its subsequent amendment, Proclamation No. 872/2014. Additionally, the nation’s adherence to the civil and criminal codes, as well as the WIPO treaty, further fortifies these protections. As a member of the World Intellectual Property Organization (WIPO), Ethiopia has demonstrated a firm commitment to advancing the protection of intellectual property and the Ethiopian Intellectual Property Office is the designated authority responsible for overseeing the enforcement of intellectual property rights within the country.
+                    The Constitution of the Federal Democratic Republic of Ethiopia underscores the significance of safeguarding intellectual property rights, stimulating creative endeavors, and advancing innovative activities. Complementing this, specific statutes such as the Trademarks Registration and Protection Proclamation No. 501/2006, along with the EIPO Trademark Regulation No. 273/2012, delineate the comprehensive framework governing the registration, protection, and enforcement of trademarks. These legal instruments articulate the criteria for trademark eligibility, delineate the procedural steps for application, and establish the timeframe for lodging objections, thereby ensuring a robust system for trademark management.
+                    Legally, trademarks are characterized as any discernible sign that can differentiate the products or services of one entity from those of another. These signs might include words, design, letters, numerals, colors or the shape of goods or their packaging or combinations thereof. The enumeration of these signs is not comprehensive, permitting proprietors to employ any conspicuous sign as a trademark, provided it effectively distinguishes their goods and services from those of other businesses.
+                    To avail the advantages of trademark ownership, legal protection, and to legally obligate third parties, it is imperative to register the trademark and obtain a registration certificate. Any entrepreneur can register their trademark if it meets the statutory criteria. Furthermore, Ethiopian legislation permits the registration of collective trademarks, which are used to identify the products or services of a member organization, thereby extending protection to associations in addition to individual businesses.
                   </p>
                 </div>
               </div>
@@ -282,6 +374,7 @@ const CorporateTrademark = () => {
           </div>
         </div>
       </div>
+
       {/* our service container */}
       <div className='mb-28'>
         {/* content container */}
