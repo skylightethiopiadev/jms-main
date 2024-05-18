@@ -1,294 +1,223 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 // icons
 import { FaChevronDown } from "react-icons/fa";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { PiShapes } from "react-icons/pi";
+import { CiCreditCard2 } from "react-icons/ci";
+import { IoCardOutline } from "react-icons/io5";
+import { MdPublicOff } from "react-icons/md";
 
 
 const CorporateUtilities = () => {
   // states
   const [isService, setIsService] = useState(-1)
-  const [isMore, setIsMore] = useState(false)
-
-  // reference
-  let readMoreRef = useRef(null)
 
   // local data
   const services = {
     title: 'Legal services we offer include',
     items: [
       {
-        title: 'Determining the Appropriate Copyright Type',
-        text: 'Helps you understand which type of copyright protection is suitable for your creative work. Whether it’s a song, novel, movie, computer software, poetry, or architecture, and guide you through the process.'
+        title: 'Utility Model Registration and Filing',
+        text: 'Assist inventors and businesses in preparing and filing utility model applications with the relevant authorities. Ensure that the application meets the necessary requirements, including novelty and industrial applicability.'
       },
       {
-        title: 'Copyright Registration',
-        text: 'While copyright automatically applies to original works as soon as they’re created, formal registration is essential for enforcement purposes. Hence, we will assist with the registration process, ensuring correctness and enforceability.'
+        title: 'Prior Art Search and Analysis',
+        text: 'Conduct thorough searches to identify existing patents, publications, and other relevant information (prior art) related to the proposed utility model. Analyzing prior art helps determine the novelty and patentability of the invention.'
       },
       {
-        title: 'Drafting Contracts',
-        text: 'Draft licensing agreements, assignments, and work-for-hire contracts. These contracts define terms for using copyrighted material, transfer ownership, and outline rights and responsibilities.'
+        title: 'Legal Consultation and Advice',
+        text: 'Provide legal advice on various aspects of utility models, including eligibility, protection, and enforcement. Guide clients through the legal process, explaining their rights and obligations.'
       },
       {
-        title: 'Fair Use and Counseling',
-        text: 'Copyright law includes the concept of fair use, allowing limited use of copyrighted works without permission (e.g., for commentary or criticism). We will counsel clients on acquiring, protecting, and exploiting copyrights.'
+        title: 'Prosecution and Examination',
+        text: 'During the examination process, respond to queries from patent offices, address objections, and ensure compliance with formalities.'
       },
       {
-        title: 'Handling Copyright Infringement',
-        text: 'If someone uses your copyrighted material without permission, we can help you address the issue. we handle infringement disputes, whether it’s defending your rights or requesting others to cease using your copyrighted items.'
+        title: 'Maintenance and Renewals',
+        text: 'Monitor utility model certificates validity periods and assist clients in renewing them. Renewals are essential to maintain protection beyond the initial grant period.'
       },
       {
-        title: 'Legal Expertise and Strategy Development',
-        text: 'Provide legal expertise to determine the legality of third-party actions and the existence of actual violations of the law. We develop strategies to protect your interest, ensuring effective representation.'
+        title: 'Enforcement and Litigation',
+        text: 'Represent clients in enforcing their rights against infringers. Handle legal disputes, infringement cases, and negotiations.'
       },
       {
-        title: 'Investigation and Clarification',
-        text: 'Conduct detailed investigations into copyright infringement circumstances by examine all available evidence, including contracts, witness statements, or digital footprints.'
+        title: 'Licensing and Commercialization',
+        text: 'Assist in licensing utility models to third parties, negotiating terms, and drafting licensing agreements. Help inventors monetize their inventions through commercialization.'
       },
       {
-        title: 'Litigation Support',
-        text: 'In cases where a copyrighted idea has been unlawfully used, we can assist with litigation. We will help you navigate complex legal processes and ensure that all paperwork submitted is legally valid.'
+        title: 'Portfolio Management',
+        text: 'Manage clients’ intellectual property portfolios, ensuring timely renewals, monitoring competitors, and advising on strategic decisions.'
+      },
+      {
+        title: 'Training and Education',
+        text: 'Conduct workshops, seminars, and training sessions to educate inventors, businesses, and legal professionals about utility models and intellectual property rights.'
+      },
+      {
+        title: 'Due Diligence and Valuation',
+        text: 'Assess the value of utility models during mergers, acquisitions, or investment transactions. Due diligence involves evaluating the strength, scope, and enforceability of utility model rights.'
       },
     ]
   }
 
-  // read more ref
-  const readMoreReferenceHandler = () => {
-    readMoreRef?.current.scrollIntoView({ behavior: 'smooth' })
-  }
+
 
   return (
     <div>
+
       {/* first order container */}
-      <div className='mt-1 mb-28 relative'>
-        {/* bg-image */}
-        <div className='absolute left-0 top-0 w-full h-full -z-30 flex'>
-          <div className='w-[50%] bg-white'></div>
-          <div className='absolute z-10 top-0 left-1/2 h-full w-[75%] sm:w-[50%] md:w-[35%] bg-gradient-to-r from-white to-transparent'></div>
-          <div className='w-[50%]'>
-            <div className='w-full h-full overflow-hidden bg-yellow-400'>
-              <img className='w-full h-full object-center object-cover' src="https://dfadvisors.gr/wp-content/uploads/2021/01/business-legal-protection.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-        {/* content container */}
+      <div className='mb-20'>
+        {/* content Container */}
         <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <div>
-            <div className='w-[95%] sm:[85%] md:w-[65%] py-16'>
-              {/* title */}
+          <div className='flex gap-10 py-14'>
+            <div className='w-[50%]'>
+              {/* bold text */}
               <div>
-                <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold'>Legal Protection for Original Owners</h1>
+                <h3 className='text-4xl font-bold'>Get help running your business your way</h3>
               </div>
-              {/* intro text */}
-              <div className='my-2'>
+              {/* normal text */}
+              <div className='mt-5'>
                 <p>
-                  These protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions.
+                  A sole proprietorship is all yours, but guarding and growing it aren't all on you. We can help you file a DBA, get permits, find legal help, and even convert to an LLC.
                 </p>
               </div>
-              {/* read more btn */}
-              <div className='my-4'>
-                <button className='border-2 border-yellow-400 rounded-full px-10 py-2 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white' onClick={() => {
-                  readMoreReferenceHandler()
-                }}>read more</button>
+              {/* btn */}
+              <div className='mt-10'>
+                <button className='px-5 py-3 rounded-full bg-yellow-400 text-white transition-opacity ease-in-out duration-300 hover:opacity-75'>Learn More</button>
+              </div>
+            </div>
+            <div className='w-[50%] relative'>
+              <div className='w-full h-full max-h-[300px] overflow-hidden'>
+                <img className='w-full h-full object-center object-cover' src="https://www.ktpatent.com/wp-content/uploads/2019/06/Legal-protection-for-Utility-Model-in-Bulgaria-1024x780.jpg" alt="" />
+              </div>
+              <div className='absolute left-0 bottom-0 w-[50%] h-max p-5 bg-white shadow-lg font-medium'>
+                <p>Over half of our DBA customers are sole proprietors.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       {/* second order container */}
-      <div className='mb-28'>
+      <div className='mb-20'>
         {/* content container */}
         <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <div className='flex flex-col-reverse lg:flex-row gap-12 lg:gap-24'>
 
-            <div className='w-[100%] lg:w-[50%] bg-yellow-400 relative'>
-              <div className='w-full h-full overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://www.drakelawfirmpc.com/wp-content/uploads/2012/10/img-civil-litigation2.jpg" alt="" />
-              </div>
-
-              <div className='absolute top-[-58px] z-10 right-0 lg:right-[-50px] w-[50%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
-                <header>
-                  <h4 className='font-bold'>Collective Works</h4>
-                </header>
+          <header>
+            <h3 className='header-level-3'>Things not protected by utility model</h3>
+          </header>
+          <div className='flex items-center justify-center px-12'>
+            <div className='grid grid-cols-3 gap-10'>
+              <div>
+                <div className='my-3 flex items-center justify-center'>
+                  <PiShapes className='text-7xl' />
+                </div>
                 <div>
-                  <p>
-                    Ownership may be assigned to the person who initiated and supervised the assembly of the work
+                  <p className='text-justify'>
+                    Changes in the shape, proportions or material of a patented object or of one that is public property, except where such a change alters the qualities or functions of the object thereby producing an improvement in its use or the effects of its intended functions
                   </p>
                 </div>
               </div>
-            </div>
 
-            <div className='w-[100%] lg:w-[50%] py-5'>
-              <header>
-                <h4 className='header-level-3'>Rights protected </h4>
-              </header>
               <div>
-                <p>
-                  The Ethiopian Copyrights Proclamation articulates that within the nation’s jurisdiction, copyright encompasses the economic rights bestowed upon authors over their creative outputs. These rights extend beyond mere economic interests to include moral rights, provided certain legal conditions are met. The scope of protection under this law covers works produced in literary, scientific, and artistic domains, ensuring they are legally safeguarded.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      {/* grid container */}
-      <div className='mb-28'>
-        {/* content */}
-        <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <header className='mb-5'>
-            <h1 className='header-level-3'>The creative outputs protected includes</h1>
-          </header>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Books, booklets, articles in reviews and newspaper, computer programs
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Dramatic, dramatic co-musical works, pantomimes, choreographic works, and other works created for stage production
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Speeches, lectures, addresses, sermons, and other oral works
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Musical compositions, Audiovisual works, Works of architecture, Photographic works, Applied art
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Collection of works such as encyclopedia or anthologies or databases whether in machine readable or other form provided that such collections are original by reason of the selection or arrangement of their contents
-              </p>
-            </div>
-
-            <div className='bg-white shadow-xl p-3'>
-              <p>
-                Illustrations, maps, plans, sketches, and three-dimensional works related to geography, topography, architecture or science
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      {/* flex container */}
-      <div className='mb-28'>
-        {/* content container */}
-        <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <div className='flex flex-col lg:flex-row gap-12 lg:gap-24'>
-
-            <div className='w-[100%] lg:w-[50%] py-5'>
-              <header>
-                <h4 className='header-level-3'>Persons entitled to copyright protection</h4>
-              </header>
-              <div>
-                <p>
-                  In the realm of legal matters addressed by copyright law, the ownership of creative works is a key aspect. The law typically presumes that the creator of a work is its original owner. However, there are notable exceptions where ownership may be attributed to someone other than the creator.
-                </p>
-              </div>
-            </div>
-
-            <div className='w-[100%] lg:w-[50%] bg-yellow-400 relative'>
-              <div className='w-full h-full overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://frostbrowntodd.com/app/uploads/2022/12/group-of-people-on-a-conference-room-stockpack-pexels-600x350.jpg" alt="" />
-              </div>
-
-              <div className='absolute top-[-52px] z-10 left-0 lg:left-[-50px] w-[50%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
-                <header>
-                  <h4 className='font-bold'>Co-authorship</h4>
-                </header>
+                <div className='my-3 flex items-center justify-center'>
+                  <IoCardOutline className='text-7xl' />
+                </div>
                 <div>
-                  <p>
-                    When a work is created jointly, ownership may be shared.
+                  <p className='text-justify'>
+                    The mere replacement of elements in a known combination by other known elements having an equivalent function, which does not thereby produce an improvement in its use or the effect of its intended functions
                   </p>
                 </div>
               </div>
-            </div>
 
-          </div>
-        </div>
-      </div>
-      {/* gradient container */}
-      <div className='mt-1 mb-28 relative'>
-        {/* bg-image */}
-        <div className='absolute left-0 top-0 w-full h-full -z-30 flex'>
-          <div className='w-[50%] bg-white'></div>
-          <div className='absolute z-10 top-0 left-1/2 h-full w-[75%] sm:w-[50%] md:w-[35%] bg-gradient-to-r from-white to-transparent'></div>
-          <div className='w-[50%]'>
-            <div className='w-full h-full overflow-hidden bg-yellow-400'>
-              <img className='w-full h-full object-center object-cover' src="https://business-review.eu/wp-content/uploads/2018/06/law-hummer.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-        {/* content container */}
-        <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <div>
-            <div className='w-[95%] sm:[85%] md:w-[65%] py-16'>
-              {/* title */}
               <div>
-                <h1 className='text-3xl sm:text-4xl font-bold'>Conditions for copyrights protection</h1>
+                <div className='my-3 flex items-center justify-center'>
+                  <MdPublicOff className='text-7xl' />
+                </div>
+                <div>
+                  <p className='text-justify'>
+                    Minor inventions that are contrary to public order or morality.
+                  </p>
+                </div>
               </div>
-              {/* intro text */}
-              <div className='my-2'>
-                <p>
-                  The law confers copyright protection upon a work immediately upon its creation, without necessitating any formal procedure, regardless of the work’s intent or merit. This ensures that the work is legally protected from the moment of its inception, provided it fulfills the requisite criteria for copyright eligibility.
-                </p>
-              </div>
+
             </div>
           </div>
         </div>
       </div>
-      {/* more section container */}
-      <div ref={readMoreRef} />
-      <div className='mb-28'>
+
+      {/* third order container */}
+      <div className='mb-20'>
         {/* content container */}
         <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <header className='md:w-[75%] mb-5'>
-            <h1 className='header-level-3'>
-              Copyrights, afford authors exclusive legal protection for their original creations
-            </h1>
+          <header className='my-5'>
+            <h3 className='header-level-3'>How you can build your business</h3>
           </header>
-          <div>
+          <div className='grid grid-cols-2 gap-10'>
+
             <div>
-              <p>
-                Copyrights constitute a segment of intellectual property rights that afford authors exclusive legal protection for their original creations. These protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions. Copyrights bestow upon creators certain exclusive rights over their creative and innovative outputs, playing a vital role in defending creators’ interests and fostering a milieu that is conducive to creative and innovative pursuits. As a facet of intellectual property law, copyrights aim to strike a balance between the proprietary interests of creators and the broader public good, thereby stimulating a culture of artistic advancement and innovation. The spectrum of works shielded by copyrights spans literary, dramatic, musical, and artistic domains, encompassing novels, compositions, artworks, and cinematography.
-              </p>
-              <div className={`overflow-hidden ${isMore ? 'h-auto' : 'h-0'}`}>
-                <div>
-                  <p>
-                    Within the Ethiopian legal framework, copyrights represent a significant category of intellectual property rights that are expressly safeguarded by legislation. The Federal Democratic Republic of Ethiopia’s Constitution, specifically Article 93, unequivocally endorses copyright protection. This constitutional endorsement has led to the enactment of the Copyrights and Neighboring Rights Protection Proclamation No. 410/2004, along with its subsequent amendment, Proclamation No. 872/2014. Additionally, the nation’s adherence to the civil and criminal codes, as well as the WIPO treaty, further fortifies these protections. As a member of the World Intellectual Property Organization (WIPO), Ethiopia has demonstrated a firm commitment to advancing the protection of intellectual property and the Ethiopian Intellectual Property Office is the designated authority responsible for overseeing the enforcement of intellectual property rights within the country.
-                  </p>
-                </div>
+              <header>
+                <h4 className='font-bold text-[1.25rem]'>DBA (doing business as)</h4>
+              </header>
+              <div className='my-5'>
+                <p>
+                  Use a name other than your own to do business, open a bank account, and build a brand.
+                </p>
               </div>
-              <button className='text-blue-700 flex items-center gap-3' onClick={() => {
-                setIsMore(!isMore)
-              }}>
-                {
-                  isMore
-                    ?
-                    <span>show less</span>
-                    :
-                    <span>show more</span>
-                }
-                <MdKeyboardArrowDown className={`transition-transform ease-in-out duration-300 ${isMore ? '-rotate-180' : 'rotate-0'}`} />
-              </button>
+              <div>
+                <button className='border-4 border-yellow-400 px-10 py-3 text-yellow-500 rounded-full transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white font-bold'>Learn about DBA</button>
+              </div>
             </div>
+
+            <div>
+              <header>
+                <h4 className='font-bold text-[1.25rem]'>Business licenses</h4>
+              </header>
+              <div className='my-5'>
+                <p>
+                  Make sure you have all required permits and licenses to run your business legally.
+                </p>
+              </div>
+              <div>
+                <button className='border-4 border-yellow-400 px-10 py-3 text-yellow-500 rounded-full transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white font-bold'>Learn about DBA</button>
+              </div>
+            </div>
+
+            <div>
+              <header>
+                <h4 className='font-bold text-[1.25rem]'>Liability protection</h4>
+              </header>
+              <div className='my-5'>
+                <p>
+                  Operate as an LLC to protect your personal assets if your business ever gets sued or incurs debts.
+                </p>
+              </div>
+              <div>
+                <button className='border-4 border-yellow-400 px-10 py-3 text-yellow-500 rounded-full transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white font-bold'>Learn about DBA</button>
+              </div>
+            </div>
+
+            <div>
+              <header>
+                <h4 className='font-bold text-[1.25rem]'>Legal advice</h4>
+              </header>
+              <div className='my-5'>
+                <p>
+                  Use a name other than your own to do business, open a bank account, and build a brand.
+                </p>
+              </div>
+              <div>
+                <button className='border-4 border-yellow-400 px-10 py-3 text-yellow-500 rounded-full transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white font-bold'>Learn about DBA</button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
+
       {/* our service container */}
       <div className='mb-28'>
         {/* content container */}
         <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <header className='py-2 border-b-4 border-yellow-400'>
+          <header className='py-7 border-b-4 border-yellow-400'>
             <h1 className='header-level-3'>{services?.title}</h1>
           </header>
           <div>
@@ -297,7 +226,7 @@ const CorporateUtilities = () => {
               services?.items.map((item, index) => {
                 return (
                   <div key={index} className='py-2 border-b border-yellow-400'>
-                    <header className='flex items-center justify-between py-2'>
+                    <header className='flex items-center justify-between py-5'>
                       <div>
                         <h4 className="header-level-4 hover:underline cursor-pointer" onClick={() => {
                           if (isService === index) {
