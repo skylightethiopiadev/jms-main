@@ -112,7 +112,7 @@ const CorporateTrademark = () => {
                 <img className='w-full h-full object-center object-cover' src="https://alvarez.legal/wp-content/uploads/2022/08/Trademark.png" alt="" />
               </div>
 
-              <div className='absolute top-[-58px] z-10 right-0 lg:right-[-50px] w-[50%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
+              <div className='absolute top-[-58px] z-10 right-0 lg:right-[-50px] w-[65%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
                 <header>
                   <h4 className='font-bold'>Right to use</h4>
                 </header>
@@ -139,7 +139,7 @@ const CorporateTrademark = () => {
         </div>
       </div>
 
-      {/* grid container */}
+      {/* steps container */}
       <div className='mb-28'>
         {/* content */}
         <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
@@ -207,7 +207,10 @@ const CorporateTrademark = () => {
                 </header>
                 <div className='px-5'>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                    If you’re a foreign applicant, appointing an agent domiciled in Ethiopia is mandatory.
+                  </p>
+                  <p>
+                    The agent will represent you throughout the trademark registration process and serve as the point of contact with the EIPO.
                   </p>
                 </div>
               </div>
@@ -215,11 +218,11 @@ const CorporateTrademark = () => {
               <div className='my-5'>
                 <header className='px-3 py-2 flex items-center relative'>
                   <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>4</span></div>
-                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                  <h4 className='font-bold ml-2'>Examination</h4>
                 </header>
                 <div className='px-5'>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                    After receiving the application, the EIPO will conduct an examination to ensure that it complies with the requirements for registration. This includes assessing the distinctiveness of the trademark and checking for any conflicts with existing trademarks.
                   </p>
                 </div>
               </div>
@@ -227,11 +230,11 @@ const CorporateTrademark = () => {
               <div className='my-5'>
                 <header className='px-3 py-2 flex items-center relative'>
                   <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>5</span></div>
-                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                  <h4 className='font-bold ml-2'>Publication</h4>
                 </header>
                 <div className='px-5'>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                    If the trademark application meets all requirements, it will be published in the Official Gazette to allow for any oppositions to be filed by third parties within a specified period (usually 60 days).
                   </p>
                 </div>
               </div>
@@ -239,11 +242,11 @@ const CorporateTrademark = () => {
               <div className='my-5'>
                 <header className='px-3 py-2 flex items-center relative'>
                   <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>6</span></div>
-                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                  <h4 className='font-bold ml-2'>Registration</h4>
                 </header>
                 <div className='px-5'>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                    If there are no oppositions or if any oppositions are resolved in favor of the applicant, the trademark will be registered, and a registration certificate will be issued by the EIPO.
                   </p>
                 </div>
               </div>
@@ -251,11 +254,11 @@ const CorporateTrademark = () => {
               <div className='my-5'>
                 <header className='px-3 py-2 flex items-center relative'>
                   <div className='w-[24px] aspect-square rounded-full bg-yellow-500 absolute left-[-12px] flex items-center justify-center font-bold text-white'><span>7</span></div>
-                  <h4 className='font-bold ml-2'>Complete the Application Form</h4>
+                  <h4 className='font-bold ml-2'>Renewal</h4>
                 </header>
                 <div className='px-5'>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, possimus debitis. Accusamus nesciunt, temporibus quam, iure rerum sed non quo officia, vero quod dolorem. Doloribus porro odio praesentium neque magnam. Laboriosam, id.
+                    Trademarks in Ethiopia are initially valid for a period of seven years from the filing date and can be renewed indefinitely for subsequent periods of ten years each
                   </p>
                 </div>
               </div>
@@ -273,63 +276,32 @@ const CorporateTrademark = () => {
 
             <div className='w-[100%] lg:w-[50%] py-5'>
               <header>
-                <h4 className='header-level-3'>Persons entitled to copyright protection</h4>
+                <h4 className='header-level-3'>Remedies for trademark infringement</h4>
               </header>
               <div>
                 <p>
-                  In the realm of legal matters addressed by copyright law, the ownership of creative works is a key aspect. The law typically presumes that the creator of a work is its original owner. However, there are notable exceptions where ownership may be attributed to someone other than the creator.
+                  In Ethiopia, trademark infringement is regarded as a grave legal violation. It arises when a trademark, or a mark substantially indistinguishable from it, is utilized without the consent of the trademark holder. Such unauthorized employment of the trademark can deceive consumers and tarnish the reputation of the owner. In line with other intellectual property rights, there exist specific legal remedies to address violations of trademark rights.
                 </p>
               </div>
             </div>
 
             <div className='w-[100%] lg:w-[50%] bg-yellow-400 relative'>
               <div className='w-full h-full overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://frostbrowntodd.com/app/uploads/2022/12/group-of-people-on-a-conference-room-stockpack-pexels-600x350.jpg" alt="" />
+                <img className='w-full h-full object-center object-cover' src="https://www.realbusinessrescue.co.uk/images/1200x630/0x0-0x0/images/articles/when-might-a-trade-sale-happen.png?1652447904" alt="" />
               </div>
 
-              <div className='absolute top-[-52px] z-10 left-0 lg:left-[-50px] w-[50%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
+              <div className='absolute top-[-52px] z-10 left-0 lg:left-[-50px] w-[70%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
                 <header>
-                  <h4 className='font-bold'>Co-authorship</h4>
+                  <h4 className='font-bold'>Authorize others to use</h4>
                 </header>
                 <div>
                   <p>
-                    When a work is created jointly, ownership may be shared.
+                    The owner of a registered trademark will have a right to authorize others to use the trademark for any goods or services it is registered for.
                   </p>
                 </div>
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-
-      {/* gradient container */}
-      <div className='mt-1 mb-28 relative'>
-        {/* bg-image */}
-        <div className='absolute left-0 top-0 w-full h-full -z-30 flex'>
-          <div className='w-[50%] bg-white'></div>
-          <div className='absolute z-10 top-0 left-1/2 h-full w-[75%] sm:w-[50%] md:w-[35%] bg-gradient-to-r from-white to-transparent'></div>
-          <div className='w-[50%]'>
-            <div className='w-full h-full overflow-hidden bg-yellow-400'>
-              <img className='w-full h-full object-center object-cover' src="https://business-review.eu/wp-content/uploads/2018/06/law-hummer.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-        {/* content container */}
-        <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
-          <div>
-            <div className='w-[95%] sm:[85%] md:w-[65%] py-16'>
-              {/* title */}
-              <div>
-                <h1 className='text-3xl sm:text-4xl font-bold'>Conditions for copyrights protection</h1>
-              </div>
-              {/* intro text */}
-              <div className='my-2'>
-                <p>
-                  The law confers copyright protection upon a work immediately upon its creation, without necessitating any formal procedure, regardless of the work’s intent or merit. This ensures that the work is legally protected from the moment of its inception, provided it fulfills the requisite criteria for copyright eligibility.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -341,7 +313,7 @@ const CorporateTrademark = () => {
         <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
           <header className='md:w-[75%] mb-5'>
             <h1 className='header-level-3'>
-              Copyrights, afford authors exclusive legal protection for their original creations
+              Protecting the brand from potential imitations
             </h1>
           </header>
           <div>
