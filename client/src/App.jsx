@@ -90,6 +90,11 @@ import CivilFamilyOthers from "./pages/civil/family/family-sub-pages/CivilFamily
 import CorporateIntellectualProperty from "./pages/corporate/CorporateIntellectualProperty";
 import CorporateCopyright from "./pages/corporate/corporate-intellectual-property/CorporateCopyright";
 import CorporatePatent from "./pages/corporate/corporate-intellectual-property/CorporatePatent";
+import CorporateTrademark from "./pages/corporate/corporate-intellectual-property/CorporateTrademark";
+import CorporateUtilities from "./pages/corporate/corporate-intellectual-property/CorporateUtilities";
+import CorporateGeographicalIndication from "./pages/corporate/corporate-intellectual-property/CorporateGeographicalIndication";
+import CorporateVarietiesPlantBreedsRight from "./pages/corporate/corporate-intellectual-property/CorporateVarietiesPlantBreedsRight";
+import CorporateOthers from "./pages/corporate/corporate-intellectual-property/CorporateOthers";
 // other services
 import HomeTraining from "./pages/other-services/Training";
 import HomeConsulting from "./pages/other-services/Consulting";
@@ -149,6 +154,11 @@ function App() {
                 <Route path="/corporate/intellectual-property" element={<CorporateIntellectualProperty />}>
                   <Route path="/corporate/intellectual-property" element={<CorporateCopyright />}></Route>
                   <Route path="/corporate/intellectual-property/patent" element={<CorporatePatent />}></Route>
+                  <Route path="/corporate/intellectual-property/trademark" element={<CorporateTrademark />}></Route>
+                  <Route path="/corporate/intellectual-property/utilities" element={<CorporateUtilities />}></Route>
+                  <Route path="/corporate/intellectual-property/geographical-indications" element={<CorporateGeographicalIndication />}></Route>
+                  <Route path="/corporate/intellectual-property/varieties-plant-breeds-right" element={<CorporateVarietiesPlantBreedsRight />}></Route>
+                  <Route path="/corporate/intellectual-property/others" element={<CorporateOthers />}></Route>
                 </Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>
