@@ -73,12 +73,12 @@ const CorporateUtilities = () => {
             <div className='w-[50%]'>
               {/* bold text */}
               <div>
-                <h3 className='text-4xl font-bold'>Get help running your business your way</h3>
+                <h3 className='text-4xl font-bold'>Providing an Alternative Avenue for Legal Safeguarding</h3>
               </div>
               {/* normal text */}
               <div className='mt-5'>
                 <p>
-                  A sole proprietorship is all yours, but guarding and growing it aren't all on you. We can help you file a DBA, get permits, find legal help, and even convert to an LLC.
+                  Essence of a utility model lies in its ability to stimulate originality and inventive progress by bestowing inventors with exclusive rights over their inventions for a finite period.
                 </p>
               </div>
               {/* btn */}
@@ -91,7 +91,7 @@ const CorporateUtilities = () => {
                 <img className='w-full h-full object-center object-cover' src="https://www.ktpatent.com/wp-content/uploads/2019/06/Legal-protection-for-Utility-Model-in-Bulgaria-1024x780.jpg" alt="" />
               </div>
               <div className='absolute left-0 bottom-0 w-[50%] h-max p-5 bg-white shadow-lg font-medium'>
-                <p>Over half of our DBA customers are sole proprietors.</p>
+                <p>Enables inventors to capitalize on their inventions commercially</p>
               </div>
             </div>
           </div>
@@ -141,6 +141,51 @@ const CorporateUtilities = () => {
                 </div>
               </div>
 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* pre third order container */}
+      <div className='mb-20'>
+        {/* content container */}
+        <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%]'>
+          <header>
+            <h3 className='header-level-3'>Eligibility Criteria</h3>
+          </header>
+          <div>
+            <p>
+              In order for a particular invention to be eligible for utility model, unlike patents which must fulfill three criteria’s, they are subjected to the following two criteria.
+            </p>
+          </div>
+          {/* criteria */}
+          <div className='my-5 border border-yellow-400 rounded-sm'>
+            {/* first */}
+            <div>
+              <header className='flex items-center relative py-3'>
+                {/* icon */}
+                <div className='w-[22px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-yellow-400 text-xl font-bold text-white ml-[-12px]'><span>1</span></div>
+                <h4 className='ml-3 header-level-4'>Novelty</h4>
+              </header>
+              <div className='p-5 pt-0 border-b border-yellow-400'>
+                <p>
+                  In contrast to patents, which demand complete novelty, the criteria for the novelty of a utility model are defined by the conditions that would cause an invention to be deemed not new. Therefore, a minor invention is not regarded as novel if it has been previously disclosed in print, made publicly accessible, or used publicly in Ethiopia at the time the application is filed. Moreover, any disclosure or use within six months before the application filing will not negate the invention’s novelty if it originates from the work of the applicant.
+                </p>
+              </div>
+            </div>
+
+            {/* second */}
+            <div>
+              <header className='flex items-center relative py-3'>
+                {/* icon */}
+                <div className='w-[22px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-yellow-400 text-xl font-bold text-white ml-[-12px]'><span>2</span></div>
+                <h4 className='ml-3 header-level-4'>Industrial Applicability</h4>
+              </header>
+              <div className='p-3 pt-0'>
+                <p>
+                  The invention must be capable of industrial application, meaning that it can be made or used in some kind of industry. This requirement ensures that the utility model has practical utility and is not merely a theoretical concept. 
+                </p>
+              </div>
             </div>
           </div>
         </div>
