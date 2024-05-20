@@ -1,3 +1,4 @@
+import {useRef} from 'react'
 import { NavLink, Outlet } from "react-router-dom";
 
 // icons
@@ -47,6 +48,9 @@ const FinalHome = () => {
     // console.log(cc, "cc");
   };
 
+  // scroll ref
+  let scrollToHomeTopRef = useRef(null)
+
   useEffect(() => {
     ipHandler();
   }, []);
@@ -54,8 +58,9 @@ const FinalHome = () => {
   return (
     <div className="w-screen h-screen pt-[12.5vh] font-workSans relative">
       {/* <Header /> */}
-      <FinalHeader />
+      <FinalHeader scrollToHomeTopRef={scrollToHomeTopRef}/>
       <div className="h-[87.5vh] overflow-y-auto">
+        <div ref={scrollToHomeTopRef} />
         <Outlet />
         <ChatBots />
         {/* footer container */}

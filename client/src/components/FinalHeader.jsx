@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { NavLink } from "react-router-dom";
 
@@ -17,7 +17,7 @@ import { RiUserShared2Fill, RiArrowRightLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 
-const FinalHeader = () => {
+const FinalHeader = ({ scrollToHomeTopRef }) => {
   // states
   const [isPhone, setIsPhone] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
@@ -25,7 +25,7 @@ const FinalHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [menuIconToggler, setMenuIconToggler] = useState(false);
   const [isUserDropDown, setIsUserDropDown] = useState(false);
-  const [languageOption, setLanguageOption] = useState(false)
+  const [languageOption, setLanguageOption] = useState(false);
 
   // nav
   const nav = [
@@ -380,8 +380,17 @@ const FinalHeader = () => {
     }
   };
 
+  // scroll into top handler
+  const scrollIntoHomeTopHandler = () => {
+    scrollToHomeTopRef?.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+
+
+
   return (
     <header className="shadow-bottomShadow fixed left-0 top-0 z-[1000] text-[.975rem] w-full bg-white text-black">
+
       <div className="px-[1%] sm:px-[2%] md:px-[2%] lg:px-[3%] xl:px-[5%] flex items-center justify-between">
         {/* logo container */}
         <div
@@ -391,6 +400,7 @@ const FinalHeader = () => {
           <div className="absolute z-50 left-0 p-1 shadow-lg bg-white mt-[-36px]">
             <NavLink className={"cursor-pointer"} to={"/"} onClick={() => {
               setIsNav(null)
+              scrollIntoHomeTopHandler()
             }}>
               <div className="w-[110px] h-[90px] overflow-hidden cursor-pointer">
                 <img
@@ -479,6 +489,7 @@ const FinalHeader = () => {
                                           className={"hover:underline"}
                                           onClick={() => {
                                             setIsNav(null);
+                                            scrollIntoHomeTopHandler();
                                           }}
                                         >
                                           {item.navHeaderText}
@@ -505,7 +516,8 @@ const FinalHeader = () => {
                             <div className="flex flex-col h-[200px] lg:h-auto">
                               <div>
                                 <NavLink className="font-semibold mb-3 text-[1.35rem] hover:underline" to={civilSubNav[0].groupOne[1].path} onClick={() => {
-                                  setIsNav(null)
+                                  setIsNav(null);
+                                  scrollIntoHomeTopHandler();
                                 }}>
                                   {civilSubNav[0].groupOne[1].navHeaderText}
                                 </NavLink>
@@ -517,7 +529,8 @@ const FinalHeader = () => {
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
                                         <NavLink className={"hover:underline"} to={item.path} onClick={() => {
-                                          setIsNav(null)
+                                          setIsNav(null);
+                                          scrollIntoHomeTopHandler();
                                         }}>
                                           {item.navHeaderText}
                                         </NavLink>
@@ -545,6 +558,7 @@ const FinalHeader = () => {
                                       className={"hover:underline"}
                                       onClick={() => {
                                         setIsNav(null);
+                                        scrollIntoHomeTopHandler();
                                       }}
                                     >
                                       {item.navHeaderText}
@@ -619,7 +633,8 @@ const FinalHeader = () => {
                             <div className="flex flex-col">
                               <div>
                                 <NavLink className="font-semibold text-[1.35rem] mb-3 hover:underline" to={commercialSubNav[0].groupOne[1].path} onClick={() => {
-                                  setIsNav(null)
+                                  setIsNav(null);
+                                  scrollIntoHomeTopHandler();
                                 }}>
                                   {
                                     commercialSubNav[0].groupOne[1]
@@ -634,7 +649,8 @@ const FinalHeader = () => {
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
                                         <NavLink className={"hover:underline"} to={{ pathname: item.path }} onClick={() => {
-                                          setIsNav(null)
+                                          setIsNav(null);
+                                          scrollIntoHomeTopHandler();
                                         }}>
                                           {item.navHeaderText}
                                         </NavLink>
@@ -753,6 +769,7 @@ const FinalHeader = () => {
                                     className={"hover:underline"}
                                     onClick={() => {
                                       setIsNav(null);
+                                      scrollIntoHomeTopHandler();
                                     }}
                                   >
                                     {item.navHeaderText}
