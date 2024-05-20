@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import {NavLink} from 'react-router-dom'
 // icons
 import { FaChevronDown } from "react-icons/fa";
 import { PiShapes } from "react-icons/pi";
@@ -145,6 +146,12 @@ const CorporateUtilities = () => {
           </div>
         </div>
       </div>
+      {/* post second order container */}
+      <div className='mb-20'>
+        <div  className='w-full max-h-[250px] overflow-hidden'>
+          <img className='w-full h-full object-center object-cover' src="https://kntrialattorneys.com/wp-content/uploads/2023/11/What-Does-a-Disposed-Case-Status-Mean.jpg" alt="" />
+        </div>
+      </div>
 
       {/* pre third order container */}
       <div className='mb-20'>
@@ -155,11 +162,13 @@ const CorporateUtilities = () => {
           </header>
           <div>
             <p>
-              In order for a particular invention to be eligible for utility model, unlike patents which must fulfill three criteria’s, they are subjected to the following two criteria.
+              In order for a particular invention to be eligible for utility model, unlike 
+              <NavLink to={'/corporate/intellectual-property/patent'} className={'text-blue-700 inline-block mx-1'}>patents</NavLink> 
+              patents which must fulfill three criteria’s, they are subjected to the following two criteria.
             </p>
           </div>
           {/* criteria */}
-          <div className='my-5 border border-yellow-400 rounded-sm'>
+          <div className='my-5 border border-yellow-400 rounded-sm py-3'>
             {/* first */}
             <div>
               <header className='flex items-center relative py-3'>
