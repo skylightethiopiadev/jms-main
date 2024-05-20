@@ -45,9 +45,9 @@ const CorporateGeographicalIndication = () => {
       <div>
         <div className='relative'>
           {/* content */}
-          <div className='relative z-10 px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%] py-20 text-white'>
+          <div className='relative z-10 px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%] py-20 '>
             {/* text */}
-            <div>
+            <div className='w-[75%]'>
               {/* bold */}
               <div>
                 <p className='text-5xl font-bold capitalize'>
@@ -78,9 +78,16 @@ const CorporateGeographicalIndication = () => {
             </div>
           </div>
           {/* bg */}
-          <div className='absolute z-0 inset-2 rounded-md overflow-hidden bg-black'>
-            <div className='w-full h-full overflow-hidden'>
-              <img className='w-full h-full object-center object-cover opacity-55' src="https://ejustice.lk/wp-content/uploads/2018/01/courts_ready-1.jpg" alt="" />
+          <div className='absolute z-0 inset-2 rounded-md overflow-hidden flex'>
+            <div className='w-[50%] bg-white'></div>
+            <div className='w-[50%] relative' >
+              <div className='absolute inset-0 -z-10 flex'>
+                <div className='w-[50%] bg-gradient-to-r from-white to-transparent'></div>
+                <div className='w-[50%]'></div>
+              </div>
+              <div className='w-full h-full overflow-hidden relative -z-30'>
+                <img className='w-full h-full object-center object-cover' src="https://ejustice.lk/wp-content/uploads/2018/01/courts_ready-1.jpg" alt="" />
+              </div>
             </div>
           </div>
         </div>

@@ -218,10 +218,6 @@ const FinalHeader = () => {
               navHeaderText: "Varieties and plant breeders' right",
               path: "/corporate/intellectual-property/varieties-plant-breeds-right",
             },
-            {
-              navHeaderText: "Others",
-              path: "/corporate/intellectual-property/others",
-            },
           ]
         },
         {
