@@ -86,7 +86,7 @@ const CorporateGeographicalIndication = () => {
                 <div className='w-[50%]'></div>
               </div>
               <div className='w-full h-full overflow-hidden relative -z-30'>
-                <img className='w-full h-full object-center object-cover' src="https://ejustice.lk/wp-content/uploads/2018/01/courts_ready-1.jpg" alt="" />
+                <img className='w-full h-full object-center object-cover' src="https://i0.wp.com/saucydressings.com/wp-content/uploads/2020/06/map-of-europe.jpg?fit=800%2C533&ssl=1" alt="" />
               </div>
             </div>
           </div>

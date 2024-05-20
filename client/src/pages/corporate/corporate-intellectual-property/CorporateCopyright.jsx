@@ -66,7 +66,7 @@ const CorporateCopyright = () => {
                     <div className='absolute z-10 top-0 left-1/2 h-full w-[75%] sm:w-[50%] md:w-[35%] bg-gradient-to-r from-white to-transparent'></div>
                     <div className='w-[50%]'>
                         <div className='w-full h-full overflow-hidden bg-yellow-400'>
-                            <img className='w-full h-full object-center object-cover' src="https://dfadvisors.gr/wp-content/uploads/2021/01/business-legal-protection.jpg" alt="" />
+                            <img className='w-full h-full object-center object-cover' src="https://ourpolitics.net/wp-content/uploads/2019/02/Copyright-1.jpg" alt="" />
                         </div>
                     </div>
                 </div>
