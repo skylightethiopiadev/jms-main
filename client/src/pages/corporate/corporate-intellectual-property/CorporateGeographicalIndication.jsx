@@ -92,6 +92,7 @@ const CorporateGeographicalIndication = () => {
           </div>
         </div>
       </div>
+
       {/* second order container */}
       <div className='mt-20'>
         {/* content container */}
@@ -162,17 +163,18 @@ const CorporateGeographicalIndication = () => {
             </div>
             <div className='w-[50%] py-10'>
               <div>
-                <p className='header-level-3'>Adipisicing elit. Nulla ipsam obcaecati consequuntur.</p>
+                <p className='header-level-3'>Protection under the trade competition and consumer protection law</p>
               </div>
               <div className='my-3'>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellat cumque alias dignissimos iure unde ipsam, aliquid atque. Ipsa laudantium aperiam debitis harum dicta veniam eum eos, repudiandae obcaecati, natus magnam vel.
+                  Another legal framework that may be invoked for the protection of GIs in Ethiopia is the Trade Competition and Consumer Protection Proclamation No. 813/2013. This law primarily addresses issues related to anti-competitive behavior, market dominance abuse, and various forms of misconduct deemed as unfair trade practices, alongside consumer protection measures.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       {/* fifth order container */}
       <div className='my-20'>
         {/* content */}
