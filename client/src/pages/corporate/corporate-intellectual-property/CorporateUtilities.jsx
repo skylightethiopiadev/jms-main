@@ -237,14 +237,14 @@ const CorporateUtilities = () => {
                         }}>{item.title}</h4>
                       </div>
                       <div>
-                        <div className="w-[28px] aspect-square rounded-full overflow-hidden  flex items-center justify-center cursor-pointer transition-all ease-in-out duration-300 hover:bg-gray-200 bg-gray-100" onClick={() => {
+                        <div className='w-[28px] aspect-square rounded-full bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-gray-200' onClick={() => {
                           if (isService === index) {
                             setIsService(-1)
                           } else {
                             setIsService(index)
                           }
                         }}>
-                          <FaChevronDown className={`text-xl transition-transform ease-in-out duration-300 ${isService === index ? '-rotate-180' : 'rotate-0'}`} />
+                          <MdKeyboardArrowDown className={`text-2xl transition-transform ease-in-out duration-300 ${isService === index ? '-rotate-180' : 'rotate-0'}`} />
                         </div>
                       </div>
                     </header>
