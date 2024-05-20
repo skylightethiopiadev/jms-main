@@ -84,7 +84,7 @@ const CorporateVarietiesPlantBreedsRight = () => {
           <div className='absolute z-10 top-0 left-1/2 h-full w-[75%] sm:w-[50%] md:w-[35%] bg-gradient-to-r from-white to-transparent'></div>
           <div className='w-[50%]'>
             <div className='w-full h-full overflow-hidden bg-yellow-400'>
-              <img className='w-full h-full object-center object-cover' src="https://dfadvisors.gr/wp-content/uploads/2021/01/business-legal-protection.jpg" alt="" />
+              <img className='w-full h-full object-center object-cover' src="https://www.corporatecomplianceinsights.com/wp-content/uploads/2020/04/plant-book.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -94,17 +94,17 @@ const CorporateVarietiesPlantBreedsRight = () => {
             <div className='w-[95%] sm:[85%] md:w-[65%] py-16'>
               {/* title */}
               <div>
-                <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold'>Legal Protection for Original Owners</h1>
+                <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold'>Verities and Plant Breeders Rights</h1>
               </div>
               {/* intro text */}
               <div className='my-2'>
                 <p>
-                  These protections are pivotal in nurturing artistic innovation, guaranteeing that creators can profit from their contributions.
+                  Plant Breeders’ Rights (PBRs) represent a distinct category of intellectual property rights specifically established to safeguard novel plant varieties.
                 </p>
               </div>
               {/* read more btn */}
               <div className='my-4'>
-                <button className='border-2 border-yellow-400 rounded-full px-10 py-2 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white' onClick={() => {
+                <button className='border-2 border-yellow-400 rounded-full px-10 py-2 transition-colors ease-in-out duration-300 bg-yellow-400 text-white hover:text-yellow-500 hover:bg-white' onClick={() => {
                   readMoreReferenceHandler()
                 }}>read more</button>
               </div>
@@ -120,16 +120,16 @@ const CorporateVarietiesPlantBreedsRight = () => {
 
             <div className='w-[100%] lg:w-[50%] bg-yellow-400 relative'>
               <div className='w-full h-full overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://www.drakelawfirmpc.com/wp-content/uploads/2012/10/img-civil-litigation2.jpg" alt="" />
+                <img className='w-full h-full object-center object-cover' src="https://www.greenhousegrower.com/wp-content/uploads/2016/06/GG-June-Cover-image.jpg" alt="" />
               </div>
 
               <div className='absolute top-[-58px] z-10 right-0 lg:right-[-50px] w-[50%] h-max bg-white shadow-2xl p-5 cursor-pointer'>
                 <header>
-                  <h4 className='font-bold'>Collective Works</h4>
+                  <h4 className='font-bold'>Distinctiveness</h4>
                 </header>
                 <div>
                   <p>
-                    Ownership may be assigned to the person who initiated and supervised the assembly of the work
+                    Plant variety must be distinct in one or more identifiable characteristics from any other variety
                   </p>
                 </div>
               </div>
@@ -137,11 +137,11 @@ const CorporateVarietiesPlantBreedsRight = () => {
 
             <div className='w-[100%] lg:w-[50%] py-5'>
               <header>
-                <h4 className='header-level-3'>Rights protected </h4>
+                <h4 className='header-level-3'>Scope of PBR</h4>
               </header>
               <div>
                 <p>
-                  The Ethiopian Copyrights Proclamation articulates that within the nation’s jurisdiction, copyright encompasses the economic rights bestowed upon authors over their creative outputs. These rights extend beyond mere economic interests to include moral rights, provided certain legal conditions are met. The scope of protection under this law covers works produced in literary, scientific, and artistic domains, ensuring they are legally safeguarded.
+                  An individual awarded plant breeders’ rights will possess exclusive rights concerning the protected seed or propagating material of the registered variety, as well as any other varieties derived from the protected variety.
                 </p>
               </div>
             </div>
@@ -203,11 +203,11 @@ const CorporateVarietiesPlantBreedsRight = () => {
             <div className='px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%] py-10'>
               <div className='w-[55%]'>
                 <div className='header-level-3'>
-                  <p>Protection under the trademarks proclamation</p>
+                  <p>Criteria’s for Protection</p>
                 </div>
                 <div className='my-3'>
                   <p>
-                    Currently, Ethiopia does not have specific legislation dedicated exclusively to the protection of GIs. Nevertheless, this does not imply a lack of legal protection for GIs, as they are covered under various existing laws. Due to their resemblance to trademarks, GIs are primarily governed by the Trademarks Registration and Protection Proclamation No. 501/2006.
+                    To secure PBR for a particular plant variety, a breeder must satisfy specific conditions. These prerequisites are essential to obtain the exclusive rights granted for new plant varieties.
                   </p>
                 </div>
               </div>
