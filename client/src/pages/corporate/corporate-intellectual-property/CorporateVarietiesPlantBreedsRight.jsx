@@ -97,7 +97,7 @@ const CorporateVarietiesPlantBreedsRight = () => {
                 <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold'>Verities and Plant Breeders Rights</h1>
               </div>
               {/* intro text */}
-              <div className='my-2'>
+              <div className='my-5'>
                 <p>
                   Plant Breeders’ Rights (PBRs) represent a distinct category of intellectual property rights specifically established to safeguard novel plant varieties.
                 </p>
