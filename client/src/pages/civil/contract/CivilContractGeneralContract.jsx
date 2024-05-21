@@ -357,7 +357,9 @@ const CivilContractGeneralContract = () => {
             <div className='border-b border-yellow-500'>
               <header className='flex items-center justify-between py-5'>
                 <div>
-                  <h2 className='font-bold hover:underline cursor-pointer'>Legal representation</h2>
+                  <h2 className='font-bold hover:underline cursor-pointer' onClick={() => {
+                    setIsService(5)
+                  }}>Legal representation</h2>
                 </div>
                 <div>
                   <div>
