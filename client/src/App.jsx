@@ -76,8 +76,17 @@ import Succession from "./pages/civil/Succession";
 import Employment from "./pages/civil/Employment";
 import Property from "./pages/civil/Property";
 import Torts from "./pages/civil/Torts";
+
 // civil -- contract
-import ContractOfSpecialMovables from "./pages/civil/contract/ContractOfSpecialMovables";
+import CivilContractOutlet from "./pages/civil/contract/CivilContractOutlet";
+import CivilContractGeneralContract from "./pages/civil/contract/CivilContractGeneralContract";
+import CivilContractSpecialMovables from "./pages/civil/contract/CivilContractSpecialMovables";
+import CivilContractSaleLeaseBuildings from "./pages/civil/contract/CivilContractSaleLeaseBuildings";
+import CivilContractConstruction from "./pages/civil/contract/CivilContractConstruction";
+import CivilContractSupplyGoodsServices from "./pages/civil/contract/CivilContractSupplyGoodsServices";
+import CivilContractRentalMachineriesVehicles from "./pages/civil/contract/CivilContractRentalMachineriesVehicles";
+import CivilContractLoan from "./pages/civil/contract/CivilContractLoan";
+
 // civil -- family
 import CivilFamily from "./pages/civil/family/CivilFamily";
 import CivilFamilyMaintenance from "./pages/civil/family/family-sub-pages/CivilFamilyMaintenance";
@@ -165,9 +174,18 @@ function App() {
                 <Route path="/property" element={<Property />}></Route>
                 <Route path="/torts" element={<Torts />}></Route>
                 <Route
-                  path="/contract-of-special-movables"
-                  element={<ContractOfSpecialMovables />}
-                ></Route>
+                  path="/civil/contract"
+                  element={<CivilContractOutlet />}
+                >
+                  <Route path="/civil/contract" element={<CivilContractGeneralContract />}></Route>
+                  <Route path="/civil/contract/special-movables" element={<CivilContractSpecialMovables />}></Route>
+                  <Route path="/civil/contract/sale-lease-buildings" element={<CivilContractSaleLeaseBuildings />}></Route>
+                  <Route path="/civil/contract/construction" element={<CivilContractConstruction />}></Route>
+                  <Route path="/civil/contract/supply-goods-services" element={<CivilContractSupplyGoodsServices />}></Route>
+                  <Route path="/civil/contract/rental-machineries-vehicles" element={<CivilContractRentalMachineriesVehicles />}></Route>
+                  <Route path="/civil/contract/loan" element={<CivilContractLoan />}></Route>
+
+                </Route>
                 {/* other services */}
                 <Route path="/training" element={<HomeTraining />}></Route>
                 <Route path="/consulting" element={<HomeConsulting />}></Route>

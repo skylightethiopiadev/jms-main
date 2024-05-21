@@ -57,6 +57,7 @@
   background: rgb(219, 219, 219);
   width: 2px;
 }
+
 #home-lawyer-list-card::-webkit-scrollbar-thumb {
   background: rgb(185, 185, 185);
   width: 2px;
@@ -66,10 +67,12 @@
 #super-admin-case-management-container::-webkit-scrollbar {
   width: 3px;
 }
+
 #super-admin-case-management-container::-webkit-scrollbar-track {
   background: #dcdcde;
   border-radius: 3px;
 }
+
 #super-admin-case-management-container::-webkit-scrollbar-thumb {
   background: #c7c7c7;
   border-radius: 3px;
@@ -115,6 +118,7 @@
 .steper-circle-off {
   @apply flex items-center justify-center border-2 border-gray-300 text-gray-500 w-[34px] h-[34px] rounded-full cursor-pointer;
 }
+
 .steper-circle-on {
   @apply flex items-center justify-center border-2 border-blue-700 bg-blue-700 text-white w-[34px] h-[34px] rounded-full cursor-pointer;
 }
@@ -122,6 +126,7 @@
 .stepper-bar-off {
   @apply h-[2px] w-[50px] rounded-full mx-1 sm:w-[30px] md:w-[100px] lg:w-[150px] bg-blue-200;
 }
+
 .stepper-bar-on {
   @apply h-[2px] w-[50px] rounded-full mx-1 sm:w-[30px] md:w-[100px] lg:w-[150px] bg-blue-700;
 }
@@ -145,51 +150,70 @@
 }
 
 .container {
-  @apply w-full  text-gray-500 h-[80vh] bg-gray-200 flex items-center justify-center flex-col;
+  @apply w-full text-gray-500 h-[80vh] bg-gray-200 flex items-center justify-center flex-col;
 }
+
 .inputField {
   @apply w-full rounded-sm border px-2 py-2 border-blue-400 focus:outline-blue-500;
 }
+
 .label {
   @apply mt-4 py-1 self-start;
 }
+
 .small {
   @apply text-[10.56px] font-semibold;
 }
+
 .title {
   @apply text-[15px];
 }
+
 .medium {
   @apply text-[14px];
 }
+
 .center {
   @apply flex flex-col w-full items-center justify-center h-full;
 }
+
 .button-nb {
-  @apply px-3 py-[6px] border text-black border-gray-200  rounded-sm;
+  @apply px-3 py-[6px] border text-black border-gray-200 rounded-sm;
 }
+
 .grids {
   @apply grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
 }
+
 .input {
   @apply border border-gray-300 p-2 rounded-sm;
 }
-/* addiss */
+
+/* addis */
 
 /*
 ///////////////////////
 container padding
 ////////////////////// */
 
+/* static pages padding x */
+
+.static-padding-x {
+  @apply px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[10%];
+}
+
 .padding-x {
   @apply px-[1%] sm:px-[3%] md:px-[5%] lg:px-[7%] xl:px-[12%];
 }
+
 .padding-y-lg {
   @apply py-[5%];
 }
+
 .padding-y-md {
   @apply py-[3%];
 }
+
 /* default scroll bar */
 /* ::-webkit-scrollbar {
   width: 4px;
@@ -208,9 +232,11 @@ container padding
 #customer-dashboard-leftside-nav-bar::-webkit-scrollbar {
   width: 3px;
 }
+
 #customer-dashboard-leftside-nav-bar::-webkit-scrollbar-track {
   background: #d8dee8;
 }
+
 #customer-dashboard-leftside-nav-bar::-webkit-scrollbar-thumb {
   background: #9ca0a6;
 }
@@ -219,10 +245,12 @@ container padding
 .admin-dashboard-table::-webkit-scrollbar {
   width: 4px;
 }
+
 .admin-dashboard-table::-webkit-scrollbar-track {
   background-color: rgba(160, 160, 160, 0.15);
   border-radius: 5px;
 }
+
 .admin-dashboard-table::-webkit-scrollbar-thumb {
   background-color: rgb(160, 160, 160);
   border-radius: 5px;
@@ -268,6 +296,7 @@ container padding
 .steper-circle-off {
   @apply flex items-center justify-center border-2 border-gray-300 text-gray-500 w-[34px] h-[34px] rounded-full cursor-pointer;
 }
+
 .steper-circle-on {
   @apply flex items-center justify-center border-2 border-blue-700 bg-blue-700 text-white w-[34px] h-[34px] rounded-full cursor-pointer;
 }
@@ -275,6 +304,7 @@ container padding
 .stepper-bar-off {
   @apply h-[3px] w-[50px] sm:w-[30px] md:w-[100px] lg:w-[150px] bg-blue-200;
 }
+
 .stepper-bar-on {
   @apply h-[3px] w-[50px] sm:w-[30px] md:w-[100px] lg:w-[150px] bg-blue-700;
 }
@@ -328,7 +358,7 @@ container padding
 }
 
 .dashboard-link-item-my {
-  @apply my-4 text-[1.15rem]  transition-all ease-in-out text-black duration-300 hover:text-gray-500;
+  @apply my-4 text-[1.15rem] transition-all ease-in-out text-black duration-300 hover:text-gray-500;
 }
 
 .dashboard-main-list-item {
@@ -338,6 +368,7 @@ container padding
 .dashboard-sub-link-items {
   @apply pl-[15%] py-[.25rem] bg-white rounded-sm mr-1 mt-1 transition-all ease-in-out duration-300 hover:bg-gray-100 text-black hover:text-gray-700;
 }
+
 /* home */
 .home-submenu-popup-ul {
   @apply bg-white absolute left-0 top-[150%] z-[1200] w-max p-3 px-5 shadow-lg font-normal;
@@ -350,10 +381,12 @@ container padding
 .step-circle {
   @apply w-[18px] h-[18px] text-[.85rem] sm:w-[24px] sm:h-[24px] sm:text-[.9rem] shrink-0 rounded-full border-2 flex items-center justify-center cursor-pointer;
 }
+
 /* off circle */
 .step-circle-off {
   @apply border-gray-400 text-gray-400;
 }
+
 /* on circle */
 .step-circle-on {
   @apply border-blue-600 bg-blue-600 text-white;
@@ -363,9 +396,11 @@ container padding
 .step-bar {
   @apply w-full h-[3px] rounded-lg;
 }
+
 .step-bar-off {
   @apply bg-gray-400;
 }
+
 /* on bar */
 .step-bar-on {
   @apply bg-blue-600;
@@ -377,7 +412,7 @@ container padding
 }
 
 .step-hint-text-circle-off {
-  @apply border-gray-400 text-gray-400 text-[.95rem]  scale-[.85] transition-all ease-in-out duration-300;
+  @apply border-gray-400 text-gray-400 text-[.95rem] scale-[.85] transition-all ease-in-out duration-300;
 }
 
 .step-hint-text-circle-on {
@@ -420,13 +455,14 @@ font size
 
 /* level-2 header */
 .header-level-2 {
-  @apply font-bold text-[26px] md:text-[28px]  xl:text-[32px];
+  @apply font-bold text-[26px] md:text-[28px] xl:text-[32px];
 }
 
 /* level-3 header */
 .header-level-3 {
   @apply font-semibold text-[22px] sm:text-[24px] md:text-[26px];
 }
+
 /* level-4 header */
 .header-level-4 {
   @apply font-semibold text-[14px] sm:text-[16px] md:text-[16px];

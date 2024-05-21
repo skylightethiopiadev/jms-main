@@ -49,40 +49,41 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
       groupOne: [
         {
           navHeaderText: "Contract",
+          path: '/civil/contract',
           subNavList: [
             {
               navHeaderText: "General contracts",
-              path: "contract-of-special-movables"
+              path: "/civil/contract"
             },
             {
               navHeaderText: "Contract of special movables",
-              path: "#"
+              path: "/civil/contract/special-movables"
             },
             {
               navHeaderText: "Sale or lease of buildings",
-              path: "#"
+              path: "/civil/contract/sale-lease-buildings"
             },
             {
               navHeaderText: "Construction",
-              path: "#"
+              path: "/civil/contract/construction"
             },
             {
               navHeaderText: "Supply of goods and services",
-              path: "#"
+              path: "/civil/contract/supply-goods-services"
             },
             {
               navHeaderText: "Rental of machineries and vehicles",
-              path: "#"
+              path: "/civil/contract/rental-machineries-vehicles"
             },
             {
               navHeaderText: "Loan",
-              path: "#"
+              path: "/civil/contract/loan"
             },
-            {
-              navHeaderText: "Others",
-              // navHeaderText: "Others(suretyship, mortgage, pledge, and agency and sale contracts)",
-              path: "#"
-            },
+            // {
+            //   navHeaderText: "Others",
+            //   navHeaderText: "Others(suretyship, mortgage, pledge, and agency and sale contracts)",
+            //   path: "#"
+            // },
           ]
         },
         {
@@ -474,9 +475,12 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                             {/* contract list */}
                             <div className="flex flex-col h-[350px] lg:h-auto">
                               <div>
-                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                <NavLink to={civilSubNav[0].groupOne[0].path} className="font-semibold mb-3 text-[1.35rem] hover:underline" onClick={()=>{
+                                  setIsNav(null)
+                                  scrollIntoHomeTopHandler()
+                                }}>
                                   {civilSubNav[0].groupOne[0].navHeaderText}
-                                </h3>
+                                </NavLink>
                                 <ul>
                                   {civilSubNav[0].groupOne[0].subNavList.map(
                                     (item, index) => (
