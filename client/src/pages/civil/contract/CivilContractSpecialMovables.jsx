@@ -8,6 +8,31 @@ import { CgDisplayFlex } from "react-icons/cg";
 import { MdOutlineArrowCircleRight } from "react-icons/md";
 
 const CivilContractSpecialMovables = () => {
+
+  // services
+  const services = [
+    {
+      text: 'Negotiate on your behalf',
+    },
+    {
+      text: 'Ensure full compliance with all legal prerequisites',
+    },
+    {
+      text: 'Review and refine draft contracts',
+    },
+    {
+      text: 'Draft contracts for sale, lease, and mortgage',
+    },
+    {
+      text: 'Secure property acquisitions free from third-party encumbrances',
+    },
+    {
+      text: 'Facilitate the authentication and registration of contracts',
+    },
+    {
+      text: 'Advocate for you in legal and arbitration proceedings, and prepare powers of attorney. Provide counsel and representation to ensure the seamless transfer of ownership or the acquisition of unencumbered title',
+    },
+  ]
   return (
     <div>
       {/* first order container */}
@@ -291,18 +316,22 @@ const CivilContractSpecialMovables = () => {
           {/* services */}
           <div>
             <div className='m-5'>
-
-
-              <div className='flex gap-1 mb-3'>
-                <div className='flex items-center'>
-                  <MdOutlineArrowCircleRight className='text-xl text-gray-700' />
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non blanditiis possimus unde?
-                  </p>
-                </div>
-              </div>
+              {
+                services.map((item, index) => {
+                  return (
+                    <div key={index} className='flex gap-3 mb-5'>
+                      <div className='flex items-center'>
+                        <MdOutlineArrowCircleRight className='text-xl text-gray-700' />
+                      </div>
+                      <div>
+                        <p>
+                          {item.text}
+                        </p>
+                      </div>
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
         </div>
