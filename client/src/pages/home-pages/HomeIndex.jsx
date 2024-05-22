@@ -573,7 +573,8 @@ const HomeIndex = () => {
             {/* image container */}
             <div className="flex items-center justify-center">
               <div>
-                <img src="/images/bg/site-image.jpg" alt="" />
+                <img src="/LAW.jpg" alt="" />
+                {/* <img src="/images/bg/site-image.jpg" alt="" /> */}
               </div>
             </div>
           </div>
