@@ -11,7 +11,7 @@ import { AiOutlineClose } from "react-icons/ai";
 const Header = () => {
   return (
     <header className="h-[7vh] rounded-t-md flex items-center bg-sky-100">
-      Header
+      Header 
     </header>
   );
 };

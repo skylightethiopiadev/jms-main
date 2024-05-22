@@ -2,6 +2,10 @@ import React from 'react'
 
 // icons
 import { HiArrowLongRight } from "react-icons/hi2";
+import { LiaUserClockSolid } from "react-icons/lia";
+import { MdOutlineAddHome } from "react-icons/md";
+import { CgDisplayFlex } from "react-icons/cg";
+import { MdOutlineArrowCircleRight } from "react-icons/md";
 
 const CivilContractSpecialMovables = () => {
   return (
@@ -125,10 +129,181 @@ const CivilContractSpecialMovables = () => {
       <div className='bg-black bg-opacity-10'>
         {/* content container */}
         <div className='static-padding-x py-10'>
-          <div className='flex items-center justify-center gap-10'>
-            <div>one</div>
-            <div>two</div>
-            <div>three</div>
+          <div className='flex items-center justify-center'>
+            <div className='grid grid-cols-3 gap-3 md:gap-10'>
+              <div>
+                <div>
+                  <LiaUserClockSolid className='text-5xl' />
+                </div>
+                <div className='font-black my-2'>
+                  <p>
+                    Maximize billable hours
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    Easily track billable time against clients and cases with our mobile apps.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <MdOutlineAddHome className='text-5xl' />
+                </div>
+                <div className='font-black my-2'>
+                  <p>
+                    Work from anywhere
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    Get anywhere anytime access to your firm with cloud-based solutions.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <CgDisplayFlex className='text-5xl' />
+                </div>
+                <div className='font-black my-2'>
+                  <p>
+                    Be more flexible
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    Building on top of Microsoft Office 365 means full integration with your email and calendar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* fifth order container */}
+      <div className='my-20'>
+        {/* content container */}
+        <div className='static-padding-x'>
+          <div className='flex flex-col-reverse md:flex-row gap-10'>
+            <div className='w-[100%] md:w-[50%] relative'>
+              <div className='h-[270px] md:h-auto md:absolute md:inset-0 overflow-hidden bg-yellow-500'>
+                <img className='w-full h-full object-center object-cover' src="https://legalthirst.com/wp-content/uploads/2021/02/Transfer-of-Property-Act-TOPA-1882-_-Complete-Information.jpg" alt="" />
+              </div>
+            </div>
+
+            <div className='w-[100%] md:w-[50%]'>
+              {/* bold */}
+              <div className='header-level-3'>
+                <p>
+                  The contractual relations
+                </p>
+              </div>
+              {/* normal text */}
+              <div className='mt-3'>
+                <p>
+                  The contractual relations relating to special movables, whether gratuitous or onerous, necessitates compliance with specific legal stipulations. Ethiopian property legislation delineates distinct classifications for properties, each bearing unique legal ramifications, particularly in the context of ownership acquisition and transfer. The nation’s laws governing contracts and property impose a series of formalities that must be satisfied to effectuate a legitimate transfer of ownership.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* sixth order container */}
+      <div className='mb-20'>
+        {/* content container */}
+        <div className='static-padding-x'>
+          <div className='flex items-center justify-center'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10'>
+              <div className='flex flex-col items-center border border-gray-300 rounded-sm p-3'>
+                <div className='w-[120px] aspect-square rounded-full overflow-hidden'>
+                  <img className='w-full h-full object-center' src="/gedi.jpg" alt="" />
+                </div>
+                <div className='flex items-center justify-center gap-2 font-medium my-1'>
+                  <span> Er. Gedion</span>
+                  <span>Agmass</span>
+                </div>
+                <div className='text-justify'>
+                  <p>
+                    sed maxime assumenda quia veritatis asperiores est vitae quis incidunt eos ipsa commodi numquam reiciendis, quam quaerat similique.</p>
+                </div>
+              </div>
+
+              <div className='flex flex-col items-center border border-gray-300 rounded-sm p-3'>
+                <div className='w-[120px] aspect-square rounded-full overflow-hidden'>
+                  <img className='w-full h-full object-center' src="/gedi.jpg" alt="" />
+                </div>
+                <div className='flex items-center justify-center gap-2 font-medium my-1'>
+                  <span> Er. Gedion</span>
+                  <span>Agmass</span>
+                </div>
+                <div className='text-justify'>
+                  <p>
+                    sed maxime assumenda quia veritatis asperiores est vitae quis incidunt eos ipsa commodi numquam reiciendis, quam quaerat similique.</p>
+                </div>
+              </div>
+
+              <div className='flex flex-col items-center border border-gray-300 rounded-sm p-3'>
+                <div className='w-[120px] aspect-square rounded-full overflow-hidden'>
+                  <img className='w-full h-full object-center' src="/gedi.jpg" alt="" />
+                </div>
+                <div className='flex items-center justify-center gap-2 font-medium my-1'>
+                  <span> Er. Gedion</span>
+                  <span>Agmass</span>
+                </div>
+                <div className='text-justify'>
+                  <p>
+                    sed maxime assumenda quia veritatis asperiores est vitae quis incidunt eos ipsa commodi numquam reiciendis, quam quaerat similique.</p>
+                </div>
+              </div>
+
+              <div className='flex flex-col items-center border border-gray-300 rounded-sm p-3'>
+                <div className='w-[120px] aspect-square rounded-full overflow-hidden'>
+                  <img className='w-full h-full object-center' src="/gedi.jpg" alt="" />
+                </div>
+                <div className='flex items-center justify-center gap-2 font-medium my-1'>
+                  <span> Er. Gedion</span>
+                  <span>Agmass</span>
+                </div>
+                <div className='text-justify'>
+                  <p>
+                    sed maxime assumenda quia veritatis asperiores est vitae quis incidunt eos ipsa commodi numquam reiciendis, quam quaerat similique.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* seventh order container */}
+      <div className='mb-20'>
+        {/* content container */}
+        <div className='static-padding-x'>
+          {/* bold text */}
+          <div className='header-level-3 capitalize'>
+            <p>Our legal services</p>
+          </div>
+
+          {/* services */}
+          <div>
+            <div className='m-5'>
+
+
+              <div className='flex gap-1 mb-3'>
+                <div className='flex items-center'>
+                  <MdOutlineArrowCircleRight className='text-xl text-gray-700' />
+                </div>
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non blanditiis possimus unde?
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
