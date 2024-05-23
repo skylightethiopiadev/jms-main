@@ -95,18 +95,18 @@ const CivilContractConstruction = () => {
               {/* bold text */}
               <div className='header-level-3'>
                 <p>
-                  Agreements form the backbone of interactions
+                  Construction Contracts For The Success Of Projects
                 </p>
               </div>
               {/* normal text */}
               <div className='my-5'>
                 <p>
-                  To navigate your daily business dealings securely and avoid exploitation, it’s advisable to cement your relationships with legally enforceable contracts.
+                  For a person engaging in a building project, construction contracts are essential as they establish the project’s framework, detailing the work to be done, the schedule, financial terms, and standards for materials and workmanship
                 </p>
               </div>
               <div>
                 <p>
-                  Under Ethiopian law, contracts are subject to specific conditions such as the object, form, the capacity of parties, and mutual consent; without these, a contract may be considered void or rendered voidable.
+                  These contracts act as a protective measure for individuals, guaranteeing that their stipulations are honored and the construction is finalized as specified
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ const CivilContractConstruction = () => {
                 </div>
                 <div className='p-3'>
                   <p>
-                    categorizes special movables into tangible assets (such as motor vehicles, ships, and capital goods) and intangible assets (including patents, businesses, and copyrights)
+                    Contracts act as a protective measure for individuals, guaranteeing that their stipulations are honored and the construction is finalized as specified
                   </p>
                 </div>
               </div>
@@ -176,24 +176,24 @@ const CivilContractConstruction = () => {
               {/* bold text */}
               <div className='header-level-3'>
                 <p>
-                  Agreements form the backbone of interactions
+                  Legal Experts Guidance
                 </p>
               </div>
               {/* normal text */}
               <div className='my-5'>
                 <p>
-                  To navigate your daily business dealings securely and avoid exploitation, it’s advisable to cement your relationships with legally enforceable contracts.
+                  The intricate nature of construction contracts, filled with various detailed clauses and specialized terminology, typically requires the aid of legal professionals
                 </p>
               </div>
               <div>
                 <p>
-                  Under Ethiopian law, contracts are subject to specific conditions such as the object, form, the capacity of parties, and mutual consent; without these, a contract may be considered void or rendered voidable.
+                  Legal experts assist individuals in understanding their contractual duties, adhering to legal standards, and comprehending the implications of the contract’s terms
                 </p>
               </div>
             </div>
             <div className='w-[100%] md:w-[50%] relative'>
               <div className='md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://lawcirca.com/wp-content/uploads/2020/12/contract.png" alt="" />
+                <img className='w-full h-full object-center object-cover' src="https://alliancelawyers.ca/wp-content/uploads/2019/10/Construction-Law-Builders-Liens.jpg" alt="" />
               </div>
             </div>
           </div>
@@ -209,13 +209,13 @@ const CivilContractConstruction = () => {
               {/* bold text */}
               <div className='header-level-3'>
                 <p>
-                  Ethiopian property legislation delineates distinct classifications for properties
+                  Guidance for avoiding confusion, settling disagreements, and guaranteeing a legally compliant and seamless construction experience
                 </p>
               </div>
               {/* normal text */}
               <div>
                 <p>
-                  If you are in the market to conduct a business towards the capital of a business organization, purchase, sell, Hire, or mortgage business, ship, motor vehicle, construction machinery, aircraft, non-negotiable instruments, patents, or trademarks, it is prudent to consult with our legal experts
+                  Since, the effectiveness of construction projects heavily relies on the contractual contracts established between contractors and clients, it is essential for these agreements to be meticulously crafted to ensure clarity and understanding of the rights and obligations of each party
                 </p>
               </div>
             </div>
