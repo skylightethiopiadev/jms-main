@@ -197,7 +197,7 @@ const CivilContractSupplyGoodsServices = () => {
       <div className='relative'>
         {/* bg */}
         <div className='absolute inset-0 flex'>
-          <div className='w-full lg:w-[60%] absolute left-0 top-0 h-full z-10 bg-white bg-opacity-75 lg:relative'></div>
+          <div className='w-full lg:w-[60%] absolute left-0 top-0 h-full z-10 bg-white bg-opacity-85 lg:relative'></div>
           <div className='w-full lg:w-[40%] absolute left-0 top-0 h-full z-0 lg:relative'>
             <div className='w-full h-full overflow-hidden'>
               <img className='w-full h-full object-center object-cover' src="https://corlettexpress.com/storage/2021/01/What-the-World-Would-Be-Like-If-Distribution-Services-Didnt-Exist.webp" alt="" />
