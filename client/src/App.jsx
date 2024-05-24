@@ -96,6 +96,7 @@ import CivilFamilyAdoption from "./pages/civil/family/family-sub-pages/CivilFami
 import CivilFamilyOthers from "./pages/civil/family/family-sub-pages/CivilFamilyOthers";
 
 // corporate 
+// corporate - intellectual property
 import CorporateIntellectualProperty from "./pages/corporate/CorporateIntellectualProperty";
 import CorporateCopyright from "./pages/corporate/corporate-intellectual-property/CorporateCopyright";
 import CorporatePatent from "./pages/corporate/corporate-intellectual-property/CorporatePatent";
@@ -104,6 +105,14 @@ import CorporateUtilities from "./pages/corporate/corporate-intellectual-propert
 import CorporateGeographicalIndication from "./pages/corporate/corporate-intellectual-property/CorporateGeographicalIndication";
 import CorporateVarietiesPlantBreedsRight from "./pages/corporate/corporate-intellectual-property/CorporateVarietiesPlantBreedsRight";
 import CorporateOthers from "./pages/corporate/corporate-intellectual-property/CorporateOthers";
+// corporate - trade and investment
+import CorporateTradeInvestment from "./pages/corporate/CorporateTradeInvestment";
+import CorporateIncorporation from "./pages/corporate/corporate-trade-investment/CorporateIncorporation";
+import CorporateBankruptcy from "./pages/corporate/corporate-trade-investment/CorporateBankruptcy";
+import CorporateConversion from "./pages/corporate/corporate-trade-investment/CorporateConversion";
+import CorporateMerger from "./pages/corporate/corporate-trade-investment/CorporateMerger";
+import CorporateInvestment from "./pages/corporate/corporate-trade-investment/CorporateInvestment";
+import CorporateTradeInvestmentOthers from "./pages/corporate/corporate-trade-investment/CorporateTradeInvestmentOthers";
 // other services
 import HomeTraining from "./pages/other-services/Training";
 import HomeConsulting from "./pages/other-services/Consulting";
@@ -168,6 +177,15 @@ function App() {
                   <Route path="/corporate/intellectual-property/geographical-indications" element={<CorporateGeographicalIndication />}></Route>
                   <Route path="/corporate/intellectual-property/varieties-plant-breeds-right" element={<CorporateVarietiesPlantBreedsRight />}></Route>
                   <Route path="/corporate/intellectual-property/others" element={<CorporateOthers />}></Route>
+                </Route>
+                {/* corporate-trade-investment */}
+                <Route path="/corporate/trade-investment" element={<CorporateTradeInvestment />}>
+                  <Route path="/corporate/trade-investment" element={<CorporateIncorporation />}></Route>
+                  <Route path="/corporate/trade-investment/bankruptcy" element={<CorporateBankruptcy />}></Route>
+                  <Route path="/corporate/trade-investment/conversion" element={<CorporateConversion />}></Route>
+                  <Route path="/corporate/trade-investment/merger" element={<CorporateMerger />}></Route>
+                  <Route path="/corporate/trade-investment/investment" element={<CorporateInvestment />}></Route>
+                  <Route path="/corporate/trade-investment/others" element={<CorporateTradeInvestmentOthers />}></Route>
                 </Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>

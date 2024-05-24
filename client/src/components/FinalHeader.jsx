@@ -248,15 +248,16 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
         },
         {
           navHeaderText: "Trade and investment",
+          path: '/corporate/trade-investment',
           subNavList: [
             {
               navHeaderText: "Incorporation (Business formation)",
-              path: "#"
+              path: "/corporate/trade-investment"
             },
             {
               navHeaderText:
                 "Merger",
-              path: "#"
+              path: "/corporate/trade-investment/merger"
             },
             {
               navHeaderText: "Acquisition",
@@ -268,19 +269,19 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
             },
             {
               navHeaderText: "Conversion of business organization",
-              path: "#"
+              path: "/corporate/trade-investment/conversion"
             },
             {
               navHeaderText: "Bankruptcy (Scheme of arrangement or dissolution)",
-              path: "#"
+              path: "/corporate/trade-investment/bankruptcy"
             },
             {
               navHeaderText: "Investment (FDI)",
-              path: "#"
+              path: "/corporate/trade-investment/investment"
             },
             {
               navHeaderText: "Others(international business transactions)",
-              path: "#"
+              path: "/corporate/trade-investment/others"
             },
           ]
         }
@@ -475,7 +476,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                             {/* contract list */}
                             <div className="flex flex-col h-[350px] lg:h-auto">
                               <div>
-                                <NavLink to={civilSubNav[0].groupOne[0].path} className="font-semibold mb-3 text-[1.35rem] hover:underline" onClick={()=>{
+                                <NavLink to={civilSubNav[0].groupOne[0].path} className="font-semibold mb-3 text-[1.35rem] hover:underline" onClick={() => {
                                   setIsNav(null)
                                   scrollIntoHomeTopHandler()
                                 }}>
@@ -674,12 +675,14 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
 
                             <div>
                               <div>
-                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                <NavLink to={commercialSubNav[0].groupOne[3].path} className="font-semibold mb-3 text-[1.35rem] hover:underline" onClick={() => {
+                                  setIsNav(null)
+                                }}>
                                   {
                                     commercialSubNav[0].groupOne[3]
                                       .navHeaderText
                                   }
-                                </h3>
+                                </NavLink>
                                 <ul>
                                   {commercialSubNav[0].groupOne[3].subNavList.map(
                                     (item, index) => (
@@ -687,7 +690,9 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink to={item.path} className={"hover:underline"} onClick={() => {
+                                          setIsNav(null)
+                                        }}>
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
