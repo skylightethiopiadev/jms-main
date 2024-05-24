@@ -4,20 +4,40 @@ const CorporateIncorporation = () => {
 
   const services = [
     {
-      title: 'Due Diligence Services',
-      text: 'Conducting legal due diligence on financial records and other relevant documents to evaluate risk and compliance',
+      title: 'Assist in the Choice of Business forms',
+      text: 'Assist in selecting the most suitable business structure based on their goals, risk tolerance, and operational requirements. This includes advising on options such as sole proprietorships, partnerships, private limited companies (PLCs), and share companies (SCs).',
     },
     {
-      title: 'Contract Drafting and Review',
-      text: 'Our team is dedicated to carefully crafting, evaluating, and negotiating the specifics of construction contracts. We ensure that every aspect of the contract, including rights and duties, is defined with legal accuracy and transparency, safeguarding your interests',
+      title: 'Facilitate Formation',
+      text: 'We provide comprehensive guidance throughout the formation of your business entity, including document preparation, securing approvals, and ensuring legal compliance. Our assistance extends to formulating and filing the memorandum and articles of association that delineate the company’s objectives, management, and ownership framework.',
     },
     {
-      title: 'Legal Representation',
-      text: 'In the event of disagreements in construction projects, we advocate for our clients, addressing intricate matters such as quality of work, structural issues, contract changes, and financial disagreements',
+      title: 'Corporate Governance',
+      text: 'We offer counsel on corporate governance protocols, detailing the duties of directors, shareholders, and executives. Our support helps firms create robust governance frameworks that uphold transparency, responsibility, and regulatory conformity.',
     },
     {
-      title: 'Regulatory Compliance',
-      text: 'We guide your construction project through the complex web of legal standards, ensuring every aspect complies with the necessary legal provisions',
+      title: 'Ownership',
+      text: 'Address ownership-related matters, such as shareholding percentages, voting rights, and restrictions on share transfers.',
+    },
+    {
+      title: 'Operational Assistance',
+      text: 'Provide assistance with the operational elements of business, such as obtaining licenses, registering for taxes, and ensuring adherence to labor regulations. Additionally, we offer guidance on navigating through the complexities of employment agreements, protecting intellectual property rights, and fulfilling contractual duties.',
+    },
+    {
+      title: 'Merger, Acquisitions, and Division',
+      text: 'Handle mergers, acquisitions, and acquisition and ensure legal due diligence, negotiate terms, and facilitate smooth transitions. Advise on dispositions, including asset sales, share transfers, and winding up of companies.',
+    },
+    {
+      title: 'Foreign Direct Investment (FDI)',
+      text: 'Represent foreign investors seeking to establish businesses in Ethiopia. We guide clients through FDI regulations, investment licenses, and compliance requirements.',
+    },
+    {
+      title: 'Dispute Resolution',
+      text: 'Assist in settling disputes concerning business establishment, contractual agreements, and corporate governance. Moreover, I can act on behalf of clients in legal proceedings, arbitration, and various alternative dispute resolution mechanisms.'
+    },
+    {
+      title: 'Other Related Services',
+      text: 'Legal advices and support on legal issues such as tax law, intellectual property, real estate, and Bankruptcy related services.',
     },
   ]
 
@@ -30,16 +50,13 @@ const CorporateIncorporation = () => {
           <div className='py-7 md:py-12 w-[100%] md:w-[50%]'>
             <div className='text-5xl font-bold'>
               <p>
-                consectetur adip
+                Incorporation (Business Formation)
               </p>
             </div>
             <div className='my-3'>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia beatae odio dolor.
+                Establishing a corporation signifies the creation of a separate legal identity for the business.
               </p>
-            </div>
-            <div>
-              <button className='px-10 py-2 rounded-sm bg-yellow-400 text-white font-medium transition-colors ease-in-out duration-300 hover:bg-yellow-300'>click me</button>
             </div>
           </div>
           <div className='w-[100%] md:w-[50%] bg-yellow-500 md:[clip-path:polygon(25%_0%,100%_0%,100%_100%,0%_100%)] h-[170px] md:h-auto'>
@@ -54,12 +71,12 @@ const CorporateIncorporation = () => {
         <div className='static-padding-x'>
           {/* content container */}
           <div className='max-w-[640px] mx-auto p-5 rounded-md bg-white shadow-2xl mt-[-16px] md:mt-[-50px] relative z-10 flex flex-col items-center gap-3'>
-            <div className='header-level-3'>
-              <p>Ethiopia The Land Of Wisdom</p>
+            <div className='header-level-3 capitalize'>
+              <p>transcends mere administrative procedures</p>
             </div>
             <div className='text-center'>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex repellat maiores minima non, asperiores eveniet beatae facere ea cupiditate! Corporis, sapiente provident iste quas molestiae velit.
+                It represents a deliberate strategy that provides legal defense, as well as a foundation for future development, enduring operations, and enhanced reputation.
               </p>
             </div>
           </div>
@@ -71,20 +88,20 @@ const CorporateIncorporation = () => {
         {/* content container */}
         <div className='static-padding-x flex flex-col-reverse md:flex-row gap-5 md:gap-10'>
           <div className='w-[100%] md:w-[50%] py-5 md:py-10'>
-            <div className='header-level-3'>
+            <div className='header-level-3 capitalize'>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing.
+                establishment and governance of a business
               </p>
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quod architecto perspiciatis sunt odio, eligendi dolorum excepturi rerum assumenda porro debitis nesciunt unde fuga ipsam saepe dolores magnam iste? Optio deleniti dicta vero fugit. Fugiat voluptatum dicta possimus magni pariatur accusantium, reiciendis omnis est. Impedit, esse vel autem atque itaque magni maxime!
+                The establishment and governance of a business are essential elements in legally constituting and managing an enterprise. This entails choosing a suitable organizational framework and complying with certain statutory mandates, such as business registration, acquisition of relevant licenses and authorizations, and adherence to tax and labor legislation.
               </p>
             </div>
           </div>
           <div className='w-[100%] md:w-[50%]'>
             <div className='w-full h-[210px] md:h-full overflow-hidden'>
-              <img className='w-full h-full object-center object-cover' src="https://londoneconomics.co.uk/wp-content/uploads/2020/01/shutterstock_59286079_PINE-800x360.jpg" alt="" />
+              <img className='w-full h-full object-center object-cover' src="https://br.usembassy.gov/wp-content/uploads/sites/32/trade-and-investment-fact-sheet.png" alt="" />
             </div>
           </div>
         </div>
@@ -96,19 +113,19 @@ const CorporateIncorporation = () => {
         <div className='static-padding-x flex flex-col md:flex-row gap-5 md:gap-10'>
           <div className='w-[100%] md:w-[50%]'>
             <div className='w-full h-[210px] md:h-full overflow-hidden'>
-              <img className='w-full h-full object-center object-cover' src="https://londoneconomics.co.uk/wp-content/uploads/2020/01/shutterstock_59286079_PINE-800x360.jpg" alt="" />
+              <img className='w-full h-full object-center object-cover' src="https://www.lendio.com/wp-content/uploads/2020/09/business-people-planning.jpg" alt="" />
             </div>
           </div>
 
           <div className='w-[100%] md:w-[50%] py-5 md:py-10'>
-            <div className='header-level-3'>
+            <div className='header-level-3 capitalize'>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing.
+                Draft memorandum of  Association(MOA)
               </p>
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quod architecto perspiciatis sunt odio, eligendi dolorum excepturi rerum assumenda porro debitis nesciunt unde fuga ipsam saepe dolores magnam iste? Optio deleniti dicta vero fugit. Fugiat voluptatum dicta possimus magni pariatur accusantium, reiciendis omnis est. Impedit, esse vel autem atque itaque magni maxime!
+                The document delineates the company’s strategic goals, equity distribution, organizational governance, and regulatory guidelines. The Memorandum of Association (MOA) must encompass specifics like the company’s designation, principal place of business, capital stock, entitlements of shareholders, duties of directors, and methodologies for executive decision-making and corporate administration.
               </p>
             </div>
           </div>
@@ -124,17 +141,17 @@ const CorporateIncorporation = () => {
             <div>
               <div className='header-level-3'>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                  Obtain Permits and Licenses
                 </p>
               </div>
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, distinctio. Excepturi, pariatur?
+                  Depending on the specific business activities and industry sector, business need to obtain additional permits or licenses from relevant government authorities or sector-specific regulatory bodies.
                 </p>
               </div>
             </div>
             <div>
-              <button className='px-10 py-2 rounded-md bg-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-300 whitespace-nowrap'>click me</button>
+              <button className='px-10 py-2 rounded-md bg-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-300 whitespace-nowrap'>Apply Now</button>
             </div>
           </div>
         </div>
@@ -148,30 +165,30 @@ const CorporateIncorporation = () => {
           <div className='flex flex-col md:flex-row gap-5 md:gap-10'>
             <div className='w-[100%] md:w-[50%]'>
               <div className='w-full h-[210px] md:h-full overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://njbmagazine.com/wp-content/uploads/2015/11/MAG-ForeignTrade-775x500.jpg" alt="" />
+                <img className='w-full h-full object-center object-cover' src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ethiopian_Commercial_Bank_Addis_Abeba.jpg/1024px-Ethiopian_Commercial_Bank_Addis_Abeba.jpg" alt="" />
               </div>
             </div>
 
             <div className='w-[100%] md:w-[50%]'>
               <div className='header-level-3'>
                 <p>
-                  Lorem ipsum dolor
+                  Open Bank Account
                 </p>
               </div>
               <div className='my-3'>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet consequatur similique, eum pariatur inventore quos.
+                  Establishing a corporate bank account under the company’s name is essential for handling financial dealings and overseeing corporate finances.
                 </p>
               </div>
               <div className='bg-white p-5 shadow-lg'>
                 <div className='px-5 border-l-4 border-yellow-400'>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam vel deserunt nisi laboriosam eligendi hic fugit reprehenderit quasi dolor corrupti. Doloremque, id illum.
+                    It is necessary to furnish the banking institution with mandatory documentation, which typically includes the company’s registration certificate, MOA, identification proofs for shareholders and directors, along with any other pertinent details.
                   </p>
                 </div>
               </div>
               <div className='mt-7'>
-                <button className='px-10 py-2 border-2 border-yellow-400 rounded-full text-yellow-500 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white'>click me here</button>
+                <button className='px-10 py-2 border-2 border-yellow-400 rounded-full text-yellow-500 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white'>Open Now</button>
               </div>
             </div>
           </div>
@@ -236,7 +253,7 @@ const CorporateIncorporation = () => {
       </div>
 
       {/* eight order container */}
-      <div className='my-28'>
+      <div className='mb-28'>
         {/* content container */}
         <div className='static-padding-x'>
           {/* bold container */}
