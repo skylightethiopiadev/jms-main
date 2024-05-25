@@ -182,7 +182,7 @@ const CorporateInvestment = () => {
                 <div className='static-padding-x'>
                     <div className='max-w-[850px] mx-auto p-5 border border-yellow-400 rounded-md'>
                         <header className='my-2'>
-                            <p className='header-level-3 text-center'>Legislation applicable to investment in Ethiopia includes</p>
+                            <p className='header-level-3 text-center capitalize'>Legislation applicable to investment in Ethiopia includes</p>
                         </header>
                         <div>
                             {/* item */}

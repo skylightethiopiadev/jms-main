@@ -677,6 +677,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                               <div>
                                 <NavLink to={commercialSubNav[0].groupOne[3].path} className="font-semibold mb-3 text-[1.35rem] hover:underline" onClick={() => {
                                   setIsNav(null)
+                                  scrollIntoHomeTopHandler()
                                 }}>
                                   {
                                     commercialSubNav[0].groupOne[3]
@@ -692,6 +693,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                                       >
                                         <NavLink to={item.path} className={"hover:underline"} onClick={() => {
                                           setIsNav(null)
+                                          scrollIntoHomeTopHandler()
                                         }}>
                                           {item.navHeaderText}
                                         </NavLink>
