@@ -1,6 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+// icons
+import { FaCheck } from "react-icons/fa";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const CorporateInvestment = () => {
+    const [investmentIndex, setInvestmentIndex] = useState(0)
+
+    const investmentTypes = [
+        {
+            title: 'Joint investment with the government',
+            text: 'Investment in the areas listed within this category is restricted to joint ventures with the government. Collaboration with the government is a prerequisite for investing in these sectors.',
+        },
+        {
+            title: 'Investment areas reserved for domestic investors',
+            text: 'The investment sectors listed in this category are exclusively accessible to domestic investors, implying that foreign investors are not permitted to invest in these areas.',
+        },
+        {
+            title: 'Joint investment/domestic and foreign investors',
+            text: 'These investment sectors are available to foreign investors provided they form partnerships with local investors. This collaborative approach is a requirement for foreign investment in these areas.',
+        },
+        {
+            title: 'Investment open for foreign investors',
+            text: 'Except for those found under the above categories any other investment is open to foreigners.',
+        },
+    ]
+
+    const investmentAreas = [
+        {
+            image: 'https://news.va.gov/wp-content/uploads/sites/3/2023/10/Veggies-GettyImages-870915532_vp1.jpg?w=1400',
+            title: 'Agriculture',
+            text: 'Opportunities in commercial farming, agro-processing, and export of agricultural products.',
+        },
+        {
+            image: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Tesla_auto_bots.jpg',
+            title: 'Manufacturing',
+            text: 'Investment in textile, automotive, leather, and consumer goods manufacturing.',
+        },
+        {
+            image: 'https://justenergy.com/wp-content/uploads/2022/08/energy-storage-examples-of-renewables-and-solar.jpeg',
+            title: 'Energy',
+            text: 'Renewable energy projects, including hydro, wind, and solar power.',
+        },
+        {
+            image: 'https://cdn.britannica.com/24/4624-050-D2CAB6B1/Radio-wave-dish-type-antennas-diameter-satellite-communications.jpg',
+            title: 'Telecommunications',
+            text: 'Expansion of telecom services and infrastructure.',
+        },
+        {
+            image: 'https://tourismnewslive.com/wp-content/uploads/2018/05/ethiopia.jpg',
+            title: 'Tourism',
+            text: 'Hotels, resorts, and tourism-related infrastructure.',
+        },
+        {
+            image: 'https://menetsir.com/cdn/shop/products/image_251ed0c4-d3cc-417a-8ae2-4dc106ba2716_1025x593.jpg?v=1611275913',
+            title: 'Real Estate',
+            text: 'Investment in commercial and residential real estate projects.',
+        },
+    ]
     const services = [
         {
             title: 'Strategic Investment Design',
@@ -61,7 +118,7 @@ const CorporateInvestment = () => {
                     <div className='py-7 md:py-12 w-[100%] md:w-[50%]'>
                         <div className='text-5xl font-bold'>
                             <p>
-                                Investment 
+                                Investment
                             </p>
                         </div>
                         <div className='my-3'>
@@ -96,7 +153,7 @@ const CorporateInvestment = () => {
             </div>
 
             {/* third order container */}
-            <div className='mt-20 mb-10 md:my-36'>
+            <div className='mt-20 mb-10 md:mt-36 md:mb-20'>
                 {/* content container */}
                 <div className='static-padding-x flex flex-col-reverse md:flex-row gap-5 md:gap-10'>
                     <div className='w-[100%] md:w-[50%] py-5 md:py-10'>
@@ -119,51 +176,186 @@ const CorporateInvestment = () => {
                 </div>
             </div>
 
-            {/* fourth order container */}
-            <div className='md:my-36'>
+            {/* pre-fourth order container */}
+            <div>
                 {/* content container */}
-                <div className='static-padding-x flex flex-col md:flex-row gap-5 md:gap-10'>
-                    <div className='w-[100%] md:w-[50%]'>
-                        <div className='w-full h-[210px] md:h-full overflow-hidden'>
-                            <img className='w-full h-full object-center object-cover' src="https://www.lendio.com/wp-content/uploads/2020/09/business-people-planning.jpg" alt="" />
-                        </div>
-                    </div>
-
-                    <div className='w-[100%] md:w-[50%] py-5 md:py-10'>
-                        <div className='header-level-3 capitalize'>
-                            <p>
-                                Draft memorandum of  Association(MOA)
-                            </p>
-                        </div>
+                <div className='static-padding-x'>
+                    <div className='max-w-[850px] mx-auto p-5 border border-yellow-400 rounded-md'>
+                        <header className='my-2'>
+                            <p className='header-level-3 text-center'>Legislation applicable to investment in Ethiopia includes</p>
+                        </header>
                         <div>
-                            <p>
-                                The document delineates the company’s strategic goals, equity distribution, organizational governance, and regulatory guidelines. The Memorandum of Association (MOA) must encompass specifics like the company’s designation, principal place of business, capital stock, entitlements of shareholders, duties of directors, and methodologies for executive decision-making and corporate administration.
-                            </p>
+                            {/* item */}
+                            <div className='flex gap-3 mt-4'>
+                                <div className='flex items-start mt-1'>
+                                    <div className='w-[18px] text-white text-xs aspect-square rounded-full bg-yellow-400 flex items-center justify-center'>
+                                        <FaCheck />
+                                    </div>
+                                </div>
+                                <p>The Investment Proclamation (Proclamation No. 1180/2020)</p>
+                            </div>
+                            {/* item */}
+                            <div className='flex gap-3 mt-4'>
+                                <div className='flex items-start mt-1'>
+                                    <div className='w-[18px] text-white text-xs aspect-square rounded-full bg-yellow-400 flex items-center justify-center'>
+                                        <FaCheck />
+                                    </div>
+                                </div>
+                                <p>The Investment Incentives Regulation (Regulation No. 270/2012)</p>
+                            </div>
+                            {/* item */}
+                            <div className='flex gap-3 mt-4'>
+                                <div className='flex items-start mt-1'>
+                                    <div className='w-[18px] text-white text-xs aspect-square rounded-full bg-yellow-400 flex items-center justify-center'>
+                                        <FaCheck />
+                                    </div>
+                                </div>
+                                <p>The Ethiopian Investment Board and Investment Commission Establishment Council of Ministers Regulation (Regulation No. 474/2021)</p>
+                            </div>
+                            {/* item */}
+                            <div className='flex gap-3 mt-4'>
+                                <div className='flex items-start mt-1'>
+                                    <div className='w-[18px] text-white text-xs aspect-square rounded-full bg-yellow-400 flex items-center justify-center'>
+                                        <FaCheck />
+                                    </div>
+                                </div>
+                                <p>Investment regulation NO474/2020</p>
+                            </div>
+                            {/* item */}
+                            <div className='flex gap-3 mt-4'>
+                                <div className='flex items-start mt-1'>
+                                    <div className='w-[18px] text-white text-xs aspect-square rounded-full bg-yellow-400 flex items-center justify-center'>
+                                        <FaCheck />
+                                    </div>
+                                </div>
+                                <p>Directive number 1001/2024</p>
+                            </div>
+                            {/* item */}
+                            <div className='flex gap-3 mt-4'>
+                                <div className='flex items-start mt-1'>
+                                    <div className='w-[18px] text-white text-xs aspect-square rounded-full bg-yellow-400 flex items-center justify-center'>
+                                        <FaCheck />
+                                    </div>
+                                </div>
+                                <p>The Industrial Parks Proclamation (Proclamation No. 886/2015)</p>
+                            </div>
+                            {/* item */}
+                            <div className='flex gap-3 mt-4'>
+                                <div className='flex items-start mt-1'>
+                                    <div className='w-[18px] text-white text-xs aspect-square rounded-full bg-yellow-400 flex items-center justify-center'>
+                                        <FaCheck />
+                                    </div>
+                                </div>
+                                <p>Tax Proclamations and Regulations</p>
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            {/* fifth order container */}
-            <div className='my-10 bg-neutral-700'>
+            {/* fourth order container */}
+            <div className='my-20 bg-neutral-700'>
                 {/* content container */}
                 <div className='static-padding-x'>
                     <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-5 text-white py-10'>
                         <div>
-                            <div className='header-level-3'>
-                                <p>
-                                    Obtain Permits and Licenses
-                                </p>
-                            </div>
                             <div>
                                 <p>
-                                    Depending on the specific business activities and industry sector, business need to obtain additional permits or licenses from relevant government authorities or sector-specific regulatory bodies.
+                                    Local authorities are equally zealous in their quest for Foreign Direct Investment, making Ethiopia a magnet for global capital. With its doors wide open to FDI and a series of liberalization efforts, Ethiopia is quickly becoming the go-to spot for savvy investors worldwide. Before diving in, every investor, local or international, should consider the array of investment avenues available.
                                 </p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* fifth order container */}
+            <div className='md:my-36'>
+                {/* content container */}
+                <div className='static-padding-x'>
+                    {/* header */}
+                    <div>
+                        {/* bold */}
+                        <div className='header-level-3 mb-2'>
+                            <p>Types of investment</p>
+                        </div>
+                        {/* normal */}
                         <div>
-                            <button className='px-10 py-2 rounded-md bg-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-300 whitespace-nowrap'>Apply Now</button>
+                            <p>
+                                Ethiopia is on the rise as an investment powerhouse, with a government that’s not just investment-friendly but investment-forward. Under the strategic guidance of the Ethiopian Investment Board, chaired by none other than the Prime Minister, the nation is crafting policies that are as progressive as they are fair.
+                            </p>
+                        </div>
+                    </div>
+                    {/* accordion */}
+                    <div>
+                        {/* first accordion */}
+                        {
+                            investmentTypes.map((item, index) => {
+                                return (
+                                    <div key={index} className='p-1 md:p-5 rounded-sm bg-white shadow-md mt-5 text-[.85rem] md:text-[1.05rem]'>
+                                        <header className='flex items-center justify-between py-2'>
+                                            <div>
+                                                <p className='font-bold w-max cursor-pointer hover:underline' onClick={() => {
+                                                    setInvestmentIndex(index)
+                                                }}>{item.title}</p>
+                                            </div>
+                                            <div>
+                                                <div className='w-[28px] aspect-square rounded-full bg-gray-100 flex items-center justify-center transition-colors ease-in-out duration-300 hover:bg-gray-200 cursor-pointer' onClick={() => {
+                                                    setInvestmentIndex(index)
+                                                }}>
+                                                    <MdKeyboardArrowDown className={`text-2xl transition-transform ease-in-out duration-300 ${investmentIndex === index ? '-rotate-180' : 'rotate-0'}`} />
+                                                </div>
+                                            </div>
+                                        </header>
+
+                                        <div className={`overflow-hidden ${investmentIndex === index ? 'h-auto' : 'h-0'}`}>
+                                            <div className='pt-3 border-t border-gray-200'>
+                                                <div>
+                                                    <p>
+                                                        {item.text}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
+
+            {/* pre-six order container */}
+            <div className='bg-neutral-50'>
+                {/* content-container */}
+                <div className='static-padding-x py-10'>
+                    <header className='flex items-center justify-center mb-3 header-level-3'>
+                        <p>Investment Areas</p>
+                    </header>
+                    {/* grids */}
+                    <div>
+                        <div className='grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10'>
+                            {
+                                investmentAreas.map((item, index) => {
+                                    return (
+                                        <div key={index} className='flex flex-col bg-white border border-neutral-100 p-3 rounded-md'>
+                                            {/* image */}
+                                            <div className='w-[120px] aspect-[2/1.5] rounded-md overflow-hidden'>
+                                                <img className='w-full h-full object-center object-cover' src={item.image} alt="" />
+                                            </div>
+                                            {/* title */}
+                                            <div>
+                                                <h3 className='font-bold my-1'>{item.title}</h3>
+                                            </div>
+                                            {/* text */}
+                                            <div>
+                                                <p>{item.text}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>
@@ -177,35 +369,58 @@ const CorporateInvestment = () => {
                     <div className='flex flex-col md:flex-row gap-5 md:gap-10'>
                         <div className='w-[100%] md:w-[50%]'>
                             <div className='w-full h-[210px] md:h-full overflow-hidden'>
-                                <img className='w-full h-full object-center object-cover' src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ethiopian_Commercial_Bank_Addis_Abeba.jpg/1024px-Ethiopian_Commercial_Bank_Addis_Abeba.jpg" alt="" />
+                                <img className='w-full h-full object-center object-cover' src="https://thereportermagazines.com/wp-content/uploads/2024/03/FuzAf-fWYAArIim-1-1.jpg" alt="" />
                             </div>
                         </div>
 
                         <div className='w-[100%] md:w-[50%]'>
                             <div className='header-level-3'>
                                 <p>
-                                    Open Bank Account
+                                    Requirements to investment in Ethiopia
                                 </p>
                             </div>
                             <div className='my-3'>
                                 <p>
-                                    Establishing a corporate bank account under the company’s name is essential for handling financial dealings and overseeing corporate finances.
+                                    Investing in Ethiopia involves a range of intricate process that necessitate professional guidance.
                                 </p>
                             </div>
+                            <div className='my-3 flex gap-3 flex-wrap'>
+                                <div className='p-1 bg-white shadow-md'>
+                                    <p>Choosing business structure</p>
+                                </div>
+                                <div className='p-1 bg-white shadow-md'>
+                                    <p>Obtain investment license</p>
+                                </div>
+                                <div className='p-1 bg-white shadow-md'>
+                                    <p>Registering company</p>
+                                </div>
+                                <div className='p-1 bg-white shadow-md'>
+                                    <p>Name reservation</p>
+                                </div>
+                                <div className='p-1 bg-white shadow-md'>
+                                    <p>Land lease</p>
+                                </div>
+                                <div className='p-1 bg-white shadow-md'>
+                                    <p>Acquire business license </p>
+                                </div>
+                                <div className='p-1 bg-white shadow-md'>
+                                    <p>Tax registration</p>
+                                </div>
+                            </div>
+
                             <div className='bg-white p-5 shadow-lg'>
                                 <div className='px-5 border-l-4 border-yellow-400'>
                                     <p>
-                                        It is necessary to furnish the banking institution with mandatory documentation, which typically includes the company’s registration certificate, MOA, identification proofs for shareholders and directors, along with any other pertinent details.
+                                        Investment in Ethiopia, particularly Foreign Direct Investment (FDI), is governed by a multifaceted set of legal procedures and regulations.
                                     </p>
                                 </div>
                             </div>
-                            <div className='mt-7'>
-                                <button className='px-10 py-2 border-2 border-yellow-400 rounded-full text-yellow-500 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white'>Open Now</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+
 
             {/* seventh order container */}
             <div className='my-20'>
