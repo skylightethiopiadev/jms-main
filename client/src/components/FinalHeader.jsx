@@ -139,19 +139,19 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
   const criminalSubNav = [
     {
       navHeaderText: "Ordinary crime",
-      path: "#"
+      path: "/criminal/ordinary-crime"
     },
     {
       navHeaderText: "Corruption",
-      path: "#"
+      path: "/criminal/corruption"
     },
     {
       navHeaderText: "Money laundering (Financial fraud)",
-      path: "#"
+      path: "/criminal/money-laundering"
     },
     {
       navHeaderText: "Tax and customs related crimes",
-      path: "#"
+      path: "/criminal/tax-custom-crimes"
     }
   ];
   // commercial sub list
@@ -592,7 +592,10 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                                   key={index}
                                   className="my-[.45rem] text-[1.125rem]"
                                 >
-                                  <NavLink className={"hover:underline"}>
+                                  <NavLink className={"hover:underline"} to={item.path} onClick={()=>{
+                                    setIsNav(null)
+                                    scrollIntoHomeTopHandler()
+                                  }}>
                                     {item.navHeaderText}
                                   </NavLink>
                                 </li>

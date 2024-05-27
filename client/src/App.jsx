@@ -113,6 +113,14 @@ import CorporateConversion from "./pages/corporate/corporate-trade-investment/Co
 import CorporateMerger from "./pages/corporate/corporate-trade-investment/CorporateMerger";
 import CorporateInvestment from "./pages/corporate/corporate-trade-investment/CorporateInvestment";
 import CorporateTradeInvestmentOthers from "./pages/corporate/corporate-trade-investment/CorporateTradeInvestmentOthers";
+
+// criminal 
+import CriminalOutlet from "./pages/criminal/CriminalOutlet";
+import CriminalOrdinaryCrime from "./pages/criminal/CriminalOrdinaryCrime";
+import CriminalCorruption from "./pages/criminal/CriminalCorruption";
+import CriminalMoneyLaundering from "./pages/criminal/CriminalMoneyLaundering";
+import CriminalTaxCustomCrimes from "./pages/criminal/CriminalTaxCustomCrimes";
+
 // other services
 import HomeTraining from "./pages/other-services/Training";
 import HomeConsulting from "./pages/other-services/Consulting";
@@ -186,6 +194,13 @@ function App() {
                   <Route path="/corporate/trade-investment/merger" element={<CorporateMerger />}></Route>
                   <Route path="/corporate/trade-investment/investment" element={<CorporateInvestment />}></Route>
                   <Route path="/corporate/trade-investment/others" element={<CorporateTradeInvestmentOthers />}></Route>
+                </Route>
+                {/* criminal */}
+                <Route path="/criminal" element={<CriminalOutlet />}>
+                  <Route path="/criminal/ordinary-crime" element={<CriminalOrdinaryCrime />}></Route>
+                  <Route path="/criminal/corruption" element={<CriminalCorruption />}></Route>
+                  <Route path="/criminal/money-laundering" element={<CriminalMoneyLaundering />}></Route>
+                  <Route path="/criminal/tax-custom-crimes" element={<CriminalTaxCustomCrimes />}></Route>
                 </Route>
                 <Route path="/succession" element={<Succession />}></Route>
                 <Route path="/employment" element={<Employment />}></Route>
