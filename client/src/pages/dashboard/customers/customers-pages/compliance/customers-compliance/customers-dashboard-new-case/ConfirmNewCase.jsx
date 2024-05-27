@@ -21,7 +21,7 @@ const ConfirmNewCase = props => {
                         <div className="pl-5 mt-2">
                             <div className="p-2 border border-gray-200">
                                 <header>
-                                    <h3 className="header-level-4">{props?.newCaseHistory.subCaseCategory.title}</h3>
+                                    <h3 className="header-level-4">{props?.newCaseHistory?.subCaseCategory?.subType?.caseName}</h3>
                                 </header>
                                 <div>
                                     <p>

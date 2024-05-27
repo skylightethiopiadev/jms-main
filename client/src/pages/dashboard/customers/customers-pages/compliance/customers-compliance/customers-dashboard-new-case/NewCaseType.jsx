@@ -7,12 +7,13 @@ import { IoMdArrowForward } from "react-icons/io";
 const NewCaseType = props => {
     const [drop, setDrop] = useState(null);
 
+
     return (
         <div className="overflow-y-auto h-[66vh] p-2 flex flex-col gap-y-3">
             <header>
                 <h4 className="header-level-4">{props?.newCase?.caseCategory}</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae sit adipisci harum vero nam quibusdam, exercitationem ex nihil cum consequuntur libero voluptates ut possimus!
+                    From the following lists Select the legal service you wish to receive in relation to <span className="font-bold">{props?.newCase?.caseCategory}</span> cases:
                 </p>
             </header>
             <div className="flex-grow border border-gray-200 rounded-md p-2 bg-white flex flex-col gap-y-3">
@@ -53,21 +54,21 @@ const NewCaseType = props => {
                                                                             return {
                                                                                 ...prev,
                                                                                 subCaseCategory: {
-                                                                                    title: item?.caseName,
+                                                                                    subType: item,
                                                                                     subSubCaseCategory: {
-                                                                                        title: subItem,
+                                                                                        subSubType: subItem,
                                                                                     },
                                                                                 },
                                                                             };
                                                                         });
                                                                     }}
                                                                 >
-                                                                    
+
                                                                     {/* <div className="w-[7px] aspect-square rounded-full bg-gray-700"></div> */}
 
-                                                                    <IoMdArrowForward className="text-gray-700"/>
+                                                                    <IoMdArrowForward className="text-gray-700" />
                                                                     <div>
-                                                                        <span>{subItem}</span>
+                                                                        <span>{subItem?.title}</span>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -86,7 +87,7 @@ const NewCaseType = props => {
                                                     return {
                                                         ...prev,
                                                         subCaseCategory: {
-                                                            title: item?.caseName,
+                                                            subType: item,
                                                         },
                                                     };
                                                 });
