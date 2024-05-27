@@ -14,18 +14,43 @@ import { CiLogout } from "react-icons/ci";
 const CustomersHeader = () => {
     // states
     const [isUserProfilePopUpOpen, setIsUserProfilePopUpOpen] = useState(false)
+    // languages
+    const [languages, setLanguages] = useState([
+        {
+            language: 'Amharic',
+            flag: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg',
+        },
+        {
+            language: 'Arabic',
+            flag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg3dfU5w05oiEfg2RHI3Ej8pWfLdYq6bb6BOVpkV9ezA&s',
+        },
+        {
+            language: 'Chinese',
+            flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png',
+        },
+        {
+            language: 'Eng(US)',
+            flag: 'https://static.vecteezy.com/system/resources/thumbnails/002/816/608/small/american-national-flag-free-vector.jpg',
+        },
+        {
+            language: 'Swahili',
+            flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Kenya.svg/1200px-Flag_of_Kenya.svg.png',
+        },
+    ])
+    const [isLanguage,setIsLanguage] = useState(languages[3])
+    const [isLanguagePopUp,setIsLanguagePopUp] = useState(false);
 
     // customers dashboard toggler
     const customersDashboardToggler = () => {
-        let sideNav = document.getElementById('customers-dashboard-side-nav') 
+        let sideNav = document.getElementById('customers-dashboard-side-nav')
 
         if (sideNav?.classList.contains('absolute')) {
             if (sideNav?.classList.contains('left-[-100vw]')) {
                 sideNav?.classList.remove('left-[-100vw]')
-                sideNav?.classList.add('left-0') 
+                sideNav?.classList.add('left-0')
             } else {
                 sideNav?.classList.remove('left-0')
-                sideNav?.classList.add('left-[-100vw]') 
+                sideNav?.classList.add('left-[-100vw]')
             }
         }
     }
@@ -59,16 +84,44 @@ const CustomersHeader = () => {
             {/* right */}
             <div className='flex items-center gap-2 sm:gap-3 md:gap-5 xl:gap-10'>
                 {/* language */}
-                <div>
-                    <div className='flex items-center gap-1 cursor-pointer px-1 py-[.25rem] border border-transparent rounded-sm transition-colors ease-in-out duration-300 hover:border-gray-200'>
-                        <div className='w-[16px] aspect-square rounded-full overflow-hidden'>
-                            <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-vector/illustration-usa-flag_53876-18165.jpg" alt="" />
+                <div className='relative'>
+                    <div className={`flex items-center gap-1 w-[120px] cursor-pointer px-1 py-[.25rem] border rounded-sm transition-colors ease-in-out duration-300  ${isLanguagePopUp ? 'border-gray-200' : 'hover:border-gray-200 border-transparent'}`} onClick={() => {
+                        setIsLanguagePopUp(!isLanguagePopUp)
+                    }}>
+                        <div className='w-[20px] aspect-square rounded-full overflow-hidden'>
+                            <img className='w-full h-full object-center object-cover' src={isLanguage.flag} alt="" />
                         </div>
-                        <div className='text-xs'>
-                            <span>Eng(US)</span>
+                        <div className='text-sm'>
+                            <span>{isLanguage.language}</span>
                         </div>
                         <div>
-                            <MdKeyboardArrowDown className='text-lg' />
+                            <MdKeyboardArrowDown className={`text-lg transition-transform ease-in-out duration-300 ${isLanguagePopUp ? '-rotate-180' : 'rotate-0'}`} />
+                        </div>
+                    </div>
+                    <div className={`absolute z-50 left-1/2 -translate-x-1/2 top-[100%] w-[150px] bg-transparent overflow-hidden transition-all ease-in-out duration-150 ${isLanguagePopUp ? 'h-[450px]' : 'h-0'}`}>
+                        <div className='mt-4 h-max w-full bg-white border border-gray-200 rounded-md relative'>
+                            {/* triangle */}
+                            <div className='absolute top-[-12px] left-1/2 -translate-x-1/2 w-[24px] aspect-square bg-inherit border-l border-t border-gray-200 rotate-45 z-0'></div>
+                            <div className='px-1 py-3'>
+                                {
+                                    languages.map((item, index) => {
+                                        return (
+                                            <div key={index} className='cursor-pointer mb-3 flex items-center gap-2 py-1 px-3 transition-colors ease-in-out duration-150 hover:bg-gray-100 relative z-10 rounded-sm' onClick={()=>{
+                                                setIsLanguagePopUp(!isLanguagePopUp)
+                                                setIsLanguage(item)
+                                            }}>
+                                                <div className='w-[20px] aspect-square rounded-full overflow-hidden'>
+                                                    <img className='w-full h-full object-center object-cover' src={item.flag} alt="" />
+                                                </div>
+                                                <div>
+                                                    <span>{item.language}</span>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +135,7 @@ const CustomersHeader = () => {
                     </div>
                     {/* user */}
                     <div className='relative'>
-                        <div className='flex items-center gap-1 cursor-pointer px-2 py-[.15rem] border border-transparent transition-colors ease-in-out duration-300 hover:border-gray-200' onClick={() => {
+                        <div className={`flex items-center gap-1 cursor-pointer px-2 py-[.15rem] border transition-colors ease-in-out duration-300  ${isUserProfilePopUpOpen ? 'border-gray-200' : 'border-transparent hover:border-gray-200'}`} onClick={() => {
                             setIsUserProfilePopUpOpen(!isUserProfilePopUpOpen)
                         }}>
                             {/* image */}
@@ -103,7 +156,7 @@ const CustomersHeader = () => {
                         </div>
                         {/* pop up */}
                         <div className={`absolute z-50 w-[170px]  overflow-hidden bg-transparent right-0 top-[100%] transition-all ease-in-out duration-300 ${isUserProfilePopUpOpen ? 'h-[320px]' : 'h-0'}`}>
-                            <div className='mt-5 w-full h-[270px] bg-white relative border rounded-md border-gray-200 ppt-12'>
+                            <div className='mt-4 w-full h-[270px] bg-white relative border rounded-md border-gray-200 ppt-12'>
                                 <div className='w-[24px] aspect-square bg-inherit rotate-45 absolute top-0 right-10 mt-[-12px] border-gray-200 border-t border-l'></div>
                                 {/* user profile */}
                                 <div className='flex items-center justify-center'>
