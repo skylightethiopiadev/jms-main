@@ -1,8 +1,14 @@
+import {useState} from 'react'
+
 // icons
 import { IoIosMore } from "react-icons/io";
 import { MdArrowRightAlt } from "react-icons/md";
+import { IoIosClose } from "react-icons/io";
 
 const CaseCategory = props => {
+
+    // case description
+    const [isCaseCategoryDescription,setIsCaseCategoryDescription] = useState(null)
 
 
     return (
@@ -17,16 +23,18 @@ const CaseCategory = props => {
                 {
                     props?.caseCategories.map((item, index) => {
                         return (
-                            <div key={index} className="p-3 border border-gray-300 rounded-md mb-3">
+                            <div key={index} className="p-3 border border-gray-300 rounded-md mb-3 relative">
                                 <header className="flex items-center justify-between">
                                     <h3 className="header-level-4">{item.caseCategory}</h3>
-                                    <button className="text-2xl opacity-55 transition-opacity ease-in-out duration-300 hover:opacity-100">
+                                    <button className="text-2xl opacity-55 transition-opacity ease-in-out duration-300 hover:opacity-100" onMouseEnter={()=>{
+                                        setIsCaseCategoryDescription(item)
+                                    }}>
                                         <IoIosMore />
                                     </button>
                                 </header>
                                 <div>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium aut ratione enim perspiciatis assumenda aliquid nisi maiores!
+                                        {item?.description?.substring(0,130)}...
                                     </p>
                                 </div>
                                 <footer className="mt-2">
@@ -47,6 +55,20 @@ const CaseCategory = props => {
                                         <MdArrowRightAlt className="text-xl" />
                                     </div>
                                 </footer>
+
+                                {/* detail pop up */}
+                                <div className={`absolute right-1 bottom-1 w-[95%] h-max bg-white border border-blue-200 rounded-md shadow-xl transition-transform ease-in-out duration-150 ${isCaseCategoryDescription?.caseCategory === item.caseCategory ? 'scale-100' : 'scale-0'}`} onMouseLeave={()=>{
+                                    setIsCaseCategoryDescription(null)
+                                }}>
+                                    <div className='absolute top-1 right-1 w-[24px] aspect-square rounded-full bg-gray-100 flex items-center justify-center text-2xl transition-colors ease-in-out duration-150 hover:bg-gray-300 cursor-pointer' onClick={()=>{
+                                        setIsCaseCategoryDescription(null)
+                                    }}>
+                                        <IoIosClose />
+                                    </div>
+                                    <div className="p-5">
+                                        <p>{item?.description}</p>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })

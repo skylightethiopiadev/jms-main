@@ -50,7 +50,7 @@ const CustomersDashboardNewCase = () => {
         {
             caseCategory: "Civil",
             description:
-                "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employment, succession of family's property. Issues related civil matters are usually settled by court proceedings. Individual clients having issues like contract of loan, sale of property, employment, divorce, partition of property, maintenance, adoption, succession are encouraged to contact our lawyers expedites in areas of civil cases",
+                "Civil cases revolve around legal disagreements among private individuals, businesses, or entities and aim to address individual rights and interests. Resolutions to these disputes typically entail financial compensation or forced performances rather than imprisonment. Common cases include disputes over inheritance, property, family matters, personal injury claims, unjust enrichment, contract disputes, and other legal conflicts that do not typically involve imprisonment. The focus of civil cases is to provide remedies to those affected while ensuring equitable dispute resolution.",
             subCategories: [
                 {
                     caseName: "Contract",
