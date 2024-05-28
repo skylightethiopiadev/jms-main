@@ -221,13 +221,13 @@ const LawyerList = props => {
                     </header>
                     {/* lawyer list */}
                     <div className='mt-3 h-max'>
-                        <div className='flex flex-wrap gap-5'>
+                        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
                             {
                                 [...Array(12)].map((item, index) => {
                                     return (
                                         <div key={index} className='flex gap-2 p-3 relative z-0 border border-gray-300 rounded-md w-max'>
                                             {/* more btn */}
-                                            <div className='absolute top-1 right-1 text-x' onClick={()=> {
+                                            <div className='absolute top-1 right-1 text-x bg-gray-100 cursor-pointer hover:bg-gray-300' onClick={()=> {
                                                 setIsLawyerDetailPopup(true)
                                             }}>
                                                 <IoMdMore />

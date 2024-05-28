@@ -46,7 +46,7 @@ const NewCaseServices = props => {
                     {newCaseServices?.map((service, index) => (
                         <div
                             key={index}
-                            className="mb-2 font-medium flex gap-[3%] p-[1%] transition-colors ease-in-out duration-300 hover:bg-gray-100 whitespace-nowrap px-1"
+                            className="mb-2 font-medium flex gap-[3%] p-[1%] transition-colors ease-in-out duration-300 hover:bg-gray-100 whitespace-nowrap px-1 w-max"
                         >
                             <input
                                 id={`${index}`}
