@@ -14,6 +14,8 @@ const LawyerList = props => {
     // scroll reference
     let scrollReference = useRef(null)
 
+    const [isLawyerDetailPopup,setIsLawyerDetailPopup] = useState(null)
+
     // location
     const [locationKey, setLocationKey] = useState(false)
     const [locationValue, setLocationValue] = useState('')
@@ -225,7 +227,9 @@ const LawyerList = props => {
                                     return (
                                         <div key={index} className='flex gap-2 p-3 relative z-0 border border-gray-300 rounded-md w-max'>
                                             {/* more btn */}
-                                            <div className='absolute top-1 right-1 text-x'>
+                                            <div className='absolute top-1 right-1 text-x' onClick={()=> {
+                                                setIsLawyerDetailPopup(true)
+                                            }}>
                                                 <IoMdMore />
                                             </div>
                                             {/* image */}
@@ -297,6 +301,10 @@ const LawyerList = props => {
                     </div>
                 </div>
             </div>
+            {/* lawyer detail pop up */}
+            <div className={`fixed z-50 w-[300px] h-[400px] bg-red-500 rounded-md top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-transform ease-in-out duration-300 ${isLawyerDetailPopup ? 'scale-100' : 'scale-0'}`} onMouseLeave={()=>{
+                setIsLawyerDetailPopup(null)
+            }}></div>
         </div>
     )
 }
