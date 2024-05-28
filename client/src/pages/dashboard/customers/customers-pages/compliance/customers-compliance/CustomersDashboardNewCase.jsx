@@ -4,6 +4,7 @@ import { useState } from "react";
 import CaseCategory from "./customers-dashboard-new-case/CaseCategory";
 import NewCaseType from "./customers-dashboard-new-case/NewCaseType";
 import NewCaseServices from "./customers-dashboard-new-case/NewCaseServices";
+import LawyerList from "./customers-dashboard-new-case/LawyerList";
 import ConfirmNewCase from "./customers-dashboard-new-case/ConfirmNewCase";
 
 // stepper 
@@ -23,6 +24,10 @@ const CustomersDashboardNewCase = () => {
         {
             title: "Specification",
             description: "sub-category",
+        },
+        {
+            title: "Lawyers",
+            description: "select for your case",
         },
         {
             title: "Services",
@@ -642,7 +647,7 @@ const CustomersDashboardNewCase = () => {
     return (
         <div className="flex-grow">
             <SteperComponent
-                steps={3}
+                steps={4}
                 stepsHint={stepsHint}
                 stepCounter={stepCounter}
                 setStepCounter={setStepCounter}
@@ -673,6 +678,12 @@ const CustomersDashboardNewCase = () => {
                     newCaseHistory={newCaseHistory}
                     setStepCounter={setStepCounter}
                     setNewCaseHistory={setNewCaseHistory}
+                />
+            ) : stepCounter === 3 ? (
+                <LawyerList
+                    stepCounter={stepCounter}
+                    setStepCounter={setStepCounter}
+                    newCaseHistory={newCaseHistory}
                 />
             ) : (
                 <ConfirmNewCase

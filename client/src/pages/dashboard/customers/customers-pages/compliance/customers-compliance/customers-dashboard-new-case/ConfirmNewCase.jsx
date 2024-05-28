@@ -73,7 +73,7 @@ const ConfirmNewCase = props => {
                                                         disabled
                                                     // onChange={inputChangeHandler}
                                                     />
-                                                    <label htmlFor={`${index}`} className="cursor-pointer">
+                                                    <label htmlFor={`${index}`} className="cursor-pointer capitalize">
                                                         {item}
                                                     </label>
                                                 </div>

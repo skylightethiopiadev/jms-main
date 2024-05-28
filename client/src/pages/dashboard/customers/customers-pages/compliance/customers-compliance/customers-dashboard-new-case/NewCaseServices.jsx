@@ -1,9 +1,11 @@
-import FroalaEditorComponent from "react-froala-wysiwyg";
-
-import "froala-editor/css/froala_style.min.css";
-import "froala-editor/css/froala_editor.pkgd.min.css";
+import React,{useState} from 'react';
+// text editor components
+import Editor from '../../../../../../../components/text-editor/Editor'
 
 const NewCaseServices = props => {
+
+    // states
+    const [description,setDescription] = useState('')
 
     // services
     let newCaseServices = props?.newCaseHistory?.
@@ -56,13 +58,19 @@ const NewCaseServices = props => {
                                     item === service ? true : false
                                 )}
                             />
-                            <label htmlFor={`${index}`} className="cursor-pointer bg-red-50f0 h-full w-full">
+                            <label htmlFor={`${index}`} className="cursor-pointer bg-red-50f0 h-full w-full capitalize">
                                 {service}
                             </label>
                         </div>
                     ))}
                 </div>
-                <div className="p-2 border border-gray-200 rounded-md mt-3">bottom text container</div>
+                <div className="p-2 border border-gray-200 rounded-md mt-3">
+                    <Editor
+                        description={description}
+                        setDescription={setDescription}
+                        theme="snow"
+                    />
+                </div>
 
                 {/* next btn */}
                 <div className="absolute bottom-1 right-1 cursor-pointer px-7 py-1 rounded-md bg-blue-700 text-white transition-colors ease-in-out duration-300 hover:bg-blue-500" onClick={() => {
