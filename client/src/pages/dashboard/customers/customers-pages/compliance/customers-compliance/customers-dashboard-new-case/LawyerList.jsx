@@ -1,4 +1,4 @@
-import React, { useState,useRef } from 'react'
+import React, { useState, useRef } from 'react'
 
 // icons
 import { CiSearch } from "react-icons/ci";
@@ -9,7 +9,7 @@ import { IoMdMore } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
 
-const LawyerList = () => {
+const LawyerList = props => {
 
     // scroll reference
     let scrollReference = useRef(null)
@@ -65,7 +65,7 @@ const LawyerList = () => {
 
     // scroll reference handler
     const scrollReferenceHandler = () => {
-        scrollReference?.current.scrollIntoView({behavior: 'smooth'})
+        scrollReference?.current.scrollIntoView({ behavior: 'smooth' })
         console.log('MOUSE ENTER')
     }
 
@@ -120,7 +120,7 @@ const LawyerList = () => {
 
                                         {/* list */}
                                         <div className={`absolute right-0 top-[100%] w-[100%]  bg-transparent transition-all ease-in-out duration-300 overflow-hidden ${locationKey ? 'h-[250px]' : 'h-0'}`}>
-                                            <div className={`w-full h-max max-h-[230px] overflow-y-auto bg-white border  p-1 ${locationKey ? 'border-gray-300' : 'border-transparent'}`}>
+                                            <div className={`w-full h-max max-h-[230px] overflow-y-auto bg-white border relative z-30  p-1 ${locationKey ? 'border-gray-300' : 'border-transparent'}`}>
                                                 {
                                                     locationList.map((item, index) => {
                                                         return (
@@ -158,7 +158,7 @@ const LawyerList = () => {
 
                                         {/* list */}
                                         <div className={`absolute right-0 top-[100%] w-[100%]  bg-transparent transition-all ease-in-out duration-300 overflow-hidden ${genderKey ? 'h-[250px]' : 'h-0'}`}>
-                                            <div className={`w-full h-max max-h-[230px] overflow-y-auto bg-white border  p-1 ${locationKey ? 'border-gray-300' : 'border-transparent'}`}>
+                                            <div className={`w-full h-max max-h-[230px] relative z-30 overflow-y-auto bg-white border  p-1 ${locationKey ? 'border-gray-300' : 'border-transparent'}`}>
                                                 {
                                                     genderList.map((item, index) => {
                                                         return (
@@ -196,7 +196,7 @@ const LawyerList = () => {
 
                                         {/* list */}
                                         <div className={`absolute right-0 top-[100%] w-[100%]  bg-transparent transition-all ease-in-out duration-300 overflow-hidden ${ageKey ? 'h-[250px]' : 'h-0'}`}>
-                                            <div className={`w-full h-max max-h-[230px] overflow-y-auto bg-white border  p-1 ${ageKey ? 'border-gray-300' : 'border-transparent'}`}>
+                                            <div className={`w-full h-max max-h-[230px] relative z-30 overflow-y-auto bg-white border  p-1 ${ageKey ? 'border-gray-300' : 'border-transparent'}`}>
                                                 {
                                                     ageList.map((item, index) => {
                                                         return (
@@ -257,7 +257,9 @@ const LawyerList = () => {
                                                 </div>
                                                 {/* button */}
                                                 <div className='mt-3'>
-                                                    <div className='w-max px-6 py-[.13rem] flex items-center justify-center cursor-pointer bg-blue-600 text-white transition-colors ease-in-out duration-300 hover:bg-blue-500 rounded-sm'>
+                                                    <div className='w-max px-6 py-[.13rem] flex items-center justify-center cursor-pointer bg-blue-600 text-white transition-colors ease-in-out duration-300 hover:bg-blue-500 rounded-sm' onClick={() => {
+                                                        props?.setStepCounter(props?.stepCounter + 1);
+                                                    }}>
                                                         <span>select</span>
                                                     </div>
                                                 </div>
