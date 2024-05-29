@@ -16,7 +16,7 @@ const NewCaseType = props => {
                     From the following lists Select the legal service you wish to receive in relation to <span className="font-bold">{props?.newCase?.caseCategory}</span> cases:
                 </p>
             </header>
-            <div className="flex-grow border border-gray-200 rounded-md p-2 bg-white flex flex-col gap-y-3">
+            <div className="flex-grow border border-gray-200 rounded-md p-2 pb-10 bg-white flex flex-col gap-y-3">
                 {
                     props?.newCase?.subCategories.map((item, index) => {
                         return (

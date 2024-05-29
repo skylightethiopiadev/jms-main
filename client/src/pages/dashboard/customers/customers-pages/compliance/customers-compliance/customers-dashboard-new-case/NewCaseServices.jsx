@@ -41,7 +41,7 @@ const NewCaseServices = props => {
                     </p>
                 </div>
             </header>
-            <div className="flex-grow bg-white border border-gray-200 rounded-md p-2 relative">
+            <div className="flex-grow bg-white border border-gray-200 rounded-md p-2 relative pb-10">
                 <div className="border border-gray-200 p-3 rounded-md flex gap-x-2 flex-wrap">
                     {newCaseServices?.map((service, index) => (
                         <div

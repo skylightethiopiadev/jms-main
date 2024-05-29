@@ -19,7 +19,7 @@ const CaseCategory = props => {
                 </header>
             </div>
             {/* cases list here */}
-            <div className="flex-grow bg-white rounded-md border border-gray-200 p-2">
+            <div className="flex-grow bg-white rounded-md border border-gray-200 p-2 pb-10">
                 {
                     props?.caseCategories.map((item, index) => {
                         return (
