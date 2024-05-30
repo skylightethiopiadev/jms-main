@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Chart from 'react-apexcharts'
 
@@ -21,7 +21,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const CustomersDashboardMyChartCaseTeamIndex = () => {
 
-
+    const [isLawyerDetail,setIsLawyerDetail] = useState(false)
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
@@ -113,7 +113,9 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                                     </div>
                                                 </div>
                                                 <div className='self-start transition-colors ease-in-out duration-300 hover:bg-gray-200 h-max'>
-                                                    <NavLink className={''}><div>
+                                                    <NavLink className={''} onClick={()=>{
+                                                        setIsLawyerDetail(true)
+                                                    }}><div>
                                                         <MdMoreHoriz className='text-xl' /></div></NavLink>
                                                 </div>
                                             </header>
@@ -305,12 +307,12 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
             </div>
 
             {/* lawyer detail pop up */}
-            <div className={`fixed z-50 w-[350px] h-[500px] bg-white shadow-md rounded-sm overflow-hidden top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-transform ease-in-out duration-300 ${true ? 'scale-100' : 'scale-0'} flex flex-col`} >
+            <div className={`fixed z-50 w-[350px] h-[500px] bg-white shadow-md rounded-sm overflow-hidden top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-transform ease-in-out duration-300 ${isLawyerDetail ? 'scale-100' : 'scale-0'} flex flex-col`} >
                 {/* header */}
                 <header className='border-b border-gray-300 relative'>
                     {/* close btn */}
                     <div className='absolute top-1 right-1 z-10 cursor-pointer w-[20px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-300 transition-colors ease-in-out duration-300 hover:bg-gray-100' onClick={() => {
-                        // close
+                        setIsLawyerDetail(false)
                     }}>
                         <MdOutlineClose />
                     </div>
@@ -514,7 +516,9 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                 </div>
                             </div>
 
-                            <div className='flex items-center gap-1 cursor-pointer hover:text-green-500'>
+                            <div className='flex items-center gap-1 cursor-pointer hover:text-green-500' onClick={()=>{
+                                setIsLawyerDetail(false)
+                            }}>
                                 <div>
                                     <div className='w-[24px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
                                         <IoCloseOutline />
