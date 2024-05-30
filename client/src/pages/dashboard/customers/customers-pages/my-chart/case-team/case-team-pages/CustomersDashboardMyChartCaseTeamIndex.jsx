@@ -4,14 +4,19 @@ import Chart from 'react-apexcharts'
 
 // icons
 import { AiOutlineClose } from "react-icons/ai";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdMoreHoriz } from "react-icons/md";
 
 import { PiPhoneCallThin } from "react-icons/pi";
 import { CiChat2 } from "react-icons/ci";
 import { CiWarning } from "react-icons/ci";
 import { CiViewBoard } from "react-icons/ci";
+
+import { FaFacebookF } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
+import { BiLogoTelegram } from "react-icons/bi";
+import { MdOutlineClose } from "react-icons/md";
+import { IoCloseOutline } from "react-icons/io5";
+
 
 
 const CustomersDashboardMyChartCaseTeamIndex = () => {
@@ -163,22 +168,22 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
             <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md mt-7">
                 <div className='flex gap-3 flex-col md:flex-row'>
                     <div className='w-[100%] md:w-[35%] bg-gray-50'>
-                        <Chart 
+                        <Chart
                             type='line'
                             width={'100%'}
                             height={'100%'}
                             series={[
                                 {
                                     name: 'active',
-                                    data: [5,23,24,4,12,28,11,13,7,30],
+                                    data: [5, 23, 24, 4, 12, 28, 11, 13, 7, 30],
                                 },
                                 {
                                     name: 'pending',
-                                    data: [20,24,12,10,27,11,19,9,26,16],
+                                    data: [20, 24, 12, 10, 27, 11, 19, 9, 26, 16],
                                 },
                                 {
                                     name: 'closed',
-                                    data: [11,3,17,9,22,28,14,33,19,20],
+                                    data: [11, 3, 17, 9, 22, 28, 14, 33, 19, 20],
                                 },
                             ]}
 
@@ -190,13 +195,13 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                     zoom: {
                                         enabled: false
                                     },
-                                    
+
                                 },
                                 stroke: {
                                     curve: 'smooth',
                                     width: 1,
                                 },
-                                colors: ['#0bde7b', '#f5b907','#cf0430'],
+                                colors: ['#0bde7b', '#f5b907', '#cf0430'],
                                 subtitle: {
                                     text: 'case history',
                                     align: 'center',
@@ -299,6 +304,231 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                 </div>
             </div>
 
+            {/* lawyer detail pop up */}
+            <div className={`fixed z-50 w-[350px] h-[500px] bg-white shadow-md rounded-sm overflow-hidden top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-transform ease-in-out duration-300 ${true ? 'scale-100' : 'scale-0'} flex flex-col`} >
+                {/* header */}
+                <header className='border-b border-gray-300 relative'>
+                    {/* close btn */}
+                    <div className='absolute top-1 right-1 z-10 cursor-pointer w-[20px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-300 transition-colors ease-in-out duration-300 hover:bg-gray-100' onClick={() => {
+                        // close
+                    }}>
+                        <MdOutlineClose />
+                    </div>
+                    {/* top */}
+                    <div className='w-full h-[50px] overflow-hidden bg-gray-400 relative z-0'></div>
+                    {/* bottom */}
+                    <div className='relative z-0 px-7 flex items-center justify-between py-1'>
+                        {/* left */}
+                        <div className='flex gap-3'>
+                            {/* image */}
+                            <div>
+                                <div className='w-[64px] aspect-square rounded-full overflow-hidden bg-white border-2 border-white shadow-md mt-[-25px]'>
+                                    <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="" />
+                                </div>
+                            </div>
+                            {/* text */}
+                            <div>
+                                {/* full name */}
+                                <div className='flex gap-1 font-bold'>
+                                    <span>Addis</span>
+                                    <span>Fanta</span>
+                                </div>
+                                {/* phone */}
+                                <div className='flex items-center gap-1 cursor-pointer'>
+                                    {/* icon */}
+                                    <div>
+                                        <PiPhoneCallThin />
+                                    </div>
+                                    {/* number */}
+                                    <div>
+                                        <span>0923996736</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* right */}
+                        <div className='self-start py-1'>
+                            <div className='flex items-center justify-end gap-3 text-blue-700'>
+                                <NavLink>
+                                    <FaFacebookF />
+                                </NavLink>
+                                <NavLink>
+                                    <BiLogoTelegram />
+                                </NavLink>
+                                <NavLink className={'ml-1'}>
+                                    <RiTwitterXFill />
+                                </NavLink>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                {/* content */}
+                <div className='flex-grow p-3'>
+                    {/* bio */}
+                    <div>
+                        <p className='py-1 border-b border-gray-300'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque non reprehenderit vel.
+                        </p>
+                    </div>
+
+                    {/* detail */}
+                    <div className='p-5'>
+                        <div>
+                            <h3 className='font-bold'>Personal Detail</h3>
+                        </div>
+                        <div className='py-1 border-l border-green-500'>
+                            {/* name */}
+                            <div>
+                                <header className='flex items-center gap-2 pt-3'>
+                                    <div className='ml-[-8px]'>
+                                        <div className='w-[14px] aspect-square border-2 border-green-500 rounded-full bg-white'></div>
+                                    </div>
+                                    <div className='font-black'>
+                                        <span>Name</span>
+                                    </div>
+                                </header>
+                                <div className='ml-4'>
+                                    <div className='flex gap-5'>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>First</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>Haddis</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>Middle</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>Fanta</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>Last</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>Shiferaw</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* contact */}
+                            <div>
+                                <header className='flex items-center gap-2 pt-3'>
+                                    <div className='ml-[-8px]'>
+                                        <div className='w-[14px] aspect-square border-2 border-green-500 rounded-full bg-white'></div>
+                                    </div>
+                                    <div className='font-black'>
+                                        <span>Contact</span>
+                                    </div>
+                                </header>
+                                <div className='ml-4'>
+                                    <div className='flex gap-5'>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>Phone</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>+251923996736</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>Email</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>haddisfun@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* address */}
+                            <div>
+                                <header className='flex items-center gap-2 pt-3'>
+                                    <div className='ml-[-8px]'>
+                                        <div className='w-[14px] aspect-square border-2 border-green-500 rounded-full bg-white'></div>
+                                    </div>
+                                    <div className='font-black'>
+                                        <span>Address</span>
+                                    </div>
+                                </header>
+                                <div className='ml-4'>
+                                    <div className='flex gap-5'>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>Country</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>Ethiopia</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>Region</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>Amhara</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className='font-semibold'>
+                                                <span>City</span>
+                                            </div>
+                                            <div className='mt-[-5px]'>
+                                                <span>Bahir Dar</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* footer */}
+                    <footer>
+                        <div className='flex items-center gap-5'>
+                            <div className='flex items-center gap-1 cursor-pointer hover:text-green-500'>
+                                <div>
+                                    <div className='w-[24px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
+                                        <CiChat2 />
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>message</span>
+                                </div>
+                            </div>
+
+                            <div className='flex items-center gap-1 cursor-pointer hover:text-green-500'>
+                                <div>
+                                    <div className='w-[24px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
+                                        <CiWarning />
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>report</span>
+                                </div>
+                            </div>
+
+                            <div className='flex items-center gap-1 cursor-pointer hover:text-green-500'>
+                                <div>
+                                    <div className='w-[24px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
+                                        <IoCloseOutline />
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>close</span>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+
+                </div>
+            </div>
         </div>
     )
 }
