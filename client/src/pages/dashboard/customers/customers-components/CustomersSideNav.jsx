@@ -84,17 +84,17 @@ const CustomersSideNav = () => {
                 {
                     icon: MdOutlineSupervisorAccount,
                     title: 'Case Team',
-                    path: '#',
+                    path: '/dashboard/customers/my-chart/case-team',
                 },
                 {
                     icon: VscLayersActive,
                     title: 'Active Case',
-                    path: '#',
+                    path: '/dashboard/customers/my-chart/active-case',
                 },
                 {
                     icon: HiOutlineLockClosed,
                     title: 'Closed Case',
-                    path: '#',
+                    path: '/dashboard/customers/my-chart/closed-case',
                 },
             ]
         },

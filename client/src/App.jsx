@@ -25,6 +25,17 @@ import CustomersDashboardNewCase from "./pages/dashboard/customers/customers-pag
 import CustomersDashboardOnRequest from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/CustomersDashboardOnRequest";
 import CustomersDashboardOnRequestList from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/customers-dashboard-on-request/CustomersDashboardOnRequestList";
 import CustomersDashboardOnRequestDetail from "./pages/dashboard/customers/customers-pages/compliance/customers-compliance/customers-dashboard-on-request/CustomersDashboardOnRequestDetail";
+// customers dashboard -- my chart -- start
+import CustomersDashboardMyChart from "./pages/dashboard/customers/customers-pages/my-chart/CustomersDashboardMyChart";
+// ------------
+import CustomersDashboardMyChartCaseTeam from './pages/dashboard/customers/customers-pages/my-chart/case-team/CustomersDashboardMyChartCaseTeam.jsx'
+import CustomersDashboardMyChartCaseTeamIndex from './pages/dashboard/customers/customers-pages/my-chart/case-team/case-team-pages/CustomersDashboardMyChartCaseTeamIndex.jsx'
+// ------------
+import CustomersDashboardMyChartActiveCase from './pages/dashboard/customers/customers-pages/my-chart/active-case/CustomersDashboardMyChartActiveCase.jsx'
+// -------------
+import CustomersDashboardMyChartClosedCase from './pages/dashboard/customers/customers-pages/my-chart/closed-case/CustomersDashboardMyChartClosedCase.jsx'
+
+// customers dashboard -- my chart -- end
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -355,12 +366,21 @@ function App() {
               {/* customers */}
               <Route path="/dashboard/customers" element={<CustomersDashboard />}>
                 <Route path="/dashboard/customers" element={<CustomersDashboardIndex />}></Route>
+                {/* compliance */}
                 <Route path="/dashboard/customers/compliance" element={<CustomersDashboardCompliance />}>
                   <Route path="/dashboard/customers/compliance" element={<CustomersDashboardNewCase />}></Route>
                   <Route path="/dashboard/customers/compliance/on-request" element={<CustomersDashboardOnRequest />}>
                     <Route path="/dashboard/customers/compliance/on-request" element={<CustomersDashboardOnRequestList />}></Route>
                     <Route path="/dashboard/customers/compliance/on-request/detail" element={<CustomersDashboardOnRequestDetail />}></Route>
                   </Route>
+                </Route>
+                {/* customers dashboard my Chart */}
+                <Route path="/dashboard/customers/my-chart" element={<CustomersDashboardMyChart />}>
+                  <Route path="/dashboard/customers/my-chart/case-team" element={<CustomersDashboardMyChartCaseTeam />}>
+                    <Route path="/dashboard/customers/my-chart/case-team" element={<CustomersDashboardMyChartCaseTeamIndex />}></Route>
+                  </Route>
+                  <Route path="/dashboard/customers/my-chart/active-case" element={<CustomersDashboardMyChartActiveCase />}></Route>
+                  <Route path="/dashboard/customers/my-chart/closed-case" element={<CustomersDashboardMyChartClosedCase />}></Route>
                 </Route>
               </Route>
               <Route path="*" element={<PageNotFound />} />
