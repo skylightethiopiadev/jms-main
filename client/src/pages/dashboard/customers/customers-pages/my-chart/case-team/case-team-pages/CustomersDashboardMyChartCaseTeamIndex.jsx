@@ -15,7 +15,7 @@ import { CiViewBoard } from "react-icons/ci";
 
 const CustomersDashboardMyChartCaseTeamIndex = () => {
 
-    
+
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
@@ -70,7 +70,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                         <div className='flex items-center justify-end gap-3'>
                             <NavLink>
                                 <div className='flex items-center gap-1 hover:text-blue-700'>
-                                    <CiViewBoard className='text-lg'/>
+                                    <CiViewBoard className='text-lg' />
                                     <div>
                                         <span>view all</span>
                                     </div>
@@ -165,6 +165,72 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                             })
                         }
 
+                    </div>
+                </div>
+            </div>
+
+            {/* third  order container */}
+            <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md mt-7">
+                <div className='flex gap-3'>
+                    <div className='w-[40%] bg-red-300'>one</div>
+                    <div className='w-[60%] border border-gray-200 p-3 rounded-md'>
+                        {/* header */}
+                        <header className='flex items-center justify-between pb-1 border-b border-gray-200'>
+                            <div>
+                                <h3 className='header-level-4'>Case Managers</h3>
+                            </div>
+                            <div>
+                                <div>
+                                    <NavLink>
+                                        <div className='flex items-center gap-1 hover:text-blue-700'>
+                                            <CiViewBoard className='text-lg' />
+                                            <div>
+                                                <span>view all</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </div>
+                        </header>
+                        <div className='mt-3'>
+                            <div className='grid grid-cols-4 gap-3'>
+                                {
+                                    [...Array(4)].map((item, index) => {
+                                        return (
+                                            <div key={index}>
+                                                <div className='p-1 border border-gray-300 rounded-sm'>
+                                                    <header className='flex items-center justify-between'>
+                                                        <div>
+                                                            <div className='w-[24px] aspect-square rounded-full overflow-hidden bg-yellow-400 mt-[-24px]'>
+                                                                <img className='w-full h-full object-center object-cover' src="https://t4.ftcdn.net/jpg/03/25/73/59/360_F_325735908_TkxHU7okor9CTWHBhkGfdRumONWfIDEb.jpg" alt="" />
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                <NavLink>
+                                                                    <div className='pxd-1 text-xl bg-gray-100 hover:bg-gray-200'>
+                                                                        <MdMoreHoriz />
+                                                                    </div>
+                                                                </NavLink>
+                                                            </div>
+                                                        </div>
+                                                    </header>
+                                                    <div>
+                                                        <div className='font-medium flex items-center gap-1'>
+                                                            <span>Haddis</span>
+                                                            <span>F.</span>
+                                                        </div>
+                                                        <div className='mt-[-5px] text-xs'>
+                                                            <span>0923996736</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
