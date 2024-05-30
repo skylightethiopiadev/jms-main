@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Chart from 'react-apexcharts'
 
 // icons
 import { AiOutlineClose } from "react-icons/ai";
@@ -171,9 +172,83 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
 
             {/* third  order container */}
             <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md mt-7">
-                <div className='flex gap-3'>
-                    <div className='w-[40%] bg-red-300'>one</div>
-                    <div className='w-[60%] border border-gray-200 p-3 rounded-md'>
+                <div className='flex gap-3 flex-col md:flex-row'>
+                    <div className='w-[100%] md:w-[35%] bg-gray-50'>
+                        <Chart 
+                            type='line'
+                            width={'100%'}
+                            height={'100%'}
+                            series={[
+                                {
+                                    name: 'active',
+                                    data: [5,23,24,4,12,28,11,13,7,30],
+                                },
+                                {
+                                    name: 'pending',
+                                    data: [20,24,12,10,27,11,19,9,26,16],
+                                },
+                                {
+                                    name: 'closed',
+                                    data: [11,3,17,9,22,28,14,33,19,20],
+                                },
+                            ]}
+
+                            options={{
+                                chart: {
+                                    toolbar: {
+                                        show: false
+                                    },
+                                    zoom: {
+                                        enabled: false
+                                    },
+                                    
+                                },
+                                stroke: {
+                                    curve: 'smooth',
+                                    width: 1,
+                                },
+                                colors: ['#0bde7b', '#f5b907','#cf0430'],
+                                subtitle: {
+                                    text: 'case history',
+                                    align: 'center',
+                                    style: {
+                                        fontSize: 14,
+                                        fontWeight: 600
+                                    }
+                                },
+                                grid: {
+                                    xaxis: {
+                                        lines: {
+                                            show: false,
+                                        }
+                                    },
+                                    yaxis: {
+                                        lines: {
+                                            show: false
+                                        }
+                                    }
+                                },
+                                xaxis: {
+                                    labels: {
+                                        show: false
+                                    },
+                                    axisBorder: {
+                                        show: false
+                                    },
+                                    axisTicks: {
+                                        show: false
+                                    }
+                                },
+                                yaxis: {
+                                    labels: {
+                                        show: false
+                                    }
+                                }
+
+                            }}
+                        />
+                    </div>
+                    <div className='w-[100%] md:w-[65%] border border-gray-200 p-3 rounded-md'>
                         {/* header */}
                         <header className='flex items-center justify-between pb-1 border-b border-gray-200'>
                             <div>
@@ -193,7 +268,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                             </div>
                         </header>
                         <div className='mt-3'>
-                            <div className='grid grid-cols-4 gap-3'>
+                            <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
                                 {
                                     [...Array(4)].map((item, index) => {
                                         return (
