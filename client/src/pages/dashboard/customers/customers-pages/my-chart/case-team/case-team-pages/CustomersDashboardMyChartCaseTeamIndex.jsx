@@ -7,8 +7,15 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdMoreHoriz } from "react-icons/md";
 
+import { PiPhoneCallThin } from "react-icons/pi";
+import { CiChat2 } from "react-icons/ci";
+import { CiWarning } from "react-icons/ci";
+import { CiViewBoard } from "react-icons/ci";
+
 
 const CustomersDashboardMyChartCaseTeamIndex = () => {
+
+    
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
@@ -61,49 +68,103 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                     </div>
                     <div className="flex items-center justify-end gap-3">
                         <div className='flex items-center justify-end gap-3'>
-                            <div className='w-[22px] aspect-square rounded-full bg-gray-50 border border-gray-300 flex items-center justify-center text-xl cursor-pointer transition-colors ease-in-out duration-300 hover:bg-gray-300'>
-                                <MdOutlineKeyboardArrowLeft />
-                            </div>
-                            <div className='w-[22px] aspect-square rounded-full bg-gray-50 border border-gray-300 flex items-center justify-center text-xl cursor-pointer transition-colors ease-in-out duration-300 hover:bg-gray-300'>
-                                <MdOutlineKeyboardArrowRight />
-                            </div>
+                            <NavLink>
+                                <div className='flex items-center gap-1 hover:text-blue-700'>
+                                    <CiViewBoard className='text-lg'/>
+                                    <div>
+                                        <span>view all</span>
+                                    </div>
+                                </div>
+                            </NavLink>
                         </div>
                     </div>
                 </header>
                 {/* content container */}
                 <div>
-                    <div className='mt-3 grid grid-cols-4 gap-5'>
-                        <div className='p-3'>
-                            <div>
-                                <header className='flex justify-between items-center'>
-                                    <div className='flex gap-1 items-center'>
+                    <div className='mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7'>
+                        {
+                            [...Array(4)].map((item, index) => {
+                                return (
+
+                                    <div key={index} className='p-3 bg-white shadow-md'>
                                         <div>
-                                            <div className='w-[30px] aspect-square rounded-full overflow-hidden'>
-                                                <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1716940800&semt=sph" alt="" />
+
+                                            <header className='flex justify-between items-center'>
+                                                <div className='flex gap-1 items-center'>
+                                                    <div>
+                                                        <div className='w-[30px] aspect-square rounded-full overflow-hidden'>
+                                                            <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1716940800&semt=sph" alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className='flex items-center gap-1 font-medium'>
+                                                            <span>Haddis</span>
+                                                            <span>Fanta</span>
+                                                        </div>
+                                                        <div className='mt-[-3px] text-xs text-gray-400'>
+                                                            <span>offline</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='self-start transition-colors ease-in-out duration-300 hover:bg-gray-200 h-max'>
+                                                    <NavLink className={''}><div>
+                                                        <MdMoreHoriz className='text-xl' /></div></NavLink>
+                                                </div>
+                                            </header>
+
+                                            <div className='py-1 my-1 border-b border-gray-200'>
+                                                <div>
+                                                    <span>here</span>
+                                                </div>
+                                                <div className='mt-[-5px] font-semibold'>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet consectetur.
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <div className='flex items-center gap-1 font-medium'>
-                                                <span>Haddis</span>
-                                                <span>Fanta</span>
-                                            </div>
-                                            <div className='mt-[-3px] text-xs text-gray-400'>
-                                                <span>offline</span>
-                                            </div>
+
+                                            <footer className='flex items-center gap-3 mt-2'>
+
+                                                <div className='flex items-center gap-1 cursor-pointer transition-colors ease-in-out duration-300 hover:text-blue-800'>
+                                                    <div>
+                                                        <div className='w-[20px] aspect-square rounded-full border border-gray-400 flex items-center justify-center'>
+                                                            <PiPhoneCallThin />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <span>call</span>
+                                                    </div>
+                                                </div>
+
+                                                <div className='flex items-center gap-1 cursor-pointer transition-colors ease-in-out duration-300 hover:text-blue-800'>
+                                                    <div>
+                                                        <div className='w-[20px] aspect-square rounded-full border border-gray-400 flex items-center justify-center'>
+                                                            <CiChat2 />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <span>chat</span>
+                                                    </div>
+                                                </div>
+
+                                                <div className='flex items-center gap-1 cursor-pointer transition-colors ease-in-out duration-300 hover:text-blue-800'>
+                                                    <div>
+                                                        <div className='w-[20px] aspect-square rounded-full border border-gray-400 flex items-center justify-center'>
+                                                            <CiWarning />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <span>report</span>
+                                                    </div>
+                                                </div>
+
+                                            </footer>
                                         </div>
                                     </div>
-                                    <div className='self-start transition-colors ease-in-out duration-300 hover:bg-gray-200 h-max'>
-                                        <NavLink className={''}><div>
-                                            <MdMoreHoriz className='text-xl'/></div></NavLink>
-                                    </div>
-                                </header>
-                                <div>content</div>
-                                <footer>footer</footer>
-                            </div>
-                        </div>
-                        <div>One</div>
-                        <div>One</div>
-                        <div>One</div>
+                                )
+                            })
+                        }
+
                     </div>
                 </div>
             </div>
