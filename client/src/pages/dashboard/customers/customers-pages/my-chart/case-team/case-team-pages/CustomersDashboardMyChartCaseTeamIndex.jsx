@@ -311,13 +311,13 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                 {/* header */}
                 <header className='border-b border-gray-300 relative'>
                     {/* close btn */}
-                    <div className='absolute top-1 right-1 z-10 cursor-pointer w-[20px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-300 transition-colors ease-in-out duration-300 hover:bg-gray-100' onClick={() => {
+                    <div className='absolute top-1 right-1 z-10 cursor-pointer w-[20px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100' onClick={() => {
                         setIsLawyerDetail(false)
                     }}>
                         <MdOutlineClose />
                     </div>
                     {/* top */}
-                    <div className='w-full h-[50px] overflow-hidden bg-gray-400 relative z-0'></div>
+                    <div className='w-full h-[50px] overflow-hidden bg-gray-300 relative z-0'></div>
                     {/* bottom */}
                     <div className='relative z-0 px-7 flex items-center justify-between py-1'>
                         {/* left */}
@@ -496,7 +496,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                         <div className='flex items-center gap-5'>
                             <div className='flex items-center gap-1 cursor-pointer hover:text-green-500'>
                                 <div>
-                                    <div className='w-[24px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
+                                    <div className='w-[22px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
                                         <CiChat2 />
                                     </div>
                                 </div>
@@ -507,7 +507,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
 
                             <div className='flex items-center gap-1 cursor-pointer hover:text-green-500'>
                                 <div>
-                                    <div className='w-[24px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
+                                    <div className='w-[22px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
                                         <CiWarning />
                                     </div>
                                 </div>
@@ -520,7 +520,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                 setIsLawyerDetail(false)
                             }}>
                                 <div>
-                                    <div className='w-[24px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
+                                    <div className='w-[22px] aspect-square flex items-center justify-center border border-gray-300 rounded-full'>
                                         <IoCloseOutline />
                                     </div>
                                 </div>
