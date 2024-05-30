@@ -129,22 +129,11 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                                 <div className='flex items-center gap-1 cursor-pointer transition-colors ease-in-out duration-300 hover:text-blue-800'>
                                                     <div>
                                                         <div className='w-[20px] aspect-square rounded-full border border-gray-400 flex items-center justify-center'>
-                                                            <PiPhoneCallThin />
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <span>call</span>
-                                                    </div>
-                                                </div>
-
-                                                <div className='flex items-center gap-1 cursor-pointer transition-colors ease-in-out duration-300 hover:text-blue-800'>
-                                                    <div>
-                                                        <div className='w-[20px] aspect-square rounded-full border border-gray-400 flex items-center justify-center'>
                                                             <CiChat2 />
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <span>chat</span>
+                                                        <span>message</span>
                                                     </div>
                                                 </div>
 
@@ -267,7 +256,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                 </div>
                             </div>
                         </header>
-                        <div className='mt-3'>
+                        <div className='mt-5'>
                             <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
                                 {
                                     [...Array(4)].map((item, index) => {
@@ -283,7 +272,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                                         <div>
                                                             <div>
                                                                 <NavLink>
-                                                                    <div className='pxd-1 text-xl bg-gray-100 hover:bg-gray-200'>
+                                                                    <div className='pxd-1 text-xl bg-gray-50 hover:bg-gray-200'>
                                                                         <MdMoreHoriz />
                                                                     </div>
                                                                 </NavLink>
