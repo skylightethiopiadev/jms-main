@@ -35,6 +35,7 @@ import CustomersDashboardMyChartActiveCase from './pages/dashboard/customers/cus
 import CustomersDashboardMyChartActiveCaseIndex from './pages/dashboard/customers/customers-pages/my-chart/active-case/active-case-pages/CustomersDashboardMyChartActiveCaseIndex.jsx'
 // -------------
 import CustomersDashboardMyChartClosedCase from './pages/dashboard/customers/customers-pages/my-chart/closed-case/CustomersDashboardMyChartClosedCase.jsx'
+import CustomersDashboardMyChartClosedCaseIndex from './pages/dashboard/customers/customers-pages/my-chart/closed-case/closed-page-cases/CustomersDashboardMyChartClosedCaseIndex.jsx'
 
 // customers dashboard -- my chart -- end
 // customer
@@ -383,7 +384,9 @@ function App() {
                   <Route path="/dashboard/customers/my-chart/active-case" element={<CustomersDashboardMyChartActiveCase />}>
                     <Route path="/dashboard/customers/my-chart/active-case" element={<CustomersDashboardMyChartActiveCaseIndex />}></Route>
                   </Route>
-                  <Route path="/dashboard/customers/my-chart/closed-case" element={<CustomersDashboardMyChartClosedCase />}></Route>
+                  <Route path="/dashboard/customers/my-chart/closed-case" element={<CustomersDashboardMyChartClosedCase />}>
+                    <Route path="/dashboard/customers/my-chart/closed-case" element={<CustomersDashboardMyChartClosedCaseIndex />}></Route>
+                  </Route>
                 </Route>
               </Route>
               <Route path="*" element={<PageNotFound />} />
