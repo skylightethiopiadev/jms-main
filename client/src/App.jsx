@@ -44,6 +44,7 @@ import CustomersDashboardAppointment from './pages/dashboard/customers/customers
 // office - appointment
 import CustomersDashboardAppointmentOfficeAppointment from './pages/dashboard/customers/customers-pages/appointment/office-appointment/CustomersDashboardAppointmentOfficeAppointment.jsx'
 import CustomersDashboardAppointmentOfficeAppointmentIndex from './pages/dashboard/customers/customers-pages/appointment/office-appointment/office-appointment-sub-pages/CustomersDashboardAppointmentOfficeAppointmentIndex.jsx'
+import CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm from './pages/dashboard/customers/customers-pages/appointment/office-appointment/office-appointment-sub-pages/CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm.jsx'
 
 // case-appointment
 import CustomersDashboardAppointmentCaseAppointment from './pages/dashboard/customers/customers-pages/appointment/case-appointment/CustomersDashboardAppointmentCaseAppointment.jsx'
@@ -403,6 +404,7 @@ function App() {
                 <Route path="/dashboard/customers/appointment" element={<CustomersDashboardAppointment />}>
                   <Route path="/dashboard/customers/appointment/office-appointment" element={<CustomersDashboardAppointmentOfficeAppointment />}>
                     <Route path="/dashboard/customers/appointment/office-appointment" element={<CustomersDashboardAppointmentOfficeAppointmentIndex />}></Route>
+                    <Route path="/dashboard/customers/appointment/office-appointment/new-office-appointment" element={<CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm />}></Route>
                   </Route>
                   <Route path="/dashboard/customers/appointment/case-appointment" element={<CustomersDashboardAppointmentCaseAppointment />}>
                     <Route path="/dashboard/customers/appointment/case-appointment" element={<CustomersDashboardAppointmentCaseAppointmentIndex />}></Route>
