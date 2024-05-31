@@ -107,7 +107,19 @@ const CustomersSideNav = () => {
             icon: CiClock1,
             title: 'Appointment',
             path: '#',
-
+            height: '',
+            subLinkItems: [
+                {
+                    icon: MdOutlineSupervisorAccount,
+                    title: 'Office Appointment',
+                    path: '/dashboard/customers/appointment/office-appointment',
+                },
+                {
+                    icon: VscLayersActive,
+                    title: 'Case Appointment',
+                    path: '/dashboard/customers/appointment/case-appointment',
+                },
+            ],
         },
         {
             icon: CiDollar,

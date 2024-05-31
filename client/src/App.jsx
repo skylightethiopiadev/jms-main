@@ -38,6 +38,17 @@ import CustomersDashboardMyChartClosedCase from './pages/dashboard/customers/cus
 import CustomersDashboardMyChartClosedCaseIndex from './pages/dashboard/customers/customers-pages/my-chart/closed-case/closed-page-cases/CustomersDashboardMyChartClosedCaseIndex.jsx'
 
 // customers dashboard -- my chart -- end
+
+// customers dashboard -- appointment -- start
+import CustomersDashboardAppointment from './pages/dashboard/customers/customers-pages/appointment/CustomersDashboardAppointment.jsx'
+// office - appointment
+import CustomersDashboardAppointmentOfficeAppointment from './pages/dashboard/customers/customers-pages/appointment/office-appointment/CustomersDashboardAppointmentOfficeAppointment.jsx'
+import CustomersDashboardAppointmentOfficeAppointmentIndex from './pages/dashboard/customers/customers-pages/appointment/office-appointment/office-appointment-sub-pages/CustomersDashboardAppointmentOfficeAppointmentIndex.jsx'
+
+// case-appointment
+import CustomersDashboardAppointmentCaseAppointment from './pages/dashboard/customers/customers-pages/appointment/case-appointment/CustomersDashboardAppointmentCaseAppointment.jsx'
+import CustomersDashboardAppointmentCaseAppointmentIndex from './pages/dashboard/customers/customers-pages/appointment/case-appointment/case-appointment-sub-pages/CustomersDashboardAppointmentCaseAppointmentIndex.jsx'
+// customers dashboard -- appointment -- end
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -386,6 +397,15 @@ function App() {
                   </Route>
                   <Route path="/dashboard/customers/my-chart/closed-case" element={<CustomersDashboardMyChartClosedCase />}>
                     <Route path="/dashboard/customers/my-chart/closed-case" element={<CustomersDashboardMyChartClosedCaseIndex />}></Route>
+                  </Route>
+                </Route>
+                {/* customers dashboard appointment */}
+                <Route path="/dashboard/customers/appointment" element={<CustomersDashboardAppointment />}>
+                  <Route path="/dashboard/customers/appointment/office-appointment" element={<CustomersDashboardAppointmentOfficeAppointment />}>
+                    <Route path="/dashboard/customers/appointment/office-appointment" element={<CustomersDashboardAppointmentOfficeAppointmentIndex />}></Route>
+                  </Route>
+                  <Route path="/dashboard/customers/appointment/case-appointment" element={<CustomersDashboardAppointmentCaseAppointment />}>
+                    <Route path="/dashboard/customers/appointment/case-appointment" element={<CustomersDashboardAppointmentCaseAppointmentIndex />}></Route>
                   </Route>
                 </Route>
               </Route>
