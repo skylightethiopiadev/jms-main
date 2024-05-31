@@ -8,6 +8,67 @@ import { IoMdArrowDropdown } from "react-icons/io";
 
 const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
 
+    // local data
+    const legalIssues = [
+        {
+            title: 'Family Law',
+        },
+        {
+            title: 'Succession',
+        },
+        {
+            title: 'Property',
+        },
+        {
+            title: 'Contract',
+        },
+        {
+            title: 'Personal Injury',
+        },
+        {
+            title: 'Corporate Law',
+        },
+        {
+            title: 'Real-Estate',
+        },
+        {
+            title: 'Immigration',
+        },
+        {
+            title: 'Labour',
+        },
+        {
+            title: 'Intellectual Property',
+        },
+        {
+            title: 'Tax',
+        },
+        {
+            title: 'Customs',
+        },
+        {
+            title: 'Others',
+        },
+    ]
+
+    const legalServices = [
+        {
+            title: 'Legal Consultation',
+        },
+        {
+            title: 'Document Preparation',
+        },
+        {
+            title: 'Document Review',
+        },
+        {
+            title: 'Legal Representation',
+        },
+        {
+            title: 'Other Services',
+        },
+    ]
+
     // hooks
     const navigate = useNavigate()
 
@@ -124,10 +185,10 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                                                 <span>Date of Birth</span>
                                             </div>
                                             <div>
-                                                <input  
-                                                    type="date" 
+                                                <input
+                                                    type="date"
                                                     className='focus:ring-0 focus:outline-none ring-0 border-none p-[.1rem] placeholder:text-sm text-sm'
-                                                    />
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +200,7 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                                             </div>
                                             <div className='flex gap-1'>
                                                 <div>
-                                                    <input type="text" className='w-full p-0'/>
+                                                    <input type="text" className='w-full p-0' />
                                                 </div>
                                                 <div>
                                                     <div className='flex items-center justify-center cursor-pointer text-xl'>
@@ -160,7 +221,7 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                                 </header>
                                 <div className='my-2'>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam alias totam cupiditate animi expedita 
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam alias totam cupiditate animi expedita
                                     </p>
                                 </div>
                                 <div>
@@ -309,7 +370,7 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -383,6 +444,147 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* legal issue information part */}
+                <div className='p-3 bg-gray-100 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        {/* form */}
+                        <div className='w-full'>
+                            <header className='flex items-center py-1 justify-between'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Legal Issue For The Appointment</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            {/* content */}
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint necessitatibus ipsum eligendi, cupiditate voluptatibus aut? Incidunt voluptate minima tempore nemo deserunt error repellendus voluptates.
+                                </p>
+                            </div>
+                            {/* legal detail form */}
+                            <div className='my-3'>
+                                {/* name */}
+                                <div className='p-3 border border-gray-200 bg-white'>
+                                    {/* list */}
+                                    <div>
+                                        <div className='flex gap-5 flex-wrap'>
+                                            {
+                                                legalIssues.map((item, index) => {
+                                                    return (
+                                                        <div key={index} className='flex items-center gap-1'>
+                                                            <input type="checkbox" id={`legal-issue-${index}`} className='focus:outline-none focus:ring-0 outline-none ring-0' />
+                                                            <label htmlFor={`legal-issue-${index}`} className='cursor-pointer'>{item?.title}</label>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    </div>
+                                    {/* other */}
+                                    {/* <div>other</div> */}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* legal services information part */}
+                <div className='p-3 bg-gray-100 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        {/* form */}
+                        <div className='w-full'>
+                            <header className='flex items-center py-1 justify-between'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Types Of Legal Services Required</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            {/* content */}
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint necessitatibus ipsum eligendi, cupiditate voluptatibus aut? Incidunt voluptate minima tempore nemo deserunt error repellendus voluptates.
+                                </p>
+                            </div>
+                            {/* legal detail form */}
+                            <div className='my-3'>
+                                {/* name */}
+                                <div className='p-3 border border-gray-200 bg-white'>
+                                    {/* list */}
+                                    <div>
+                                        <div className='flex gap-5 flex-wrap'>
+                                            {
+                                                legalServices.map((item, index) => {
+                                                    return (
+                                                        <div key={index} className='flex items-center gap-1'>
+                                                            <input type="checkbox" id={`legal-service-${index}`} className='focus:outline-none focus:ring-0 outline-none ring-0' />
+                                                            <label htmlFor={`legal-service-${index}`} className='cursor-pointer'>{item?.title}</label>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    </div>
+                                    {/* other */}
+                                    {/* <div>other</div> */}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* legal issue description information part */}
+                <div className='p-3 bg-gray-100 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        {/* form */}
+                        <div className='w-full'>
+                            <header className='flex items-center py-1 justify-between'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Briefly Describe Your Legal Issue</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            {/* content */}
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint necessitatibus ipsum eligendi, cupiditate voluptatibus aut? Incidunt voluptate minima tempore nemo deserunt error repellendus voluptates.
+                                </p>
+                            </div>
+                            {/* legal detail form */}
+                            <div className='my-3'>
+                                {/* name */}
+                                <div className='p-3 border border-gray-200 bg-white'>
+                                    {/* list */}
+                                    <div className='border border-gray-200'>
+                                        <textarea name="" id="" className='w-full h-[120px] focus:outline-none focus:ring-0 resize-none border-none' placeholder='description'></textarea>
+                                    </div>
+                                    {/* other */}
+                                    {/* <div>other</div> */}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* submit or cancel btn information part */}
+                <div className='p-3 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        <div className='flex items-center gap-3'>
+                            <button className='px-7 py-1 rounded-sm text-white bg-blue-700 transition-colors ease-in-out duration-200 hover:bg-blue-600'>Submit</button>
+                            <button className='px-7 py-1 rounded-sm text-white bg-gray-700 transition-colors ease-in-out duration-200 hover:bg-gray-600'>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     )
