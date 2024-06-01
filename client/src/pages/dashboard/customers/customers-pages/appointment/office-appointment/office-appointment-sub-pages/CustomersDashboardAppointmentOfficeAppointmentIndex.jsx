@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 // icons
@@ -5,8 +6,13 @@ import { LiaUserClockSolid } from "react-icons/lia";
 import { IoMdMore } from "react-icons/io";
 import { CiAlarmOn } from "react-icons/ci";
 import { CiCircleCheck } from "react-icons/ci";
+import { VscNote } from "react-icons/vsc";
+import { CiEdit } from "react-icons/ci";
+import { IoCloseOutline } from "react-icons/io5";
 
 const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
+    const [actionPopUp, setActionPopUp] = useState(null)
+
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
@@ -57,11 +63,52 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div>
+                                                <div className='relative'>
                                                     <div>
-                                                        <button className='text-xl hover:bg-gray-100'>
+                                                        <button className='text-xl hover:bg-gray-100' onClick={() => {
+                                                            if (actionPopUp) {
+                                                                setActionPopUp(null)
+                                                            } else {
+                                                                setActionPopUp({ id: index })
+                                                            }
+                                                        }}>
                                                             <IoMdMore />
                                                         </button>
+                                                    </div>
+                                                    {/* action pop up */}
+                                                    <div className={`absolute top-[100%] right-0 ${actionPopUp?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                        <div className='w-max h-max px-5 py-3 bg-white shadow-md'>
+
+                                                            {/* detail */}
+                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer'>
+                                                                <div>
+                                                                    <VscNote />
+                                                                </div>
+                                                                <div>
+                                                                    <span>Detail</span>
+                                                                </div>
+                                                            </div>
+
+                                                            {/* edit */}
+                                                            <div className='flex items-center gap-1 my-2 border-b border-gray-200 cursor-pointer'>
+                                                                <div>
+                                                                    <CiEdit />
+                                                                </div>
+                                                                <div>
+                                                                    <span>Edit</span>
+                                                                </div>
+                                                            </div>
+
+                                                            {/* close */}
+                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer'>
+                                                                <div>
+                                                                    <IoCloseOutline />
+                                                                </div>
+                                                                <div>
+                                                                    <span>Cancel</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </header>
@@ -88,7 +135,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                                     <div className='my-1'>
                                                                         <div className='flex items-center gap-1'>
                                                                             <div>
-                                                                                <CiCircleCheck className='text-'/>
+                                                                                <CiCircleCheck className='text-' />
                                                                             </div>
                                                                             <div>
                                                                                 <span>Criminal Case</span>
