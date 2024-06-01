@@ -47,7 +47,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
             <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] md:py-3 border-gray-200 border rounded-md mt-7">
                 <div>
                     {/* card grid */}
-                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7'>
                         {
                             [...Array(6)].map((item, index) => {
                                 return (
@@ -220,7 +220,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                             {/* footer */}
                                             <footer className='p-3'>
                                                 <div>
-                                                    <button className='px-3 py-[.15rem] rounded-sm bg-red-500 hover:bg-red-600 transition-colors ease-in-out duration-300 text-white' onClick={()=>{
+                                                    <button className='px-3 py-[.15rem] rounded-sm bg-red-600 hover:bg-red-500 transition-colors ease-in-out duration-300 text-white' onClick={()=>{
                                                         setCancelAppointment(true)
                                                     }}>cancel appointment</button>
                                                 </div>
