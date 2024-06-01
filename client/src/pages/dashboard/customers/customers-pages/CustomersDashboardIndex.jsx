@@ -100,7 +100,7 @@ const CustomersDashboardIndex = () => {
                     </NavLink>
 
                     {/* second card */}
-                    <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
+                    <NavLink to={'/dashboard/customers/appointment/office-appointment'} className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer">
                         <div className="w-[48px] bg-blue-100 flex items-center justify-center aspect-square rounded-md overflow-hidden">
                             <CiClock1 className='text-3xl text-blue-900' />
                         </div>
