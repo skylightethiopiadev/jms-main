@@ -12,9 +12,10 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
     const [actionPopUp, setActionPopUp] = useState(null)
+    const [cancelAppointment,setCancelAppointment] = useState(null)
 
     return (
-        <div className='overflow-x-hidden flex-grow pr-1'>
+        <div className='overflow-x-hidden flex-grow pr-1 relative'>
             {/* first order container */}
             <div className="px-[.75%] md:px-[1.5%] lg:px-[3%] py-1 md:py-3 border-gray-200 bg-gray-100 border rounded-md">
                 <header className='flex items-center justify-between'>
@@ -100,7 +101,10 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                             </div>
 
                                                             {/* close */}
-                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer'>
+                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer' onClick={()=>{
+                                                                setCancelAppointment(true)
+                                                                setActionPopUp(null)
+                                                            }}>
                                                                 <div>
                                                                     <IoCloseOutline />
                                                                 </div>
@@ -216,7 +220,9 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                             {/* footer */}
                                             <footer>
                                                 <div>
-                                                    <button className='px-3 py-[.15rem] rounded-sm bg-gray-100 hover:bg-gray-200'>cancel appointment</button>
+                                                    <button className='px-3 py-[.15rem] rounded-sm bg-gray-100 hover:bg-gray-200' onClick={()=>{
+                                                        setCancelAppointment(true)
+                                                    }}>cancel appointment</button>
                                                 </div>
                                             </footer>
                                         </div>
@@ -224,6 +230,41 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                 )
                             })
                         }
+                    </div>
+                </div>
+            </div>
+
+            {/* cancel appointment form */}
+            <div className={`fixed z-50 w-[380px] md:w-[420px] h-[300px] bg-gray-100 border border-gray-200 rounded-md left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col shadow-2xl transition-transform ease-in-out duration-150 ${cancelAppointment ? 'scale-100' : 'scale-0'}`}>
+                {/* close btn */}
+                <div className='absolute right-1 top-1'>
+                    <div className='w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer' onClick={()=>{
+                        setCancelAppointment(false)
+                    }}>
+                        <IoCloseOutline />
+                    </div>
+                </div>
+                <div className='p-3 w-[95%]'>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda vero exercitationem eos quam, nulla quae itaque perferendis minima tempora temporibus consectetur.
+                    </p>
+                </div>
+                <div className='flex-grow p-3 flex'>
+                    <div className='flex-grow bg-white border border-gray-200 rounded-md'>
+                        <textarea 
+                            name=""  
+                            id=""
+                            className='w-full h-full resize-none focus:outline-none focus:ring-0 border-none bg-transparent'
+                            placeholder='enter you reason'
+                            ></textarea>
+                    </div>
+                </div>
+                <div>
+                    <div className='p-3 flex items-center gap-3'>
+                        <button className='px-3 py-1 rounded-sm bg-blue-700 text-white transition-colors ease-in-out duration-300 hover:bg-blue-600'>submit</button>
+                        <button className='px-3 py-1 rounded-sm bg-gray-700 text-white transition-colors ease-in-out duration-300 hover:bg-gray-600' onClick={()=>{
+                            setCancelAppointment(false)
+                        }}>cancel</button>
                     </div>
                 </div>
             </div>
