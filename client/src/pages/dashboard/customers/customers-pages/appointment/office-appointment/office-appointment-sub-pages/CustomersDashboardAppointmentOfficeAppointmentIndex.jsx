@@ -24,7 +24,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                     </div>
                     <div>
                         <NavLink to={'/dashboard/customers/appointment/office-appointment/new-office-appointment'}>
-                            <div className='flex items-center gap-1 hover:text-blue-700 px-1 py-[.15rem] bg-gray-200 hover:bg-gray-300 rounded-sm'>
+                            <div className='flex items-center gap-1  px-1 py-[.15rem] rounded-sm text-white bg-blue-500 hover:bg-blue-600'>
                                 <div className='text-xl'>
                                     <LiaUserClockSolid />
                                 </div>
@@ -51,11 +51,11 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                         {
                             [...Array(6)].map((item, index) => {
                                 return (
-                                    <div className='border border-gray-200 p-3'>
+                                    <div className='border border-gray-100 bg-white shadow-xl'>
                                         <div>
-                                            <header className='flex items-center justify-between border-b border-gray-100'>
+                                            <header className='flex items-center justify-between px-3 py-1 bg-blue-500 text-white'>
                                                 <div>
-                                                    <div className='flex items-center gap-1 font-black text-gray-700'>
+                                                    <div className='flex items-center gap-1 font-black text-white'>
                                                         <div className='text-xl'>
                                                             <CiAlarmOn />
                                                         </div>
@@ -66,7 +66,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                 </div>
                                                 <div className='relative'>
                                                     <div>
-                                                        <button className='text-xl hover:bg-gray-100' onClick={() => {
+                                                        <button className='text-xl hover:bg-blue-700 transition-colors ease-in-out duration-300 rounded-sm' onClick={() => {
                                                             if (actionPopUp) {
                                                                 setActionPopUp(null)
                                                             } else {
@@ -78,30 +78,30 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                     </div>
                                                     {/* action pop up */}
                                                     <div className={`absolute top-[100%] right-0 ${actionPopUp?.id === index ? 'scale-100' : 'scale-0'}`}>
-                                                        <div className='w-max h-max px-5 py-3 bg-white shadow-md'>
+                                                        <div className='w-max h-max px-5 py-3 bg-white shadow-md text-black'>
 
                                                             {/* detail */}
-                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer'>
+                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-blue-100 px-1'>
                                                                 <div>
                                                                     <VscNote />
                                                                 </div>
                                                                 <div>
-                                                                    <span>Detail</span>
+                                                                    <span>Appointment Detail</span>
                                                                 </div>
                                                             </div>
 
                                                             {/* edit */}
-                                                            <div className='flex items-center gap-1 my-2 border-b border-gray-200 cursor-pointer'>
+                                                            <div className='flex items-center gap-1 my-2 border-b border-gray-200 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-blue-100 px-1'>
                                                                 <div>
                                                                     <CiEdit />
                                                                 </div>
                                                                 <div>
-                                                                    <span>Edit</span>
+                                                                    <span>Edit Appointment</span>
                                                                 </div>
                                                             </div>
 
                                                             {/* close */}
-                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer' onClick={()=>{
+                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-blue-100 px-1' onClick={()=>{
                                                                 setCancelAppointment(true)
                                                                 setActionPopUp(null)
                                                             }}>
@@ -109,7 +109,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                                     <IoCloseOutline />
                                                                 </div>
                                                                 <div>
-                                                                    <span>Cancel</span>
+                                                                    <span>Cancel Appointment</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -117,7 +117,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                 </div>
                                             </header>
                                             {/* appointment detail */}
-                                            <div className='py-1'>
+                                            <div className='py-1 px-3'>
                                                 <div>
                                                     <p>
                                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -218,9 +218,9 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                 </div>
                                             </div>
                                             {/* footer */}
-                                            <footer>
+                                            <footer className='p-3'>
                                                 <div>
-                                                    <button className='px-3 py-[.15rem] rounded-sm bg-gray-100 hover:bg-gray-200' onClick={()=>{
+                                                    <button className='px-3 py-[.15rem] rounded-sm bg-red-500 hover:bg-red-600 transition-colors ease-in-out duration-300 text-white' onClick={()=>{
                                                         setCancelAppointment(true)
                                                     }}>cancel appointment</button>
                                                 </div>
