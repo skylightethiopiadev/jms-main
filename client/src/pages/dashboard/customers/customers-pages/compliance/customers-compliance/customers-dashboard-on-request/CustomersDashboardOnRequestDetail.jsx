@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom'
 
 // icons
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import { IoCloseOutline } from "react-icons/io5";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
     const [caseDetail, setCaseDetail] = useState('CASE-DETAIL')
+    const [isCaseDescriptionPopUp, setIsCaseDescriptionPopUp] = useState(false)
 
     // hooks
     const navigate = useNavigate()
@@ -64,7 +66,7 @@ const CustomersDashboardOnRequestDetail = () => {
                             ?
                             <div>
                                 <div className='mt-5 flex'>
-                                    <div className='w-[50%] grid grid-cols-2 gap-y-0'>
+                                    <div className='w-[50%] grid grid-cols-2 gap-y-0 relative'>
                                         <div className='col-span-2'>
                                             <header>
                                                 <h3 className='header-level-4'>CORPORATE</h3>
@@ -137,7 +139,11 @@ const CustomersDashboardOnRequestDetail = () => {
                                             </header>
                                             <div className='ml-5'>
                                                 <p>
-                                                    Itaque, quia, dignissimos numquam sit ipsum possimus totam temporibus harum ad qui soluta commodi maxime alias blanditiis dolorem minus iusto at consequuntur consequatur corporis.
+                                                    Itaque, quia, dignissimos numquam sit ipsum possimus totam temporibus harum ad qui soluta commodi maxime alias blanditiis dolorem minus iusto at consequuntur consequatur corporis. <span className='text-blue-700 hover:underline cursor-pointer' onMouseEnter={() => {
+                                                        setIsCaseDescriptionPopUp(true)
+                                                    }} onClick={() => {
+                                                        setIsCaseDescriptionPopUp(true)
+                                                    }}>more</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -165,8 +171,41 @@ const CustomersDashboardOnRequestDetail = () => {
                                             </div>
                                         </div>
 
+                                        {/* detail pop up */}
+                                        <div className={`absolute inset-1 overflow-x-hidden overflow-y-auto bg-white shadow-md flex flex-col transition-transform ease-in-out duration-300 ${isCaseDescriptionPopUp ? 'scale-100' : 'scale-0'}`} onMouseLeave={() => {
+                                            setIsCaseDescriptionPopUp(false)
+                                        }}>
+                                            {/* header */}
+                                            <header className='flex items-center justify-between px-3 py-2 border-b border-gray-200'>
+                                                <div>
+                                                    <h3 className='font-bold text-gray-700'>Case Description</h3>
+                                                </div>
+                                                <div>
+                                                    <div>
+                                                        <button className='w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-100 transition-colors ease-in-out duration-300 hover:bg-gray-300' onClick={() => {
+                                                            setIsCaseDescriptionPopUp(false)
+                                                        }}>
+                                                            <IoCloseOutline />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </header>
+
+                                            {/* text */}
+                                            <div>
+                                                <div className='p-3'>
+                                                    <p>
+                                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat dolore ipsum debitis numquam obcaecati minima animi itaque! Ipsam perferendis nobis quae harum quidem. Distinctio dicta explicabo, suscipit nobis, quo nemo dignissimos voluptatibus error perferendis rerum illum aspernatur sapiente et eveniet odit voluptatum fugit quaerat ipsa minima consectetur in obcaecati. Totam natus nihil molestiae voluptatem soluta. Ea vitae porro labore harum! Ipsum debitis nam vero!
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <div className='w-[50%] bg-green-400'>right</div>
+                                    {/* attached files */}
+                                    <div className='w-[50%] bg-green-400'>
+                                        attached files
+                                    </div>
                                 </div>
                             </div>
                             :
