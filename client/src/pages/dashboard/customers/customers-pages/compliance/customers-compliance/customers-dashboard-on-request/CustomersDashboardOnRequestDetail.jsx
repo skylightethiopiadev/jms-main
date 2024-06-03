@@ -12,12 +12,23 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoMdMore } from "react-icons/io";
 import { AiOutlineDelete } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
+import { PiContactlessPaymentThin } from "react-icons/pi";
+
+import { HiOutlineMenuAlt1 } from "react-icons/hi";
+import { BiTransfer } from "react-icons/bi";
+import { CiCirclePlus } from "react-icons/ci";
+import { BiBlock } from "react-icons/bi";
+import { TbListDetails } from "react-icons/tb";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
     const [caseDetail, setCaseDetail] = useState('CASE-DETAIL')
     const [isCaseDescriptionPopUp, setIsCaseDescriptionPopUp] = useState(false)
     const [lawyerNav, setLawyerNav] = useState('Personal')
+
+    const [paymentDetailFlag, setPaymentDetailFlag] = useState('Payed')
+
+    const [payedDetailPopUp, setPayedDetailPopUp] = useState(null)
 
     const lawyerNavLink = [
         {
@@ -31,6 +42,25 @@ const CustomersDashboardOnRequestDetail = () => {
         {
             title: 'Notification',
             icon: IoIosNotificationsOutline,
+        },
+    ]
+
+    const paymentDetailNavLinks = [
+        {
+            title: 'All',
+            icon: HiOutlineMenuAlt1,
+        },
+        {
+            title: 'Payed',
+            icon: BiTransfer,
+        },
+        {
+            title: 'On Request',
+            icon: CiCirclePlus,
+        },
+        {
+            title: 'Canceled',
+            icon: BiBlock,
         },
     ]
 
@@ -279,7 +309,208 @@ const CustomersDashboardOnRequestDetail = () => {
                             :
                             caseDetail === 'PAYMENT-DETAIL'
                                 ?
-                                <div>Payment Detail</div>
+                                <div className='mt-3'>
+                                    <div className='bg-gray-100 p-3'>
+                                        <div className='flex gap-5'>
+                                            <div className='w-[20%] bg-white h-max'>
+                                                {/* nav header */}
+                                                <div className='px-3 py-2 border-b border-gray-200 mb-1'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <div>
+                                                            <TbListDetails className='text-lg' />
+                                                        </div>
+                                                        <div className='text-lg'>
+                                                            <span>Payment Detail</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {/* links */}
+                                                {
+                                                    paymentDetailNavLinks.map((item, index) => {
+                                                        return (
+                                                            <header key={index} className={`px-1 py-2 cursor-pointer  transition-colors ease-in-out duration-300 border-l-4 ${paymentDetailFlag === item.title ? 'border-yellow-400 bg-blue-50' : 'border-white'}`} onClick={() => {
+                                                                setPaymentDetailFlag(item.title)
+                                                            }}>
+                                                                <div className='flex items-center gap-1'>
+                                                                    <div>
+                                                                        <item.icon className='text-lg' />
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>{item.title}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                            <div className='flex-grow h-max max-h-[450px] overflow-y-auto bg-white p-3'>
+                                                {
+                                                    paymentDetailFlag === 'All'
+                                                        ?
+                                                        <div>
+                                                            {/* all here */}
+                                                        </div>
+                                                        :
+                                                        paymentDetailFlag === 'Payed'
+                                                            ?
+                                                            <div>
+                                                                {/* payed here */}
+                                                                <div>
+                                                                    {
+                                                                        [...Array(3)].map((item, index) => {
+                                                                            return (
+                                                                                <div key={index} className='flex justify-between px-3 py-1 border border-gray-200 bg-white shadow-none transition-shadow ease-in-out duration-300 hover:shadow-md mb-3' onClick={(e) => {
+                                                                                    setPayedDetailPopUp({ id: index })
+                                                                                    e.stopPropagation()
+                                                                                }}>
+                                                                                    <div>
+                                                                                        <div className='font-semibold'>
+                                                                                            <p>Lorem ipsum dolor sit amet.</p>
+                                                                                        </div>
+                                                                                        <div>
+                                                                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+                                                                                        </div>
+                                                                                        <div className='text-xs flex items-center flex-wrap gap-3 my-1'>
+                                                                                            <div className='flex items-center gap-1'>
+                                                                                                <CiCirclePlus className='text-green-700 text-lg' />
+                                                                                                <span>payed 5 days ago</span>
+                                                                                            </div>
+
+                                                                                            <div className='flex items-center gap-1'>
+                                                                                                <CiCirclePlus className='text-green-700 text-lg' />
+                                                                                                <span>7 months left</span>
+                                                                                            </div>
+
+                                                                                            <div className='flex items-center gap-1'>
+                                                                                                <CiCirclePlus className='text-green-700 text-lg' />
+                                                                                                <span>64% covered</span>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <button onClick={() => {
+                                                                                            setPayedDetailPopUp({ id: index })
+                                                                                        }}>
+                                                                                            <IoMdMore className='text-lg bg-gray-50 hover:bg-gray-200' />
+                                                                                        </button>
+                                                                                    </div>
+
+                                                                                    {/* payed --- pop-up */}
+                                                                                    <div className={`fixed w-[450px] h-[450px] bg-white shadow-md left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform ease-in-out duration-300 ${payedDetailPopUp?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                                                        {/* header */}
+                                                                                        <header className='flex items-center justify-between px-3 py-2 bg-blue-400 text-white'>
+                                                                                            <div>
+                                                                                                <h3 className='font-bold'>Payment Detail</h3>
+                                                                                            </div>
+                                                                                            <div>
+                                                                                                <button className='w-[20px] aspect-square rounded-full flex items-center justify-center text-lg border border-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-red-700' onClick={(e) => {
+                                                                                                    e.stopPropagation()
+                                                                                                    setPayedDetailPopUp(null)
+                                                                                                }}>
+                                                                                                    <IoCloseOutline />
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </header>
+                                                                                        {/* content container */}
+                                                                                        <div className='p-3'>
+                                                                                            {/* grid container */}
+                                                                                            <div className='flex gap-5'>
+                                                                                                {/* left */}
+                                                                                                <div className='w-[50%] bg-white border border-gray-100 rounded-sm shadow-sm p-3'>
+                                                                                                    <div className='flex items-center gap-3'>
+                                                                                                        <div className='w-[42px] aspect-square border-2 border-blue-400 rounded-full flex items-center justify-center font-black text-xs border-r-transparent'>
+                                                                                                            <span>64%</span>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            <div className='font-semibold'>
+                                                                                                                <span>$13765 payed</span>
+                                                                                                            </div>
+                                                                                                            <div className='mt-[-3px] text-xs text-gray-700'>
+                                                                                                                <span>5 days ago</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div className='my-2 flex'>
+                                                                                                        <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500'>cancel payment</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                {/* right */}
+                                                                                                <div className='w-[50%] bg-white border border-gray-100 rounded-sm shadow-sm p-3'>
+                                                                                                    <div className='flex items-center gap-3'>
+                                                                                                        <div className='w-[42px] aspect-square border-2 border-red-400 rounded-full flex items-center justify-center font-black text-xs border-r-transparent'>
+                                                                                                            <span>36%</span>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            <div className='font-semibold'>
+                                                                                                                <span>$13765 unpayed</span>
+                                                                                                            </div>
+                                                                                                            <div className='mt-[-3px] text-xs text-gray-700'>
+                                                                                                                <span>3 months left</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div className='my-2 flex'>
+                                                                                                        <button className='px-3 py-1 rounded-sm bg-blue-400 text-white transition-colors ease-in-out duration-500 hover:bg-blue-500'>add payment</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            {/* payment history */}
+                                                                                            <div>
+                                                                                                <div className='mt-5'>
+                                                                                                    <header className='flex items-center gap-1  '>
+                                                                                                        <div>
+                                                                                                            <TbListDetails />
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            <span>Payment History</span>
+                                                                                                        </div>
+                                                                                                    </header>
+
+                                                                                                    <div className='ml-10'>
+                                                                                                        {
+                                                                                                            [...Array(3)].map((item,index)=>{
+                                                                                                                return (
+                                                                                                                    <div className='px-1 py-1 border-l border-blue-400'>
+                                                                                                                        <header className='flex items-center gap-1'>
+                                                                                                                            <div className='w-[20px] aspect-square border border-blue-500 rounded-full flex items-center justify-center text-xs bg-white ml-[-15px]'>
+                                                                                                                                <span>{index+1}</span>
+                                                                                                                            </div>
+                                                                                                                            <div>text</div>
+                                                                                                                        </header>
+                                                                                                                    </div>
+                                                                                                                )
+                                                                                                            })
+                                                                                                        }
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            )
+                                                                        })
+                                                                    }
+                                                                </div>
+
+                                                            </div>
+                                                            :
+                                                            paymentDetailFlag === 'On Request'
+                                                                ?
+                                                                <div>On request</div>
+                                                                :
+                                                                paymentDetailFlag === 'Canceled'
+                                                                    ?
+                                                                    <div>Canceled</div>
+                                                                    :
+                                                                    <></>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 :
                                 caseDetail === 'LAWYER-DETAIL'
                                     ?
@@ -495,7 +726,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                     }
                                                 </div>
                                                 <div className='w-[30%] bg-white shadow-md h-max'>
-                                                    {/* you can add something here */}
+                                                    {/* you can add something */}
                                                 </div>
                                             </div>
                                         </div>
