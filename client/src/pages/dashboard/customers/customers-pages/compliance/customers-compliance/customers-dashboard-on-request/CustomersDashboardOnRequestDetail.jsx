@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 // icons
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
+import { TiDeleteOutline } from "react-icons/ti";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
@@ -65,7 +66,8 @@ const CustomersDashboardOnRequestDetail = () => {
                         caseDetail === 'CASE-DETAIL'
                             ?
                             <div>
-                                <div className='mt-5 flex'>
+                                <div className='mt-5 flex gap-5'>
+                                    {/* case detail */}
                                     <div className='w-[50%] grid grid-cols-2 gap-y-0 relative'>
                                         <div className='col-span-2'>
                                             <header>
@@ -203,8 +205,51 @@ const CustomersDashboardOnRequestDetail = () => {
 
                                     </div>
                                     {/* attached files */}
-                                    <div className='w-[50%] bg-green-400'>
-                                        attached files
+                                    <div className='w-[50%] border border-gray-200 p-3'>
+                                        {/* top */}
+                                        <div>
+                                            <h3 className='font-bold'>Attached Files</h3>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ad ratione distinctio, nemo laboriosam consequatur neque necessitatibus maiores ex ipsam reiciendis officiis non repudiandae.
+                                            </p>
+                                        </div>
+                                        {/* file */}
+                                        <div className='w-full py-3 grid grid-cols-1 gap-y-3'>
+                                            {
+                                                [...Array(3)].map((item, index) => {
+                                                    return (
+                                                        <div className='w-full px-3 py-2 border border-gray-300 flex items-center justify-between'>
+                                                            {/* left */}
+                                                            <div>
+                                                                <div className='flex items-center gap-3'>
+                                                                    <div>
+                                                                        <div className='w-[28px]'>
+                                                                            <img className='w-full object-center object-cover' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaLnfexVH4aZTNMXYe1VkjEL6DxxzJ1nXUTQ&usqp=CAU" alt="" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className='font-medium'>
+                                                                            <p>ethiopia the land of wisdom.pdf</p>
+                                                                        </div>
+                                                                        <div className='mt-[-3px] text-xs text-gray-500'>
+                                                                            <span>12.23kb</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {/* right */}
+                                                            <div>
+                                                                <div>
+                                                                    <button className='text-xl text-xl text-gray-500 hover:text-red-600'>
+                                                                        <TiDeleteOutline />
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
