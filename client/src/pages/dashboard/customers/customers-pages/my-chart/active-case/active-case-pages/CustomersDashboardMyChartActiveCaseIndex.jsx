@@ -72,16 +72,16 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                         {/* grid-items */}
                         {
-                            [...Array(4)].map((item, index) => {
+                            [...Array(2)].map((item, index) => {
                                 return (
                                     <div key={index}>
-                                        <div className='p-3 border border-gray-200 rounded-md'>
+                                        <div className='border border-gray-200 rounded-md bg-white shadow-md'>
                                             {/* header */}
-                                            <header className='flex items-center justify-between py-1'>
+                                            <header className='flex items-center justify-between py-2 px-3 bg-green-400'>
                                                 <div>
-                                                    <div className='w-[32px] overflow-hidden'>
+                                                    <div className='w-[42px] aspect-square flex items-center justify-center rounded-full bg-white overflow-hidden'>
                                                         <img
-                                                            className='w-full h-full object-cover object-center'
+                                                            className='w-[28px] object-cover object-center'
                                                             src="/logoFinal.png"
                                                             alt="" />
                                                     </div>
@@ -96,7 +96,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                             </header>
                                             {/* content */}
                                             {/* case detail */}
-                                            <div>
+                                            <div className='p-3'>
                                                 {/* case detail */}
                                                 <div>
                                                     <div className='grid grid-cols-2 gap-3'>
@@ -183,7 +183,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                                 </div>
                                             </div>
                                             {/* lawyer and case manager detail */}
-                                            <div className='flex gap-3 md:gap-5 my-3'>
+                                            <div className='flex gap-3 md:gap-5 my-3 px-3'>
                                                 {/* lawyer */}
                                                 <div>
                                                     <div className='flex items-center cursor-pointer' onClick={()=>{
