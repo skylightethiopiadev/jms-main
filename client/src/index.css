@@ -39,6 +39,12 @@
   border-radius: 0px;
 } */
 
+
+#customers-dashboard-cancel-payment-form-popup::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
 /* home-lawyer-list-card */
 
 #home-lawyer-list-card::-webkit-scrollbar {

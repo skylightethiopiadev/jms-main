@@ -19,6 +19,7 @@ import { BiTransfer } from "react-icons/bi";
 import { CiCirclePlus } from "react-icons/ci";
 import { BiBlock } from "react-icons/bi";
 import { TbListDetails } from "react-icons/tb";
+import { CiClock2 } from "react-icons/ci";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
@@ -29,6 +30,8 @@ const CustomersDashboardOnRequestDetail = () => {
     const [paymentDetailFlag, setPaymentDetailFlag] = useState('Payed')
 
     const [payedDetailPopUp, setPayedDetailPopUp] = useState(null)
+
+    const [cancelPaymentForm,setCancelPaymentForm] = useState(false)
 
     const lawyerNavLink = [
         {
@@ -320,7 +323,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                             <TbListDetails className='text-lg' />
                                                         </div>
                                                         <div className='text-lg'>
-                                                            <span>Payment Detail</span>
+                                                            <span>Detail</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -328,7 +331,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                 {
                                                     paymentDetailNavLinks.map((item, index) => {
                                                         return (
-                                                            <header key={index} className={`px-1 py-2 cursor-pointer  transition-colors ease-in-out duration-300 border-l-4 ${paymentDetailFlag === item.title ? 'border-yellow-400 bg-blue-50' : 'border-white'}`} onClick={() => {
+                                                            <header key={index} className={`px-1 py-1 cursor-pointer  transition-colors ease-in-out duration-300 border-l-4 ${paymentDetailFlag === item.title ? 'border-yellow-400 bg-blue-50' : 'border-white'}`} onClick={() => {
                                                                 setPaymentDetailFlag(item.title)
                                                             }}>
                                                                 <div className='flex items-center gap-1'>
@@ -356,30 +359,28 @@ const CustomersDashboardOnRequestDetail = () => {
                                                             ?
                                                             <div>
                                                                 {/* payed here */}
-                                                                <div>
+                                                                <div className='grid grid-cols-2 gap-x-5 gap-y-3'>
                                                                     {
-                                                                        [...Array(3)].map((item, index) => {
+                                                                        [...Array(4)].map((item, index) => {
                                                                             return (
                                                                                 <div key={index} className='flex justify-between px-3 py-1 border border-gray-200 bg-white shadow-none transition-shadow ease-in-out duration-300 hover:shadow-md mb-3' onClick={(e) => {
                                                                                     setPayedDetailPopUp({ id: index })
                                                                                     e.stopPropagation()
                                                                                 }}>
                                                                                     <div>
-                                                                                        <div className='font-semibold'>
-                                                                                            <p>Lorem ipsum dolor sit amet.</p>
+                                                                                        <div>
+                                                                                            <div className='flex items-center gap-1'>
+                                                                                                <h3 className='font-black text-[1.05rem] text-blue-500'>$435/700</h3>
+                                                                                                <span className='font-semibold text-yellow-500'>payed</span>
+                                                                                            </div>
                                                                                         </div>
                                                                                         <div>
                                                                                             <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
                                                                                         </div>
                                                                                         <div className='text-xs flex items-center flex-wrap gap-3 my-1'>
                                                                                             <div className='flex items-center gap-1'>
-                                                                                                <CiCirclePlus className='text-green-700 text-lg' />
+                                                                                                <CiClock2 className='text-blue-500 text-lg' />
                                                                                                 <span>payed 5 days ago</span>
-                                                                                            </div>
-
-                                                                                            <div className='flex items-center gap-1'>
-                                                                                                <CiCirclePlus className='text-green-700 text-lg' />
-                                                                                                <span>7 months left</span>
                                                                                             </div>
 
                                                                                             <div className='flex items-center gap-1'>
@@ -398,7 +399,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                     </div>
 
                                                                                     {/* payed --- pop-up */}
-                                                                                    <div className={`fixed w-[450px] h-[450px] bg-white shadow-md left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform ease-in-out duration-300 ${payedDetailPopUp?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                                                    <div className={`fixed w-[450px] h-[450px] bg-white shadow-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform ease-in-out duration-300 overflow-y-auto ${payedDetailPopUp?.id === index ? 'scale-100' : 'scale-0'}`} id='customers-dashboard-cancel-payment-form-popup'>
                                                                                         {/* header */}
                                                                                         <header className='flex items-center justify-between px-3 py-2 bg-blue-400 text-white'>
                                                                                             <div>
@@ -433,7 +434,9 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div className='my-2 flex'>
-                                                                                                        <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500'>cancel payment</button>
+                                                                                                        <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500' onClick={()=>{
+                                                                                                            setCancelPaymentForm(true)
+                                                                                                        }}>cancel payment</button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 {/* right */}
@@ -456,9 +459,31 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
+
+                                                                                            {/* cancel payment form */}
+                                                                                            <div className={`transition-all ease-in-out duration-300 overflow-hidden ${cancelPaymentForm ? 'h-[250px]' : 'h-0'}`}>
+                                                                                                <div className='p-3 my-3 border border-gray-200 rounded-sm'>
+                                                                                                    <div className='text-xs text-gray-700'>
+                                                                                                        <p>
+                                                                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                                                                            Lorem ipsum dolor sit amet.
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                    <div className='my-1 border border-gray-300 rounded-sm'>
+                                                                                                        <textarea 
+                                                                                                            className='w-full focus:outline-none focus:ring-0 border-none resize-none h-[120px]'
+                                                                                                        ></textarea>
+                                                                                                    </div>
+                                                                                                    <div className='mt-3 flex items-center gap-x-5'>
+                                                                                                        <button className='px-7 py-[.175rem] bg-blue-400 text-white'>done</button>
+                                                                                                        <button className='px-7 py-[.175rem] bg-red-400 text-white' onClick={()=>setCancelPaymentForm(false)}>cancel</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
                                                                                             {/* payment history */}
-                                                                                            <div>
-                                                                                                <div className='mt-5'>
+                                                                                            <div className='mt-3'>
+                                                                                                <div>
                                                                                                     <header className='flex items-center gap-1  '>
                                                                                                         <div>
                                                                                                             <TbListDetails />
@@ -470,22 +495,37 @@ const CustomersDashboardOnRequestDetail = () => {
 
                                                                                                     <div className='ml-10'>
                                                                                                         {
-                                                                                                            [...Array(3)].map((item,index)=>{
+                                                                                                            [...Array(3)].map((item, index) => {
                                                                                                                 return (
                                                                                                                     <div className='px-1 py-1 border-l border-blue-400'>
                                                                                                                         <header className='flex items-center gap-1'>
                                                                                                                             <div className='w-[20px] aspect-square border border-blue-500 rounded-full flex items-center justify-center text-xs bg-white ml-[-15px]'>
-                                                                                                                                <span>{index+1}</span>
+                                                                                                                                <span>{index + 1}</span>
                                                                                                                             </div>
-                                                                                                                            <div>text</div>
+                                                                                                                            <div>
+                                                                                                                                <span>last payment {index + 1} weeks ago</span>
+                                                                                                                            </div>
                                                                                                                         </header>
                                                                                                                     </div>
                                                                                                                 )
                                                                                                             })
                                                                                                         }
                                                                                                     </div>
+
+                                                                                                    {/* some text */}
+                                                                                                    <div className='mt-3'>
+                                                                                                        <div>
+                                                                                                            <p>
+                                                                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis illo suscipit neque quia quas ut atque quo unde porro praesentium! Cupiditate, maxime! Fugiat fuga laboriosam placeat.
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div className='mt-3'>
+                                                                                                            <button className='px-5 py-1 rounded-sm bg-blue-400 hover:bg-blue-500 text-white'>Bill Next</button>
+                                                                                                        </div>
+                                                                                                    </div>
                                                                                                 </div>
                                                                                             </div>
+
                                                                                         </div>
                                                                                     </div>
 
