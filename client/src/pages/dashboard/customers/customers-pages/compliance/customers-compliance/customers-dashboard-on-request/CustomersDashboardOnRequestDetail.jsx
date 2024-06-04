@@ -21,6 +21,7 @@ import { TbListDetails } from "react-icons/tb";
 import { GiProgression } from "react-icons/gi";
 import { GoClockFill } from "react-icons/go";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { GoPlus } from "react-icons/go";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
@@ -466,7 +467,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                             }
                                                                                                         }}>
                                                                                                             <span>
-                                                                                                                cancel payment
+                                                                                                                reject payment
                                                                                                             </span>
                                                                                                             < MdKeyboardArrowDown className={`text-2xl transition-transform ease-in-out duration-150 ${cancelPaymentForm ? '-rotate-180' : 'rotate-0'}`}/>
                                                                                                             </button>
@@ -488,7 +489,10 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div className='my-2 flex'>
-                                                                                                        <button className='px-3 py-1 rounded-sm bg-blue-400 text-white transition-colors ease-in-out duration-500 hover:bg-blue-500'>add payment</button>
+                                                                                                        <button className='px-3 py-1 rounded-sm bg-blue-400 text-white transition-colors ease-in-out duration-500 hover:bg-blue-500 flex items-center gap-1'>
+                                                                                                            <GoPlus className='text-2xl'/>
+                                                                                                            <span>add payment</span>
+                                                                                                            </button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
