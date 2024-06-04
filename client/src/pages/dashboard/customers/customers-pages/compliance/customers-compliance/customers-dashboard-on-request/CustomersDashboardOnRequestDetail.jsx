@@ -1,17 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Chart from 'react-apexcharts'
 
 // icons
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
 
-import { RiUser4Line } from "react-icons/ri";
-import { BiMessage } from "react-icons/bi";
-import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoMdMore } from "react-icons/io";
-import { AiOutlineDelete } from "react-icons/ai";
-import { IoEyeOutline } from "react-icons/io5";
 
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { BiTransfer } from "react-icons/bi";
@@ -23,11 +19,17 @@ import { GoClockFill } from "react-icons/go";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { GoPlus } from "react-icons/go";
 
+import { IoMdStar } from "react-icons/io";
+import { IoMdStarHalf } from "react-icons/io";
+import { IoMdStarOutline } from "react-icons/io";
+
+import { BiMessageAlt } from "react-icons/bi";
+import { IoWarningOutline } from "react-icons/io5";
+
 const CustomersDashboardOnRequestDetail = () => {
     // states
     const [caseDetail, setCaseDetail] = useState('CASE-DETAIL')
     const [isCaseDescriptionPopUp, setIsCaseDescriptionPopUp] = useState(false)
-    const [lawyerNav, setLawyerNav] = useState('Personal')
 
     const [paymentDetailFlag, setPaymentDetailFlag] = useState('Payed')
 
@@ -35,20 +37,7 @@ const CustomersDashboardOnRequestDetail = () => {
 
     const [cancelPaymentForm, setCancelPaymentForm] = useState(false)
 
-    const lawyerNavLink = [
-        {
-            title: 'Personal',
-            icon: RiUser4Line,
-        },
-        {
-            title: 'Messages',
-            icon: BiMessage,
-        },
-        {
-            title: 'Notification',
-            icon: IoIosNotificationsOutline,
-        },
-    ]
+
 
     const paymentDetailNavLinks = [
         {
@@ -460,17 +449,17 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                     </div>
                                                                                                     <div className='my-2 flex'>
                                                                                                         <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500 flex items-center gap-1' onClick={() => {
-                                                                                                            if(cancelPaymentForm){
+                                                                                                            if (cancelPaymentForm) {
                                                                                                                 setCancelPaymentForm(false)
-                                                                                                            }else{
+                                                                                                            } else {
                                                                                                                 setCancelPaymentForm(true)
                                                                                                             }
                                                                                                         }}>
                                                                                                             <span>
                                                                                                                 reject payment
                                                                                                             </span>
-                                                                                                            < MdKeyboardArrowDown className={`text-2xl transition-transform ease-in-out duration-150 ${cancelPaymentForm ? '-rotate-180' : 'rotate-0'}`}/>
-                                                                                                            </button>
+                                                                                                            < MdKeyboardArrowDown className={`text-2xl transition-transform ease-in-out duration-150 ${cancelPaymentForm ? '-rotate-180' : 'rotate-0'}`} />
+                                                                                                        </button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 {/* right */}
@@ -490,9 +479,9 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                     </div>
                                                                                                     <div className='my-2 flex'>
                                                                                                         <button className='px-3 py-1 rounded-sm bg-blue-400 text-white transition-colors ease-in-out duration-500 hover:bg-blue-500 flex items-center gap-1'>
-                                                                                                            <GoPlus className='text-2xl'/>
+                                                                                                            <GoPlus className='text-2xl' />
                                                                                                             <span>add payment</span>
-                                                                                                            </button>
+                                                                                                        </button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -603,181 +592,188 @@ const CustomersDashboardOnRequestDetail = () => {
                                                     </div>
                                                 </div>
                                                 <div className='w-full bg-white h-max shadow-md'>
-                                                    {
-                                                        lawyerNav === 'Personal'
-                                                            ?
-                                                            <div>
-                                                                <div>
-                                                                    {/* header image */}
-                                                                    <div className='flex items-center justify-center my-1'>
-                                                                        <div className='w-[120px] aspect-square rounded-full overflow-hidden border-4 border-white shadow-md'>
-                                                                            <img className='w-full h-full object-center object-cover' src="/gedi.jpg" alt="" />
+                                                    {/* lawyer detail */}
+                                                    <div className='p-3'>
+                                                        {/* personal detail */}
+                                                        <div className='my-3'>
+                                                            {/* header */}
+                                                            <header className='flex items-center justify-between p-3 border border-r-gray-200 rounded-md'>
+                                                                <div className='flex items-center gap-1'>
+                                                                    <div>
+                                                                        <div className='w-[74px] border-4 border-white shadow-md aspect-square rounded-full overflow-hidden'>
+                                                                            <img className='w-full h-full object-center object-cover' src="https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg" alt="" />
                                                                         </div>
                                                                     </div>
                                                                     <div>
-                                                                        <div className='mx-10'>
-                                                                            <p>
-                                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt incidunt explicabo est ipsum deleniti.
-                                                                            </p>
+                                                                        <div className='flex items-center gap-1 font-medium'>
+                                                                            <span>Haddis</span>
+                                                                            <span>Fanta</span>
                                                                         </div>
-                                                                    </div>
-                                                                    {/* personal detail */}
-                                                                    <div className='p-3 md:px-16'>
-                                                                        <div className='flex flex-wrap gap-x-7'>
-                                                                            {/* name */}
-                                                                            {/* first name */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>First Name</span>
+                                                                        <div>
+                                                                            <div className='flex items-center text-yellow-500'>
+                                                                                <IoMdStar />
+                                                                                <IoMdStar />
+                                                                                <IoMdStar />
+                                                                                <IoMdStarHalf />
+                                                                                <IoMdStarOutline />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className='my-2'>
+                                                                            <button className='px-3 bg-green-400 text-white'>rate me</button>
+                                                                        </div>
+                                                                        <div className='flex items-center gap-1'>
+                                                                            <div className='relative'>
+                                                                                <div className='w-[22px] aspect-square border border-gray-300 rounded-full flex items-center justify-center text-gray-600 cursor-pointer transition-colors ease-in-out duration-150 hover:bg-gray-700 hover:text-white' onMouseEnter={() => {
+                                                                                    document.getElementById('message-hint-text').classList.remove('opacity-0')
+                                                                                    document.getElementById('message-hint-text').classList.add('opacity-100')
+                                                                                }}
+                                                                                    onMouseLeave={() => {
+                                                                                        document.getElementById('message-hint-text').classList.add('opacity-0')
+                                                                                        document.getElementById('message-hint-text').classList.remove('opacity-100')
+                                                                                    }}
+                                                                                >
+                                                                                    <BiMessageAlt />
                                                                                 </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>Haddis</span>
+                                                                                <div className='px-3 z-10 rounded-md bg-black text-gray-300  absolute left-[100%] transition-opacity ease-in-out duration-300 bottom-[150%}] opacity-0' id='message-hint-text'>
+                                                                                    <span>message</span>
                                                                                 </div>
                                                                             </div>
 
-                                                                            {/* middle name */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>Middle Name</span>
+                                                                            <div className='relative'>
+                                                                                <div className='w-[22px] aspect-square border border-gray-300 rounded-full flex items-center justify-center text-gray-600 cursor-pointer transition-colors ease-in-out duration-150 hover:bg-gray-700 hover:text-white' onMouseEnter={()=>{
+                                                                                    document.getElementById('report-hint-text').classList.remove('opacity-0')
+                                                                                    document.getElementById('report-hint-text').classList.add('opacity-100')
+                                                                                }} 
+                                                                                onMouseLeave={()=>{
+                                                                                    document.getElementById('report-hint-text').classList.add('opacity-0')
+                                                                                    document.getElementById('report-hint-text').classList.remove('opacity-100')
+                                                                                }}
+                                                                                >
+                                                                                    <IoWarningOutline />
                                                                                 </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>Fanta</span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            {/* last name */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>Last Name</span>
-                                                                                </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>Shiferaw</span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            {/* Phone */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>Phone</span>
-                                                                                </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>+251923996736</span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            {/* email */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>Email</span>
-                                                                                </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>haddisfun7@gmail.com</span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            {/* nationality */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>Nationality</span>
-                                                                                </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>Ethiopian</span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            {/* Country */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>Country</span>
-                                                                                </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>Ethiopia</span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            {/* region */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>Region</span>
-                                                                                </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>Amhara</span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            {/* city */}
-                                                                            <div className='py-1 border-b border-gray-200'>
-                                                                                <div>
-                                                                                    <span className='font-bold text-xs text-gray-700'>City</span>
-                                                                                </div>
-                                                                                <div className='mt-[-5px] font-medium'>
-                                                                                    <span>Bahir Dar</span>
+                                                                                <div className='px-3 z-10 rounded-md bg-black text-gray-300  absolute left-[100%] transition-opacity ease-in-out duration-300 bottom-[150%}] opacity-0' id='report-hint-text'>
+                                                                                    <span>report</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            :
-                                                            lawyerNav === 'Messages'
-                                                                ?
-                                                                <div>Messages</div>
-                                                                :
-                                                                lawyerNav === 'Notification'
-                                                                    ?
+                                                                <div className='flex items-center justify-end gap-3 self-start'>
                                                                     <div>
                                                                         <div>
-                                                                            <header className='flex items-center justify-between px-3 py-1 border-b border-blue-700'>
-                                                                                <div>
-                                                                                    <h3 className='text-blue-700 font-semibold'>Notifications</h3>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <div>
-                                                                                        <button className='text-xl text-blue-700'>
-                                                                                            <IoMdMore />
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </header>
-
-                                                                            {/* notification list */}
+                                                                            <h3 className='w-max border-b border-gray-500'>Contact</h3>
+                                                                        </div>
+                                                                        <div>
                                                                             <div>
-                                                                                {
-                                                                                    [...Array(4)].map((item, index) => {
-                                                                                        return (
-                                                                                            <div key={index} className='w-full px-3 py-1 border-b border-gray-200 flex items-center hover:bg-gray-50'>
-                                                                                                <div className='flex-grow cursor-pointer'>
-                                                                                                    <div>
-                                                                                                        <div>
-                                                                                                            <p>
-                                                                                                                Lorem ipsum dolor sit amet.
-                                                                                                            </p>
-                                                                                                        </div>
-                                                                                                        <div className='mt-[-5px] text-xs text-gray-700'>
-                                                                                                            <span>5 minutes ago</span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div>
-                                                                                                    <div className='flex items-center gap-1'>
-                                                                                                        <button className='text-gray-400 hover:text-gray-700'>
-                                                                                                            <IoEyeOutline className='text-lg' />
-                                                                                                        </button>
-                                                                                                        <button className='text-gray-400 hover:text-gray-700'>
-                                                                                                            <AiOutlineDelete className='text-lg' />
-                                                                                                        </button>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        )
-                                                                                    })
-                                                                                }
+                                                                                <span className='font-medium'>Phone: </span>
+                                                                                <span>+251923996736</span>
+                                                                            </div>
+                                                                            <div>
+                                                                                <span className='font-medium'>Email: </span>
+                                                                                <span>haddisfun7@fmail.com</span>
+                                                                            </div>
+                                                                            <div>
+                                                                                <span className='font-medium'>Postal: </span>
+                                                                                <span>10002364AWTZY</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    :
-                                                                    <></>
-                                                    }
+
+                                                                    <div>
+                                                                        <div>
+                                                                            <h3 className='w-max border-b border-gray-500'>Address</h3>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div>
+                                                                                <span className='font-semibold'>Country: </span>
+                                                                                <span>Ethiopia</span>
+                                                                            </div>
+                                                                            <div>
+                                                                                <span className='font-semibold'>Region: </span>
+                                                                                <span>Amhara</span>
+                                                                            </div>
+                                                                            <div>
+                                                                                <span className='font-semibold'>City: </span>
+                                                                                <span>Bahir Dar</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+
+                                                        </div>
+                                                        {/* grids-chart */}
+                                                        <div className='grid grid-cols-3 gap-5'>
+                                                            {
+                                                                [...Array(3)].map((item, index) => {
+                                                                    return (
+                                                                        <div className='h-[120px] p-3 bg-white shadow-md'>
+                                                                            <div className='w-full h-full'>
+                                                                                <Chart
+                                                                                    height={130}
+                                                                                    width={'100%'}
+                                                                                    type='area'
+                                                                                    series={[
+                                                                                        {
+                                                                                            name: 'active',
+                                                                                            data: [3, 27, 12, 32, 87, 22, 87, 33, 64, 71, 22, 87, 12, 43, 12, 11, 75]
+                                                                                        }
+                                                                                    ]}
+                                                                                    options={{
+                                                                                        chart: {
+                                                                                            zoom: {
+                                                                                                enabled: false
+                                                                                            },
+                                                                                            toolbar: {
+                                                                                                show: false
+                                                                                            }
+                                                                                        },
+                                                                                        yaxis: {
+                                                                                            labels: {
+                                                                                                show: false
+                                                                                            }
+                                                                                        },
+                                                                                        xaxis: {
+                                                                                            labels: {
+                                                                                                show: false,
+                                                                                            },
+                                                                                            axisBorder: {
+                                                                                                show: false
+                                                                                            },
+                                                                                            axisTicks: {
+                                                                                                show: false
+                                                                                            }
+                                                                                        },
+                                                                                        dataLabels: {
+                                                                                            enabled: false
+                                                                                        },
+                                                                                        grid: {
+                                                                                            yaxis: {
+                                                                                                lines: {
+                                                                                                    show: false
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        stroke: {
+                                                                                            curve: 'smooth',
+                                                                                            width: 1
+                                                                                        },
+                                                                                        title: {
+                                                                                            text: '1.3k+'
+                                                                                        },
+                                                                                        subtitle: {
+                                                                                            text: 'active cases'
+                                                                                        },
+                                                                                        colors: ['#266ad1'],
+                                                                                    }}
+                                                                                />
+                                                                            </div>
+                                                                        </div>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
