@@ -363,9 +363,9 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                 {/* payed here */}
                                                                 <div className='grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-3'>
                                                                     {
-                                                                        [...Array(2)].map((item, index) => {
+                                                                        [...Array(4)].map((item, index) => {
                                                                             return (
-                                                                                <div key={index} className='flex justify-between px-3 py-1 border border-gray-200 bg-white shadow-none transition-shadow ease-in-out duration-300 hover:shadow-md mb-3' onClick={(e) => {
+                                                                                <div key={index} className='flex justify-between px-3 py-1 border border-gray-200 bg-white shadow-sm transition-shadow ease-in-out duration-300 hover:shadow-md mb-3' onClick={(e) => {
                                                                                     // setPayedDetailPopUp({ id: index })
                                                                                     e.stopPropagation()
                                                                                 }}>
@@ -393,7 +393,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                         </div>
 
                                                                                         <div className='my-2'>
-                                                                                            <div className='font-semibold'>
+                                                                                            <div className='font-medium text-gray-500'>
                                                                                                 <p>payment options</p>
                                                                                             </div>
                                                                                             <div className='my-1 flex items-center gap-2'>
