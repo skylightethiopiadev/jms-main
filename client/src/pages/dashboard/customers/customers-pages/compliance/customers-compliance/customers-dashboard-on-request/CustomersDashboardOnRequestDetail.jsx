@@ -594,38 +594,15 @@ const CustomersDashboardOnRequestDetail = () => {
                                     <div className='mt-3'>
                                         <div className='bg-gray-100 p-3'>
                                             <div className='flex gap-5'>
-                                                <div className='w-[20%] h-max bg-white border border-gray-300 shadow-sm'>
-                                                    <div className='cursor-pointer px-3 py-1'>
-                                                        <div>
-                                                            <h3 className='font-semibold'>Settings</h3>
+                                                <div className='w-max h-max bg-white border border-gray-300 shadow-sm'>
+                                                    {/* lawyer profile */}
+                                                    <div className='m-1 p-3'>
+                                                        <div className='w-[120px] h-[120px] rounded-md overflow-hidden'>
+                                                            <img className='w-full h-full object-center object-cover' src="https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg" alt="" />
                                                         </div>
-                                                        <div className='mt-[-5px]'>
-                                                            <span>Lorem ipsum</span>
-                                                        </div>
-                                                    </div>
-                                                    {/* some nav */}
-                                                    <div>
-                                                        {
-                                                            lawyerNavLink.map((item, index) => {
-                                                                return (
-                                                                    <div className={`px-1 py-[.15rem] cursor-pointer ${lawyerNav === item.title ? 'bg-gray-100 border-l-4 border-yellow-500' : 'bg-white border-l-4 border-white'}`} onClick={() => {
-                                                                        setLawyerNav(item.title)
-                                                                    }}>
-                                                                        <div className='flex items-center'>
-                                                                            <div>
-                                                                                <item.icon className='text-lg' />
-                                                                            </div>
-                                                                            <div>
-                                                                                <span>{item.title}</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
                                                     </div>
                                                 </div>
-                                                <div className='w-[50%] bg-white h-max shadow-md'>
+                                                <div className='w-full bg-white h-max shadow-md'>
                                                     {
                                                         lawyerNav === 'Personal'
                                                             ?
@@ -801,9 +778,6 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                     :
                                                                     <></>
                                                     }
-                                                </div>
-                                                <div className='w-[30%] bg-white shadow-md h-max'>
-                                                    {/* you can add something */}
                                                 </div>
                                             </div>
                                         </div>
