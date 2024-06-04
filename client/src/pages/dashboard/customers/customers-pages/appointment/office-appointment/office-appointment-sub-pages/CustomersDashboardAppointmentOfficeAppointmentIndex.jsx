@@ -24,7 +24,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                     </div>
                     <div>
                         <NavLink to={'/dashboard/customers/appointment/office-appointment/new-office-appointment'}>
-                            <div className='flex items-center gap-1  px-1 py-[.15rem] rounded-sm text-white bg-blue-500 hover:bg-blue-600'>
+                            <div className='flex items-center gap-1  px-3 py-[.35rem] rounded-sm text-white bg-blue-500 hover:bg-blue-600'>
                                 <div className='text-xl'>
                                     <LiaUserClockSolid />
                                 </div>
