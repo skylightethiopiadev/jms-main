@@ -12,14 +12,14 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoMdMore } from "react-icons/io";
 import { AiOutlineDelete } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
-import { PiContactlessPaymentThin } from "react-icons/pi";
 
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { BiTransfer } from "react-icons/bi";
 import { CiCirclePlus } from "react-icons/ci";
 import { BiBlock } from "react-icons/bi";
 import { TbListDetails } from "react-icons/tb";
-import { CiClock2 } from "react-icons/ci";
+import { GiProgression } from "react-icons/gi";
+import { GoClockFill } from "react-icons/go";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
@@ -31,7 +31,7 @@ const CustomersDashboardOnRequestDetail = () => {
 
     const [payedDetailPopUp, setPayedDetailPopUp] = useState(null)
 
-    const [cancelPaymentForm,setCancelPaymentForm] = useState(false)
+    const [cancelPaymentForm, setCancelPaymentForm] = useState(false)
 
     const lawyerNavLink = [
         {
@@ -359,12 +359,12 @@ const CustomersDashboardOnRequestDetail = () => {
                                                             ?
                                                             <div>
                                                                 {/* payed here */}
-                                                                <div className='grid grid-cols-2 gap-x-5 gap-y-3'>
+                                                                <div className='grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-3'>
                                                                     {
-                                                                        [...Array(4)].map((item, index) => {
+                                                                        [...Array(2)].map((item, index) => {
                                                                             return (
                                                                                 <div key={index} className='flex justify-between px-3 py-1 border border-gray-200 bg-white shadow-none transition-shadow ease-in-out duration-300 hover:shadow-md mb-3' onClick={(e) => {
-                                                                                    setPayedDetailPopUp({ id: index })
+                                                                                    // setPayedDetailPopUp({ id: index })
                                                                                     e.stopPropagation()
                                                                                 }}>
                                                                                     <div>
@@ -379,15 +379,38 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                         </div>
                                                                                         <div className='text-xs flex items-center flex-wrap gap-3 my-1'>
                                                                                             <div className='flex items-center gap-1'>
-                                                                                                <CiClock2 className='text-blue-500 text-lg' />
+                                                                                                <GoClockFill className='text-blue-400 text-lg' />
                                                                                                 <span>payed 5 days ago</span>
                                                                                             </div>
 
                                                                                             <div className='flex items-center gap-1'>
-                                                                                                <CiCirclePlus className='text-green-700 text-lg' />
+                                                                                                <GiProgression className='text-blue-400 text-lg' />
                                                                                                 <span>64% covered</span>
                                                                                             </div>
 
+                                                                                        </div>
+
+                                                                                        <div className='my-2'>
+                                                                                            <div className='font-semibold'>
+                                                                                                <p>payment options</p>
+                                                                                            </div>
+                                                                                            <div className='my-1 flex items-center gap-2'>
+                                                                                                <div>
+                                                                                                    <div className='w-[16px] aspect-square rounded-full overflow-hidden'>
+                                                                                                        <img className='h-full w-full object-center object-cover' src="https://banksethiopia.com/wp-content/uploads/2020/10/unnamed-1.png" alt="" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <div className='w-[16px] aspect-square rounded-full overflow-hidden'>
+                                                                                                        <img className='h-full w-full object-center object-cover' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Awash_International_Bank.png/220px-Awash_International_Bank.png" alt="" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <div className='w-[16px] aspect-square rounded-full overflow-hidden'>
+                                                                                                        <img className='h-full w-full object-center object-cover' src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1447476896/lcrdrlh1hfa0nbl9ycy3.png" alt="" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div>
@@ -434,7 +457,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div className='my-2 flex'>
-                                                                                                        <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500' onClick={()=>{
+                                                                                                        <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500' onClick={() => {
                                                                                                             setCancelPaymentForm(true)
                                                                                                         }}>cancel payment</button>
                                                                                                     </div>
@@ -470,13 +493,13 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                         </p>
                                                                                                     </div>
                                                                                                     <div className='my-1 border border-gray-300 rounded-sm'>
-                                                                                                        <textarea 
+                                                                                                        <textarea
                                                                                                             className='w-full focus:outline-none focus:ring-0 border-none resize-none h-[120px]'
                                                                                                         ></textarea>
                                                                                                     </div>
                                                                                                     <div className='mt-3 flex items-center gap-x-5'>
                                                                                                         <button className='px-7 py-[.175rem] bg-blue-400 text-white'>done</button>
-                                                                                                        <button className='px-7 py-[.175rem] bg-red-400 text-white' onClick={()=>setCancelPaymentForm(false)}>cancel</button>
+                                                                                                        <button className='px-7 py-[.175rem] bg-red-400 text-white' onClick={() => setCancelPaymentForm(false)}>cancel</button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
