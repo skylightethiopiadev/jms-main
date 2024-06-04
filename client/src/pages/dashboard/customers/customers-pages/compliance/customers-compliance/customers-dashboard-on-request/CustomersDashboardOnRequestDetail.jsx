@@ -20,6 +20,7 @@ import { BiBlock } from "react-icons/bi";
 import { TbListDetails } from "react-icons/tb";
 import { GiProgression } from "react-icons/gi";
 import { GoClockFill } from "react-icons/go";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
@@ -100,19 +101,19 @@ const CustomersDashboardOnRequestDetail = () => {
                 <div className='p-5'>
                     <header className='flex items-center gap-7'>
 
-                        <div className={`w-[50%] py-2 cursor-pointer relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-blue-700 after:transition-all after:ease-in-out after:duration-300 hover:after:w-full ${caseDetail === 'CASE-DETAIL' ? 'after:w-full' : ''}`} onClick={() => {
+                        <div className={`w-[50%] py-2 cursor-pointer relative after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:transition-all after:ease-in-out after:duration-300 hover:after:w-full ${caseDetail === 'CASE-DETAIL' ? ' after:bg-blue-700' : 'after:bg-gray-300'}`} onClick={() => {
                             setCaseDetail('CASE-DETAIL')
                         }}>
                             <h3 className='font-medium'>Case Detail</h3>
                         </div>
 
-                        <div className={`w-[50%] py-2 cursor-pointer relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-blue-700 after:transition-all after:ease-in-out after:duration-300 hover:after:w-full ${caseDetail === 'LAWYER-DETAIL' ? 'after:w-full' : ''}`} onClick={() => {
+                        <div className={`w-[50%] py-2 cursor-pointer relative after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:transition-all after:ease-in-out after:duration-300 hover:after:w-full ${caseDetail === 'LAWYER-DETAIL' ? 'after:bg-blue-700' : 'after:bg-gray-300'}`} onClick={() => {
                             setCaseDetail('LAWYER-DETAIL')
                         }}>
                             <h3 className='font-medium'>Lawyer Detail</h3>
                         </div>
 
-                        <div className={`w-[50%] py-2 cursor-pointer relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-blue-700 after:transition-all after:ease-in-out after:duration-300 hover:after:w-full ${caseDetail === 'PAYMENT-DETAIL' ? 'after:w-full' : ''}`} onClick={() => {
+                        <div className={`w-[50%] py-2 cursor-pointer relative after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:transition-all after:ease-in-out after:duration-300 hover:after:w-full ${caseDetail === 'PAYMENT-DETAIL' ? 'after:bg-blue-700' : 'after:bg-gray-300'}`} onClick={() => {
                             setCaseDetail('PAYMENT-DETAIL')
                         }}>
                             <h3 className='font-medium'>Payment Detail</h3>
@@ -429,7 +430,7 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                 <h3 className='font-bold'>Payment Detail</h3>
                                                                                             </div>
                                                                                             <div>
-                                                                                                <button className='w-[20px] aspect-square rounded-full flex items-center justify-center text-lg border border-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-red-700' onClick={(e) => {
+                                                                                                <button className='w-[26px] aspect-square rounded-full flex items-center justify-center text-lg border border-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-red-700' onClick={(e) => {
                                                                                                     e.stopPropagation()
                                                                                                     setPayedDetailPopUp(null)
                                                                                                 }}>
@@ -457,9 +458,18 @@ const CustomersDashboardOnRequestDetail = () => {
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div className='my-2 flex'>
-                                                                                                        <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500' onClick={() => {
-                                                                                                            setCancelPaymentForm(true)
-                                                                                                        }}>cancel payment</button>
+                                                                                                        <button className='px-3 py-1 rounded-sm bg-red-400 text-white transition-colors ease-in-out duration-500 hover:bg-red-500 flex items-center gap-1' onClick={() => {
+                                                                                                            if(cancelPaymentForm){
+                                                                                                                setCancelPaymentForm(false)
+                                                                                                            }else{
+                                                                                                                setCancelPaymentForm(true)
+                                                                                                            }
+                                                                                                        }}>
+                                                                                                            <span>
+                                                                                                                cancel payment
+                                                                                                            </span>
+                                                                                                            < MdKeyboardArrowDown className={`text-2xl transition-transform ease-in-out duration-150 ${cancelPaymentForm ? '-rotate-180' : 'rotate-0'}`}/>
+                                                                                                            </button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 {/* right */}
