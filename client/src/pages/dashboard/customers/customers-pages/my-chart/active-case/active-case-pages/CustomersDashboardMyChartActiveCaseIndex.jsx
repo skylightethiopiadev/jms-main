@@ -18,6 +18,7 @@ import { IoIosMore } from "react-icons/io";
 import { PiAlarmLight } from "react-icons/pi";
 import { CiLocationOn } from "react-icons/ci";
 import { LiaBalanceScaleSolid } from "react-icons/lia";
+import { CiSearch } from "react-icons/ci";
 
 
 const CustomersDashboardMyChartActiveCaseIndex = () => {
@@ -73,10 +74,20 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
 
 
             {/* second order container */}
-            <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md mt-7">
-                <header className="flex items-center justify-between pb-2">
-                    <div>
+            <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md mt-7 ">
+                <header className="flex items-center gap-16 pb-3 mb-5 border-b border-gray-200">
+                    <div className='hidden md:inline-flex'>
                         <h3 className="header-level-4">Active Cases</h3>
+                    </div>
+                    <div>
+                        <div className='flex items-center gap-1 px-3 py-[.1rem] border border-gray-300 rounded-full'>
+                            <CiSearch className='text-lg text-gray-600'/>
+                            <input 
+                                type="text" 
+                                placeholder='search by title' 
+                                className='focus:outline-none focus:ring-0 border-none p-0 bg-transparent text-sm placeholder:text-xs text-xs'
+                                />
+                        </div>
                     </div>
                 </header>
                 {/* content container */}
