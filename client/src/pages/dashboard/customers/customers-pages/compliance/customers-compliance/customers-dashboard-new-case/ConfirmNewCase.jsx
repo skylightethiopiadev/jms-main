@@ -6,15 +6,16 @@ import { AiFillPrinter } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { BsArrowRightShort } from "react-icons/bs";
 
+import { IoMdStar } from "react-icons/io";
+import { IoMdStarHalf } from "react-icons/io";
+import { IoMdStarOutline } from "react-icons/io";
+import { FiBarChart2 } from "react-icons/fi";
+import { IoCheckmarkCircle } from "react-icons/io5";
+
 const ConfirmNewCase = props => {
 
     // state
     const [isPrint, setIsPrint] = useState(false)
-
-    // console.log(props?.newCaseHistory?.caseCategory)
-    // console.log(props?.newCaseHistory?.services)
-    // console.log(props?.newCaseHistory?.subCaseCategory?.subType?.caseName)
-    // console.log(props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType?.title)
 
     return (
         <div className="overflow-y-auto h-[66vh] p-2 flex relative text-[1.05rem]">
@@ -38,7 +39,7 @@ const ConfirmNewCase = props => {
 
                 {/* case and lawyer */}
                 <div className="p-3 border border-gray-100 relative rounded-md mt-5 flex gap-10">
-                    <div className='bg-white shadow-md max-w-[350px]'>
+                    <div className='bg-white shadow-md w-max whitespace-nowrap max-w-[350px]'>
                         {/* <header className='px-3 py-1 text-gray-700'>
                             <h3>Case Tree</h3>
                         </header> */}
@@ -63,7 +64,7 @@ const ConfirmNewCase = props => {
 
                             {
                                 props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType?.title
-                                ?
+                                    ?
                                     <div className='flex items-center gap-2 border-b py-1.5 pr-3'>
                                         <div className='ml-[-11px]'>
                                             <div className='w-[20px] aspect-square rounded-full bg-green-400 flex items-center justify-center text-sm  text-white'><span>3</span></div>
@@ -72,92 +73,89 @@ const ConfirmNewCase = props => {
                                             <span>{props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType?.title}</span>
                                         </div>
                                     </div>
-                                :
-                                <></>
+                                    :
+                                    <></>
                             }
 
-                            
+
                         </div>
                     </div>
-                    <div className='flex-grow bg-red-500 h-max'>lawyer</div>
-                </div>
-
-                {/* summary */}
-                <div className="border border-gray-200 mt-3 ml-10 text-[.875rem]">
-
-                    <div>
-                        {/* first order */}
-                        <header className='flex items-center gap-2 py-2 border-b border-gray-200'>
-                            <div className='ml-[-11px]'>
-                                <div className='w-[20px] aspect-square rounded-full overflow-hidden bg-green-400 flex items-center justify-center text-white text-xl'>
-                                    <BsArrowRightShort />
+                    <div className='flex-grow h-max flex gap-10 p-5 bg-white shadow-md'>
+                        <div className='flex flex-col items-center whitespace-nowrap'>
+                            <div className='w-[42px] border-2 border-white shadow-md aspect-square rounded-full overflow-hidden'>
+                                <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="" />
+                            </div>
+                            <div className='flex items-center justify-center gap-1 font-semibold text-gray-800 text-sm'>
+                                <span>Haddis</span>
+                                <span>Fanta</span>
+                            </div>
+                            <div className='text-xs'>
+                                <span>selected lawyer</span>
+                            </div>
+                        </div>
+                        <div className='flex-grow'>
+                            <div className='flex items-center gap-3'>
+                                <div className='flex items-center text-yellow-400'>
+                                    <IoMdStar />
+                                    <IoMdStar />
+                                    <IoMdStar />
+                                    <IoMdStarHalf />
+                                    <IoMdStarOutline />
                                 </div>
-                            </div>
-                            <div>
-                                <span>{props?.newCaseHistory?.caseCategory} Case</span>
-                            </div>
-                        </header>
-                        {/* second order */}
-                        <header className='flex items-center gap-2 py-2 border-l border-b border-gray-200 ml-10'>
-                            <div className='ml-[-11px]'>
-                                <div className='w-[20px] aspect-square rounded-full overflow-hidden bg-green-400 flex items-center justify-center text-white text-xl'>
-                                    <BsArrowRightShort />
-                                </div>
-                            </div>
-                            <div>
-                                <span>{props?.newCaseHistory?.subCaseCategory?.subType?.caseName}</span>
-                            </div>
-                        </header>
-
-                        {
-                            props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType?.title
-                                ?
-                                <header className='flex items-center gap-2 py-2 border-l border-b border-gray-200 ml-20'>
-                                    <div className='ml-[-11px]'>
-                                        <div className='w-[20px] aspect-square rounded-full overflow-hidden bg-green-400 flex items-center justify-center text-white text-xl'>
-                                            <BsArrowRightShort />
-                                        </div>
+                                <div className='flex items-center cursor-pointer text-sm text-gray-700 hover:text-blue-700'>
+                                    <div>
+                                        <FiBarChart2 className='text-lg' />
                                     </div>
                                     <div>
-                                        <span>{props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType?.title}</span>
+                                        <span>rate me</span>
                                     </div>
-                                </header>
-                                :
-                                <></>
-                        }
-
-                        {/* services */}
-                        <div className='p-5'>
-                            <div>
-                                <h3 className='font-bold w-max border-b border-gray-600'>Requested Services</h3>
-                            </div>
-                            {/* services list */}
-                            <div>
-                                <div className='flex gap-x-5 gap-y-3 flex-wrap my-3'>
-                                    {
-                                        props?.newCaseHistory?.services?.length > 0 ?
-                                            <>
-                                                {
-                                                    props?.newCaseHistory?.services.map((item, index) => {
-                                                        return (
-                                                            <div key={index} className='flex gap-1'>
-                                                                <div className='flex items-center'>
-                                                                    <div className='w-[7px] aspect-square rounded-full bg-green-500'></div>
-                                                                </div>
-                                                                <div>
-                                                                    <span>{item}</span>
-                                                                </div>
-                                                            </div>
-                                                        )
-                                                    })
-                                                }
-                                            </>
-                                            :
-                                            <div><span>No Service selected</span></div>
-                                    }
-
                                 </div>
                             </div>
+                            <div className='my-1 text-[.95rem]'>
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, id eum rem itaque quasi quae autem.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* final documents */}
+                <div className="p-3 border border-gray-100 relative rounded-md mt-5 text-[.95rem]">
+                    <div>
+                        <h3 className='font-bold'>Description</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore laudantium eum. Cupiditate omnis perferendis deleniti nesciunt autem harum, incidunt dolores quo perspiciatis sint dolore excepturi totam praesentium qui porro reiciendis commodi architecto fugit vitae labore. Suscipit sapiente non dolorum quas. Facere rem laborum animi debitis! Exercitationem provident blanditiis consequuntur.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 className='font-bold'>Required Services</h3>
+                        <div className='ml-5'>
+                            {
+                                props?.newCaseHistory?.services?.length > 0
+                                    ?
+                                    <>
+                                        {
+                                            props?.newCaseHistory?.services.map((item, index) => {
+                                                return (
+                                                    <div className='flex gap-2 py-[.12rem]'>
+                                                        <div className='text-lg text-green-500'>
+                                                            <IoCheckmarkCircle />
+                                                        </div>
+                                                        <div>
+                                                            <p>
+                                                                {item}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </>
+                                    :
+                                    <div>No Service required</div>
+                            }
+
                         </div>
                     </div>
                 </div>
