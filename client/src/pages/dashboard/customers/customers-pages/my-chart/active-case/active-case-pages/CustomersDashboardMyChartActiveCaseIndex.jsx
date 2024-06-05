@@ -39,7 +39,9 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                 <div>
                     {/* text */}
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt assumenda libero est adipisci praesentium odit sequi! Magni asperiores natus repellendus iusto mollitia, nam quos?</p>
+                        <p>
+                            Your customized case history dashboard awaits you. Here, you’ll discover all the latest updates and details related to your ongoing case. Stay informed about the progress, completed tasks, and any pending actions to ensure a smooth journey toward resolving your legal matters.
+                        </p>
                     </div>
                     {/* avatar */}
                     <div className='flex items-center justify-between mt-1'>

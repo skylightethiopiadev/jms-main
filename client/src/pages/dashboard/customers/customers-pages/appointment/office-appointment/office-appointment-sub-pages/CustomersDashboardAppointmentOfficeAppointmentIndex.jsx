@@ -38,7 +38,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                 </header>
                 <div className='my-1'>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, iusto esse? Laboriosam quas voluptatum corporis repellendus impedit consectetur suscipit, deleniti ut excepturi cupiditate accusantium!
+                        Welcome to your personalized appointment dashboard. Here, you can manage and view all your scheduled appointments conveniently.
                     </p>
                 </div>
             </div>

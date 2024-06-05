@@ -88,6 +88,11 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                         </div>
                     </div>
                 </header>
+                <div>
+                    <p>
+                        To arrange a consultation with our law firm, kindly complete the form below with your personal information. Providing accurate and comprehensive responses will allow us to prepare for our meeting thoroughly and address your legal requirements effectively. Should you need to cancel or reschedule, please promptly notify us using the provided cancellation form. We appreciate your choice in selecting our services.
+                    </p>
+                </div>
             </div>
 
             {/* second order container */}
@@ -221,11 +226,11 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                                 </header>
                                 <div className='my-2'>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam alias totam cupiditate animi expedita
+                                        Just enter the required information on the provided form field.
                                     </p>
                                 </div>
                                 <div>
-                                    <button className='px-3 py-[.15rem] rounded-sm bg-gray-500 text-white hover:bg-gray-400'>read more</button>
+                                    <button className='px-3 py-[.15rem] rounded-sm bg-gray-500 text-white hover:bg-gray-400'>need help</button>
                                 </div>
                             </div>
                         </div>
@@ -461,7 +466,7 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                             {/* content */}
                             <div>
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint necessitatibus ipsum eligendi, cupiditate voluptatibus aut? Incidunt voluptate minima tempore nemo deserunt error repellendus voluptates.
+                                    Our law firm offers a comprehensive range of legal services to cater to your needs. Please peruse the list provided and select the service(s) that best align with the legal assistance you require. You are welcome to select multiple services if they apply to your situation.
                                 </p>
                             </div>
                             {/* legal detail form */}
@@ -508,7 +513,7 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                             {/* content */}
                             <div>
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint necessitatibus ipsum eligendi, cupiditate voluptatibus aut? Incidunt voluptate minima tempore nemo deserunt error repellendus voluptates.
+                                    Please indicate the type(s) of legal issues you require assistance with by selecting from the following options. Feel free to choose more than one option. Your choices will help us offer the most pertinent and thorough legal support tailored to your needs.
                                 </p>
                             </div>
                             {/* legal detail form */}
@@ -555,7 +560,7 @@ const CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm = () => {
                             {/* content */}
                             <div>
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint necessitatibus ipsum eligendi, cupiditate voluptatibus aut? Incidunt voluptate minima tempore nemo deserunt error repellendus voluptates.
+                                    In the space provided, please provide a concise yet detailed description of your legal issue. Include key facts and any relevant information that will help us understand your situation better. This will enable us to offer you the most accurate and effective legal advice.
                                 </p>
                             </div>
                             {/* legal detail form */}
