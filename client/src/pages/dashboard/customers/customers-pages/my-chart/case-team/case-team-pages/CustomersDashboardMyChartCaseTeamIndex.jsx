@@ -307,7 +307,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
             </div>
 
             {/* lawyer detail pop up */}
-            <div className={`fixed z-50 w-[350px] h-[500px] bg-white shadow-md rounded-sm overflow-hidden top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-transform ease-in-out duration-300 ${isLawyerDetail ? 'scale-100' : 'scale-0'} flex flex-col`} >
+            <div className={`fixed z-50 w-[350px] h-[500px] bg-white shadow-2xl rounded-sm overflow-hidden top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-transform ease-in-out duration-300 ${isLawyerDetail ? 'scale-100' : 'scale-0'} flex flex-col`} >
                 {/* header */}
                 <header className='border-b border-gray-300 relative'>
                     {/* close btn */}
