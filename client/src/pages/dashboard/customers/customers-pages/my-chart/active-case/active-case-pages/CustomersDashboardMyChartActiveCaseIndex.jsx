@@ -174,7 +174,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                                     {/* case teams */}
                                                     <div className='relative'>
                                                         <div className={`absolute left-3 z-40 top-[-34px] whitespace-nowrap px-3 rounded-md bg-gray-700 text-white transition-transform ease-in-out duration-150 ${caseTeamHint?.id === index ? 'scale-100' : 'scale-0'}`} id='case-team-hint-txt'>
-                                                            <span>case teams</span>
+                                                            <span>lawyers</span>
                                                         </div>
                                                         <div className='relative flex items-center cursor-pointer' onMouseEnter={() => {
                                                             setCaseTeamHint({ id: index })
@@ -206,7 +206,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                                     {/* managers team */}
                                                     <div className='relative'>
                                                         <div className={`absolute right-3 top-[-34px] whitespace-nowrap z-30 px-3 rounded-md bg-gray-700 text-white transition-transform ease-in-out duration-150 ${managersTeamHint?.id === index ? 'scale-100' : 'scale-0'}`}>
-                                                            <span>case managers</span>
+                                                            <span>managers</span>
                                                         </div>
                                                         <div className='relative flex items-center justify-end cursor-pointer' onMouseEnter={() => {
                                                             setManagersTeamHint({ id: index, flag: 'manager' })
