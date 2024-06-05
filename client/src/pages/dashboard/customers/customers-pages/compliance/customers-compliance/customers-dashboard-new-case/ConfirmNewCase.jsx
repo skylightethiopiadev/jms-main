@@ -19,10 +19,15 @@ const ConfirmNewCase = props => {
     return (
         <div className="overflow-y-auto h-[66vh] p-2 flex relative text-[1.05rem]">
             <div className="flex-grow bg-white rounded-md border border-gray-200 p-3 h-max">
-                <header className="py-1 border-b border-gray-100 flex items-center justify-between">
+                <header className="p-3 border border-gray-100 relative rounded-md">
                     <h4 className="font-semibold">New Case Summary</h4>
+                    <div className='text-sm'>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est molestias qui quae ex, nam iure! Sit nam fugiat quas sint ipsa consequatur culpa.
+                        </p>
+                    </div>
                     <div>
-                        <div className="flex items-center cursor-pointer px-1 rounded-sm transition-colors ease-in-out duration-300 hover:border-gray-400 border border-gray-200" onClick={() => {
+                        <div className="self-start flex items-center cursor-pointer px-1 rounded-sm transition-colors ease-in-out duration-300 hover:border-gray-400 border border-gray-200 absolute right-1 top-1" onClick={() => {
                             setIsPrint(true)
                         }}>
                             <TiPrinter className="text-blue-700" />
@@ -30,6 +35,53 @@ const ConfirmNewCase = props => {
                         </div>
                     </div>
                 </header>
+
+                {/* case and lawyer */}
+                <div className="p-3 border border-gray-100 relative rounded-md mt-5 flex gap-10">
+                    <div className='bg-white shadow-md max-w-[350px]'>
+                        {/* <header className='px-3 py-1 text-gray-700'>
+                            <h3>Case Tree</h3>
+                        </header> */}
+                        <div className='border border-gray-300 m-3 ml-5 border-b-transparent text-[.875rem]'>
+                            <div className='flex items-center gap-2 border-b py-1.5 pr-3'>
+                                <div className='ml-[-11px]'>
+                                    <div className='w-[20px] aspect-square rounded-full bg-green-400 flex items-center justify-center text-sm  text-white'><span>1</span></div>
+                                </div>
+                                <div>
+                                    <span>{props?.newCaseHistory?.caseCategory} Case</span>
+                                </div>
+                            </div>
+
+                            <div className='flex items-center gap-2 border-b py-1.5 pr-3'>
+                                <div className='ml-[-11px]'>
+                                    <div className='w-[20px] aspect-square rounded-full bg-green-400 flex items-center justify-center text-sm  text-white'><span>2</span></div>
+                                </div>
+                                <div>
+                                    <span>{props?.newCaseHistory?.subCaseCategory?.subType?.caseName}</span>
+                                </div>
+                            </div>
+
+                            {
+                                props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType?.title
+                                ?
+                                    <div className='flex items-center gap-2 border-b py-1.5 pr-3'>
+                                        <div className='ml-[-11px]'>
+                                            <div className='w-[20px] aspect-square rounded-full bg-green-400 flex items-center justify-center text-sm  text-white'><span>3</span></div>
+                                        </div>
+                                        <div>
+                                            <span>{props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType?.title}</span>
+                                        </div>
+                                    </div>
+                                :
+                                <></>
+                            }
+
+                            
+                        </div>
+                    </div>
+                    <div className='flex-grow bg-red-500 h-max'>lawyer</div>
+                </div>
+
                 {/* summary */}
                 <div className="border border-gray-200 mt-3 ml-10 text-[.875rem]">
 
