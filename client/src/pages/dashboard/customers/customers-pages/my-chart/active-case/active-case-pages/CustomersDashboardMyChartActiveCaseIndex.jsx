@@ -102,24 +102,24 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                     <div>
                                         <div className='bg-white shadow-md'>
 
-                                            <header className='flex justify-between px-3 py-1 border-b border-gray-300'>
+                                            <header className='flex justify-between px-3 py-1 border-b border-gray-300 bg-blue-400 text-white'>
                                                 <div>
                                                     <div>
                                                         <h3 className='font-semibold'>criminal case</h3>
                                                     </div>
-                                                    <div className='mt-[-3px] text-xs text-gray-600'>
+                                                    <div className='mt-[-3px] text-xs text-gray-100'>
                                                         <span>123k followers</span>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className='flex items-center justify-end'>
-                                                        <button className='bg-transparent px-[3px] rounded-full transition-colors ease-in-out duration-300 hover:bg-gray-300' onClick={() => {
+                                                        <button className='bg-transparent px-[3px] rounded-full transition-colors ease-in-out duration-300 hover:bg-blue-500' onClick={() => {
                                                             setCaseDetailPopup(true)
                                                         }}>
                                                             <IoIosMore className='text-xl my-[-4px]' />
                                                         </button>
                                                     </div>
-                                                    <div className='text-gray-600 text-xs'>
+                                                    <div className='text-gray-100 text-xs'>
                                                         <span>detail</span>
                                                     </div>
                                                 </div>
