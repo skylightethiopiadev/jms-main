@@ -220,7 +220,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                             {/* footer */}
                                             <footer className='p-3'>
                                                 <div>
-                                                    <button className='px-3 py-[.15rem] rounded-sm bg-red-600 hover:bg-red-500 transition-colors ease-in-out duration-300 text-white' onClick={()=>{
+                                                    <button className='px-3 py-[.15rem] rounded-full transition-colors ease-in-out duration-300 border border-red-500 text-red-800 hover:border-red-600 hover:bg-red-600 hover:text-white' onClick={()=>{
                                                         setCancelAppointment(true)
                                                     }}>cancel appointment</button>
                                                 </div>
