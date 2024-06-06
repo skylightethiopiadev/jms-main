@@ -76,7 +76,7 @@ const CustomersDashboardMyChartClosedCaseIndex = () => {
                                     <div key={index}>
                                         <div className='border border-gray-200 rounded-md bg-white shadow-md'>
                                             {/* header */}
-                                            <header className='flex items-center justify-between py-2 px-3 bg-red-400'>
+                                            <header className='flex items-center justify-between py-2 px-3 bg-blue-400'>
                                                 <div>
                                                     <div className='w-[42px] aspect-square flex items-center justify-center rounded-full bg-white overflow-hidden'>
                                                         <img
