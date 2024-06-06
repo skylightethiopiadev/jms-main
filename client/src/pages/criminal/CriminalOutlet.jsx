@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 const CriminalOutlet = () => {
     return (
-        <div className='p-28'>
+        <div className='text-[1.05rem] text-justify'>
             <Outlet />
         </div>
     )

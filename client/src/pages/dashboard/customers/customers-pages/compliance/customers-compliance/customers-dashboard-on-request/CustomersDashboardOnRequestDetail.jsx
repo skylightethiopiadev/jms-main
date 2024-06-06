@@ -68,7 +68,7 @@ const CustomersDashboardOnRequestDetail = () => {
                 <div>
                     <header className="flex items-center justify-between">
                         <div>
-                            <h3 className='header-level-4'>Case Summary</h3>
+                            <h3 className='header-level-4'>Case Detail</h3>
                         </div>
                         <div>
                             <button className='text-lg transition-colors ease-in-out duration-300 hover:text-blue-700' onClick={() => {

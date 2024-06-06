@@ -26,12 +26,12 @@ const CustomersDashboardNewCase = () => {
             description: "sub-category",
         },
         {
-            title: "Lawyers",
-            description: "select for your case",
-        },
-        {
             title: "Services",
             description: "service options",
+        },
+        {
+            title: "Lawyers",
+            description: "select for your case",
         },
     ];
 

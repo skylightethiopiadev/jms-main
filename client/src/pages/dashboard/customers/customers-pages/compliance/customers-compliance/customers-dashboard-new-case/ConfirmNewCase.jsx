@@ -21,7 +21,7 @@ const ConfirmNewCase = props => {
         <div className="overflow-y-auto h-[66vh] p-2 flex relative text-[1.05rem]">
             <div className="flex-grow bg-white rounded-md border border-gray-200 p-3 h-max">
                 <header className="p-3 border border-gray-100 relative rounded-md">
-                    <h4 className="font-semibold">New Case Summary</h4>
+                    <h4 className="font-semibold">New Case Filled Form Summary</h4>
                     <div className='text-sm'>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est molestias qui quae ex, nam iure! Sit nam fugiat quas sint ipsa consequatur culpa.
