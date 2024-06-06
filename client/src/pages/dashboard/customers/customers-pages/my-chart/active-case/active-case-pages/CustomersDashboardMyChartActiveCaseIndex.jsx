@@ -19,6 +19,7 @@ import { PiAlarmLight } from "react-icons/pi";
 import { CiLocationOn } from "react-icons/ci";
 import { LiaBalanceScaleSolid } from "react-icons/lia";
 import { CiSearch } from "react-icons/ci";
+import { PiContactlessPaymentThin } from "react-icons/pi";
 
 
 const CustomersDashboardMyChartActiveCaseIndex = () => {
@@ -27,7 +28,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
 
     const [caseTeamHint, setCaseTeamHint] = useState(null)
     const [managersTeamHint, setManagersTeamHint] = useState(null)
-    const [caseDetailPopup,setCaseDetailPopup] = useState(false)
+    const [caseDetailPopup, setCaseDetailPopup] = useState(false)
 
 
 
@@ -81,12 +82,12 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                     </div>
                     <div>
                         <div className='flex items-center gap-1 px-3 py-[.1rem] border border-gray-300 rounded-full'>
-                            <CiSearch className='text-lg text-gray-600'/>
-                            <input 
-                                type="text" 
-                                placeholder='search by title' 
+                            <CiSearch className='text-lg text-gray-600' />
+                            <input
+                                type="text"
+                                placeholder='search by title'
                                 className='focus:outline-none focus:ring-0 border-none p-0 bg-transparent text-sm placeholder:text-xs text-xs'
-                                />
+                            />
                         </div>
                     </div>
                 </header>
@@ -112,7 +113,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                                 </div>
                                                 <div>
                                                     <div className='flex items-center justify-end'>
-                                                        <button className='bg-transparent px-[3px] rounded-full transition-colors ease-in-out duration-300 hover:bg-gray-300' onClick={()=>{
+                                                        <button className='bg-transparent px-[3px] rounded-full transition-colors ease-in-out duration-300 hover:bg-gray-300' onClick={() => {
                                                             setCaseDetailPopup(true)
                                                         }}>
                                                             <IoIosMore className='text-xl my-[-4px]' />
@@ -492,7 +493,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                         </div>
                         <div>
                             <NavLink>
-                                <div className='w-[24px] aspect-square rounded-full flex items-center justify-center bg-white bg-opacity-75 hover:bg-opacity-100' onClick={()=>{
+                                <div className='w-[24px] aspect-square rounded-full flex items-center justify-center bg-white bg-opacity-75 hover:bg-opacity-100' onClick={() => {
                                     setCaseDetailPopup(false)
                                 }}>
                                     <AiOutlineClose className='text-lg' />
@@ -587,6 +588,17 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                 </p>
                             </div>
                         </div>
+                        {/* footer */}
+                        <footer>
+                            <NavLink to={'/dashboard/customers/compliance/on-request/detail'}>
+                                <div className='flex items-center gap-1 border-b border-transparent w-max hover:border-blue-400'>
+                                    <PiContactlessPaymentThin className='text-lg' />
+                                    <div className='flex items-center mb-1'>
+                                        <span>payment</span>
+                                    </div>
+                                </div>
+                            </NavLink>
+                        </footer>
                     </div>
                 </div>
             </div>
