@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 // icons
 import { AiOutlineClose } from "react-icons/ai";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
-import { IoMdMore } from "react-icons/io";
 
 import { FaFacebookF } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";

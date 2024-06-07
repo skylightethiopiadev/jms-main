@@ -158,17 +158,17 @@ const CustomersSideNav = () => {
                 {
                     icon: LuGraduationCap,
                     title: 'Training',
-                    path: '#',
+                    path: '/dashboard/customers/other-services/training',
                 },
                 {
                     icon: CiRollingSuitcase,
                     title: 'Consulting',
-                    path: '#',
+                    path: '/dashboard/customers/other-services/consulting',
                 },
                 {
                     icon: IoDocumentTextOutline,
                     title: 'Research',
-                    path: '#',
+                    path: '/dashboard/customers/other-services/research',
                 },
 
             ]

@@ -50,6 +50,25 @@ import CustomersDashboardAppointmentOfficeAppointmentNewAppointmentForm from './
 import CustomersDashboardAppointmentCaseAppointment from './pages/dashboard/customers/customers-pages/appointment/case-appointment/CustomersDashboardAppointmentCaseAppointment.jsx'
 import CustomersDashboardAppointmentCaseAppointmentIndex from './pages/dashboard/customers/customers-pages/appointment/case-appointment/case-appointment-sub-pages/CustomersDashboardAppointmentCaseAppointmentIndex.jsx'
 // customers dashboard -- appointment -- end
+
+// customers dashboard -- other services -- start
+
+import CustomersDashboardOtherServices from './pages/dashboard/customers/customers-pages/other-services/CustomersDashboardOtherServices.jsx'
+
+// training start
+import CustomersDashboardTrainingOutlet from './pages/dashboard/customers/customers-pages/other-services/training/CustomersDashboardTrainingOutlet.jsx'
+import CustomersDashboardTrainingIndex from './pages/dashboard/customers/customers-pages/other-services/training/sub-pages/CustomersDashboardTrainingIndex.jsx'
+import CustomersDashboardNewTrainingForm from './pages/dashboard/customers/customers-pages/other-services/training/sub-pages/CustomersDashboardNewTrainingForm.jsx'
+
+// consulting
+import CustomersDashboardConsultingOutlet from './pages/dashboard/customers/customers-pages/other-services/consulting/CustomersDashboardConsultingOutlet.jsx'
+import CustomersDashboardConsultingIndex from './pages/dashboard/customers/customers-pages/other-services/consulting/sub-pages/CustomersDashboardConsultingIndex.jsx'
+
+// research
+import CustomersDashboardResearchOutlet from './pages/dashboard/customers/customers-pages/other-services/research/CustomersDashboardResearchOutlet.jsx'
+import CustomersDashboardResearchIndex from './pages/dashboard/customers/customers-pages/other-services/research/sub-pages/CustomersDashboardResearchIndex.jsx'
+
+// customers dashboard -- other services -- end
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -408,6 +427,23 @@ function App() {
                   </Route>
                   <Route path="/dashboard/customers/appointment/case-appointment" element={<CustomersDashboardAppointmentCaseAppointment />}>
                     <Route path="/dashboard/customers/appointment/case-appointment" element={<CustomersDashboardAppointmentCaseAppointmentIndex />}></Route>
+                  </Route>
+                </Route>
+                {/* customers dashboard other services */}
+                <Route path="/dashboard/customers/other-services" element={<CustomersDashboardOtherServices />}>
+                  {/* training */}
+                  <Route path="/dashboard/customers/other-services/training" element={<CustomersDashboardTrainingOutlet />}>
+                    <Route path="/dashboard/customers/other-services/training" element={<CustomersDashboardTrainingIndex />}>
+                    </Route>
+                    <Route path="/dashboard/customers/other-services/training/new-training" element={<CustomersDashboardNewTrainingForm />}></Route>
+                  </Route>
+                  {/* consulting */}
+                  <Route path="/dashboard/customers/other-services/consulting" element={<CustomersDashboardConsultingOutlet />}>
+                    <Route path="/dashboard/customers/other-services/consulting" element={<CustomersDashboardConsultingIndex />}></Route>
+                  </Route>
+                  {/* research */}
+                  <Route path="/dashboard/customers/other-services/research" element={<CustomersDashboardResearchOutlet />}>
+                    <Route path="/dashboard/customers/other-services/research" element={<CustomersDashboardResearchIndex />}></Route>
                   </Route>
                 </Route>
               </Route>
