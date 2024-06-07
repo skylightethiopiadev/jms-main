@@ -585,7 +585,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                         </div>
                       ) : isNav?.navText === "Criminal" ? (
                         <div>
-                          <div className="p-[5%]">
+                          <div className="p-[5%] bg-white shadow-2xl">
                             <ul>
                               {criminalSubNav.map((item, index) => (
                                 <li
@@ -771,7 +771,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                         </div>
                       ) : isNav?.navText === "Other Services" ? (
                         <div>
-                          <div className="p-[5%] bg-white w-[430px]">
+                          <div className="p-[5%] bg-white shadow-2xl w-[430px]">
                             <ul>
                               {otherServicesSubNavList.map((item, index) => (
                                 <li
