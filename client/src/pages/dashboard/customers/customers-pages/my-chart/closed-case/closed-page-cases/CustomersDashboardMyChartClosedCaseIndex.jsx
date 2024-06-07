@@ -38,7 +38,7 @@ const CustomersDashboardMyChartClosedCaseIndex = () => {
                 <div>
                     {/* text */}
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt assumenda libero est adipisci praesentium odit sequi! Magni asperiores natus repellendus iusto mollitia, nam quos?</p>
+                        <p>Welcome to your personal closed case dashboard. All relevant information, documents and correspondence have been archived here for your reference. Please browse through the historical records to revisit the details of your resolved legal matter.</p>
                     </div>
                     {/* avatar */}
                     <div className='flex items-center justify-between mt-1'>

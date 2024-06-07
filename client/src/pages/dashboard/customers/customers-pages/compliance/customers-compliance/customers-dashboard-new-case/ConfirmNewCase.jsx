@@ -24,7 +24,7 @@ const ConfirmNewCase = props => {
                     <h4 className="font-semibold">New Case Filled Form Summary</h4>
                     <div className='text-sm'>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est molestias qui quae ex, nam iure! Sit nam fugiat quas sint ipsa consequatur culpa.
+                            It is with great satisfaction that we inform you of the commencement of your legal case. The court has formally registered your file, and all essential information is readily available for your review. Following, you will discover comprehensive details such as the venue of the court, your unique file number, an overview of the case, a summary of the proceedings to date, and the schedule for upcoming appointments. Please examine the particulars and the projected timeline. Rest assured; our dedicated team will be with you at every phase of the process.
                         </p>
                     </div>
                     <div>

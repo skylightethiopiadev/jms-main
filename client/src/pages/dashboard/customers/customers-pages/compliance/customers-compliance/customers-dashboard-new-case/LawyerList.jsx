@@ -95,7 +95,7 @@ const LawyerList = props => {
                         </div>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit neque itaque quos repudiandae facere ab, deleniti ullam, corporis rem deserunt repellat voluptate laudantium cupiditate!
+                        Welcome to our attorney selection interface. Here, we showcase a collection of esteemed legal professionals, each with expertise in distinct areas of law. Delve into the biographies to identify the legal representative who aligns with the unique requirements of your case and your individual expectations. Our service is designed to facilitate an effortless engagement with the legal counsel of your choice.
                     </p>
                 </div>
                 {/* bottom container */}

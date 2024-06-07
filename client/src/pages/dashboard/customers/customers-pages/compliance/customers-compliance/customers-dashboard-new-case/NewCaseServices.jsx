@@ -39,8 +39,7 @@ const NewCaseServices = props => {
                 <h4 className="header-level-4">Related Services</h4>
                 <div>
                     <p>
-                        Please specify the legal service related to <span className="font-bold">{props?.newCaseHistory?.
-                            subCaseCategory?.subType?.caseName}</span> that you require, so we can provide tailored assistance
+                        Explore our lists of legal services, each meticulously aligned with your chosen case category. Whether it’s Civil, Criminal, or corporate law, our offerings are comprehensive and designed to meet your specific legal requirements. Delve into the selection to find expert assistance that resonates with your case’s needs. Feel free to select more than one choice. 
                     </p>
                 </div>
             </header>

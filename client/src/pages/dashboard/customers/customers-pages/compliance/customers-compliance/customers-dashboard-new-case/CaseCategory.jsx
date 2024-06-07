@@ -16,6 +16,11 @@ const CaseCategory = props => {
             <div>
                 <header>
                     <h4 className="header-level-4">Available Cases</h4>
+                    <div>
+                        <p>
+                            Welcome to our comprehensive case category dashboard. Here, you’ll find a structured overview of legal cases categorized into three main service area: Civil, Criminal, and Corporate. Each category is tailored to provide you with lists of legal areas you might need service. Navigate through the sections to access specific details and guidance.
+                        </p>
+                    </div>
                 </header>
             </div>
             {/* cases list here */}

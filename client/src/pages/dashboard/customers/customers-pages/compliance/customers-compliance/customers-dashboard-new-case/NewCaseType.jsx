@@ -13,7 +13,9 @@ const NewCaseType = props => {
             <header>
                 <h4 className="header-level-4">{props?.newCase?.caseCategory}</h4>
                 <p>
-                    From the following lists Select the legal service you wish to receive in relation to <span className="font-bold">{props?.newCase?.caseCategory}</span> cases:
+                    {/* From the following lists Select the legal service you wish to receive in relation to <span className="font-bold">{props?.newCase?.caseCategory}</span> cases: */}
+
+                    Welcome to our comprehensive case sub-category dashboard. Here, you will find a structured overview of sub-categories of legal areas. Each category is tailored to provide you with lists of specific legal areas you might need services. Navigate through the selection to access specific details and guidance.
                 </p>
             </header>
             <div className="flex-grow border border-gray-200 rounded-md p-2 pb-10 bg-white flex flex-col gap-y-3">
