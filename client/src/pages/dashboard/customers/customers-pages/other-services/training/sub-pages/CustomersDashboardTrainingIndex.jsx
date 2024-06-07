@@ -7,6 +7,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdNotes } from "react-icons/md";
 
 const CustomersDashboardTrainingIndex = () => {
 
@@ -82,6 +83,15 @@ const CustomersDashboardTrainingIndex = () => {
                                             </button>
                                             {/* more option pop up */}
                                             <div className={`absolute right-0 top-[100%] bg-white border border-gray-100 rounded-sm whitespace-nowrap shadow-xl transition-transform ease-in-out duration-300 ${isMoreOption?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                <div className='px-3 py-1 flex items-center gap-5 cursor-pointer transition-colors ease-in-out duration-150 hover:bg-gray-100'>
+                                                    <div>
+                                                        <MdNotes />
+                                                    </div>
+                                                    <div>
+                                                        <span>Detail</span>
+                                                    </div>
+                                                </div>
+
                                                 <div className='px-3 py-1 flex items-center gap-5 cursor-pointer transition-colors ease-in-out duration-150 hover:bg-gray-100'>
                                                     <div>
                                                         <GrEdit />
