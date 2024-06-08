@@ -25,6 +25,7 @@ import { IoMdStarOutline } from "react-icons/io";
 
 import { BiMessageAlt } from "react-icons/bi";
 import { IoWarningOutline } from "react-icons/io5";
+import { MdOutlineDownloadForOffline } from "react-icons/md";
 
 const CustomersDashboardOnRequestDetail = () => {
     // states
@@ -287,8 +288,8 @@ const CustomersDashboardOnRequestDetail = () => {
                                                             {/* right */}
                                                             <div>
                                                                 <div>
-                                                                    <button className='text-xl text-xl text-gray-500 hover:text-red-600'>
-                                                                        <TiDeleteOutline />
+                                                                    <button className='text-xl text-xl text-gray-500 hover:text-blue-600'>
+                                                                        <MdOutlineDownloadForOffline />
                                                                     </button>
                                                                 </div>
                                                             </div>
