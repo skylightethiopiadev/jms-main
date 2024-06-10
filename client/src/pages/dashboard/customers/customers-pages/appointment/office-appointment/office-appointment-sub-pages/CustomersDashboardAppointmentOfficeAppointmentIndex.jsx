@@ -25,6 +25,8 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
     const [cancelAppointment, setCancelAppointment] = useState(null)
     const [issues, setIssues] = useState(null)
     const [services, setServices] = useState(null)
+    const [appDate, setAppDate] = useState(null)
+    const [appPlace, setAppPlace] = useState(null)
 
     return (
         <div className='overflow-x-hidden flex-grow pr-1 relative'>
@@ -88,7 +90,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                 <div className='my-3'>
 
                     {
-                        [...Array(5)].map((item, index) => {
+                        [...Array(3)].map((item, index) => {
                             return (
                                 <div key={index} className='mt-7 border border-gray-300 rounded-sm p-3 bg-white hover:shadow-md'>
                                     <header className='flex items-center justify-between border-b border-gray-200'>
@@ -107,11 +109,70 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                                                 <div className='cursor-pointer'>
                                                     <IoIosEye className='text-xl text-gray-500 hover:text-blue-700' />
                                                 </div>
-                                                <div className='cursor-pointer'>
-                                                    <GoClock className='text-lgf text-gray-500 hover:text-blue-700' />
+                                                <div className='relative'>
+                                                    {/* clock */}
+                                                    <div className={`absolute right-0 top-5 w-max h-map p-5 bg-white shadow-xl transition-transform ease-in-out duration-300 ${appDate?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                        <div>
+                                                            <h3 className='font-bold'>January 7, 2024</h3>
+                                                        </div>
+                                                        <div className='font-medium'>
+                                                            <span>05:45am</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className='cursor-pointer' onClick={() => {
+                                                        setAppPlace(null)
+                                                        if (appDate?.id === index) {
+                                                            setAppDate(null)
+                                                        } else {
+                                                            setAppDate({ id: index })
+                                                        }
+                                                    }}
+                                                        onMouseEnter={() => {
+                                                            setAppPlace(null)
+                                                            if (appDate?.id === index) {
+                                                                setAppDate(null)
+                                                            } else {
+                                                                setAppDate({ id: index })
+                                                            }
+                                                        }}
+                                                        onMouseLeave={() => {
+                                                            setAppDate(null)
+                                                        }}
+                                                    >
+                                                        <GoClock className='text-lgf text-gray-500 hover:text-blue-700' />
+                                                    </div>
                                                 </div>
-                                                <div className='cursor-pointer'>
-                                                    <CiLocationOn className='text-lg text-gray-500 hover:text-blue-700' />
+                                                <div className='relative'>
+                                                    <div className={`absolute right-0 top-5 w-max h-map p-5 bg-white shadow-xl transition-transform ease-in-out duration-300 ${appPlace?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                        <div>
+                                                            <h3 className='font-bold'>Addis Ababa</h3>
+                                                        </div>
+                                                        <div className='font-medium'>
+                                                            <span>Ledeta Kefele Ketema</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className='cursor-pointer' onClick={() => {
+                                                        setAppDate(null)
+                                                        if (appPlace?.id === index) {
+                                                            setAppPlace(null)
+                                                        } else {
+                                                            setAppPlace({ id: index })
+                                                        }
+                                                    }}
+                                                        onMouseEnter={() => {
+                                                            setAppDate(null)
+                                                            if (appPlace?.id === index) {
+                                                                setAppPlace(null)
+                                                            } else {
+                                                                setAppPlace({ id: index })
+                                                            }
+                                                        }}
+                                                        onMouseLeave={() => {
+                                                            setAppPlace(null)
+                                                        }}
+                                                    >
+                                                        <CiLocationOn className='text-lg text-gray-500 hover:text-blue-700' />
+                                                    </div>
                                                 </div>
                                                 <div className='cursor-pointer'>
                                                     <FaEdit className='text-lgf text-gray-500 hover:text-blue-700' />
