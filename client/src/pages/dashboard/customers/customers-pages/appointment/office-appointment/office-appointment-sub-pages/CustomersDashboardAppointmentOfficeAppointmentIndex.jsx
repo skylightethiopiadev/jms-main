@@ -90,7 +90,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                 <div className='my-3'>
 
                     {
-                        [...Array(3)].map((item, index) => {
+                        [...Array(2)].map((item, index) => {
                             return (
                                 <div key={index} className='mt-7 border border-gray-300 rounded-sm p-3 bg-white hover:shadow-md'>
                                     <header className='flex items-center justify-between border-b border-gray-200'>
