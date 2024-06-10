@@ -9,10 +9,22 @@ import { CiCircleCheck } from "react-icons/ci";
 import { VscNote } from "react-icons/vsc";
 import { CiEdit } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
+import { CiSearch } from "react-icons/ci";
+import { HiArrowLongDown } from "react-icons/hi2";
+import { CiViewBoard } from "react-icons/ci";
+
+import { IoIosEye } from "react-icons/io";
+import { GoClock } from "react-icons/go";
+import { FaEdit } from "react-icons/fa";
+import { CiLocationOn } from "react-icons/ci";
+import { BiDetail } from "react-icons/bi";
+import { IoHelpCircleOutline } from "react-icons/io5";
 
 const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
     const [actionPopUp, setActionPopUp] = useState(null)
-    const [cancelAppointment,setCancelAppointment] = useState(null)
+    const [cancelAppointment, setCancelAppointment] = useState(null)
+    const [issues, setIssues] = useState(null)
+    const [services, setServices] = useState(null)
 
     return (
         <div className='overflow-x-hidden flex-grow pr-1 relative'>
@@ -45,192 +57,178 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
 
             {/* second order container */}
             <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] md:py-3 border-gray-200 border rounded-md mt-7">
-                <div>
-                    {/* card grid */}
-                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7'>
-                        {
-                            [...Array(6)].map((item, index) => {
-                                return (
-                                    <div className='border border-gray-100 bg-white shadow-xl'>
-                                        <div>
-                                            <header className='flex items-center justify-between px-3 py-1 bg-blue-500 text-white'>
-                                                <div>
-                                                    <div className='flex items-center gap-1 font-black text-white'>
-                                                        <div className='text-xl'>
-                                                            <CiAlarmOn />
-                                                        </div>
-                                                        <div>
-                                                            <span>3 days left</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className='relative'>
-                                                    <div>
-                                                        <button className='text-xl hover:bg-blue-700 transition-colors ease-in-out duration-300 rounded-sm' onClick={() => {
-                                                            if (actionPopUp) {
-                                                                setActionPopUp(null)
-                                                            } else {
-                                                                setActionPopUp({ id: index })
-                                                            }
-                                                        }}>
-                                                            <IoMdMore />
-                                                        </button>
-                                                    </div>
-                                                    {/* action pop up */}
-                                                    <div className={`absolute top-[100%] right-0 ${actionPopUp?.id === index ? 'scale-100' : 'scale-0'}`}>
-                                                        <div className='w-max h-max px-5 py-3 bg-white shadow-md text-black'>
+                <header className='flex items-center justify-between py-2 border-b border-gray-200'>
+                    <div>
+                        <div className='flex items-center gap-1 p-1 py-0.5 bg-gray-200 rounded-sm'>
+                            <CiSearch className='text-xl' />
+                            <input
+                                type="text"
+                                className='p-0 focus:outline-none focus:ring-0 border-none bg-transparent'
+                                placeholder='search' />
+                        </div>
+                    </div>
+                    <div className='flex items-center justify-end gap-3'>
+                        <div className='flex items-center w-max pr-1.5 py-0.5 hover:bg-gray-300 cursor-pointer'>
+                            <div className='w-[8px]'>
+                                <HiArrowLongDown />
+                            </div>
+                            <div className='ml-[-2px] w-[7px]'>
+                                <HiArrowLongDown className='rotate-180' />
+                            </div>
+                        </div>
+                        <NavLink>
+                            <div className='flex items-center gap-1 text-blue-700 hover:text-blue-800'>
+                                <CiViewBoard className='text-lg' />
+                                <span>view all</span>
+                            </div>
+                        </NavLink>
+                    </div>
+                </header>
 
-                                                            {/* detail */}
-                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-blue-100 px-1'>
-                                                                <div>
-                                                                    <VscNote />
-                                                                </div>
-                                                                <div>
-                                                                    <span>Appointment Detail</span>
-                                                                </div>
-                                                            </div>
+                <div className='my-3'>
 
-                                                            {/* edit */}
-                                                            <div className='flex items-center gap-1 my-2 border-b border-gray-200 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-blue-100 px-1'>
-                                                                <div>
-                                                                    <CiEdit />
-                                                                </div>
-                                                                <div>
-                                                                    <span>Edit Appointment</span>
-                                                                </div>
-                                                            </div>
-
-                                                            {/* close */}
-                                                            <div className='flex items-center gap-1 border-b border-gray-200 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-blue-100 px-1' onClick={()=>{
-                                                                setCancelAppointment(true)
-                                                                setActionPopUp(null)
-                                                            }}>
-                                                                <div>
-                                                                    <IoCloseOutline />
-                                                                </div>
-                                                                <div>
-                                                                    <span>Cancel Appointment</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </header>
-                                            {/* appointment detail */}
-                                            <div className='py-1 px-3'>
-                                                <div>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    </p>
-                                                </div>
-                                                {/* info */}
-                                                {/* legal issue */}
-                                                <div className='border-b border-gray-200 my-1'>
-                                                    <header>
-                                                        <div className='font-medium'>
-                                                            <span>Legal Issues</span>
-                                                        </div>
-                                                    </header>
-                                                    {/* services */}
-                                                    <div className='flex items-center gap-x-3 flex-wrap ml-[7px]'>
-                                                        {
-                                                            [...Array(2)].map((item, index) => {
-                                                                return (
-                                                                    <div className='my-1'>
-                                                                        <div className='flex items-center gap-1'>
-                                                                            <div>
-                                                                                <CiCircleCheck className='text-' />
-                                                                            </div>
-                                                                            <div>
-                                                                                <span>Criminal Case</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-                                                    </div>
-                                                </div>
-                                                {/* legal service */}
-                                                <div className='border-b border-gray-200 my-1'>
-                                                    <header>
-                                                        <div className='font-medium'>
-                                                            <span>Legal Services Required</span>
-                                                        </div>
-                                                    </header>
-                                                    {/* services */}
-                                                    <div className='flex items-center gap-x-3 flex-wrap ml-[7px]'>
-                                                        {
-                                                            [...Array(3)].map((item, index) => {
-                                                                return (
-                                                                    <div className='my-1'>
-                                                                        <div className='flex items-center gap-1'>
-                                                                            <div>
-                                                                                <div className='w-[7px] aspect-square rounded-full bg-gray-500'></div>
-                                                                            </div>
-                                                                            <div>
-                                                                                <span>New Deligences</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-                                                    </div>
-                                                </div>
-                                                {/* appointment detail */}
-                                                <div className='border-b border-gray-200 my-1'>
-                                                    <header>
-                                                        <div className='font-medium'>
-                                                            <span>Appointment Detail</span>
-                                                        </div>
-                                                    </header>
-                                                    {/* services */}
-                                                    <div className='flex items-center gap-x-3 flex-wrap ml-[7px]'>
-
-                                                        <div>
-                                                            <div className='flex items-center gap-1'>
-                                                                <div>
-                                                                    <div className='text-xs'>
-                                                                        <span>Date: </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='font-bold'>
-                                                                    <span>June 5, 2024 at 03:15am</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <div className='flex items-center gap-1'>
-                                                                <div>
-                                                                    <div className='text-xs'>
-                                                                        <span>Place: </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='font-bold'>
-                                                                    <span>Ledeta Kefele Ketema</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
+                    {
+                        [...Array(5)].map((item, index) => {
+                            return (
+                                <div key={index} className='mt-7 border border-gray-300 rounded-sm p-3 bg-white hover:shadow-md'>
+                                    <header className='flex items-center justify-between border-b border-gray-200'>
+                                        <div className='flex items-center gap-1'>
+                                            <div>
+                                                <div className='w-[32px]'>
+                                                    <img className='w-full h-full object-center object-cover' src="/final-logo.png" alt="" />
                                                 </div>
                                             </div>
-                                            {/* footer */}
-                                            <footer className='p-3'>
-                                                <div>
-                                                    <button className='px-3 py-[.15rem] rounded-full transition-colors ease-in-out duration-300 border border-red-500 text-red-800 hover:border-red-600 hover:bg-red-600 hover:text-white' onClick={()=>{
-                                                        setCancelAppointment(true)
-                                                    }}>cancel appointment</button>
-                                                </div>
-                                            </footer>
+                                            <div>
+                                                <h3 className=' text-gray-700'>makuta law firm</h3>
+                                            </div>
                                         </div>
+                                        <div>
+                                            <div className='flex items-center gap-3'>
+                                                <div className='cursor-pointer'>
+                                                    <IoIosEye className='text-xl text-gray-500 hover:text-blue-700' />
+                                                </div>
+                                                <div className='cursor-pointer'>
+                                                    <GoClock className='text-lgf text-gray-500 hover:text-blue-700' />
+                                                </div>
+                                                <div className='cursor-pointer'>
+                                                    <CiLocationOn className='text-lg text-gray-500 hover:text-blue-700' />
+                                                </div>
+                                                <div className='cursor-pointer'>
+                                                    <FaEdit className='text-lgf text-gray-500 hover:text-blue-700' />
+                                                </div>
+                                                <div className='cursor-pointer' onClick={() => {
+                                                    setCancelAppointment(true)
+                                                }}>
+                                                    <IoCloseOutline className='text-xl text-gray-500 hover:text-blue-700' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <div>
+                                        <h3 className='font-bold mt-1'>Description</h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem excepturi repellat aspernatur optio, beatae quidem magni, quos quisquam corporis eveniet iure hic autem quod!
+                                        </p>
                                     </div>
-                                )
-                            })
-                        }
-                    </div>
+                                    <footer className='py-1'>
+                                        <div className='flex items-center justify-between'>
+                                            {/* btns */}
+                                            <div className='flex items-center gap-5'>
+                                                <div className='relative'>
+                                                    <div className={`absolute left-0 bottom-7 w-max h-max bg-white shadow-xl p-3 px-5 transition-transform ease-in-out duration-300 ${issues?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                        <div>
+                                                            <h3 className='font-bold w-max border-b border-black'>Legal Issue For The Appointment</h3>
+                                                        </div>
+                                                        <div className='ml-5'>
+                                                            <div className=''>
+                                                                {
+                                                                    [...Array(3)].map((item, index) => {
+                                                                        return (
+                                                                            <div className='flex gap-1 my-1'>
+                                                                                <div className='flex items-center'>
+                                                                                    <div className='w-[7px] aspect-square rounded-full bg-green-500'></div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <span>Intellectual Property</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                        <div className='absolute bottom-3 right-3 cursor-pointer' onClick={() => {
+                                                            setIssues(null)
+                                                        }}>
+                                                            <IoCloseOutline className='text-lg' />
+                                                        </div>
+                                                    </div>
+                                                    <button className='flex items-center gap-1 hover:text-blue-700' onClick={() => {
+                                                        setServices(null)
+                                                        if (issues?.id === index) {
+                                                            setIssues(null)
+                                                        } else {
+                                                            setIssues({ id: index })
+                                                        }
+                                                    }}>
+                                                        <IoHelpCircleOutline className='text-lg' />
+                                                        <span>issues</span>
+                                                    </button>
+                                                </div>
+
+                                                <div className='relative'>
+                                                    <div className={`absolute left-0 bottom-7 w-max h-max bg-white shadow-xl p-3 px-5 transition-transform ease-in-out duration-300 ${services?.id === index ? 'scale-100' : 'scale-0'}`}>
+                                                        <div>
+                                                            <h3 className='font-bold w-max border-b border-black'>Types Of Legal Services Required</h3>
+                                                        </div>
+                                                        <div className='ml-5'>
+                                                            <div className=''>
+                                                                {
+                                                                    [...Array(3)].map((item, index) => {
+                                                                        return (
+                                                                            <div className='flex gap-1 my-1'>
+                                                                                <div className='flex items-center'>
+                                                                                    <div className='w-[7px] aspect-square rounded-full bg-green-500'></div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <span>Legal Consultation</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                        <div className='absolute bottom-3 right-3 cursor-pointer' onClick={() => {
+                                                            setServices(null)
+                                                        }}>
+                                                            <IoCloseOutline className='text-lg' />
+                                                        </div>
+                                                    </div>
+
+                                                    <button className='flex items-center gap-1 hover:text-blue-700' onClick={() => {
+                                                        setIssues(null)
+                                                        if (services?.id === index) {
+                                                            setServices(null)
+                                                        } else {
+                                                            setServices({ id: index })
+                                                        }
+                                                    }}>
+                                                        <BiDetail />
+                                                        <span>services</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            {/* actions */}
+                                            <div>
+                                                {/* actions */}
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
 
@@ -238,7 +236,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
             <div className={`fixed z-50 w-[380px] md:w-[420px] h-[300px] bg-gray-100 border border-gray-200 rounded-md left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col shadow-2xl transition-transform ease-in-out duration-150 ${cancelAppointment ? 'scale-100' : 'scale-0'}`}>
                 {/* close btn */}
                 <div className='absolute right-1 top-1'>
-                    <div className='w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer' onClick={()=>{
+                    <div className='w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer' onClick={() => {
                         setCancelAppointment(false)
                     }}>
                         <IoCloseOutline />
@@ -251,18 +249,18 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                 </div>
                 <div className='flex-grow p-3 flex'>
                     <div className='flex-grow bg-white border border-gray-200 rounded-md'>
-                        <textarea 
-                            name=""  
+                        <textarea
+                            name=""
                             id=""
                             className='w-full h-full resize-none focus:outline-none focus:ring-0 border-none bg-transparent'
                             placeholder='enter you reason'
-                            ></textarea>
+                        ></textarea>
                     </div>
                 </div>
                 <div>
                     <div className='p-3 flex items-center gap-3'>
                         <button className='px-3 py-1 rounded-sm bg-blue-700 text-white transition-colors ease-in-out duration-300 hover:bg-blue-600'>submit</button>
-                        <button className='px-3 py-1 rounded-sm bg-gray-700 text-white transition-colors ease-in-out duration-300 hover:bg-gray-600' onClick={()=>{
+                        <button className='px-3 py-1 rounded-sm bg-gray-700 text-white transition-colors ease-in-out duration-300 hover:bg-gray-600' onClick={() => {
                             setCancelAppointment(false)
                         }}>cancel</button>
                     </div>

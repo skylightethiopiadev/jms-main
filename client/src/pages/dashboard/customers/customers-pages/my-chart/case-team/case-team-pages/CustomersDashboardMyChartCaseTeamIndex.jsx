@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useReactTable, getCoreRowModel, flexRender } from '@tanstack/react-table'
 import Chart from 'react-apexcharts'
+
 
 // icons
 import { AiOutlineClose } from "react-icons/ai";
@@ -16,12 +18,165 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { BiLogoTelegram } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 import { IoCloseOutline } from "react-icons/io5";
+import { CiSearch } from "react-icons/ci";
 
 
 
 const CustomersDashboardMyChartCaseTeamIndex = () => {
 
-    const [isLawyerDetail,setIsLawyerDetail] = useState(false)
+    const [isLawyerDetail, setIsLawyerDetail] = useState(false)
+
+    // states
+    const [caseTeamData, setCaseTeamData] = useState(() => {
+        return [
+            {
+                lawyers: [
+                    {
+                        first_name: 'Haddis',
+                        last_name: 'Fanta',
+                        profile: 'https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg',
+                    },
+                    {
+                        first_name: 'Haddis',
+                        last_name: 'Fanta',
+                        profile: 'https://img.freepik.com/free-photo/cheerful-dark-skinned-woman-smiling-broadly-rejoicing-her-victory-competition-among-young-writers-standing-isolated-against-grey-wall-people-success-youth-happiness-concept_273609-1246.jpg',
+                    },
+                ],
+                caseType: 'Civil',
+                startedDate: 'September 21, 2023',
+                endDate: 'January 23, 2024',
+                status: 'closed',
+            },
+            {
+                lawyers: [
+                    {
+                        first_name: 'Haddis',
+                        last_name: 'Fanta',
+                        profile: 'https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg',
+                    },
+                    {
+                        first_name: 'Haddis',
+                        last_name: 'Fanta',
+                        profile: 'https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg',
+                    },
+                ],
+                caseType: 'Corporate',
+                startedDate: 'September 21, 2023',
+                endDate: 'January 23, 2024',
+                status: 'pending',
+            },
+            {
+                lawyers: [
+                    {
+                        first_name: 'Haddis',
+                        last_name: 'Fanta',
+                        profile: 'https://www.shutterstock.com/image-photo/smiling-mature-man-wearing-spectacles-600nw-1432699253.jpg',
+                    },
+                    {
+                        first_name: 'Haddis',
+                        last_name: 'Fanta',
+                        profile: 'https://images.pexels.com/photos/247322/pexels-photo-247322.jpeg?cs=srgb&dl=pexels-pixabay-247322.jpg&fm=jpg',
+                    },
+                ],
+                caseType: 'Criminal',
+                startedDate: 'September 21, 2023',
+                endDate: 'January 23, 2024',
+                status: 'active',
+            },
+        ]
+    }, [])
+
+    // columns 
+    const caseTeamColumns = useMemo(() => {
+        return [
+            {
+                header: 'Teams',
+                cell: ({row}) => {
+                    return (
+                        <div>
+                            <div className='flex items-center gap-2'>
+                                {
+                                    row?.original?.lawyers.map((lawyer)=>{
+                                        return (
+                                            <div>
+                                                <div className='w-[24px] aspect-square rounded-full overflow-hidden'>
+                                                    <img className='w-full h-full object-center object-cover' src={lawyer.profile} alt="" />
+                                                </div>
+                                            </div>
+                                        )
+                                    })  
+                                }
+
+                                <div>
+                                    <div className='w-[26px] aspect-square rounded-full flex items-center justify-center text-xs font-black text-gray-700 border-2 border-white shadow-lg bg-white'>
+                                        <span>+3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                },
+            },
+            {
+                header: 'Case',
+                cell: ({row}) => {
+                    console.log(row?.original?.caseType)
+                    return (
+                        <div>
+                            <div className='font-medium text-gray-700'>
+                                <span>{row?.original?.caseType}</span>
+                            </div>
+                        </div>
+                    )
+                },
+            },
+            {
+                header: 'Started Date',
+                cell: ({row}) => {
+                    return (
+                        <div>
+                            <div>
+                                <span>{row?.original?.startedDate}</span>
+                            </div>
+                        </div>
+                    )
+                },
+            },
+            {
+                header: 'End Date',
+                cell: ({row}) => {
+                    return (
+                        <div>
+                            <div>
+                                <span>{row?.original?.endDate}</span>
+                            </div>
+                        </div>
+                    )
+                },
+            },
+            {
+                header: 'Status',
+                cell: ({row}) => {
+                    console.log(row?.original?.status)
+                    return (
+                        <div>
+                            <div className={`w-max px-2 rounded-sm bg-opacity-45 ${row?.original?.status === 'closed' ? 'bg-red-200' : row?.original?.status === 'active' ? 'bg-green-200' : row?.original?.status === 'pending' ? 'bg-yellow-100' : ''}`}>
+                                <span>{row?.original?.status}</span>
+                            </div>
+                        </div>
+                    )
+                },
+            },
+        ]
+    }, [])
+
+    // tables
+    const caseTeamTable = useReactTable({
+        columns: caseTeamColumns,
+        data: caseTeamData,
+        getCoreRowModel: getCoreRowModel(),
+    })
+
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
@@ -68,9 +223,22 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
 
             {/* second order container */}
             <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md mt-7">
-                <header className="flex items-center justify-between">
-                    <div>
-                        <h3 className="header-level-4">Case Teams</h3>
+                <header className="flex items-center justify-between py-3 border-b border-gray-300">
+                    <div className='flex items-center gap-5'>
+                        {/* left */}
+                        <div>
+                            <h3 className='font-bold'>CASE TEAMS</h3>
+                        </div>
+                        {/* right */}
+                        <div>
+                            <div className='flex items-center gap-1 border border-gray-300 rounded-full px-1'>
+                                <CiSearch className='text-xl' />
+                                <input
+                                    type="text"
+                                    className='p-0 focus:outline-none focus:ring-0 border-none bg-transparent'
+                                    placeholder='search' />
+                            </div>
+                        </div>
                     </div>
                     <div className="flex items-center justify-end gap-3">
                         <div className='flex items-center justify-end gap-3'>
@@ -87,81 +255,60 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                 </header>
                 {/* content container */}
                 <div>
-                    <div className='mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7'>
-                        {
-                            [...Array(4)].map((item, index) => {
-                                return (
-
-                                    <div key={index} className='p-3 bg-white shadow-md'>
-                                        <div>
-
-                                            <header className='flex justify-between items-center'>
-                                                <div className='flex gap-1 items-center'>
-                                                    <div>
-                                                        <div className='w-[30px] aspect-square rounded-full overflow-hidden'>
-                                                            <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1716940800&semt=sph" alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div className='flex items-center gap-1 font-medium'>
-                                                            <span>Haddis</span>
-                                                            <span>Fanta</span>
-                                                        </div>
-                                                        <div className='mt-[-3px] text-xs text-gray-400'>
-                                                            <span>offline</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className='self-start transition-colors ease-in-out duration-300 hover:bg-gray-200 h-max'>
-                                                    <NavLink className={''} onClick={()=>{
-                                                        setIsLawyerDetail(true)
-                                                    }}><div>
-                                                        <MdMoreHoriz className='text-xl' /></div></NavLink>
-                                                </div>
-                                            </header>
-
-                                            <div className='py-1 my-1 border-b border-gray-200'>
-                                                <div>
-                                                    <span>here</span>
-                                                </div>
-                                                <div className='mt-[-5px] font-semibold'>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur.
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <footer className='flex items-center gap-3 mt-2'>
-
-                                                <div className='flex items-center gap-1 cursor-pointer transition-colors ease-in-out duration-300 hover:text-blue-800'>
-                                                    <div>
-                                                        <div className='w-[20px] aspect-square rounded-full border border-gray-400 flex items-center justify-center'>
-                                                            <CiChat2 />
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <span>message</span>
-                                                    </div>
-                                                </div>
-
-                                                <div className='flex items-center gap-1 cursor-pointer transition-colors ease-in-out duration-300 hover:text-blue-800'>
-                                                    <div>
-                                                        <div className='w-[20px] aspect-square rounded-full border border-gray-400 flex items-center justify-center'>
-                                                            <CiWarning />
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <span>report</span>
-                                                    </div>
-                                                </div>
-
-                                            </footer>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-
+                    {/* table */}
+                    <div className='mt-5 w-full'>
+                        <table className='w-full'>
+                            <thead>
+                                {
+                                    caseTeamTable.getHeaderGroups().map(headerGroup => {
+                                        return (
+                                            <tr key={headerGroup.id} className='bg-gray-200 '>
+                                                {
+                                                    headerGroup.headers.map(header => {
+                                                        return (
+                                                            <th key={header.id} className='text-left p-2 cursor-pointer hover:bg-gray-300'>
+                                                                {
+                                                                    flexRender(
+                                                                        header.column.columnDef.header,
+                                                                        header.getContext()
+                                                                    )
+                                                                }
+                                                            </th>
+                                                        )
+                                                    })
+                                                }
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </thead>
+                            <tbody>
+                                {
+                                    caseTeamTable.getRowModel().rows.map(row=>{
+                                        return (
+                                            <tr key={row.id} className='hover:bg-gray-50 border-b border-neutral-100' onClick={() => {
+                                                setIsLawyerDetail(true)
+                                            }}>
+                                                {
+                                                    row.getVisibleCells().map(cell=>{
+                                                        return (
+                                                            <td key={cell.id} className='p-2'>
+                                                                {
+                                                                    flexRender(
+                                                                        cell.column.columnDef.cell,
+                                                                        cell.getContext()
+                                                                    )
+                                                                }
+                                                            </td>
+                                                        )
+                                                    })
+                                                }
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -516,7 +663,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                 </div>
                             </div>
 
-                            <div className='flex items-center gap-1 cursor-pointer hover:text-green-500' onClick={()=>{
+                            <div className='flex items-center gap-1 cursor-pointer hover:text-green-500' onClick={() => {
                                 setIsLawyerDetail(false)
                             }}>
                                 <div>
