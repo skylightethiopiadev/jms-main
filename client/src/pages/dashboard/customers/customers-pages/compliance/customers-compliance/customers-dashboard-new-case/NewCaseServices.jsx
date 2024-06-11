@@ -3,12 +3,17 @@ import React, { useState } from 'react';
 import Editor from '../../../../../../../components/text-editor/Editor'
 
 // icons
-import { AiOutlineFileAdd } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
+import { GoPlus } from "react-icons/go";
+import { CiFolderOn } from "react-icons/ci";
 
 const NewCaseServices = props => {
 
     // states
     const [description, setDescription] = useState('')
+    const [fileSet, setFileSet] = useState({
+        fileList: [],
+    }, [])
 
     // services
     let newCaseServices = props?.newCaseHistory?.
@@ -33,13 +38,35 @@ const NewCaseServices = props => {
         }
     };
 
+    // attach file selector
+    const attachFileSelectorHandler = e => {
+        setFileSet(prev => {
+            return {
+                ...prev,
+                fileList: [...prev.fileList, e.target.files[0]]
+            }
+        })
+    }
+
+    // remove selected file
+    const removeSelectedFile = index => {
+        setFileSet(prev => {
+            let filteredFile = prev?.fileList.filter((file, i) => i !== index)
+            return {
+                ...prev,
+                fileList: filteredFile,
+            }
+        })
+    }
+
+
     return (
         <div className="overflow-y-auto h-[66vh] p-2 pb-12 flex flex-col gap-y-3">
             <header>
                 <h4 className="header-level-4">Related Services</h4>
                 <div>
                     <p>
-                        Explore our lists of legal services, each meticulously aligned with your chosen case category. Whether it’s Civil, Criminal, or corporate law, our offerings are comprehensive and designed to meet your specific legal requirements. Delve into the selection to find expert assistance that resonates with your case’s needs. Feel free to select more than one choice. 
+                        Explore our lists of legal services, each meticulously aligned with your chosen case category. Whether it’s Civil, Criminal, or corporate law, our offerings are comprehensive and designed to meet your specific legal requirements. Delve into the selection to find expert assistance that resonates with your case’s needs. Feel free to select more than one choice.
                     </p>
                 </div>
             </header>
@@ -78,26 +105,59 @@ const NewCaseServices = props => {
                     <div>
                         <h3 className='my-1 font-semibold'>Attach Your Files Here</h3>
                     </div>
-                    <div className='flex items-center gap-10 flex-wrap'>
-                        {/* file one */}
+                    <div>
                         {
-                            [...Array(4)].map((item, index) => {
+                            fileSet?.fileList.map((item, index) => {
                                 return (
-                                    <div key={index}>
-                                        <div>
-                                            <input type="file" hidden id='attach-file-one' />
-                                            <label htmlFor="attach-file-one" className='cursor-pointer'>
-                                                <div className='w-[38px] border border-gray-400 rounded-md flex items-center justify-center aspect-square text-gray-400 text-3xl bg-gray-100'>
-                                                    <AiOutlineFileAdd />
+                                    <div key={index} className=' flex items-center justify-between px-3 py-1 border border-gray-300 rounded-sm mb-3'>
+                                        {/* left */}
+                                        <div className='flex items-center gap-3'>
+                                            {/* left */}
+                                            <div>
+                                                <div className='w-[32px] aspect-square rounded-md overflow-hidden flex items-center justify-center border border-yellow-500 text-xl text-yellow-500'>
+                                                    <CiFolderOn />
                                                 </div>
-                                            </label>
+                                            </div>
+                                            {/* right */}
+                                            <div>
+                                                {/* file name */}
+                                                <div className='font-medium'>
+                                                    <span>{item?.name}</span>
+                                                </div>
+                                                {/* file size */}
+                                                <div className='text-xs text-gray-600'>
+                                                    <span>{item?.size / 1000}kb</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className='text-xs text-gray-700'>
-                                            <span>browse file</span>
+                                        {/* right */}
+                                        <div>
+                                            <div className='w-[20px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer' onClick={() => {
+                                                removeSelectedFile(index)
+                                            }}>
+                                                <IoMdClose />
+                                            </div>
                                         </div>
                                     </div>
                                 )
                             })
+                        }
+
+                        {
+                            fileSet?.fileList.length <= 3
+                                ?
+                                <div>
+                                    <input type="file" id='attach-file-selector' hidden onChange={attachFileSelectorHandler} />
+                                    <div className='my-3'>
+                                        <label htmlFor="attach-file-selector" className='cursor-pointer w-max'>
+                                            <div className='w-[32px] aspect-square rounded-full overflow-hidden flex items-center justify-center bg-yellow-400 hover:bg-yellow-500' >
+                                                <GoPlus className='text-xl' />
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                :
+                                <></>
                         }
                     </div>
                 </div>
