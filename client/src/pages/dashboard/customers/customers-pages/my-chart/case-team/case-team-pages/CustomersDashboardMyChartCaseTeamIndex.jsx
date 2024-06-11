@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useReactTable, getCoreRowModel, flexRender } from '@tanstack/react-table'
+import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel } from '@tanstack/react-table'
 import Chart from 'react-apexcharts'
 
 
@@ -25,6 +25,7 @@ import { CiSearch } from "react-icons/ci";
 const CustomersDashboardMyChartCaseTeamIndex = () => {
 
     const [isLawyerDetail, setIsLawyerDetail] = useState(false)
+    const [filtering, setFiltering] = useState('')
 
     // states
     const [caseTeamData, setCaseTeamData] = useState(() => {
@@ -91,12 +92,12 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
         return [
             {
                 header: 'Teams',
-                cell: ({row}) => {
+                cell: ({ row }) => {
                     return (
                         <div>
                             <div className='flex items-center gap-2'>
                                 {
-                                    row?.original?.lawyers.map((lawyer)=>{
+                                    row?.original?.lawyers.map((lawyer) => {
                                         return (
                                             <div>
                                                 <div className='w-[24px] aspect-square rounded-full overflow-hidden'>
@@ -104,7 +105,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                                 </div>
                                             </div>
                                         )
-                                    })  
+                                    })
                                 }
 
                                 <div>
@@ -119,7 +120,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
             },
             {
                 header: 'Case',
-                cell: ({row}) => {
+                cell: ({ row }) => {
                     console.log(row?.original?.caseType)
                     return (
                         <div>
@@ -132,7 +133,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
             },
             {
                 header: 'Started Date',
-                cell: ({row}) => {
+                cell: ({ row }) => {
                     return (
                         <div>
                             <div>
@@ -144,7 +145,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
             },
             {
                 header: 'End Date',
-                cell: ({row}) => {
+                cell: ({ row }) => {
                     return (
                         <div>
                             <div>
@@ -156,7 +157,7 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
             },
             {
                 header: 'Status',
-                cell: ({row}) => {
+                cell: ({ row }) => {
                     console.log(row?.original?.status)
                     return (
                         <div>
@@ -175,6 +176,10 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
         columns: caseTeamColumns,
         data: caseTeamData,
         getCoreRowModel: getCoreRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        state: {
+            filtering: filtering,
+        }
     })
 
     return (
@@ -235,6 +240,10 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                                 <CiSearch className='text-xl' />
                                 <input
                                     type="text"
+                                    value={filtering}
+                                    onChange={e => {
+                                        setFiltering(e.target.value)
+                                    }}
                                     className='p-0 focus:outline-none focus:ring-0 border-none bg-transparent'
                                     placeholder='search' />
                             </div>
@@ -284,13 +293,13 @@ const CustomersDashboardMyChartCaseTeamIndex = () => {
                             </thead>
                             <tbody>
                                 {
-                                    caseTeamTable.getRowModel().rows.map(row=>{
+                                    caseTeamTable.getRowModel().rows.map(row => {
                                         return (
                                             <tr key={row.id} className='hover:bg-gray-50 border-b border-neutral-100' onClick={() => {
                                                 setIsLawyerDetail(true)
                                             }}>
                                                 {
-                                                    row.getVisibleCells().map(cell=>{
+                                                    row.getVisibleCells().map(cell => {
                                                         return (
                                                             <td key={cell.id} className='p-2'>
                                                                 {
