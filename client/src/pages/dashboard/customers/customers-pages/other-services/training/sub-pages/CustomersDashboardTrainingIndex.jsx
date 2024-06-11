@@ -17,7 +17,7 @@ const CustomersDashboardTrainingIndex = () => {
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
-            <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md">
+            <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 bg-gray-100 border rounded-md">
                 <header className="flex items-center justify-between">
                     <div>
                         <h3 className="header-level-4">My Trainings</h3>
@@ -48,12 +48,12 @@ const CustomersDashboardTrainingIndex = () => {
             </div>
 
             {/* second order container */}
-            <div className="mt-10 p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md bg-gray-100">
-                <div className='grid grid-cols-1 gap-y-10'>
+            <div className="mt-10 p-[.75%] md:p-[1.5%] lg:p-[3%] border border-gray-200 rounded-md">
+                <div className='grid grid-cols-1 gap-y-7'>
                     {
                         [...Array(3)].map((item, index) => {
                             return (
-                                <div className='p-[1px] bg-blue-400 rounded-md overflow-hidden'>
+                                <div className='p-[1px] bg-gray-400 rounded-md overflow-hidden'>
                                     <header className='flex items-center justify-center text-white'>
                                         <div>center content</div>
                                     </header>
@@ -64,7 +64,7 @@ const CustomersDashboardTrainingIndex = () => {
                                             <div className='flex items-center gap-3'>
                                                 {/* icon */}
                                                 <div>
-                                                    <div className='w-[50px] aspect-square rounded-md bg-gray-100 flex items-center justify-center text-3xl text-yellow-800'>
+                                                    <div className='w-[50px] aspect-square rounded-md bg-gray-100 flex items-center justify-center text-3xl text-yellow-500'>
                                                         <RiGraduationCapFill />
                                                     </div>
                                                 </div>
