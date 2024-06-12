@@ -20,8 +20,6 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { MdOutlineSupervisorAccount } from "react-icons/md";
 import { VscLayersActive } from "react-icons/vsc";
 import { HiOutlineLockClosed } from "react-icons/hi";
-import { VscNewFolder } from "react-icons/vsc";
-import { CiViewTable } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import { CiWallet } from "react-icons/ci";
 
