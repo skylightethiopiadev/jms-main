@@ -80,6 +80,13 @@ import LawyersDashboardIndex from './pages/dashboard/lawyers/lawyers-pages/Lawye
 // lawyers dashboard pending cases
 import LawyersDashboardAllPendingCases from './pages/dashboard/lawyers/lawyers-pages/lawyers-dashboard-pending-cases/lawyers-dashboard-pending-cases-pages/LawyersDashboardAllPendingCases.jsx'
 
+// lawyers dashboard my chart
+import LawyersDashboardMyChart from './pages/dashboard/lawyers/lawyers-pages/my-chart/LawyersDashboardMyChart.jsx'
+
+// active case
+import LawyersDashboardMyChartActiveCases from './pages/dashboard/lawyers/lawyers-pages/my-chart/active-cases/LawyersDashboardMyChartActiveCases.jsx'
+import LawyersDashboardMyChartActiveCasesIndex from './pages/dashboard/lawyers/lawyers-pages/my-chart/active-cases/active-case-pages/LawyersDashboardMyChartActiveCasesIndex.jsx'
+
 // ------ lawyers dashboard end ---- //
 
 
@@ -484,6 +491,11 @@ function App() {
               <Route path="/dashboard/lawyers" element={<LawyersDashboard />}>
                 <Route path="/dashboard/lawyers" element={<LawyersDashboardIndex />}></Route>
                 <Route path="/dashboard/lawyers/pending-cases" element={<LawyersDashboardAllPendingCases />}></Route>
+                <Route path="/dashboard/lawyers/my-chart" element={<LawyersDashboardMyChart />}>
+                  <Route path="/dashboard/lawyers/my-chart/active-cases" element={<LawyersDashboardMyChartActiveCases />}>
+                    <Route path="/dashboard/lawyers/my-chart/active-cases" element={<LawyersDashboardMyChartActiveCasesIndex />}></Route>
+                  </Route>
+                </Route>
               </Route>
 
               <Route path="*" element={<PageNotFound />} />

@@ -89,7 +89,7 @@ const LawyersDashboardIndex = () => {
                 <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 md:gap-2 xl:gap-3">
 
                     {/* first card */}
-                    <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer" to={'#'}>
+                    <NavLink className="flex gap-3 bg-white px-3 py-2 rounded-md border border-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-100 cursor-pointer" to={'/dashboard/lawyers/pending-cases'}>
                         <div className="w-[48px] bg-yellow-100 flex items-center justify-center aspect-square rounded-md overflow-hidden">
                             <VscNewFolder className='text-2xl text-blue-900' />
                         </div>

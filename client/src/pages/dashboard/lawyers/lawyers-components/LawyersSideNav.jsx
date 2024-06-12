@@ -23,6 +23,7 @@ import { HiOutlineLockClosed } from "react-icons/hi";
 import { VscNewFolder } from "react-icons/vsc";
 import { CiViewTable } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
+import { CiWallet } from "react-icons/ci";
 
 
 const LawyersSideNav = () => {
@@ -68,14 +69,14 @@ const LawyersSideNav = () => {
             height: '',
             subLinkItems: [
                 {
-                    icon: MdOutlineSupervisorAccount,
-                    title: 'Case Team',
+                    icon: CiWallet,
+                    title: 'All Cases',
                     path: '#',
                 },
                 {
                     icon: VscLayersActive,
                     title: 'Active Case',
-                    path: '#',
+                    path: '/dashboard/lawyers/my-chart/active-cases',
                 },
                 {
                     icon: HiOutlineLockClosed,
