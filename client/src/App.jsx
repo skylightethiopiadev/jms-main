@@ -140,6 +140,14 @@ import CivilFamilyAdoption from "./pages/civil/family/family-sub-pages/CivilFami
 import CivilFamilyOthers from "./pages/civil/family/family-sub-pages/CivilFamilyOthers";
 
 // corporate 
+// corporate - contract
+import CorporateContract from './pages/corporate/CorporateContract.jsx'
+import CorporateContractSpecialMovables from './pages/corporate/corporate-contract/CorporateContractSpecialMovables.jsx'
+import CorporateSaleLeaseBuildings from './pages/corporate/corporate-contract/CorporateSaleLeaseBuildings.jsx'
+import CorporateConstruction from './pages/corporate/corporate-contract/CorporateConstruction.jsx'
+import CorporateSupplyGoodServices from './pages/corporate/corporate-contract/CorporateSupplyGoodServices.jsx'
+import CorporateRentalMachineriesVehicles from './pages/corporate/corporate-contract/CorporateRentalMachineriesVehicles.jsx'
+import CorporateLoan from './pages/corporate/corporate-contract/CorporateLoan.jsx'
 // corporate - intellectual property
 import CorporateIntellectualProperty from "./pages/corporate/CorporateIntellectualProperty";
 import CorporateCopyright from "./pages/corporate/corporate-intellectual-property/CorporateCopyright";
@@ -220,6 +228,15 @@ function App() {
                   <Route path="/family/others" element={<CivilFamilyOthers />}></Route>
                 </Route>
                 {/* corporate */}
+                {/* corporate-contract */}
+                <Route path="/corporate/contract" element={<CorporateContract />}>
+                  <Route path="/corporate/contract" element={<CorporateContractSpecialMovables />}></Route>
+                  <Route path="/corporate/contract/sale-lease-buildings" element={<CorporateSaleLeaseBuildings />}></Route>
+                  <Route path="/corporate/contract/construction" element={<CorporateConstruction />}></Route>
+                  <Route path="/corporate/contract/supply-goods-services" element={<CorporateSupplyGoodServices />}></Route>
+                  <Route path="/corporate/contract/rental-machineries-vehicles" element={<CorporateRentalMachineriesVehicles />}></Route>
+                  <Route path="/corporate/contract/loan" element={<CorporateLoan />}></Route>
+                </Route>
                 {/* corporate-intellectual property */}
                 <Route path="/corporate/intellectual-property" element={<CorporateIntellectualProperty />}>
                   <Route path="/corporate/intellectual-property" element={<CorporateCopyright />}></Route>

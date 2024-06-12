@@ -160,35 +160,36 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
       groupOne: [
         {
           navHeaderText: "Contract",
+          path: "/corporate/contract",
           subNavList: [
             {
               navHeaderText: "Contract of special movables (vehicles)",
-              path: "#"
+              path: "/corporate/contract"
             },
             {
               navHeaderText: "Sale or lease of buildings",
-              path: "#"
+              path: "/corporate/contract/sale-lease-buildings"
             },
             {
               navHeaderText: "Construction",
-              path: "#"
+              path: "/corporate/contract/construction"
             },
             {
               navHeaderText: "Supply of goods and services",
-              path: "#"
+              path: "/corporate/contract/supply-goods-services"
             },
             {
               navHeaderText: "Rental of machineries and vehicles",
-              path: "#"
+              path: "/corporate/contract/rental-machineries-vehicles"
             },
             {
               navHeaderText: "Loan",
-              path: "#"
+              path: "/corporate/contract/loan"
             },
-            {
-              navHeaderText: "Others",
-              path: "#"
-            },
+            // {
+            //   navHeaderText: "Others",
+            //   path: "#"
+            // },
           ]
         },
         {
@@ -609,12 +610,15 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                             {/* contract list */}
                             <div className="flex flex-col">
                               <div>
-                                <h3 className="font-semibold mb-3 text-[1.35rem]">
+                                    <NavLink className="font-semibold text-[1.35rem] mb-3 hover:underline" to={commercialSubNav[0].groupOne[0].path} onClick={() => {
+                                      setIsNav(null);
+                                      scrollIntoHomeTopHandler();
+                                    }}>
                                   {
                                     commercialSubNav[0].groupOne[0]
                                       .navHeaderText
                                   }
-                                </h3>
+                                </NavLink>
                                 <ul>
                                   {commercialSubNav[0].groupOne[0].subNavList.map(
                                     (item, index) => (
@@ -622,7 +626,10 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                                         key={index}
                                         className="my-[.3rem] text-[1.125rem]"
                                       >
-                                        <NavLink className={"hover:underline"}>
+                                        <NavLink className={"hover:underline"} to={{ pathname: item.path }} onClick={() => {
+                                          setIsNav(null);
+                                          scrollIntoHomeTopHandler();
+                                        }}>
                                           {item.navHeaderText}
                                         </NavLink>
                                       </li>
