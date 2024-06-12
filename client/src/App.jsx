@@ -16,6 +16,7 @@ import AdminDashboardIndex from "./pages/dashboard/admin/admin-dashboard-sub-pag
 import SuperAdminCase from "./pages/dashboard/admin/admin-dashboard-sub-pages/admin-dashboard-case-sub-pages/SuperAdminCase";
 import SuperAdminCases from "./pages/dashboard/admin/admin-dashboard-sub-pages/admin-dashboard-case-sub-pages/SuperAdminCases";
 
+// ------ customers dashboard start ---- //
 // customers
 import CustomersDashboard from './pages/dashboard/customers/CustomersDashboard'
 import CustomersDashboardIndex from "./pages/dashboard/customers/customers-pages/CustomersDashboardIndex";
@@ -69,6 +70,19 @@ import CustomersDashboardResearchOutlet from './pages/dashboard/customers/custom
 import CustomersDashboardResearchIndex from './pages/dashboard/customers/customers-pages/other-services/research/sub-pages/CustomersDashboardResearchIndex.jsx'
 
 // customers dashboard -- other services -- end
+
+// ------ customers dashboard start ---- //
+
+// ------ lawyers dashboard start ---- //
+import LawyersDashboard from './pages/dashboard/lawyers/LawyersDashboard.jsx'
+import LawyersDashboardIndex from './pages/dashboard/lawyers/lawyers-pages/LawyersDashboardIndex.jsx'
+
+// lawyers dashboard pending cases
+import LawyersDashboardAllPendingCases from './pages/dashboard/lawyers/lawyers-pages/lawyers-dashboard-pending-cases/lawyers-dashboard-pending-cases-pages/LawyersDashboardAllPendingCases.jsx'
+
+// ------ lawyers dashboard end ---- //
+
+
 // customer
 import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
@@ -413,6 +427,7 @@ function App() {
                 // element={<Researches />}
                 ></Route>
               </Route>
+
               {/* customers */}
               <Route path="/dashboard/customers" element={<CustomersDashboard />}>
                 <Route path="/dashboard/customers" element={<CustomersDashboardIndex />}></Route>
@@ -464,6 +479,13 @@ function App() {
                   </Route>
                 </Route>
               </Route>
+
+              {/* lawyers  */}
+              <Route path="/dashboard/lawyers" element={<LawyersDashboard />}>
+                <Route path="/dashboard/lawyers" element={<LawyersDashboardIndex />}></Route>
+                <Route path="/dashboard/lawyers/pending-cases" element={<LawyersDashboardAllPendingCases />}></Route>
+              </Route>
+
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </div>

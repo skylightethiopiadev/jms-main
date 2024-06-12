@@ -25,7 +25,8 @@ import { CiViewTable } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 
 
-const CustomersSideNav = () => {
+const LawyersSideNav = () => {
+
     const [activeLink, setActiveLink] = useState({
         icon: RxDashboard,
         title: 'Dashboard',
@@ -39,26 +40,26 @@ const CustomersSideNav = () => {
         {
             icon: RxDashboard,
             title: 'Dashboard',
-            path: '/dashboard/customers',
+            path: '/dashboard/lawyers',
         },
         {
             icon: CiMedicalCase,
-            title: 'Compliance',
-            path: '#',
+            title: 'Pending Cases',
+            path: '/dashboard/lawyers/pending-cases',
             height: '',
-            subLinkItems: [
-                {
-                    icon: VscNewFolder,
-                    title: 'New Case',
-                    path: '/dashboard/customers/compliance',
-                },
-                {
-                    icon: CiViewTable,
-                    title: 'On Request',
-                    path: '/dashboard/customers/compliance/on-request',
-                },
+            // subLinkItems: [
+            //     {
+            //         icon: VscNewFolder,
+            //         title: 'New Case',
+            //         path: '#',
+            //     },
+            //     {
+            //         icon: CiViewTable,
+            //         title: 'On Request',
+            //         path: '#',
+            //     },
 
-            ]
+            // ]
         },
         {
             icon: HiOutlineDocumentChartBar,
@@ -69,17 +70,17 @@ const CustomersSideNav = () => {
                 {
                     icon: MdOutlineSupervisorAccount,
                     title: 'Case Team',
-                    path: '/dashboard/customers/my-chart/case-team',
+                    path: '#',
                 },
                 {
                     icon: VscLayersActive,
                     title: 'Active Case',
-                    path: '/dashboard/customers/my-chart/active-case',
+                    path: '#',
                 },
                 {
                     icon: HiOutlineLockClosed,
                     title: 'Closed Case',
-                    path: '/dashboard/customers/my-chart/closed-case',
+                    path: '#',
                 },
             ]
         },
@@ -97,12 +98,12 @@ const CustomersSideNav = () => {
                 {
                     icon: MdOutlineSupervisorAccount,
                     title: 'Office Appointment',
-                    path: '/dashboard/customers/appointment/office-appointment',
+                    path: '#',
                 },
                 {
                     icon: VscLayersActive,
                     title: 'Case Appointment',
-                    path: '/dashboard/customers/appointment/case-appointment',
+                    path: '#',
                 },
             ],
         },
@@ -143,17 +144,17 @@ const CustomersSideNav = () => {
                 {
                     icon: LuGraduationCap,
                     title: 'Training',
-                    path: '/dashboard/customers/other-services/training',
+                    path: '#',
                 },
                 {
                     icon: CiRollingSuitcase,
                     title: 'Consulting',
-                    path: '/dashboard/customers/other-services/consulting',
+                    path: '#',
                 },
                 {
                     icon: IoDocumentTextOutline,
                     title: 'Research',
-                    path: '/dashboard/customers/other-services/research',
+                    path: '#',
                 },
 
             ]
@@ -161,8 +162,8 @@ const CustomersSideNav = () => {
     ]
 
     // customers dashboard toggler
-    const customersDashboardToggler = () => {
-        let sideNav = document.getElementById('customers-dashboard-side-nav')
+    const lawyersDashboardToggler = () => {
+        let sideNav = document.getElementById('lawyers-dashboard-side-nav')
 
         if (sideNav?.classList.contains('absolute')) {
             if (sideNav?.classList.contains('left-[-100vw]')) {
@@ -176,12 +177,12 @@ const CustomersSideNav = () => {
     }
 
     return (
-        <div className="w-[180px] absolute left-[-100vw] top-0 h-full z-50 xl:relative xl:left-auto xl:top-auto min-w-[180px] bg-gray-100 border-r border-gray-200 pr-3 transition-all ease-in-out duration-300" id='customers-dashboard-side-nav'>
+        <div className="w-[180px] absolute left-[-100vw] top-0 h-full z-50 xl:relative xl:left-auto xl:top-auto min-w-[180px] bg-gray-100 border-r border-gray-200 pr-3 transition-all ease-in-out duration-300" id='lawyers-dashboard-side-nav'>
             <div className="w-full h-full flex flex-col relative">
                 {/* close side nav */}
                 <div className='absolute top-1 right-1 xl:hidden'>
                     <div className='text-2xl text-blue-900 cursor-pointer' onClick={() => {
-                        customersDashboardToggler()
+                        lawyersDashboardToggler()
                     }}>
                         <AiOutlineClose />
                     </div>
@@ -207,7 +208,7 @@ const CustomersSideNav = () => {
                                                     setActiveLink(linkItem)
                                                     if (!linkItem.subLinkItems) {
                                                         setActiveSubLink(null)
-                                                        customersDashboardToggler()
+                                                        lawyersDashboardToggler()
                                                     }
                                                     if (activeLink?.title === linkItem.title && subLinks) {
                                                         setSubLinks(null)
@@ -247,7 +248,7 @@ const CustomersSideNav = () => {
                                                                                 e.stopPropagation()
                                                                                 setActiveSubLink(subLinkItem)
                                                                                 setSubLinks(null)
-                                                                                customersDashboardToggler()
+                                                                                lawyersDashboardToggler()
                                                                             }}>
                                                                                 <div className='flex items-center gap-3'>
                                                                                     <div>
@@ -281,4 +282,4 @@ const CustomersSideNav = () => {
     )
 }
 
-export default CustomersSideNav
+export default LawyersSideNav
