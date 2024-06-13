@@ -129,7 +129,7 @@ const LawyersDashboardMyChartClosedCasesIndex = () => {
                     <div className='flex items-center gap-3'>
 
                         <div className='relative'>
-                            <NavLink onMouseEnter={() => {
+                            <NavLink to={'/dashboard/lawyers/my-chart/active-cases'} onMouseEnter={() => {
                                 setCaseHint('active')
                             }} onMouseLeave={() => {
                                 setCaseHint(null)
@@ -144,7 +144,7 @@ const LawyersDashboardMyChartClosedCasesIndex = () => {
                         </div>
 
                         <div className='relative'>
-                            <NavLink onMouseEnter={() => {
+                            <NavLink to={'/dashboard/lawyers/pending-cases'} onMouseEnter={() => {
                                 setCaseHint('pending')
                             }} onMouseLeave={() => {
                                 setCaseHint(null)
@@ -159,7 +159,7 @@ const LawyersDashboardMyChartClosedCasesIndex = () => {
                         </div>
 
                         <div className='relative'>
-                            <NavLink onMouseEnter={() => {
+                            <NavLink to={'/dashboard/lawyers/my-chart/closed-cases'} onMouseEnter={() => {
                                 setCaseHint('closed')
                             }} onMouseLeave={() => {
                                 setCaseHint(null)
