@@ -16,7 +16,7 @@ import { TiInputChecked } from "react-icons/ti";
 import { ImBlocked } from "react-icons/im";
 import { BsClipboard2Pulse } from "react-icons/bs";
 
-const LawyersDashboardMyChartActiveCasesIndex = () => {
+const LawyersDashboardMyChartClosedCasesIndex = () => {
 
     // states
     const [caseFilter, setCaseFilter] = useState({ on: false, text: 'All Cases' })
@@ -33,7 +33,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'June 12, 2023',
                 end_date: 'September 23, 2024',
                 place: 'Addis Ababa',
-                status: 'active',
+                status: 'closed',
             },
         },
         {
@@ -48,7 +48,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'February 7, 2023',
                 end_date: 'August 19, 2024',
                 place: 'Bahir Dar',
-                status: 'active',
+                status: 'closed',
             },
         },
         {
@@ -63,7 +63,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'October 27, 2023',
                 end_date: 'December 3, 2024',
                 place: 'Adama',
-                status: 'active',
+                status: 'closed',
             },
         },
         {
@@ -78,7 +78,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'June 12, 2023',
                 end_date: 'September 23, 2024',
                 place: 'Addis Ababa',
-                status: 'active',
+                status: 'closed',
             },
         },
         {
@@ -93,7 +93,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'February 7, 2023',
                 end_date: 'August 19, 2024',
                 place: 'Bahir Dar',
-                status: 'active',
+                status: 'closed',
             },
         },
         {
@@ -108,16 +108,13 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'October 27, 2023',
                 end_date: 'December 3, 2024',
                 place: 'Adama',
-                status: 'active',
+                status: 'closed',
             },
         },
     ], [])
 
     // filters
     const [caseHint, setCaseHint] = useState(null)
-
-    // state
-    const [caseType, setCaseType] = useState({ on: false, text: 'All Cases' })
 
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
@@ -305,7 +302,6 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                                     placeholder='search' />
                             </div>
                         </div>
-                        
                     </div>
                 </header>
                 {/* table */}
@@ -462,4 +458,4 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
     )
 }
 
-export default LawyersDashboardMyChartActiveCasesIndex
+export default LawyersDashboardMyChartClosedCasesIndex

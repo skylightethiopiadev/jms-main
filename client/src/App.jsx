@@ -77,6 +77,10 @@ import CustomersDashboardResearchIndex from './pages/dashboard/customers/custome
 import LawyersDashboard from './pages/dashboard/lawyers/LawyersDashboard.jsx'
 import LawyersDashboardIndex from './pages/dashboard/lawyers/lawyers-pages/LawyersDashboardIndex.jsx'
 
+// lawyers dashboard all cases
+import LawyersDashboardMyChartAllCases from './pages/dashboard/lawyers/lawyers-pages/my-chart/all-cases/LawyersDashboardMyChartAllCases.jsx'
+import LawyersDashboardMyChartAllCasesIndex from './pages/dashboard/lawyers/lawyers-pages/my-chart/all-cases/all-cases-sub-pages/LawyersDashboardMyChartAllCasesIndex.jsx'
+
 // lawyers dashboard pending cases
 import LawyersDashboardAllPendingCases from './pages/dashboard/lawyers/lawyers-pages/lawyers-dashboard-pending-cases/lawyers-dashboard-pending-cases-pages/LawyersDashboardAllPendingCases.jsx'
 
@@ -86,6 +90,10 @@ import LawyersDashboardMyChart from './pages/dashboard/lawyers/lawyers-pages/my-
 // active case
 import LawyersDashboardMyChartActiveCases from './pages/dashboard/lawyers/lawyers-pages/my-chart/active-cases/LawyersDashboardMyChartActiveCases.jsx'
 import LawyersDashboardMyChartActiveCasesIndex from './pages/dashboard/lawyers/lawyers-pages/my-chart/active-cases/active-case-pages/LawyersDashboardMyChartActiveCasesIndex.jsx'
+
+// closed cases
+import LawyersDashboardMyChartClosedCases from './pages/dashboard/lawyers/lawyers-pages/my-chart/closed-cases/LawyersDashboardMyChartClosedCases.jsx'
+import LawyersDashboardMyChartClosedCasesIndex from './pages/dashboard/lawyers/lawyers-pages/my-chart/closed-cases/closed-cases-sub-pages/LawyersDashboardMyChartClosedCasesIndex.jsx'
 
 // ------ lawyers dashboard end ---- //
 
@@ -490,11 +498,22 @@ function App() {
               {/* lawyers  */}
               <Route path="/dashboard/lawyers" element={<LawyersDashboard />}>
                 <Route path="/dashboard/lawyers" element={<LawyersDashboardIndex />}></Route>
+                {/* all cases */}
+                <Route path="/dashboard/lawyers/my-chart/all-cases" element={<LawyersDashboardMyChartAllCases />}>
+                  <Route path="/dashboard/lawyers/my-chart/all-cases" element={<LawyersDashboardMyChartAllCasesIndex />}></Route>
+                </Route>
+
+                {/* pending cases */}
                 <Route path="/dashboard/lawyers/pending-cases" element={<LawyersDashboardAllPendingCases />}></Route>
                 <Route path="/dashboard/lawyers/my-chart" element={<LawyersDashboardMyChart />}>
                   <Route path="/dashboard/lawyers/my-chart/active-cases" element={<LawyersDashboardMyChartActiveCases />}>
                     <Route path="/dashboard/lawyers/my-chart/active-cases" element={<LawyersDashboardMyChartActiveCasesIndex />}></Route>
                   </Route>
+                </Route>
+
+                {/* closed cases */}
+                <Route path="/dashboard/lawyers/my-chart/closed-cases" element={<LawyersDashboardMyChartClosedCases />}>
+                  <Route path="/dashboard/lawyers/my-chart/closed-cases" element={<LawyersDashboardMyChartClosedCasesIndex />}></Route>
                 </Route>
               </Route>
 

@@ -16,7 +16,7 @@ import { TiInputChecked } from "react-icons/ti";
 import { ImBlocked } from "react-icons/im";
 import { BsClipboard2Pulse } from "react-icons/bs";
 
-const LawyersDashboardMyChartActiveCasesIndex = () => {
+const LawyersDashboardMyChartAllCasesIndex = () => {
 
     // states
     const [caseFilter, setCaseFilter] = useState({ on: false, text: 'All Cases' })
@@ -48,7 +48,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'February 7, 2023',
                 end_date: 'August 19, 2024',
                 place: 'Bahir Dar',
-                status: 'active',
+                status: 'pending',
             },
         },
         {
@@ -63,7 +63,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'October 27, 2023',
                 end_date: 'December 3, 2024',
                 place: 'Adama',
-                status: 'active',
+                status: 'closed',
             },
         },
         {
@@ -93,7 +93,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'February 7, 2023',
                 end_date: 'August 19, 2024',
                 place: 'Bahir Dar',
-                status: 'active',
+                status: 'pending',
             },
         },
         {
@@ -108,16 +108,13 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                 started_date: 'October 27, 2023',
                 end_date: 'December 3, 2024',
                 place: 'Adama',
-                status: 'active',
+                status: 'closed',
             },
         },
     ], [])
 
     // filters
     const [caseHint, setCaseHint] = useState(null)
-
-    // state
-    const [caseType, setCaseType] = useState({ on: false, text: 'All Cases' })
 
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
@@ -132,9 +129,9 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                     <div className='flex items-center gap-3'>
 
                         <div className='relative'>
-                            <NavLink onMouseEnter={() => {
+                            <NavLink onMouseEnter={()=>{
                                 setCaseHint('active')
-                            }} onMouseLeave={() => {
+                            }} onMouseLeave={()=>{
                                 setCaseHint(null)
                             }}>
                                 <div className='text-gray-500 hover:text-blue-700'>
@@ -175,7 +172,7 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                                 <span>closed</span>
                             </div>
                         </div>
-
+                        
                     </div>
                 </header>
                 {/* intro */}
@@ -305,7 +302,25 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
                                     placeholder='search' />
                             </div>
                         </div>
-                        
+                        {/* buttons */}
+                        <div className='flex items-center gap-3'>
+                            <div className='cursor-pointer flex items-center gap-1 hover:text-blue-700 text-gray-500 border border-gray-300 rounded-sm px-1 hover:border-blue-700 transition-colors ease-in-out duration-300'>
+                                <TbListDetails />
+                                <span>all</span>
+                            </div>
+                            <div className='cursor-pointer flex items-center gap-1 hover:text-blue-700 text-gray-500 border border-gray-300 rounded-sm px-1 hover:border-blue-700 transition-colors ease-in-out duration-300'>
+                                <VscLayersActive />
+                                <span>active</span>
+                            </div>
+                            <div className='cursor-pointer flex items-center gap-1 hover:text-blue-700 text-gray-500 border border-gray-300 rounded-sm px-1 hover:border-blue-700 transition-colors ease-in-out duration-300'>
+                                <PiFolderOpenDuotone />
+                                <span>pending</span>
+                            </div>
+                            <div className='cursor-pointer flex items-center gap-1 hover:text-blue-700 text-gray-500 border border-gray-300 rounded-sm px-1 hover:border-blue-700 transition-colors ease-in-out duration-300'>
+                                <TiCancelOutline />
+                                <span>closed</span>
+                            </div>
+                        </div>
                     </div>
                 </header>
                 {/* table */}
@@ -462,4 +477,4 @@ const LawyersDashboardMyChartActiveCasesIndex = () => {
     )
 }
 
-export default LawyersDashboardMyChartActiveCasesIndex
+export default LawyersDashboardMyChartAllCasesIndex

@@ -69,7 +69,7 @@ const LawyersSideNav = () => {
                 {
                     icon: CiWallet,
                     title: 'All Cases',
-                    path: '#',
+                    path: '/dashboard/lawyers/my-chart/all-cases',
                 },
                 {
                     icon: VscLayersActive,
@@ -79,7 +79,7 @@ const LawyersSideNav = () => {
                 {
                     icon: HiOutlineLockClosed,
                     title: 'Closed Case',
-                    path: '#',
+                    path: '/dashboard/lawyers/my-chart/closed-cases',
                 },
             ]
         },
