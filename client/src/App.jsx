@@ -95,6 +95,17 @@ import LawyersDashboardMyChartActiveCasesIndex from './pages/dashboard/lawyers/l
 import LawyersDashboardMyChartClosedCases from './pages/dashboard/lawyers/lawyers-pages/my-chart/closed-cases/LawyersDashboardMyChartClosedCases.jsx'
 import LawyersDashboardMyChartClosedCasesIndex from './pages/dashboard/lawyers/lawyers-pages/my-chart/closed-cases/closed-cases-sub-pages/LawyersDashboardMyChartClosedCasesIndex.jsx'
 
+// lawyers - appointment 
+import LawyersDashboardAppointment from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/LawyersDashboardAppointment.jsx'
+// -- office appointment
+import LawyersDashboardOfficeAppointment from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-office-appointment/LawyersDashboardOfficeAppointment.jsx'
+import LawyersDashboardOfficeAppointmentIndex from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-office-appointment/office-appointment-pages/LawyersDashboardOfficeAppointmentIndex.jsx'
+import LawyersDashboardOfficeAppointmentNewAppointmentForm from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-office-appointment/office-appointment-pages/LawyersDashboardOfficeAppointmentNewAppointmentForm.jsx'
+
+// -- case appointment
+import LawyersDashboardCaseAppointment from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-case-appointment/LawyersDashboardCaseAppointment.jsx'
+import LawyersDashboardCaseAppointmentIndex from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-case-appointment/case-appointment-pages/LawyersDashboardCaseAppointmentIndex.jsx'
+
 // ------ lawyers dashboard end ---- //
 
 
@@ -515,6 +526,20 @@ function App() {
                 <Route path="/dashboard/lawyers/my-chart/closed-cases" element={<LawyersDashboardMyChartClosedCases />}>
                   <Route path="/dashboard/lawyers/my-chart/closed-cases" element={<LawyersDashboardMyChartClosedCasesIndex />}></Route>
                 </Route>
+
+                {/* appointment */}
+                <Route path="/dashboard/lawyers/appointment" element={<LawyersDashboardAppointment />}>
+                {/* office appointment */}
+                  <Route path="/dashboard/lawyers/appointment/office-appointment" element={<LawyersDashboardOfficeAppointment />}>
+                    <Route path="/dashboard/lawyers/appointment/office-appointment" element={<LawyersDashboardOfficeAppointmentIndex />}></Route>
+                    <Route path="/dashboard/lawyers/appointment/office-appointment/new-office-appointment" element={<LawyersDashboardOfficeAppointmentNewAppointmentForm />}></Route>
+                  </Route>
+                  {/* case appointment */}
+                  <Route path="/dashboard/lawyers/appointment/case-appointment" element={<LawyersDashboardCaseAppointment />}>
+                    <Route path="/dashboard/lawyers/appointment/case-appointment" element={<LawyersDashboardCaseAppointmentIndex />}></Route>
+                  </Route>
+                </Route>
+
               </Route>
 
               <Route path="*" element={<PageNotFound />} />

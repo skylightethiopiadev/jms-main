@@ -97,12 +97,12 @@ const LawyersSideNav = () => {
                 {
                     icon: MdOutlineSupervisorAccount,
                     title: 'Office Appointment',
-                    path: '#',
+                    path: '/dashboard/lawyers/appointment/office-appointment',
                 },
                 {
                     icon: VscLayersActive,
                     title: 'Case Appointment',
-                    path: '#',
+                    path: '/dashboard/lawyers/appointment/case-appointment',
                 },
             ],
         },

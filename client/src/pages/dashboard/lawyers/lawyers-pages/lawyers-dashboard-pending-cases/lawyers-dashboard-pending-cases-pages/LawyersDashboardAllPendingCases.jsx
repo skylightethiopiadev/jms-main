@@ -1,344 +1,449 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel } from '@tanstack/react-table'
 
 // icons
-import { RiSettings4Line } from "react-icons/ri";
-import { CiViewBoard } from "react-icons/ci";
-import { CiClock2 } from "react-icons/ci";
-
+import { TbListDetails } from "react-icons/tb";
+import { VscLayersActive } from "react-icons/vsc";
+import { PiFolderOpenDuotone } from "react-icons/pi";
+import { TiCancelOutline } from "react-icons/ti";
 import { CiSearch } from "react-icons/ci";
-
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineCreateNewFolder } from "react-icons/md";
+import { CiClock2 } from "react-icons/ci";
+import { CiLocationOn } from "react-icons/ci";
+import { IoMdMore } from "react-icons/io";
+import { TiInputChecked } from "react-icons/ti";
+import { ImBlocked } from "react-icons/im";
+import { BsClipboard2Pulse } from "react-icons/bs";
 
 
 const LawyersDashboardAllPendingCases = () => {
 
     // states
+    const [caseFilter, setCaseFilter] = useState({ on: false, text: 'All Cases' })
+    const [caseData, setCaseData] = useState(() => [
+        {
+            customer: {
+                first_name: 'Haddis',
+                last_name: 'Fanta',
+                profile: 'https://img.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1718150400&semt=sph',
+            },
+            case_detail: {
+                case_type: 'Corporate',
+                file_no: 'FRKM000007369',
+                started_date: 'June 12, 2023',
+                end_date: 'September 23, 2024',
+                place: 'Addis Ababa',
+                status: 'pending',
+            },
+        },
+        {
+            customer: {
+                first_name: 'Mulatu',
+                last_name: 'Girima',
+                profile: 'https://www.shutterstock.com/image-photo/smiling-mature-man-wearing-spectacles-600nw-1432699253.jpg',
+            },
+            case_detail: {
+                case_type: 'Criminal',
+                file_no: 'KMRM000007369',
+                started_date: 'February 7, 2023',
+                end_date: 'August 19, 2024',
+                place: 'Bahir Dar',
+                status: 'pending',
+            },
+        },
+        {
+            customer: {
+                first_name: 'Kalkidan',
+                last_name: 'Shiferaw',
+                profile: 'https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg',
+            },
+            case_detail: {
+                case_type: 'Civil',
+                file_no: 'XWPQ000007369',
+                started_date: 'October 27, 2023',
+                end_date: 'December 3, 2024',
+                place: 'Adama',
+                status: 'pending',
+            },
+        },
+        {
+            customer: {
+                first_name: 'Haddis',
+                last_name: 'Fanta',
+                profile: 'https://img.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1718150400&semt=sph',
+            },
+            case_detail: {
+                case_type: 'Corporate',
+                file_no: 'FRKM000007369',
+                started_date: 'June 12, 2023',
+                end_date: 'September 23, 2024',
+                place: 'Addis Ababa',
+                status: 'pending',
+            },
+        },
+        {
+            customer: {
+                first_name: 'Mulatu',
+                last_name: 'Girima',
+                profile: 'https://www.shutterstock.com/image-photo/smiling-mature-man-wearing-spectacles-600nw-1432699253.jpg',
+            },
+            case_detail: {
+                case_type: 'Criminal',
+                file_no: 'KMRM000007369',
+                started_date: 'February 7, 2023',
+                end_date: 'August 19, 2024',
+                place: 'Bahir Dar',
+                status: 'pending',
+            },
+        },
+        {
+            customer: {
+                first_name: 'Kalkidan',
+                last_name: 'Shiferaw',
+                profile: 'https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg',
+            },
+            case_detail: {
+                case_type: 'Civil',
+                file_no: 'XWPQ000007369',
+                started_date: 'October 27, 2023',
+                end_date: 'December 3, 2024',
+                place: 'Adama',
+                status: 'pending',
+            },
+        },
+    ], [])
 
-    const [services,setServices] = useState(null) 
+    // filters
+    const [caseHint, setCaseHint] = useState(null)
 
-    const [pendingCaseData, setPendingCaseData] = useState(() => {
-        return [
-            {
-                customer: {
-                    first_name: 'Haddis',
-                    last_name: 'Fanta',
-                    profile: 'https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg',
-                },
-                case_detail: {
-                    case_type: 'Corporate',
-                    second_type: 'Intellectual Property',
-                    third_type: 'Trademark',
-                    application_date: 'January 21, 2024',
-                },
-                services: [
-                    'Assist The Creation Of Will',
-                    'Liquidation',
-                    'Legal Consultation',
-                    'Secure Legal Documents',
-                ],
-            },
-            {
-                customer: {
-                    first_name: 'Zewoditu',
-                    last_name: 'Alemayehu',
-                    profile: 'https://img.freepik.com/free-photo/cheerful-dark-skinned-woman-smiling-broadly-rejoicing-her-victory-competition-among-young-writers-standing-isolated-against-grey-wall-people-success-youth-happiness-concept_273609-1246.jpg',
-                },
-                case_detail: {
-                    case_type: 'Civil',
-                    second_type: 'Contract',
-                    third_type: 'Contract of Special Movables',
-                    application_date: 'September 3, 2023',
-                },
-                services: [
-                    'Assist The Creation Of Will',
-                    'Liquidation',
-                    'Legal Consultation',
-                    'Secure Legal Documents',
-                ],
-            },
-            {
-                customer: {
-                    first_name: 'Andualem',
-                    last_name: 'Chane',
-                    profile: 'https://media.istockphoto.com/id/644244886/photo/portrait-of-businessman-in-office-standing-by-window.webp?b=1&s=170667a&w=0&k=20&c=g9g077LMBXXEynx8xcKeEjH6r6Q4svu5OzT5zOSzGoM=',
-                },
-                case_detail: {
-                    case_type: 'Corporate',
-                    second_type: 'Intellectual Property',
-                    third_type: 'Trademark',
-                    application_date: 'January 21, 2024',
-                },
-                services: [
-                    'Assist The Creation Of Will',
-                    'Liquidation',
-                    'Legal Consultation',
-                    'Secure Legal Documents',
-                ],
-            },
-            {
-                customer: {
-                    first_name: 'Messeret',
-                    last_name: 'Seeyoum',
-                    profile: 'https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg',
-                },
-                case_detail: {
-                    case_type: 'Civil',
-                    second_type: 'Contract',
-                    third_type: 'Contract of Special Movables',
-                    application_date: 'September 3, 2023',
-                },
-                services: [
-                    'Assist The Creation Of Will',
-                    'Liquidation',
-                    'Legal Consultation',
-                    'Secure Legal Documents',
-                ],
-            },
-        ]
-    }, [])
 
-    // columns 
-    const pendingCaseColumns = useMemo(() => {
-        return [
-            {
-                header: 'Customer',
-                cell: ({ row }) => {
-                    console.log(row?.original?.customer?.profile)
-                    return (
-                        <div>
-                            <div className='flex items-center gap-1'>
-                                <div>
-                                    <div className='w-[32px] aspect-square rounded-full overflow-hidden'>
-                                        <img className='w-full h-full object-center object-cover' src={row?.original?.customer?.profile} alt="" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className='mb-[-5px] font-medium'>
-                                        <span>{row?.original?.customer?.first_name}</span>
-                                    </div>
-                                    <div className='mt-[-5px] text-xs text-gray-700'>
-                                        <span>{row?.original?.customer?.last_name}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                },
-            },
-            {
-                header: 'Case Type',
-                cell: ({ row }) => {
-                    console.log(row?.original?.case_detail?.case_type)
-                    return (
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <span>{row?.original?.case_detail?.case_type}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                },
-            },
-            {
-                header: 'Case Sub Type',
-                cell: ({ row }) => {
-                    console.log(row?.original?.case_detail)
-                    return (
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <span>{row?.original?.case_detail?.second_type}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                },
-            },
-            {
-                header: 'Application Date',
-                cell: ({ row }) => {
-                    return (
-                        <div>
-                            <div className='flex items-center gap-1'>
-                                <CiClock2  className='text-lg text-gray-700'/>
-                                <span>{row?.original?.case_detail?.application_date}</span>
-                            </div>
-                        </div>
-                    )
-                },
-            },
-            {
-                header: 'Required Services',
-                cell: ({ row }) => {
-                    // console.log(row?.original?.services)
-                    return (
-                        <div>
-                            <div className='relative'>
-
-                                {/* services */}
-                                <div className={`absolute left-0 bottom-[100%] p-3 w-max h-max bg-white shadow-xl transition-transform ease-in-out duration-300 ${services?.id === row?.index ? 'scale-0' : 'scale-0'}`}>Hello World</div>
-
-                                <div className='w-max px-3 py-1 cursor-pointer text-blue-800' onClick={()=>{
-                                    console.log(row.index)
-                                    if(services?.id === row?.index){
-                                        setServices(null)
-                                    }else {
-                                        setServices({id: row?.index})
-                                    }
-                                }}>
-                                    <span>{row?.original?.services.length-1}+ services</span>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                },
-            },
-            {
-                header: 'Status',
-                cell: ({ row }) => {
-                    console.log(row?.original?.status)
-                    return (
-                        <div>
-                            pending
-                        </div>
-                    )
-                },
-            },
-        ]
-    }, [])
-
-    // tables
-    const caseTeamTable = useReactTable({
-        columns: pendingCaseColumns,
-        data: pendingCaseData,
-        getCoreRowModel: getCoreRowModel(),
-    })
 
     return (
         <div className='overflow-x-hidden flex-grow pr-1'>
             {/* first order container */}
             <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border bg-gray-100 rounded-md">
-                {/* header */}
-                <header className='flex justify-between'>
-                    {/* left */}
+                <header className='flex items-center justify-between'>
                     <div>
                         <div>
                             <h3 className='header-level-4'>Pending Cases</h3>
                         </div>
                     </div>
-                    {/* right */}
-                    <div>
-                        <div>
-                            <button className='hover:text-blue-700 flex items-center gap-1'>
-                                <RiSettings4Line />
-                                <span>settings</span>
-                            </button>
+                    <div className='flex items-center gap-3'>
+
+                        <div className='relative'>
+                            <NavLink to={'/dashboard/lawyers/my-chart/active-cases'} onMouseEnter={() => {
+                                setCaseHint('active')
+                            }} onMouseLeave={() => {
+                                setCaseHint(null)
+                            }}>
+                                <div className='text-gray-500 hover:text-blue-700'>
+                                    <TiInputChecked className='text-xl' />
+                                </div>
+                            </NavLink>
+                            <div className={`absolute right-0 bottom-[120%] px-1 rounded-sm bg-gray-700 text-white transition-transform ease-in-out duration-300 ${caseHint === 'active' ? 'scale-100' : 'scale-0'}`}>
+                                <span>active</span>
+                            </div>
                         </div>
+
+                        <div className='relative'>
+                            <NavLink to={'/dashboard/lawyers/pending-cases'} onMouseEnter={() => {
+                                setCaseHint('pending')
+                            }} onMouseLeave={() => {
+                                setCaseHint(null)
+                            }}>
+                                <div className='text-gray-500 hover:text-blue-700'>
+                                    <BsClipboard2Pulse className='text-sm' />
+                                </div>
+                            </NavLink>
+                            <div className={`absolute right-0 bottom-[120%] px-1 rounded-sm bg-gray-700 text-white transition-transform ease-in-out duration-300 ${caseHint === 'pending' ? 'scale-100' : 'scale-0'}`}>
+                                <span>pending</span>
+                            </div>
+                        </div>
+
+                        <div className='relative'>
+                            <NavLink to={'/dashboard/lawyers/my-chart/closed-cases'} onMouseEnter={() => {
+                                setCaseHint('closed')
+                            }} onMouseLeave={() => {
+                                setCaseHint(null)
+                            }}>
+                                <div className='text-gray-500 hover:text-blue-700'>
+                                    <ImBlocked className='text-sm' />
+                                </div>
+                            </NavLink>
+                            <div className={`absolute right-0 bottom-[120%] px-1 rounded-sm bg-gray-700 text-white transition-transform ease-in-out duration-300 ${caseHint === 'closed' ? 'scale-100' : 'scale-0'}`}>
+                                <span>closed</span>
+                            </div>
+                        </div>
+
                     </div>
                 </header>
-                {/* content */}
+                {/* intro */}
                 <div>
-                    <p className='my-1'>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, aliquid quas! Dolorum consequatur eveniet explicabo, ex et iusto nihil? Rerum libero dolorum possimus rem?
-                    </p>
-                    <button className='px-3 py-0.5 border border-blue-500 rounded-sm transition-colors ease-in-out duration-300 hover:bg-transparent hover:border-gray-300 hover:text-black bg-blue-500 text-white'>
-                        view  all
-                    </button>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium natus soluta alias, mollitia odit facere beatae! Voluptatum beatae possimus maxime, ratione saepe illum nesciunt.
+                        </p>
+                    </div>
+                    <div className='flex items-center gap-3 mt-1'>
+                        <div>
+                            <div className='flex items-center gap-1'>
+                                <span className='text-gray-400'>pending: </span>
+                                <span className='font-black text-yellow-500'>21</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             {/* second order container */}
-            <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md mt-7">
-                <header className="flex items-center justify-between py-3 border-b border-gray-300">
-                    <div className='flex items-center gap-5'>
-                        {/* left */}
+            <div className="mt-10 p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border  rounded-md">
+                <header className='flex items-center justify-between py-2 border-b border-gray-300'>
+                    <div>
                         <div>
-                            <div className='flex items-center gap-1 border border-gray-300 rounded-full px-1'>
+                            <div className='px-1 py-0.5 rounded-sm bg-yellow-400 text-white flex items-center justify-between gap-1 cursor-pointer'>
+                                <MdOutlineCreateNewFolder />
+                                <span>create new</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        {/* filter */}
+                        <div>
+                            <div className='relative'>
+                                <div className='flex items-center justify-between cursor-pointer w-[120px] border border-gray-300 rounded-sm py-0.5 px-1' onClick={() => {
+                                    if (caseFilter?.on) {
+                                        setCaseFilter(prev => {
+                                            return {
+                                                ...prev,
+                                                on: false,
+                                            }
+                                        })
+                                    } else {
+                                        setCaseFilter(prev => {
+                                            return {
+                                                ...prev,
+                                                on: true,
+                                            }
+                                        })
+                                    }
+                                }}>
+                                    <span>{caseFilter?.text}</span>
+                                    <MdKeyboardArrowDown className={`text-xl transition-transform ease-in-out duration-300 ${caseFilter?.on ? '-rotate-180' : 'rotate-0'}`} />
+                                </div>
+                                {/* dropdown */}
+                                <div className={`absolute right-0 top-[100%] bg-white shadow-2xl w-[120px] transition-all ease-in-out duration-300 overflow-hidden ${caseFilter?.on ? 'h-[136px]' : 'h-0'}`}>
+                                    <div>
+                                        {/* all cases */}
+                                        <div className='px-1 py-1.5 cursor-pointer border-b border-gray-300 hover:border-gray-500' onClick={() => {
+                                            setCaseFilter(prev => {
+                                                return {
+                                                    ...prev,
+                                                    on: false,
+                                                    text: 'All Case'
+                                                }
+                                            })
+                                        }}>
+                                            <span>All Cases</span>
+                                        </div>
+                                        <div className='px-1 py-1.5 cursor-pointer border-b border-gray-300 hover:border-gray-500' onClick={() => {
+                                            setCaseFilter(prev => {
+                                                return {
+                                                    ...prev,
+                                                    on: false,
+                                                    text: 'Civil'
+                                                }
+                                            })
+                                        }}>
+                                            <span>Civil</span>
+                                        </div>
+                                        <div className='px-1 py-1.5 cursor-pointer border-b border-gray-300 hover:border-gray-500' onClick={() => {
+                                            setCaseFilter(prev => {
+                                                return {
+                                                    ...prev,
+                                                    on: false,
+                                                    text: 'Criminal'
+                                                }
+                                            })
+                                        }}>
+                                            <span>Criminal</span>
+                                        </div>
+                                        <div className='px-1 py-1.5 cursor-pointer border-b border-gray-300 hover:border-gray-500' onClick={() => {
+                                            setCaseFilter(prev => {
+                                                return {
+                                                    ...prev,
+                                                    on: false,
+                                                    text: 'Corporate'
+                                                }
+                                            })
+                                        }}>
+                                            <span>Corporate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* search */}
+                        <div>
+                            <div className='flex items-center gap-1 px-1 border border-gray-300 rounded-sm'>
                                 <CiSearch className='text-xl' />
                                 <input
                                     type="text"
-                                    className='p-0 focus:outline-none focus:ring-0 border-none bg-transparent'
+                                    className='focus:ring-0 focus:outline-none border-none p-0'
                                     placeholder='search' />
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center justify-end gap-3">
-                        <div className='flex items-center justify-end gap-3'>
-                            <NavLink>
-                                <div className='flex items-center gap-1 hover:text-blue-700'>
-                                    <CiViewBoard className='text-lg' />
-                                    <div>
-                                        <span>view all</span>
-                                    </div>
-                                </div>
-                            </NavLink>
-                        </div>
-                    </div>
                 </header>
-                {/* content container */}
-                <div>
-                    {/* table */}
-                    <div className='mt-5 w-full'>
-                        <table className='w-full'>
-                            <thead>
-                                {
-                                    caseTeamTable.getHeaderGroups().map(headerGroup => {
-                                        return (
-                                            <tr key={headerGroup.id} className='bg-gray-200 '>
-                                                {
-                                                    headerGroup.headers.map(header => {
-                                                        return (
-                                                            <th key={header.id} className='text-left p-2 cursor-pointer hover:bg-gray-300'>
-                                                                {
-                                                                    flexRender(
-                                                                        header.column.columnDef.header,
-                                                                        header.getContext()
-                                                                    )
-                                                                }
-                                                            </th>
-                                                        )
-                                                    })
-                                                }
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </thead>
-                            <tbody>
-                                {
-                                    caseTeamTable.getRowModel().rows.map(row => {
-                                        return (
-                                            <tr key={row.id} className='hover:bg-gray-50 border-b border-neutral-300'>
-                                                {
-                                                    row.getVisibleCells().map(cell => {
-                                                        return (
-                                                            <td key={cell.id} className='p-2'>
-                                                                {
-                                                                    flexRender(
-                                                                        cell.column.columnDef.cell,
-                                                                        cell.getContext()
-                                                                    )
-                                                                }
-                                                            </td>
-                                                        )
-                                                    })
-                                                }
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                {/* table */}
+                <div className='mt-3'>
+                    <table className='w-full'>
+                        {/* header */}
+                        <thead className='bg-gray-200 py-1'>
+                            <tr>
+                                <th>
+                                    {/* icons */}
+                                </th>
+                                <th className='text-left'>
+                                    <div className='py-2 font-medium'>
+                                        <span>Customers</span>
+                                    </div>
+                                </th>
+                                <th className='text-left'>
+                                    <div className='py-1 font-medium'>
+                                        <span>Case</span>
+                                    </div>
+                                </th>
+                                <th className='text-left'>
+                                    <div className='py-1 font-medium'>
+                                        <span>File No</span>
+                                    </div>
+                                </th>
+                                <th className='text-left'>
+                                    <div className='py-1 font-medium'>
+                                        <span>Started Date</span>
+                                    </div>
+                                </th>
+                                <th className='text-left'>
+                                    <div className='py-1 font-medium'>
+                                        <span>End Date</span>
+                                    </div>
+                                </th>
+                                <th className='text-left'>
+                                    <div className='py-1 font-medium'>
+                                        <span>Place</span>
+                                    </div>
+                                </th>
+                                <th className='text-left'>
+                                    <div className='py-1 font-medium'>
+                                        <span>Status</span>
+                                    </div>
+                                </th>
+                                <th>
+                                    {/* action */}
+                                </th>
+                            </tr>
+                        </thead>
+                        {/* body */}
+                        <tbody>
+                            {
+                                caseData?.map((item, index) => {
+                                    console.log(item)
+                                    return (
+                                        <tr className='border-b border-gray-200 hover:bg-neutral-100 hover:border-gray-300'>
+                                            <td>
+                                                <div className='text-lg w-[40px]'>
+                                                    {
+                                                        item?.case_detail?.status === 'active'
+                                                            ?
+                                                            <TiInputChecked className='text-green-500' />
+                                                            :
+                                                            item?.case_detail?.status === 'pending'
+                                                                ?
+                                                                <BsClipboard2Pulse className='text-yellow-400 text-sm' />
+                                                                :
+                                                                item?.case_detail?.status === 'closed'
+                                                                    ?
+                                                                    <ImBlocked className='text-red-600 text-xs' />
+                                                                    :
+                                                                    <></>
+
+                                                    }
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className='flex items-center gap-2 py-1.5'>
+                                                    <div>
+                                                        <div className='w-[24px] aspect-square rounded-full overflow-hidden'>
+                                                            <img className='w-full h-full object-cover object-center' src={item?.customer?.profile} alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className='mb-[-5px]'>
+                                                            <span>{item?.customer?.first_name}</span>
+                                                        </div>
+                                                        <div className='mt-[-5px] text-gray-700 text-xs'>
+                                                            <span>{item?.customer?.last_name}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <span>
+                                                        {item?.case_detail?.case_type}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className='text-xs'>
+                                                    <span>
+                                                        {item?.case_detail?.file_no}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className='flex items-center gap-1'>
+                                                    <CiClock2 className='text-lg text-blue-500' />
+                                                    <span>
+                                                        {item?.case_detail?.started_date}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className='flex items-center gap-1'>
+                                                    <CiClock2 className='text-lg text-blue-500' />
+                                                    <span>
+                                                        {item?.case_detail?.end_date}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className='flex items-center gap-1'>
+                                                    <CiLocationOn className='text-lg text-blue-500' />
+                                                    <span>
+                                                        {item?.case_detail?.place}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={`px-1 w-[65px] flex items-center justify-center rounded-sm ${item?.case_detail?.status === 'active' ? 'bg-green-50' : item?.case_detail?.status === 'pending' ? 'bg-yellow-50' : item?.case_detail?.status === 'closed' ? 'bg-red-50' : ''}`}>
+                                                    <span>{item?.case_detail?.status}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className='cursor-pointer bg-neutral-200 flex items-center justify-center rounded-sm'>
+                                                    <IoMdMore className='text-lg text-gray-600' />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
 
         </div>
     )

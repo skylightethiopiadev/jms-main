@@ -15,7 +15,8 @@ import { CiLocationOn } from "react-icons/ci";
 import { BiDetail } from "react-icons/bi";
 import { IoHelpCircleOutline } from "react-icons/io5";
 
-const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
+const LawyersDashboardOfficeAppointmentIndex = () => {
+
     const [actionPopUp, setActionPopUp] = useState(null)
     const [cancelAppointment, setCancelAppointment] = useState(null)
     const [issues, setIssues] = useState(null)
@@ -32,7 +33,7 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
                         <h3 className='text-gray-700 font-bold text-lg'>Office Appointments</h3>
                     </div>
                     <div>
-                        <NavLink to={'/dashboard/customers/appointment/office-appointment/new-office-appointment'}>
+                        <NavLink to={'/dashboard/lawyers/appointment/office-appointment/new-office-appointment'}>
                             <div className='flex items-center gap-1  px-3 py-[.35rem] rounded-sm text-white bg-blue-500 hover:bg-blue-600'>
                                 <div className='text-xl'>
                                     <LiaUserClockSolid />
@@ -326,4 +327,4 @@ const CustomersDashboardAppointmentOfficeAppointmentIndex = () => {
     )
 }
 
-export default CustomersDashboardAppointmentOfficeAppointmentIndex
+export default LawyersDashboardOfficeAppointmentIndex

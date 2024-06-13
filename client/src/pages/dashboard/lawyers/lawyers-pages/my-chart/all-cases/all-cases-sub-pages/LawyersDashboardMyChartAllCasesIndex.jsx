@@ -123,7 +123,7 @@ const LawyersDashboardMyChartAllCasesIndex = () => {
                 <header className='flex items-center justify-between'>
                     <div>
                         <div>
-                            <h3 className='header-level-4'>Cases</h3>
+                            <h3 className='header-level-4'>All Cases</h3>
                         </div>
                     </div>
                     <div className='flex items-center gap-3'>
