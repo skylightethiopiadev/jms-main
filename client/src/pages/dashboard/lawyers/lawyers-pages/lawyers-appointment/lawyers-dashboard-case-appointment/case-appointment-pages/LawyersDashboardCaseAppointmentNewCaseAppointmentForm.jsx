@@ -113,9 +113,24 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
     ], [])
 
     const [selectedCaseCategory, setSelectedCaseCategory] = useState({ on: false, text: '' })
+    const [specifiedCase, setSpecifiedCase] = useState('')
 
     // hooks
     const navigate = useNavigate()
+
+    // case specification handler
+    const caseSpecificationHandler = () => {
+        console.log(specifiedCase)
+        if (specifiedCase?.trim()) {
+            setSelectedCaseCategory(prev => {
+                return {
+                    ...prev,
+                    text: specifiedCase,
+                }
+            })
+            setSpecifiedCase('')
+        }
+    }
 
 
     return (
@@ -136,7 +151,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                 </header>
                 <div>
                     <p>
-                        To arrange a consultation with our law firm, kindly complete the form below with your personal information. Providing accurate and comprehensive responses will allow us to prepare for our meeting thoroughly and address your legal requirements effectively. Should you need to cancel or reschedule, please promptly notify us using the provided cancellation form. We appreciate your choice in selecting our services.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorum optio rerum id voluptates deserunt nesciunt dolore, vero eius, delectus molestiae temporibus voluptatibus eos quia soluta aperiam iste porro sequi commodi nisi.
                     </p>
                 </div>
             </div>
@@ -170,7 +185,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter first name'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -185,7 +200,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter middle name'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -200,7 +215,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter last name'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -239,7 +254,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter phone number'
-                                                    className='focus:ring-0 focus:outline-none ring-0 border-none p-[.1rem] placeholder:text-sm text-sm'
+                                                    className='focus:ring-0 focus:outline-none ring-0 border-none p-[.1rem] placeholder:text-sm text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -307,7 +322,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter first name'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -322,7 +337,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter middle name'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -337,7 +352,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter last name'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -376,7 +391,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <input
                                                     type="text"
                                                     placeholder='enter phone number'
-                                                    className='focus:ring-0 focus:outline-none ring-0 border-none p-[.1rem] placeholder:text-sm text-sm'
+                                                    className='focus:ring-0 focus:outline-none ring-0 border-none p-[.1rem] placeholder:text-sm text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -424,7 +439,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                         <div className='w-full'>
                             <header className='flex items-center py-1 justify-between'>
                                 <div>
-                                    <h3 className='w-max border-b border-gray-300 text-lg'>Case Details</h3>
+                                    <h3 className='w-max border-b border-gray-300 text-lg font-medium'>Case Details</h3>
                                 </div>
                                 <div>
                                     {/* right content */}
@@ -456,15 +471,15 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                 <span>Case Category</span>
                                             </div>
                                             <div className='border border-gray-300 p-0.5 rounded-sm relative'>
-                                                <div className='flex items-center justify-between cursor-pointer text-[1rem]' onClick={()=>{
-                                                    if(selectedCaseCategory?.on){
-                                                        setSelectedCaseCategory(prev=>{
+                                                <div className='flex items-center justify-between cursor-pointer text-[1rem]' onClick={() => {
+                                                    if (selectedCaseCategory?.on) {
+                                                        setSelectedCaseCategory(prev => {
                                                             return {
                                                                 ...prev,
                                                                 on: false,
                                                             }
                                                         })
-                                                    }else {
+                                                    } else {
                                                         setSelectedCaseCategory(prev => {
                                                             return {
                                                                 ...prev,
@@ -474,10 +489,35 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                     }
                                                 }}>
                                                     <div>
-                                                        <span>case category</span>
+                                                        {
+                                                            selectedCaseCategory?.text
+                                                                ?
+                                                                <span>{selectedCaseCategory?.text === 'Others' ? '. . .' : selectedCaseCategory?.text}</span>
+                                                                :
+                                                                <span>select case category</span>
+                                                        }
                                                     </div>
                                                     <div>
-                                                        <MdKeyboardArrowDown className={`text-xl transition-transform ease-in-out duration-300 ${selectedCaseCategory?.on ? '-rotate-180' : 'rotate-0'}`} />
+                                                        <MdKeyboardArrowDown className={`text-xl transition-transform ease-in-out duration-300 ${selectedCaseCategory?.on || selectedCaseCategory?.text === 'Others' ? '-rotate-180' : 'rotate-0'}`} />
+                                                    </div>
+                                                </div>
+
+                                                {/* other case category specify */}
+                                                <div className={`absolute left-0 bottom-[110%] w-full bg-white transition-transform ease-in-out duration-300 ${selectedCaseCategory?.text === 'Others' ? 'scale-100' : 'scale-0'}`}>
+                                                    <div className='flex items-center gap-2 justify-between'>
+                                                        <div className='flex-grow bg-white my-1 px-1 py-0.5 border border-gray-500 rounded-sm'>
+                                                            <input
+                                                                type="text"
+                                                                value={specifiedCase}
+                                                                onChange={e => setSpecifiedCase(e.target.value)}
+                                                                className='p-0 focus:ring-0 border-none w-full bg-transparent'
+                                                                placeholder='specify your case here' />
+                                                        </div>
+                                                        <div className='mx-1'>
+                                                            <button className='px-1 py-0.5 rounded-sm bg-blue-500 text-white' onClick={() => {
+                                                                caseSpecificationHandler()
+                                                            }}>done</button>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -490,7 +530,15 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                                             caseCategories?.map((item, index) => {
                                                                 return (
                                                                     <div>
-                                                                        <div className='px-3 py-1 border-b border-gray-300 transition-colors ease-in-out duration-300 hover:border-gray-500 cursor-pointer'>
+                                                                        <div className='px-3 py-1 border-b border-gray-300 transition-colors ease-in-out duration-300 hover:border-gray-500 cursor-pointer' onClick={() => {
+                                                                            setSelectedCaseCategory(prev => {
+                                                                                return {
+                                                                                    ...prev,
+                                                                                    text: item?.text,
+                                                                                    on: false,
+                                                                                }
+                                                                            })
+                                                                        }}>
                                                                             <span>
                                                                                 {item?.text}
                                                                             </span>
@@ -504,146 +552,93 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* postal code */}
+                                    {/* case file opening date */}
                                     <div>
                                         <div className='p-1 bg-white rounded-sm border border-gray-200'>
                                             <div className='font-semibold'>
-                                                <span>Postal Code</span>
+                                                <span>Case File Opening Date</span>
                                             </div>
                                             <div className='border-b border-gray-300'>
                                                 <input
-                                                    type="number"
-                                                    placeholder='enter postal code'
+                                                    type="date"
+                                                    placeholder='case file opening date'
                                                     className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
                                     </div>
-                                    {/* country */}
-                                    <div>
-                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
-                                            <div className='font-semibold'>
-                                                <span>Country</span>
-                                            </div>
-                                            <div className='border-b border-gray-300'>
-                                                <input
-                                                    type="text"
-                                                    placeholder='enter country'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* region */}
-                                    <div>
-                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
-                                            <div className='font-semibold'>
-                                                <span>Region</span>
-                                            </div>
-                                            <div className='border-b border-gray-300'>
-                                                <input
-                                                    type="text"
-                                                    placeholder='enter region'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* city */}
-                                    <div>
-                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
-                                            <div className='font-semibold'>
-                                                <span>City</span>
-                                            </div>
-                                            <div className='border-b border-gray-300'>
-                                                <input
-                                                    type="text"
-                                                    placeholder='enter city'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* sub-city */}
-                                    <div>
-                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
-                                            <div className='font-semibold'>
-                                                <span>Sub-City</span>
-                                            </div>
-                                            <div className='border-b border-gray-300'>
-                                                <input
-                                                    type="text"
-                                                    placeholder='enter sub-city'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* woreda */}
-                                    <div>
-                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
-                                            <div className='font-semibold'>
-                                                <span>Woreda</span>
-                                            </div>
-                                            <div className='border-b border-gray-300'>
-                                                <input
-                                                    type="text"
-                                                    placeholder='enter woreda'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
-
                             </div>
-                        </div>
-                    </div>
-                </div>
 
-                {/* preferable information part */}
-                <div className='p-3 bg-gray-100 mt-5'>
-                    <div className='flex flex-col lg:flex-row lg:gap-5'>
-                        {/* form */}
-                        <div className='w-full'>
-                            <header className='flex items-center py-1 justify-between'>
+                            {/* second portion */}
+                            <header className='flex items-center py-1 justify-between mt-5'>
                                 <div>
-                                    <h3 className='w-max border-b border-gray-300 text-lg'>Preferal Information</h3>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Name And Address Of The Court Entertaining The Case</h3>
                                 </div>
                                 <div>
                                     {/* right content */}
                                 </div>
                             </header>
-                            {/* contact detail form */}
                             <div className='my-3'>
-                                {/* name */}
-                                <div className='grid grid-cols-2 sm:grid-cols-3 gap-3'>
-                                    {/* Preferred Method Of Communication */}
+                                {/* case */}
+                                <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+                                    {/* name */}
                                     <div>
                                         <div className='p-1 bg-white rounded-sm border border-gray-200'>
                                             <div className='font-semibold'>
-                                                <span>Preferred Method Of Communication</span>
+                                                <span>Name Of The Court</span>
                                             </div>
                                             <div className='border-b border-gray-300'>
                                                 <input
                                                     type="text"
-                                                    placeholder='select '
+                                                    placeholder='enter  name of the court'
                                                     className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
                                     </div>
-                                    {/* {Preferred Appointment Date} */}
+                                    {/* address */}
                                     <div>
                                         <div className='p-1 bg-white rounded-sm border border-gray-200'>
                                             <div className='font-semibold'>
-                                                <span>Preferred Appointment Date</span>
+                                                <span>Address Of The Court</span>
                                             </div>
                                             <div className='border-b border-gray-300'>
                                                 <input
                                                     type="text"
-                                                    placeholder='select'
-                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm'
+                                                    placeholder='enter address of the court'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* third portion */}
+                            <header className='flex items-center py-1 justify-between mt-5'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Nearest Court Proceeding Date And Time</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            <div className='my-3'>
+                                {/* case */}
+                                <div className='grid grid-cols-2 sm:grid-cols-3 gap-3'>
+                                    {/* date */}
+                                    <div>
+                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
+                                            <div className='font-semibold'>
+                                                <span>Date</span>
+                                            </div>
+                                            <div className='border-b border-gray-300'>
+                                                <input
+                                                    type="date"
+                                                    placeholder='enter  date'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
@@ -652,79 +647,48 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                     <div>
                                         <div className='p-1 bg-white rounded-sm border border-gray-200'>
                                             <div className='font-semibold'>
-                                                <span>Preferred Appointment Time</span>
+                                                <span>Time</span>
                                             </div>
                                             <div className='border-b border-gray-300'>
                                                 <input
-                                                    type="text"
+                                                    type="time"
                                                     placeholder='enter time'
                                                     className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
                                                 />
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* legal issue information part */}
-                <div className='p-3 bg-gray-100 mt-5'>
-                    <div className='flex flex-col lg:flex-row lg:gap-5'>
-                        {/* form */}
-                        <div className='w-full'>
-                            <header className='flex items-center py-1 justify-between'>
-                                <div>
-                                    <h3 className='w-max border-b border-gray-300 text-lg'>Legal Issue For The Appointment</h3>
-                                </div>
-                                <div>
-                                    {/* right content */}
-                                </div>
-                            </header>
-                            {/* content */}
-                            <div>
-                                <p>
-                                    Our law firm offers a comprehensive range of legal services to cater to your needs. Please peruse the list provided and select the service(s) that best align with the legal assistance you require. You are welcome to select multiple services if they apply to your situation.
-                                </p>
-                            </div>
-                            {/* legal detail form */}
-                            <div className='my-3'>
-                                {/* name */}
-                                <div className='p-3 border border-gray-200 bg-white'>
-                                    {/* list */}
+                                    {/* Update Date */}
                                     <div>
-                                        <div className='flex gap-5 flex-wrap'>
-                                            {
-                                                legalIssues.map((item, index) => {
-                                                    return (
-                                                        <div key={index} className='flex items-center gap-1'>
-                                                            <input type="checkbox" id={`legal-issue-${index}`} className='focus:outline-none focus:ring-0 outline-none ring-0' />
-                                                            <label htmlFor={`legal-issue-${index}`} className='cursor-pointer'>{item?.title}</label>
-                                                        </div>
-                                                    )
-                                                })
-                                            }
+                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
+                                            <div className='font-semibold'>
+                                                <span>Update Date</span>
+                                            </div>
+                                            <div className='border-b border-gray-300'>
+                                                <input
+                                                    type="date"
+                                                    placeholder='enter  update date'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                    {/* other */}
-                                    {/* <div>other</div> */}
                                 </div>
-
                             </div>
+
                         </div>
                     </div>
                 </div>
 
-                {/* legal services information part */}
+                {/* Activities Under The Last Court Proceeding */}
                 <div className='p-3 bg-gray-100 mt-5'>
                     <div className='flex flex-col lg:flex-row lg:gap-5'>
                         {/* form */}
                         <div className='w-full'>
                             <header className='flex items-center py-1 justify-between'>
                                 <div>
-                                    <h3 className='w-max border-b border-gray-300 text-lg'>Types Of Legal Services Required</h3>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Activities Under The Last Court Proceeding</h3>
                                 </div>
                                 <div>
                                     {/* right content */}
@@ -733,54 +697,7 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                             {/* content */}
                             <div>
                                 <p>
-                                    Please indicate the type(s) of legal issues you require assistance with by selecting from the following options. Feel free to choose more than one option. Your choices will help us offer the most pertinent and thorough legal support tailored to your needs.
-                                </p>
-                            </div>
-                            {/* legal detail form */}
-                            <div className='my-3'>
-                                {/* name */}
-                                <div className='p-3 border border-gray-200 bg-white'>
-                                    {/* list */}
-                                    <div>
-                                        <div className='flex gap-5 flex-wrap'>
-                                            {
-                                                legalServices.map((item, index) => {
-                                                    return (
-                                                        <div key={index} className='flex items-center gap-1'>
-                                                            <input type="checkbox" id={`legal-service-${index}`} className='focus:outline-none focus:ring-0 outline-none ring-0' />
-                                                            <label htmlFor={`legal-service-${index}`} className='cursor-pointer'>{item?.title}</label>
-                                                        </div>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </div>
-                                    {/* other */}
-                                    {/* <div>other</div> */}
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* legal issue description information part */}
-                <div className='p-3 bg-gray-100 mt-5'>
-                    <div className='flex flex-col lg:flex-row lg:gap-5'>
-                        {/* form */}
-                        <div className='w-full'>
-                            <header className='flex items-center py-1 justify-between'>
-                                <div>
-                                    <h3 className='w-max border-b border-gray-300 text-lg'>Briefly Describe Your Legal Issue</h3>
-                                </div>
-                                <div>
-                                    {/* right content */}
-                                </div>
-                            </header>
-                            {/* content */}
-                            <div>
-                                <p>
-                                    In the space provided, please provide a concise yet detailed description of your legal issue. Include key facts and any relevant information that will help us understand your situation better. This will enable us to offer you the most accurate and effective legal advice.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, asperiores! Qui iste voluptatibus quos perspiciatis quae cum unde corrupti, ratione dolor, praesentium totam magnam.
                                 </p>
                             </div>
                             {/* legal detail form */}
@@ -790,6 +707,168 @@ const LawyersDashboardCaseAppointmentNewCaseAppointmentForm = () => {
                                     {/* list */}
                                     <div className='border border-gray-200'>
                                         <textarea name="" id="" className='w-full h-[120px] focus:outline-none focus:ring-0 resize-none border-none' placeholder='description'></textarea>
+                                    </div>
+                                    {/* other */}
+                                    {/* <div>other</div> */}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* next appointment date and time */}
+                <div className='p-3 bg-gray-100 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        {/* form */}
+                        <div className='w-full'>
+                            {/* third portion */}
+                            <header className='flex items-center py-1 justify-between'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Next Court Appointment</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            <div className='my-3'>
+                                {/* case */}
+                                <div className='grid grid-cols-2 sm:grid-cols-2 gap-3'>
+                                    {/* date */}
+                                    <div>
+                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
+                                            <div className='font-semibold'>
+                                                <span>Date</span>
+                                            </div>
+                                            <div className='border-b border-gray-300'>
+                                                <input
+                                                    type="date"
+                                                    placeholder='enter  date'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* time */}
+                                    <div>
+                                        <div className='p-1 bg-white rounded-sm border border-gray-200'>
+                                            <div className='font-semibold'>
+                                                <span>Time</span>
+                                            </div>
+                                            <div className='border-b border-gray-300'>
+                                                <input
+                                                    type="time"
+                                                    placeholder='enter time'
+                                                    className='focus:outline-none focus:ring-0 border-none outline-none p-0 bg-transparent placeholder:text-sm w-full'
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                {/* reason for the appointment */}
+                <div className='p-3 bg-gray-100 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        {/* form */}
+                        <div className='w-full'>
+                            <header className='flex items-center py-1 justify-between'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Reason For Appointment</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            {/* content */}
+                            <div>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, asperiores! Qui iste voluptatibus quos perspiciatis quae cum unde corrupti, ratione dolor, praesentium totam magnam.
+                                </p>
+                            </div>
+                            {/* legal detail form */}
+                            <div className='my-3'>
+                                {/* name */}
+                                <div className='p-3 border border-gray-200 bg-white'>
+                                    {/* list */}
+                                    <div className='border border-gray-200'>
+                                        <textarea name="" id="" className='w-full h-[120px] focus:outline-none focus:ring-0 resize-none border-none' placeholder='enter reason'></textarea>
+                                    </div>
+                                    {/* other */}
+                                    {/* <div>other</div> */}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Next Step For The Client */}
+                <div className='p-3 bg-gray-100 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        {/* form */}
+                        <div className='w-full'>
+                            <header className='flex items-center py-1 justify-between'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Next Step For The Client</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            {/* content */}
+                            <div>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, asperiores! Qui iste voluptatibus quos perspiciatis quae cum unde corrupti, ratione dolor, praesentium totam magnam.
+                                </p>
+                            </div>
+                            {/* legal detail form */}
+                            <div className='my-3'>
+                                {/* name */}
+                                <div className='p-3 border border-gray-200 bg-white'>
+                                    {/* list */}
+                                    <div className='border border-gray-200'>
+                                        <textarea name="" id="" className='w-full h-[120px] focus:outline-none focus:ring-0 resize-none border-none' placeholder='enter next step for the client'></textarea>
+                                    </div>
+                                    {/* other */}
+                                    {/* <div>other</div> */}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Comments Or Questions From The Client */}
+                <div className='p-3 bg-gray-100 mt-5'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5'>
+                        {/* form */}
+                        <div className='w-full'>
+                            <header className='flex items-center py-1 justify-between'>
+                                <div>
+                                    <h3 className='w-max border-b border-gray-300 text-lg'>Comments Or Questions From The Client</h3>
+                                </div>
+                                <div>
+                                    {/* right content */}
+                                </div>
+                            </header>
+                            {/* content */}
+                            <div>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, asperiores! Qui iste voluptatibus quos perspiciatis quae cum unde corrupti, ratione dolor, praesentium totam magnam.
+                                </p>
+                            </div>
+                            {/* legal detail form */}
+                            <div className='my-3'>
+                                {/* name */}
+                                <div className='p-3 border border-gray-200 bg-white'>
+                                    {/* list */}
+                                    <div className='border border-gray-200'>
+                                        <textarea name="" id="" className='w-full h-[120px] focus:outline-none focus:ring-0 resize-none border-none' placeholder='comments or questions from the client'></textarea>
                                     </div>
                                     {/* other */}
                                     {/* <div>other</div> */}
