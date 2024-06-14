@@ -20,7 +20,7 @@ const CustomersDashboardMyChartClosedCaseIndex = () => {
 
     const [isLawyerImagePopUp, setIsLawyerImagePopUp] = useState(false)
     return (
-        <div className='overflow-x-hidden flex-grow pr-1'>
+        <div className='overflow-x-hidden flex-grow bg-red-400'>
             closed cases
         </div>
     )

@@ -11,7 +11,7 @@ const CustomersDashboardMyChart = () => {
       <div className='flex-grow flex gap-5'>
         {/* left-bottom */}
         <div className='w-[75%] flex flex-col bg-gray-100 gap-5'>
-          <div className='flex-grow bg-green-400'>
+          <div className='flex-grow flex'>
             <Outlet />
           </div>
           <div>

@@ -140,19 +140,7 @@ const MyChartFooter = () => {
                 </div>
             </div>
 
-            {/* third order container */}
-            <div className='mt-5'>
-                <header className='flex items-center justify-between my-2'>
-                    {/* left */}
-                    <div>
-                        <h3 className='text-gray-500 text-xs'>
-                            <span>Designed & Developed By </span>
-                            <span className='font-black'>Skylight Technology</span>
-                        </h3>
-                    </div>
-                </header>
-            </div>
-
+            
         </div>
     )
 }
