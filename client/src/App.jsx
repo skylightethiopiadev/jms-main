@@ -105,6 +105,7 @@ import LawyersDashboardOfficeAppointmentNewAppointmentForm from './pages/dashboa
 // -- case appointment
 import LawyersDashboardCaseAppointment from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-case-appointment/LawyersDashboardCaseAppointment.jsx'
 import LawyersDashboardCaseAppointmentIndex from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-case-appointment/case-appointment-pages/LawyersDashboardCaseAppointmentIndex.jsx'
+import LawyersDashboardCaseAppointmentNewCaseAppointmentForm from './pages/dashboard/lawyers/lawyers-pages/lawyers-appointment/lawyers-dashboard-case-appointment/case-appointment-pages/LawyersDashboardCaseAppointmentNewCaseAppointmentForm.jsx'
 
 // ------ lawyers dashboard end ---- //
 
@@ -537,6 +538,7 @@ function App() {
                   {/* case appointment */}
                   <Route path="/dashboard/lawyers/appointment/case-appointment" element={<LawyersDashboardCaseAppointment />}>
                     <Route path="/dashboard/lawyers/appointment/case-appointment" element={<LawyersDashboardCaseAppointmentIndex />}></Route>
+                    <Route path="/dashboard/lawyers/appointment/case-appointment/new-case-appointment" element={<LawyersDashboardCaseAppointmentNewCaseAppointmentForm />}></Route>
                   </Route>
                 </Route>
 
