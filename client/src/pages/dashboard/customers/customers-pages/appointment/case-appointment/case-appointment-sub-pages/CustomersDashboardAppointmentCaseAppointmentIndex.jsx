@@ -3,7 +3,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 // icons
-import { LiaUserClockSolid } from "react-icons/lia";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdChevronLeft } from "react-icons/md";
 import { RiMessage2Line } from "react-icons/ri";

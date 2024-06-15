@@ -6,7 +6,7 @@ const CustomersDashboardPacket = () => {
         <div className="flex-grow bg-white">
             <CustomersHeader />
             {/* outlet */}
-            <div className='overflow-y-auto h-[93vh] px-[.5%] sm:[.75%] md:[1%] lg:px-[3%] py-[2%] flex'>
+            <div className='overflow-y-auto h-[93vh] h-maxv px-[.5%] sm:[.75%] md:[1%] lg:px-[3%] py-[2%] flex'>
                 <Outlet />
             </div>
         </div>
