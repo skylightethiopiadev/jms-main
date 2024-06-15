@@ -59,7 +59,7 @@ const CustomersDashboardMyChartActiveCaseIndex = () => {
                                         </div>
                                     </header>
                                     {/* content */}
-                                    <div className='flex items-center gap-5 py-5'>
+                                    <div className='flex items-center gap-5 py-10'>
                                         {/* left */}
                                         <div>
                                             <div className='w-[80px] aspect-square rounded-full overflow-hidden flex items-center justify-center border-2 border-blue-400 border-l-transparent border-t-green-500 border-b-red-600'>

@@ -140,6 +140,16 @@ const MyChartFooter = () => {
                 </div>
             </div>
 
+            {/* third order container */}
+            <div className='mt-10 mb-3'>
+                <div>
+                    <h3 className='text-gray-700 text-xs'>
+                        <span>Designed & Developed By </span>
+                        <span className='font-black text-gray-700'>Skylight Technology</span>
+                    </h3>
+                </div>
+            </div>
+
             
         </div>
     )
