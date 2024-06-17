@@ -553,13 +553,75 @@ const IndividualConsultingForm = () => {
                     </div>
 
 
+                    {/* criminal history (for criminal case) */}
+                    <div className='grid grid-cols-1 gap-3 mt-5'>
+
+                        <div>
+                            <div className='font-semibold mb-1'>
+                                <h3>Criminal History (For Criminal Case)</h3>
+                            </div>
+                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-criminal-history-yes" name="individual-criminal-history" value="YES" />
+                                <label for="individual-criminal-history-yes">Yes</label>
+
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-criminal-history-no" name="individual-criminal-history" value="NO" />
+                                <label for="individual-criminal-history-no" >No</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    {/* prior legal representation over the legal issue */}
+                    <div className='grid grid-cols-1 gap-3 mt-5'>
+
+                        <div>
+                            <div className='font-semibold mb-1'>
+                                <h3>Prior Legal Representation Over The Legal Issue</h3>
+                            </div>
+                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-legal-representation-yes" name="individual-legal-representation" value="YES" />
+                                <label for="individual-legal-representation-yes" >Yes</label>
+
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-legal-representation-no" name="individual-legal-representation" value="NO" />
+                                <label for="individual-legal-representation-no" >No</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {/* preferred time of communication */}
+                    <div className='grid grid-cols-1 gap-3 mt-5'>
+
+                        <div>
+                            <div className='font-semibold mb-1'>
+                                <h3>Preferred Time Of Communication</h3>
+                            </div>
+                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-time-morning" name="communication-time" value="Morning" />
+                                <label for="communication-time-morning">Morning</label>
+
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-time-afternoon" name="communication-time" value="Afternoon" />
+                                <label for="communication-time-afternoon" >Afternoon</label>
+
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-time-evening" name="communication-time" value="Evening" />
+                                <label for="communication-time-evening" >Evening</label>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    {/* submit or cancel buttons */}
+                    <div className='my-5 flex items-center gap-5'>
+                        <button className='px-5 py-1 rounded-sm bg-blue-500 text-white transition-colors ease-in-out duration-300 hover:bg-blue-600'>submit</button>
+                        <button className='px-5 py-1 rounded-sm bg-gray-600 text-white transition-colors ease-in-out duration-300 hover:bg-gray-800'>cancel</button>
+                    </div>
+
                 </div>
-
-
             </div>
-
-
-
         </div>
     )
 }
