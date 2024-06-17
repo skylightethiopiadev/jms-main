@@ -55,9 +55,31 @@ const IndividualConsultingForm = () => {
 
     const [isEmployed, setIsEmployed] = useState(false)
 
+    const [dependent, setDependent] = useState({
+        dependents: [
+        ],
+        isOn: false,
+    })
+
+    const [dependentName, setDependentName] = useState('')
+    const [dependentAge, setDependentAge] = useState(0)
+
 
     // hooks
     const navigate = useNavigate()
+
+
+    const addDependentHandler = () => {
+        setDependent(prev => {
+            return {
+                ...prev,
+                dependents: [...prev.dependents, { name: dependentName, age: parseInt(dependentAge) }],
+                isOn: false,
+            }
+        })
+        setDependentAge(0)
+        setDependentName('')
+    }
 
     return (
         <div className="p-[.75%] md:p-[1.5%] lg:p-[3%] border-gray-200 border rounded-md  bg-white my-7">
@@ -170,9 +192,9 @@ const IndividualConsultingForm = () => {
                                 <h3>Employment Information</h3>
                             </div>
                             <div className='flex p-1  bg-white rounded-sm gap-3'>
-                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-employed" name="individual_employment" value="EMPLOYED" onClick={()=>{
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-employed" name="individual_employment" value="EMPLOYED" onClick={() => {
                                     setIsEmployed(true)
-                                }}/>
+                                }} />
                                 <label for="individual-employed" onClick={() => {
                                     setIsEmployed(true)
                                 }}>Employed</label>
@@ -360,13 +382,13 @@ const IndividualConsultingForm = () => {
                                 <h3>Marital Status</h3>
                             </div>
                             <div className='flex p-1  bg-white rounded-sm gap-3'>
-                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="marital_status_married" name="marital_status" value="Married"/>
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="marital_status_married" name="marital_status" value="Married" />
                                 <label for="marital_status_married">Married</label>
 
-                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="marital_status_separated" name="marital_status" value="Separated"/>
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="marital_status_separated" name="marital_status" value="Separated" />
                                 <label for="marital_status_separated" >Separated</label>
 
-                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="marital_status_divorced" name="marital_status" value="Divorced"/>
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="marital_status_divorced" name="marital_status" value="Divorced" />
                                 <label for="marital_status_divorced" >Divorced</label>
 
                             </div>
@@ -376,17 +398,31 @@ const IndividualConsultingForm = () => {
 
 
                     {/* dependent information */}
-                    <h3 className='font-semibold text-gray-700 w-max border-b border-gray-300 text-lg mt-5'>Dependents Information</h3>
+                    <h3 className='font-medium text-gray-700 w-max border-b border-gray-300 text-lg mt-5'>Dependents Information</h3>
                     {/* get info */}
                     <div className='mt-2'>
 
                         {/* lists here */}
                         <div>
-                            <div>
+                            <div className='ml-2'>
                                 {
-                                    [...Array(4)].map((item,index)=>{
+                                    dependent?.dependents.map((item, index) => {
                                         return (
-                                            <div>haddis Fun</div>
+                                            <div className='flex items-center gap-1'>
+                                                <div>
+                                                    <span>{index + 1}. </span>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>Name: </span>
+                                                        <span>{item.name}</span>
+                                                    </div>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>Age: </span>
+                                                        <span>{item.age}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         )
                                     })
                                 }
@@ -394,47 +430,135 @@ const IndividualConsultingForm = () => {
                         </div>
 
                         {/* data input  */}
-                        <div>
-                            <div className='grid grid-cols-2 gap-3 py-3'>
+                        {
+                            dependent?.isOn
+                                ?
                                 <div>
-                                    <div className='font-semibold mb-1'>
-                                        <h3>Full Name</h3>
-                                    </div>
-                                    <div className='flex p-1 border border-gray-200 bg-white rounded-sm'>
-                                        <input
-                                            type="text"
-                                            className='w-full p-0 ring-0 focus:ring-0 outline-none border-none bg-transparent'
-                                            placeholder='full name' />
-                                    </div>
-                                </div>
+                                    <div className='grid grid-cols-2 gap-3 py-3'>
+                                        <div>
+                                            <div className='font-semibold mb-1'>
+                                                <h3>Full Name</h3>
+                                            </div>
+                                            <div className='flex p-1 border border-gray-200 bg-white rounded-sm'>
+                                                <input
+                                                    type="text"
+                                                    value={dependentName}
+                                                    onChange={e => setDependentName(e.target.value)}
+                                                    className='w-full p-0 ring-0 focus:ring-0 outline-none border-none bg-transparent'
+                                                    placeholder='full name' />
+                                            </div>
+                                        </div>
 
-                                <div>
-                                    <div className='font-semibold mb-1'>
-                                        <h3>Age</h3>
+                                        <div>
+                                            <div className='font-semibold mb-1'>
+                                                <h3>Age</h3>
+                                            </div>
+                                            <div className='flex p-1 border border-gray-200 bg-white rounded-sm'>
+                                                <input
+                                                    type="number"
+                                                    onChange={e => setDependentAge(e.target.value)}
+                                                    className='w-full p-0 ring-0 focus:ring-0 outline-none border-none bg-transparent'
+                                                    placeholder='age' />
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='flex p-1 border border-gray-200 bg-white rounded-sm'>
-                                        <input
-                                            type="number"
-                                            className='w-full p-0 ring-0 focus:ring-0 outline-none border-none bg-transparent'
-                                            placeholder='age' />
+                                    <button className='px-1 py-0.5 bg-blue-500 text-white rounded-sm' onClick={() => {
+                                        addDependentHandler()
+                                    }}>add</button>
+                                </div>
+                                :
+                                <div className='mt-3'>
+                                    <div className='w-[30px] aspect-square rounded-full flex items-center justify-center bg-blue-500 text-white text-xl cursor-pointer' onClick={() => {
+                                        setDependent(prev => {
+                                            return {
+                                                ...prev,
+                                                isOn: true,
+                                            }
+                                        })
+                                    }}>
+                                        <IoMdAdd />
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                        }
 
                         {/* add button */}
+                    </div>
+
+
+                    <h3 className='font-semibold text-gray-700 w-max border-b border-gray-300 text-lg mt-5'>Contact Information</h3>
+                    {/* contact information */}
+                    <div className='grid grid-cols-3 gap-3 mt-2'>
+
                         <div>
-                            <div className='w-[30px] aspect-square rounded-full flex items-center justify-center bg-blue-500 text-white text-xl cursor-pointer'>
-                                <IoMdAdd />
+                            <div className='font-semibold mb-1'>
+                                <h3>Phone Number</h3>
+                            </div>
+                            <div className='flex p-1 border border-gray-200 bg-white rounded-sm'>
+                                <input
+                                    type="text"
+                                    className='w-full p-0 ring-0 focus:ring-0 outline-none border-none bg-transparent'
+                                    placeholder='phone number' />
                             </div>
                         </div>
+
+                        <div>
+                            <div className='font-semibold mb-1'>
+                                <h3>Email</h3>
+                            </div>
+                            <div className='flex p-1 border border-gray-200 bg-white rounded-sm'>
+                                <input
+                                    type="text"
+                                    className='w-full p-0 ring-0 focus:ring-0 outline-none border-none bg-transparent'
+                                    placeholder='email' />
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className='font-semibold mb-1'>
+                                <h3>Postal Code</h3>
+                            </div>
+                            <div className='flex p-1 border border-gray-200 bg-white rounded-sm'>
+                                <input
+                                    type="number"
+                                    className='w-full p-0 ring-0 focus:ring-0 outline-none border-none bg-transparent'
+                                    placeholder='postal code' />
+                            </div>
+                        </div>
+
                     </div>
+
+                    {/* preferred communication method */}
+                    <div className='grid grid-cols-1 gap-3 mt-5'>
+
+                        <div>
+                            <div className='font-semibold mb-1'>
+                                <h3>Preferred Communication Method</h3>
+                            </div>
+                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-phone" name="communication_method" value="Married" />
+                                <label for="communication-phone">phone</label>
+
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-email" name="communication_method" value="Separated" />
+                                <label for="communication-email" >email</label>
+
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-text" name="communication_method" value="Divorced" />
+                                <label for="communication-text" >text</label>
+
+                                <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-other" name="communication_method" value="Divorced" />
+                                <label for="communication-other" >other</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
 
-                
+
             </div>
 
-            
+
 
         </div>
     )
