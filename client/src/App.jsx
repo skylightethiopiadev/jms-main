@@ -64,6 +64,7 @@ import CustomersDashboardNewTrainingForm from './pages/dashboard/customers/custo
 // consulting
 import CustomersDashboardConsultingOutlet from './pages/dashboard/customers/customers-pages/other-services/consulting/CustomersDashboardConsultingOutlet.jsx'
 import CustomersDashboardConsultingIndex from './pages/dashboard/customers/customers-pages/other-services/consulting/sub-pages/CustomersDashboardConsultingIndex.jsx'
+import CustomersDashboardConsultingNewConsultingForm from './pages/dashboard/customers/customers-pages/other-services/consulting/sub-pages/CustomersDashboardConsultingNewConsultingForm.jsx'
 
 // research
 import CustomersDashboardResearchOutlet from './pages/dashboard/customers/customers-pages/other-services/research/CustomersDashboardResearchOutlet.jsx'
@@ -499,6 +500,7 @@ function App() {
                   {/* consulting */}
                   <Route path="/dashboard/customers/other-services/consulting" element={<CustomersDashboardConsultingOutlet />}>
                     <Route path="/dashboard/customers/other-services/consulting" element={<CustomersDashboardConsultingIndex />}></Route>
+                    <Route path="/dashboard/customers/other-services/consulting/new-consulting-form" element={<CustomersDashboardConsultingNewConsultingForm />}></Route>
                   </Route>
                   {/* research */}
                   <Route path="/dashboard/customers/other-services/research" element={<CustomersDashboardResearchOutlet />}>
