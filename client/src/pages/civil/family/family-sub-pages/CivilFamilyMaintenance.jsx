@@ -1,303 +1,392 @@
-import { useRef } from "react";
+import React, { useState } from "react";
+
 // icons
-import { IoMdStar } from "react-icons/io";
-import { IoIosStarHalf } from "react-icons/io";
-import { IoIosStarOutline } from "react-icons/io";
-import { IoIosHelpCircle } from "react-icons/io";
-import { HiDocumentMagnifyingGlass } from "react-icons/hi2";
-import { MdAccountBalanceWallet } from "react-icons/md";
-import { SiHomeassistantcommunitystore } from "react-icons/si";
-import { FaHandsHelping } from "react-icons/fa";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
 
 const CivilFamilyMaintenance = () => {
-
-  const maintenanceRef = useRef(null)
-
-  // scroll ref
-  const scrollToMaintenanceRef = () => {
-    maintenanceRef?.current.scrollIntoView({ behavior: 'smooth' })
-  }
+  const [services, setServices] = useState({
+    servicesList: [
+      {
+        title: "Drafting Agreements",
+        text:
+          "We draft maintenance agreements that outline the terms and conditions of spousal support, ensuring they are clear, legally binding, and enforceable."
+      },
+      {
+        title: "Guidance on Maintenance Obligations",
+        text:
+          "We offer counsel regarding maintenance responsibilities arising from marital and blood ties."
+      },
+      {
+        title: "Court Representation",
+        text:
+          "Whether you’re facing a maintenance claim or need to file one, we’ll represent your interests in the legal arena."
+      },
+      {
+        title: "Claim Negotiations",
+        text:
+          "To prevent court proceedings, we’ll engage in negotiations with the opposing party."
+      },
+      {
+        title: "Additional Legal Assistance",
+        text:
+          "Our team is equipped to handle a variety of other legal needs you may have."
+      }
+    ],
+    servicesIndex: 0,
+    subServicesIndex: -1
+  });
 
   return (
-    <div className="mt-1">
-
-      {/* banner */}
-      <div className="relative mb-16">
-        {/* background */}
-        <div className="absolute left-0 top-0 z-0 w-full h-full bg-gradient-to-r from-white to-transparent">
-
-        </div>
-        <div className="absolute left-0 top-0 w-full h-full -z-10">
-          <div className="w-full h-full overflow-hidden">
-            <img className="w-full h-full object-center object-cover" src="https://www.perrknight.com/wp-content/uploads/2007/02/meeting-for-sake-of-meeting.jpg" alt="" />
-          </div>
-        </div>
-        {/* content container */}
-        <div className="w-full h-full flex relative z-10 bg-gradient-to-r from-white to-transparent">
-          <div className="w-[55%] py-16">
-            {/* bold text */}
-            <div>
-              <h3 className="text-5xl font-semibold">Family Maintenance</h3>
-            </div>
-            {/* normal text */}
-            <div className="my-3">
-              <p>
-                Family maintenance encompasses various legal and practical aspects related to supporting family members. It is an order of a law that requires one family member to provide financial assistance to the other members of the family.
-              </p>
-            </div>
-            {/* button */}
-            <div className="mt-5">
-              <button className="px-7 py-2 border border-yellow-500 rounded-full bg-yellow-500 text-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-yellow-500" onClick={() => {
-                scrollToMaintenanceRef()
-              }}>read more</button>
-            </div>
-          </div>
-          <div></div>
-        </div>
-      </div>
-
+    <div >
       {/* first order container */}
-      <div className="mb-16">
-        <div className="flex gap-10">
-          <div className="w-[50%] relative flex">
-            {/* absolute */}
-            <div className="absolute top-0 mt-[-24px] left-0 w-[60%] h-[75%] bg-yellow-500 z-30">
-              <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://www.womenspodium.com/wp-content/uploads/2020/12/feature-img.jpg" alt="" />
-              </div>
-            </div>
-            <div className="w-[30%] h-full"></div>
-            <div className="w-[70%] h-full bg-blue-900 flex">
-              <div className="h-full w-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://ipscommons.sg/wp-content/uploads/2015/09/ThinkstockPhotos-170081482.jpg" alt="" />
+      <div className="relative">
+        {/* bg container */}
+        <div className="relative lg:absolute lg:inset-0 -z-30 flex">
+          {/* left */}
+          <div className="w-0 lg:w-[50%] bg-white"></div>
+          {/* right */}
+          <div className="w-full lg:w-[50%] flex relative">
+            {/* right-left */}
+            <div className="absolute left-0 top-0 h-full z-10 w-0 lg:w-[65%] bg-gradient-to-r from-white to-transparent"></div>
+            {/* right-right */}
+            <div className="w-[100%] overflow-hidden relative z-0">
+              <div className="w-full h-[150px] sm:h-[210px] lg:h-full overflow-hidden">
+                <img
+                  className="w-full h-full object-center object-cover"
+                  src="https://roysville.group/wp-content/uploads/2020/09/about-1024x819.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
+        </div>
 
-
-          <div className="w-[50%]">
-            <div>
-
-              <div>
-                <h1 className="header-level-3">Ethiopian Legal System</h1>
-              </div>
-
-              <div>
+        {/* content container */}
+        <div className="static-padding-x py-10 md:py-16 relative z-30">
+          {/* content */}
+          <div className="flex">
+            {/* left */}
+            <div className="w-full lg:w-[50%]">
+              {/* bold text */}
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                 <p>
-                  Having different objectives at hand states have issued different family maintenance laws. These Family maintenance laws serve a dual purpose: they alleviate potential financial burdens on the state and uphold the integrity of family relationships.
+                  Supporting Those in Need: Exploring Family Maintenance Legal
+                  Frameworks
                 </p>
               </div>
 
-              <div className="my-3">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
+              {/* normal text */}
+              <div className="my-5">
+                <p>
+                  Family maintenance encompasses various legal and practical
+                  aspects related to supporting family members. It is an order
+                  of a law that requires one family member to provide financial
+                  assistance to the other members of the family. Having
+                  different objectives at hand states have issued different
+                  family maintenance laws.
+                </p>
               </div>
-
-              <footer className="mt-10">
-                <div>
-                  <div className="flex items-center gap-2 px-3 py-1 border w-max rounded-md border-yellow-500 text-yellow-500 transition-colors ease-in-out duration-300 hover:bg-yellow-500 hover:text-white cursor-pointer">
-                    <div>get legal help</div>
-                    <IoIosHelpCircle className="text-2xl" />
-                  </div>
-                </div>
-              </footer>
-
             </div>
+            {/* right */}
+            <div className="w-0 lg:w-[50%] bg-transparent"></div>
           </div>
         </div>
       </div>
 
       {/* second order container */}
-      <div className="my-24">
-        <div className="my-2">
-          <h3 className="header-level-3">
-            Our services
-          </h3>
-        </div>
-        <div className="grid grid-cols-4 gap-5">
-
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <HiDocumentMagnifyingGlass className="text-4xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Guidance on Maintenance Obligations</h3>
-            </div>
-            <div>
+      <div className="relative">
+        {/* content container */}
+        <div className="static-padding-x py-10 md:py-16 relative z-30">
+          {/* content */}
+          <div>
+            <div className="text-justify p-5 bg-white rounded-md shadow-xl mx-24">
               <p>
-                We offer counsel regarding maintenance responsibilities arising from marital and blood ties.
+                These Family maintenance laws serve a dual purpose: they
+                alleviate potential financial burdens on the state and uphold
+                the integrity of family relationships. These laws are enacted to
+                ensure that individuals who are unable to sustain themselves due
+                to various vulnerabilities are not left destitute, thereby
+                preventing them from becoming reliant on state resources.
+                Simultaneously, such laws reinforce familial ties by mandating
+                support during times of economic hardship, thereby fostering a
+                sense of mutual reliance and emotional security within the
+                family unit.
               </p>
             </div>
           </div>
-
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <FaHandsHelping className="text-4xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Claim Negotiations</h3>
-            </div>
-            <div>
-              <p>
-                To prevent court proceedings, we’ll engage in negotiations with the opposing party.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <SiHomeassistantcommunitystore className="text-3xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Additional Legal Assistance</h3>
-            </div>
-            <div>
-              <p>
-                Our team is equipped to handle a variety of other legal needs you may have.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <MdAccountBalanceWallet className="text-4xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Court Representation</h3>
-            </div>
-            <div>
-              <p>
-                Whether you’re facing a maintenance claim or need to file one, we’ll represent your interests in the legal arena.
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
 
       {/* third order container */}
-      <div className="mb-16">
-        <div className="flex gap-10">
-          <div className="w-[50%]">
-            <div>
-              <div ref={maintenanceRef} />
-              <div>
-                <h1 className="header-level-3">Legal Framework</h1>
+      <div className="my-12 md:my-36">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col md:flex-row">
+            <div className="w-[100%] md:w-[50%] relative">
+              <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                <img
+                  className="w-full h-full object-center object-cover"
+                  src="https://www.shutterstock.com/image-photo/law-theme-mallet-judge-enforcement-600nw-1938588952.jpg"
+                  alt=""
+                />
               </div>
+            </div>
 
-              <div>
+            <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+              {/* normal text */}
+              <div className="my-5">
                 <p>
-                  In the context of maintenance, the legal landscape encompasses a diverse array of cases that affect various individuals. These cases often involve issues such as the determination of maintenance amounts, methods of payment, locations where payments should be effected, prioritization of claimants in the event of multiple maintenance requests, and the establishment of alternate payment solutions.
+                  This legal framework also plays a pivotal role in safeguarding
+                  the welfare of children, ensuring that their fundamental needs
+                  are met through enforced parental support. Collectively, these
+                  measures reflect the state’s commitment to promoting fair
+                  treatment and the well-being of its citizens, particularly the
+                  most vulnerable members of society.
                 </p>
               </div>
             </div>
           </div>
-          <div className="w-[50%] relative flex">
-            {/* absolute */}
-            <div className="absolute top-0 mt-[-24px] left-0 w-[60%] h-[75%] bg-yellow-500 z-30">
-              <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://onecms-res.cloudinary.com/image/upload/s--9JcjOGK---/f_auto,q_auto/c_fill,g_auto,h_622,w_830/v1/mediacorp/tdy/image/2023/01/27/20230127_istock_tqdivorce.jpg?itok=TcPyvIX2" alt="" />
-              </div>
-            </div>
-            <div className="w-[30%] h-full"></div>
-            <div className="w-[70%] h-full bg-blue-900 flex">
-              <div className="h-full w-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://bloximages.newyork1.vip.townnews.com/trinidadexpress.com/content/tncms/assets/v3/editorial/c/0b/c0b1b098-92fd-11ee-89a8-7fd8ad588c06/656e625c9c656.image.jpg?resize=812%2C500" alt="" />
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
       {/* fourth order container */}
-      <div className="my-16 relative">
-        {/* background */}
-        <div className="absolute left-0 top-0 z-10 w-full h-full bg-gradient-to-r from-transparent to-white"></div>
-        <div className="absolute -z-10 top-0 left-0 w-full h-full overflow-hidden">
-          <img className="w-full h-full object-center object-cover" src="https://www.sinclairlaw.co.uk/wp-content/uploads/Transparency-in-the-Family-Courts.-What-is-the-impact-of-the-pilot-scheme-on-clients-web.jpg" alt="" />
-        </div>
+      <div className="py-5 md:py-16 bg-neutral-800 text-white">
         {/* content container */}
-        <div className="flex py-5 bg-gradient-to-r from-transparent to-white relative z-20">
-          <div className="w-[50%]"></div>
-          <div className="w-[50%]">
-            <header>
-              <h4 className="header-level-4">Family Maintenance Detail</h4>
-            </header>
+        <div className="static-padding-x">
+          <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
+            {/* left */}
             <div>
-              <p>
-                These Family maintenance laws serve a dual purpose: they alleviate potential financial burdens on the state and uphold the integrity of family relationships. These laws are enacted to ensure that individuals who are unable to sustain themselves due to various vulnerabilities are not left destitute, thereby preventing them from becoming reliant on state resources.
-              </p>
+              <div className="w-[150px] aspect-square overflow-hidden">
+                <img
+                  className="w-full object-center object-cover"
+                  src="/final-logo.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            {/* right */}
+            <div className="flex-grow">
+              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+                <p>
+                  At Makuta Law Firm, our dedicated team of legal professionals
+                  are committed to meticulously creating and examining a variety
+                  of contracts, ensuring compliance with Ethiopian regulations
+                  while placing your priorities at the forefront.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-    </div>
-  )
-}
+      {/* fifth order container */}
+      <div className="my-12 md:my-36">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col-reverse md:flex-row">
+            <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+              {/* bold text */}
+              <div className="header-level-3 uppercase">
+                <p>
+                  Ethiopian Family Maintenance Laws: Rights, Responsibilities,
+                  and Resolutions
+                </p>
+              </div>
+              {/* normal text */}
+              <div className="my-5">
+                <p>
+                  In line with various international legal systems, Ethiopian
+                  legal system also recognizes the obligation of family members
+                  to support each other. This responsibility is detailed in the
+                  revised federal family code, as well as in regional family
+                  codes throughout Ethiopia. Under these laws, the scope of
+                  maintenance includes providing necessities such as food,
+                  shelter, clothing, and education. The law identifies the
+                  provider of maintenance as the ‘Debtor’ and the recipient as
+                  the ‘Creditor,’ establishing specific conditions that
+                  determine when the Creditor is entitled to maintenance and
+                  when the Debtor is obligated to provide it. This duty of
+                  maintenance applies to family members connected by marriage
+                  (affinal relationships) as well as blood relations
+                  (consanguineal relationships).
+                </p>
+              </div>
+            </div>
 
-export default CivilFamilyMaintenance
+            <div className="w-[100%] md:w-[50%] relative">
+              <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                <img
+                  className="w-full h-full object-center object-cover"
+                  src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* post-fifth order container */}
+      <div className="my-12 md:my-36 bg-neutral-200 py-10">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col-reverse md:flex-row">
+            <div className="w-[100%] ">
+              {/* normal text */}
+              <div className="my-5 text-justify">
+                <p>
+                  In the context of maintenance, the legal landscape encompasses
+                  a diverse array of cases that affect various individuals.
+                  These cases often involve issues such as the determination of
+                  maintenance amounts, methods of payment, locations where
+                  payments should be effected, prioritization of claimants in
+                  the event of multiple maintenance requests, and the
+                  establishment of alternate payment solutions. If you’re
+                  uncertain about your and your children’s entitlement to
+                  maintenance, rest assured that our legal team is here to
+                  provide comprehensive support.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* sixth order container */}
+      <div className="my-10 md:my-36">
+        {/* content container */}
+        <div className="static-padding-x">
+          {/* header */}
+          <div>
+            {/* bold */}
+            <div className="header-level-3 mb-2 uppercase">
+              <p>Our legal services</p>
+            </div>
+          </div>
+          {/* accordion */}
+          <div>
+            {/* first accordion */}
+            {services?.servicesList.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="p-1 md:p-5 rounded-sm bg-white shadow-md mt-5 text-[.85rem] md:text-[1.05rem]"
+                >
+                  <header className="flex items-center justify-between py-2">
+                    <div>
+                      <p
+                        className="font-bold w-max cursor-pointer hover:underline"
+                        onClick={() => {
+                          setServices(prev => {
+                            return {
+                              ...prev,
+                              servicesIndex: index
+                            };
+                          });
+                        }}
+                      >
+                        {item.title}
+                      </p>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[28px] aspect-square rounded-full bg-gray-100 flex items-center justify-center transition-colors ease-in-out duration-300 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => {
+                          setServices(prev => {
+                            return {
+                              ...prev,
+                              servicesIndex: index
+                            };
+                          });
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl transition-transform ease-in-out duration-300 ${
+                            services?.servicesIndex === index
+                              ? "-rotate-180"
+                              : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+
+                  <div
+                    className={`overflow-hidden ${
+                      services?.servicesIndex === index ? "h-auto" : "h-0"
+                    }`}
+                  >
+                    <div className="pt-3 border-t border-gray-200">
+                      <div>
+                        <p>{item.text}</p>
+                      </div>
+
+                      {item?.subList?.length > 0 ? (
+                        <div className="mx-5">
+                          {item?.subList?.map((subItem, subIndex) => {
+                            return (
+                              <div className="my-1.5">
+                                <header className="flex items-center justify-between">
+                                  <div className="font-bold text-sm text-gray-800">
+                                    <span>{subItem?.title}</span>
+                                  </div>
+                                  <div>
+                                    <div
+                                      className="w-[24px] aspect-square rounded-full overflow-hidden flex items-center justify-center text-lg bg-gray-100 cursor-pointer hover:bg-gray-200"
+                                      onClick={() => {
+                                        console.log(subIndex);
+                                        setServices(prev => {
+                                          return {
+                                            ...prev,
+                                            subServicesIndex:
+                                              prev?.subServicesIndex ===
+                                              subIndex
+                                                ? -1
+                                                : subIndex
+                                          };
+                                        });
+                                      }}
+                                    >
+                                      <IoMdAdd
+                                        className={`transition-transform ease-in-out duration-300 ${
+                                          services?.subServicesIndex ===
+                                          subIndex
+                                            ? "rotate-45"
+                                            : "rotate-0"
+                                        }`}
+                                      />
+                                    </div>
+                                  </div>
+                                </header>
+                                <div>
+                                  <div
+                                    className={`text-sm italic text-gray-700 py-1 border-b border-gray-100 overflow-hidden ${
+                                      services?.subServicesIndex === subIndex
+                                        ? "h-max"
+                                        : "h-0"
+                                    }`}
+                                  >
+                                    <p>{subItem?.text}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CivilFamilyMaintenance;
