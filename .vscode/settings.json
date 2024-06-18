@@ -3,5 +3,10 @@
   "scss.lint.unknownAtRules": "ignore",
   "workbench.settings.useSplitJSON": false,
   "css.lint.unknownAtRules": "ignore",
-  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }]
+  "eslint.rules.customizations": [
+    {
+      "rule": "*",
+      "severity": "warn"
+    }
+  ]
 }

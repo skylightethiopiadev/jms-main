@@ -19,6 +19,8 @@ import { SiCashapp } from "react-icons/si";
 import { GrCompliance } from "react-icons/gr";
 import { IoExitSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
+import { MdVerified } from "react-icons/md";
+
 import { useUserLogoutMutation } from "../../../../features/api/apiSlice";
 import Response from "../../../../components/Response";
 
@@ -69,7 +71,7 @@ const CustomerLeftSideNav = () => {
 
   return (
     <div
-      className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-300 lg:border-none lg:relative lg:left-0 w-[20%] min-w-[240px] flex flex-col justify-between pl-[2%] text-[1rem]"
+      className="absolute left-[-100vw] h-[100vh] overflow-y-auto bg-white z-[300] border-r border-gray-100 l:border-none lg:relative lg:left-0 w-[20%] min-w-[300px] flex flex-col pl-[2%] text-[1rem] "
       id="customer-dashboard-leftside-nav-bar"
     >
       <Response
@@ -93,7 +95,7 @@ const CustomerLeftSideNav = () => {
           </button>
         </div>
         {/* logo */}
-        <div className="flex items-center justify-center mt-1">
+        <div className="flex items-center justify-center my-5 mb-10">
           <NavLink
             to={"/"}
             className={"flex items-center justify-center pr-[25%]"}
@@ -149,19 +151,7 @@ const CustomerLeftSideNav = () => {
                 <span>Compliance</span>
               </div>
               {/* icon */}
-              {isComplianceOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isComplianceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isComplianceOpen ? "text-sky-500" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isComplianceOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
             </div>
             {/* sub menu */}
             {isComplianceOpen ? (
@@ -230,19 +220,7 @@ const CustomerLeftSideNav = () => {
                 <span>My Chart</span>
               </div>
               {/* icon */}
-              {isMyChartOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isMyChartOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isMyChartOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isMyChartOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
             </div>
             {/* sub menu */}
             {isMyChartOpen ? (
@@ -362,19 +340,8 @@ const CustomerLeftSideNav = () => {
                 <span>Finance</span>
               </div>
               {/* icon */}
-              {isFinanceOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isFinanceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isFinanceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isFinanceOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
+
             </div>
             {/* sub menu */}
             {isFinanceOpen ? (
@@ -473,19 +440,8 @@ const CustomerLeftSideNav = () => {
                 <span>Other Services</span>
               </div>
               {/* icon */}
-              {isOtherServiceOpen ? (
-                <IoIosArrowUp
-                  className={`text-lg ml-1 ${
-                    isOtherServiceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              ) : (
-                <IoIosArrowDown
-                  className={`text-lg ml-1 ${
-                    isOtherServiceOpen ? "dahboard-active-link-icon-color" : ""
-                  }`}
-                />
-              )}
+              <IoIosArrowDown className={`text-lg ml-1 transition-all ease-in-out duration-300 ${isOtherServiceOpen ? 'dahboard-active-link-icon-color rotate-[-180deg]' : 'rotate-0'}`}/>
+              
             </div>
             {/* sub menu */}
             {isOtherServiceOpen ? (
@@ -548,36 +504,23 @@ const CustomerLeftSideNav = () => {
         </div>
       </div>
       {/* button container */}
-      <div className="mr-9 my-3">
+      <div className="mr-9 mt-3 self-end flex-grow flex flex-col justify-end w-[88%] ">
         {/* top */}
-        <div className="py-3 px-1 rounded-md bg-sky-100 text-[.785rem] mb-5">
-          <p className="font-semibold text-left">
-            If any legal or technical difficulties, please contact the call
-            center
-          </p>
+        <div className="flex items-center gap-3 px-5 py-1 rounded-md bg-gray-700 text-white mb-3">
           <div>
-            <h3 className="mt-1 ">Local call center</h3>
-            <h3 className="font-bold text-[.85rem]">Dial: 8383</h3>
+            <MdVerified className="text-4xl"/>
           </div>
-
           <div>
+<<<<<<< HEAD
             <h3 className="mt-1 ">International call center</h3>
             <h3 className="font-bold text-[.85rem]">
               Dial: (+251) 985 228 888{" "}
             </h3>
+=======
+            <h3 className="font-bold text-lg">ASSIST</h3>
+            <span>Legal Advice</span>
+>>>>>>> addis_working_branch
           </div>
-
-          {/* <div className="mb-1">
-            <img
-              src={callCenter}
-              alt=""
-              className="w-[120px] h-[100px] mt-[-24px] rounded-md"
-            />
-          </div>
-          <button className="px-3 py-1 rounded-full text-white bg-green-500 flex items-center justify-center">
-            <FaPhoneVolume className="text-xl mr-1" />{" "}
-            <span className="font-bold text-lg">1234</span>
-          </button> */}
         </div>
         {/* bottom */}
         <div>

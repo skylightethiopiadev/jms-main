@@ -20,6 +20,7 @@ import LawyerDashboardHeader from "./lawyer-sub-pages/LawyerDashboardHeader";
 import LawyerLeftSideNav from "./lawyer-sub-pages/LawyerLeftSideNav";
 import LawyerNewCase from "./lawyer-sub-pages/LawyerNewCase";
 import LawyerDashboardHome from "./lawyer-sub-pages/LawyerDashboardHome";
+import { MdClose } from "react-icons/md";
 
 const LawyerDashboard = () => {
   // local states
@@ -51,7 +52,18 @@ const LawyerDashboard = () => {
               <Outlet />
             </div>
             {/* right content */}
-            <div className="p-3 hidden sm:flex sm:flex-col overflow-y-auto pb-5">
+            <div
+              className="p-3 overflow-y-auto absolute bg-white right-[-100vw] z-0 xl:inline-block xl:relative xl:right-0 transition-all ease-in-out duration-150 h-[90vh] pb-[3rem]"
+              id="customer-dashboard-right-side-bar"
+            >
+              {/* close button */}
+              <div className="xl:hidden absolute left-1 top-1">
+                <button className="p-[.1rem] rounded-full bg-gray-50 transition-all ease-in-out duration-150 hover:bg-gray-100" onClick={()=>{
+                  rightSideNavToggler()
+                }}>
+                  <MdClose className="text-[1.5rem] text-gray-700"/>
+                </button>
+              </div>
               {/* user profile */}
               <div className="flex flex-col items-center p-3 mx-12">
                 {/* image */}
@@ -70,18 +82,7 @@ const LawyerDashboard = () => {
                   <span className="flexs font-bold">Meseret Seyoum</span>
                   <VscVerifiedFilled className="text-sky-500 text-lg" />
                 </div>
-                <div className="text-gray-500">Lawyer Account</div>
-                {/* ratting */}
-                <div className="flex items-center justify-center gap-1 bg-emerald-500 text-white px-2 py-1 rounded-sm my-1">
-                  <div className="flex items-center justify-center gap-x-1">
-                    <IoStarSharp />
-                    <IoStarSharp />
-                    <IoStarSharp />
-                    <IoStarHalfOutline />
-                    <IoStarOutline />
-                  </div>
-                  <span className="font-semibold">4.35</span>
-                </div>
+                <div className="text-gray-500">Customer Account</div>
               </div>
 
               {/* calendar */}
@@ -119,11 +120,11 @@ const LawyerDashboard = () => {
                     <span className="font-bold">23</span>
                   </div>
                   <div className="flex flex-col gap-y-5 p-1 items-center">
-                    <span>S</span>
+                    <span>Sa</span>
                     <span className="font-bold">24</span>
                   </div>
                   <div className="flex flex-col gap-y-5 p-1 items-center">
-                    <span>S</span>
+                    <span>Su</span>
                     <span className="font-bold">25</span>
                   </div>
                 </div>
@@ -138,12 +139,12 @@ const LawyerDashboard = () => {
                     <h3 className="text-lg font-bold text-gray-900 my-2">
                       $21,328.00
                     </h3>
-                    <div className="flex items-center justify-between gap-2">
-                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
-                        Fund
+                    <div className="flex items-center justify-between gap-1 whitespace-nowrap">
+                      <button className="px-1 py-1 rounded-md bg-yellow-400 text-white">
+                        Add funds
                       </button>
-                      <button className="px-7 py-1 rounded-md bg-yellow-400 text-white">
-                        Refund
+                      <button className="px-1 py-1 rounded-md bg-yellow-400 text-white">
+                        Withdraw funds
                       </button>
                     </div>
                   </div>
@@ -151,7 +152,7 @@ const LawyerDashboard = () => {
                 {/* bottom */}
                 <div className="my-3">
                   <div className="flex items-center justify-between my-1 relative">
-                    <h3 className="font-semibold">Expenses Analysis</h3>
+                    <h3 className="font-semibold">Expense Analysis</h3>
                     <button
                       className="text-gray-500 rounded-full border border-gray-500 flex items-center justify-between p-1 transition-all ease-in-out duration-300 hover:border-gray-900 hover:text-gray-900"
                       onClick={() => setIsMonthPopup(!isMonthPopup)}

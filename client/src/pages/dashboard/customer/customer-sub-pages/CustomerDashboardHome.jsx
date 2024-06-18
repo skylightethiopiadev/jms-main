@@ -118,7 +118,7 @@ const CustomerDashboardHome = () => {
   };
 
   return (
-    <div className="p-[2%] relative h-[91vh] overflow-y-auto pb-1">
+    <div className="p-[2%] relative h-[91vh] overflow-y-auto pb-[1rem]">
       {isUserMorePopup ? (
         <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-sm z-[5000]">
           <motion.div
@@ -573,6 +573,11 @@ const CustomerDashboardHome = () => {
               <div>No Case History</div>
             )}
           </div>
+        </div>
+      </div>
+      <div className="w-full pt-5 border-t-[1px] border-black border-opacity-10">
+        <div>
+          <span className="font-medium text-gray-700">Designed by </span><span className="font-black text-gray-500">Skylight Technology</span>
         </div>
       </div>
     </div>

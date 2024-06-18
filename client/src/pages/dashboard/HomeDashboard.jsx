@@ -9,7 +9,7 @@ import Applications from "./applications/Applications";
 import Chat from "./chat/Chat";
 import Representative from "./representatives/Representative";
 import Payment from "./payment/Payment";
-import Lawyer from "./lawyers/Lawyer";
+import Lawyer from "./lawyers/LawyersDashboard";
 import CreateRole from "./roles/CreateRole";
 import AllRoles from "./roles/AllRoles";
 import Update from "./roles/Update";
