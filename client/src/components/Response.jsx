@@ -22,13 +22,13 @@ const Response = ({ response, setPending, redirectTo, type }) => {
           dashboard = "/dashboard";
           break;
         case "private-customer":
-          dashboard = `/dashboard/customer`;
+          dashboard = `/dashboard/customers`;
           break;
         case "business-customer":
-          dashboard = "/dashboard/customer";
+          dashboard = "/dashboard/customers";
           break;
         case "lawyer":
-          dashboard = "/dashboard/lawyer";
+          dashboard = "/dashboard/lawyers";
           break;
         case "case-manager-main":
           dashboard = "/dashboard";
@@ -51,10 +51,35 @@ const Response = ({ response, setPending, redirectTo, type }) => {
         type === "forget" ? 20000 : 6000
       );
 
-      if (type === "login" || type === "signUp") {
-        setTimeout(() => {
-          navigate(dashboard, { replace: true });
-        }, 1000);
+      // if (type === "login" || type === "signUp") {
+      //   setTimeout(() => {
+      //     navigate(dashboard, { replace: true });
+      //   }, 1000);
+      // }
+      if (type === "login") {
+        localStorage.setItem(
+          "makuta_user",
+          JSON.stringify(response?.data?.data)
+        );
+        navigate(dashboard);
+        window.location.reload();
+      } else if (type === "signUp") {
+        localStorage.setItem(
+          "makuta_user",
+          JSON.stringify(response?.data?.data)
+        );
+        navigate(`/dashboard/${response?.data?.data?.role + "s"}`);
+        window.location.reload();
+      } else if (type === "logout") {
+        localStorage.removeItem("makuta_user");
+        navigate("/login");
+        window.location.reload();
+      }
+      if (type === "update") {
+        const data = JSON.parse(localStorage.getItem("makuta_user"));
+        const user = { ...data, user: { ...response?.data?.data } };
+        localStorage.setItem("makuta_user", JSON.stringify(user));
+        window.location.reload();
       } else if (type === "payment") {
         localStorage.removeItem("macuta_law_firm_system");
         navigate(redirectTo, { replace: true });
@@ -62,10 +87,12 @@ const Response = ({ response, setPending, redirectTo, type }) => {
         setTimeout(() => {
           navigate(redirectTo, { replace: true });
         }, 3000);
-      } else if (type === "logout") {
-        navigate(redirectTo);
-        navigate(0);
-      } else if (redirectTo && redirectTo?.length > 0) {
+      }
+      // else if (type === "logout") {
+      //   navigate(redirectTo);
+      //   navigate(0);
+      // }
+      else if (redirectTo && redirectTo?.length > 0) {
         navigate(redirectTo, { replace: true });
       }
 

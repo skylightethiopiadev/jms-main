@@ -20,6 +20,7 @@ import {
   readProfileInfo,
   updatePassword,
   logoutHandler,
+  updateUsersCredentials,
 } from "../controller/userController.js";
 import { aggregate } from "../controller/aggregationController.js";
 import {
@@ -61,7 +62,9 @@ router
   .put(authentication, files, updateProfilePicture);
 
 accountRouter.route("/updatePassword").put(authentication, updatePassword);
-
+accountRouter
+  .route("/updateUsersCredentials")
+  .put(authentication, updateUsersCredentials);
 //factory route
 router.route("/:table/:id").get(authentication, authorization, _read_single);
 

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import uniqueValidator from "mongoose-unique-validator";
 import * as valid from "../utils/validator.js";
 
-const institutionSchema = new mongoose.Schema(
+const businessSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -44,12 +44,12 @@ const institutionSchema = new mongoose.Schema(
   }
 );
 
-institutionSchema.pre("findOneAndUpdate", function (next) {
+businessSchema.pre("findOneAndUpdate", function (next) {
   this.options.runValidators = true;
   next();
 });
 
 uniqueValidator.defaults.message = "{PATH} '{VALUE}' is taken";
-institutionSchema.plugin(uniqueValidator);
+businessSchema.plugin(uniqueValidator);
 
-export const Business = mongoose.model("business", institutionSchema);
+export const Business = mongoose.model("business", businessSchema);

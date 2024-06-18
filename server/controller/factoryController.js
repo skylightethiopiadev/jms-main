@@ -139,22 +139,23 @@ export const _read = asyncCatch(async (req, res, next) => {
     const skip = (page - 1) * limit;
     query.skip(skip).limit(limit);
 
+    query.populate(req.query.populatingValue.split(",").join(" "));
     //populating
     // console.log(req.query);
-    switch (req.query.populatingType) {
-      case "users":
-        query.populate(req.query.populatingValue);
-        break;
-      case "applications":
-        query.populate(req.query.populatingValue);
-        break;
-      case "cases":
-        query.populate(req.query.populatingValue);
-        break;
-      // query.populate(req.query.populatingValue.split(",").join(" "));
-      default:
-        query;
-    }
+    // switch (req.query.populatingType) {
+    //   case "users":
+    //     query.populate(req.query.populatingValue);
+    //     break;
+    //   case "applications":
+    //     query.populate(req.query.populatingValue);
+    //     break;
+    //   case "cases":
+    //     query.populate(req.query.populatingValue);
+    //     break;
+    //   // query.populate(req.query.populatingValue.split(",").join(" "));
+    //   default:
+    //     query;
+    // }
 
     // req.query.limits ? query.limit(req.query.limits) : null;
     const data = await query;
@@ -180,6 +181,7 @@ export const _read = asyncCatch(async (req, res, next) => {
 
 //update
 export const _update = asyncCatch(async (req, res, next) => {
+  console.log(req.query, "ddd");
   const model = selectModel(req.params.table, next);
   const value = { ...req.body };
   const files = fileHandler(value, req);
@@ -188,7 +190,7 @@ export const _update = asyncCatch(async (req, res, next) => {
     const data = await model.findOneAndUpdate(
       { _id: req.query.id },
       { ...files },
-      { runValidators: true }
+      { runValidators: true, new: true }
     );
 
     if (!data)
@@ -198,7 +200,7 @@ export const _update = asyncCatch(async (req, res, next) => {
 
     return res
       .status(201)
-      .json({ status: "Success", message: "data updated successfully" });
+      .json({ status: "Success", message: "data updated successfully", data });
   }
   return next(new AppError("something went wrong please try again!!", 500));
 });

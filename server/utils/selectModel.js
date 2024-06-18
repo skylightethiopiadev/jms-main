@@ -38,7 +38,7 @@ export const selectModel = (name, next) => {
     case "case-managers":
       model = CaseManager;
       break;
-    case "businesses": 
+    case "businesses":
       model = Business;
       break;
     case "lawyers":
