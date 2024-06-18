@@ -172,6 +172,7 @@ import CivilContractConstruction from "./pages/civil/contract/CivilContractConst
 import CivilContractSupplyGoodsServices from "./pages/civil/contract/CivilContractSupplyGoodsServices";
 import CivilContractRentalMachineriesVehicles from "./pages/civil/contract/CivilContractRentalMachineriesVehicles";
 import CivilContractLoan from "./pages/civil/contract/CivilContractLoan";
+import CivilContractOther from './pages/civil/contract/CivilContractOther.jsx'
 
 // civil -- family
 import CivilFamily from "./pages/civil/family/CivilFamily";
@@ -319,6 +320,7 @@ function App() {
                   <Route path="/civil/contract/construction" element={<CivilContractConstruction />}></Route>
                   <Route path="/civil/contract/supply-goods-services" element={<CivilContractSupplyGoodsServices />}></Route>
                   <Route path="/civil/contract/rental-machineries-vehicles" element={<CivilContractRentalMachineriesVehicles />}></Route>
+                  <Route path="/civil/contract/others" element={<CivilContractOther />}></Route>
                   <Route path="/civil/contract/loan" element={<CivilContractLoan />}></Route>
 
                 </Route>

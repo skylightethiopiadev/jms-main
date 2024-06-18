@@ -79,11 +79,11 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
               navHeaderText: "Loan",
               path: "/civil/contract/loan"
             },
-            // {
-            //   navHeaderText: "Others",
-            //   navHeaderText: "Others(suretyship, mortgage, pledge, and agency and sale contracts)",
-            //   path: "#"
-            // },
+            {
+              navHeaderText: "Others",
+              // navHeaderText: "Others(suretyship, mortgage, pledge, and agency and sale contracts)",
+              path: "/civil/contract/others"
+            },
           ]
         },
         {
