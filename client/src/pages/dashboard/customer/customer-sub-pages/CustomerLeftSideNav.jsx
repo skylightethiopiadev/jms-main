@@ -511,15 +511,8 @@ const CustomerLeftSideNav = () => {
             <MdVerified className="text-4xl"/>
           </div>
           <div>
-<<<<<<< HEAD
-            <h3 className="mt-1 ">International call center</h3>
-            <h3 className="font-bold text-[.85rem]">
-              Dial: (+251) 985 228 888{" "}
-            </h3>
-=======
             <h3 className="font-bold text-lg">ASSIST</h3>
             <span>Legal Advice</span>
->>>>>>> addis_working_branch
           </div>
         </div>
         {/* bottom */}
