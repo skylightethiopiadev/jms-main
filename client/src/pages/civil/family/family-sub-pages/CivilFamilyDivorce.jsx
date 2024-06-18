@@ -8,29 +8,18 @@ const CivilFamilyDivorce = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: "Drafting Agreements",
+        title: "Advocacy and Legal Representation",
         text:
-          "We draft maintenance agreements that outline the terms and conditions of spousal support, ensuring they are clear, legally binding, and enforceable."
+          "In the realm of divorce, our attorneys acts as a staunch defender of your legal rights and interests. They provide representation during negotiations, legal hearings, and other procedural matters, ensuring that your perspectives and concerns are adequately represented."
       },
       {
-        title: "Guidance on Maintenance Obligations",
+        title: "Jurisdiction and applicable laws ascertainment",
         text:
-          "We offer counsel regarding maintenance responsibilities arising from marital and blood ties."
+          "Under the Ethiopian legal framework, each state possesses distinct family laws, and there is also a federal law. Therefore, it’s crucial to determine the applicable law and the appropriate venue for filing a divorce petition. Our nationwide network of legal experts will guide you in identifying the correct court for submitting your divorce application."
       },
       {
-        title: "Court Representation",
-        text:
-          "Whether you’re facing a maintenance claim or need to file one, we’ll represent your interests in the legal arena."
-      },
-      {
-        title: "Claim Negotiations",
-        text:
-          "To prevent court proceedings, we’ll engage in negotiations with the opposing party."
-      },
-      {
-        title: "Additional Legal Assistance",
-        text:
-          "Our team is equipped to handle a variety of other legal needs you may have."
+        title: "Legal drafting",
+        text: "draft marriage contracts and divorce agreements."
       }
     ],
     servicesIndex: 0,
@@ -224,7 +213,7 @@ const CivilFamilyDivorce = () => {
         </div>
       </div>
 
-      {/* post-fifth order container */}
+      {/* sixth order container */}
       <div className="my-12 md:my-36 bg-neutral-200 py-10">
         {/* content container */}
         <div className="static-padding-x">
@@ -233,16 +222,12 @@ const CivilFamilyDivorce = () => {
               {/* normal text */}
               <div className="my-5 text-justify">
                 <p>
-                  In the context of maintenance, the legal landscape encompasses
-                  a diverse array of cases that affect various individuals.
-                  These cases often involve issues such as the determination of
-                  maintenance amounts, methods of payment, locations where
-                  payments should be effected, prioritization of claimants in
-                  the event of multiple maintenance requests, and the
-                  establishment of alternate payment solutions. If you’re
-                  uncertain about your and your children’s entitlement to
-                  maintenance, rest assured that our legal team is here to
-                  provide comprehensive support.
+                  Furthermore, Ethiopian law presumes that any property in
+                  possession of a spouse at the time of divorce, regardless of
+                  whose name it is registered under, is considered joint
+                  property. Additionally, any income generated from joint or
+                  personal assets, as well as from donations made to either
+                  spouse, is deemed to be joint property.
                 </p>
               </div>
             </div>
@@ -250,7 +235,75 @@ const CivilFamilyDivorce = () => {
         </div>
       </div>
 
-      {/* sixth order container */}
+      {/* seventh order container */}
+      <div className="my-12 md:my-36">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col md:flex-row">
+            <div className="w-[100%] md:w-[50%] relative">
+              <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                <img
+                  className="w-full h-full object-center object-cover"
+                  src="https://www.shutterstock.com/image-photo/law-theme-mallet-judge-enforcement-600nw-1938588952.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+              {/* normal text */}
+              <div className=" text-justify">
+                <p>
+                  In the course of divorce proceedings, it’s common to encounter
+                  legal disputes over assets such as houses, vehicles, and land
+                  acquired before or during the marriage. These issues often
+                  lead to court cases. Following this, in addition to the
+                  existing laws, the Ethiopian Supreme Court, which has the
+                  authority to issue binding judicial decisions on all
+                  subordinate courts, has made various rulings regarding the
+                  division of property. These rulings are authoritative and must
+                  be adhered to by spouses involved in divorce proceedings. If
+                  you find yourself navigating through a divorce, it’s crucial
+                  to address the complexities surrounding property settlements,
+                  child custody, and family debts. Amidst the myriad of legal
+                  considerations that arise, securing legal counsel and
+                  representation is an essential step you shouldn’t overlook.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* fourth order container */}
+      <div className="py-5 md:py-16 bg-neutral-800 text-white">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
+            {/* left */}
+            <div>
+              <div className="w-[150px] aspect-square overflow-hidden">
+                <img
+                  className="w-full object-center object-cover"
+                  src="/final-logo.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            {/* right */}
+            <div className="flex-grow">
+              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+                <p>
+                  The family law specialists in Mankuta law firm are equipped to
+                  offer comprehensive legal services tailored to these needs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* seventh order container */}
       <div className="my-10 md:my-36">
         {/* content container */}
         <div className="static-padding-x">
