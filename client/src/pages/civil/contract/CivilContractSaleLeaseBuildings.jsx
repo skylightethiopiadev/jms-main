@@ -1,245 +1,285 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // icons
-import { GoArrowRight } from "react-icons/go";
-import { HiArrowLongRight } from "react-icons/hi2";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
 
 const CivilContractSaleLeaseBuildings = () => {
-  const services = [
-    {
-      title: 'Contract Negotiation',
-      text: 'Advocating on your behalf during discussions',
-    },
-    {
-      title: 'Contract Review',
-      text: 'Scrutinizing agreements for legal soundness',
-    },
-    {
-      title: 'Due Diligence',
-      text: 'Thoroughly investigating property credentials',
-    },
-    {
-      title: 'Authentication and Registration Assistance',
-      text: 'Facilitating the official recognition and recording of property ownership',
-    },
-    {
-      title: 'Representation',
-      text: 'Acting on your behalf in judicial or arbitral proceedings, and drafting powers of attorney',
-    },
-    {
-      title: 'Contract Preparation',
-      text: 'Developing agreements for sale, lease, servitude and mortgage of real properties',
-    },
-    {
-      title: 'Tax Guidance',
-      text: 'Offering assistance with the financial aspects of acquiring and transacting real properties',
-    },
-  ]
+
+  const [services, setServices] = useState({
+    servicesList: [
+      {
+        title: 'Contract Negotiation',
+        text: 'Advocating on your behalf during discussions.',
+      },
+      {
+        title: 'Contract Review',
+        text: 'Scrutinizing agreements for legal soundness.',
+      },
+      {
+        title: 'Due Diligence',
+        text: 'Thoroughly investigating property credentials.',
+      },
+      {
+        title: 'Authentication and Registration Assistance',
+        text: 'Facilitating the official recognition and recording of property ownership.',
+      },
+      {
+        title: 'Legal Representation',
+        text: 'Acting on your behalf in judicial or arbitral proceedings, and drafting powers of attorney.',
+      },
+      {
+        title: 'Contract Preparation',
+        text: 'Developing agreements for sale, lease, servitude and mortgage of real properties.',
+      },
+      {
+        title: 'Tax Guidance',
+        text: 'Offering assistance with the financial aspects of acquiring and transacting real properties.',
+      },
+    ],
+    servicesIndex: 0,
+    subServicesIndex: -1,
+
+  })
+  
   return (
     <div>
+
       {/* first order container */}
       <div className='relative'>
-        {/* bg-image */}
-        <div className='absolute inset-0 z-0'>
-          <div className='w-full h-full overflow-hidden'>
-            <img className='w-full h-full object-center object-cover' src="https://t3.ftcdn.net/jpg/06/49/67/00/360_F_649670028_WC2pRsnnEXODunYdRBX7UUHdBFkHwUR7.jpg" alt="" />
+
+        {/* bg container */}
+        <div className='relative lg:absolute lg:inset-0 -z-30 flex'>
+          {/* left */}
+          <div className='w-0 lg:w-[50%] bg-white'></div>
+          {/* right */}
+          <div className='w-full lg:w-[50%] flex relative'>
+            {/* right-left */}
+            <div className='absolute left-0 top-0 h-full z-10 w-0 lg:w-[65%] bg-gradient-to-r from-white to-transparent'></div>
+            {/* right-right */}
+            <div className='w-[100%] overflow-hidden relative z-0'>
+              <div className='w-full h-[150px] sm:h-[210px] lg:h-full overflow-hidden'>
+                <img className='w-full h-full object-center object-cover' src="https://c7.uihere.com/files/939/1016/1000/spain-madrid-buildings-atocha.jpg" alt="" />
+              </div>
+            </div>
           </div>
         </div>
+
         {/* content container */}
-        <div className='static-padding-x relative z-10'>
-          <div className='py-10 flex items-center justify-center'>
-            <div className='mx-auto w-[95%] md:w-[75%] flex flex-col items-center p-5 md:px-10 md:py-10 bg-white bg-opacity-85 rounded-md shadow-md'>
+        <div className='static-padding-x py-10 md:py-16 relative z-30'>
+          {/* content */}
+          <div className='flex'>
+            {/* left */}
+            <div className='w-full lg:w-[50%]'>
               {/* bold text */}
-              <div className='text-center text-5xl font-bold capitalize'>
+              <div className='text-3xl md:text-4xl lg:text-5xl font-bold uppercase'>
                 <p>
-                  Sale or leasing of buildings
+                  Secure Your Personal deals: The Importance of Legally Binding Agreements 
                 </p>
               </div>
+
               {/* normal text */}
-              <div className='text-center my-3'>
+              <div className='my-5'>
                 <p>
-                  The considerable economic value of real properties leads to the imposition of rigorous regulations by states, which complicates the processes of purchase, sale, lease, mortgage, and servitude for the parties involved
+                  In today’s business environment, agreements form the backbone of interactions between individuals and companies, setting the stage for long-term relationships, delineating rights and duties, enhancing operational efficiency, and fostering trust. Yet, it’s crucial to recognize that not every agreement meets the legal criteria to be deemed a contract. Various jurisdictions impose distinct formalities that an agreement must satisfy to be legally binding. Therefore, it’s essential to reassess your agreements to ensure they hold legal weight.
                 </p>
               </div>
-              {/* button text */}
-              <div>
-                <button className='flex items-center justify-center bg-transparent rounded-md transition-colors ease-in-out duration-300 hover:bg-yellow-500 text-white '>
-                  <div className='w-full h-full bg-yellow-500 px-10 py-3 rounded-full'>
-                    <span>Learn More</span>
-                  </div>
-                </button>
-              </div>
+
             </div>
+            {/* right */}
+            <div className='w-0 lg:w-[50%] bg-transparent'></div>
           </div>
         </div>
+
       </div>
+
+
       {/* second order container */}
-      <div className='my-20'>
-        {/* content container */}
-        <div className='static-padding-x'>
-          <div>
-            {/* bold text */}
-            <div className='header-level-3'>
-              <p>Our Dedicated Team of Legal Professionals</p>
-            </div>
-            <div className='my-5'>
-              <p>
-                At Makuta Law Firm, our dedicated team of legal professionals is committed to meticulously creating and examining contracts, ensuring compliance with Ethiopian regulations while placing your priorities at the forefront
-              </p>
-            </div>
-            {/* expert grids */}
-            <div className='flex items-center justify-center my-5'>
-              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5'>
-                {
-                  [...Array(4)].map((item, index) => {
-                    return (
-                      <div key={index} className='bg-black bg-opacity-5 rounded-md p-3'>
-                        {/* image */}
-                        <div className='w-[64px] aspect-square rounded-full overflow-hidden'>
-                          <img className='w-full h-full object-center object-cover' src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="" />
-                        </div>
-                        <div className='font-bold mt-2'>
-                          <h3>Haddis Fanta</h3>
-                        </div>
-                        <div>
-                          <p>
-                            Sequi laudantium explicabo molestiae tenetur alias dolores velit in totam inventore
-                          </p>
-                        </div>
-                        <div className='mt-3'>
-                          <button className='flex items-center justify-center gap-1 px-5 py-1 rounded-full border border-yellow-500 hover:bg-yellow-500 hover:text-white transition-colors ease-in-out duration-300 bg-transparent text-yellow-500'>
-                            <span>Contact</span>
-                            <GoArrowRight />
-                          </button>
-                        </div>
-                      </div>
-                    )
-                  })
-                }
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* third order container */}
-      <div className='my-28'>
+      <div className='my-12 md:my-36'>
         {/* content container */}
         <div className='static-padding-x'>
           <div className='flex flex-col md:flex-row'>
-            <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-b-transparent md:border-b-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
+
+            <div className='w-[100%] md:w-[50%] relative'>
+              <div className='md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden'>
+                <img className='w-full h-full object-center object-cover' src="https://www.courier-journal.com/gcdn/-mm-/f8690108b6e1d34b0c1e3420c29a5e0b90945374/c=0-0-2118-1197/local/-/media/2017/02/13/Louisville/Louisville/636225746762404646-GettyImages-155353328.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp" alt="" />
+              </div>
+            </div>
+
+            <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
               {/* bold text */}
-              <div className='header-level-3'>
+              <div className='header-level-3 uppercase'>
                 <p>
-                  Agreements form the backbone of interactions
+                  Secure Your Real Estate Investments: Navigating Ethiopia's Complex Property Transfer Process
                 </p>
               </div>
               {/* normal text */}
               <div className='my-5'>
                 <p>
-                  In today’s business environment, agreements form the backbone of interactions between individuals and companies, setting the stage for long-term relationships, delineating rights and duties, enhancing operational efficiency, and fostering trust.
-                </p>
-              </div>
-              <div>
-                <p>
-                  Yet, it’s crucial to recognize that not every agreement meets the legal criteria to be deemed a contract.
+                  Real properties encompass land and everything attached to it including buildings. The considerable economic value of real properties leads to the imposition of rigorous regulations by states, which complicates the processes of purchase, sale, lease, mortgage, and servitude for the parties involved. The complexity of these transactions arises from the legal safeguards in place for third-party interests, the stringent formalities mandated by law for contract formation, and the intricate steps required for the registration and title transfer.
                 </p>
               </div>
             </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      {/* post-second order container */}
+      <div className='my-12 md:my-36'>
+        {/* content container */}
+        <div className='static-padding-x'>
+          <div className='flex flex-col-reverse md:flex-row'>
+
+            <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
+              {/* normal text */}
+              <div className='my-5'>
+                <p>
+                  In Ethiopia, the transfer of buildings minimally encompasses a tripartite process. Initially, the contractual phase mandates adherence to the formalities prescribed by the civil code and supplementary statutes. Subsequently, the authentication phase ensures verification of property ownership and the disclosure of any encumbrances. The final phase, registration, necessitates the official recording of the property under the purchaser’s name. Throughout these stages, numerous legal issues may arise, which, if not professionally addressed, could impinge upon the contract’s legitimacy and contracting parties interest. Therefore, it is imperative that contracts concerning buildings are meticulously drafted and that the entirety of the transfer procedure is diligently supervised by a legal expert to ensure due diligence and legal compliance.
+                </p>
+              </div>
+            </div>
+
             <div className='w-[100%] md:w-[50%] relative'>
               <div className='md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden'>
-                <img className='w-full h-full object-center object-cover' src="https://acropolis-wp-content-uploads.s3.us-west-1.amazonaws.com/Futuristic-Construction-Hero-image-1.webp" alt="" />
+                <img className='w-full h-full object-center object-cover' src="https://content.jdmagicbox.com/comp/latur/h2/9999p2382.2382.201212162953.h6h2/catalogue/balaji-group-of-construction-latur-city-latur-civil-contractors-3622jhicc8.jpg" alt="" />
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      {/* third order container */}
+      <div className='py-5 md:py-16 bg-neutral-800 text-white'>
+        {/* content container */}
+        <div className='static-padding-x'>
+          <div className='flex flex-col md:flex-row items-center gap-5 md:gap-10'>
+            {/* left */}
+            <div>
+              <div className='w-[150px] aspect-square overflow-hidden'>
+                <img className='w-full object-center object-cover' src="/final-logo.png" alt="" />
+              </div>
+            </div>
+            {/* right */}
+            <div className='flex-grow'>
+              <div className='text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold'>
+                <p>
+                  At Makuta Law Firm, our dedicated team of legal professionals are committed to meticulously creating and examining a variety of contracts, ensuring compliance with Ethiopian regulations while placing your priorities at the forefront.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* fourth order container */}
-      <div className='text-white bg-neutral-800 mb-28'>
+      <div className='my-10 md:my-36'>
         {/* content container */}
         <div className='static-padding-x'>
-          <div className='flex flex-col md:flex-row'>
-            <div className='w-[85%] sm:w-[65%] mx-auto md:w-[40%] lg:w-[30%] relative '>
-              <div className='relative md:absolute w-full h-max z-30 left-0 top-0 mt-[-60px] bg-neutral-800 border-8 border-white rounded-b-3xl'>
-                <div className='flex items-center justify-center py-3'>
-                  <div className='grid grid-cols-3 gap-3'>
-                    <div className='w-[90px] aspect-[2/1.5] overflow-hidden rounded-md'>
-                      <img className='w-full h-full object-center object-cover' src="https://blog.tkelevator.com/wp/wp-content/uploads/2018/06/shutterstock_464879318-scaled.jpg" alt="" />
-                    </div>
-                    <div className='w-[90px] aspect-[2/1.5] overflow-hidden rounded-md'>
-                      <img className='w-full h-full object-center object-cover' src="https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?cs=srgb&dl=pexels-pixabay-302769.jpg&fm=jpg" alt="" />
-                    </div>
-                    <div className='w-[90px] aspect-[2/1.5] overflow-hidden rounded-md'>
-                      <img className='w-full h-full object-center object-cover' src="https://www.burohappold.com/wp-content/uploads/2020/02/experts-in-tall-buildings-burohappold_getty.jpg" alt="" />
+          {/* header */}
+          <div>
+            {/* bold */}
+            <div className='header-level-3 mb-2 uppercase'>
+              <p>Our legal services</p>
+            </div>
+          </div>
+          {/* accordion */}
+          <div>
+            {/* first accordion */}
+            {
+              services?.servicesList.map((item, index) => {
+                return (
+                  <div key={index} className='p-1 md:p-5 rounded-sm bg-white shadow-md mt-5 text-[.85rem] md:text-[1.05rem]'>
+                    <header className='flex items-center justify-between py-2'>
+                      <div>
+                        <p className='font-bold w-max cursor-pointer hover:underline' onClick={() => {
+                          setServices(prev => {
+                            return {
+                              ...prev,
+                              servicesIndex: index,
+                            }
+                          })
+                        }}>{item.title}</p>
+                      </div>
+                      <div>
+                        <div className='w-[28px] aspect-square rounded-full bg-gray-100 flex items-center justify-center transition-colors ease-in-out duration-300 hover:bg-gray-200 cursor-pointer' onClick={() => {
+                          setServices(prev => {
+                            return {
+                              ...prev,
+                              servicesIndex: index,
+                            }
+                          })
+                        }}>
+                          <MdKeyboardArrowDown className={`text-2xl transition-transform ease-in-out duration-300 ${services?.servicesIndex === index ? '-rotate-180' : 'rotate-0'}`} />
+                        </div>
+                      </div>
+                    </header>
+
+                    <div className={`overflow-hidden ${services?.servicesIndex === index ? 'h-auto' : 'h-0'}`}>
+                      <div className='pt-3 border-t border-gray-200'>
+                        <div>
+                          <p>
+                            {item.text}
+                          </p>
+                        </div>
+
+                        {
+                          item?.subList?.length > 0
+                            ?
+                            <div className='mx-5'>
+
+                              {
+                                item?.subList?.map((subItem, subIndex) => {
+                                  return (
+                                    <div className='my-1.5'>
+                                      <header className='flex items-center justify-between'>
+                                        <div className='font-bold text-sm text-gray-800'>
+                                          <span>{subItem?.title}</span>
+                                        </div>
+                                        <div>
+                                          <div className='w-[24px] aspect-square rounded-full overflow-hidden flex items-center justify-center text-lg bg-gray-100 cursor-pointer hover:bg-gray-200' onClick={() => {
+                                            console.log(subIndex)
+                                            setServices(prev => {
+                                              return {
+                                                ...prev,
+                                                subServicesIndex: prev?.subServicesIndex === subIndex ? -1 : subIndex
+                                              }
+                                            })
+                                          }}>
+                                            <IoMdAdd className={`transition-transform ease-in-out duration-300 ${services?.subServicesIndex === subIndex ? 'rotate-45' : 'rotate-0'}`} />
+                                          </div>
+                                        </div>
+                                      </header>
+                                      <div>
+                                        <div className={`text-sm italic text-gray-700 py-1 border-b border-gray-100 overflow-hidden ${services?.subServicesIndex === subIndex ? 'h-max' : 'h-0'}`}>
+                                          <p>
+                                            {subItem?.text}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )
+                                })
+                              }
+
+                            </div>
+                            :
+                            <></>
+                        }
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className='p-3'>
-                  <p>
-                    categorizes special movables into tangible assets (such as motor vehicles, ships, and capital goods) and intangible assets (including patents, businesses, and copyrights)
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className='w-[100%] md:w-[60%] lg:w-[70%] p-7 pr-0'>
-              {/* bold */}
-              <div className='header-level-3'>
-                <p>
-                  Ethiopian legal framework
-                </p>
-              </div>
-              {/* normal text */}
-              <div className='my-2'>
-                <p>
-                  At Makuta Law Firm, our dedicated team of legal professionals is committed to meticulously creating and examining a variety of contracts, ensuring compliance with Ethiopian regulations while placing your priorities at the forefront
-                </p>
-              </div>
-              {/* button */}
-              <div className='mt-5'>
-                <button className='flex items-center justify-center gap-3 px-7 py-2 border-2 border-yellow-500 bg-yellow-500 text-white transition-colors ease-in-out duration-300 hover:bg-transparent'>
-                  <span>Contact Our Legal Team</span>
-                  <HiArrowLongRight className='text-xl' />
-                </button>
-              </div>
-            </div>
+                )
+              })
+            }
           </div>
         </div>
       </div>
 
-      {/* fifth order container */}
-      <div className='mb-28'>
-        {/* content container */}
-        <div className='static-padding-x'>
-          {/* bold container */}
-          <div className='header-level-3 mb-5 pb-3 border-b-4 border-yellow-500'>
-            <p>
-              Our Legal Services
-            </p>
-          </div>
-          <div>
-            <div>
-              {
-                services.map((item, index) => {
-                  return (
-                    <div key={index} className='mb-3 border-b border-yellow-500 pb-3'>
-                      <header className='py-2'>
-                        <h3 className='font-bold'>{item.title}</h3>
-                      </header>
-                      <div className='px-10'>
-                        <p>
-                          {item.text}
-                        </p>
-                      </div>
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-        </div>
-      </div>
 
     </div>
   )

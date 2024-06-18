@@ -8,30 +8,6 @@ import { IoMdAdd } from "react-icons/io";
 
 const IndividualConsultingForm = () => {
 
-    // local data
-    const typeOfTrainings = [
-        {
-            title: 'Corporate Compliance Training',
-        },
-        {
-            title: 'Contract Law And Negotiation Training',
-        },
-        {
-            title: 'Employment Law Training',
-        },
-        {
-            title: 'Litigation And Dispute Resolution Training',
-        },
-        {
-            title: 'Real Estate Law Training',
-        },
-        {
-            title: 'Cybersecurity And Data Protection Training',
-        },
-        {
-            title: 'Others',
-        },
-    ]
 
     // states
     const [employmentStatus, setEmploymentStatus] = useState({
@@ -150,7 +126,7 @@ const IndividualConsultingForm = () => {
                             <div className='font-semibold mb-1'>
                                 <h3>Gender</h3>
                             </div>
-                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                            <div className='flex items-center p-1  bg-white rounded-sm gap-3'>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-male" name="individual_gender" value="MALE" />
                                 <label for="individual-male">Male</label>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-female" name="individual_gender" value="FEMALE" />
@@ -191,7 +167,7 @@ const IndividualConsultingForm = () => {
                             <div className='font-semibold mb-1'>
                                 <h3>Employment Information</h3>
                             </div>
-                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                            <div className='flex items-center p-1  bg-white rounded-sm gap-3'>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-employed" name="individual_employment" value="EMPLOYED" onClick={() => {
                                     setIsEmployed(true)
                                 }} />
@@ -381,7 +357,7 @@ const IndividualConsultingForm = () => {
                             <div className='font-semibold mb-1'>
                                 <h3>Marital Status</h3>
                             </div>
-                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                            <div className='flex items-center p-1  bg-white rounded-sm gap-3'>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="marital_status_married" name="marital_status" value="Married" />
                                 <label for="marital_status_married">Married</label>
 
@@ -534,7 +510,7 @@ const IndividualConsultingForm = () => {
                             <div className='font-semibold mb-1'>
                                 <h3>Preferred Communication Method</h3>
                             </div>
-                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                            <div className='flex items-center p-1  bg-white rounded-sm gap-3'>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-phone" name="communication_method" value="Married" />
                                 <label for="communication-phone">phone</label>
 
@@ -560,7 +536,7 @@ const IndividualConsultingForm = () => {
                             <div className='font-semibold mb-1'>
                                 <h3>Criminal History (For Criminal Case)</h3>
                             </div>
-                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                            <div className='flex items-center p-1  bg-white rounded-sm gap-3'>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-criminal-history-yes" name="individual-criminal-history" value="YES" />
                                 <label for="individual-criminal-history-yes">Yes</label>
 
@@ -579,7 +555,7 @@ const IndividualConsultingForm = () => {
                             <div className='font-semibold mb-1'>
                                 <h3>Prior Legal Representation Over The Legal Issue</h3>
                             </div>
-                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                            <div className='flex items-center p-1  bg-white rounded-sm gap-3'>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="individual-legal-representation-yes" name="individual-legal-representation" value="YES" />
                                 <label for="individual-legal-representation-yes" >Yes</label>
 
@@ -597,7 +573,7 @@ const IndividualConsultingForm = () => {
                             <div className='font-semibold mb-1'>
                                 <h3>Preferred Time Of Communication</h3>
                             </div>
-                            <div className='flex p-1  bg-white rounded-sm gap-3'>
+                            <div className='flex items-center p-1  bg-white rounded-sm gap-3'>
                                 <input className='outline-none ring-0 focus:ring-0 focus:outline-none' type="radio" id="communication-time-morning" name="communication-time" value="Morning" />
                                 <label for="communication-time-morning">Morning</label>
 
