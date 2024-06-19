@@ -81,7 +81,7 @@ const PrivateProfile = () => {
     });
   };
 
-  console.log(users, "user");
+  // console.log(users, "user");
   return (
     <div className="w-full h-auto pb-10 -mt-6  px-5 flex flex-col gap-3">
       <Response
@@ -645,15 +645,12 @@ const PrivateProfile = () => {
 
                       <div className="flex items-center gap-3 my-[2.5px]">
                         <div class="flex items-center">
-                          <input
-                            onChange={e => setEmployed(true)}
-                            checked={employed ? true : false}
-                            id="default-radio-1"
-                            type="radio"
-                            value=""
-                            name="default-radio"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-0 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600"
-                          />
+                          <div
+                            onClick={e => setEmployed(true)}
+                            class={`w-4 h-4 ${
+                              employed ? "bg-blue-600" : "bg-white"
+                            }  rounded-full border border-gray-600 text-gray-100 focus:ring-0`}
+                          ></div>
                           <label
                             for="default-radio-1"
                             class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer"
@@ -662,15 +659,12 @@ const PrivateProfile = () => {
                           </label>
                         </div>
                         <div class="flex items-center">
-                          <input
-                            onChange={e => setEmployed(false)}
-                            checked={employed ? false : true}
-                            id="default-radio-2"
-                            type="radio"
-                            value=""
-                            name="default-radio"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-0 dark:focus:ring-blue-600 dark:ring-offset-gray-800 ring-0 dark:bg-gray-700 dark:border-gray-600"
-                          />
+                          <div
+                            onClick={e => setEmployed(false)}
+                            class={`w-4 h-4 ${
+                              !employed ? "bg-blue-600" : "bg-white"
+                            }  rounded-full border border-gray-600 text-gray-100 focus:ring-0`}
+                          ></div>
                           <label
                             for="default-radio-2"
                             class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer"
