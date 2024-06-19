@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - gedi_working_branch
-name: 🚀 Deploy makutalawfirm
+name: 🚀 Deploy makutalaw
 defaults:
   run:
     working-directory: ./client
