@@ -209,6 +209,14 @@ import CorporateMerger from "./pages/corporate/corporate-trade-investment/Corpor
 import CorporateInvestment from "./pages/corporate/corporate-trade-investment/CorporateInvestment";
 import CorporateTradeInvestmentOthers from "./pages/corporate/corporate-trade-investment/CorporateTradeInvestmentOthers";
 
+// corporate - financial sector
+import CorporateFinancialSectorOutlet from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorOutlet.jsx'
+import CorporateFinancialSectorBanking from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorBanking.jsx'
+import CorporateFinancialSectorCapitalMarket from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorCapitalMarket.jsx'
+import CorporateFinancialSectorInsurance from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorInsurance.jsx'
+import CorporateFinancialSectorPayment from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorPayment.jsx'
+import CorporateFinancialSectorOthers from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorOthers.jsx'
+
 // criminal 
 import CriminalOutlet from "./pages/criminal/CriminalOutlet";
 import CriminalOrdinaryCrime from "./pages/criminal/CriminalOrdinaryCrime";
@@ -298,6 +306,14 @@ function App() {
                   <Route path="/corporate/trade-investment/merger" element={<CorporateMerger />}></Route>
                   <Route path="/corporate/trade-investment/investment" element={<CorporateInvestment />}></Route>
                   <Route path="/corporate/trade-investment/others" element={<CorporateTradeInvestmentOthers />}></Route>
+                </Route>
+                {/* corporate - financial sector */}
+                <Route path="/corporate/financial-sector" element={<CorporateFinancialSectorOutlet />}>
+                <Route path="/corporate/financial-sector/banking" element={<CorporateFinancialSectorBanking />}></Route>
+                <Route path="/corporate/financial-sector/capital-market" element={<CorporateFinancialSectorCapitalMarket />}></Route>
+                <Route path="/corporate/financial-sector/insurance" element={<CorporateFinancialSectorInsurance />}></Route>
+                <Route path="/corporate/financial-sector/payment" element={<CorporateFinancialSectorPayment />}></Route>
+                <Route path="/corporate/financial-sector/others" element={<CorporateFinancialSectorOthers />}></Route>
                 </Route>
                 {/* criminal */}
                 <Route path="/criminal" element={<CriminalOutlet />}>
