@@ -2,6 +2,7 @@ import asyncCatch from "express-async-catch";
 import AppError from "../utils/AppError.js";
 import { selectModel } from "../utils/selectModel.js";
 import v2 from "./../config/cloudinary.js";
+ import { Query } from "mongoose";
 
 const api = "http://localhost:5000/uploads/";
 
@@ -138,22 +139,23 @@ export const _read = asyncCatch(async (req, res, next) => {
     const skip = (page - 1) * limit;
     query.skip(skip).limit(limit);
 
+    query.populate(req.query.populatingValue.split(",").join(" "));
     //populating
     // console.log(req.query);
-    switch (req.query.populatingType) {
-      case "users":
-        query.populate(req.query.populatingValue);
-        break;
-      case "applications":
-        query.populate(req.query.populatingValue);
-        break;
-      case "cases":
-        query.populate(req.query.populatingValue);
-        break;
-      // query.populate(req.query.populatingValue.split(",").join(" "));
-      default:
-        query;
-    }
+    // switch (req.query.populatingType) {
+    //   case "users":
+    //     query.populate(req.query.populatingValue);
+    //     break;
+    //   case "applications":
+    //     query.populate(req.query.populatingValue);
+    //     break;
+    //   case "cases":
+    //     query.populate(req.query.populatingValue);
+    //     break;
+    //   // query.populate(req.query.populatingValue.split(",").join(" "));
+    //   default:
+    //     query;
+    // }
 
     // req.query.limits ? query.limit(req.query.limits) : null;
     const data = await query;
@@ -179,60 +181,28 @@ export const _read = asyncCatch(async (req, res, next) => {
 
 //update
 export const _update = asyncCatch(async (req, res, next) => {
+  console.log(req.query, "ddd");
   const model = selectModel(req.params.table, next);
-  // const value = { ...req.body };
-  // const files = fileHandler(value, req);
-  // if (model) {
-  // console.log(req.files);
-  if (!req.files || !req.files.profilePicture) {
+   const value = { ...req.body };
+  const files = fileHandler(value, req);
+  if (model) {
+    const files = fileHandler(value, req);
     const data = await model.findOneAndUpdate(
       { _id: req.query.id },
-      { ...req.body },
-      { runValidators: true }
+      { ...files },
+      { runValidators: true, new: true }
     );
 
-    if (!data) {
+     if (!data)
       return next(
         new AppError("something went wrong unable to update the data")
       );
-    }
 
-    return res.status(201).json({
-      status: "Success",
-      message: "data updated successfully",
-    });
+    return res
+      .status(201)
+      .json({ status: "Success", message: "data updated successfully", data });
   }
-  v2.uploader.upload(
-    req.files.profilePicture[0].path,
-    async function (err, result) {
-      if (err) {
-        console.log(err, "errors cloud");
-        return res
-          .status(500)
-          .json({ message: "something went wrong account not created" });
-      } else {
-        console.log(result, "result");
-        const data = await model.findOneAndUpdate(
-          { _id: req.query.id },
-          { ...req.body, profilePicture: result.url },
-          { runValidators: true }
-        );
-
-        if (!data) {
-          return next(
-            new AppError("something went wrong unable to update the data")
-          );
-        }
-
-        return res.status(201).json({
-          status: "Success",
-          message: "data updated successfully",
-        });
-      }
-    }
-  );
-
-  // return next(new AppError("something went wrong please try again!!", 500));
+  return next(new AppError("something went wrong please try again!!", 500));
 });
 
 //delete

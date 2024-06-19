@@ -18,29 +18,126 @@ const privateSchema = new mongoose.Schema(
       validate: valid.name("Last name"),
     },
 
-    bio: {
-      type: String,
-      validate: valid.textMax("Bio", 100),
-    },
-
     gender: {
       type: String,
       validate: valid.gender("Gender"),
     },
 
+    birth: {
+      type: String,
+      validate: valid.gender("Date of birth"),
+    },
+
+    nationality: {
+      type: String,
+      validate: valid.paragraph("Nationality", 4, 100),
+    },
+
+    // contact info
     phone: {
       type: String,
       validate: valid.phone("Phone"),
     },
 
     address: {
-      type: String,
-      validate: valid.paragraph("Address", 4, 200),
+      type: {
+        country: { type: String, validate: valid.paragraph("Country") },
+        region: {
+          type: String,
+          validate: valid.required("Region", 4, 100),
+        },
+        city: {
+          type: String,
+          validate: valid.paragraph("City", 4, 100),
+        },
+        subCity: {
+          type: String,
+          validate: valid.paragraph("Sub City", 4, 100),
+        },
+        // woreda: {
+        //   type: String,
+        //   validate: valid.paragraph("Woreda", 4, 100),
+        // },
+        houseNumber: {
+          type: String,
+          validate: valid.paragraph("House Number", 4, 100),
+        },
+      },
     },
 
-    nationality: {
+    // employment info
+    employmentInfo: {
+      type: {
+        employed: { type: Boolean, default: false },
+        currentEmployer: {
+          type: String,
+          validate: valid.paragraph("Current Employer", 4, 100),
+        },
+        jobTitle: {
+          type: String,
+          validate: valid.paragraph("Job Title", 4, 100),
+        },
+        employmentStatus: {
+          type: String,
+          validate: valid.paragraph("Employment Status", 4, 100),
+        },
+      },
+    },
+    maritalStatus: {
       type: String,
-      validate: valid.paragraph("Nationality", 4, 100),
+      enum: ["Married", "Separated", "Divorced", "Not Married"],
+      default: "Not Married",
+      validate: valid.required("Marital Status"),
+    },
+
+    // dependents information: {
+    //   type: String,
+    //   validate: valid.paragraph("dependents information", 4, 100),
+    // },
+    contactInformation: {
+      type: {
+        phone: { type: String, validate: valid.phone("Phone") },
+        postalCode: {
+          type: String,
+        },
+      },
+    },
+
+    preferredCommunicationMethod: {
+      type: String,
+      validate: valid.required("Preferred Communication Method"),
+    },
+
+    criminalHistory: {
+      type: String,
+      enum: ["Yes", "No"],
+      default: "No",
+      validate: valid.required("Criminal History"),
+    },
+
+    priorLegalRepresentation: {
+      type: String,
+      enum: ["Yes", "No"],
+      default: "No",
+      previousAttorneyInfo: {
+        name: String,
+        email: String,
+        phone: String,
+      },
+      validate: valid.required("Previous Attorney"),
+    },
+
+    preferredCommunicationTime: {
+      type: String,
+      validate: valid.required("Preferred Communication Time"),
+    },
+
+    emergencyContactInfo: {
+      fullName: String,
+      relationshipType: String,
+      phone: String,
+      email: String,
+      postalCode: String,
     },
 
     isPro: {
@@ -50,8 +147,12 @@ const privateSchema = new mongoose.Schema(
 
     profilePicture: {
       type: String,
-      default:
-        "https://res.cloudinary.com/dkvjvnil8/image/upload/v1712314644/vzmlq3pntlqhnkpv5zwx.png",
+      default: "http://localhost:3000/Default_Profile_Picture.svg",
+    },
+
+    bio: {
+      type: String,
+      validate: valid.textMax("Bio", 100),
     },
 
     profileFillStatus: {

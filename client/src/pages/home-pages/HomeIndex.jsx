@@ -39,6 +39,10 @@ import { MdEngineering } from "react-icons/md";
 import { GrUserManager } from "react-icons/gr";
 import { MdOutlineElderlyWoman } from "react-icons/md";
 import { RiContactsBookLine } from "react-icons/ri";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { AiOutlineGlobal } from "react-icons/ai";
+import { LuPhoneCall } from "react-icons/lu";
+import { FaGlobeAfrica } from "react-icons/fa";
 
 const HomeIndex = () => {
   // local states
@@ -66,35 +70,35 @@ const HomeIndex = () => {
       first_name: "Betlhem",
       middle_name: "Melese",
       last_name: "Eshetu",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/betlhem.jpg"
     },
     {
       first_name: "Haddis",
       middle_name: "Fanta",
       last_name: "Shiferaw",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/lawyer-one.jpg"
     },
     {
       first_name: "Rodas",
       middle_name: "Girma",
       last_name: "W/Gebreal",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/rodas.jpg"
     },
     {
       first_name: "Gedeon",
       middle_name: "Agmas",
       last_name: "W/Gebreal",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/lawyer-two.jpg"
     },
     {
       first_name: "Andualem",
       middle_name: "Chane",
       last_name: "W/Gebreal",
-      profession: "Lawyer/Partner",
+      profession: "Lawyer",
       profile_path: "/images/lawyers/lawyer-three.jpg"
     }
   ];
@@ -223,7 +227,7 @@ const HomeIndex = () => {
       title: "Social Security",
       subList: [
         {
-          text: "Social Security Disability",
+          text: "Disability",
           path: "#"
         }
       ]
@@ -312,10 +316,11 @@ const HomeIndex = () => {
     "/images/lawyers/lawyer-two.jpg",
     "/images/lawyers/rodas.jpg"
   ];
+
   return (
     <>
       {/* first order container */}
-      <div className="w-full px-[3%] pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
+      <div className="w-full px-[3%] text-[1.25rem] text-black pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
         <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
           <div className="w-full mt-12 sm:mt-3  sm:w-[45%]">
@@ -335,7 +340,7 @@ const HomeIndex = () => {
             </div>
             {/* normal paragraph */}
             <div>
-              <p className="my-[5%]">
+              <p className="my-[5%] normal-text">
                 Get qualified and efficient legal help from lawyers who are the
                 highest professionals in their field, in every area of law. We
                 have you covered.
@@ -447,7 +452,7 @@ const HomeIndex = () => {
                       <SiPostman />
                     </div>
                     {/* text */}
-                    <div>
+                    <div className="text-sm">
                       <p>Addis Ababa, Ethiopia</p>
                     </div>
                   </div>
@@ -461,7 +466,7 @@ const HomeIndex = () => {
                       </h3>
                     </header>
                     <div
-                      className="px-3 h-[19.5vh] overflow-y-auto mr-1"
+                      className="px-3 h-[22.5vh] overflow-y-auto mr-1"
                       id="home-lawyer-list-card"
                     >
                       {/* lawyer container */}
@@ -523,15 +528,15 @@ const HomeIndex = () => {
         <div className="w-full flex items-center gap-0">
           {/* text container */}
           <div className="w-[100%] lg:w-[50%] border-b-[7px] pb-[2%] border-black">
-            <div className="my-5 text-[1.75rem] font-bold">
-              <p>Why Choose US</p>
+            <div className="my-3">
+              <h2 className="header-level-2">Why Choose US</h2>
             </div>
             {/* sub texts */}
             <div className="mb-7">
-              <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Network</p>
+              <div className="my-2">
+                <h3 className="header-level-3">Network</h3>
               </div>
-              <div className="text-[1rem]">
+              <div className="normal-text">
                 <p>
                   Our Network of experienced lawyers number in the hundreds
                   throughout Africa and the world, ensuring your legal needs are
@@ -541,10 +546,10 @@ const HomeIndex = () => {
             </div>
 
             <div className="mb-7">
-              <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Professionalism</p>
+              <div className="my-2">
+                <h3 className="header-level-3">Professionalism</h3>
               </div>
-              <div className="text-[1rem]">
+              <div className="normal-text">
                 <p>
                   Our team of lawyers have superior local and international
                   experience to meet your needs.
@@ -553,10 +558,10 @@ const HomeIndex = () => {
             </div>
 
             <div>
-              <div className="my-2 text-[1.35rem] font-semibold">
-                <p>Client-Centered Focus</p>
+              <div className="my-2">
+                <h3 className="header-level-3">Client-Centered Focus</h3>
               </div>
-              <div className="text-[1rem]">
+              <div className="normal-text">
                 <p>
                   Your satisfaction is our top priority, and we strive to go
                   above and beyond your expectations to deliver superlative
@@ -570,7 +575,8 @@ const HomeIndex = () => {
             {/* image container */}
             <div className="flex items-center justify-center">
               <div>
-                <img src="/images/bg/site-image.jpg" alt="" />
+                <img src="/LAW.jpg" alt="" />
+                {/* <img src="/images/bg/site-image.jpg" alt="" /> */}
               </div>
             </div>
           </div>
@@ -608,11 +614,11 @@ const HomeIndex = () => {
           {/* right */}
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
-            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
-              <p>For your business</p>
+            <div className="mb-1">
+              <h2 className="header-level-2">For your business</h2>
             </div>
             {/* normal paragraph */}
-            <div className="text-[.875rem] md:text-[1.05rem]">
+            <div className="normal-text">
               <p>
                 Whether you need to establish a company, apply for licenses and
                 permits, or obtain a tax ID, we will help set your business up
@@ -647,6 +653,72 @@ const HomeIndex = () => {
         </div>
       </div>
 
+      {/* banner container */}
+      <div className="h-[350px] flex bg-yellow-400 relative">
+        {/* left */}
+        <div className="w-[60%] flex-grow bg-white [clip-path:polygon(-1%_-1%,100%_-1%,75%_85%,0%_85%)] flex flex-col">
+          <div className="h-[50%] w-full bg-white flex-grow"></div>
+          <div className="h-[50%] w-full flex-grow bg-yellow-300 [clip-path:polygon(0%_60%,70%_60%,78%_0%,100%_0%,100%_100%,0%_100%)]"></div>
+        </div>
+        {/* right */}
+        <div className="w-[40%] flex-grow bg-black flex relative [clip-path:polygon(33%_15%,100%_15%,101%_101%,0%_101%)] ml-[-10%]">
+          <div className="w-full h-full overflow-hidden">
+            <img
+              className="w-full h-full object-center object-cover opacity-55"
+              src="https://www.shutterstock.com/image-photo/statue-justice-symbol-legal-law-600nw-681265648.jpg"
+              alt=""
+            />
+          </div>
+          <div className="absolute left-0 top-0 w-full h-full z-10 bg-yellow-400 opacity-15 [clip-path:polygon(0%_0%,100%_0%,100%_25%,45%_25%,15%_100%,0%_100%)]"></div>
+        </div>
+        <div className="absolute z-30 left-0 top-0 w-full h-full px-[3%] sm:px-[12%] py-[1%] flex">
+          {/* left */}
+          <div className="w-[100%] lg:w-[65%] flex-grow">
+            <div>
+              <h2 className="header-level-2">
+                <span className="text-blue-900">Makuta</span> Call Center
+              </h2>
+            </div>
+            <div className="normal-text my-2 font-medium w-[100%] lg:w-[75%]">
+              <p>
+                If any legal or technical difficulties, please contact the call
+                center
+              </p>
+            </div>
+            <div className="flex items-center gap-5 mt-3">
+              <div className="flex flex-col items-center justify-center">
+                <div>
+                  <div className="aspect-square p-2 rounded-full bg-yellow-400 text-white text-xl">
+                    <LuPhoneCall />
+                  </div>
+                </div>
+                <div className="my-1 font-bold normal-text">
+                  <span>Local Call Center</span>
+                </div>
+                <div className="font-bold text-blue-900 text-2credxl">
+                  <span>8383</span>
+                </div>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <div>
+                  <div className="aspect-square p-1 rounded-full bg-yellow-400 text-white text-3xl">
+                    <FaGlobeAfrica />
+                  </div>
+                </div>
+                <div className="my-1 font-bold normal-text">
+                  <span>International Call Center</span>
+                </div>
+                <div className="font-bold text-blue-900 text-2xl">
+                  <span>(+251) 985 228 888</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* right */}
+          <div className="w-[0%] lg:w-[35%] lg:flex-grow"></div>
+        </div>
+      </div>
+
       {/* fourth order container */}
       <div className="px-[3%] sm:px-[12%] py-[3%]">
         {/* content container container */}
@@ -654,11 +726,11 @@ const HomeIndex = () => {
           {/* left */}
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
-            <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
-              <p>For you and your family</p>
+            <div className="mb-4">
+              <h2 className="header-level-2">For you and your family</h2>
             </div>
             {/* normal paragraph */}
-            <div className="text-[.875rem] md:text-[1.05rem]">
+            <div className="normal-text">
               <p>
                 From wills to powers of attorney, the right estate planning
                 documents can safeguard you and your loved ones—both now, and
@@ -725,14 +797,14 @@ const HomeIndex = () => {
             <p>FIND A LAWYER BY PRACTICE AREA</p>
           </div>
           {/* normal paragraph */}
-          <div className="flex items-center justify-center my-3">
+          <div className="flex items-center justify-center my-3 normal-text">
             <p>
               Our directory of lawyers covers over 150 practice areas across the
               US and Canada
             </p>
           </div>
           {/* grid container */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-[3%]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-7 py-[3%]">
             {/* list */}
             {caseTypes.map((item, index) => (
               <div
@@ -742,10 +814,10 @@ const HomeIndex = () => {
                 <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
                   <item.icon className="text-[1.5rem] text-yellow-700" />
                 </div>
-                <h3 className="mt-3 flex items-center justify-center font-bold">
+                <h3 className="mt-3 flex items-center justify-center font-bold normal-text">
                   {item.title}
                 </h3>
-                <ul className="flex flex-col items-center">
+                <ul className="flex flex-col items-center justify-center normal-text">
                   {item?.subList.map((subList, index) => (
                     <li key={index}>
                       <NavLink>{subList.text}</NavLink>
@@ -759,7 +831,7 @@ const HomeIndex = () => {
                 <FaScaleBalanced className="text-[1.5rem] text-yellow-700" />
               </div>
 
-              <ul className="flex flex-col items-center font-bold my-5">
+              <ul className="flex flex-col items-center justify-center normal-text font-bold my-5">
                 <li>
                   <NavLink>Tax</NavLink>
                 </li>
@@ -785,11 +857,11 @@ const HomeIndex = () => {
             {/* left container */}
             <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
               {/* bold paragraph */}
-              <div className="mb-4 text-[1.35rem] sm:text-[1.65rem] lg:text-[1.975rem] font-bold">
-                <p>For your intellectual property</p>
+              <div className="mb-4">
+                <h2 className="header-level-2">For your intellectual property</h2>
               </div>
               {/* normal paragraph */}
-              <div className="text-[.875rem] md:text-[1.05rem]">
+              <div className="normal-text">
                 <p>
                   Need to trademark your logo, copyright a creative work, or
                   patent an invention? Protect yourself against copycats.
@@ -995,21 +1067,19 @@ const HomeIndex = () => {
                 </button>
               </div>
               {/* bold paragraph */}
-              <div className="my-5 text-[1.15rem] leading-6 md:text-[1.5rem] font-[700] md:leading-7">
-                <p>Have you face court or arbitration case in Ethiopian?</p>
+              <div className="my-5">
+                <h2 className="header-level-2">Have you face court or arbitration case in Ethiopian?</h2>
               </div>
               {/* normal paragraph */}
-              <div>
+              <div className="normal-text">
                 <p>
                   Don’t worry Makuta Law Firm right behind you. Risk management
                   and compliance are keys to avoid disruptive large scale
-                  litigation. Whenever possible, our team make sure our clients
-                  implement measures to ensure they do not become embroiled into
-                  dispute. Our Services include
+                  litigation.
                 </p>
               </div>
               {/* text with icon */}
-              <div className="flex flex-col gap-y-5 mt-5">
+              <div className="flex flex-col gap-y-5 mt-5 normal-text">
                 <div className="flex items-center gap-3">
                   <div className="p-1 bg-pink-100 border border-pink-400 text-pink-600 text-[1.15rem] rounded-full">
                     <MdOutlineFireplace />
@@ -1062,7 +1132,7 @@ const HomeIndex = () => {
             <p>Explore our legal article resources</p>
           </div>
           {/* normal paragraph */}
-          <div className="flex items-center justify-center my-3">
+          <div className="flex items-center justify-center my-3 normal-text">
             <p>
               Learn more about your issue by reading helpful articles on a
               variety of legal topics.

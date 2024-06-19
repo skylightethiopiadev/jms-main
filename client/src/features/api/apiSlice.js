@@ -26,8 +26,8 @@ let tag = [];
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/makuta/app/v1"
-    // baseUrl: "https://jms-main-server1.vercel.app/makuta/app/v1"
+     // baseUrl: "http://192.168.100.12:5000/jms/app/v1",
+    baseUrl: "http://localhost:5000/jms/app/v1",
   }),
   tagTypes: [
     "users",
@@ -100,8 +100,8 @@ export const apiSlice = createApi({
         url: `/account/updatePassword`,
         method: "PUT",
         body: data,
-        credentials: "include"
-      })
+         credentials: "include",
+      }),
     }),
 
     //create
@@ -232,5 +232,5 @@ export const {
   useUpdateMutation,
   useDeleteMutation,
 
-  useLazyReadChatQuery
+   useLazyReadChatQuery,
 } = apiSlice;

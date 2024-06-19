@@ -28,7 +28,9 @@ const userSchema = new mongoose.Schema(
           ? "case-manager"
           : this.role === "super-admin"
           ? "super-admin"
-          : "private";
+          : this.role === "private-customer"
+          ? "private"
+          : null;
       },
     },
     password: {
@@ -77,7 +79,7 @@ userSchema.methods.passwordCheck = async (
 userSchema.methods.isPasswordChanged = async function (iat) {
   return iat <= parseInt(this.passwordChangedAt / 1000, 10);
 };
- 
+
 userSchema.methods.createResetToken = async function () {
   const resetToken = await crypto.randomBytes(32).toString("hex");
   this.resetToken = await crypto

@@ -39,6 +39,7 @@ const NewCaseServices = ({
       });
     }
   };
+  
   return (
     <div className="w-full h-[72vh] p-[1%]">
       <div className="w-full h-full bg-white rounded-sm">

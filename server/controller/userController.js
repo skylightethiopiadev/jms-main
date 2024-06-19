@@ -22,10 +22,12 @@ export const signupHandler = asyncCatch(async (req, res, next) => {
           {
             $set: { user: account._id },
           }
-        );
+        ).populate("user");
 
         const token = tokenGenerator(res, data._id);
-
+        console.log(data, "before data");
+        delete data.password;
+        console.log(data, "after data");
         return res
           .status(200)
           .json({ message: "Account Created Successfully", token, data });
@@ -61,7 +63,9 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password)
     return next(new AppError("provide email and password", 404));
-  const user = await User.findOne({ email }).select("+password");
+  const user = await User.findOne({ email })
+    .select("+password")
+    .populate("user");
   if (!user) return next(new AppError("Invalid user name or password", 404));
 
   const isPasswordCorrect = await user.passwordCheck(user.password, password);
@@ -77,6 +81,10 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
   //   secure: false,
   //   sameSite: "None",
   // });
+
+  console.log(user, "before data");
+  delete user["password"];
+  console.log(user, "after data");
 
   res.status(200).json({
     status: "success",
@@ -260,4 +268,24 @@ export const updatePassword = asyncCatch(async (req, res, next) => {
   res
     .status(200)
     .json({ status: "Changed", message: "Password changed successfully" });
+});
+
+export const updateUsersCredentials = asyncCatch(async (req, res, next) => {
+  const { password, email, type, id, confirmPassword } = req.body;
+  console.log(req.body, req.user.role, "role");
+  const user = await User.findOne({ _id: id });
+  if (!user) return next(new AppError("Users not found please try again", 404));
+
+  user.email = email;
+
+  const data = await user.save({ validateBeforeSave: true });
+
+  if (!data)
+    return next(
+      new AppError("Something went wrong unable to update the credentials", 404)
+    );
+
+  return res
+    .status(200)
+    .json({ status: "Changed", message: "Users Data Updated successfully" });
 });
