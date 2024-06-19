@@ -8,19 +8,19 @@ const Succession = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: "Assisting the creation of Wills",
+        title: "Assisting The Drafting of Will",
         text:
-          "Assist individuals in formulating wills that are legally sound and reflect their desires for asset distribution post-mortem. We ensure these documents adhere to legal standards and address all pertinent details."
+          "Assist individuals in formulating will that are legally sound and reflect their desire for estate distribution post-mortem. We ensure these documents adhere to legal standards and address all pertinent details."
       },
       {
         title: "Securing Legal Documentation",
         text:
-          "Navigate the process of acquiring essential documents like succession certificates or letters of administration, crucial for their asset transfer."
+          "Assisting individuals navigate the process of acquiring essential documents to secure rights."
       },
       {
         title: "Property Division",
         text:
-          "Manage the partitioning of assets bequeathed by ancestors, aiding in the resolution of familial disputes over inheritance claims and asset allocation."
+          "MManage the partitioning of assets bequeathed by the deceased, aiding in the resolution of familial disputes over inheritance claims and estate allocation."
       },
       {
         title: "Court Representation",
@@ -35,7 +35,7 @@ const Succession = () => {
       {
         title: "Dispute Resolution",
         text:
-          "Employ dispute resolution alternatives to circumvent protracted legal proceedings, orchestrating negotiations and mediations to achieve equitable settlements."
+          "Employ dispute resolution alternatives to circumvent protracted legal proceedings, orchestrating negotiations and mediation to achieve equitable settlements."
       },
       {
         title: "International Succession Consultation",
@@ -90,14 +90,14 @@ const Succession = () => {
                 </div>
 
                 {/* normal text */}
-                <div className="my-5">
+                <div className="my-5 text-justify">
                   <p>
-                    Law of succession or inheritance law, is the legal framework
-                    that dictates how a person’s assets are allocated to their
-                    successors or designated recipients after death. This
-                    critical legal mechanism ensures that the distribution of
-                    the deceased’s estate aligns with their final wishes or, if
-                    no will exists, follows the law’s default provisions.
+                    Law of succession, is the legal framework that dictates how
+                    a person’s estates are allocated to their successors or
+                    designated recipients after death. This critical legal
+                    mechanism ensures that the distribution of the deceased’s
+                    estate aligns with their final wishes or, if no will exists,
+                    follows the law’s default provisions.
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ const Succession = () => {
                   with the entitlements of surviving relatives, which can
                   sometimes result in legal conflicts and court cases. Moreover,
                   the law must navigate the intricate process of distributing
-                  assorted assets, including property, automobiles, household
+                  assorted estates, including property, automobiles, household
                   goods, stocks, and other significant possessions.
                 </p>
               </div>
@@ -147,7 +147,7 @@ const Succession = () => {
 
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* normal text */}
-                <div className="">
+                <div className="text-justify">
                   <p>
                     Ethiopia’s Law of Succession is designed to balance two
                     competing interests. Firstly, it upholds the deceased’s
@@ -275,7 +275,7 @@ const Succession = () => {
                   </p>
                 </div>
                 {/* normal text */}
-                <div className="my-5">
+                <div className="my-5 text-justify">
                   <p>
                     Under Ethiopian succession legislation, testate succession
                     grants the testator (the person writing the will) the
@@ -321,7 +321,7 @@ const Succession = () => {
               </div>
               {/* right */}
               <div className="flex-grow">
-                <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+                <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                   <p>
                     At Makuta Law Firm, our dedicated team of legal
                     professionals are committed to meticulously creating and
@@ -342,7 +342,7 @@ const Succession = () => {
             <div className="flex flex-col-reverse md:flex-row">
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* normal text */}
-                <div className="">
+                <div className="text-justify">
                   <p>
                     In the context of testate succession, Ethiopian law
                     recognizes three distinct types of wills, each with specific
@@ -380,9 +380,7 @@ const Succession = () => {
               <div className="w-[100%] ">
                 {/* normal text */}
                 <div className="my-5 text-justify font-bold text-xl">
-                  <p>
-                    The three types of will and their formality requirements are
-                  </p>
+                  <p>Types of wills and their formality requirements</p>
                 </div>
 
                 {/* grid */}
@@ -396,15 +394,12 @@ const Succession = () => {
                         In Ethiopia, the creation of a public will necessitate
                         its oral presentation in the presence of the testator
                         and a minimum of four witnesses. The testator can
-                        prepare the will with or without the witnesses present.
+                        prepare this will with or without witnesses present.
                         However, it is essential for the will to be declared
                         audibly in the presence of both the testator and the
-                        witnesses, and this requirement must be clearly stated
-                        within the will. Following the reading, it is crucial
-                        for the testator and all witnesses to sign the document
-                        immediately. In certain cases, the law permits the
-                        presence of only two witnesses to maintain the will’s
-                        validity.
+                        witnesses. Following the reading, it is crucial for the
+                        testator and all witnesses to sign the document
+                        immediately.
                       </p>
                     </div>
                   </div>
@@ -415,14 +410,13 @@ const Succession = () => {
                     </header>
                     <div>
                       <p>
-                        This type of will, known as a holographic will, is one
-                        that the testator personally drafts without the presence
-                        of any witnesses. It must be unambiguously identified as
-                        a will, and any alterations or revocations can render it
-                        void. The will should be in the testator’s own
-                        handwriting; if produced mechanically, it must include a
-                        handwritten note on each page confirming the testator’s
-                        authorship.
+                        This type of will is one that the testator personally
+                        drafts without the presence of any witnesses. It must be
+                        unambiguously identified as a will, and any alterations
+                        or revocations can render it void. The will should be in
+                        the testator’s own handwriting; if produced
+                        mechanically, it must include a handwritten note on each
+                        page confirming the testator’s authorship.
                       </p>
                     </div>
                   </div>
@@ -439,9 +433,8 @@ const Succession = () => {
                         scope of testamentary instructions. Not all of the
                         testator’s assets may be allocated through this will. It
                         is limited to funeral arrangements, bequeathing a
-                        specific individual no more than 500 birr, and
-                        appointing guardians or tutors for the testator’s minor
-                        children.
+                        specific amount not more than 500 birr, and appointing
+                        guardians or tutors for the testator’s minor children.
                       </p>
                     </div>
                   </div>
@@ -532,25 +525,23 @@ const Succession = () => {
                   </p>
                 </div>
                 {/* normal text */}
-                <div className="my-5">
+                <div className="my-5 text-justify">
                   <p>
-                    When a person passes away intestate, meaning without a will,
-                    Ethiopian succession law dictates that their estate is
-                    distributed according to statutory guidelines rather than
-                    personal wishes. The law assumes the likely intentions of
-                    the deceased and allocates the estate based on familial
-                    proximity. In such cases, the order of inheritance begins
-                    with the deceased’s children or their descendants, who are
-                    entitled to equal shares of the estate. If there are no
-                    children or descendants, the parents inherit next. Should
-                    the parents be deceased, their share passes to their own
-                    descendants. In the absence of parents or their descendants,
-                    the grandparents are next in line. If there are no living
-                    relatives up to the fourth degree of kinship which is the
-                    great grandparents, the state inherits the estate as
-                    ‘Escheat’. This legal structure ensures a systematic and
-                    fair distribution of assets among the deceased’s next of
-                    kin.
+                    When a person passes away without a will, The law dictates
+                    that the estate is distributed according to statutory
+                    guidelines rather than personal wishes. The law assumes the
+                    likely intentions of the deceased and allocates the estate
+                    based on familial proximity. In such cases, the order of
+                    inheritance begins with the deceased’s children or their
+                    descendants, who are entitled to equal shares of the estate.
+                    If there are no children or descendants, the parents inherit
+                    next. Should the parents be deceased, their share passes to
+                    their own descendants. In the absence of parents or their
+                    descendants, the grandparents are next in line. If there are
+                    no living relatives up to the fourth degree of kinship, the
+                    state inherits the estate as an ‘Escheat’. This legal
+                    structure ensures a systematic and fair distribution of
+                    assets among the deceased’s next of kin.
                   </p>
                 </div>
               </div>
@@ -589,17 +580,16 @@ const Succession = () => {
                   <p>Liquidation</p>
                 </div>
                 {/* normal text */}
-                <div className="">
+                <div className="text-justify">
                   <p>
                     Following the demise of a testator or an individual who dies
                     intestate (without a will), the process of succession
                     commences, leading to the estate’s liquidation. This
-                    involves the steps of pinpointing and summoning the heirs,
+                    involves steps of pinpointing and summoning the heirs,
                     cataloging the estate’s components, collecting owed amounts,
                     settling the estate’s liabilities—including the decedent’s
-                    debts, obligations linked to the estate, and support
-                    payments—disbursing specific bequests, providing a financial
-                    summary, and distributing the assets.
+                    debt and support payments, providing a financial summary,
+                    and distributing the estates.
                   </p>
                 </div>
               </div>
@@ -616,12 +606,12 @@ const Succession = () => {
                 {/* normal text */}
                 <div className="my-5 text-justify">
                   <p>
-                    Once liquidation is complete, the executor compiles a report
-                    for both the heirs and the court. Subsequently, the
+                    Once liquidation is complete, the liquidator compiles a
+                    report for both the heirs and the court. Subsequently, the
                     identified heirs may petition the court for a certificate of
                     succession. Liquidation is a demanding process that often
                     requires the expertise of professionals, particularly when
-                    the deceased has left behind substantial assets. It is a
+                    the deceased has left behind substantial estates. It is a
                     pivotal step that ultimately establishes the successors and
                     enables them to legally obtain their inheritance.
                   </p>
@@ -649,18 +639,17 @@ const Succession = () => {
                 <div className="grid grid-cols-1 gap-10">
                   <div className="p-3 rounded-sm bg-white shadow-md">
                     <header className="py-2">
-                      <h3 className="font-bold">Period of limitation </h3>
+                      {/* <h3 className="font-bold">Period of limitation </h3> */}
                     </header>
                     <div>
                       <p>
-                        In Ethiopian succession law, there are time constraints
+                        In Ethiopia's succession law, there are time constraints
                         known as periods of limitation. If successors do not act
-                        within these timeframes to claim their inheritance, they
+                        within these timeframe to claim their inheritance, they
                         may forfeit their rights as heirs. Different limitations
-                        apply to various claims on the deceased’s assets. It’s
-                        crucial for individuals to assert their legal rights
-                        promptly and seek legal counsel if there’s any delay to
-                        determine if their rights are still valid.
+                        apply to various claims on the deceased’s estates.
+                        Therefore, It is crucial for individuals to assert their
+                        legal rights promptly and seek legal counsel. 
                       </p>
                     </div>
                   </div>
@@ -683,7 +672,7 @@ const Succession = () => {
                         of the deceased’s estates. Given the contentious nature
                         of succession in Ethiopia, anyone looking to draft a
                         will or who is involved in an inheritance should seek
-                        legal advice.
+                        legal assistance.
                       </p>
                     </div>
                   </div>
@@ -710,14 +699,14 @@ const Succession = () => {
               </div>
               {/* right */}
               <div className="flex-grow">
-                <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+                <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                   <p>
-                    If you found yourself in succession issues, it’s crucial to
+                    If you find yourself in succession issues, it is crucial to
                     address the complexities surrounding liquidation, period of
                     limitation, and entitlements. Amidst the myriad of legal
                     considerations that arise, securing legal counsel and
-                    representation is an essential step you shouldn’t overlook.
-                    The succession law specialists within makuta’s network are
+                    representation is an essential step you should not overlook.
+                    The succession law specialists within Makuta’s network are
                     equipped to offer comprehensive legal services tailored to
                     these needs.
                   </p>

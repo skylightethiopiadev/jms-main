@@ -10,7 +10,7 @@ const CivilFamilyMaintenance = () => {
       {
         title: "Drafting Agreements",
         text:
-          "We draft maintenance agreements that outline the terms and conditions of spousal support, ensuring they are clear, legally binding, and enforceable."
+          "We draft maintenance agreements that outline the terms and conditions of support, ensuring they are clear, legally binding, and enforceable."
       },
       {
         title: "Guidance on Maintenance Obligations",
@@ -20,17 +20,12 @@ const CivilFamilyMaintenance = () => {
       {
         title: "Court Representation",
         text:
-          "Whether you’re facing a maintenance claim or need to file one, we’ll represent your interests in the legal arena."
+          "Whether you are facing maintenance claim or need to file one, we will represent your interests in the legal arena."
       },
       {
         title: "Claim Negotiations",
         text:
-          "To prevent court proceedings, we’ll engage in negotiations with the opposing party."
-      },
-      {
-        title: "Additional Legal Assistance",
-        text:
-          "Our team is equipped to handle a variety of other legal needs you may have."
+          "To prevent court proceedings, we will represent clients during negotiation."
       }
     ],
     servicesIndex: 0,
@@ -38,7 +33,7 @@ const CivilFamilyMaintenance = () => {
   });
 
   return (
-    <div >
+    <div>
       {/* first order container */}
       <div className="relative">
         {/* bg container */}
@@ -77,14 +72,14 @@ const CivilFamilyMaintenance = () => {
               </div>
 
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   Family maintenance encompasses various legal and practical
                   aspects related to supporting family members. It is an order
-                  of a law that requires one family member to provide financial
-                  assistance to the other members of the family. Having
-                  different objectives at hand states have issued different
-                  family maintenance laws.
+                  of the law that requires one family member to provide
+                  financial assistance to the other members of the family.
+                  Having different objectives at hand states have issued
+                  different family maintenance laws.
                 </p>
               </div>
             </div>
@@ -135,7 +130,7 @@ const CivilFamilyMaintenance = () => {
 
             <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   This legal framework also plays a pivotal role in safeguarding
                   the welfare of children, ensuring that their fundamental needs
@@ -167,7 +162,7 @@ const CivilFamilyMaintenance = () => {
             </div>
             {/* right */}
             <div className="flex-grow">
-              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+              <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                 <p>
                   At Makuta Law Firm, our dedicated team of legal professionals
                   are committed to meticulously creating and examining a variety
@@ -194,7 +189,7 @@ const CivilFamilyMaintenance = () => {
                 </p>
               </div>
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   In line with various international legal systems, Ethiopian
                   legal system also recognizes the obligation of family members

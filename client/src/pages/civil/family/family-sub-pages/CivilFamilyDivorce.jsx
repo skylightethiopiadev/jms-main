@@ -8,18 +8,23 @@ const CivilFamilyDivorce = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: "Advocacy and Legal Representation",
+        title: "Legal Consultation",
+        text:
+          "If you find yourself navigating around the complexity of Divorce procedures our experienced group of lawyers are ready to offer a comprehensive legal consultation and advice."
+      },
+      {
+        title: "Legal Representation",
         text:
           "In the realm of divorce, our attorneys acts as a staunch defender of your legal rights and interests. They provide representation during negotiations, legal hearings, and other procedural matters, ensuring that your perspectives and concerns are adequately represented."
       },
       {
-        title: "Jurisdiction and applicable laws ascertainment",
+        title: "Jurisdiction and Applicable Laws Ascertainment",
         text:
-          "Under the Ethiopian legal framework, each state possesses distinct family laws, and there is also a federal law. Therefore, it’s crucial to determine the applicable law and the appropriate venue for filing a divorce petition. Our nationwide network of legal experts will guide you in identifying the correct court for submitting your divorce application."
+          "Under the Ethiopian legal framework, each state possesses distinct family laws, and there is also the federal law. Therefore, it’s crucial to determine the applicable law and the appropriate venue for filing a divorce petition. Our nationwide network of lawyers will guide you in identifying the correct court and applicable legislation for submitting your divorce petition."
       },
       {
-        title: "Legal drafting",
-        text: "draft marriage contracts and divorce agreements."
+        title: "Document Drafting",
+        text: "Draft marriage and divorce agreements which will help clients avoid disputes arising out of divorce."
       }
     ],
     servicesIndex: 0,
@@ -65,7 +70,7 @@ const CivilFamilyDivorce = () => {
               </div>
 
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   Divorce signifies the formal end of a marriage and is a
                   procedure that can be emotionally challenging and legally
@@ -97,8 +102,9 @@ const CivilFamilyDivorce = () => {
                 by family elders, mediators, or legal advisors. According to
                 Ethiopian family law it is courts, not any ordinary courts but
                 those with a valid jurisdiction, that could ultimately declare
-                divorce. Moreover, because of the high-status marriage have in
-                the society, getting a divorce could be easy as it might seem.
+                divorce. However, because of the high-status marriage have in
+                the society, getting a divorce could not be easy as it might
+                seem.
               </p>
             </div>
           </div>
@@ -122,14 +128,14 @@ const CivilFamilyDivorce = () => {
 
             <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
               {/* normal text */}
-              <div className="my-5">
+              <div className="text-justify">
                 <p>
                   In addition to the dissolution of marriage, divorce
                   proceedings also entail significant repercussions regarding
                   the division of assets, liabilities, and child custody
-                  arrangements. The Ethiopian Family Code offers a mechanism to
-                  mitigate disputes over asset distribution through marriage or
-                  divorce agreements. Spouses are afforded the autonomy to
+                  arrangements. The Family laws in Ethiopia offers a mechanism
+                  to mitigate disputes over asset distribution through marriage
+                  or divorce agreements. Spouses are afforded the autonomy to
                   dictate their financial relations via marital contracts, which
                   can be established prior to or during the marriage.
                 </p>
@@ -156,7 +162,7 @@ const CivilFamilyDivorce = () => {
             </div>
             {/* right */}
             <div className="flex-grow">
-              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+              <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                 <p>
                   At Makuta Law Firm, our dedicated team of legal professionals
                   are committed to meticulously creating and examining a variety
@@ -178,24 +184,23 @@ const CivilFamilyDivorce = () => {
               {/* bold text */}
               <div className="header-level-3 uppercase">
                 <p>
-                  Navigating Asset Division: Ethiopian Law and Divorce
-                  Proceedings
+                  Navigating Property Division: Ethiopian Law and Divorce Proceedings
                 </p>
               </div>
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   A prevalent issue faced by divorcing couples is the resolution
-                  of asset division. To address this, Ethiopian law not only
+                  of property division. To address this, Ethiopian law not only
                   permits spouses to manage their financial matters through
                   marriage contracts but also provides guidelines for
-                  distinguishing between personal and joint assets. As per the
+                  distinguishing between personal and common property. As per the
                   Ethiopian Revised Family Code, a spouse’s personal property
                   encompasses assets owned at the time of marriage or
                   subsequently obtained via inheritance or individual gifts.
                   Such property retains its personal status in the event of a
                   sale or exchange, provided it is acknowledged by the court.
-                  Personal assets are exempt from division upon divorce.
+                  Personal property are exempt from division upon divorce.
                 </p>
               </div>
             </div>
@@ -220,14 +225,14 @@ const CivilFamilyDivorce = () => {
           <div className="flex flex-col-reverse md:flex-row">
             <div className="w-[100%] ">
               {/* normal text */}
-              <div className="my-5 text-justify">
+              <div className="text-justify">
                 <p>
                   Furthermore, Ethiopian law presumes that any property in
                   possession of a spouse at the time of divorce, regardless of
-                  whose name it is registered under, is considered joint
-                  property. Additionally, any income generated from joint or
-                  personal assets, as well as from donations made to either
-                  spouse, is deemed to be joint property.
+                  whose name it is registered under, is considered common
+                  property. Additionally, any income generated from common or
+                  personal property, as well as from donations made to either
+                  spouse, is deemed to be common property.
                 </p>
               </div>
             </div>
@@ -257,8 +262,8 @@ const CivilFamilyDivorce = () => {
                   In the course of divorce proceedings, it’s common to encounter
                   legal disputes over assets such as houses, vehicles, and land
                   acquired before or during the marriage. These issues often
-                  lead to court cases. Following this, in addition to the
-                  existing laws, the Ethiopian Supreme Court, which has the
+                  lead to court proceedings. Following this, in addition to the
+                  existing laws, the Ethiopian Supreme Court cassation division, which have the
                   authority to issue binding judicial decisions on all
                   subordinate courts, has made various rulings regarding the
                   division of property. These rulings are authoritative and must
@@ -292,9 +297,9 @@ const CivilFamilyDivorce = () => {
             </div>
             {/* right */}
             <div className="flex-grow">
-              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+              <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                 <p>
-                  The family law specialists in Mankuta law firm are equipped to
+                  The family law specialists at Mankuta law firm are equipped to
                   offer comprehensive legal services tailored to these needs.
                 </p>
               </div>

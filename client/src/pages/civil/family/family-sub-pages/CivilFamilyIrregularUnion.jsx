@@ -15,7 +15,7 @@ const CivilFamilyIrregularUnion = () => {
       {
         title: "Verification of Irregular Union",
         text:
-          "To confirm an irregular union, evidence is key. We aid in collecting and presenting such proof in a legal setting. As per Article 106 of the RFC, the acknowledged status of the union is crucial for verification. Our legal experts can assist in substantiating this status with appropriate proof."
+          "To confirm an irregular union, evidence is key. We aid in collecting and presenting such proof in a legal setting. Our legal experts can assist in substantiating this status with appropriate proof."
       },
       {
         title: "Asset and Economic Consultation",
@@ -35,7 +35,7 @@ const CivilFamilyIrregularUnion = () => {
       {
         title: "Legal Representation",
         text:
-          "In the event of disputes, our team act as representatives in legal proceedings concerning the irregular union. They provide representation for matters such as recognition, asset division, or conflict resolution in court."
+          "In the event of disputes, our team act as representatives in legal proceedings concerning the irregular union. We provide representation for matters such as recognition, asset division, or conflict resolution in court."
       }
     ],
     servicesIndex: 0,
@@ -82,7 +82,7 @@ const CivilFamilyIrregularUnion = () => {
               </div>
 
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   Besides marriage relationships, those couples who are living
                   as a married couples will receive legal protection under the
@@ -111,17 +111,9 @@ const CivilFamilyIrregularUnion = () => {
           <div className="flex flex-col-reverse md:flex-row">
             <div className="w-[100%] ">
               {/* normal text */}
-              <div className="my-5 text-justify">
+              <div className="my-5 text-center">
                 <p>
-                  Under the revised family code of the Federal Democratic
-                  Republic of Ethiopia, along with other regional codes, the
-                  concept of an irregular union is established. This includes
-                  the criteria that must be met, the evidence required to
-                  demonstrate such a union, and the legal implications it
-                  carries. Thus, for couples who have cohabitated and committed
-                  themselves as if they were married for nearly three years, the
-                  law acknowledges this as an irregular union and affords them
-                  legal safeguards.
+                Under the revised family code of the Federal Democratic Republic of Ethiopia, along with other regional codes, the concept of an irregular union is established with its legal requirements. This includes the criteria that must be met, the evidence required to demonstrate such a union, and the legal implications it carries. Thus, for couples who have cohabitated and committed themselves as if they were married for nearly three years, the law acknowledges this as an irregular union and affords them legal safeguards.
                 </p>
               </div>
             </div>
@@ -146,7 +138,7 @@ const CivilFamilyIrregularUnion = () => {
 
             <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
               {/* normal text */}
-              <div className="my-5">
+              <div className="text-justify">
                 <p>
                   If you find yourself navigating through separation but no
                   marriage, it’s crucial to address the complexities surrounding
@@ -178,9 +170,9 @@ const CivilFamilyIrregularUnion = () => {
             </div>
             {/* right */}
             <div className="flex-grow">
-              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+              <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                 <p>
-                  The family law specialists in Mankuta Law firm are equipped to
+                  The family law specialists at Makuta Law firm are equipped to
                   offer comprehensive legal services tailored to these needs.
                 </p>
               </div>

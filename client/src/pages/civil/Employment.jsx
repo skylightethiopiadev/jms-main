@@ -9,46 +9,56 @@ const Employment = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: "Assisting the creation of Wills",
+        title: "Drafting and Reviewing Employment Contracts",
         text:
-          "Assist individuals in formulating wills that are legally sound and reflect their desires for asset distribution post-mortem. We ensure these documents adhere to legal standards and address all pertinent details."
+          "Assist in creating legally sound employment contracts that outline the rights and obligations of both employers and employees. Review existing contracts to ensure compliance with labor laws and address any potential issues."
       },
       {
-        title: "Securing Legal Documentation",
+        title: "Termination and Severance Advice",
         text:
-          "Navigate the process of acquiring essential documents like succession certificates or letters of administration, crucial for their asset transfer."
+          "Advise on lawful termination procedures, including notice periods and severance pay. Help resolve disputes related to wrongful termination or unfair dismissal."
       },
       {
-        title: "Property Division",
+        title: "Collective Bargaining and Labor Relations",
         text:
-          "Manage the partitioning of assets bequeathed by ancestors, aiding in the resolution of familial disputes over inheritance claims and asset allocation."
+          "Represent employers or employee unions during collective bargaining negotiations. Draft collective agreements and handle labor disputes."
       },
       {
-        title: "Court Representation",
+        title: "Workplace Policies and Manuals",
         text:
-          "Act on behalf of clients in court, advocating for asset distribution in alignment with the deceased’s intentions or the law, while providing ongoing legal counsel."
+          "Assist in creating workplace policies, including employee handbooks and codes of conduct. Ensure compliance with labor laws and address issues like discrimination, harassment, and safety."
       },
       {
-        title: "Will Disputes",
+        title: "Labor Litigation and Dispute Resolution",
         text:
-          "Assist those who feel unjustly omitted from a will, evaluating claim legitimacy and providing court representation as needed."
+          "Represent clients in labor-related lawsuits. Handle cases involving wage disputes, discrimination claims, workplace injuries, and more."
       },
       {
-        title: "Dispute Resolution",
+        title: "Intellectual Property (IP) and Technology",
         text:
-          "Employ dispute resolution alternatives to circumvent protracted legal proceedings, orchestrating negotiations and mediations to achieve equitable settlements."
+          "Advise on IP matters related to inventions, trademarks, copyrights, and trade secrets. Help protect and enforce IP rights in the workplace."
       },
       {
-        title: "International Succession Consultation",
+        title: "Immigration and Work Visas",
         text:
-          "Offer guidance on the implications of international wills and manage the intricacies of cross-border inheritance for clients with global assets."
+          "Assist foreign workers with obtaining work visas and residence permits. Navigate immigration laws and requirements."
+      },
+      {
+        title: "Tax Compliance and Obligations",
+        text:
+          "Provide guidance on tax matters, including incentives for investors and tax obligations. Handle tax litigation if disputes arise."
+      },
+      {
+        title: "Labor Relations and Workplace Safety",
+        text:
+          "Counsel on workplace safety regulations and compliance. Address issues related to occupational health and safety."
       }
     ],
     servicesIndex: 0,
     subServicesIndex: -1
   });
 
-  const [successionWays, setSuccessionWays] = useState("Testate succession");
+  const [successionWays, setSuccessionWays] = useState(0);
 
   const employmentContractElement = useMemo(
     () => [
@@ -78,39 +88,131 @@ const Employment = () => {
     []
   );
 
+  const employmentContractReasons = useMemo(
+    () => [
+      {
+        text: "Termination by the initiation by the employer or worker"
+      },
+      {
+        text: "Termination in accordance with the provisions of the law"
+      },
+      {
+        text:
+          "Termination by the collective agreement or by the agreement of the two parties"
+      }
+    ],
+    []
+  );
+
+  const unlawfulConsequences = useMemo(
+    () => [
+      {
+        text: "Reinstatement or compensation"
+      },
+      {
+        text: "Severance payment"
+      },
+      {
+        text: "Payment for unused annual leave"
+      },
+      {
+        text: "Payment for delay of payment"
+      },
+      {
+        text: "Payment for unpaid salary"
+      },
+      {
+        text: "Payment for overtime"
+      }
+    ],
+    []
+  );
+
   const employmentPeriod = useMemo(
     () => [
       {
-        text: "The performance of specified piece work for which the employee is employed."
+        text:
+          "The performance of specified piece work for which the employee is employed."
       },
       {
         text:
           "The replacement of a worker who is temporarily absent due to leave or sickness or other causes."
       },
       {
-        text: "The performance of work in the event of abnormal pressure of work"
+        text:
+          "The performance of work in the event of abnormal pressure of work"
       },
       {
-        text: "The performance of urgent work to prevent damage or disaster to life or property, to repair defects or breakdowns in works, materials, buildings or plants of an undertaking."
+        text:
+          "The performance of urgent work to prevent damage or disaster to life or property, to repair defects or breakdowns in works, materials, buildings or plants of an undertaking."
       },
       {
-        text: "An irregular work which relates to permanent part of the work of an employer but performed on irregular intervals."
+        text:
+          "An irregular work which relates to permanent part of the work of an employer but performed on irregular intervals."
       },
       {
-        text: "Seasonal works which relate to the permanent part of the works of an employer but performed only for a specified period of the year but which are regularly repeated in the course of the years."
+        text:
+          "Seasonal works which relate to the permanent part of the works of an employer but performed only for a specified period of the year but which are regularly repeated in the course of the years."
       },
       {
-        text: "An occasional work which does not form part of the permanent activity of the employer but which is done intermittently."
+        text:
+          "An occasional work which does not form part of the permanent activity of the employer but which is done intermittently."
       },
       {
-        text: "The temporary placement of a worker who has suddenly and permanently vacated from a post having a contract of an indefinite period."
+        text:
+          "The temporary placement of a worker who has suddenly and permanently vacated from a post having a contract of an indefinite period."
       },
       {
-        text: "An occasional work which does not form part of the permanent activity of the employer but which is done intermittently."
+        text:
+          "An occasional work which does not form part of the permanent activity of the employer but which is done intermittently."
       },
       {
-        text: "The temporary placement of a worker to fill a vacant position in the period between the preparation of an organizational structure and its implementation."
+        text:
+          "The temporary placement of a worker to fill a vacant position in the period between the preparation of an organizational structure and its implementation."
+      }
+    ],
+    []
+  );
+
+  const acquisitionPeriod = useMemo(
+    () => [
+      {
+        text: "An application for a work permit submitted by an employer."
       },
+      {
+        text:
+          "A form filled with the personal history of the employed foreigner."
+      },
+      {
+        text:
+          "The foreigner's education certificate and work experience certificate certified by the appropriate body / original and copy."
+      },
+      {
+        text:
+          "The foreigner's valid travel passport that is not less than three months old."
+      },
+      {
+        text: "Four passport-sized photographs of the foreigner."
+      },
+      {
+        text:
+          "Unexpired Business Visa (BV), Work Visa (WV), Government Visa (GV) or Non-Government Visa (NV), as applicable."
+      },
+      {
+        text:
+          "The employment contract entered into by the foreigner with the employer, as appropriate."
+      },
+      {
+        text: "Receipt of payment of service fee specified by law."
+      },
+      {
+        text:
+          "An occasional work which does not form part of the permanent activity of the employer but which is done intermittently."
+      },
+      {
+        text:
+          "The temporary placement of a worker to fill a vacant position in the period between the preparation of an organizational structure and its implementation."
+      }
     ],
     []
   );
@@ -141,12 +243,69 @@ const Employment = () => {
     []
   );
 
-  
+  const [renewWorkPermit, setRenewWorkPermit] = useState({
+    renewWorkPermitList: [
+      {
+        text: "The foreigner's work permit renewal application."
+      },
+      {
+        text: "The foreigner's passport that is not less than three months old."
+      },
+      {
+        text: "Work permit book issued by the Ministry."
+      },
+      {
+        text: "residence permit."
+      },
+      {
+        text:
+          "A letter of support issued by the relevant government body, especially if the foreigner is engaged in the health or education sector, a letter of support issued by the health or education institutions as appropriate."
+      },
+      {
+        text:
+          "The employment contract entered into by the foreigner with the employer."
+      },
+      {
+        text:
+          "A report describing the state of transfer of knowledge of successor Ethiopians."
+      },
+      {
+        text: "Receipt of payment of service fee specified by law."
+      }
+    ],
+    selectedIndex: 0
+  });
+
+  const [commissionKeys, setCommissionKeys] = useState({
+    commissionKeysList: [
+      {
+        title: "Scope of  Application",
+        text:
+          "It specifically targets expatriates in foreign investment entities regulated by the EIC, including refugees with proper ID working in paid roles. It excludes expatriates in sectors such as air transport, power generation, and communications, who remain subject to the MoLSA Directive."
+      },
+      {
+        title: "Facilitating Top Management Employment",
+        text:
+          "The directive eases the hiring process for top management expatriates throughout the construction and operational stages of a project, detailing the roles and conditions for obtaining and renewing work permits annually without the rigorous requirements applied to other expatriate positions."
+      },
+      {
+        title: "Regulating Non-Top Management Employment",
+        text:
+          "It permits foreign investors to hire expats for up to 10% of their total workforce during the project phase, with a potential increase to 15%. In the operational phase, the limit is 10%, potentially rising to 12% at the EIC’s discretion. Exceptions are made for sectors needing specialized skills like high-tech, consultancy, and advanced agriculture."
+      },
+      {
+        title: "Streamlined Application Process",
+        text:
+          "The directive reduces the work permit application window to 30 days post-arrival in Ethiopia. Work permits have a three-year validity with annual renewals, and the directive specifies the necessary documentation for applications and renewals, underscoring the need to demonstrate the expatriate’s role relevance, job continuity, and effective training of Ethiopian replacements."
+      }
+    ],
+    selectedIndex: 0
+  });
 
   return (
     <div className="text-[1.05rem]">
       <div>
-        {/* first order container */}
+        {/* 1 */}
         <div className="relative">
           {/* bg container */}
           <div className="relative lg:absolute lg:inset-0 -z-30 flex">
@@ -200,7 +359,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* second order container */}
+        {/* 2 */}
         <div className="relative">
           {/* content container */}
           <div className="static-padding-x py-10 md:py-16 relative z-30">
@@ -224,7 +383,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* third order container */}
+        {/* 3 */}
         <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -274,7 +433,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* fourth order container */}
+        {/* 4 */}
         <div className="my-12 md:my-36 bg-neutral-100 py-10">
           {/* content container */}
           <div className="static-padding-x">
@@ -304,7 +463,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* fifth order container */}
+        {/* 5 */}
         <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -345,7 +504,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* pre-six */}
+        {/* 6 */}
         <div className="my-12 md:my-36 bg-neutral-white py-10">
           {/* content container */}
           <div className="static-padding-x">
@@ -383,7 +542,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* pre-pre-six */}
+        {/* 7 */}
         <div className="mb-12 md:mb-36 bg-neutral-100 py-10">
           {/* content container */}
           <div className="static-padding-x">
@@ -418,7 +577,8 @@ const Employment = () => {
             </div>
           </div>
         </div>
-        {/* post-pre-pre-six */}
+
+        {/* 8 */}
         <div className="mb-12 md:mb-36 py-10">
           {/* content container */}
           <div className="static-padding-x">
@@ -426,10 +586,7 @@ const Employment = () => {
               <div className="w-[100%] ">
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>
-                    Defining Rights and Responsibilities: Navigating Labor and
-                    Employment Law
-                  </p>
+                  <p>Duration of employment contract</p>
                 </div>
                 {/* normal text */}
                 <div className="my-5 text-justify">
@@ -463,154 +620,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* sixth order container */}
-        <div className="py-5 md:py-16 bg-neutral-800 text-white">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
-              {/* left */}
-              <div>
-                <div className="w-[150px] aspect-square overflow-hidden">
-                  <img
-                    className="w-full object-center object-cover"
-                    src="/final-logo.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              {/* right */}
-              <div className="flex-grow">
-                <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
-                  <p>
-                    At Makuta Law Firm, our dedicated team of legal
-                    professionals are committed to meticulously creating and
-                    examining a variety of contracts, ensuring compliance with
-                    Ethiopian regulations while placing your priorities at the
-                    forefront.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* seventh order container */}
-        <div className="my-12 md:my-36">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col-reverse md:flex-row">
-              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
-                {/* normal text */}
-                <div className="">
-                  <p>
-                    In the context of testate succession, Ethiopian law
-                    recognizes three distinct types of wills, each with specific
-                    formalities that must be strictly adhered to. This stringent
-                    approach is due to the deeply personal nature of a will and
-                    the fact that it only takes effect after the testator’s
-                    death, leaving no opportunity for the testator to contest
-                    any fraudulent challenges. The law’s rigorous formality
-                    requirements are intended to minimize the risk of fraud.
-                    Courts are diligent in enforcing these legal standards and
-                    often do not uphold a will that fails to meet critical
-                    formalities.
-                  </p>
-                </div>
-              </div>
-
-              <div className="w-[100%] md:w-[50%] relative">
-                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-center object-cover"
-                    src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* eight order container */}
-        <div className="my-12 md:my-36 bg-neutral-50 py-10">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col-reverse md:flex-row">
-              <div className="w-[100%] ">
-                {/* normal text */}
-                <div className="my-5 text-justify font-bold text-xl">
-                  <p>
-                    The three types of will and their formality requirements are
-                  </p>
-                </div>
-
-                {/* grid */}
-                <div className="grid grid-cols-1 gap-10">
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">Public will </h3>
-                    </header>
-                    <div>
-                      <p>
-                        In Ethiopia, the creation of a public will necessitate
-                        its oral presentation in the presence of the testator
-                        and a minimum of four witnesses. The testator can
-                        prepare the will with or without the witnesses present.
-                        However, it is essential for the will to be declared
-                        audibly in the presence of both the testator and the
-                        witnesses, and this requirement must be clearly stated
-                        within the will. Following the reading, it is crucial
-                        for the testator and all witnesses to sign the document
-                        immediately. In certain cases, the law permits the
-                        presence of only two witnesses to maintain the will’s
-                        validity.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">Holographic will</h3>
-                    </header>
-                    <div>
-                      <p>
-                        This type of will, known as a holographic will, is one
-                        that the testator personally drafts without the presence
-                        of any witnesses. It must be unambiguously identified as
-                        a will, and any alterations or revocations can render it
-                        void. The will should be in the testator’s own
-                        handwriting; if produced mechanically, it must include a
-                        handwritten note on each page confirming the testator’s
-                        authorship.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">Oral will</h3>
-                    </header>
-                    <div>
-                      <p>
-                        This type of will, often created under extraordinary
-                        circumstances, is typically drafted when the testator
-                        anticipates imminent death. It permits only a restricted
-                        scope of testamentary instructions. Not all of the
-                        testator’s assets may be allocated through this will. It
-                        is limited to funeral arrangements, bequeathing a
-                        specific individual no more than 500 birr, and
-                        appointing guardians or tutors for the testator’s minor
-                        children.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ninth order container */}
+        {/* 9 */}
         <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -628,23 +638,24 @@ const Employment = () => {
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>
-                    Understanding Testamentary Freedom: The Dynamics of
-                    Ethiopian Will Revocation and Nullification
-                  </p>
+                  <p>Probationary period</p>
                 </div>
                 {/* normal text */}
-                <div className=" text-justify">
+                <div className="text-justify mt-3">
                   <p>
-                    Under Ethiopian law, the existence of a will does not
-                    obligate the testator to its terms during their lifetime,
-                    nor does it guarantee the will’s automatic enactment upon
-                    their death. A testator retains the right to revoke their
-                    will at any time while alive, whether by drafting a new
-                    will, physically destroying the existing one, or
-                    transferring ownership of the bequeathed property. This
-                    ensures that the testator has complete control over their
-                    will’s provisions throughout their life.
+                    Ethiopian labor law permits employers to place new hires on
+                    a probationary period to evaluate their fitness for the
+                    role. However, there are certain limitations to this right.
+                    For instance, employees who are rehired by the same employer
+                    are not subject to another probationary period, and any
+                    probation agreement must be in writing, not exceeding 60
+                    days. The law also outlines specific rights for both
+                    employers and employees during this period. Employers can
+                    end the employment without notice and are not required to
+                    provide severance or compensation. Similarly, employees have
+                    the right to resign immediately without notice. As such,
+                    employment contracts should be drafted with care, adhering
+                    to labor laws and collective workplace agreements.
                   </p>
                 </div>
               </div>
@@ -652,24 +663,210 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* tenth order container */}
+        {/* 10 */}
         <div className="my-12 md:my-36 bg-neutral-50 py-10">
           {/* content container */}
           <div className="static-padding-x">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Minimum conditions of work</p>
+                </div>
                 {/* normal text */}
-                <div className="my-5 text-justify font-medium">
+                <div className="my-5 text-justify">
                   <p>
-                    Under the law, a will may become void not only through the
-                    testator’s revocation but also under certain conditions
-                    stipulated by law. One of such condition is the non-deposit
-                    of a holographic will; it must be filed with a court
-                    registry or notary within seven years of its creation. Other
-                    circumstances that can nullify a will include the birth of a
-                    child, the dissolution of marriage, and scenarios involving
-                    the death, disqualification, or revocation of the
-                    beneficiary named in the will.
+                    The minimum working conditions serve as a standard that
+                    employment contracts, collective agreements, or workplace
+                    rules cannot fall below. Should these documents offer less
+                    protection than the minimum standard, they would be
+                    nullified and superseded by the legal provisions. The law’s
+                    minimum working conditions encompass aspects such as job
+                    security and stability, working hours, leave entitlements,
+                    as well as safety and health regulations.
+                  </p>
+                </div>
+
+                <div>
+                  <div>
+                    <h3 className="font-bold">Leave</h3>
+                  </div>
+                  <div className="my-5">
+                    <p>
+                      Ethiopian labor law stipulates various types of leave
+                      entitlements for employees. These include:
+                    </p>
+                  </div>
+                </div>
+
+                {/* first  */}
+                <div className="bg-white shadow-md p-3 mb-10">
+                  <header className="flex items-center justify-between py-1">
+                    <div>
+                      <h3 className="font-semibold">Annual Leave</h3>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-300 cursor-pointer"
+                        onClick={() => {
+                          setSuccessionWays(0);
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                            successionWays === 0 ? "-rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+                  <div
+                    className={`overflow-hidden ${
+                      successionWays === 0 ? "h-max" : "h-0"
+                    }`}
+                  >
+                    <div className="mt-1 py-1 border-t border-gray-300">
+                      <p>
+                        Under Ethiopian labor law, any agreement to forfeit
+                        annual leave is considered invalid. Employees are
+                        entitled to a minimum of 16 consecutive days of annual
+                        leave, with an additional day added for every two years
+                        of service.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* second  */}
+                <div className="bg-white shadow-md p-3 mb-10">
+                  <header className="flex items-center justify-between py-1">
+                    <div>
+                      <h3 className="font-semibold">Sick Leave</h3>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-400 cursor-pointer"
+                        onClick={() => {
+                          setSuccessionWays(1);
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                            successionWays === 1 ? "-rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+                  <div
+                    className={`overflow-hidden ${
+                      successionWays === 1 ? "h-max" : "h-0"
+                    }`}
+                  >
+                    <div className="mt-1 py-1 border-t border-gray-300">
+                      <p>
+                        Any employee who have completed his prohibition period
+                        is entitled for a sick leave. The sick leave could not
+                        be more than 6 months within a year be it consecutive or
+                        separately. The sick leave to be granted will be with
+                        full payment for the first months, the next two months
+                        only 50% of the salary and the next three months should
+                        be without payment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* third  */}
+                <div className="bg-white shadow-md p-3 mb-10">
+                  <header className="flex items-center justify-between py-1">
+                    <div>
+                      <h3 className="font-semibold">Maternity Leave</h3>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-400 cursor-pointer"
+                        onClick={() => {
+                          setSuccessionWays(2);
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                            successionWays === 2 ? "-rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+                  <div
+                    className={`overflow-hidden ${
+                      successionWays === 2 ? "h-max" : "h-0"
+                    }`}
+                  >
+                    <div className="mt-1 py-1 border-t border-gray-300">
+                      <p>
+                        A woman is entitled to ninety days' paid maternity
+                        leave. This leave consists of a period of 30 consecutive
+                        days of leave with pay preceding the presumed date of
+                        her confinement and a period of 90 consecutive days'
+                        leave after her confinement.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* fourth  */}
+                <div className="bg-white shadow-md p-3 mb-5">
+                  <header className="flex items-center justify-between py-1">
+                    <div>
+                      <h3 className="font-semibold">Leave for Family Events</h3>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-400 cursor-pointer"
+                        onClick={() => {
+                          setSuccessionWays(3);
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                            successionWays === 3 ? "-rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+                  <div
+                    className={`overflow-hidden ${
+                      successionWays === 3 ? "h-max" : "h-0"
+                    }`}
+                  >
+                    <div className="mt-1 py-1 border-t border-gray-300">
+                      <p>
+                        A worker shall been titled to leave with pay for three
+                        working days where;
+                      </p>
+                      <div className="pl-5">
+                        <p>a. He/Her concludes marriage; or</p>
+                        <p>
+                          b. His/Her spouse, descendants, ascendants, brother,
+                          sister, uncle, aunt relative whether by consanguinity
+                          or affinity dies entitled 3 working days leave with
+                          pay.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p>
+                    Moreover, a male employee shall be entitled to three
+                    consecutive days paternity leave with full pay and a worker
+                    shall also be entitled to leave without pay for up to five
+                    consecutive days in the case of exceptional and serious
+                    events. However, such leave may be granted only twice in a
+                    budget year.
                   </p>
                 </div>
               </div>
@@ -677,7 +874,7 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* post-10 */}
+        {/* 11 */}
         <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -685,31 +882,16 @@ const Employment = () => {
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* bold text */}
                 <div className="header-level-3 uppercase">
-                  <p>
-                    Inheritance Without a Will: Navigating Ethiopian Intestate
-                    Succession Laws
-                  </p>
+                  <p>Union leave and leave for special purpose</p>
                 </div>
                 {/* normal text */}
                 <div className="my-5">
                   <p>
-                    When a person passes away intestate, meaning without a will,
-                    Ethiopian succession law dictates that their estate is
-                    distributed according to statutory guidelines rather than
-                    personal wishes. The law assumes the likely intentions of
-                    the deceased and allocates the estate based on familial
-                    proximity. In such cases, the order of inheritance begins
-                    with the deceased’s children or their descendants, who are
-                    entitled to equal shares of the estate. If there are no
-                    children or descendants, the parents inherit next. Should
-                    the parents be deceased, their share passes to their own
-                    descendants. In the absence of parents or their descendants,
-                    the grandparents are next in line. If there are no living
-                    relatives up to the fourth degree of kinship which is the
-                    great grandparents, the state inherits the estate as
-                    ‘Escheat’. This legal structure ensures a systematic and
-                    fair distribution of assets among the deceased’s next of
-                    kin.
+                    these leaves applies to a trade union leaders and a worker
+                    in cases of hearing before the court, negotiating collective
+                    agreements, attending union meetings, participating in
+                    seminar and training courses, exercising voting right and
+                    discharge his responsibility as witness respectively.
                   </p>
                 </div>
               </div>
@@ -727,7 +909,38 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* pre-11 */}
+        {/* 12 */}
+        <div className="my-12 md:my-36 bg-neutral-50 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Working hour, weekly rests and public holidays</p>
+                </div>
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  <p>
+                    Ethiopian labor regulations stipulate that the standard work
+                    schedule should not surpass 8 hours per day or 48 hours per
+                    week. The work hours should be evenly distributed across the
+                    week. However, if the job’s nature necessitates it, the work
+                    hours for any given day can be reduced, and the shortfall
+                    can be compensated on the other days of the week. This
+                    adjustment must not extend a workday beyond 10 hours. Any
+                    work performed beyond the normal daily hours is considered
+                    overtime. Additionally, employees are entitled to a
+                    continuous 24-hour rest period each week and time off on
+                    public holidays.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 13 */}
         <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -745,20 +958,21 @@ const Employment = () => {
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>Liquidation</p>
+                  <p>Special employees</p>
                 </div>
                 {/* normal text */}
                 <div className="">
                   <p>
-                    Following the demise of a testator or an individual who dies
-                    intestate (without a will), the process of succession
-                    commences, leading to the estate’s liquidation. This
-                    involves the steps of pinpointing and summoning the heirs,
-                    cataloging the estate’s components, collecting owed amounts,
-                    settling the estate’s liabilities—including the decedent’s
-                    debts, obligations linked to the estate, and support
-                    payments—disbursing specific bequests, providing a financial
-                    summary, and distributing the assets.
+                    Ethiopian labor laws recognize the distinct situations of
+                    certain workers, grouping them as "special employees." This
+                    classification includes probationary employees, apprentices,
+                    young workers, women, individuals with disabilities, and
+                    foreign workers. Specific regulations are outlined for each
+                    group, covering areas like contract termination, working
+                    hours, recruitment procedures, and suitable job assignments.
+                    Employers are obligated to follow these legal provisions
+                    meticulously to ensure equitable treatment and compliance
+                    with the law when dealing with special employee categories.
                   </p>
                 </div>
               </div>
@@ -766,23 +980,39 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* pre-pre-11 */}
+        {/* 14  */}
         <div className="my-12 md:my-36 bg-neutral-50 py-10">
           {/* content container */}
           <div className="static-padding-x">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Foreign employees</p>
+                </div>
                 {/* normal text */}
                 <div className="my-5 text-justify">
                   <p>
-                    Once liquidation is complete, the executor compiles a report
-                    for both the heirs and the court. Subsequently, the
-                    identified heirs may petition the court for a certificate of
-                    succession. Liquidation is a demanding process that often
-                    requires the expertise of professionals, particularly when
-                    the deceased has left behind substantial assets. It is a
-                    pivotal step that ultimately establishes the successors and
-                    enables them to legally obtain their inheritance.
+                    Foreign employees in Ethiopia are subject to distinct
+                    regulations, not as a form of preferential treatment, but
+                    rather as a separate category from other workers. According
+                    to labor laws, foreign individuals seeking employment in
+                    Ethiopia, as well as employers wishing to hire expatriates,
+                    must obtain a work permit. This permit is issued by either
+                    the Ministry of Labour and Social Affairs (MOLSA) or the
+                    Ethiopian Investment Commission, depending on the specific
+                    sector of employment. The oversight of expatriate workers in
+                    Ethiopia is divided between two entities: the Ethiopian
+                    Investment Commission and MOLSA. MOLSA's Expat Work Permit
+                    Directive (Directive No. 23/2018) governs the employment of
+                    expatriates across various sectors, with a broad scope.
+                    Conversely, Directive No. 772/2021 specifically addresses
+                    expatriate employment in enterprises entirely foreign-owned,
+                    joint ventures between local and foreign investors,
+                    investments by foreign nationals classified as domestic
+                    investors, and domestic investments qualifying for
+                    incentives. Expatriates under the Ethiopian Investment
+                    Commission's jurisdiction must adhere to its regulations.
                   </p>
                 </div>
               </div>
@@ -790,95 +1020,126 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* eleventh order container */}
-        <div className="my-12 md:my-36 bg-neutral-50 py-10">
+        {/* 15 */}
+        <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
             <div className="flex flex-col-reverse md:flex-row">
-              <div className="w-[100%] ">
+              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* normal text */}
-                <div className="my-5 text-justify font-bold text-xl">
+                <div className="text-justify">
                   <p>
-                    Understanding Time Limits: Navigating Periods of Limitation
-                    in Ethiopian Succession Law
+                    Regarding the issuance of work permits by MOLSA, the
+                    directive outlines specific categories of individuals exempt
+                    from this requirement, such as members of international
+                    organizations and diplomatic councils. It also delineates
+                    the criteria and documentation necessary for other employees
+                    to obtain a work permit from the ministry, as well as the
+                    paperwork required for initial acquisition and subsequent
+                    renewal of these permits.
                   </p>
                 </div>
-
-                {/* grid */}
-                <div className="grid grid-cols-1 gap-10">
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">Period of limitation </h3>
-                    </header>
-                    <div>
-                      <p>
-                        In Ethiopian succession law, there are time constraints
-                        known as periods of limitation. If successors do not act
-                        within these timeframes to claim their inheritance, they
-                        may forfeit their rights as heirs. Different limitations
-                        apply to various claims on the deceased’s assets. It’s
-                        crucial for individuals to assert their legal rights
-                        promptly and seek legal counsel if there’s any delay to
-                        determine if their rights are still valid.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">
-                        Resolving Succession Disputes in Ethiopia: The Role of
-                        Legal Experts
-                      </h3>
-                    </header>
-                    <div>
-                      <p>
-                        Succession matters in Ethiopia, whether involving a will
-                        or not, often lead to legal disputes. Common issues
-                        brought before the courts include the initiation of
-                        succession, the court’s jurisdiction over such matters,
-                        the liquidation of the estate, adherence to will
-                        formalities, the debts of the estate, and the division
-                        of the deceased’s estates. Given the contentious nature
-                        of succession in Ethiopia, anyone looking to draft a
-                        will or who is involved in an inheritance should seek
-                        legal advice.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* pre-12 */}
-        <div className="py-5 md:py-16 bg-neutral-800 text-white">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
-              {/* left */}
-              <div>
-                <div className="w-[150px] aspect-square overflow-hidden">
+              <div className="w-[100%] md:w-[50%] relative">
+                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
                   <img
-                    className="w-full object-center object-cover"
-                    src="/final-logo.png"
+                    className="w-full h-full object-center object-cover"
+                    src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
                     alt=""
                   />
                 </div>
               </div>
-              {/* right */}
-              <div className="flex-grow">
-                <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+            </div>
+          </div>
+        </div>
+
+        {/* 16 */}
+        <div className="mb-12 md:mb-36 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                   <p>
-                    If you found yourself in succession issues, it’s crucial to
-                    address the complexities surrounding liquidation, period of
-                    limitation, and entitlements. Amidst the myriad of legal
-                    considerations that arise, securing legal counsel and
-                    representation is an essential step you shouldn’t overlook.
-                    The succession law specialists within makuta’s network are
-                    equipped to offer comprehensive legal services tailored to
-                    these needs.
+                    For the acquisition of new work permit the employer and the
+                    expat must provide:-
+                  </p>
+                </div>
+
+                <div className="pl-[5%]">
+                  {acquisitionPeriod.map((item, index) => {
+                    return (
+                      <div>
+                        <div className="flex gap-2 my-3">
+                          <div>
+                            <div className="w-[8px] mt-1.5 aspect-square rounded-full bg-blue-400"></div>
+                          </div>
+                          <div>
+                            <p>{item?.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 17 */}
+        <div className="my-12 md:my-36 bg-neutral-white py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase">
+                  <p>Requirements to be met to renew work permit</p>
+                </div>
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  {renewWorkPermit?.renewWorkPermitList.map((item, index) => {
+                    return (
+                      <div>
+                        <div className="my-3 flex gap-3">
+                          <div>
+                            <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                              <FaCheck className="absolute left-1 bottom-1 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <p>{item?.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 18 */}
+        <div className="my-12 md:my-36 bg-neutral-100 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* normal text */}
+                <div className="my-5 text-center">
+                  <p>
+                    Directive No. 772/2021 by the Ethiopian Investment
+                    Commission, was established to enhance the work permit
+                    issuance process for expatriates in foreign investment roles
+                    and to facilitate skill and knowledge transfer to local
+                    Ethiopians. This directive, which took effect on April 14,
+                    2021, complements the Investment Proclamation No. 1180/2020
+                    and Investment Regulation No. 474/2020, marking a
+                    significant step in foreign investment reforms.
                   </p>
                 </div>
               </div>
@@ -886,7 +1147,169 @@ const Employment = () => {
           </div>
         </div>
 
-        {/* 12 order container */}
+        {/* 19 */}
+        <div className="my-12 md:my-36 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-4xl font-bold uppercase mb-5">
+                  <p>
+                    Key Aspects of Ethiopian investment commission Directive
+                  </p>
+                </div>
+                {/* normal text */}
+
+                {/* first  */}
+                <div>
+                  {commissionKeys?.commissionKeysList.map((item, index) => {
+                    return (
+                      <div className="border border-gray-200 bg-white rounded-md p-3 mb-10">
+                        <header className="flex items-center justify-between py-1">
+                          <div>
+                            <h3 className="font-semibold">{item?.title}</h3>
+                          </div>
+                          <div>
+                            <div
+                              className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-50 transition-colors ease-in-out duration-300  cursor-pointer"
+                              onClick={() => {
+                                setCommissionKeys(prev => {
+                                  return {
+                                    ...prev,
+                                    selectedIndex: index
+                                  };
+                                });
+                              }}
+                            >
+                              <MdKeyboardArrowDown
+                                className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                                  commissionKeys?.selectedIndex === index
+                                    ? "-rotate-180"
+                                    : "rotate-0"
+                                }`}
+                              />
+                            </div>
+                          </div>
+                        </header>
+                        <div
+                          className={`overflow-hidden ${
+                            commissionKeys?.selectedIndex === index
+                              ? "h-max"
+                              : "h-0"
+                          }`}
+                        >
+                          <div className="mt-1 py-1 border-t border-gray-300">
+                            <p>{item?.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 20 */}
+        <div className="mb-12 md:mb-36 bg-neutral-100 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Termination of Employment Contract</p>
+                </div>
+
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  <p>
+                    According to Ethiopian labour law contract of employment may
+                    be terminated by the following different reasons.
+                  </p>
+                </div>
+
+                <div className="pl-[5%]">
+                  {employmentContractReasons.map((item, index) => {
+                    return (
+                      <div>
+                        <div className="flex gap-2 my-3">
+                          <div>
+                            <div className="w-[8px] mt-1.5 aspect-square rounded-full bg-yellow-400"></div>
+                          </div>
+                          <div>
+                            <p>{item?.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div>
+                  <p>
+                    In relation to termination of the contract by the parties,
+                    the law has set conditions under which the employment
+                    contract could be terminated both by the employer and
+                    employee and the details of notice requirement.
+                  </p>
+                </div>
+
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase my-5">
+                  <p>The consequences of unlawful termination includes</p>
+                </div>
+
+                <div className="pl-[5%]">
+                  {unlawfulConsequences.map((item, index) => {
+                    return (
+                      <div>
+                        <div className="flex gap-2 my-3">
+                          <div>
+                            <div className="w-[8px] mt-1.5 aspect-square rounded-full bg-blue-600"></div>
+                          </div>
+                          <div>
+                            <p>{item?.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 21 */}
+        <div className="py-5 md:py-16 bg-neutral-800 text-white">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
+              {/* right */}
+              <div className="flex-grow">
+                <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
+                  <p>
+                    Ethiopian labor law encompasses a range of topics including
+                    occupational injuries, employee transfers, suspensions,
+                    pensions, workforce reductions, trade unions, employment
+                    associations, collective agreements, and labor disputes.
+                    Given the complexity of these issues and their impact on
+                    employment relationships, it is crucial for both employers
+                    and employees to seek legal advice to prevent potential
+                    legal issues. If you found yourself entangled with
+                    employment issues experts within Makuta's network are
+                    proficient in providing comprehensive legal services
+                    customized to address these exigencies.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 22 */}
         <div className="my-10 md:my-36">
           {/* content container */}
           <div className="static-padding-x">

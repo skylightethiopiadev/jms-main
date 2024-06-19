@@ -16,16 +16,16 @@ const CivilFamilyOthers = () => {
       {
         title: "Contesting Filiation",
         text:
-          "Support parties interested in questioning recognized filiation.They guide through the legal channels to dispute both maternal and paternal filiation."
+          "Support parties interested in questioning recognized filiation. We also guide through the legal channels to dispute both maternal and paternal filiation."
       },
       {
         title: "Paternity Disowning",
-        text: "Act on behalf of those seeking to renounce paternity."
+        text: "We act on behalf of those seeking to renounce paternity."
       },
       {
-        title: "Legal Advocacy and Court Representation",
+        title: "Legal Consultancy",
         text:
-          "Represent clients in legal proceedings, arguing to affirm or challenge filiation. Ensure adherence to legal standards and defend the interests of all involved parties."
+          "We represent clients in legal proceedings, arguing to affirm or challenge filiation. In addition we ensure adherence to legal standards and defend the interests of all involved parties."
       },
       {
         title: "Others legal support include on legal scenarios involving",
@@ -74,7 +74,7 @@ const CivilFamilyOthers = () => {
               </div>
 
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   Establishing proof of marriage is a critical legal process
                   that involves demonstrating the existence of a marital union.
@@ -113,7 +113,7 @@ const CivilFamilyOthers = () => {
             </div>
             {/* right */}
             <div className="flex-grow">
-              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+              <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                 <p>
                   Our legal team is equipped to offer a comprehensive suite of
                   legal services, including advice on marital law, preparation
@@ -143,7 +143,7 @@ const CivilFamilyOthers = () => {
 
             <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md text-justify">
               {/* bold text */}
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-left">
+              <div className="text-3xl md:text-3xl lg:text-3xl font-bold uppercase text-left">
                 <p>
                   Proof and challenging filiation(the fact of being the child of
                   a particular parent):

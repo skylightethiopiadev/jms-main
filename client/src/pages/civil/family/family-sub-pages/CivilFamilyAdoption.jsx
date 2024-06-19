@@ -16,12 +16,12 @@ const CivilFamilyAdoption = () => {
       {
         title: "Handling Legal Documentation",
         text:
-          "We can support in drafting and scrutinizing essential paperwork for adoption, including agreements, consent forms, and applications. Making sure all documents are correct and complete is vital for a successful adoption process."
+          "We can support in drafting and scrutinizing essential paperwork for adoption including agreements, consent forms, and applications. Making sure all documents are correct and complete for successful adoption process."
       },
       {
-        title: "Legal representation ",
+        title: "Legal Representation ",
         text:
-          "We can act on your behalf in court to obtain adoption approval. Moreover, we can articulate your case, respond to legal inquiries, and champion the child’s best interests."
+          "We can act on behalf of our clients in court to obtain adoption approval. Moreover, we can articulate client's case, respond to legal inquiries, and champion the child’s best interests."
       },
       {
         title: "Resolving Legal Uncertainties ",
@@ -31,13 +31,13 @@ const CivilFamilyAdoption = () => {
       {
         title: "Mediating Disputes",
         text:
-          "In case of conflicts during the adoption, our team legal professional can intervene and negotiate for you. We can help settle any disagreements with biological parents, relatives, or government entities, ensuring a just outcome."
+          "In case of conflicts during the adoption, our team legal professional can intervene and negotiate on behalf of clients. We can help settle any disagreements with biological parents, relatives, or government entities, ensuring a just outcome."
       },
       {
         title: "Ensuring Timely Compliance",
         text:
-          "Adoption procedures are bound by specific time frames. A legal professional ensures adherence to these timelines to prevent any hold-ups or issues."
-      }
+          "Adoption procedures are bound by specific time frames. Our legal professional ensures adherence to these timelines to prevent any hold-ups or issues."
+      },
     ],
     servicesIndex: 0,
     subServicesIndex: -1
@@ -102,12 +102,12 @@ const CivilFamilyAdoption = () => {
               {/* bold text */}
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                 <p>
-                  Empowering Families: The Impact of Legal Adoption Regulations
+                  The Impact of Regulatory Framework Governing Adoption
                 </p>
               </div>
 
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   The enactment of laws governing adoption is essential to
                   ensure the safety and welfare of children, providing them with
@@ -145,18 +145,18 @@ const CivilFamilyAdoption = () => {
 
             <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
               {/* bold text */}
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+              <div className="text-3xl md:text-3xl lg:text-3xl font-bold uppercase">
                 <p>
                   Navigating Adoption in Ethiopia: Understanding Legal Standards
                   and Procedures
                 </p>
               </div>
               {/* normal text */}
-              <div className="my-5">
+              <div className="my-5 text-justify">
                 <p>
                   In Ethiopia, the adoption process is regulated by stringent
                   legal standards and conditions set forth by both federal and
-                  regional authorities. The primary legal frameworks is the
+                  regional authorities. The primary legal frameworks are the
                   Federal Revised Family Code and regional family laws, which
                   guide the adoption proceedings. The process involves various
                   parties, including the adoptive families, the adoptee, and the
@@ -175,7 +175,7 @@ const CivilFamilyAdoption = () => {
           <div className="flex flex-col-reverse md:flex-row">
             <div className="w-[100%] ">
               {/* normal text */}
-              <div className="my-5 text-justify">
+              <div className="text-justify">
                 <p>
                   This diversity of stakeholders leads to a range of legal
                   considerations, such as eligibility criteria for adopters and
@@ -211,7 +211,7 @@ const CivilFamilyAdoption = () => {
                       <div className="my-3 flex gap-3">
                         <div>
                           <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
-                            <FaCheck className="absolute left-1 bottom-1 text-green-400" />
+                            <FaCheck className="absolute text-xs  text-green-400" />
                           </div>
                         </div>
                         <div>
@@ -226,74 +226,7 @@ const CivilFamilyAdoption = () => {
           </div>
         </div>
       </div>
-
-      {/* third order container */}
-      <div className="py-5 md:py-16 bg-neutral-800 text-white">
-        {/* content container */}
-        <div className="static-padding-x">
-          <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
-            {/* left */}
-            <div>
-              <div className="w-[150px] aspect-square overflow-hidden">
-                <img
-                  className="w-full object-center object-cover"
-                  src="/final-logo.png"
-                  alt=""
-                />
-              </div>
-            </div>
-            {/* right */}
-            <div className="flex-grow">
-              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
-                <p>
-                  At Makuta Law Firm, our dedicated team of legal professionals
-                  are committed to meticulously creating and examining a variety
-                  of contracts, ensuring compliance with Ethiopian regulations
-                  while placing your priorities at the forefront.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* fifth order container */}
-      <div className="my-12 md:my-36">
-        {/* content container */}
-        <div className="static-padding-x">
-          <div className="flex flex-col-reverse md:flex-row">
-            <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
-              {/* normal text */}
-              <div className=" text-justify">
-                <p>
-                  The legal frameworks governing adoption in Ethiopia, including
-                  the Federal Revised Family Code and Directive No. 48/2020,
-                  establish a comprehensive process that demands careful
-                  attention to detail. This ensures that the rights and
-                  interests of everyone involved are honored. The complexity of
-                  the adoption process encompasses a range of legal matters,
-                  such as the qualifications for adopters and adoptees, the
-                  legal ramifications of the adoption for all parties, and the
-                  necessity for formal procedures. As a result, whether you are
-                  part of the adopting family or a relative, it’s crucial to be
-                  actively engaged and well-informed throughout the adoption
-                  journey to understand its full legal impact.
-                </p>
-              </div>
-            </div>
-
-            <div className="w-[100%] md:w-[50%] relative">
-              <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
-                <img
-                  className="w-full h-full object-center object-cover"
-                  src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* sixth order container */}
       <div className="my-12 md:my-36 bg-neutral-200 py-10">
