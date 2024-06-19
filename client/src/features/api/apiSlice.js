@@ -26,8 +26,8 @@ let tag = [];
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-     // baseUrl: "http://192.168.100.12:5000/jms/app/v1",
-    baseUrl: "http://localhost:5000/jms/app/v1",
+    // baseUrl: "http://192.168.100.12:5000/jms/app/v1",
+    baseUrl: "http://localhost:5000/jms/app/v1"
   }),
   tagTypes: [
     "users",
@@ -100,8 +100,17 @@ export const apiSlice = createApi({
         url: `/account/updatePassword`,
         method: "PUT",
         body: data,
-         credentials: "include",
-      }),
+        credentials: "include"
+      })
+    }),
+
+    updateUsersCredentials: builder.mutation({
+      query: data => ({
+        url: `/account/updateUsersCredentials`,
+        method: "PUT",
+        body: data,
+        credentials: "include"
+      })
     }),
 
     //create
@@ -232,5 +241,7 @@ export const {
   useUpdateMutation,
   useDeleteMutation,
 
-   useLazyReadChatQuery,
+  useLazyReadChatQuery,
+  useLazyReadQuery,
+  useUpdateUsersCredentialsMutation
 } = apiSlice;
