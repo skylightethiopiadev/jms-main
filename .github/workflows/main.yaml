@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - gedi_working_branch
 name: 🚀 Deploy makutalawfirm
 defaults:
   run:
