@@ -220,6 +220,7 @@ import HomeConsulting from "./pages/other-services/Consulting";
 import HomeResearches from "./pages/other-services/Researches";
 import PrivateProfile from "./pages/dashboard/customers/customers-pages/PrivateProfile.jsx";
 import BusinessProfile from "./pages/dashboard/customers/customers-pages/BusinessProfile.jsx";
+import LawyersProfile from "./pages/dashboard/lawyers/lawyers-pages/LawyersProfile.jsx";
 
 function App() {
   // const { data: user } = useReadQuery({
@@ -734,6 +735,14 @@ function App() {
                 <Route
                   path="/dashboard/lawyers"
                   element={<LawyersDashboardIndex />}
+                ></Route>
+                <Route
+                  path="/dashboard/lawyers/profile"
+                  element={<LawyersProfile />}
+                ></Route>
+                <Route
+                  path="/dashboard/lawyers/change-password"
+                  element={<ChangePassword />}
                 ></Route>
                 {/* all cases */}
                 <Route

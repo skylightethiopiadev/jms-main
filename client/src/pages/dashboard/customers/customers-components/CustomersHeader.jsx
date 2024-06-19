@@ -66,7 +66,6 @@ const CustomersHeader = () => {
     }
   };
 
-  const navigate = useNavigate();
   const [logout, logoutResponse] = useUserLogoutMutation();
   const [pending, setPending] = useState(false);
   const logoutHandler = () => {
@@ -297,6 +296,14 @@ const CustomersHeader = () => {
                       <VscVerifiedFilled className="text-xl text-sky-500" />
                     </div>
                   </div>
+                </div>
+
+                {/* profile fill */}
+                <div className="w-full px-2 flex flex-col mt-2 items-center justify-center">
+                  <p className="">Profile Fill Status </p>
+                  <p className="text-xl w-16  text-center flex items-center justify-center h-16 rounded-full border-2 border-main font-bold text-main">
+                    {user?.user?.profileFill}%
+                  </p>
                 </div>
                 {/* bio */}
                 <div className="px-2 py-3">
