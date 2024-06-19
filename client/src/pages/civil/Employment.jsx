@@ -1,4 +1,4 @@
-import React, { useState,useMemo } from "react";
+import React, { useState, useMemo } from "react";
 
 // icons
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -53,7 +53,8 @@ const Employment = () => {
   const adoptionCriteria = useMemo(
     () => [
       {
-        text: "A contract of employment should clearly stipulate the parties’ rights and obligation."
+        text:
+          "A contract of employment should clearly stipulate the parties’ rights and obligation."
       },
       {
         text:
@@ -279,39 +280,60 @@ const Employment = () => {
 
         {/* pre-six */}
         <div className="my-12 md:my-36 bg-neutral-white py-10">
-        {/* content container */}
-        <div className="static-padding-x">
-          <div className="flex flex-col-reverse md:flex-row">
-            <div className="w-[100%] ">
-              {/* bold text */}
-              <div className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase">
-                <p>
-                In Ethiopia, employment contracts, whether written or oral, must adhere to certain statutory requirements. These includes:
-                </p>
-              </div>
-              {/* normal text */}
-              <div className="my-5 text-justify">
-                {adoptionCriteria.map((item, index) => {
-                  return (
-                    <div>
-                      <div className="my-3 flex gap-3">
-                        <div>
-                          <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
-                            <FaCheck className="absolute left-1 bottom-1 text-green-400" />
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase">
+                  <p>
+                    In Ethiopia, employment contracts, whether written or oral,
+                    must adhere to certain statutory requirements. These
+                    includes:
+                  </p>
+                </div>
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  {adoptionCriteria.map((item, index) => {
+                    return (
+                      <div>
+                        <div className="my-3 flex gap-3">
+                          <div>
+                            <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                              <FaCheck className="absolute left-1 bottom-1 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <p>{item?.text}</p>
                           </div>
                         </div>
-                        <div>
-                          <p>{item?.text}</p>
-                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+
+        {/* pre-pre-six */}
+        <div className="mb-12 md:mb-36 bg-neutral-100 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* normal text */}
+                <div className="my-5 text-justify font-semibold">
+                  <p>
+                    For written employment contracts in Ethiopia, the law
+                    mandates the inclusion of several key elements to ensure
+                    clarity and legal compliance. These elements are:
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* sixth order container */}
         <div className="py-5 md:py-16 bg-neutral-800 text-white">
