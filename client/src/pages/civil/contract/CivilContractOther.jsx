@@ -66,12 +66,19 @@ const CivilContractOther = () => {
                           {/* bold text */}
                           <div className='text-3xl md:text-4xl lg:text-5xl font-bold uppercase'>
                               <p>
+                                Agency Contracts
+                              </p>
+                          </div>
+
+                          {/* bold text */}
+                          <div className='text-3xl md:text-3xl lg:text-3xl font-semibold uppercase mt-5'>
+                              <p>
                                   Enhance Your Business Reach: The Strategic Benefits of Agency Contracts
                               </p>
                           </div>
 
                           {/* normal text */}
-                          <div className='my-5'>
+                          <div className='my-5 text-justify'>
                               <p>
                                   In the dynamic landscape of modern commerce, agency contracts serve as the cornerstone, forging a legal link that empowers an agent to act on behalf of a principal, particularly when direct involvement isn’t feasible. These agreements capitalize on the agent’s niche expertise to enhance operational efficiency and efficacy, while concurrently navigating risks and fortifying legal defenses. Tailored to suit diverse commercial ventures, they cultivate trust and enforce accountability, with agents entrusted to act in the principal’s paramount interest. Moreover, they enable businesses to venture into new markets sans physical presence, presenting a financially savvy solution over traditional full-time staffing for specialized or interim tasks.
                               </p>
@@ -106,7 +113,7 @@ const CivilContractOther = () => {
                               </p>
                           </div>
                           {/* normal text */}
-                          <div className='my-5'>
+                          <div className='my-5 text-justify'>
                               <p>
                                   Within the Ethiopian legal system, agency relationships are there to regulate two pivotal conditions. The first governs routine principal activities, which might be economic-related or otherwise. The second pertains to business-centric interactions, where agents embody a trader’s interests. Predominantly steered by the Ethiopian Civil Code, particularly Article 2179, these relationships either arise from legal stipulations or contracts.
                               </p>
@@ -121,7 +128,7 @@ const CivilContractOther = () => {
           {/* post-second order container */}
           <div className='my-12 md:my-36 bg-neutral-200'>
               {/* content container */}
-              <div className='static-padding-x py-20'>
+              <div className='static-padding-x py-20 text-center'>
                   <div >
 
                       <div className=''>
@@ -147,7 +154,7 @@ const CivilContractOther = () => {
 
                       <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
                           {/* normal text */}
-                          <div className='my-5'>
+                          <div className='text-justify'>
                               <p>
                                   Complementing the civil code, Ethiopia’s contemporary commercial code integrates additional facets of agency relationships, enabling traders to amplify their commercial footprint through agreements with commercial agents, brokers, and commission agents. However, the practical deployment of agency relationships in Ethiopia encounters multifaceted challenges and disarray, often stemming from authority ambiguities, conflicts of interest, contractual discrepancies, and agents overstepping bounds.
                               </p>
@@ -180,7 +187,7 @@ const CivilContractOther = () => {
                       <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
 
                           {/* normal text */}
-                          <div className='my-5'>
+                          <div className='text-justify'>
                               <p>
                                   Given that agency ties originate from contractual agreements, and Ethiopian contract and commercial law prescribe stringent formalities for these agreements, it’s imperative to seek seasoned legal counsel prior to granting power of attorney, ensuring every step is taken with informed precision and professional oversight.
                               </p>
@@ -205,7 +212,7 @@ const CivilContractOther = () => {
                       </div>
                       {/* right */}
                       <div className='flex-grow'>
-                          <div className='text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold'>
+                          <div className='text-center text-[.85rem] md:text-[1.5rem] font-semibold'>
                               <p>
                                   At Makuta Law Firm, our dedicated team of legal professionals are committed to meticulously creating and examining a variety of contracts, ensuring compliance with Ethiopian regulations while placing your priorities at the forefront.
                               </p>

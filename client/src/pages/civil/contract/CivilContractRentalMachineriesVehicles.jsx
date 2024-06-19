@@ -14,19 +14,19 @@ const CivilContractRentalMachineriesVehicles = () => {
         text: 'Ensure that rental contracts comply with relevant laws and regulations applicable to machineries in Ethiopia.',
       },
       {
-        title: 'Drafting and reviewing leasing agreements',
+        title: 'Drafting and Reviewing Rental aAgreements',
         text: 'Assist our clients in formulating customized agreements for renting machinery, ensuring all critical details such as equipment specifics, schedules for payments, liability, indemnification and party obligations are clearly outlined. We also meticulously evaluate and refine existing contracts to rectify any deficiencies, unclear terms, or detrimental conditions, recommending modifications to safeguard the interests of all involved entities.',
       },
       {
-        title: 'Due diligence Services',
+        title: 'Due Diligence Services',
         text: 'Assist clients investigating and assessing various legal aspects before entering into a rental agreement.',
       },
       {
         title: 'Legal Representation',
-        text: 'In the event of any dispute related to rental contracts our legal team is prepared to represent you in any court action or arbitration.',
+        text: 'In the event of any dispute related to rental contracts our legal team is prepared to represent clients in any court action or arbitration.',
       },
       {
-        title: 'Legal consultation',
+        title: 'Legal Consultation',
         text: 'Our expert group is equipped to provide thorough advice and address any legal queries. We will assist clients with resolving disputes and provide clear explanations regarding the termination and renewal aspects of contracts.',
       },
     ],
@@ -72,7 +72,7 @@ const CivilContractRentalMachineriesVehicles = () => {
               </div>
 
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
                   In the routine conduct of both commercial and personal affairs, the necessity for various types of machinery is a given. Yet, individual access to such equipment may not always be straightforward, making rental services a viable alternative. The contractual agreements governing machinery rental are complex, subject to stringent legal stipulations and a myriad of legal implications that accompany these agreements. This complexity underscores the need for careful navigation through the contractual landscape to ensure compliance and mitigate potential legal challenges.
                 </p>
@@ -101,9 +101,9 @@ const CivilContractRentalMachineriesVehicles = () => {
 
             <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
-                  Machinery leasing is frequently utilized in industries like construction, agriculture, manufacturing, and entertainment, where legal complexities are a given. These areas often entail intricate legal situations, making it imperative that rental agreements are crafted with great attention to detail to address the specific needs and legal requirements of each sector. Significant legal concerns in machinery rental contracts encompass aspects such as rental fee and payment terms, maintenance and repair, liability and indemnification. Therefore, it’s crucial for these contracts to explicitly address these issues if not disputes are inevitable.
+                  Rental of machinery is frequently utilized in industries like construction, agriculture, manufacturing, and entertainment, where legal complexities are a given. These areas often entail intricate legal situations, making it imperative that rental agreements are crafted with great attention to detail to address the specific needs and legal requirements of each sector. Significant legal concerns in machinery rental contracts encompass aspects such as rental fee and payment terms, maintenance and repair, liability and indemnification. Therefore, it’s crucial for these contracts to explicitly address these issues if not disputes are inevitable.
 
                 </p>
               </div>
@@ -124,13 +124,13 @@ const CivilContractRentalMachineriesVehicles = () => {
               {/* bold text */}
               <div className='header-level-3 uppercase'>
                 <p>
-                  Safeguard Your Investments: Understanding Machinery Rental Agreements in Ethiopia
+                  Safeguard Your Interest: Understanding Machinery Rental Agreements in Ethiopia
                 </p>
               </div>
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
-                  In Ethiopia, the legal system aiming to foster a supportive environment for alternative financing options for investors and individuals eager to engage in investment activities but lacking capital has  came up with Specific legislations such as the Capital Goods Leasing Business Proclamation, Investment Proclamation, and the Proclamation on Registration and Control of Construction Machinery, along with the Civil Code  to regulate rental agreements. Consequently, machinery rental agreements in Ethiopia must adhere strictly to these laws to ensure legal compliance and avoid disputes. 
+                In Ethiopia, the legal system aiming to foster a supportive environment for alternative financing options for investors and individuals eager to engage in machinery rental investment activities has come up with Specific legislation such as the Capital Goods Leasing Business Proclamation, Investment Proclamation, and the Proclamation on Registration and Control of Construction Machinery, along with the Civil Code to regulate rental agreements and investment in rental of machinery business. Consequently, machinery rental agreements and investment in Ethiopia must adhere strictly to these laws to ensure legal compliance and avoid disputes. 
                 </p>
               </div>
             </div>
@@ -161,7 +161,7 @@ const CivilContractRentalMachineriesVehicles = () => {
             <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
 
               {/* normal text */}
-              <div className='my-5'>
+              <div className='text-justify'>
                 <p>
                   The procurement of machinery on a rental basis entails intricate legal stipulations, encompassing the formulation of lease contracts to the detailed provisions of accountability, maintenance, and indemnification. These contracts delineate not merely the lessee and duration, but also assign responsibility for maintenance, apportion risk for injuries incurred during operation, and detail the conditions of remuneration and operational terms. The propensity for contention arising from the contracts and legislative requirements necessitates the engagement of legal counsel. An attorney’s expertise is crucial in ensuring that contractual terms are transparent, equitable, and legally binding, thereby safeguarding all involved entities against unexpected legal and financial liabilities.
                 </p>
@@ -186,7 +186,7 @@ const CivilContractRentalMachineriesVehicles = () => {
             </div>
             {/* right */}
             <div className='flex-grow'>
-              <div className='text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold'>
+              <div className='text-center text-[.85rem] md:text-[1.5rem] font-semibold'>
                 <p>
                   At Makuta Law Firm, our dedicated team of legal professionals are committed to meticulously creating and examining a variety of contracts, ensuring compliance with Ethiopian regulations while placing your priorities at the forefront.
                 </p>

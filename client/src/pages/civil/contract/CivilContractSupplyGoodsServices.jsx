@@ -10,12 +10,12 @@ const CivilContractSupplyGoodsServices = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: 'Drafting and reviewing Service contracts',
+        title: 'Drafting and Reviewing Contracts',
         text: 'We assist our clients in formulating customized agreements for supply of goods and service, ensuring all critical details such price, type and quality of product, place of delivery, consequence of non-performance and other issues are clearly outlined. We also meticulously evaluate and refine existing contracts to rectify any deficiencies, unclear terms, or detrimental conditions, recommending modifications to safeguard the interests of all involved entities.',
       },
       {
-        title: 'Due diligence Services',
-        text: 'We assist clients investigating and assessing various legal aspect.',
+        title: 'Due Diligence Services',
+        text: 'We assist clients investigating and assessing various legal aspect and requirements including pertinent information of contracting parties when entering in to contracts.',
       },
       {
         title: 'Risk Mitigation',
@@ -23,7 +23,7 @@ const CivilContractSupplyGoodsServices = () => {
       },
       {
         title: 'Legal Representation',
-        text: 'In the event of any dispute related to rental contracts our legal team is prepared to represent you in any court action or arbitration.',
+        text: 'In the event of any dispute related to supply contracts our legal team is prepared to represent clients in any court action or arbitration.',
       },
       {
         title: 'Legal Consultation',
@@ -72,9 +72,9 @@ const CivilContractSupplyGoodsServices = () => {
               </div>
 
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
-                  The contract of supply of goods and services is a fundamental element in the commercial world, where a supplier agrees to provide a specific service or product either on a regular basis, continuously, or as a one-time transaction. To prevent disputes and ensure clarity, certain key aspects must be included in a supply contract. These include defining the object, quality, and quantity of the goods or services to be supplied, establishing the price, determining the time and amount of payment, outlining the terms of the agreement, and specifying liabilities in case of non-performance.
+                  The contract of supply of goods and services is a fundamental element in the commercial world, where a supplier agrees to provide a specific service or product either on a regular basis or as a one-time transaction. To prevent disputes and ensure clarity, certain key aspects must be included in a supply contract. These include defining the object, quality, and quantity of the goods or services to be supplied, establishing the price, determining the time and amount of payment, outlining the terms of the agreement, and specifying liabilities in case of non-performance.
                 </p>
               </div>
 
@@ -107,7 +107,7 @@ const CivilContractSupplyGoodsServices = () => {
                 </p>
               </div>
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
                   In Ethiopia the primary legislation governing supply contract is the civil code. The law provides a complete freedom of contract for contracting parties to govern their legal relationship. However, if parties fail to clearly regulate their legal relationship the law primarily serves as a gap filling provisions. 
                 </p>
@@ -127,7 +127,7 @@ const CivilContractSupplyGoodsServices = () => {
 
             <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
                   The predominant legal challenges in supply contracts pertain to the quality and quantity of goods, timeliness of delivery, responsibility for non-fulfillment, location of delivery, among other pertinent matters. Therefore, it is crucial for parties to delineate their legal obligations and rights. In instances where these rights are not actively exercised, legal intervention becomes inevitable.
                 </p>
@@ -160,9 +160,9 @@ const CivilContractSupplyGoodsServices = () => {
             <div className='w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md'>
               
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
-                  Inadequate articulation of contractual terms can lead to reliance on statutory provisions as default solutions during disputes. However, these statutory defaults may not necessarily serve the best interests of your enterprise. Thus, it is imperative to integrate fundamental components and comply with the Ethiopian Civil Code’s legal mandates when formulating supply contracts. This approach ensures the establishment of explicit mutual expectations, diminishes the risk of contention, and fortifies the protection of the parties’ rights and interests over the contract’s lifespan.
+                  Inadequate articulation of contractual terms can lead to reliance on statutory provisions as default solutions during disputes. However, these statutory defaults may not necessarily serve the best interests of your enterprise. Thus, it is imperative to integrate fundamental components and comply with the Ethiopian Civil Code’s legal requirements when formulating supply contracts. This approach ensures the establishment of explicit mutual expectations, diminishes the risk of contention, and fortifies the protection of the parties’ rights and interests over the contract’s lifespan.
                 </p>
               </div>
             </div>
@@ -185,7 +185,7 @@ const CivilContractSupplyGoodsServices = () => {
             </div>
             {/* right */}
             <div className='flex-grow'>
-              <div className='text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold'>
+              <div className='text-center text-[.85rem] md:text-[1.5rem] font-semibold'>
                 <p>
                   At Makuta Law Firm, our dedicated team of legal professionals are committed to meticulously creating and examining a variety of contracts, ensuring compliance with Ethiopian regulations while placing your priorities at the forefront.
                 </p>

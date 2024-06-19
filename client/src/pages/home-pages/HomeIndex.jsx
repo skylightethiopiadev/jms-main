@@ -442,20 +442,11 @@ const HomeIndex = () => {
               </div>
               {/* content */}
               <div className="absolute left-0 bottom-0 h-full w-full z-50 flex flex-col gap-y-5">
-                {/* yellow card div */}
-                <div className="flex-grow flex items-end justify-end h-[75%]">
-                  <div className="flex items-center gap-x-2 p-2 rounded-sm text-white bg-yellow-300">
-                    {/* icon */}
-                    <div className="rounded-full bg-white text-[1.35rem] text-green-400">
-                      <SiPostman />
-                    </div>
-                    {/* text */}
-                    <div className="text-sm">
-                      <p>Addis Ababa, Ethiopia</p>
-                    </div>
-                  </div>
-                </div>
-                {/* lawyers container */}
+                {/* 
+                //////////////////////////////
+                lawyers container 
+                /////////////////////////////
+                */}
                 <div className="flex-grow h-[50%] flex items-end">
                   <div className="bg-white shadow-lg mb-[-24px] w-max">
                     <header className="px-3 py-2 border-b border-gray-100">
@@ -521,6 +512,14 @@ const HomeIndex = () => {
           </div>
         </div>
       </div>
+
+      {/* post-first order container */}
+      <div className="w-full flex items-center px-[3%] text-[1.25rem] text-black  sm:px-[12%]  py-12 relative">
+        <div className="relative z-20 w-full h-full sm:py-[1%]">
+          <div className="bg-red-200">lawyers here</div>
+        </div>
+      </div>
+
       {/* second order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         <div className="w-full flex items-center gap-0">
@@ -856,7 +855,9 @@ const HomeIndex = () => {
             <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
               {/* bold paragraph */}
               <div className="mb-4">
-                <h2 className="header-level-2">For your intellectual property</h2>
+                <h2 className="header-level-2">
+                  For your intellectual property
+                </h2>
               </div>
               {/* normal paragraph */}
               <div className="normal-text">
@@ -1066,7 +1067,9 @@ const HomeIndex = () => {
               </div>
               {/* bold paragraph */}
               <div className="my-5">
-                <h2 className="header-level-2">Have you face court or arbitration case in Ethiopian?</h2>
+                <h2 className="header-level-2">
+                  Have you face court or arbitration case in Ethiopian?
+                </h2>
               </div>
               {/* normal paragraph */}
               <div className="normal-text">

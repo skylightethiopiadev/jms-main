@@ -50,6 +50,71 @@ const Employment = () => {
 
   const [successionWays, setSuccessionWays] = useState("Testate succession");
 
+  const employmentContractElement = useMemo(
+    () => [
+      {
+        text: "The name and address of the employer."
+      },
+      {
+        text:
+          "The name, age, addresses and work card number, if any, of the worker."
+      },
+      {
+        text: "The type of employment and place of work."
+      },
+      {
+        text: "The rate of wages, method of calculation thereof."
+      },
+      {
+        text: "Manner and interval of payment."
+      },
+      {
+        text: "Duration of the contract."
+      },
+      {
+        text: "The signature of the contracting parties."
+      }
+    ],
+    []
+  );
+
+  const employmentPeriod = useMemo(
+    () => [
+      {
+        text: "The performance of specified piece work for which the employee is employed."
+      },
+      {
+        text:
+          "The replacement of a worker who is temporarily absent due to leave or sickness or other causes."
+      },
+      {
+        text: "The performance of work in the event of abnormal pressure of work"
+      },
+      {
+        text: "The performance of urgent work to prevent damage or disaster to life or property, to repair defects or breakdowns in works, materials, buildings or plants of an undertaking."
+      },
+      {
+        text: "An irregular work which relates to permanent part of the work of an employer but performed on irregular intervals."
+      },
+      {
+        text: "Seasonal works which relate to the permanent part of the works of an employer but performed only for a specified period of the year but which are regularly repeated in the course of the years."
+      },
+      {
+        text: "An occasional work which does not form part of the permanent activity of the employer but which is done intermittently."
+      },
+      {
+        text: "The temporary placement of a worker who has suddenly and permanently vacated from a post having a contract of an indefinite period."
+      },
+      {
+        text: "An occasional work which does not form part of the permanent activity of the employer but which is done intermittently."
+      },
+      {
+        text: "The temporary placement of a worker to fill a vacant position in the period between the preparation of an organizational structure and its implementation."
+      },
+    ],
+    []
+  );
+
   const adoptionCriteria = useMemo(
     () => [
       {
@@ -75,6 +140,8 @@ const Employment = () => {
     ],
     []
   );
+
+  
 
   return (
     <div className="text-[1.05rem]">
@@ -329,6 +396,67 @@ const Employment = () => {
                     mandates the inclusion of several key elements to ensure
                     clarity and legal compliance. These elements are:
                   </p>
+                </div>
+
+                <div className="pl-[5%]">
+                  {employmentContractElement.map((item, index) => {
+                    return (
+                      <div>
+                        <div className="flex gap-2 my-3">
+                          <div>
+                            <div className="w-[8px] mt-1.5 aspect-square rounded-full bg-yellow-400"></div>
+                          </div>
+                          <div>
+                            <p>{item?.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* post-pre-pre-six */}
+        <div className="mb-12 md:mb-36 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>
+                    Defining Rights and Responsibilities: Navigating Labor and
+                    Employment Law
+                  </p>
+                </div>
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  <p>
+                    Regarding the duration of employment contract, Ethiopian law
+                    has stated that any employment contracts except those
+                    mentioned below will be considered as made for indefinite
+                    period of time. A contract of employment may be concluded
+                    for a definite period or for piece work in the case of:-
+                  </p>
+                </div>
+
+                <div className="pl-[5%]">
+                  {employmentPeriod.map((item, index) => {
+                    return (
+                      <div>
+                        <div className="flex gap-2 my-3">
+                          <div>
+                            <div className="w-[8px] mt-1.5 aspect-square rounded-full bg-blue-400"></div>
+                          </div>
+                          <div>
+                            <p>{item?.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

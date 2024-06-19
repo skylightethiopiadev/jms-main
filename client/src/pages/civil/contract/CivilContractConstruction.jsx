@@ -10,19 +10,19 @@ const CivilContractConstruction = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: 'Legal Due diligence',
+        title: 'Legal Due Diligence',
         text: 'Conducting legal due diligence on financial records and other relevant documents to evaluate risk and compliance.',
       },
       {
         title: 'Contract Drafting and Review',
-        text: 'Our team is dedicated to carefully crafting, evaluating, and negotiating the specifics of construction contracts. We ensure that every aspect of the contract, including rights and duties, is defined with legal accuracy and transparency, safeguarding your interests.',
+        text: 'Our team is dedicated to carefully crafting, evaluating, and negotiating the specifics of construction contracts. We ensure that every aspect of the contract, including rights and duties, is defined with legal accuracy and transparency safeguarding your interests.',
       },
       {
-        title: 'Legal representation',
+        title: 'Legal Representation',
         text: 'In the event of disagreements in construction projects, we advocate for our clients, addressing intricate matters such as quality of work, structural issues, contract changes, and financial disagreements.',
       },
       {
-        title: 'Regulatory compliance',
+        title: 'Regulatory Compliance',
         text: 'We guide your construction project through the complex web of legal standards, ensuring every aspect complies with the necessary legal provisions.',
       },
     ],
@@ -68,7 +68,7 @@ const CivilContractConstruction = () => {
               </div>
 
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
                   Construction contracts falling under contracts for the performance of services are crucial in Ethiopia as they play a pivotal role in the success of construction projects. For a person engaging in a building project, construction contracts are essential as they establish the project’s framework, detailing the work to be done, the schedule, financial terms, and standards for materials and workmanship. These contracts act as a protective measure for individuals, guaranteeing that their stipulations are honored and the construction is finalized as specified. Therefore, Construction contract mostly require detailed terms to be clearly defined by the parties involved to prevent future disputes and delays in the construction process.
                 </p>
@@ -103,12 +103,12 @@ const CivilContractConstruction = () => {
                 </p>
               </div>
               {/* normal text */}
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
                   The intricate nature of construction contracts, filled with various detailed clauses and specialized terminology, typically requires the aid of legal professionals. Legal experts assist individuals in understanding their contractual duties, adhering to legal standards, and comprehending the implications of the contract’s terms. Such guidance is crucial for avoiding confusion, settling disagreements, and guaranteeing a legally compliant and seamless construction experience.
                 </p>
               </div>
-              <div className='my-5'>
+              <div className='my-5 text-justify'>
                 <p>
                   Since, the effectiveness of construction projects heavily relies on the contractual contracts established between contractors and clients, it is essential for these agreements to be meticulously crafted to ensure clarity and understanding of the rights and obligations of each party.
                 </p>
@@ -133,7 +133,7 @@ const CivilContractConstruction = () => {
             </div>
             {/* right */}
             <div className='flex-grow'>
-              <div className='text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold'>
+              <div className='text-center text-[.85rem] md:text-[1.5rem] font-semibold'>
                 <p>
                   At Makuta Law Firm, our dedicated team of legal professionals are committed to meticulously creating and examining a variety of contracts, ensuring compliance with Ethiopian regulations while placing your priorities at the forefront.
                 </p>
