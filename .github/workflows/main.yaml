@@ -1,11 +1,11 @@
 on:
- push:
+  push:
     branches:
       - main
-name: 🚀 Deploy makuta
+name: 🚀 Deploy makutalawfirm
 defaults:
- run:
-  working-directory: ./client
+  run:
+    working-directory: ./client
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "20.10.0"
-        
+
       - name: 🔨 Build Project
         run: |
           npm install --force
@@ -37,4 +37,3 @@ jobs:
             **/.git*/**
             **/node_modules/**
             **/.**
-          
