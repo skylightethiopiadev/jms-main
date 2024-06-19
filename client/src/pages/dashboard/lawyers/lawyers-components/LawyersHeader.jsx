@@ -224,7 +224,7 @@ const LawyersHeader = () => {
             {/* pop up */}
             <div
               className={`absolute z-50 w-[170px]  overflow-hidden bg-transparent right-0 top-[100%] transition-all ease-in-out duration-300 ${
-                isUserProfilePopUpOpen ? "h-[320px]" : "h-0"
+                isUserProfilePopUpOpen ? "h-auto" : "h-0"
               }`}
             >
               <div className="mt-4 w-full h-auto bg-white relative border rounded-md border-gray-200 ppt-12">

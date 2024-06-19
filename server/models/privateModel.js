@@ -18,11 +18,6 @@ const privateSchema = new mongoose.Schema(
       validate: valid.name("Last name"),
     },
 
-    bio: {
-      type: String,
-      validate: valid.textMax("Bio", 100),
-    },
-
     gender: {
       type: String,
       validate: valid.gender("Gender"),
@@ -33,32 +28,15 @@ const privateSchema = new mongoose.Schema(
       validate: valid.gender("Date of birth"),
     },
 
-    phone: {
-      type: String,
-      validate: valid.phone("Phone"),
-    },
-
     nationality: {
       type: String,
       validate: valid.paragraph("Nationality", 4, 100),
     },
 
-    employmentInfo: {
-      type: {
-        employed: { type: Boolean, default: false },
-        currentEmployer: {
-          type: String,
-          validate: valid.paragraph("Current Employer", 4, 100),
-        },
-        jobTitle: {
-          type: String,
-          validate: valid.paragraph("Job Title", 4, 100),
-        },
-        employmentStatus: {
-          type: String,
-          validate: valid.paragraph("Employment Status", 4, 100),
-        },
-      },
+    // contact info
+    phone: {
+      type: String,
+      validate: valid.phone("Phone"),
     },
 
     address: {
@@ -87,6 +65,24 @@ const privateSchema = new mongoose.Schema(
       },
     },
 
+    // employment info
+    employmentInfo: {
+      type: {
+        employed: { type: Boolean, default: false },
+        currentEmployer: {
+          type: String,
+          validate: valid.paragraph("Current Employer", 4, 100),
+        },
+        jobTitle: {
+          type: String,
+          validate: valid.paragraph("Job Title", 4, 100),
+        },
+        employmentStatus: {
+          type: String,
+          validate: valid.paragraph("Employment Status", 4, 100),
+        },
+      },
+    },
     maritalStatus: {
       type: String,
       enum: ["Married", "Separated", "Divorced", "Not Married"],
@@ -152,6 +148,11 @@ const privateSchema = new mongoose.Schema(
     profilePicture: {
       type: String,
       default: "http://localhost:3000/Default_Profile_Picture.svg",
+    },
+
+    bio: {
+      type: String,
+      validate: valid.textMax("Bio", 100),
     },
 
     profileFillStatus: {
