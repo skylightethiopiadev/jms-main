@@ -1095,14 +1095,30 @@ const HomeIndex = () => {
                   <Chart
                     width={"75%"}
                     height={155}
-                    type="area"
+                    type="line"
                     series={[
                       {
-                        name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125]
-                      }
+                        name: "active",
+                        data: [0,12, 50,23, 145, 170, 100, 200, 125,12,75,23,190]
+                      },
+                      {
+                        name: "pending",
+                        data: [100,10, 50,73, 45, 170, 120, 230, 105,120,5,23,10]
+                      },
+                      {
+                        name: "closed",
+                        data: [250,34, 40,230, 15, 17, 100, 50, 35,20,200,23,100]
+                      },
                     ]}
                     options={{
+                      chart: {
+                        toolbar: {
+                          show: false
+                        },
+                        zoom: {
+                          enabled: false
+                        }
+                      },
                       legend: {
                         show: false
                       },
@@ -1113,7 +1129,25 @@ const HomeIndex = () => {
                       tooltip: {
                         fillSeriesColor: true
                       },
+                      colors: ["#03a811","#edce07","#ed072a"],
+                      stroke: {
+                        width: 1,
+                        curve: 'smooth',
+                      },
+                      subtitle: {
+                        text: 'our services',
+                        style: {
+                          fontSize: 16,
+                          fontWeight: 'bold',
+                        },
+                      },
                       xaxis: {
+                        axisBorder: {
+                          show: false
+                        },
+                        axisTicks: {
+                          show: false
+                        },
                         categories: [
                           "Sep",
                           "Oct",
@@ -1131,7 +1165,7 @@ const HomeIndex = () => {
                       },
                       yaxis: {
                         labels: {
-                          show: true
+                          show: false,
                         }
                       },
                       grid: {
