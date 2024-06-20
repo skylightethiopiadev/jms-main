@@ -40,7 +40,7 @@ app.use("/jms/app/v1/user", router);
 app.use("/jms/app/v1/account", accountRouter);
 app.use("/jms/app/v1/chat", chatRouter);
 
-app.get("/", (req, res) => {
+app.get("/api/v1/", (req, res) => {
   res.json("Hello from jms server");
 });
 
