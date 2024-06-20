@@ -59,7 +59,7 @@ const HomeIndex = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 2,
     initialSlide: 0,
     autoplay: true,
@@ -122,9 +122,9 @@ const HomeIndex = () => {
       profile_path: "/images/lawyers/betlhem.jpg"
     },
     {
-      first_name: "Haddis",
+      first_name: "Shoangizaw",
       middle_name: "Fanta",
-      last_name: "Shiferaw",
+      last_name: "Gebreyesus",
       profession: "Lawyer",
       profile_path: "/images/lawyers/lawyer-one.jpg"
     },
@@ -590,13 +590,29 @@ const HomeIndex = () => {
                         </div>
                       </div>
                       {/* name */}
-                      <div className="flex flex-col juustify-center items-center gap-1">
-                        <div className="font-medium text-[.975rem] text-gray-800">
+                      <div className="flex flex-coll justify-center items-center gap-1">
+                      {
+                        item?.first_name.length + item?.first_name.length > 18
+                        ?
+                        <>
+                        <div className="font-bold text-[.83rem] ">
                           <span>{item?.first_name}</span>
                         </div>
-                        <div className="font-medium text-[.975rem] text-gray-800 mt-[-10px]">
+                        <div className="font-bold text-[.83rem]  mlt-[-10px]">
+                          <span>{item?.last_name[0]}.</span>
+                        </div>
+                        </>
+                        :
+                        <>
+                        <div className="font-bold text-[.83rem] ">
+                          <span>{item?.first_name}</span>
+                        </div>
+                        <div className="font-bold text-[.83rem]  mlt-[-10px]">
                           <span>{item?.last_name}</span>
                         </div>
+                        </>
+                      }
+                        
                       </div>
                       {/* profession */}
                       <div className="text-sm text-gray-700">

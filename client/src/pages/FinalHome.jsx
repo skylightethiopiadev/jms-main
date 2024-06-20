@@ -66,7 +66,7 @@ const FinalHome = () => {
         <ChatBots />
         {/* pop up */}
         <div className="fixed left-[-24px] top-1/2 -translate-y-1/2 z-50">
-          <div className="relative bg-white rounded-md shadow-xl h-[130px]">
+          <div className="relative bg-white rounded-md overflow-hidden shadow-xl h-[130px]">
             {/* image */}
             <div>
               <div className="w-[150px] aspect-square">
