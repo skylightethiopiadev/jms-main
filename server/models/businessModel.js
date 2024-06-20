@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import uniqueValidator from "mongoose-unique-validator";
-import * as valid from "../utils/validator.js";
+const mongoose = require("mongoose");
+const valid = require("../utils/validator");
+const uniqueValidator = require("mongoose-unique-validator");
 
 const businessSchema = new mongoose.Schema(
   {
@@ -52,4 +52,5 @@ businessSchema.pre("findOneAndUpdate", function (next) {
 uniqueValidator.defaults.message = "{PATH} '{VALUE}' is taken";
 businessSchema.plugin(uniqueValidator);
 
-export const Business = mongoose.model("business", businessSchema);
+const Business = mongoose.model("business", businessSchema);
+module.exports = { Business };

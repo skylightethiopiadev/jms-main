@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import * as valid from "../utils/validator.js";
+const mongoose = require("mongoose");
+const valid = require("../utils/validator");
 
 const caseManagerSchema = new mongoose.Schema(
   {
@@ -100,4 +100,5 @@ caseManagerSchema.pre("save", function (next) {
   this.profileFillStatus = percent;
   next();
 });
-export const CaseManager = mongoose.model("case-manager", caseManagerSchema);
+const CaseManager = mongoose.model("case-manager", caseManagerSchema);
+module.exports = { CaseManager };

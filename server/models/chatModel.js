@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const chatSchema = mongoose.Schema(
+const chatSchema = new mongoose.Schema(
   {
     chatId: {
       type: String,
@@ -38,4 +38,5 @@ chatSchema.pre("findOneAndUpdate", function (next) {
   this.options.runValidators = true;
   next();
 });
-export const Chat = mongoose.model("chat", chatSchema);
+const Chat = mongoose.model("chat", chatSchema);
+module.exports = { Chat };

@@ -1,16 +1,15 @@
-import AppError from "../utils/AppError.js";
-import asyncCatch from "express-async-catch";
-import { User } from "../models/userModel.js";
-import { tokenGenerator } from "../utils/tokenGenerator.js";
-import crypto from "crypto";
-import { sendEmailHandler } from "./emailController.js";
-import { Lawyer } from "../models/lawyerModel.js";
-import { CaseManager } from "../models/caseManagerModel.js";
-import { Business } from "../models/businessModel.js";
-import v2 from "./../config/cloudinary.js";
-import { Private } from "../models/privateModel.js";
+const AppError = require("../utils/AppError.js");
+const asyncCatch = require("express-async-catch");
+const { User } = require("../models/userModel.js");
+const { tokenGenerator } = require("../utils/tokenGenerator.js");
+const crypto = require("crypto");
+const { sendEmailHandler } = require("./emailController.js");
+const { Lawyer } = require("../models/lawyerModel.js");
+const { CaseManager } = require("../models/caseManagerModel.js");
+const { Business } = require("../models/businessModel.js");
+const { Private } = require("../models/privateModel.js");
 
-export const signupHandler = asyncCatch(async (req, res, next) => {
+const signupHandler = asyncCatch(async (req, res, next) => {
   // const value = { ...req.body };
   const createAccount = async (model) => {
     const user = await User.create(req.body);
@@ -59,7 +58,7 @@ export const signupHandler = asyncCatch(async (req, res, next) => {
   }
 });
 
-export const loginHandler = asyncCatch(async (req, res, next) => {
+const loginHandler = asyncCatch(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password)
     return next(new AppError("provide email and password", 404));
@@ -94,14 +93,14 @@ export const loginHandler = asyncCatch(async (req, res, next) => {
   });
 });
 
-export const logoutHandler = asyncCatch(async (req, res, next) => {
+const logoutHandler = asyncCatch(async (req, res, next) => {
   res.cookie("_m_l_f_s", "", { maxAge: 1 });
   res.status(200).json({
     message: "Log out successful",
   });
 });
 
-export const forgetPassword = asyncCatch(async (req, res, next) => {
+const forgetPassword = asyncCatch(async (req, res, next) => {
   const { email } = req.body;
   if (!email)
     return next(new AppError("please provide your email address", 404));
@@ -122,7 +121,7 @@ export const forgetPassword = asyncCatch(async (req, res, next) => {
   // sendEmailMessage(passwordResetUrl, user, res, next);
 });
 
-export const resetPassword = asyncCatch(async (req, res, next) => {
+const resetPassword = asyncCatch(async (req, res, next) => {
   //decode reset token
   const resetToken = await crypto
     .createHash("sha256")
@@ -165,7 +164,7 @@ export const resetPassword = asyncCatch(async (req, res, next) => {
   });
 });
 
-export const readProfileInfo = asyncCatch(async (req, res, next) => {
+const readProfileInfo = asyncCatch(async (req, res, next) => {
   const user =
     req.user.userType === "private"
       ? await User.findById(req.user._id)
@@ -177,7 +176,7 @@ export const readProfileInfo = asyncCatch(async (req, res, next) => {
   });
 });
 
-export const updateProfileInfo = asyncCatch(async (req, res, next) => {
+const updateProfileInfo = asyncCatch(async (req, res, next) => {
   const body = { ...req.body };
 
   const remove = [
@@ -211,7 +210,7 @@ export const updateProfileInfo = asyncCatch(async (req, res, next) => {
     .json({ status: "Updated", message: "Profile updated successfully" });
 });
 
-export const updateProfilePicture = asyncCatch(async (req, res, next) => {
+const updateProfilePicture = asyncCatch(async (req, res, next) => {
   if (!req.files || !req.files.profilePicture)
     return next(new AppError("please select your new profile picture", 404));
 
@@ -235,7 +234,7 @@ export const updateProfilePicture = asyncCatch(async (req, res, next) => {
   });
 });
 
-export const updatePassword = asyncCatch(async (req, res, next) => {
+const updatePassword = asyncCatch(async (req, res, next) => {
   const { newPassword, currentPassword, confirmPassword } = req.body;
 
   if (!newPassword || !currentPassword || !confirmPassword)
@@ -269,7 +268,7 @@ export const updatePassword = asyncCatch(async (req, res, next) => {
     .json({ status: "Changed", message: "Password changed successfully" });
 });
 
-export const updateUsersCredentials = asyncCatch(async (req, res, next) => {
+const updateUsersCredentials = asyncCatch(async (req, res, next) => {
   const { password, email, type, id, confirmPassword } = req.body;
   console.log(req.body, req.user.role, "role");
   const user = await User.findOne({ _id: id });
@@ -288,3 +287,16 @@ export const updateUsersCredentials = asyncCatch(async (req, res, next) => {
     .status(200)
     .json({ status: "Changed", message: "Users Data Updated successfully" });
 });
+
+module.exports = {
+  signupHandler,
+  loginHandler,
+  logoutHandler,
+  forgetPassword,
+  resetPassword,
+  readProfileInfo,
+  updateProfileInfo,
+  updateProfilePicture,
+  updatePassword,
+  updateUsersCredentials,
+};

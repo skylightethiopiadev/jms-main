@@ -1,5 +1,5 @@
-import nodemailer from "nodemailer";
-import AppError from "./AppError.js";
+const nodemailer = require("nodemailer");
+const AppError = require("./AppError.js");
 
 const sendEmail = async ({ email, message, subject, html, next, res }) => {
   const transporter = nodemailer.createTransport({
@@ -43,4 +43,4 @@ const sendEmail = async ({ email, message, subject, html, next, res }) => {
   return response;
 };
 
-export default sendEmail;
+module.exports = { sendEmail };

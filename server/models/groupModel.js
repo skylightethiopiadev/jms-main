@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const groupSchema = mongoose.Schema(
+const groupSchema = new mongoose.Schema(
   {
     groupName: { type: String },
     admin: { type: String },
@@ -18,4 +18,5 @@ const groupSchema = mongoose.Schema(
   }
 );
 
-export const Group = mongoose.model("group", groupSchema);
+const Group = mongoose.model("group", groupSchema);
+module.exports = { Group };

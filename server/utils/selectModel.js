@@ -1,17 +1,17 @@
-import { Application } from "../models/applicationModel.js";
-import { CaseManager } from "../models/caseManagerModel.js";
-import { Case } from "../models/caseModel.js";
-import { Category } from "../models/categoryModel.js";
-import { Group } from "../models/groupModel.js";
-import { Lawyer } from "../models/lawyerModel.js";
-import { Business } from "../models/businessModel.js";
-import { Payment } from "../models/paymentModel.js";
-import { Permission } from "../models/permissionModel.js";
-import { User } from "../models/userModel.js";
-import AppError from "./AppError.js";
-import { Private } from "../models/privateModel.js";
+const { Application } = require("../models/applicationModel.js");
+const { CaseManager } = require("../models/caseManagerModel.js");
+const { Case } = require("../models/caseModel.js");
+const { Category } = require("../models/categoryModel.js");
+const { Group } = require("../models/groupModel.js");
+const { Lawyer } = require("../models/lawyerModel.js");
+const { Business } = require("../models/businessModel.js");
+const { Payment } = require("../models/paymentModel.js");
+const { Permission } = require("../models/permissionModel.js");
+const { User } = require("../models/userModel.js");
+const AppError = require("./AppError.js");
+const { Private } = require("../models/privateModel.js");
 
-export const selectModel = (name, next) => {
+const selectModel = (name, next) => {
   let model;
   switch (name) {
     case "users":
@@ -55,3 +55,5 @@ export const selectModel = (name, next) => {
   }
   return model;
 };
+
+module.exports = { selectModel };

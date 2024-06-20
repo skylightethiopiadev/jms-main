@@ -1,12 +1,12 @@
-import { Permission } from "../models/permissionModel.js";
-import AppError from "../utils/AppError.js";
-import { selectModel } from "../utils/selectModel.js";
+const { Permission } = require("../models/permissionModel.js");
+const AppError = require("../utils/AppError.js");
+const { selectModel } = require("../utils/selectModel.js");
 
 const unauthorized = (next) => {
   return next(new AppError("You are not authorized to perform this action"));
 };
 
-export const authorization = async (req, res, next) => {
+const authorization = async (req, res, next) => {
   const method = req.method; //req.method
   const table = selectModel(req.params.table, next)?.collection?.collectionName; //model.collection.collectionName
   const role = req.user.role; //req.user.role
@@ -155,3 +155,5 @@ export const authorization = async (req, res, next) => {
     }
   }
 };
+
+module.exports = { authorization };
