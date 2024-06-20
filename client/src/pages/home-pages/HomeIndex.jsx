@@ -857,7 +857,7 @@ const HomeIndex = () => {
             <div className="w-full h-full overflow-hidden">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                src="https://energyintel.brightspotcdn.com/dims4/default/8a9b403/2147483647/strip/true/crop/3900x2595+0+0/resize/1920x1278!/quality/90/?url=http%3A%2F%2Fenergy-intelligence-brightspot.s3.us-east-2.amazonaws.com%2F66%2F5d%2F447bdc744898bf4cd275dc794375%2Fss102708536-rigs-drilling.jpg"
                 alt=""
               />
             </div>
@@ -986,7 +986,7 @@ const HomeIndex = () => {
                 <div className="h-[370px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-yellow-500 after:rounded-l-full after:z-0">
                   <img
                     className="relative z-10 h-full"
-                    src="/images/personnels/lawyer-five.png"
+                    src="https://www.gorebet.com/wp-content/uploads/2021/04/Tsay-Real-Estate-in-Ethiopia-1024x899.jpg"
                     alt=""
                   />
                 </div>
@@ -1099,16 +1099,58 @@ const HomeIndex = () => {
                     series={[
                       {
                         name: "active",
-                        data: [0,12, 50,23, 145, 170, 100, 200, 125,12,75,23,190]
+                        data: [
+                          0,
+                          12,
+                          50,
+                          23,
+                          145,
+                          170,
+                          100,
+                          200,
+                          125,
+                          12,
+                          75,
+                          23,
+                          190
+                        ]
                       },
                       {
                         name: "pending",
-                        data: [100,10, 50,73, 45, 170, 120, 230, 105,120,5,23,10]
+                        data: [
+                          100,
+                          10,
+                          50,
+                          73,
+                          45,
+                          170,
+                          120,
+                          230,
+                          105,
+                          120,
+                          5,
+                          23,
+                          10
+                        ]
                       },
                       {
                         name: "closed",
-                        data: [250,34, 40,230, 15, 17, 100, 50, 35,20,200,23,100]
-                      },
+                        data: [
+                          250,
+                          34,
+                          40,
+                          230,
+                          15,
+                          17,
+                          100,
+                          50,
+                          35,
+                          20,
+                          200,
+                          23,
+                          100
+                        ]
+                      }
                     ]}
                     options={{
                       chart: {
@@ -1129,17 +1171,17 @@ const HomeIndex = () => {
                       tooltip: {
                         fillSeriesColor: true
                       },
-                      colors: ["#03a811","#edce07","#ed072a"],
+                      colors: ["#03a811", "#edce07", "#ed072a"],
                       stroke: {
                         width: 1,
-                        curve: 'smooth',
+                        curve: "smooth"
                       },
                       subtitle: {
-                        text: 'our services',
+                        text: "our services",
                         style: {
                           fontSize: 16,
-                          fontWeight: 'bold',
-                        },
+                          fontWeight: "bold"
+                        }
                       },
                       xaxis: {
                         axisBorder: {
@@ -1165,7 +1207,7 @@ const HomeIndex = () => {
                       },
                       yaxis: {
                         labels: {
-                          show: false,
+                          show: false
                         }
                       },
                       grid: {
