@@ -187,6 +187,176 @@ const HomeIndex = () => {
   ];
   // case categories
   const caseTypes = [
+    // business
+    {
+      icon: FaBusinessTime,
+      title: "Business",
+      subList: [
+        {
+          text: "Corporate",
+          path: "#"
+        },
+        {
+          text: "Contracts",
+          path: "#"
+        },
+        {
+          text: "Tax Issues",
+          path: "#"
+        },
+      ]
+    },
+    // real estate
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Real Estate",
+      subList: [
+        {
+          text: "Development",
+          path: "#"
+        },
+        {
+          text: "Sales and Rental",
+          path: "#"
+        },
+        {
+          text: "Landlord and Tenant",
+          path: "#"
+        },
+        {
+          text: "Agreements",
+          path: "#"
+        },
+      ]
+    },
+    // mining and energy
+    {
+      icon: GrShieldSecurity,
+      title: "Mining & Energy",
+      subList: [
+        {
+          text: "Mining",
+          path: "#"
+        },
+        {
+          text: "Energy",
+          path: "#"
+        },
+        {
+          text: "Gas and Oil",
+          path: "#"
+        },
+      ]
+    },
+
+    // construction
+    {
+      icon: PiBriefcaseMetal,
+      title: "Construction",
+      subList: [
+        {
+          text: "Development",
+          path: "#"
+        },
+        {
+          text: "Building",
+          path: "#"
+        },
+        {
+          text: "Contracts",
+          path: "#"
+        },
+        {
+          text: "Agreements",
+          path: "#"
+        },
+      ]
+    },
+
+    // employment
+    {
+      icon: PiBriefcaseMetal,
+      title: "Employment",
+      subList: [
+        {
+          text: "Contracts",
+          path: "#"
+        },
+        {
+          text: "Discrimination",
+          path: "#"
+        },
+        {
+          text: "Compensation",
+          path: "#"
+        },
+        {
+          text: "Wrongful Termination",
+          path: "#"
+        }
+      ]
+    },
+
+    // immigration
+    {
+      icon: FaPersonWalkingLuggage,
+      title: "Immigration",
+      subList: [
+        {
+          text: "Citizenship",
+          path: "#"
+        },
+        {
+          text: "Employment Visa ",
+          path: "#"
+        },
+        {
+          text: "Investment Permit",
+          path: "#"
+        }
+      ]
+    },
+
+    // intellectual property
+    {
+      icon: AiFillPropertySafety,
+      title: "Intellectual Property",
+      subList: [
+        {
+          text: "Patents",
+          path: "#"
+        },
+        {
+          text: "Copyright",
+          path: "#"
+        },
+        {
+          text: "Trademark",
+          path: "#"
+        },
+      ]
+    },
+
+    // estate planning
+    {
+      icon: MdNextPlan,
+      title: "Estate Planning",
+      subList: [
+        {
+          text: "Probate",
+          path: "#"
+        },
+        {
+          text: "Trusts",
+          path: "#"
+        },
+        {
+          text: "Wills",
+          path: "#"
+        },
+      ]
+    },
+    
     // family
     {
       icon: MdFamilyRestroom,
@@ -244,88 +414,8 @@ const HomeIndex = () => {
         }
       ]
     },
-    // employment
-    {
-      icon: PiBriefcaseMetal,
-      title: "Employment",
-      subList: [
-        {
-          text: "Discrimination",
-          path: "#"
-        },
-        {
-          text: "Workers Compensation",
-          path: "#"
-        },
-        {
-          text: "Wrongful Termination",
-          path: "#"
-        }
-      ]
-    },
-    // estate planning
-    {
-      icon: MdNextPlan,
-      title: "Estate Planning",
-      subList: [
-        {
-          text: "Probate",
-          path: "#"
-        },
-        {
-          text: "Trusts",
-          path: "#"
-        }
-      ]
-    },
-    // business
-    {
-      icon: FaBusinessTime,
-      title: "Business",
-      subList: [
-        {
-          text: "Corporate",
-          path: "#"
-        },
-        {
-          text: "Contracts",
-          path: "#"
-        }
-      ]
-    },
-    // real estate
-    {
-      icon: MdOutlineRealEstateAgent,
-      title: "Real Estate",
-      subList: [
-        {
-          text: "Landlord and Tenant",
-          path: "#"
-        }
-      ]
-    },
-    // social security
-    {
-      icon: GrShieldSecurity,
-      title: "Social Security",
-      subList: [
-        {
-          text: "Disability",
-          path: "#"
-        }
-      ]
-    },
-    // immigration
-    {
-      icon: FaPersonWalkingLuggage,
-      title: "Immigration",
-      subList: [
-        {
-          text: "Citizenship",
-          path: "#"
-        }
-      ]
-    },
+    
+    
     // bankruptcy
     {
       icon: RiBankLine,
@@ -334,63 +424,81 @@ const HomeIndex = () => {
         {
           text: "Foreclosures",
           path: "#"
-        }
+        },
+        {
+          text: "Personal",
+          path: "#"
+        },
+        {
+          text: "Business",
+          path: "#"
+        },
       ]
     },
-    // intellectual property
-    {
-      icon: AiFillPropertySafety,
-      title: "Intellectual Property",
-      subList: [
-        {
-          text: "Patents",
-          path: "#"
-        }
-      ]
-    }
+    
   ];
   // legal articles
   const legalArticles = [
-    {
-      icon: FaPeopleGroup,
-      title: "Family Law",
-      path: "#"
-    },
-    {
-      icon: PiVanLight,
-      title: "Personal Injury",
-      path: "#"
-    },
-    {
-      icon: AiOutlineFileSearch,
-      title: "Criminal Defense",
-      path: "#"
-    },
-    {
-      icon: FaBuilding,
-      title: "Estate Planning & Probate",
-      path: "#"
-    },
-    {
-      icon: MdEngineering,
-      title: "Employment & Labor",
-      path: "#"
-    },
+    // business
     {
       icon: GrUserManager,
       title: "Business & Corporate",
       path: "#"
     },
+
+    // employment
     {
-      icon: MdOutlineElderlyWoman,
-      title: "Elder Law",
+      icon: MdEngineering,
+      title: "Employment & Labor",
       path: "#"
     },
+    // construction
+
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Construction",
+      path: "#"
+    },
+
+    
+
+    // mining
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Mining & Energy",
+      path: "#"
+    },
+
+    // real state
     {
       icon: MdOutlineRealEstateAgent,
       title: "Real Estate",
       path: "#"
-    }
+    },
+
+    // family
+    {
+      icon: FaPeopleGroup,
+      title: "Family Law",
+      path: "#"
+    },
+    // criminal defense
+    {
+      icon: AiOutlineFileSearch,
+      title: "Criminal Defense",
+      path: "#"
+    },
+
+    // personal injury
+
+    {
+      icon: PiVanLight,
+      title: "Personal Injury",
+      path: "#"
+    },
+    
+    
+    
   ];
   // business lawyers
   const businessLawyers = [
@@ -409,8 +517,8 @@ const HomeIndex = () => {
           <div className="w-full mt-12 sm:mt-3  sm:w-[45%]">
             {/* first button */}
             <div className="sm:mt-10">
-              <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full text-[1.15rem] font-semibold">
-                Safeguard, Hope, and Promise
+              <button className="px-[7%] py-1 border border-sky-100 bg-sky-50 rounded-full self-center font-semibold uppercase text-[1.3rem]">
+                Safeguard, Hope, <span className="lowercase">and</span> Promise
               </button>
             </div>
             {/* bold paragraph */}
@@ -591,28 +699,26 @@ const HomeIndex = () => {
                       </div>
                       {/* name */}
                       <div className="flex flex-coll justify-center items-center gap-1">
-                      {
-                        item?.first_name.length + item?.first_name.length > 18
-                        ?
-                        <>
-                        <div className="font-bold text-[.83rem] ">
-                          <span>{item?.first_name}</span>
-                        </div>
-                        <div className="font-bold text-[.83rem]  mlt-[-10px]">
-                          <span>{item?.last_name[0]}.</span>
-                        </div>
-                        </>
-                        :
-                        <>
-                        <div className="font-bold text-[.83rem] ">
-                          <span>{item?.first_name}</span>
-                        </div>
-                        <div className="font-bold text-[.83rem]  mlt-[-10px]">
-                          <span>{item?.last_name}</span>
-                        </div>
-                        </>
-                      }
-                        
+                        {item?.first_name.length + item?.first_name.length >
+                        18 ? (
+                          <>
+                            <div className="font-bold text-[.83rem] ">
+                              <span>{item?.first_name}</span>
+                            </div>
+                            <div className="font-bold text-[.83rem]  mlt-[-10px]">
+                              <span>{item?.last_name[0]}.</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="font-bold text-[.83rem] ">
+                              <span>{item?.first_name}</span>
+                            </div>
+                            <div className="font-bold text-[.83rem]  mlt-[-10px]">
+                              <span>{item?.last_name}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                       {/* profession */}
                       <div className="text-sm text-gray-700">
@@ -633,7 +739,7 @@ const HomeIndex = () => {
           {/* text container */}
           <div className="w-[100%] lg:w-[50%] border-b-[7px] pb-[2%] border-black">
             <div className="my-3">
-              <h2 className="header-level-2">Why Choose US</h2>
+              <h2 className="header-level-2">Why Choose Us?</h2>
             </div>
             {/* sub texts */}
             <div className="mb-7">
@@ -655,7 +761,7 @@ const HomeIndex = () => {
               </div>
               <div className="normal-text">
                 <p>
-                  Our team of lawyers have superior local and international
+                  Our teams of lawyers have superior local and international
                   experience to meet your needs.
                 </p>
               </div>
@@ -710,7 +816,7 @@ const HomeIndex = () => {
                 <GoLightBulb className="text-[2.5rem]" />
               </div>
               <div className="font-semibold text-[.875rem] ">
-                <p>We'll make dreams a reality throughout the world</p>
+                <p>We will make your business dreams reality.</p>
               </div>
             </div>
           </div>
@@ -731,7 +837,7 @@ const HomeIndex = () => {
             </div>
             {/* first button */}
             <div className="my-7">
-              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
+              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400 capitalize">
                 start my business
               </button>
             </div>
@@ -831,7 +937,9 @@ const HomeIndex = () => {
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
             <div className="mb-4">
-              <h2 className="header-level-2">Mining, Energy, Gas and Oil</h2>
+              <h2 className="header-level-2 whitespace-nowrap">
+                Mining, Energy, Gas and Oil
+              </h2>
             </div>
             {/* normal paragraph */}
             <div className="normal-text">
@@ -902,9 +1010,10 @@ const HomeIndex = () => {
           </div>
           {/* normal paragraph */}
           <div className="flex items-center justify-center my-3 normal-text">
-            <p>
-              Our directory of lawyers covers over 150 practice areas across the
-              US and Canada
+            <p className="font-semibold">
+              Our directory of lawyers covers over{" "}
+              <span className="font-bold text-2xl text-blue-800">70</span>{" "}
+              practice areas in Ethiopia
             </p>
           </div>
           {/* grid container */}
@@ -918,32 +1027,20 @@ const HomeIndex = () => {
                 <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
                   <item.icon className="text-[1.5rem] text-yellow-700" />
                 </div>
-                <h3 className="mt-3 flex items-center justify-center font-bold normal-text">
+                <h3 className="mt-3 font-bold normal-text uppercase">
                   {item.title}
                 </h3>
-                <ul className="flex flex-col items-center justify-center normal-text">
+                <ul className="normal-text  ">
                   {item?.subList.map((subList, index) => (
                     <li key={index}>
-                      <NavLink>{subList.text}</NavLink>
+                      <NavLink className={"text-center"}>
+                        {subList.text}
+                      </NavLink>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
-            <div className="p-3 rounded-md bg-yellow-50 shadow-md relative">
-              <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
-                <FaScaleBalanced className="text-[1.5rem] text-yellow-700" />
-              </div>
-
-              <ul className="flex flex-col items-center justify-center normal-text font-bold my-5">
-                <li>
-                  <NavLink>Tax</NavLink>
-                </li>
-                <li>
-                  <NavLink>Civil Litigation</NavLink>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
         <div className="flex items-center justify-center my-5">
@@ -1242,24 +1339,18 @@ const HomeIndex = () => {
             </div>
             {/* bottom right container */}
             <div className="w-full lg:w-[50%]">
-              {/* button */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  makuta law firm
-                </button>
-              </div>
               {/* bold paragraph */}
               <div className="my-5">
-                <h2 className="header-level-2">
-                  Have you face court or arbitration case in Ethiopian?
+                <h2 className="header-level-2 capitalize">
+                  Are you facing a court or arbitration case?
                 </h2>
               </div>
               {/* normal paragraph */}
               <div className="normal-text">
                 <p>
-                  Don’t worry Makuta Law Firm right behind you. Risk management
-                  and compliance are keys to avoid disruptive large scale
-                  litigation.
+                  Don’t worry! Makuta Law Firm is right behind you. Risk
+                  management and compliance are keys to avoid disruptive large
+                  scale litigation.
                 </p>
               </div>
               {/* text with icon */}
@@ -1269,7 +1360,7 @@ const HomeIndex = () => {
                     <MdOutlineFireplace />
                   </div>
                   <div>
-                    <p>Represent clients before at all levels of courts</p>
+                    <p>Represent clients at all levels of court</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -1277,7 +1368,7 @@ const HomeIndex = () => {
                     <IoMdRepeat />
                   </div>
                   <div>
-                    <p>Represent clients before any administrative tribunals</p>
+                    <p>Represent clients before any administrative tribunal</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -1312,7 +1403,7 @@ const HomeIndex = () => {
         {/* top text container */}
         <div>
           {/* bold paragraph */}
-          <div className="text-[1.15rem] leading-6 md:text-[1.75rem] my-3 font-[700] flex items-center justify-center">
+          <div className="text-[1.15rem] leading-6 md:text-[1.75rem] my-3 font-[700] flex items-center justify-center capitalize">
             <p>Explore our legal article resources</p>
           </div>
           {/* normal paragraph */}
