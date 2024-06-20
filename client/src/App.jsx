@@ -306,7 +306,7 @@ function App() {
                   <Route path="/corporate/trade-investment/merger" element={<CorporateMerger />}></Route>
                   <Route path="/corporate/trade-investment/investment" element={<CorporateInvestment />}></Route>
                   <Route path="/corporate/trade-investment/others" element={<CorporateTradeInvestmentOthers />}></Route>
-                </Route>
+                </Route> 
                 {/* corporate - financial sector */}
                 <Route path="/corporate/financial-sector" element={<CorporateFinancialSectorOutlet />}>
                 <Route path="/corporate/financial-sector/banking" element={<CorporateFinancialSectorBanking />}></Route>

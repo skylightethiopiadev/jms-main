@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Chart from "react-apexcharts";
+
+import Slider from "react-slick";
 
 // icons
 import {
@@ -43,8 +45,54 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { LuPhoneCall } from "react-icons/lu";
 import { FaGlobeAfrica } from "react-icons/fa";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 const HomeIndex = () => {
+  let sliderRef = useRef(null);
+  const next = () => {
+    sliderRef.slickNext();
+  };
+  const previous = () => {
+    sliderRef.slickPrev();
+  };
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 2,
+    initialSlide: 0,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    cssEase: "linear",
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   // local states
   const [isOtherService, setIsOtherService] = useState(false);
   // local date
@@ -66,6 +114,41 @@ const HomeIndex = () => {
 
   // lawyers
   const ourLawyers = [
+    {
+      first_name: "Betlhem",
+      middle_name: "Melese",
+      last_name: "Eshetu",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/betlhem.jpg"
+    },
+    {
+      first_name: "Haddis",
+      middle_name: "Fanta",
+      last_name: "Shiferaw",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/lawyer-one.jpg"
+    },
+    {
+      first_name: "Rodas",
+      middle_name: "Girma",
+      last_name: "W/Gebreal",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/rodas.jpg"
+    },
+    {
+      first_name: "Gedeon",
+      middle_name: "Agmas",
+      last_name: "W/Gebreal",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/lawyer-two.jpg"
+    },
+    {
+      first_name: "Andualem",
+      middle_name: "Chane",
+      last_name: "W/Gebreal",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/lawyer-three.jpg"
+    },
     {
       first_name: "Betlhem",
       middle_name: "Melese",
@@ -320,8 +403,8 @@ const HomeIndex = () => {
   return (
     <>
       {/* first order container */}
-      <div className="w-full px-[3%] text-[1.25rem] text-black pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
-        <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
+      <div className="w-full px-[3%] text-[1.25rem] text-black pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 sm:pb-[100px] relative shadow-md">
+        <div className="relative z-20 w-full h-full sm:py-[1%] md:pb-[5%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
           <div className="w-full mt-12 sm:mt-3  sm:w-[45%]">
             {/* first button */}
@@ -442,61 +525,7 @@ const HomeIndex = () => {
               </div>
               {/* content */}
               <div className="absolute left-0 bottom-0 h-full w-full z-50 flex flex-col gap-y-5">
-                {/* 
-                //////////////////////////////
-                lawyers container 
-                /////////////////////////////
-                */}
-                <div className="flex-grow h-[50%] flex items-end">
-                  <div className="bg-white shadow-lg mb-[-24px] w-max">
-                    <header className="px-3 py-2 border-b border-gray-100">
-                      <h3 className="text-[.85rem] font-[700]">
-                        Lawyers in Our Network
-                      </h3>
-                    </header>
-                    <div
-                      className="px-3 h-[22.5vh] overflow-y-auto mr-1"
-                      id="home-lawyer-list-card"
-                    >
-                      {/* lawyer container */}
-                      {ourLawyers.map((lawyer, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center justify-between gap-x-[50px] my-1"
-                        >
-                          <div className="flex items-center gap-x-3">
-                            <div className="w-[28px] aspect-square rounded-full overflow-hidden">
-                              <img
-                                className="w-full h-full object-cover"
-                                src={lawyer.profile_path}
-                                alt=""
-                              />
-                            </div>
-                            <div>
-                              <div className="text-[.875rem] font-semibold flex items-center gap-1 mb-[-5px]">
-                                <span>{lawyer?.first_name}</span>
-                                <span>{lawyer?.middle_name}</span>
-                              </div>
-                              <span className="text-[.75rem] text-gray-400">
-                                {lawyer?.profession}
-                              </span>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="rounded-full text-[1.35rem] text-green-400">
-                              <VscVerifiedFilled />
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <footer className="px-3 py-2">
-                      <span className="text-[.65rem] text-gray-400">
-                        our expert lawyers
-                      </span>
-                    </footer>
-                  </div>
-                </div>
+                {/* here other stuff */}
               </div>
             </div>
           </div>
@@ -514,9 +543,71 @@ const HomeIndex = () => {
       </div>
 
       {/* post-first order container */}
-      <div className="w-full flex items-center px-[3%] text-[1.25rem] text-black  sm:px-[12%]  py-12 relative">
+      <div className="w-full flex items-center px-[3%] text-[1.25rem] text-black  sm:px-[12%]  py-12 relative mt-[-150px]">
         <div className="relative z-20 w-full h-full sm:py-[1%]">
-          <div className="bg-red-200">lawyers here</div>
+          {/* left icon */}
+          <div className="absolute left-[-50px] top-1/2 -translate-y-1/2">
+            <div>
+              <div
+                className="w-[32px] cursor-pointer aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-200 text-3xl text-gray-500 transition-colors ease-in-out duration-150 hover:bg-gray-300 hover:text-gray-900"
+                onClick={previous}
+              >
+                <MdOutlineKeyboardArrowLeft />
+              </div>
+            </div>
+          </div>
+          {/* right icon */}
+          <div className="absolute right-[-50px] top-1/2 -translate-y-1/2">
+            <div>
+              <div
+                className="w-[32px] cursor-pointer aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-200 text-3xl text-gray-500 transition-colors ease-in-out duration-150 hover:bg-gray-300 hover:text-gray-900"
+                onClick={next}
+              >
+                <MdOutlineKeyboardArrowLeft className="rotate-180" />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white shadow-xl rounded-md">
+            <Slider
+              ref={slider => {
+                sliderRef = slider;
+              }}
+              {...settings}
+            >
+              {ourLawyers?.map((item, index) => {
+                return (
+                  <div>
+                    <div className="flex flex-col items-center py-5">
+                      {/* image */}
+                      <div>
+                        <div className="w-[80px] aspect-square rounded-full overflow-hidden">
+                          <img
+                            className="w-full h-full object-center object-cover"
+                            src={item?.profile_path}
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      {/* name */}
+                      <div className="flex flex-col juustify-center items-center gap-1">
+                        <div className="font-medium text-[.975rem] text-gray-800">
+                          <span>{item?.first_name}</span>
+                        </div>
+                        <div className="font-medium text-[.975rem] text-gray-800 mt-[-10px]">
+                          <span>{item?.last_name}</span>
+                        </div>
+                      </div>
+                      {/* profession */}
+                      <div className="text-sm text-gray-700">
+                        <span>{item?.profession}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
         </div>
       </div>
 
@@ -612,7 +703,7 @@ const HomeIndex = () => {
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
             <div className="mb-1">
-              <h2 className="header-level-2">For your business</h2>
+              <h2 className="header-level-2">For Your Business</h2>
             </div>
             {/* normal paragraph */}
             <div className="normal-text">
@@ -692,7 +783,7 @@ const HomeIndex = () => {
                 <div className="my-1 font-bold normal-text">
                   <span>Local Call Center</span>
                 </div>
-                <div className="font-bold text-blue-900 text-2credxl">
+                <div className="font-bold text-blue-900 text-2xl">
                   <span>8383</span>
                 </div>
               </div>
@@ -724,7 +815,7 @@ const HomeIndex = () => {
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
             <div className="mb-4">
-              <h2 className="header-level-2">For you and your family</h2>
+              <h2 className="header-level-2">Mining, Energy, Gas and Oil</h2>
             </div>
             {/* normal paragraph */}
             <div className="normal-text">
@@ -856,7 +947,7 @@ const HomeIndex = () => {
               {/* bold paragraph */}
               <div className="mb-4">
                 <h2 className="header-level-2">
-                  For your intellectual property
+                  Real Estate, Property and Conveyance
                 </h2>
               </div>
               {/* normal paragraph */}

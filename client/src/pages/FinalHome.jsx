@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import { useRef } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 // icons
@@ -16,10 +16,11 @@ import {
   FaShoppingCart,
   FaLinkedin,
   FaLinkedinIn,
-  FaApple,
+  FaApple
   // FaFacebookF,
   // FaYoutube
 } from "react-icons/fa";
+import { FaPhoneVolume } from "react-icons/fa6";
 import {
   MdDashboard,
   MdOutlineFireplace,
@@ -49,7 +50,7 @@ const FinalHome = () => {
   };
 
   // scroll ref
-  let scrollToHomeTopRef = useRef(null)
+  let scrollToHomeTopRef = useRef(null);
 
   useEffect(() => {
     ipHandler();
@@ -58,11 +59,36 @@ const FinalHome = () => {
   return (
     <div className="w-screen h-screen pt-[12.5vh] font-workSans relative">
       {/* <Header /> */}
-      <FinalHeader scrollToHomeTopRef={scrollToHomeTopRef}/>
+      <FinalHeader scrollToHomeTopRef={scrollToHomeTopRef} />
       <div className="h-[87.5vh] overflow-y-auto">
         <div ref={scrollToHomeTopRef} />
         <Outlet />
         <ChatBots />
+        {/* pop up */}
+        <div className="fixed left-[-24px] top-1/2 -translate-y-1/2 z-50">
+          <div className="relative bg-white rounded-md shadow-xl h-[130px]">
+            {/* image */}
+            <div>
+              <div className="w-[150px] aspect-square">
+                <img
+                  className="w-full object-center object-cover"
+                  src="https://cdn.dribbble.com/users/2069369/screenshots/4276636/call_center.gif"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            {/* number */}
+            <div className="absolute left-7 bottom-[-8px] flex items-center justify-center gap-2 p-3 cursor-pointer">
+              <div className="text-lg">
+                <FaPhoneVolume className="text-yellow-500"/>
+              </div>
+              <div className="font-black text-xl text-blue-800">
+                <span>8383</span>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* footer container */}
         <div className="bg-black text-gray-300">
           {/* footer top */}
@@ -87,7 +113,8 @@ const FinalHome = () => {
                     </li>
                     <li>
                       <NavLink className={"hover:underline"}>
-                        Board Members
+                        {/* Board Members */}
+                        Advisory Board Members
                       </NavLink>
                     </li>
                     <li>
@@ -97,7 +124,7 @@ const FinalHome = () => {
                     </li>
                     <li>
                       <NavLink className={"hover:underline"}>
-                        Office Staffs
+                        Office Structure
                       </NavLink>
                     </li>
                     <li>
@@ -301,7 +328,11 @@ const FinalHome = () => {
                     {/* android */}
                     <div className="flex items-center gap-2 px-3 py-1 rounded-md border-[2px] cursor-pointer transition-all ease-in-out duration-300 hover:bg-gray-300 hover:text-black border-gray-300">
                       <div className="w-[22px] aspect-square overflow-hidden">
-                        <img className="w-full h-full object-center object-cover" src="https://www.svgrepo.com/show/223032/playstore.svg" alt="" />
+                        <img
+                          className="w-full h-full object-center object-cover"
+                          src="https://www.svgrepo.com/show/223032/playstore.svg"
+                          alt=""
+                        />
                       </div>
                       <div>
                         <span className="text-[.785rem]">GET IT ON</span>
@@ -311,7 +342,7 @@ const FinalHome = () => {
                     {/* mac */}
                     <div className="flex items-center gap-2 px-3 py-1 rounded-md border-[2px] cursor-pointer transition-all ease-in-out duration-300 hover:bg-gray-300 hover:text-black border-gray-300">
                       <div>
-                        <FaApple  className="text-[1.75rem]"/>
+                        <FaApple className="text-[1.75rem]" />
                       </div>
                       <div>
                         <span className="text-[.785rem]">DOWNLOAD ON THE</span>
