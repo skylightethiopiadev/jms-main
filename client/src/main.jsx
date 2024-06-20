@@ -19,7 +19,7 @@ import { apiSlice } from "./features/api/apiSlice.js";
 
 // orignal
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="https://makutalawfirm.com">
+  <BrowserRouter>
     {/* <React.StrictMode> */}
     <ApiProvider api={apiSlice}>
       <App />
