@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 
-const Succession = () => {
+const CorporateFinancialSectorPayment = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
@@ -83,21 +83,19 @@ const Succession = () => {
               <div className="w-full lg:w-[50%]">
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>
-                    Preserving Legacies: Understanding Succession Law and Estate
-                    Distribution
-                  </p>
+                  <p>Development of Digital financial services in Ethiopia</p>
                 </div>
 
                 {/* normal text */}
                 <div className="my-5 text-justify">
                   <p>
-                    Law of succession, is the legal framework that dictates how
-                    a person’s estates are allocated to their successors or
-                    designated recipients after death. This critical legal
-                    mechanism ensures that the distribution of the deceased’s
-                    estate aligns with their final wishes or, if no will exists,
-                    follows the law’s default provisions.
+                    In the dynamic financial landscape of Ethiopia, the
+                    emergence of digital financial services has blurred the
+                    traditional boundaries between financial and non-financial
+                    sectors. The National Bank of Ethiopia (NBE), as the
+                    regulatory authority, has adapted to these changes by
+                    extending its oversight to include non-traditional entities
+                    providing financial services.
                   </p>
                 </div>
               </div>
@@ -115,15 +113,12 @@ const Succession = () => {
             <div>
               <div className="text-justify p-5 bg-white rounded-md shadow-2xl mx-24">
                 <p>
-                  Succession law covers a range of elements, from confirming the
-                  legitimacy of wills to safeguarding the entitlements of heirs
-                  and managing the deceased’s estate. A central concern in this
-                  area of law is reconciling the decedent’s specified desires
-                  with the entitlements of surviving relatives, which can
-                  sometimes result in legal conflicts and court cases. Moreover,
-                  the law must navigate the intricate process of distributing
-                  assorted estates, including property, automobiles, household
-                  goods, stocks, and other significant possessions.
+                  The Directive ONPS/01/2020 marks a significant shift, allowing
+                  technology companies to offer digital financial services,
+                  previously the domain of conventional financial institutions.
+                  This directive is pivotal for tech companies venturing into
+                  the financial service sector, subjecting them to the same
+                  regulatory framework as traditional banks.
                 </p>
               </div>
             </div>
@@ -146,17 +141,18 @@ const Succession = () => {
               </div>
 
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Regulatory Authority</p>
+                </div>
                 {/* normal text */}
                 <div className="text-justify">
                   <p>
-                    Ethiopia’s Law of Succession is designed to balance two
-                    competing interests. Firstly, it upholds the deceased’s
-                    autonomy by allowing them to distribute their property
-                    posthumously in any legal manner they choose. Secondly, it
-                    safeguards the rights of legitimate heirs and creditors who
-                    have valid claims to the estate. This law aims to honor the
-                    wishes of the deceased while ensuring fair treatment of
-                    those entitled to the inheritance.
+                    The NBE holds the authority to regulate banking business,
+                    which now includes digital financial services. The bank’s
+                    mandate covers the prudential regulation of entities that
+                    establish and operate payment systems and issue payment
+                    instruments.
                   </p>
                 </div>
               </div>
@@ -165,96 +161,24 @@ const Succession = () => {
         </div>
 
         {/* fourth order container */}
-        <div className="my-12 md:my-36 bg-neutral-50 py-10">
+        <div className="my-12 md:my-36 bg-neutral-100 py-10">
           {/* content container */}
           <div className="static-padding-x">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Definition of Payment Instrument Issuers</p>
+                </div>
                 {/* normal text */}
-                <div className="my-5 text-justify font-medium">
+                <div className="my-5 text-justify">
                   <p>
-                    In Ethiopia, the process of succession is chiefly regulated
-                    by the nation’s civil code. This legal framework outlines
-                    that succession can manifest in two distinct ways.
+                    Payment instrument issuers encompass a broad range of
+                    entities, both private and government-owned, that are
+                    licensed by the NBE. These issuers provide instruments,
+                    tangible or intangible, facilitating access to money, goods,
+                    services, or enabling payments and money transfers.
                   </p>
-                </div>
-
-                {/* first  */}
-                <div className="bg-white shadow-md p-3 mb-5">
-                  <header className="flex items-center justify-between py-1">
-                    <div>
-                      <h3 className="font-semibold">Testate succession</h3>
-                    </div>
-                    <div>
-                      <div
-                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-300 cursor-pointer"
-                        onClick={() => {
-                          setSuccessionWays("Testate succession");
-                        }}
-                      >
-                        <MdKeyboardArrowDown
-                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
-                            successionWays === "Testate succession"
-                              ? "-rotate-180"
-                              : "rotate-0"
-                          }`}
-                        />
-                      </div>
-                    </div>
-                  </header>
-                  <div
-                    className={`overflow-hidden ${
-                      successionWays === "Testate succession" ? "h-max" : "h-0"
-                    }`}
-                  >
-                    <div className="mt-1 py-1 border-t border-gray-300">
-                      <p>
-                        When an individual passes away and has left behind a
-                        will, the distribution of their estate is carried out
-                        according to the instructions specified in the will.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* second  */}
-                <div className="bg-white shadow-md p-3 mb-5">
-                  <header className="flex items-center justify-between py-1">
-                    <div>
-                      <h3 className="font-semibold">Intestate Succession</h3>
-                    </div>
-                    <div>
-                      <div
-                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-400 cursor-pointer"
-                        onClick={() => {
-                          setSuccessionWays("Intestate Succession");
-                        }}
-                      >
-                        <MdKeyboardArrowDown
-                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
-                            successionWays === "Intestate Succession"
-                              ? "-rotate-180"
-                              : "rotate-0"
-                          }`}
-                        />
-                      </div>
-                    </div>
-                  </header>
-                  <div
-                    className={`overflow-hidden ${
-                      successionWays === "Intestate Succession"
-                        ? "h-max"
-                        : "h-0"
-                    }`}
-                  >
-                    <div className="mt-1 py-1 border-t border-gray-300">
-                      <p>
-                        When an individual passes away and has left behind a
-                        will, the distribution of their estate is carried out
-                        according to the instructions specified in the will.
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -269,24 +193,17 @@ const Succession = () => {
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* bold text */}
                 <div className="header-level-3 uppercase">
-                  <p>
-                    Charting Your Legacy: Understanding Ethiopian Testate
-                    Succession Laws
-                  </p>
+                  <p>Payment system operator</p>
                 </div>
                 {/* normal text */}
                 <div className="my-5 text-justify">
                   <p>
-                    Under Ethiopian succession legislation, testate succession
-                    grants the testator (the person writing the will) the
-                    autonomy to determine the contents of the will, as long as
-                    it conforms to legal requirements. The will should
-                    authentically reflect the testator’s wishes and must be
-                    drafted personally, not through an intermediary.
-                    Furthermore, the testator should have the legal capacity to
-                    draft a will, and the will should not include any clauses
-                    that are not legally enforceable or that violate ethical or
-                    legal principles.
+                    These are entity’s that owns, operates, and administers a
+                    payment system. This system is used to settle the transfer
+                    of funds or financial transactions, which includes the
+                    institutions, the people, the rules and procedures,
+                    standards, and the technology that enable the financial
+                    transaction to occur.
                   </p>
                 </div>
               </div>
@@ -304,7 +221,107 @@ const Succession = () => {
           </div>
         </div>
 
-        {/* sixth order container */}
+        {/* third order container */}
+        <div className="my-12 md:my-36">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col md:flex-row">
+              <div className="w-[100%] md:w-[50%] relative">
+                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                  <img
+                    className="w-full h-full object-center object-cover"
+                    src="https://www.shutterstock.com/image-photo/law-theme-mallet-judge-enforcement-600nw-1938588952.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Parties Involved</p>
+                </div>
+                {/* normal text */}
+                <div className="text-justify">
+                  <p>
+                    A Payment Instrument Issuer in Ethiopia may be a corporate
+                    entity, a state-run enterprise, or a banking or microfinance
+                    institution that has received authorization from the NBE to
+                    issue means of payment. On the other hand, a Payment System
+                    Operator might be any licensed financial institution or
+                    company that has been granted permission to set up and
+                    manage a payment system.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* fourth order container */}
+        <div className="my-12 md:my-36 bg-neutral-100 py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Licensing Requirement</p>
+                </div>
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  <p>
+                    A license from the NBE is mandatory for any entity to issue
+                    a payment instrument or serve as a payment instrument
+                    operator. In general, the activities related to digital
+                    financial services are subject to regulation and oversight
+                    by the NBE.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* fifth order container */}
+        <div className="my-12 md:my-36">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+                {/* bold text */}
+                <div className="header-level-3 uppercase">
+                  <p>Scope of Regulation</p>
+                </div>
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  <p>
+                    Beyond banks and insurance companies, the NBE’s regulatory
+                    scope includes other financial institutions such as postal
+                    savings and money transfer entities. The NBE has the power
+                    to define and regulate additional financial institutions as
+                    necessary. Within this regulatory capacity and payment
+                    instrument issuer or operators to be or already
+                    participating in the market must aligned its objectives and
+                    function with the NBEs regulatory measures.
+                  </p>
+                </div>
+              </div>
+
+              <div className="w-[100%] md:w-[50%] relative">
+                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                  <img
+                    className="w-full h-full object-center object-cover"
+                    src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 66666 order container */}
         <div className="py-5 md:py-16 bg-neutral-800 text-white">
           {/* content container */}
           <div className="static-padding-x">
@@ -335,115 +352,6 @@ const Succession = () => {
           </div>
         </div>
 
-        {/* seventh order container */}
-        <div className="my-12 md:my-36">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col-reverse md:flex-row">
-              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
-                {/* normal text */}
-                <div className="text-justify">
-                  <p>
-                    In the context of testate succession, Ethiopian law
-                    recognizes three distinct types of wills, each with specific
-                    formalities that must be strictly adhered to. This stringent
-                    approach is due to the deeply personal nature of a will and
-                    the fact that it only takes effect after the testator’s
-                    death, leaving no opportunity for the testator to contest
-                    any fraudulent challenges. The law’s rigorous formality
-                    requirements are intended to minimize the risk of fraud.
-                    Courts are diligent in enforcing these legal standards and
-                    often do not uphold a will that fails to meet critical
-                    formalities.
-                  </p>
-                </div>
-              </div>
-
-              <div className="w-[100%] md:w-[50%] relative">
-                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-center object-cover"
-                    src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* eight order container */}
-        <div className="my-12 md:my-36 bg-neutral-50 py-10">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col-reverse md:flex-row">
-              <div className="w-[100%] ">
-                {/* normal text */}
-                <div className="my-5 text-justify font-bold text-xl">
-                  <p>Types of wills and their formality requirements</p>
-                </div>
-
-                {/* grid */}
-                <div className="grid grid-cols-1 gap-10">
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">Public will </h3>
-                    </header>
-                    <div>
-                      <p>
-                        In Ethiopia, the creation of a public will necessitate
-                        its oral presentation in the presence of the testator
-                        and a minimum of four witnesses. The testator can
-                        prepare this will with or without witnesses present.
-                        However, it is essential for the will to be declared
-                        audibly in the presence of both the testator and the
-                        witnesses. Following the reading, it is crucial for the
-                        testator and all witnesses to sign the document
-                        immediately.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">Holographic will</h3>
-                    </header>
-                    <div>
-                      <p>
-                        This type of will is one that the testator personally
-                        drafts without the presence of any witnesses. It must be
-                        unambiguously identified as a will, and any alterations
-                        or revocations can render it void. The will should be in
-                        the testator’s own handwriting; if produced
-                        mechanically, it must include a handwritten note on each
-                        page confirming the testator’s authorship.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-sm bg-white shadow-md">
-                    <header className="py-2">
-                      <h3 className="font-bold">Oral will</h3>
-                    </header>
-                    <div>
-                      <p>
-                        This type of will, often created under extraordinary
-                        circumstances, is typically drafted when the testator
-                        anticipates imminent death. It permits only a restricted
-                        scope of testamentary instructions. Not all of the
-                        testator’s assets may be allocated through this will. It
-                        is limited to funeral arrangements, bequeathing a
-                        specific amount not more than 500 birr, and appointing
-                        guardians or tutors for the testator’s minor children.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* ninth order container */}
         <div className="my-12 md:my-36">
           {/* content container */}
@@ -463,22 +371,20 @@ const Succession = () => {
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                   <p>
-                    Understanding Testamentary Freedom: The Dynamics of
-                    Ethiopian Will Revocation and Nullification
+                    Importance of Legal Professionals in Navigating Regulatory
+                    Compliance
                   </p>
                 </div>
                 {/* normal text */}
                 <div className=" text-justify">
                   <p>
-                    Under Ethiopian law, the existence of a will does not
-                    obligate the testator to its terms during their lifetime,
-                    nor does it guarantee the will’s automatic enactment upon
-                    their death. A testator retains the right to revoke their
-                    will at any time while alive, whether by drafting a new
-                    will, physically destroying the existing one, or
-                    transferring ownership of the bequeathed property. This
-                    ensures that the testator has complete control over their
-                    will’s provisions throughout their life.
+                    In Ethiopia, issuing of payment instruments is classified as
+                    a financial service, subject to rigorous regulatory
+                    standards. Engaging in these activities demands compliance
+                    with the strict regulatory requirements set forth by the
+                    NBE. Consequently, the complexity of these regulations makes
+                    the assistance of legal professionals essential to navigate
+                    the legal landscape successfully.
                   </p>
                 </div>
               </div>
@@ -649,7 +555,7 @@ const Succession = () => {
                         may forfeit their rights as heirs. Different limitations
                         apply to various claims on the deceased’s estates.
                         Therefore, It is crucial for individuals to assert their
-                        legal rights promptly and seek legal counsel. 
+                        legal rights promptly and seek legal counsel.
                       </p>
                     </div>
                   </div>
@@ -853,4 +759,4 @@ const Succession = () => {
   );
 };
 
-export default Succession;
+export default CorporateFinancialSectorPayment;

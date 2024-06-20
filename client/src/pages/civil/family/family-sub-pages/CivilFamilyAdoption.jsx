@@ -1,345 +1,418 @@
+import React, { useState, useMemo } from "react";
+
 // icons
-import { IoMdStar } from "react-icons/io";
-import { IoIosStarHalf } from "react-icons/io";
-import { IoIosStarOutline } from "react-icons/io";
-import { IoIosHelpCircle } from "react-icons/io";
-import { HiDocumentMagnifyingGlass } from "react-icons/hi2";
-import { MdAccountBalanceWallet } from "react-icons/md";
-import { SiHomeassistantcommunitystore } from "react-icons/si";
-import { FaHandsHelping } from "react-icons/fa";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
 
 const CivilFamilyAdoption = () => {
+  const [services, setServices] = useState({
+    servicesList: [
+      {
+        title: "Clarifying Legal Criteria",
+        text:
+          "Our team elucidate the legal stipulations pertinent to adoption, such as those in the Domestic Adoption Directive and the Family Code. We can assist in comprehending the age limits for adoptive parents, necessary consents, and other vital legal details."
+      },
+      {
+        title: "Handling Legal Documentation",
+        text:
+          "We can support in drafting and scrutinizing essential paperwork for adoption including agreements, consent forms, and applications. Making sure all documents are correct and complete for successful adoption process."
+      },
+      {
+        title: "Legal Representation ",
+        text:
+          "We can act on behalf of our clients in court to obtain adoption approval. Moreover, we can articulate client's case, respond to legal inquiries, and champion the child’s best interests."
+      },
+      {
+        title: "Resolving Legal Uncertainties ",
+        text:
+          "Resolve any unclear or complex legal issues that may arise during the adoption. We can offer guidance on matters like inheritance rights, familial connections, and obtaining consent."
+      },
+      {
+        title: "Mediating Disputes",
+        text:
+          "In case of conflicts during the adoption, our team legal professional can intervene and negotiate on behalf of clients. We can help settle any disagreements with biological parents, relatives, or government entities, ensuring a just outcome."
+      },
+      {
+        title: "Ensuring Timely Compliance",
+        text:
+          "Adoption procedures are bound by specific time frames. Our legal professional ensures adherence to these timelines to prevent any hold-ups or issues."
+      },
+    ],
+    servicesIndex: 0,
+    subServicesIndex: -1
+  });
+
+  const adoptionCriteria = useMemo(
+    () => [
+      {
+        text: "The adoption agreement must be sanctioned by a court of law."
+      },
+      {
+        text:
+          "The adopter’s age must be at least 25 years old, with potential exceptions for married couples."
+      },
+      {
+        text:
+          "The adoption contract is formed between the adopter and the child’s guardians."
+      },
+      {
+        text:
+          "Once the adoption is validated, the adopted child is regarded as the offspring of the adopter for all intents and purposes, including inheritance rights."
+      },
+      {
+        text:
+          "Relationships with the adopter’s ascendants and collaterals are maintained unless there is explicit opposition to the adoption."
+      }
+    ],
+    []
+  );
+
   return (
     <div>
       {/* first order container */}
-      <div className="mt-1">
-        <div className="flex bg-gradient-to-r from-white to-orange-100">
-          <div className="w-[50%] py-10">
-            {/* header */}
-            <header>
-              <h3 className="font-semibold text-4xl">Adoption</h3>
-            </header>
-            <div className="my-3">
-              <p>
-                Veniam repellat exercitationem consequatur at mollitia asperiores inventore repudiandae voluptatum beatae, est iste ullam aut nam, iusto natus atque corrupti quidem.
-              </p>
-            </div>
-            <div>
-              <button className="px-5 py-1 border border-yellow-500 bg-yellow-500 rounded-sm text-white transition-colors ease-in-out duration-300 hover:bg-white hover:text-yellow-500">read more</button>
-            </div>
-          </div>
-          <div className="w-[50%] flex items-center justify-center relative">
-            <div className="relative z-20">
-              <div className="w-[250px] h-[290px] overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://pngimg.com/d/teacher_PNG84.png" alt="" />
-              </div>
-            </div>
-            <div className="absolute top-12 z-0 w-[250px] aspect-square bg-gradient-to-t from-transparent to-blue-100 rounded-full flex items-center justify-center">
-              <div className="absolute w-[210px] aspect-square rounded-full bg-gradient-to-t from-transparent to-blue-200 flex items-center justify-center">
-                <div className="absolute w-[170px] aspect-square rounded-full bg-gray-100"></div>
+      <div className="relative">
+        {/* bg container */}
+        <div className="relative lg:absolute lg:inset-0 -z-30 flex">
+          {/* left */}
+          <div className="w-0 lg:w-[50%] bg-white"></div>
+          {/* right */}
+          <div className="w-full lg:w-[50%] flex relative">
+            {/* right-left */}
+            <div className="absolute left-0 top-0 h-full z-10 w-0 lg:w-[65%] bg-gradient-to-r from-white to-transparent"></div>
+            {/* right-right */}
+            <div className="w-[100%] overflow-hidden relative z-0">
+              <div className="w-full h-[150px] sm:h-[210px] lg:h-full overflow-hidden">
+                <img
+                  className="w-full h-full object-center object-cover"
+                  src="https://roysville.group/wp-content/uploads/2020/09/about-1024x819.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* first order container */}
-      <div className="my-16">
-        <div className="flex gap-10">
-          <div className="w-[50%] relative flex">
-            {/* absolute */}
-            <div className="absolute top-0 mt-[-24px] left-0 w-[60%] h-[75%] bg-yellow-500 z-30">
-              <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://www.womenspodium.com/wp-content/uploads/2020/12/feature-img.jpg" alt="" />
-              </div>
-            </div>
-            <div className="w-[30%] h-full"></div>
-            <div className="w-[70%] h-full bg-blue-900 flex">
-              <div className="h-full w-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://ipscommons.sg/wp-content/uploads/2015/09/ThinkstockPhotos-170081482.jpg" alt="" />
-              </div>
-            </div>
-          </div>
-
-
-          <div className="w-[50%]">
-            <div>
-
-              <div>
-                <h1 className="header-level-3">Maintenance</h1>
-              </div>
-
-              <div>
+        {/* content container */}
+        <div className="static-padding-x py-10 md:py-16 relative z-30">
+          {/* content */}
+          <div className="flex">
+            {/* left */}
+            <div className="w-full lg:w-[50%]">
+              {/* bold text */}
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit omnis nulla sunt cumque perspiciatis inventore rem animi officia nisi eligendi nesciunt saepe vel, nam quas autem velit quisquam odit harum quae quo.
+                  The Impact of Regulatory Framework Governing Adoption
                 </p>
               </div>
 
-              <div className="my-3">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
+              {/* normal text */}
+              <div className="my-5 text-justify">
+                <p>
+                  The enactment of laws governing adoption is essential to
+                  ensure the safety and welfare of children, providing them with
+                  secure homes and safeguarding their future. These laws also
+                  offer clarity and protection for both adoptive and birth
+                  parents by defining their rights and responsibilities, while
+                  ensuring that all parties have access to unbiased information
+                  to make informed decisions. Furthermore, legal regulation
+                  brings uniformity to the adoption process across various
+                  jurisdictions, contributing to a stable and predictable legal
+                  environment that upholds the integrity of the adoption system.
+                </p>
               </div>
-
-              <footer className="mt-10">
-                <div>
-                  <div className="flex items-center gap-2 px-3 py-1 border w-max rounded-md border-yellow-400 text-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white cursor-pointer">
-                    <div className="text-gray-800">get legal help</div>
-                    <IoIosHelpCircle className="text-2xl" />
-                  </div>
-                </div>
-              </footer>
-
             </div>
+            {/* right */}
+            <div className="w-0 lg:w-[50%] bg-transparent"></div>
           </div>
         </div>
       </div>
 
       {/* second order container */}
-      <div className="mb-16">
-        <div className="my-2">
-          <h3 className="header-level-3">
-            Our services
-          </h3>
-        </div>
-        <div className="grid grid-cols-4 gap-5">
+      <div className="my-12 md:my-36">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col md:flex-row">
+            <div className="w-[100%] md:w-[50%] relative">
+              <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                <img
+                  className="w-full h-full object-center object-cover"
+                  src="https://www.shutterstock.com/image-photo/law-theme-mallet-judge-enforcement-600nw-1938588952.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
 
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <HiDocumentMagnifyingGlass className="text-4xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Guidance on Maintenance Obligations</h3>
-            </div>
-            <div>
-              <p>
-                We offer counsel regarding maintenance responsibilities arising from marital and blood ties.
-              </p>
+            <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+              {/* bold text */}
+              <div className="text-3xl md:text-3xl lg:text-3xl font-bold uppercase">
+                <p>
+                  Navigating Adoption in Ethiopia: Understanding Legal Standards
+                  and Procedures
+                </p>
+              </div>
+              {/* normal text */}
+              <div className="my-5 text-justify">
+                <p>
+                  In Ethiopia, the adoption process is regulated by stringent
+                  legal standards and conditions set forth by both federal and
+                  regional authorities. The primary legal frameworks are the
+                  Federal Revised Family Code and regional family laws, which
+                  guide the adoption proceedings. The process involves various
+                  parties, including the adoptive families, the adoptee, and the
+                  biological families of the children.
+                </p>
+              </div>
             </div>
           </div>
-
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <FaHandsHelping className="text-4xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Claim Negotiations</h3>
-            </div>
-            <div>
-              <p>
-                To prevent court proceedings, we’ll engage in negotiations with the opposing party.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <SiHomeassistantcommunitystore className="text-3xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Additional Legal Assistance</h3>
-            </div>
-            <div>
-              <p>
-                Our team is equipped to handle a variety of other legal needs you may have.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center p-2 rounded-sm bg-gray-100">
-            <div className="my-2 text-yellow-500">
-              <MdAccountBalanceWallet className="text-4xl" />
-            </div>
-            <div>
-              <h3 className="header-level-4 text-center">Court Representation</h3>
-            </div>
-            <div>
-              <p>
-                Whether you’re facing a maintenance claim or need to file one, we’ll represent your interests in the legal arena.
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
 
       {/* third order container */}
-      <div className="mb-16">
-        <div className="flex gap-10">
-          <div className="w-[50%]">
-            <div>
-
-              <div>
-                <h1 className="header-level-3">Maintenance</h1>
-              </div>
-
-              <div>
+      <div className="my-12 md:my-36 bg-neutral-200 py-10">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col-reverse md:flex-row">
+            <div className="w-[100%] ">
+              {/* normal text */}
+              <div className="text-justify">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit omnis nulla sunt cumque perspiciatis inventore rem animi officia nisi eligendi nesciunt saepe vel, nam quas autem velit quisquam odit harum quae quo.
+                  This diversity of stakeholders leads to a range of legal
+                  considerations, such as eligibility criteria for adopters and
+                  adoptees, the nature of the relationships formed
+                  post-adoption, the paramount interests that need safeguarding,
+                  formalities for the validity of adoption agreements, and
+                  inheritance matters.
                 </p>
               </div>
-
-              <div className="my-3">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-[50%] flex items-center gap-3 p-3 bg-white shadow-xl">
-                    <div className="flex flex-col items-center">
-
-                      <div className="w-[40px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <img className="w-full h-full object-center object-cover" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715299200&semt=sph" alt="" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <div className="flex items-center text-xs text-yellow-500">
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                            <IoMdStar />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-start">
-                      <div>
-                        <h3 className="font-medium">Haddis Fanta</h3>
-                      </div>
-                      <div>
-                        <p>
-                          adipisicing elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <footer className="mt-10">
-                <div>
-                  <div className="flex items-center gap-2 px-3 py-1 border w-max rounded-md border-yellow-400 text-yellow-400 transition-colors ease-in-out duration-300 hover:bg-yellow-400 hover:text-white cursor-pointer">
-                    <div className="text-gray-800">get legal help</div>
-                    <IoIosHelpCircle className="text-2xl" />
-                  </div>
-                </div>
-              </footer>
-
             </div>
           </div>
-          <div className="w-[50%] relative flex">
-            {/* absolute */}
-            <div className="absolute top-0 mt-[-24px] left-0 w-[60%] h-[75%] bg-yellow-500 z-30">
-              <div className="w-full h-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://onecms-res.cloudinary.com/image/upload/s--9JcjOGK---/f_auto,q_auto/c_fill,g_auto,h_622,w_830/v1/mediacorp/tdy/image/2023/01/27/20230127_istock_tqdivorce.jpg?itok=TcPyvIX2" alt="" />
-              </div>
-            </div>
-            <div className="w-[30%] h-full"></div>
-            <div className="w-[70%] h-full bg-blue-900 flex">
-              <div className="h-full w-full overflow-hidden">
-                <img className="w-full h-full object-center object-cover" src="https://bloximages.newyork1.vip.townnews.com/trinidadexpress.com/content/tncms/assets/v3/editorial/c/0b/c0b1b098-92fd-11ee-89a8-7fd8ad588c06/656e625c9c656.image.jpg?resize=812%2C500" alt="" />
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
-    </div>
-  )
-}
+      {/* fourth order container */}
+      <div className="my-12 md:my-36 bg-neutral-white py-10">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col-reverse md:flex-row">
+            <div className="w-[100%] ">
+              {/* bold text */}
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                <p>
+                  For an adoption to be legally recognized in Ethiopia, it must
+                  meet the following criteria
+                </p>
+              </div>
+              {/* normal text */}
+              <div className="my-5 text-justify">
+                {adoptionCriteria.map((item, index) => {
+                  return (
+                    <div>
+                      <div className="my-3 flex gap-3">
+                        <div>
+                          <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                            <FaCheck className="absolute text-xs  text-green-400" />
+                          </div>
+                        </div>
+                        <div>
+                          <p>{item?.text}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 
-export default CivilFamilyAdoption
+      {/* sixth order container */}
+      <div className="my-12 md:my-36 bg-neutral-200 py-10">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col-reverse md:flex-row">
+            <div className="w-[100%] ">
+              {/* normal text */}
+              <div className="my-5 text-justify">
+                <p>
+                  If you find yourself navigating through adoption process, it’s
+                  crucial to address the complexities that surrounds it. Amidst
+                  the myriad of legal considerations that arise, securing legal
+                  counsel and representation is an essential step you shouldn’t
+                  overlook. The family law specialists in Mankuta law firm are
+                  equipped to offer comprehensive legal services tailored to
+                  these needs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* fourth order container */}
+      <div className="py-5 md:py-16 bg-neutral-800 text-white">
+        {/* content container */}
+        <div className="static-padding-x">
+          <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
+            {/* left */}
+            <div>
+              <div className="w-[150px] aspect-square overflow-hidden">
+                <img
+                  className="w-full object-center object-cover"
+                  src="/final-logo.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            {/* right */}
+            <div className="flex-grow">
+              <div className="text-justify md:text-left text-[.85rem] md:text-[1.5rem] font-semibold">
+                <p>
+                  The family law specialists in Mankuta law firm are equipped to
+                  offer comprehensive legal services tailored to these needs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* seventh order container */}
+      <div className="my-10 md:my-36">
+        {/* content container */}
+        <div className="static-padding-x">
+          {/* header */}
+          <div>
+            {/* bold */}
+            <div className="header-level-3 mb-2 uppercase">
+              <p>Our legal services</p>
+            </div>
+          </div>
+          {/* accordion */}
+          <div>
+            {/* first accordion */}
+            {services?.servicesList.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="p-1 md:p-5 rounded-sm bg-white shadow-md mt-5 text-[.85rem] md:text-[1.05rem]"
+                >
+                  <header className="flex items-center justify-between py-2">
+                    <div>
+                      <p
+                        className="font-bold w-max cursor-pointer hover:underline"
+                        onClick={() => {
+                          setServices(prev => {
+                            return {
+                              ...prev,
+                              servicesIndex: index
+                            };
+                          });
+                        }}
+                      >
+                        {item.title}
+                      </p>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[28px] aspect-square rounded-full bg-gray-100 flex items-center justify-center transition-colors ease-in-out duration-300 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => {
+                          setServices(prev => {
+                            return {
+                              ...prev,
+                              servicesIndex: index
+                            };
+                          });
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl transition-transform ease-in-out duration-300 ${
+                            services?.servicesIndex === index
+                              ? "-rotate-180"
+                              : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+
+                  <div
+                    className={`overflow-hidden ${
+                      services?.servicesIndex === index ? "h-auto" : "h-0"
+                    }`}
+                  >
+                    <div className="pt-3 border-t border-gray-200">
+                      <div>
+                        <p>{item.text}</p>
+                      </div>
+
+                      {item?.subList?.length > 0 ? (
+                        <div className="mx-5">
+                          {item?.subList?.map((subItem, subIndex) => {
+                            return (
+                              <div className="my-1.5">
+                                <header className="flex items-center justify-between">
+                                  <div className="font-bold text-sm text-gray-800">
+                                    <span>{subItem?.title}</span>
+                                  </div>
+                                  <div>
+                                    <div
+                                      className="w-[24px] aspect-square rounded-full overflow-hidden flex items-center justify-center text-lg bg-gray-100 cursor-pointer hover:bg-gray-200"
+                                      onClick={() => {
+                                        console.log(subIndex);
+                                        setServices(prev => {
+                                          return {
+                                            ...prev,
+                                            subServicesIndex:
+                                              prev?.subServicesIndex ===
+                                              subIndex
+                                                ? -1
+                                                : subIndex
+                                          };
+                                        });
+                                      }}
+                                    >
+                                      <IoMdAdd
+                                        className={`transition-transform ease-in-out duration-300 ${
+                                          services?.subServicesIndex ===
+                                          subIndex
+                                            ? "rotate-45"
+                                            : "rotate-0"
+                                        }`}
+                                      />
+                                    </div>
+                                  </div>
+                                </header>
+                                <div>
+                                  <div
+                                    className={`text-sm italic text-gray-700 py-1 border-b border-gray-100 overflow-hidden ${
+                                      services?.subServicesIndex === subIndex
+                                        ? "h-max"
+                                        : "h-0"
+                                    }`}
+                                  >
+                                    <p>{subItem?.text}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CivilFamilyAdoption;

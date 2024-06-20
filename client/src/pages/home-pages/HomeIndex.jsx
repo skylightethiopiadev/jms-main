@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Chart from "react-apexcharts";
+
+import Slider from "react-slick";
 
 // icons
 import {
@@ -43,8 +45,54 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { LuPhoneCall } from "react-icons/lu";
 import { FaGlobeAfrica } from "react-icons/fa";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 const HomeIndex = () => {
+  let sliderRef = useRef(null);
+  const next = () => {
+    sliderRef.slickNext();
+  };
+  const previous = () => {
+    sliderRef.slickPrev();
+  };
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 2,
+    initialSlide: 0,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    cssEase: "linear",
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   // local states
   const [isOtherService, setIsOtherService] = useState(false);
   // local date
@@ -66,6 +114,41 @@ const HomeIndex = () => {
 
   // lawyers
   const ourLawyers = [
+    {
+      first_name: "Betlhem",
+      middle_name: "Melese",
+      last_name: "Eshetu",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/betlhem.jpg"
+    },
+    {
+      first_name: "Shoangizaw",
+      middle_name: "Fanta",
+      last_name: "Gebreyesus",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/lawyer-one.jpg"
+    },
+    {
+      first_name: "Rodas",
+      middle_name: "Girma",
+      last_name: "W/Gebreal",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/rodas.jpg"
+    },
+    {
+      first_name: "Gedeon",
+      middle_name: "Agmas",
+      last_name: "W/Gebreal",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/lawyer-two.jpg"
+    },
+    {
+      first_name: "Andualem",
+      middle_name: "Chane",
+      last_name: "W/Gebreal",
+      profession: "Lawyer",
+      profile_path: "/images/lawyers/lawyer-three.jpg"
+    },
     {
       first_name: "Betlhem",
       middle_name: "Melese",
@@ -104,6 +187,176 @@ const HomeIndex = () => {
   ];
   // case categories
   const caseTypes = [
+    // business
+    {
+      icon: FaBusinessTime,
+      title: "Business",
+      subList: [
+        {
+          text: "Corporate",
+          path: "#"
+        },
+        {
+          text: "Contracts",
+          path: "#"
+        },
+        {
+          text: "Tax Issues",
+          path: "#"
+        },
+      ]
+    },
+    // real estate
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Real Estate",
+      subList: [
+        {
+          text: "Development",
+          path: "#"
+        },
+        {
+          text: "Sales and Rental",
+          path: "#"
+        },
+        {
+          text: "Landlord and Tenant",
+          path: "#"
+        },
+        {
+          text: "Agreements",
+          path: "#"
+        },
+      ]
+    },
+    // mining and energy
+    {
+      icon: GrShieldSecurity,
+      title: "Mining & Energy",
+      subList: [
+        {
+          text: "Mining",
+          path: "#"
+        },
+        {
+          text: "Energy",
+          path: "#"
+        },
+        {
+          text: "Gas and Oil",
+          path: "#"
+        },
+      ]
+    },
+
+    // construction
+    {
+      icon: PiBriefcaseMetal,
+      title: "Construction",
+      subList: [
+        {
+          text: "Development",
+          path: "#"
+        },
+        {
+          text: "Building",
+          path: "#"
+        },
+        {
+          text: "Contracts",
+          path: "#"
+        },
+        {
+          text: "Agreements",
+          path: "#"
+        },
+      ]
+    },
+
+    // employment
+    {
+      icon: PiBriefcaseMetal,
+      title: "Employment",
+      subList: [
+        {
+          text: "Contracts",
+          path: "#"
+        },
+        {
+          text: "Discrimination",
+          path: "#"
+        },
+        {
+          text: "Compensation",
+          path: "#"
+        },
+        {
+          text: "Wrongful Termination",
+          path: "#"
+        }
+      ]
+    },
+
+    // immigration
+    {
+      icon: FaPersonWalkingLuggage,
+      title: "Immigration",
+      subList: [
+        {
+          text: "Citizenship",
+          path: "#"
+        },
+        {
+          text: "Employment Visa ",
+          path: "#"
+        },
+        {
+          text: "Investment Permit",
+          path: "#"
+        }
+      ]
+    },
+
+    // intellectual property
+    {
+      icon: AiFillPropertySafety,
+      title: "Intellectual Property",
+      subList: [
+        {
+          text: "Patents",
+          path: "#"
+        },
+        {
+          text: "Copyright",
+          path: "#"
+        },
+        {
+          text: "Trademark",
+          path: "#"
+        },
+      ]
+    },
+
+    // estate planning
+    {
+      icon: MdNextPlan,
+      title: "Estate Planning",
+      subList: [
+        {
+          text: "Probate",
+          path: "#"
+        },
+        {
+          text: "Trusts",
+          path: "#"
+        },
+        {
+          text: "Wills",
+          path: "#"
+        },
+      ]
+    },
+    
     // family
     {
       icon: MdFamilyRestroom,
@@ -161,88 +414,8 @@ const HomeIndex = () => {
         }
       ]
     },
-    // employment
-    {
-      icon: PiBriefcaseMetal,
-      title: "Employment",
-      subList: [
-        {
-          text: "Discrimination",
-          path: "#"
-        },
-        {
-          text: "Workers Compensation",
-          path: "#"
-        },
-        {
-          text: "Wrongful Termination",
-          path: "#"
-        }
-      ]
-    },
-    // estate planning
-    {
-      icon: MdNextPlan,
-      title: "Estate Planning",
-      subList: [
-        {
-          text: "Probate",
-          path: "#"
-        },
-        {
-          text: "Trusts",
-          path: "#"
-        }
-      ]
-    },
-    // business
-    {
-      icon: FaBusinessTime,
-      title: "Business",
-      subList: [
-        {
-          text: "Corporate",
-          path: "#"
-        },
-        {
-          text: "Contracts",
-          path: "#"
-        }
-      ]
-    },
-    // real estate
-    {
-      icon: MdOutlineRealEstateAgent,
-      title: "Real Estate",
-      subList: [
-        {
-          text: "Landlord and Tenant",
-          path: "#"
-        }
-      ]
-    },
-    // social security
-    {
-      icon: GrShieldSecurity,
-      title: "Social Security",
-      subList: [
-        {
-          text: "Disability",
-          path: "#"
-        }
-      ]
-    },
-    // immigration
-    {
-      icon: FaPersonWalkingLuggage,
-      title: "Immigration",
-      subList: [
-        {
-          text: "Citizenship",
-          path: "#"
-        }
-      ]
-    },
+    
+    
     // bankruptcy
     {
       icon: RiBankLine,
@@ -251,63 +424,81 @@ const HomeIndex = () => {
         {
           text: "Foreclosures",
           path: "#"
-        }
+        },
+        {
+          text: "Personal",
+          path: "#"
+        },
+        {
+          text: "Business",
+          path: "#"
+        },
       ]
     },
-    // intellectual property
-    {
-      icon: AiFillPropertySafety,
-      title: "Intellectual Property",
-      subList: [
-        {
-          text: "Patents",
-          path: "#"
-        }
-      ]
-    }
+    
   ];
   // legal articles
   const legalArticles = [
-    {
-      icon: FaPeopleGroup,
-      title: "Family Law",
-      path: "#"
-    },
-    {
-      icon: PiVanLight,
-      title: "Personal Injury",
-      path: "#"
-    },
-    {
-      icon: AiOutlineFileSearch,
-      title: "Criminal Defense",
-      path: "#"
-    },
-    {
-      icon: FaBuilding,
-      title: "Estate Planning & Probate",
-      path: "#"
-    },
-    {
-      icon: MdEngineering,
-      title: "Employment & Labor",
-      path: "#"
-    },
+    // business
     {
       icon: GrUserManager,
       title: "Business & Corporate",
       path: "#"
     },
+
+    // employment
     {
-      icon: MdOutlineElderlyWoman,
-      title: "Elder Law",
+      icon: MdEngineering,
+      title: "Employment & Labor",
       path: "#"
     },
+    // construction
+
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Construction",
+      path: "#"
+    },
+
+    
+
+    // mining
+    {
+      icon: MdOutlineRealEstateAgent,
+      title: "Mining & Energy",
+      path: "#"
+    },
+
+    // real state
     {
       icon: MdOutlineRealEstateAgent,
       title: "Real Estate",
       path: "#"
-    }
+    },
+
+    // family
+    {
+      icon: FaPeopleGroup,
+      title: "Family Law",
+      path: "#"
+    },
+    // criminal defense
+    {
+      icon: AiOutlineFileSearch,
+      title: "Criminal Defense",
+      path: "#"
+    },
+
+    // personal injury
+
+    {
+      icon: PiVanLight,
+      title: "Personal Injury",
+      path: "#"
+    },
+    
+    
+    
   ];
   // business lawyers
   const businessLawyers = [
@@ -320,14 +511,14 @@ const HomeIndex = () => {
   return (
     <>
       {/* first order container */}
-      <div className="w-full px-[3%] text-[1.25rem] text-black pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 pb-12 sm:pb-[100px] relative shadow-md">
-        <div className="relative z-20 w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
+      <div className="w-full px-[3%] text-[1.25rem] text-black pt-[3%] sm:pt-[0%] sm:px-[12%] bg-gradient-to-r from-white to-orange-50 sm:pb-[100px] relative shadow-md">
+        <div className="relative z-20 w-full h-full sm:py-[1%] md:pb-[5%] flex flex-col-reverse sm:flex-row sm:items-end justify-between gap-[3%]">
           {/* top left */}
           <div className="w-full mt-12 sm:mt-3  sm:w-[45%]">
             {/* first button */}
             <div className="sm:mt-10">
-              <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full text-[1.15rem] font-semibold">
-                Safeguard, Hope, and Promise
+              <button className="px-[7%] py-1 border border-sky-100 bg-sky-50 rounded-full self-center font-semibold uppercase text-[1.3rem]">
+                Safeguard, Hope, <span className="lowercase">and</span> Promise
               </button>
             </div>
             {/* bold paragraph */}
@@ -442,70 +633,7 @@ const HomeIndex = () => {
               </div>
               {/* content */}
               <div className="absolute left-0 bottom-0 h-full w-full z-50 flex flex-col gap-y-5">
-                {/* yellow card div */}
-                <div className="flex-grow flex items-end justify-end h-[75%]">
-                  <div className="flex items-center gap-x-2 p-2 rounded-sm text-white bg-yellow-300">
-                    {/* icon */}
-                    <div className="rounded-full bg-white text-[1.35rem] text-green-400">
-                      <SiPostman />
-                    </div>
-                    {/* text */}
-                    <div className="text-sm">
-                      <p>Addis Ababa, Ethiopia</p>
-                    </div>
-                  </div>
-                </div>
-                {/* lawyers container */}
-                <div className="flex-grow h-[50%] flex items-end">
-                  <div className="bg-white shadow-lg mb-[-24px] w-max">
-                    <header className="px-3 py-2 border-b border-gray-100">
-                      <h3 className="text-[.85rem] font-[700]">
-                        Lawyers in Our Network
-                      </h3>
-                    </header>
-                    <div
-                      className="px-3 h-[22.5vh] overflow-y-auto mr-1"
-                      id="home-lawyer-list-card"
-                    >
-                      {/* lawyer container */}
-                      {ourLawyers.map((lawyer, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center justify-between gap-x-[50px] my-1"
-                        >
-                          <div className="flex items-center gap-x-3">
-                            <div className="w-[28px] aspect-square rounded-full overflow-hidden">
-                              <img
-                                className="w-full h-full object-cover"
-                                src={lawyer.profile_path}
-                                alt=""
-                              />
-                            </div>
-                            <div>
-                              <div className="text-[.875rem] font-semibold flex items-center gap-1 mb-[-5px]">
-                                <span>{lawyer?.first_name}</span>
-                                <span>{lawyer?.middle_name}</span>
-                              </div>
-                              <span className="text-[.75rem] text-gray-400">
-                                {lawyer?.profession}
-                              </span>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="rounded-full text-[1.35rem] text-green-400">
-                              <VscVerifiedFilled />
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <footer className="px-3 py-2">
-                      <span className="text-[.65rem] text-gray-400">
-                        our expert lawyers
-                      </span>
-                    </footer>
-                  </div>
-                </div>
+                {/* here other stuff */}
               </div>
             </div>
           </div>
@@ -521,13 +649,97 @@ const HomeIndex = () => {
           </div>
         </div>
       </div>
+
+      {/* post-first order container */}
+      <div className="w-full flex items-center px-[3%] text-[1.25rem] text-black  sm:px-[12%]  py-12 relative mt-[-150px]">
+        <div className="relative z-20 w-full h-full sm:py-[1%]">
+          {/* left icon */}
+          <div className="absolute left-[-50px] top-1/2 -translate-y-1/2">
+            <div>
+              <div
+                className="w-[32px] cursor-pointer aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-200 text-3xl text-gray-500 transition-colors ease-in-out duration-150 hover:bg-gray-300 hover:text-gray-900"
+                onClick={previous}
+              >
+                <MdOutlineKeyboardArrowLeft />
+              </div>
+            </div>
+          </div>
+          {/* right icon */}
+          <div className="absolute right-[-50px] top-1/2 -translate-y-1/2">
+            <div>
+              <div
+                className="w-[32px] cursor-pointer aspect-square rounded-full overflow-hidden flex items-center justify-center bg-gray-200 text-3xl text-gray-500 transition-colors ease-in-out duration-150 hover:bg-gray-300 hover:text-gray-900"
+                onClick={next}
+              >
+                <MdOutlineKeyboardArrowLeft className="rotate-180" />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white shadow-xl rounded-md">
+            <Slider
+              ref={slider => {
+                sliderRef = slider;
+              }}
+              {...settings}
+            >
+              {ourLawyers?.map((item, index) => {
+                return (
+                  <div>
+                    <div className="flex flex-col items-center py-5">
+                      {/* image */}
+                      <div>
+                        <div className="w-[80px] aspect-square rounded-full overflow-hidden">
+                          <img
+                            className="w-full h-full object-center object-cover"
+                            src={item?.profile_path}
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      {/* name */}
+                      <div className="flex flex-coll justify-center items-center gap-1">
+                        {item?.first_name.length + item?.first_name.length >
+                        18 ? (
+                          <>
+                            <div className="font-bold text-[.83rem] ">
+                              <span>{item?.first_name}</span>
+                            </div>
+                            <div className="font-bold text-[.83rem]  mlt-[-10px]">
+                              <span>{item?.last_name[0]}.</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="font-bold text-[.83rem] ">
+                              <span>{item?.first_name}</span>
+                            </div>
+                            <div className="font-bold text-[.83rem]  mlt-[-10px]">
+                              <span>{item?.last_name}</span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      {/* profession */}
+                      <div className="text-sm text-gray-700">
+                        <span>{item?.profession}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+        </div>
+      </div>
+
       {/* second order container */}
       <div className="px-[3%] sm:px-[12%] py-[5%]">
         <div className="w-full flex items-center gap-0">
           {/* text container */}
           <div className="w-[100%] lg:w-[50%] border-b-[7px] pb-[2%] border-black">
             <div className="my-3">
-              <h2 className="header-level-2">Why Choose US</h2>
+              <h2 className="header-level-2">Why Choose Us?</h2>
             </div>
             {/* sub texts */}
             <div className="mb-7">
@@ -549,7 +761,7 @@ const HomeIndex = () => {
               </div>
               <div className="normal-text">
                 <p>
-                  Our team of lawyers have superior local and international
+                  Our teams of lawyers have superior local and international
                   experience to meet your needs.
                 </p>
               </div>
@@ -604,7 +816,7 @@ const HomeIndex = () => {
                 <GoLightBulb className="text-[2.5rem]" />
               </div>
               <div className="font-semibold text-[.875rem] ">
-                <p>We'll make dreams a reality throughout the world</p>
+                <p>We will make your business dreams reality.</p>
               </div>
             </div>
           </div>
@@ -613,7 +825,7 @@ const HomeIndex = () => {
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
             <div className="mb-1">
-              <h2 className="header-level-2">For your business</h2>
+              <h2 className="header-level-2">For Your Business</h2>
             </div>
             {/* normal paragraph */}
             <div className="normal-text">
@@ -625,7 +837,7 @@ const HomeIndex = () => {
             </div>
             {/* first button */}
             <div className="my-7">
-              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400">
+              <button className="rounded-full px-12 py-[.5rem] bg-yellow-500 text-[1.15rem] font-semibold text-white transition-all ease-in-out duration-150 hover:bg-yellow-400 capitalize">
                 start my business
               </button>
             </div>
@@ -693,7 +905,7 @@ const HomeIndex = () => {
                 <div className="my-1 font-bold normal-text">
                   <span>Local Call Center</span>
                 </div>
-                <div className="font-bold text-blue-900 text-2credxl">
+                <div className="font-bold text-blue-900 text-2xl">
                   <span>8383</span>
                 </div>
               </div>
@@ -725,7 +937,9 @@ const HomeIndex = () => {
           <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
             {/* bold paragraph */}
             <div className="mb-4">
-              <h2 className="header-level-2">For you and your family</h2>
+              <h2 className="header-level-2 whitespace-nowrap">
+                Mining, Energy, Gas and Oil
+              </h2>
             </div>
             {/* normal paragraph */}
             <div className="normal-text">
@@ -767,7 +981,7 @@ const HomeIndex = () => {
             <div className="w-full h-full overflow-hidden">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://assets.delawarebusinesstimes.com/2018/05/Fotolia_76403295_Subscription_Monthly_M.jpg"
+                src="https://energyintel.brightspotcdn.com/dims4/default/8a9b403/2147483647/strip/true/crop/3900x2595+0+0/resize/1920x1278!/quality/90/?url=http%3A%2F%2Fenergy-intelligence-brightspot.s3.us-east-2.amazonaws.com%2F66%2F5d%2F447bdc744898bf4cd275dc794375%2Fss102708536-rigs-drilling.jpg"
                 alt=""
               />
             </div>
@@ -796,9 +1010,10 @@ const HomeIndex = () => {
           </div>
           {/* normal paragraph */}
           <div className="flex items-center justify-center my-3 normal-text">
-            <p>
-              Our directory of lawyers covers over 150 practice areas across the
-              US and Canada
+            <p className="font-semibold">
+              Our directory of lawyers covers over{" "}
+              <span className="font-bold text-2xl text-blue-800">70</span>{" "}
+              practice areas in Ethiopia
             </p>
           </div>
           {/* grid container */}
@@ -812,32 +1027,20 @@ const HomeIndex = () => {
                 <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
                   <item.icon className="text-[1.5rem] text-yellow-700" />
                 </div>
-                <h3 className="mt-3 flex items-center justify-center font-bold normal-text">
+                <h3 className="mt-3 font-bold normal-text uppercase">
                   {item.title}
                 </h3>
-                <ul className="flex flex-col items-center justify-center normal-text">
+                <ul className="normal-text  ">
                   {item?.subList.map((subList, index) => (
                     <li key={index}>
-                      <NavLink>{subList.text}</NavLink>
+                      <NavLink className={"text-center"}>
+                        {subList.text}
+                      </NavLink>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
-            <div className="p-3 rounded-md bg-yellow-50 shadow-md relative">
-              <div className="absolute top-[-19px] left-1/2 -translate-x-1/2 rounded-full bg-white w-[38px] flex items-center justify-center aspect-square">
-                <FaScaleBalanced className="text-[1.5rem] text-yellow-700" />
-              </div>
-
-              <ul className="flex flex-col items-center justify-center normal-text font-bold my-5">
-                <li>
-                  <NavLink>Tax</NavLink>
-                </li>
-                <li>
-                  <NavLink>Civil Litigation</NavLink>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
         <div className="flex items-center justify-center my-5">
@@ -856,7 +1059,9 @@ const HomeIndex = () => {
             <div className="w-[100%] lg:w-[50%] p-5  md:p-10 pb-0">
               {/* bold paragraph */}
               <div className="mb-4">
-                <h2 className="header-level-2">For your intellectual property</h2>
+                <h2 className="header-level-2">
+                  Real Estate, Property and Conveyance
+                </h2>
               </div>
               {/* normal paragraph */}
               <div className="normal-text">
@@ -894,7 +1099,7 @@ const HomeIndex = () => {
                 <div className="h-[370px] w-full flex relative z-10 after:absolute after:left-0 after:bottom-0 after:w-[85%] after:h-[85%] after:bg-yellow-500 after:rounded-l-full after:z-0">
                   <img
                     className="relative z-10 h-full"
-                    src="/images/personnels/lawyer-five.png"
+                    src="https://www.gorebet.com/wp-content/uploads/2021/04/Tsay-Real-Estate-in-Ethiopia-1024x899.jpg"
                     alt=""
                   />
                 </div>
@@ -1003,14 +1208,72 @@ const HomeIndex = () => {
                   <Chart
                     width={"75%"}
                     height={155}
-                    type="area"
+                    type="line"
                     series={[
                       {
-                        name: "spent",
-                        data: [120, 100, 145, 170, 100, 200, 125]
+                        name: "active",
+                        data: [
+                          0,
+                          12,
+                          50,
+                          23,
+                          145,
+                          170,
+                          100,
+                          200,
+                          125,
+                          12,
+                          75,
+                          23,
+                          190
+                        ]
+                      },
+                      {
+                        name: "pending",
+                        data: [
+                          100,
+                          10,
+                          50,
+                          73,
+                          45,
+                          170,
+                          120,
+                          230,
+                          105,
+                          120,
+                          5,
+                          23,
+                          10
+                        ]
+                      },
+                      {
+                        name: "closed",
+                        data: [
+                          250,
+                          34,
+                          40,
+                          230,
+                          15,
+                          17,
+                          100,
+                          50,
+                          35,
+                          20,
+                          200,
+                          23,
+                          100
+                        ]
                       }
                     ]}
                     options={{
+                      chart: {
+                        toolbar: {
+                          show: false
+                        },
+                        zoom: {
+                          enabled: false
+                        }
+                      },
                       legend: {
                         show: false
                       },
@@ -1021,7 +1284,25 @@ const HomeIndex = () => {
                       tooltip: {
                         fillSeriesColor: true
                       },
+                      colors: ["#03a811", "#edce07", "#ed072a"],
+                      stroke: {
+                        width: 1,
+                        curve: "smooth"
+                      },
+                      subtitle: {
+                        text: "our services",
+                        style: {
+                          fontSize: 16,
+                          fontWeight: "bold"
+                        }
+                      },
                       xaxis: {
+                        axisBorder: {
+                          show: false
+                        },
+                        axisTicks: {
+                          show: false
+                        },
                         categories: [
                           "Sep",
                           "Oct",
@@ -1039,7 +1320,7 @@ const HomeIndex = () => {
                       },
                       yaxis: {
                         labels: {
-                          show: true
+                          show: false
                         }
                       },
                       grid: {
@@ -1058,22 +1339,18 @@ const HomeIndex = () => {
             </div>
             {/* bottom right container */}
             <div className="w-full lg:w-[50%]">
-              {/* button */}
-              <div>
-                <button className="px-[5%] py-1 rounded-full bg-sky-100 border border-sky-200">
-                  makuta law firm
-                </button>
-              </div>
               {/* bold paragraph */}
               <div className="my-5">
-                <h2 className="header-level-2">Have you face court or arbitration case in Ethiopian?</h2>
+                <h2 className="header-level-2 capitalize">
+                  Are you facing a court or arbitration case?
+                </h2>
               </div>
               {/* normal paragraph */}
               <div className="normal-text">
                 <p>
-                  Don’t worry Makuta Law Firm right behind you. Risk management
-                  and compliance are keys to avoid disruptive large scale
-                  litigation.
+                  Don’t worry! Makuta Law Firm is right behind you. Risk
+                  management and compliance are keys to avoid disruptive large
+                  scale litigation.
                 </p>
               </div>
               {/* text with icon */}
@@ -1083,7 +1360,7 @@ const HomeIndex = () => {
                     <MdOutlineFireplace />
                   </div>
                   <div>
-                    <p>Represent clients before at all levels of courts</p>
+                    <p>Represent clients at all levels of court</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -1091,7 +1368,7 @@ const HomeIndex = () => {
                     <IoMdRepeat />
                   </div>
                   <div>
-                    <p>Represent clients before any administrative tribunals</p>
+                    <p>Represent clients before any administrative tribunal</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -1126,7 +1403,7 @@ const HomeIndex = () => {
         {/* top text container */}
         <div>
           {/* bold paragraph */}
-          <div className="text-[1.15rem] leading-6 md:text-[1.75rem] my-3 font-[700] flex items-center justify-center">
+          <div className="text-[1.15rem] leading-6 md:text-[1.75rem] my-3 font-[700] flex items-center justify-center capitalize">
             <p>Explore our legal article resources</p>
           </div>
           {/* normal paragraph */}

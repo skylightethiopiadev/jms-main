@@ -47,9 +47,9 @@ const CriminalCorruption = () => {
                     {/* content */}
                     <div className='lg:w-[50%]'>
                         {/* bold text */}
-                        <div className='text-3xl text-start sm:text-4xl md:text-5xl font-bold capitalize'>
+                        <div className='text-3xl text-start sm:text-3xl md:text-3xl font-bold capitalize'>
                             <p>
-                                [Titel Here]
+                            Corruption Allegations: Safeguarding Rights and Navigating Legal Complexities
                             </p>
                         </div>
                         {/* normal texts */}
@@ -69,12 +69,7 @@ const CriminalCorruption = () => {
                     <div className='flex flex-col md:flex-row'>
 
                         <div className='w-[100%] p-7 pr-0'>
-                            {/* bold */}
-                            <div className='header-level-3'>
-                                <p>
-                                    [Title Here]
-                                </p>
-                            </div>
+                            
                             {/* normal text */}
                             <div className='my-2'>
                                 <p>
@@ -101,12 +96,14 @@ const CriminalCorruption = () => {
                         <div className='w-full md:w-[50%]'>
                             {/* title */}
                             <div>
-                                <h3 className='my-3 header-level-3'>[Title Here]</h3>
+                                <h3 className='my-3 header-level-3 text-left'>
+                                The Crucial Role of Legal Representation for Defendants in Corruption Cases
+                                </h3>
                             </div>
                             {/* text */}
                             <div>
                                 <p>
-                                    The role of skilled legal counsel in corruption cases is essential due to the complex and serious nature of these matters and the significant consequences at stake. Defendants need the guidance of experienced lawyers to ensure a fair defense and protection of their rights during the investigation and trial. Skilled attorneys are necessary to challenge any improper actions, negotiate settlements, and provide strategic counsel, which is crucial given the complexity of corruption cases. 
+                                    The role of skilled legal counsel in corruption cases is essential due to the complex and serious nature of these matters and the significant consequences at stake. Defendants need the guidance of experienced lawyers to ensure a fair defense and protection of their rights during the investigation and trial. Skilled lawyers are necessary to challenge any improper actions, negotiate settlements, and provide strategic counsel, which are crucial given the complexity of corruption cases. 
                                 </p>
                             </div>
                         </div>
@@ -123,12 +120,14 @@ const CriminalCorruption = () => {
                         <div className='w-full md:w-[50%]'>
                             {/* title */}
                             <div>
-                                <h3 className='my-3 header-level-3'>[Title Here]</h3>
+                                <h3 className='my-3 header-level-3 text-left'>
+                                The Essential Role of Legal Support for Suspects, Accused, and Whistleblowers in Corruption Cases
+                                </h3>
                             </div>
                             {/* text */}
                             <div>
                                 <p>
-                                    For suspects and accused, having legal representation is just as important to effectively seek justice and compensation. Legal support also offer critical support to whistleblowers, whose disclosures are often vital in exposing corrupt activities, by ensuring their legal protection and assisting them through the legal process. Overall, effective legal representation is indispensable in ensuring justice, enforcing accountability, and fostering a culture of integrity in the fight against corruption.
+                                    For suspects and accused, having legal representation is essential to effectively seek justice and compensation. Legal representation also offer critical support to whistleblowers, whose information is often vital in exposing corrupt activities, by ensuring their legal protection and assisting them through the legal process. Overall, effective legal representation is indispensable in ensuring justice, enforcing accountability, and fostering a culture of integrity in the fight against corruption.
                                 </p>
                             </div>
                         </div>

@@ -90,12 +90,12 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
             {
               navHeaderText: "Loan",
               path: "/civil/contract/loan"
+            },
+            {
+              navHeaderText: "Others",
+              // navHeaderText: "Others(suretyship, mortgage, pledge, and agency and sale contracts)",
+              path: "/civil/contract/others"
             }
-            // {
-            //   navHeaderText: "Others",
-            //   navHeaderText: "Others(suretyship, mortgage, pledge, and agency and sale contracts)",
-            //   path: "#"
-            // },
           ]
         },
         {
@@ -115,7 +115,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
               path: "/family/divorce"
             },
             {
-              navHeaderText: "Irregular Union",
+              navHeaderText: "Irregular union",
               path: "/family/irregular-union"
             },
             {
@@ -237,26 +237,27 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
         },
         {
           navHeaderText: "Financial sector",
+          path: "/corporate/financial-sector/banking",
           subNavList: [
             {
               navHeaderText: "Banking",
-              path: "#"
+              path: "/corporate/financial-sector/banking"
             },
             {
               navHeaderText: "Insurance",
-              path: "#"
+              path: "/corporate/financial-sector/insurance"
             },
             {
               navHeaderText: "Capital market",
-              path: "#"
+              path: "/corporate/financial-sector/capital-market"
             },
             {
               navHeaderText: "Payment instrument issuers",
-              path: "#"
+              path: "/corporate/financial-sector/payment"
             },
             {
               navHeaderText: "Others",
-              path: "#"
+              path: "/corporate/financial-sector/others"
             }
           ]
         },
@@ -294,7 +295,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
               path: "/corporate/trade-investment/investment"
             },
             {
-              navHeaderText: "Others(international business transactions)",
+              navHeaderText: "Others (International business transactions)",
               path: "/corporate/trade-investment/others"
             }
           ]
@@ -331,23 +332,23 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
     {
       navHeaderText: "Research",
       path: "/researches"
-    },
-    {
-      navHeaderText: "Serve as member of the board of directors",
-      path: "/researches"
-    },
-    {
-      navHeaderText: "Pro bono services",
-      path: "/researches"
-    },
-    {
-      navHeaderText: "Risk Management and Crisis Intervention",
-      path: "/researches"
-    },
-    {
-      navHeaderText: "Public Policy and Government Relations",
-      path: "/researches"
     }
+    // {
+    //   navHeaderText: "Serve as member of the board of directors",
+    //   path: "/researches"
+    // },
+    // {
+    //   navHeaderText: "Pro bono services",
+    //   path: "/researches"
+    // },
+    // {
+    //   navHeaderText: "Risk Management and Crisis Intervention",
+    //   path: "/researches"
+    // },
+    // {
+    //   navHeaderText: "Public Policy and Government Relations",
+    //   path: "/researches"
+    // },
   ];
 
   // languages
@@ -648,7 +649,7 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                           </div>
                         </div>
                       ) : isNav?.navText === "Corporate" ? (
-                        <div className="w-full h-full flex">
+                        <div className="w-full h-full flex ">
                           <div className="flex-grow py-[3%] px-[2%] flex flex-col lg:flex-row h-full overflow-y-auto lg:overflow-hidden pb-[100px] my-1 lg:my-auto lg:pb-0 justify-between gap-5">
                             {/* contract list */}
                             <div className="flex flex-col">
@@ -796,9 +797,16 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                             </div>
 
                             <div>
-                              <h3 className="font-semibold mb-3 text-[1.35rem]">
+                              <NavLink
+                                to={commercialSubNav[0].groupOne[2].path}
+                                className="font-semibold mb-3 text-[1.35rem] hover:underline"
+                                onClick={() => {
+                                  setIsNav(null);
+                                  scrollIntoHomeTopHandler();
+                                }}
+                              >
                                 {commercialSubNav[0].groupOne[2].navHeaderText}
-                              </h3>
+                              </NavLink>
                               <ul>
                                 {commercialSubNav[0].groupOne[2].subNavList.map(
                                   (item, index) => (
@@ -806,7 +814,14 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                                       key={index}
                                       className="my-[.3rem] text-[1.125rem]"
                                     >
-                                      <NavLink className={"hover:underline"}>
+                                      <NavLink
+                                        className={"hover:underline"}
+                                        to={item?.path}
+                                        onClick={() => {
+                                          setIsNav(null);
+                                          scrollIntoHomeTopHandler();
+                                        }}
+                                      >
                                         {item.navHeaderText}
                                       </NavLink>
                                     </li>
