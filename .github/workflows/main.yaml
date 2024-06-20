@@ -1,8 +1,8 @@
 on:
   push:
     branches:
-      - gedi_working_branch
-name: 🚀 Deploy makutalaw
+      - main
+name: 🚀 Deploy makuta
 defaults:
   run:
     working-directory: ./client
@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.GIT_CPANEL_MAKUTA_USER }}
           password: ${{ secrets.GIT_CPANEL_MAKUTA_PWD }}
           local-dir: ./client/dist/
-          # server-dir: /public_html/cc
+          # server-dir: /public_html
           exclude: |
             **/.git**
             **/.git*/**
