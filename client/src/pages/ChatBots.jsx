@@ -99,7 +99,7 @@ const ChatBots = () => {
 
           <div className="absolute w-full h-[56px] bg-main rounded-lg rounded-b-none z-[9999] top-0 right-0 ">
             <div className="flex h-full px-4 text-white items-center justify-between w-full">
-              <p className="text-lg font-bold ">Makuta</p>
+              <p className="text-lg font-bold ">Makuta Law Firm</p>
               <svg
                 onClick={() => setChat(false)}
                 class="w-6 h-6 cursor-pointer"
