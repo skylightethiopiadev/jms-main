@@ -1,313 +1,303 @@
+import React, { useState, useMemo } from "react";
+
 // icons
-import { RiMicroscopeFill } from "react-icons/ri";
-import { MdArrowRightAlt } from "react-icons/md";
-import { MdOutlineNoteAlt } from "react-icons/md";
-import { RiStethoscopeFill } from "react-icons/ri";
-import { GoLightBulb } from "react-icons/go";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
 
 const Researches = () => {
+  const [services, setServices] = useState({
+    servicesList: [
+      {
+        title: "Statutory legal research ",
+        text:
+          "Encompasses the examination and interpretation of various legislative acts. We delve into legal texts to comprehend their implications, identify pertinent provisions, and apply them to specific cases or situations. Whether analyzing statutes, regulations, or agency decisions, the goal is to interpret precedents and navigate administrative procedures effectively. "
+      },
+      {
+        title: "Regulatory compliance research ",
+        text:
+          "Involves analyzing statutes, regulations, and agency decisions. Researchers examine legal texts to understand their implications, interpret precedents, and ensure business actions and decisions are in compliance with administrative procedures."
+      },
+      {
+        title: "Multi jurisdiction research",
+        text:
+          "Focusing on business operating in multiple jurisdictions, both globally and domestically, we conduct legal researches to compare legal requirements across this jurisdiction."
+      },
+      {
+        title: "International law research",
+        text:
+          "Our specialized international law research services offer thorough analysis of treaties, conventions, and customary law, strategic insights into global legal frameworks, and customized solutions tailored to cross-border contracts and disputes. "
+      },
+      {
+        title: "Intellectual Property Research",
+        text:
+          "This research aims at IP protection and registration, helping clients in patent searches, trademark clearance, and infringement analysis."
+      },
+      {
+        title: "Market Research",
+        text:
+          "Our Market research helps corporations understand industry dynamics, competitive landscapes, and consumer behavior. Law firms analyze market data, industry reports, and trends to inform business strategies."
+      },
+    ],
+    servicesIndex: 0,
+    subServicesIndex: -1
+  });
+
+
   return (
-    <div>
-      {/* first order container */}
-      <div className="relative">
-        {/* background image */}
-        <div className="w-full h-[400px] overflow-hidden">
-          <img
-            className="w-full h-full object-center object-cover"
-            src="https://allea.org/wp-content/uploads/2020/02/88572076-huge-1030x671.jpg"
-            alt=""
-          />
-        </div>
-        <div className="absolute left-0 top-0 w-full h-full z-10 px-[12%] flex">
-          {/* left */}
-          <div className="w-[50%] self-center">
-            {/* bold paragraph */}
-            <div className="font-bold text-5xl">
-              <p>
-                Research <span>Laboratory</span> for Testing
-              </p>
-            </div>
-            {/* normal paragraph */}
-            <div className="my-3">
-              <p>
-                Dolor sit amet consectetur adipisicing elit. Ad maxime autem
-                corrupti?
-              </p>
-            </div>
-            {/* button */}
-            <div className="flex items-center gap-3 mt-5">
-              <div className="flex items-center justify-center gap-3 p-2 cursor-pointer bg-blue-700 text-white transition-all ease-in-out duration-300 hover:bg-blue-500">
-                <span>More About</span>
-                <div className="w-[24px] h-[3px] bg-white"></div>
-              </div>
-              <div className="flex items-center justify-center gap-3 p-2 cursor-pointer bg-gray-700 text-white transition-all ease-in-out duration-300 hover:bg-gray-500">
-                <span>Book Appointment</span>
-                <div className="w-[24px] h-[3px] bg-white"></div>
+    <div className="text-[1.05rem]">
+      <div>
+        {/* 1 */}
+        <div className="relative">
+          {/* bg container */}
+          <div className="relative lg:absolute lg:inset-0 -z-30 flex">
+            {/* left */}
+            <div className="w-0 lg:w-[50%] bg-white"></div>
+            {/* right */}
+            <div className="w-full lg:w-[50%] flex relative">
+              {/* right-left */}
+              <div className="absolute left-0 top-0 h-full z-10 w-0 lg:w-[65%] bg-gradient-to-r from-white to-transparent"></div>
+              {/* right-right */}
+              <div className="w-[100%] overflow-hidden relative z-0">
+                <div className="w-full h-[150px] sm:h-[210px] lg:h-full overflow-hidden">
+                  <img
+                    className="w-full h-full object-center object-cover"
+                    src="https://roysville.group/wp-content/uploads/2020/09/about-1024x819.png"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
           </div>
-          {/* right */}
-          <div></div>
+
+          {/* content container */}
+          <div className="static-padding-x py-10 md:py-16 relative z-30">
+            {/* content */}
+            <div className="flex">
+              {/* left */}
+              <div className="w-full lg:w-[50%]">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>
+                    The Importance of Legal Research for Informed Business
+                    Operations
+                  </p>
+                </div>
+
+                {/* normal text */}
+                <div className="my-5">
+                  <p>
+                    In today’s business world, staying informed about prevailing
+                    or newly issued legislation is essential for individuals and
+                    businesses. The fast-changing legal environment leaves
+                    little room for business errors and must carry out their
+                    task with adequate knowledge and research about particular
+                    area engaged in.
+                  </p>
+                </div>
+              </div>
+              {/* right */}
+              <div className="w-0 lg:w-[50%] bg-transparent"></div>
+            </div>
+          </div>
         </div>
-      </div>
-      {/* second order container */}
-      <div>
-        {/* content container */}
-        <div className="px-[12%] py-[5%] grid grid-cols-4 gap-5">
-          {[...Array(4)].map((item, index) => (
-            <div key={index} className="p-5 rounded-md bg-white shadow-md">
-              <div className="my-3 text-5xl text-yellow-400">
-                <RiMicroscopeFill />
-              </div>
-              <div className="font-bold my-1">
-                <h3>High-End Latest Technology</h3>
-              </div>
-              <div>
+
+        {/* 2 */}
+        <div className="relative">
+          {/* content container */}
+          <div className="static-padding-x py-10 md:py-16 relative z-30">
+            {/* content */}
+            <div>
+              <div className="text-justify p-5 bg-white rounded-md shadow-2xl mx-5 sm:mx-10 md:mx-16 lg:mx-24">
                 <p>
-                  Ipsum, dolor sit amet consectetur adipisicing elit. Aliquid
-                  assumenda nihil perspiciatis!
+                  Whether established companies or those venturing into new
+                  investment opportunities, conducting research is
+                  indispensable.
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-      {/* third order container */}
-      <div>
-        {/* content container */}
-        <div className="px-[12%] py-[3%]">
-          <div className="w-[85%] mx-auto text-center text-lg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, voluptas maiores impedit minus ipsum, incidunt
-              reiciendis earum, dolorum{" "}
-              <span className="font-bold text-yellow-400">voluptatem</span>{" "}
-              cumque quae unde ex natus laudantium amet! Laborum, asperiores
-              aliquam. Eos labore dolor rem. Fugiat esse placeat aliquid
-              consectetur atque accusamus. Libero, ab!
-            </p>
-          </div>
-          <div className="flex items-center justify-center mt-5">
-            <div className="w-[18%] h-[5px] bg-yellow-400 rounded-full relative flex items-center justify-center">
-              <div className="absolute w-[50px] h-[10px] rounded-full bg-inherit"></div>
-            </div>
           </div>
         </div>
-      </div>
-      {/* fourth order container */}
-      <div>
-        {/* content container */}
-        <div className="px-[12%] py-[3%] gap-5 flex">
-          {/* left */}
-          <div className="w-[50%] bg-blue-300">
-            <div className="w-full h-full">
-              <img
-                className="w-full h-full object-center object-cover"
-                src="https://images.unsplash.com/photo-1501290741922-b56c0d0884af?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzZWFyY2h8ZW58MHx8MHx8fDA%3D"
-                alt=""
-              />
-            </div>
-          </div>
-          {/* right */}
-          <div className="w-[50%]">
-            {/* bold paragraph */}
-            <div className="font-bold text-3xl w-[75%]">
-              <p>Welcome to Labora Laboratory INC.</p>
-            </div>
-            {/* header */}
-            <header className="my-3 font-medium">
-              <h3>Having a new name is just a beginning</h3>
-            </header>
-            {/* normal paragraph */}
-            <div className="my-3">
-              <p>
-                Ethiopia ipsum dolor sit amet consectetur adipisicing elit.
-                Obcaecati suscipit odio debitis, laudantium, quisquam eum unde
-                hic voluptas neque quam velit optio illo inventore quod!
-                Consequatur nisi sint quod voluptates, delectus eos?
-              </p>
-            </div>
-            {/* button */}
-            <div>
-              <button className="flex items-center gap-1 font-semibold text-yellow-400 transition-all ease-in-out duration-300 hover:text-yellow-300">
-                <span>More About Us</span>
-                <MdArrowRightAlt className="text-xl" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* fifth order container */}
-      <div>
-        {/* content container */}
-        <div className="px-[12%] py-[1%] flex">
-          {/* left top */}
-          <div className="w-[50%] flex items-center justify-evenly">
-            <div className="flex gap-1">
-              <div>
-                <MdOutlineNoteAlt className="text-3xl text-gray-700" />
-              </div>
-              <div>
-                <div className="font-bold">
-                  <h3>Research Center</h3>
-                </div>
-                <div>In every city</div>
-              </div>
-            </div>
 
-            <div className="flex gap-1">
-              <div>
-                <RiStethoscopeFill className="text-3xl text-gray-700" />
-              </div>
-              <div>
-                <div className="font-bold">
-                  <h3>Research Technician</h3>
+        {/* 3 */}
+        <div className="my-12 md:my-36">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col md:flex-row">
+              <div className="w-[100%] md:w-[50%] relative">
+                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                  <img
+                    className="w-full h-full object-center object-cover"
+                    src="https://www.shutterstock.com/image-photo/law-theme-mallet-judge-enforcement-600nw-1938588952.jpg"
+                    alt=""
+                  />
                 </div>
-                <div>Powerful & Skilled</div>
               </div>
-            </div>
-          </div>
-          {/* bottom right */}
-          <div className="w-[50%] flex items-center justify-evenly">
-            <div className="flex gap-1">
-              <div>
-                <MdOutlineNoteAlt className="text-3xl text-gray-700" />
-              </div>
-              <div>
-                <div className="font-bold">
-                  <h3>Research Center</h3>
-                </div>
-                <div>In every city</div>
-              </div>
-            </div>
 
-            <div className="flex gap-1">
-              <div>
-                <RiStethoscopeFill className="text-3xl text-gray-700" />
-              </div>
-              <div>
-                <div className="font-bold">
-                  <h3>Research Technician</h3>
-                </div>
-                <div>Powerful & Skilled</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* sixth order container */}
-      <div>
-        {/* content container */}
-        <div className="px-[12%] py-[5%] flex gap-5">
-          {/* left */}
-          <div className="w-[50%]">
-            {/* header */}
-            <header className="font-bold text-2xl">
-              <h3>Header Info</h3>
-            </header>
-            {/* sub header */}
-            <header className="flex items-center justify-center font-semibold">
-              <h3>sub-header Info</h3>
-            </header>
-            {/* bold paragraph */}
-            <div className="font-semibold text-2xl my-2">
-              <p>Ipsum dolor sit amet consectetur adipisicing elit</p>
-            </div>
-            {/* normal paragraph */}
-            <div className="my-5">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Impedit, veniam optio perspiciatis rem deleniti animi quisquam
-                unde hic! Reiciendis doloremque modi tenetur corporis quas
-                debitis qui. Reprehenderit dicta officia modi, mollitia officiis
-                pariatur, ipsam repellendus enim doloremque dolore molestiae
-                vero consequatur hic incidunt aperiam labore architecto dolores
-                deserunt!
-              </p>
-            </div>
-            {/* cards container */}
-            <div className="mt-5 flex items-center gap-3">
-              {[...Array(3)].map((item, index) => (
-                <div
-                  key={index}
-                  className="w-[calc(100%/3)] flex items-center gap-1"
-                >
-                  <div className="w-[46px] aspect-square rounded-full overflow-hidden border-2 border-white shadow-md">
-                    <img
-                      className="w-full h-full object-center object-cover"
-                      src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1 font-semibold">
-                      <span>Haddis</span>
-                      <span>Fanta</span>
-                    </div>
-                    <div>
-                      <span>web dev</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* right */}
-          <div className="w-[50%] relative">
-            {/* background image */}
-            <div className="w-full h-full overflow-hidden">
-              <img
-                className="w-full h-full object-center object-cover"
-                src="https://blog.researcher.life/wp-content/uploads/2023/11/male-hands-with-pencil-magnifying-glass-1-1.jpg"
-                alt=""
-              />
-            </div>
-            {/* content container */}
-            <div className="absolute left-0 top-0 w-full h-full">
-              {/* top */}
-              <div className="absolute top-0 right-0 bg-white p-5 shadow-md max-w-[250px]">
-                <div>
-                  <GoLightBulb className="text-5xl text-gray-700" />
-                </div>
-                <div className="font-bold my-1 text-gray-600">
-                  <h3>Ethiopia The Land Of Wisdom</h3>
-                </div>
-                <div>
+              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+                {/* normal text */}
+                <div className="">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Through, Legal research they can ensures informed
+                    decision-making, effective risk management, and compliance.
+                    Moreover, for businesses, it facilitates adherence to
+                    relevant laws, aids in creating enforceable contracts,
+                    protects intellectual property, and fortifies litigation
+                    preparation.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* seventh order container */}
-      <div className="flex items-center justify-center py-[1%]">
-        <div className="relative w-[200px] h-[5px] rounded-full bg-yellow-400 flex items-center justify-center">
-          <div className="absolute w-[50px] h-[10px] rounded-full bg-yellow-400"></div>
-        </div>
-      </div>
-      {/* eight order container */}
-      <div>
-        {/* content container */}
-        <div className="w-full px-[12%] py-[5%]">
-          {/* bold text */}
-          <div className="font-bold text-2xl w-[75%]">
-            <p>
-              Bahir Dar ipsum dolor sit amet consectetur adipisicing elit. Eius
-              animi excepturi nulla.
-            </p>
+
+        {/* 21 */}
+        <div className="py-5 md:py-16 bg-neutral-800 text-white">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
+              {/* right */}
+              <div className="flex-grow">
+                <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
+                  <p>
+                  At Makuta law firm, we are dedicated to enhancing the legal knowledge of our clients through specialized Research services. This service is designed to empower informed decision-making. By conducting thorough legal research, we equip our clients with insights, strategies, and precedents that enable them to navigate complex legal matters effectively, minimize risks, and achieve favorable outcomes
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          {/* normal text */}
-          <div className="my-5">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa aut
-              tenetur minima fugiat provident hic neque at quo autem aliquam
-              blanditiis, placeat distinctio vitae eos. Qui ea repellat a
-              incidunt quaerat fuga recusandae labore voluptatum accusamus.
-              Pariatur magni doloremque nostrum laboriosam porro!
-            </p>
+        </div>
+
+        {/* 22 */}
+        <div className="my-10 md:my-36">
+          {/* content container */}
+          <div className="static-padding-x">
+            {/* header */}
+            <div>
+              {/* bold */}
+              <div className="header-level-3 mb-2 uppercase">
+                <p>Our research service includes</p>
+              </div>
+            </div>
+            {/* accordion */}
+            <div>
+              {/* first accordion */}
+              {services?.servicesList.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="p-1 md:p-5 rounded-sm bg-white shadow-md mt-10 text-[.85rem] md:text-[1.05rem]"
+                  >
+                    <header className="flex items-center justify-between py-2">
+                      <div>
+                        <p
+                          className="font-bold w-max cursor-pointer hover:underline"
+                          onClick={() => {
+                            setServices(prev => {
+                              return {
+                                ...prev,
+                                servicesIndex: index
+                              };
+                            });
+                          }}
+                        >
+                          {item.title}
+                        </p>
+                      </div>
+                      <div>
+                        <div
+                          className="w-[28px] aspect-square rounded-full bg-gray-100 flex items-center justify-center transition-colors ease-in-out duration-300 hover:bg-gray-200 cursor-pointer"
+                          onClick={() => {
+                            setServices(prev => {
+                              return {
+                                ...prev,
+                                servicesIndex: index
+                              };
+                            });
+                          }}
+                        >
+                          <MdKeyboardArrowDown
+                            className={`text-2xl transition-transform ease-in-out duration-300 ${
+                              services?.servicesIndex === index
+                                ? "-rotate-180"
+                                : "rotate-0"
+                            }`}
+                          />
+                        </div>
+                      </div>
+                    </header>
+
+                    <div
+                      className={`overflow-hidden ${
+                        services?.servicesIndex === index ? "h-auto" : "h-0"
+                      }`}
+                    >
+                      <div className="pt-3 border-t border-gray-200">
+                        <div>
+                          <p>{item.text}</p>
+                        </div>
+
+                        {item?.subList?.length > 0 ? (
+                          <div className="mx-5">
+                            {item?.subList?.map((subItem, subIndex) => {
+                              return (
+                                <div className="my-1.5">
+                                  <header className="flex items-center justify-between">
+                                    <div className="font-bold text-sm text-gray-800">
+                                      <span>{subItem?.title}</span>
+                                    </div>
+                                    <div>
+                                      <div
+                                        className="w-[24px] aspect-square rounded-full overflow-hidden flex items-center justify-center text-lg bg-gray-100 cursor-pointer hover:bg-gray-200"
+                                        onClick={() => {
+                                          console.log(subIndex);
+                                          setServices(prev => {
+                                            return {
+                                              ...prev,
+                                              subServicesIndex:
+                                                prev?.subServicesIndex ===
+                                                subIndex
+                                                  ? -1
+                                                  : subIndex
+                                            };
+                                          });
+                                        }}
+                                      >
+                                        <IoMdAdd
+                                          className={`transition-transform ease-in-out duration-300 ${
+                                            services?.subServicesIndex ===
+                                            subIndex
+                                              ? "rotate-45"
+                                              : "rotate-0"
+                                          }`}
+                                        />
+                                      </div>
+                                    </div>
+                                  </header>
+                                  <div>
+                                    <div
+                                      className={`text-sm italic text-gray-700 py-1 border-b border-gray-100 overflow-hidden ${
+                                        services?.subServicesIndex === subIndex
+                                          ? "h-max"
+                                          : "h-0"
+                                      }`}
+                                    >
+                                      <p>{subItem?.text}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

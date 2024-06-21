@@ -365,7 +365,7 @@ const Employment = () => {
           <div className="static-padding-x py-10 md:py-16 relative z-30">
             {/* content */}
             <div>
-              <div className="text-justify p-5 bg-white rounded-md shadow-2xl mx-24">
+              <div className="text-justify p-5 bg-white rounded-md shadow-2xl mx-5 sm:mx-10 md:mx-16 lg:mx-24">
                 <p>
                   On the other hand, employment law covers a wider spectrum of
                   workplace issues beyond union relations. It sets standards for
