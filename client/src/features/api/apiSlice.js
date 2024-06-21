@@ -26,7 +26,7 @@ let tag = [];
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/jms/app/v1"
+    baseUrl: "https://jms-main.onrender.com/jms/app/v1"
   }),
   tagTypes: [
     "users",

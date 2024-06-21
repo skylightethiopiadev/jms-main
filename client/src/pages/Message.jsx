@@ -173,7 +173,7 @@ const Message = () => {
   };
 
   useEffect(() => {
-    setSocket(io("http://localhost:5000"));
+    setSocket(io("https://jms-main.onrender.com"));
   }, []);
 
   //   useEffect(() => {
