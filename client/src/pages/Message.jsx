@@ -4,39 +4,40 @@ import { io } from "socket.io-client";
 import {
   useCreateMutation,
   useLazyReadChatQuery,
+  useLazyReadQuery,
   useReadQuery
-} from "./../../../../features/api/apiSlice";
-import Response from "../../../../components/Response";
-import LoadingButton from "../../../../components/loading/LoadingButton";
-import Loading from "../../../../components/loading/Loading";
+} from "../features/api/apiSlice";
+import Response from "../components/Response";
+import LoadingButton from "../components/loading/LoadingButton";
+import Loading from "../components/loading/Loading";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import customerImage from "../../../../assets/images/customers/customer-i.jpg";
+// import customerImage from "../../../../assets/images/customers/customer-i.jpg";
 import Peer from "peerjs";
 import { PushPinOutlined } from "@mui/icons-material";
-import Messages from "../../../../components/chat/Messages";
-import MessageInput from "../../../../components/chat/MessageInput";
-import ChatHeader from "../../../../components/chat/ChatHeader";
-import UserList from "../../../../components/chat/UserList";
-import Video from "../../../../components/chat/Video";
-import { userContext } from "../../../../App";
+import Messages from "../components/chat/Messages";
+import MessageInput from "../components/chat/MessageInput";
+import ChatHeader from "../components/chat/ChatHeader";
+import UserList from "../components/chat/UserList";
+import Video from "../components/chat/Video";
+// import "./scroll.css";
 
 const Message = () => {
   const navigate = useNavigate();
   const [socket, setSocket] = useState(null);
-  const [currentUser, setCurrentUser] = useState();
-  const user = useContext(userContext)?.user;
+  //   const [currentUser, setCurrentUser] = useState();
+  const currentUser = JSON.parse(localStorage.getItem("makuta_user"));
 
   const [sendMessageData, sendMessageResponse] = useCreateMutation();
   const [sender, setSenderId] = useState("");
   const [receiver, setReceiverId] = useState("");
-  console.log(user, "users current");
-  useEffect(() => {
-    user &&
-      setCurrentUser({
-        _id: user?._id,
-        email: user?.email
-      });
-  }, [user]);
+  //   console.log(user, "users current");
+  //   useEffect(() => {
+  //     user &&
+  //       setCurrentUser({
+  //         _id: user?._id,
+  //         email: user?.email,
+  //       });
+  //   }, [user]);
 
   const [onlineUsers, setOnlineUsers] = useState();
   const [message, setMessage] = useState("");
@@ -44,7 +45,41 @@ const Message = () => {
   const [texts, setTexts] = useState();
   const [typing, setTyping] = useState(false);
   const [chatId, setChatId] = useState("");
+  const [files, setFiles] = useState("");
+  const [messageType, setMessageType] = useState("text");
+  const [description, setDescription] = useState("");
   const refer = useRef(null);
+  const [cases, setCases] = useState([
+    {
+      name: "Civil",
+      description: "civil description",
+      category: [
+        {
+          name: "Family",
+          description: "family description",
+          category: [
+            { name: "Maintenance", description: "maintenance description" },
+            { name: "Adoption", description: "adoption description" },
+            { name: "Divorce", description: "divorce description" }
+          ]
+        },
+        {
+          name: "Contract",
+          description: "contract description",
+          category: [
+            {
+              name: "Contract of special movables",
+              description: "Contract of special movables"
+            },
+            {
+              name: "Sale or lease of buildings",
+              description: "Sale or lease of buildings description"
+            }
+          ]
+        }
+      ]
+    }
+  ]);
 
   const [
     trigger,
@@ -54,20 +89,56 @@ const Message = () => {
   useEffect(() => {
     if (receiver && sender) {
       trigger({
-        url: `/chat/${sender}.${receiver}`,
+        url: `/chat/${sender}.${receiver}?populatingType=chats&populatingValue=sender,receiver`,
         tag: ["chats"]
       });
     }
   }, [receiver, sender]);
 
-  const {
-    data: userData,
-    isLoading: userIsFetching,
-    isError: userIsError
-  } = useReadQuery({
-    url: `/user/users`,
-    tag: ["users"]
-  });
+  // const {
+  //   data: userData,
+  //   isLoading: userIsFetching,
+  //   isError: userIsError,
+  // } = useReadQuery({
+  //   url: `/user/users`,
+  //   tag: ["users"],
+  // });
+
+  // const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
+  // const [totalPage, setTotalPage] = useState(1);
+  const [role, setRole] = useState("");
+  const [limit, setLimit] = useState(30);
+
+  const [
+    userDataTrigger,
+    { data: userDatas, isFetching: userIsFetching, isError: userIsError }
+  ] = useLazyReadQuery();
+
+  // useEffect(() => {
+  //   setPage(1);
+  // }, []);
+
+  useEffect(() => {
+    const roles = role?.length > 0 ? `&role=${role}` : "";
+    userDataTrigger({
+      url: `/user/users?limit=${limit}${roles}&searchField=email&searchValue=${search}&populatingValue=user`,
+      tag: ["users"]
+    });
+  }, [limit, search, role]);
+
+  console.log(limit, search, role, "user list fetching");
+  const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    const aa = [];
+    userDatas?.data?.map(e => {
+      onlineUsers?.includes(e?.email) ? aa.unshift(e) : aa.push(e);
+    });
+    setUserData(aa);
+  }, [userDatas]);
+
+  // console.log(userData, "user data value");
+  // const compare=()
 
   // useEffect(() => {
   //   const hash = location.hash.split("#").splice(1, 2);
@@ -77,22 +148,25 @@ const Message = () => {
   //   }
   // }, []);
   const focusHandler = id => {
-    ["group", "private", "manager", "lawyer", "all"].map(e => {
+    [
+      "all-sidebar",
+      "lawyer-sidebar",
+      "private-sidebar",
+      "business-sidebar"
+    ].map(e => {
       const ids = document.getElementById(e);
       ids?.classList?.remove(
-        // "border-b",
-        // "bg-gray-200",
-        // "border-blue-600",
-        "font-extrabold",
-        "text-blue-600"
+        "border-b-blue-700",
+        // "border",
+        "text-blue-700"
+        // "font-bold"
       );
       if (id === e) {
         ids?.classList?.add(
-          // "border-b",
-          // "bg-gray-200",
-          // "border-blue-600",
-          "font-extrabold",
-          "text-blue-600"
+          "border-b-blue-700",
+          // "border",
+          "text-blue-700"
+          // "font-bold"
         );
       }
     });
@@ -102,29 +176,53 @@ const Message = () => {
     setSocket(io("http://localhost:5000"));
   }, []);
 
+  //   useEffect(() => {
+  //     socket?.emit("connect-user", currentUser?.email);
+  //     socket?.on("aaa", (val) => {
+  //       setOnlineUsers(val);
+  //     });
+  //   }, [socket, currentUser]);
   useEffect(() => {
     socket?.emit("connect-user", currentUser?.email);
     socket?.on("aaa", val => {
       setOnlineUsers(val);
     });
-  }, [socket, currentUser]);
+  }, [socket]);
 
+  // console.log(files, "only files");
   const sendHandler = () => {
-    sender &&
-      receiver &&
-      sendMessageData({
-        chatId,
-        sender: sender,
-        receiver: receiver,
-        message: {
-          content: message,
-          size: "20kb"
-        },
-        messageType: "text",
-        chatType: "private",
-        url: `/chat`,
-        tag: ["chats"]
-      });
+    // console.log(message, "message", messageType, files, "files");
+    if (sender && receiver) {
+      const formData = new FormData();
+      formData.append("sender", sender);
+      formData.append("receiver", receiver);
+      formData.append("message", message);
+      formData.append("messageType", messageType);
+      formData.append("description", description);
+      formData.append("url", "/chat");
+      formData.append("tag", ["chats"]);
+      files?.length > 0
+        ? [...files].forEach(file => {
+            formData.append("chatFile", file);
+          })
+        : formData.append("chatFile", files);
+      sendMessageData(formData);
+    }
+
+    // sender &&
+    //   receiver &&
+    //   sendMessageData({
+    //     chatId,
+    //     sender: sender,
+    //     receiver: receiver,
+    //     message: {
+    //       content: message,
+    //     },
+    //     messageType: type,
+    //     chatType: "private",
+    //     url: `/chat`,
+    //     tag: ["chats"],
+    //   });
   };
 
   useEffect(() => {
@@ -137,7 +235,7 @@ const Message = () => {
       });
     }
   }, [messageData]);
-
+  console.log(messageData, "message data");
   useEffect(() => {
     refer.current?.scrollIntoView();
   }, [texts]);
@@ -145,16 +243,6 @@ const Message = () => {
   useEffect(() => {
     refer.current?.scrollIntoView();
   }, [typing]);
-
-  const createRoomHandler = id => {
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(e => {
-      const ids = document.getElementById(e);
-      ids?.classList?.remove("bg-gray-200");
-      if (id === e) {
-        ids?.classList?.add("bg-gray-200");
-      }
-    });
-  };
 
   const closeLists = () => {
     const i = document.getElementById("user_lists");
@@ -220,6 +308,8 @@ const Message = () => {
   const [callFlag, setCallFlag] = useState(false);
   const [callRejected, setCallRejected] = useState(false);
   const [rejectedMessage, setRejectedMessage] = useState("");
+  const [receiverUser, setReceiverUser] = useState("");
+  // const [showUserList, setShowUserList] = useState(false);
 
   useEffect(() => {
     const peer = new Peer();
@@ -273,6 +363,15 @@ const Message = () => {
     // socket?.emit("call-accepted-peerIdSend", chatId, peerId);
   };
 
+  useEffect(() => {
+    if (sendMessageResponse?.status === "fulfilled" && messageType === "file") {
+      setMessageType("file");
+      setFiles("");
+      popup("file-send");
+      setDescription("");
+    }
+  }, [sendMessageResponse]);
+
   socket?.on("call-accepted-response", (bool, peerId) => {
     setDisplayVideo(bool);
     // call(peerId);
@@ -308,14 +407,20 @@ const Message = () => {
     }, 4000);
   });
 
-  // console.log(peerId, "peer id");
+  useEffect(() => {
+    if (sendMessageResponse?.status === "fulfilled") {
+      setMessage("");
+    }
+  }, [sendMessageResponse]);
+
+  console.log(receiverUser, "dd", currentUser, "peer id");
   return (
-    <div className="flex -ml-3 -mt-2">
+    <div className="flex text-xs overflow-hidden relative">
       <Response response={sendMessageResponse} setPending={setPending} />
 
       {/* video */}
       {displayVideo ? (
-        <div className="absolute z-20 pl-[220px] top-0 left-0 bg-white flex gap-5 items-center p-5 w-full h-[100vh]">
+        <div className="absolute z-20 pl-[220px] top-0 left-0 bg-white bg-dark flex gap-5 items-center p-5 w-full h-[100vh]">
           <Video
             setRemotePeerIdValue={setRemotePeerIdValue}
             remotePeerIdValue={remotePeerIdValue}
@@ -328,7 +433,7 @@ const Message = () => {
             chatId={chatId}
           />
 
-          <div className="flex flex-col items-start justify-start h-[100vh] w-[30%] bg-white border shadow-2xl rounded-sm">
+          <div className="flex flex-col items-start justify-start h-[63vh] w-[25%] border shadow-2xl rounded-sm">
             <ChatHeader sender={sender} receiver={receiver} type="small" />
             <Messages
               isLoading={isLoading}
@@ -337,32 +442,52 @@ const Message = () => {
               sender={sender}
               texts={texts}
               currentUser={currentUser}
+              typing={typing}
             />
+            <div ref={refer} />
             <MessageInput
               popup={popup}
               typingHandler={typingHandler}
               setMessage={setMessage}
+              sendMessageResponse={sendMessageResponse}
               pending={pending}
               sendHandler={sendHandler}
+              setFiles={setFiles}
+              setDescription={setDescription}
+              setMessageType={setMessageType}
+              message={message}
+              receiver={receiver}
+              sender={sender}
+              files={files}
             />
           </div>
         </div>
       ) : (
-        <div className="w-full flex h-[100vh]">
-          <div id="user_list_container" className="w-[35%]">
+        <div className="w-full overflow-hidden flex h-[92.5vh]">
+          <div
+            id="user_list_container"
+            className="absolute hidden md:block bg-white bg-dark z-20 left-0 top-11 md:top-0  md:relative w-[80%] md:w-[25%]"
+          >
             <UserList
               userIsFetching={userIsFetching}
               userIsError={userIsError}
               userData={userData}
               currentUser={currentUser}
-              createRoomHandler={createRoomHandler}
               setReceiverId={setReceiverId}
               setSenderId={setSenderId}
               onlineUsers={onlineUsers}
+              focusHandler={focusHandler}
+              setRole={setRole}
+              setSearch={setSearch}
+              // setPage={setPage}
+              receiver={receiver}
+              setReceiverUser={setReceiverUser}
+              limit={limit}
+              setLimit={setLimit}
             />
           </div>
 
-          <div className="flex w-[65%] h-auto flex-col border-r">
+          <div className="flex relative w-full md:w-[76%] overflow-hidden h-[92.5vh] flex-col border-r">
             <ChatHeader
               sender={sender}
               receiver={receiver}
@@ -379,6 +504,7 @@ const Message = () => {
               rejectedMessage={rejectedMessage}
               setRejectedMessage={setRejectedMessage}
               callAcceptHandler={callAcceptHandler}
+              user={receiverUser ? receiverUser : currentUser}
             />
             <Messages
               isLoading={isLoading}
@@ -387,14 +513,25 @@ const Message = () => {
               sender={sender}
               texts={texts}
               currentUser={currentUser}
-            />
+              typing={typing}
+            />{" "}
+            <div ref={refer} />
+            {/* <div className="mt-4"> */}
             <MessageInput
               popup={popup}
               typingHandler={typingHandler}
               setMessage={setMessage}
               pending={pending}
               sendHandler={sendHandler}
+              setFiles={setFiles}
+              files={files}
+              setDescription={setDescription}
+              setMessageType={setMessageType}
+              message={message}
+              receiver={receiver}
+              sender={sender}
             />
+            {/* </div> */}
           </div>
         </div>
       )}

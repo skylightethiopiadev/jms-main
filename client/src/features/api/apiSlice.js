@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // import CryptoJS from "crypto-js";
 
-const authorization = {
-  authorization: `Bearer ${localStorage.getItem("jwt")}`
-};
+// const authorization = {
+//   authorization: `Bearer ${localStorage.getItem("jwt")}`,
+// };
 
 // const encrypt = (data) => {
 //   const ENC = "bf3c199c2470cb477d907b1e0917c17f";
@@ -26,7 +26,6 @@ let tag = [];
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "http://192.168.100.12:5000/jms/app/v1",
     baseUrl: "http://localhost:5000/jms/app/v1"
   }),
   tagTypes: [
@@ -41,7 +40,23 @@ export const apiSlice = createApi({
     "lawyers",
     "groups",
     "chats",
-    "privates"
+    "news",
+    "youtubes",
+    "rate",
+    "rate-multiple",
+    "view",
+    "save",
+    "subscriptions",
+    "boosts",
+    "boosthistories",
+    "subscriptionhistories",
+    "payments",
+    "categories",
+    "places",
+    "news-admins",
+    "blogs-admins",
+    "notifications",
+    "commissions"
   ],
   endpoints: builder => ({
     //user signup
@@ -51,7 +66,8 @@ export const apiSlice = createApi({
         method: "POST",
         body: data,
         credentials: "include"
-      })
+      }),
+      providesTags: ["news-admins", "blogs-admins", "users"]
     }),
 
     //user login
@@ -85,6 +101,16 @@ export const apiSlice = createApi({
     }),
 
     //user forget
+    sendEmail: builder.mutation({
+      query: data => ({
+        url: "/user/sendEmail",
+        method: "POST",
+        body: data,
+        credentials: "include"
+      })
+    }),
+
+    //user forget
     resetPassword: builder.mutation({
       query: data => ({
         url: `/user/resetPassword?resetToken=${data.resetToken}`,
@@ -103,7 +129,7 @@ export const apiSlice = createApi({
         credentials: "include"
       })
     }),
-
+    //user forget
     updateUsersCredentials: builder.mutation({
       query: data => ({
         url: `/account/updateUsersCredentials`,
@@ -113,60 +139,29 @@ export const apiSlice = createApi({
       })
     }),
 
+    //user notificationView
+    notificationView: builder.mutation({
+      query: data => ({
+        url: `/utility/notificationView`,
+        method: "PUT",
+        body: data,
+        credentials: "include"
+      }),
+      providesTags: ["notifications"]
+    }),
+
+    //recentlyAddedCompany
+    recentlyAddedCompany: builder.query({
+      query: () => ({
+        url: `/utility/recentlyAddedCompany`,
+        method: "GET",
+        credentials: "include"
+      }),
+      providesTags: ["companies"]
+    }),
+
     //create
     create: builder.mutation({
-      query: data => {
-        data?.tag.map(d => tag.push(d));
-        // console.log(data.url, encrypt(data.url), "both");
-        return {
-          url: data.url,
-          method: "POST",
-          body: data,
-          credentials: "include",
-          headers: authorization
-        };
-      },
-      invalidatesTags: () => {
-        return [...new Set(tag)];
-      }
-    }),
-
-    //read
-    read: builder.query({
-      query: data => {
-        data?.tag.map(d => tag.push(d));
-        return {
-          url: data.url,
-          method: "GET",
-          credentials: "include",
-
-          headers: authorization
-        };
-      },
-      providesTags: () => {
-        return [...new Set(tag)];
-      }
-    }),
-
-    //update
-    // update: builder.mutation({
-    //   query: (data) => {
-    //     data?.tag.map((d) => tag.push(d));
-    //     return {
-    //       url: data.url,
-    //       method: "PUT",
-    //       body: data,
-    //       credentials: "include",
-
-    //       headers: authorization,
-    //     };
-    //   },
-    //   invalidatesTags: () => {
-    //     return [...new Set(tag)];
-    //   },
-    // }),
-
-    update: builder.mutation({
       query: data => {
         let newUrl = "";
         let newTag;
@@ -183,6 +178,62 @@ export const apiSlice = createApi({
 
         return {
           url: data.url ? data.url : newUrl,
+          method: "POST",
+          body: data,
+          credentials: "include"
+        };
+      },
+      invalidatesTags: () => {
+        return [...new Set(tag)];
+      }
+    }),
+
+    //   query: (data) => {
+    //     data?.tag.map((d) => tag.push(d));
+    //     // console.log(data.url, encrypt(data.url), "both");
+    //     return {
+    //       url: data.url,
+    //       method: "POST",
+    //       body: data,
+    //       credentials: "include",
+    //     };
+    //   },
+    //   invalidatesTags: () => {
+    //     return [...new Set(tag)];
+    //   },
+    // }),
+
+    //read
+    read: builder.query({
+      query: data => {
+        data?.tag.map(d => tag.push(d));
+        return {
+          url: data.url,
+          method: "GET",
+          credentials: "include"
+        };
+      },
+      providesTags: () => {
+        return [...new Set(tag)];
+      }
+    }),
+
+    //update
+    update: builder.mutation({
+      query: data => {
+        let newUrl = "";
+        let newTag;
+        if (!data.url) {
+          for (var key of data.entries()) {
+            if (key[0] === "url") newUrl = key[1];
+            if (key[0] === "tag") newTag = key[1].split(",");
+          }
+        } else {
+          newTag = data.tag;
+        }
+        newTag.map(d => tag.push(d));
+        return {
+          url: data.url ? data.url : newUrl,
           method: "PUT",
           body: data,
           credentials: "include"
@@ -193,6 +244,19 @@ export const apiSlice = createApi({
       }
     }),
 
+    // update: builder.mutation({
+    //   query: (data) => {
+    //     console.log(data, "api slice");
+    //     // data?.tag.map((d) => tag.push(d));
+    //     return {
+    //       url: "/user/companies",
+    //       method: "PUT",
+    //       body: data,
+    //       credentials: "include",
+    //     };
+    //   },
+    //   invalidatesTags: ["company"],
+    // }),
     //delete
     delete: builder.mutation({
       query: data => {
@@ -201,9 +265,7 @@ export const apiSlice = createApi({
           url: data.url,
           method: "DELETE",
           body: data,
-          credentials: "include",
-
-          headers: authorization
+          credentials: "include"
         };
       },
       invalidatesTags: () => {
@@ -217,13 +279,146 @@ export const apiSlice = createApi({
         data?.tag.map(d => tag.push(d));
         return {
           url: data.url,
-          method: "GET"
+          method: "GET",
           // headers: authorization,
+          credentials: "include"
         };
       },
       providesTags: () => {
         return [...new Set(tag)];
       }
+    }),
+
+    //create rate
+    createRate: builder.mutation({
+      query: data => ({
+        url: `/utility/rate`,
+        method: "POST",
+        body: data,
+        credentials: "include"
+      }),
+      invalidatesTags: ["companies", "rate", "rate-multiple"]
+    }),
+
+    //create rate
+    readRate: builder.query({
+      query: arg => ({
+        url: `/utility/rate?id=${arg.id}`,
+        method: "GET",
+        credentials: "include"
+      }),
+      providesTags: ["companies", "rate", "rate-multiple"]
+    }),
+
+    //read rate multiple
+    readMultipleRate: builder.query({
+      query: () => ({
+        url: `/utility/rateMultiple`,
+        method: "GET",
+        credentials: "include"
+      }),
+      providesTags: ["companies", "rate", "rate-multiple"]
+    }),
+
+    //delete rate
+    deleteRate: builder.mutation({
+      query: data => ({
+        url: `/utility/rate?id=${data.id}`,
+        method: "DELETE",
+        body: data,
+        credentials: "include"
+      }),
+      invalidatesTags: ["companies", "rate", "rate-multiple"]
+    }),
+
+    //create rate
+    createSave: builder.mutation({
+      query: data => ({
+        url: `/utility/save`,
+        method: "POST",
+        body: data,
+        credentials: "include"
+      }),
+      invalidatesTags: ["companies", "save"]
+    }),
+
+    //create rate
+    deleteSave: builder.mutation({
+      query: data => ({
+        url: `/utility/save`,
+        method: "DELETE",
+        body: data,
+        credentials: "include"
+      }),
+      invalidatesTags: ["companies", "save"]
+    }),
+
+    //create rate
+    createView: builder.mutation({
+      query: data => ({
+        url: `/utility/view`,
+        method: "POST",
+        body: data,
+        credentials: "include"
+      }),
+      invalidatesTags: ["companies", "view"]
+    }),
+
+    //upgrade
+    upgrade: builder.mutation({
+      query: data => ({
+        url: `/utility/upgrade`,
+        method: "POST",
+        body: data,
+        credentials: "include"
+      }),
+      invalidatesTags: ["users"]
+    }),
+
+    //upgrade
+    createBoost: builder.mutation({
+      query: data => ({
+        url: `/utility/boost`,
+        method: "POST",
+        body: data,
+        credentials: "include"
+      }),
+      invalidatesTags: [
+        "boosts",
+        "boosthistories",
+        "companies",
+        "subscriptionhistories",
+        "payments"
+      ]
+    }),
+
+    companyAggregate: builder.query({
+      query: data => ({
+        url: `/utility/companyAggregate?type=${data?.type}`,
+        method: "GET",
+        credentials: "include"
+      }),
+      providesTags: ["companies", "aggregate"]
+    }),
+
+    //company dashboard aggregation
+    companyDashboardAggregation: builder.query({
+      query: arg => ({
+        url: `/utility/companyDashboardAggregation?id=${arg.id}&type=${arg.type}`,
+        method: "GET",
+        credentials: "include"
+      }),
+      providesTags: ["saves", "views"]
+    }),
+
+    //admin dashboard aggregation
+    adminDashboardAggregation: builder.query({
+      query: arg => ({
+        url: `/utility/adminDashboardAggregation?id=${arg.id}`,
+        method: "GET",
+        credentials: "include"
+      }),
+      providesTags: ["users"]
     })
   })
 });
@@ -233,15 +428,33 @@ export const {
   useUserLoginMutation,
   useUserLogoutMutation,
   useForgetPasswordMutation,
+  useUpdateUsersCredentialsMutation,
   useResetPasswordMutation,
   useUpdatePasswordMutation,
+  useSendEmailMutation,
 
   useCreateMutation,
   useReadQuery,
   useUpdateMutation,
   useDeleteMutation,
+  useLazyReadQuery,
 
   useLazyReadChatQuery,
-  useLazyReadQuery,
-  useUpdateUsersCredentialsMutation
+
+  useCreateRateMutation,
+  useLazyReadRateQuery,
+  useReadRateQuery,
+  useReadMultipleRateQuery,
+  useDeleteRateMutation,
+
+  useCreateSaveMutation,
+  useDeleteSaveMutation,
+  useCreateViewMutation,
+  useUpgradeMutation,
+  useCreateBoostMutation,
+  useCompanyAggregateQuery,
+  useNotificationViewMutation,
+  useRecentlyAddedCompanyQuery,
+  useCompanyDashboardAggregationQuery,
+  useAdminDashboardAggregationQuery
 } = apiSlice;

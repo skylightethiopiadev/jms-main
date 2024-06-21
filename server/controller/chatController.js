@@ -2,12 +2,12 @@ const asyncCatch = require("express-async-catch");
 const AppError = require("../utils/AppError.js");
 const { Chat } = require("../models/chatModel.js");
 const { size } = require("../utils/size.js");
-const api = "http://localhost:3001/uploads/";
+const api = "http://localhost:5000/uploads/";
 
 //create
 const chatCreate = asyncCatch(async (req, res, next) => {
   let data;
-
+  console.log("running............. ok");
   // console.log(req.files, "rrrrrr sssssss");
   let files = [];
   if (req.files && req.files?.chatFile) {
@@ -78,6 +78,7 @@ const chatRead = asyncCatch(async (req, res, next) => {
     })
     .limit(limits ? limits : null);
 
+  console.log(id, "id", data);
   if (!data)
     return next(new AppError("something went wrong unable to fetch the data"));
 

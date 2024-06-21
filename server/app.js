@@ -278,7 +278,7 @@ mongodb()
       });
     });
 
-    httpServer.listen(5000, "makutalawfirm.com", (err) => {
+    httpServer.listen(5000, (err) => {
       if (err) {
         console.log("something went wrong server not connected");
       }

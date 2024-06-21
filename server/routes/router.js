@@ -41,6 +41,7 @@ const accountRouter = express.Router();
 const files = upload.fields([
   { name: "attachments", maxCount: 10 },
   { name: "profilePicture", maxCount: 1 },
+  { name: "chatFile", maxCount: 10 },
 ]);
 
 //user account route
@@ -102,13 +103,13 @@ router
   .patch(authentication, authorization, aggregate);
 
 //chat route
-chatRouter.route("/:id").get(chatRead);
+chatRouter.route("/:id").get(authentication, chatRead);
 chatRouter
   .route("/")
-  .post(files, chatCreate)
-  .get(chatRead)
-  .put(files, chatUpdate)
-  .delete(chatDelete);
+  .post(authentication, files, chatCreate)
+  .get(authentication, chatRead)
+  .put(authentication, files, chatUpdate)
+  .delete(authentication, chatDelete);
 
 //aggregation
 // router.route("/stats/:table").patch(authentication, authorization, firstPhase);

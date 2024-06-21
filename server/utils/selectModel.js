@@ -8,6 +8,7 @@ const { Business } = require("../models/businessModel.js");
 const { Payment } = require("../models/paymentModel.js");
 const { Permission } = require("../models/permissionModel.js");
 const { User } = require("../models/userModel.js");
+const { Admin } = require("../models/adminModel.js");
 const AppError = require("./AppError.js");
 const { Private } = require("../models/privateModel.js");
 
@@ -49,6 +50,9 @@ const selectModel = (name, next) => {
       break;
     case "groups":
       model = Group;
+      break;
+    case "super-admin":
+      model = Admin;
       break;
     default:
       return next(new AppError("something went wrong please try again!.", 500));

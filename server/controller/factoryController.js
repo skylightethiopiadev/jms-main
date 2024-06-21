@@ -14,7 +14,7 @@ const decrypt = (query) => {
 };
 
 const fileHandler = (value, req) => {
-  console.log(req.files, "files", req.file);
+  // console.log(req.files, "files", req.file);
   if (req.files) {
     if (req.files.profilePicture) {
       value.profilePicture = api + req.files.profilePicture[0]?.filename;
@@ -52,7 +52,7 @@ const _create = asyncCatch(async (req, res, next) => {
     } else {
       let results = [];
       req.files?.attachments?.map(async (file, i) => {
-        console.log(file, "files");
+        // console.log(file, "files");
         results.push(file[0].path);
 
         if (results.length === req.files.attachments.length) {
@@ -88,7 +88,7 @@ const _read = asyncCatch(async (req, res, next) => {
     // const total = await model.find({ _id: req.params.id });
     const total = await model.countDocuments();
     const params = { ...req.query };
-    console.log(params, "params");
+    // console.log(params, "params");
     //removing unnecessary queries for filtering
     const remove = [
       "sort",
@@ -110,7 +110,7 @@ const _read = asyncCatch(async (req, res, next) => {
         (match) => `$${match}`
       )
     );
-    console.log(queryObject, "object");
+    // console.log(queryObject, "object");
 
     //searching
     if (req.query.searchField)
@@ -180,7 +180,7 @@ const _read = asyncCatch(async (req, res, next) => {
 
 //update
 const _update = asyncCatch(async (req, res, next) => {
-  console.log(req.query, "ddd");
+  // console.log(req.query, "ddd");
   const model = selectModel(req.params.table, next);
   const value = { ...req.body };
   const files = fileHandler(value, req);

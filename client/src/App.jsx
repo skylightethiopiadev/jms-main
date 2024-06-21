@@ -115,7 +115,7 @@ import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard";
 import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
 import LawyerDashboard from "./pages/dashboard/lawyer/LawyerDashboard";
 import CustomerDashboardHome from "./pages/dashboard/customer/customer-sub-pages/CustomerDashboardHome";
-import Message from "./pages/dashboard/customer/customer-sub-pages/Message";
+import MessageContainer from "./pages/dashboard/MessageContainer";
 import Appointment from "./pages/dashboard/customer/customer-sub-pages/Appointment";
 // customer compliance
 import NewCase from "./pages/dashboard/customer/customer-sub-pages/NewCase";
@@ -171,7 +171,7 @@ import CivilContractConstruction from "./pages/civil/contract/CivilContractConst
 import CivilContractSupplyGoodsServices from "./pages/civil/contract/CivilContractSupplyGoodsServices";
 import CivilContractRentalMachineriesVehicles from "./pages/civil/contract/CivilContractRentalMachineriesVehicles";
 import CivilContractLoan from "./pages/civil/contract/CivilContractLoan";
-import CivilContractOther from './pages/civil/contract/CivilContractOther.jsx'
+import CivilContractOther from "./pages/civil/contract/CivilContractOther.jsx";
 
 // civil -- family
 import CivilFamily from "./pages/civil/family/CivilFamily";
@@ -209,14 +209,14 @@ import CorporateInvestment from "./pages/corporate/corporate-trade-investment/Co
 import CorporateTradeInvestmentOthers from "./pages/corporate/corporate-trade-investment/CorporateTradeInvestmentOthers";
 
 // corporate - financial sector
-import CorporateFinancialSectorOutlet from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorOutlet.jsx'
-import CorporateFinancialSectorBanking from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorBanking.jsx'
-import CorporateFinancialSectorCapitalMarket from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorCapitalMarket.jsx'
-import CorporateFinancialSectorInsurance from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorInsurance.jsx'
-import CorporateFinancialSectorPayment from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorPayment.jsx'
-import CorporateFinancialSectorOthers from './pages/corporate/corporate-financial-sector/CorporateFinancialSectorOthers.jsx'
+import CorporateFinancialSectorOutlet from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorOutlet.jsx";
+import CorporateFinancialSectorBanking from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorBanking.jsx";
+import CorporateFinancialSectorCapitalMarket from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorCapitalMarket.jsx";
+import CorporateFinancialSectorInsurance from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorInsurance.jsx";
+import CorporateFinancialSectorPayment from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorPayment.jsx";
+import CorporateFinancialSectorOthers from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorOthers.jsx";
 
- // criminal 
+// criminal
 import CriminalOutlet from "./pages/criminal/CriminalOutlet";
 import CriminalOrdinaryCrime from "./pages/criminal/CriminalOrdinaryCrime";
 import CriminalCorruption from "./pages/criminal/CriminalCorruption";
@@ -358,21 +358,60 @@ function App() {
                   ></Route>
                 </Route>
                 {/* corporate-trade-investment */}
-                <Route path="/corporate/trade-investment" element={<CorporateTradeInvestment />}>
-                  <Route path="/corporate/trade-investment" element={<CorporateIncorporation />}></Route>
-                  <Route path="/corporate/trade-investment/bankruptcy" element={<CorporateBankruptcy />}></Route>
-                  <Route path="/corporate/trade-investment/conversion" element={<CorporateConversion />}></Route>
-                  <Route path="/corporate/trade-investment/merger" element={<CorporateMerger />}></Route>
-                  <Route path="/corporate/trade-investment/investment" element={<CorporateInvestment />}></Route>
-                  <Route path="/corporate/trade-investment/others" element={<CorporateTradeInvestmentOthers />}></Route>
-                </Route> 
+                <Route
+                  path="/corporate/trade-investment"
+                  element={<CorporateTradeInvestment />}
+                >
+                  <Route
+                    path="/corporate/trade-investment"
+                    element={<CorporateIncorporation />}
+                  ></Route>
+                  <Route
+                    path="/corporate/trade-investment/bankruptcy"
+                    element={<CorporateBankruptcy />}
+                  ></Route>
+                  <Route
+                    path="/corporate/trade-investment/conversion"
+                    element={<CorporateConversion />}
+                  ></Route>
+                  <Route
+                    path="/corporate/trade-investment/merger"
+                    element={<CorporateMerger />}
+                  ></Route>
+                  <Route
+                    path="/corporate/trade-investment/investment"
+                    element={<CorporateInvestment />}
+                  ></Route>
+                  <Route
+                    path="/corporate/trade-investment/others"
+                    element={<CorporateTradeInvestmentOthers />}
+                  ></Route>
+                </Route>
                 {/* corporate - financial sector */}
-                <Route path="/corporate/financial-sector" element={<CorporateFinancialSectorOutlet />}>
-                <Route path="/corporate/financial-sector/banking" element={<CorporateFinancialSectorBanking />}></Route>
-                <Route path="/corporate/financial-sector/capital-market" element={<CorporateFinancialSectorCapitalMarket />}></Route>
-                <Route path="/corporate/financial-sector/insurance" element={<CorporateFinancialSectorInsurance />}></Route>
-                <Route path="/corporate/financial-sector/payment" element={<CorporateFinancialSectorPayment />}></Route>
-                <Route path="/corporate/financial-sector/others" element={<CorporateFinancialSectorOthers />}></Route>
+                <Route
+                  path="/corporate/financial-sector"
+                  element={<CorporateFinancialSectorOutlet />}
+                >
+                  <Route
+                    path="/corporate/financial-sector/banking"
+                    element={<CorporateFinancialSectorBanking />}
+                  ></Route>
+                  <Route
+                    path="/corporate/financial-sector/capital-market"
+                    element={<CorporateFinancialSectorCapitalMarket />}
+                  ></Route>
+                  <Route
+                    path="/corporate/financial-sector/insurance"
+                    element={<CorporateFinancialSectorInsurance />}
+                  ></Route>
+                  <Route
+                    path="/corporate/financial-sector/payment"
+                    element={<CorporateFinancialSectorPayment />}
+                  ></Route>
+                  <Route
+                    path="/corporate/financial-sector/others"
+                    element={<CorporateFinancialSectorOthers />}
+                  ></Route>
                 </Route>
                 {/* criminal */}
                 <Route path="/criminal" element={<CriminalOutlet />}>
@@ -397,19 +436,39 @@ function App() {
                 <Route path="/employment" element={<Employment />}></Route>
                 <Route path="/property" element={<Property />}></Route>
                 <Route path="/torts" element={<Torts />}></Route>
-                <Route
-                  path="/civil/contract"
-                  element={<CivilContractOutlet />}
-                >
-                  <Route path="/civil/contract" element={<CivilContractGeneralContract />}></Route>
-                  <Route path="/civil/contract/special-movables" element={<CivilContractSpecialMovables />}></Route>
-                  <Route path="/civil/contract/sale-lease-buildings" element={<CivilContractSaleLeaseBuildings />}></Route>
-                  <Route path="/civil/contract/construction" element={<CivilContractConstruction />}></Route>
-                  <Route path="/civil/contract/supply-goods-services" element={<CivilContractSupplyGoodsServices />}></Route>
-                  <Route path="/civil/contract/rental-machineries-vehicles" element={<CivilContractRentalMachineriesVehicles />}></Route>
-                  <Route path="/civil/contract/others" element={<CivilContractOther />}></Route>
-                  <Route path="/civil/contract/loan" element={<CivilContractLoan />}></Route>
-
+                <Route path="/civil/contract" element={<CivilContractOutlet />}>
+                  <Route
+                    path="/civil/contract"
+                    element={<CivilContractGeneralContract />}
+                  ></Route>
+                  <Route
+                    path="/civil/contract/special-movables"
+                    element={<CivilContractSpecialMovables />}
+                  ></Route>
+                  <Route
+                    path="/civil/contract/sale-lease-buildings"
+                    element={<CivilContractSaleLeaseBuildings />}
+                  ></Route>
+                  <Route
+                    path="/civil/contract/construction"
+                    element={<CivilContractConstruction />}
+                  ></Route>
+                  <Route
+                    path="/civil/contract/supply-goods-services"
+                    element={<CivilContractSupplyGoodsServices />}
+                  ></Route>
+                  <Route
+                    path="/civil/contract/rental-machineries-vehicles"
+                    element={<CivilContractRentalMachineriesVehicles />}
+                  ></Route>
+                  <Route
+                    path="/civil/contract/others"
+                    element={<CivilContractOther />}
+                  ></Route>
+                  <Route
+                    path="/civil/contract/loan"
+                    element={<CivilContractLoan />}
+                  ></Route>
                 </Route>
                 {/* other services */}
                 <Route path="/training" element={<HomeTraining />}></Route>
@@ -448,16 +507,16 @@ function App() {
                   index
                   element={<CustomerDashboardHome />}
                 ></Route>
-                <Route
+                {/* <Route
                   path="/dashboard/customer/message"
                   // element={<ComingSoon />}
                   element={<Message />}
-                ></Route>
-                <Route
+                ></Route> */}
+                {/* <Route
                   path="/dashboard/customer/message/video"
                   // element={<ComingSoon />}
                   element={<Video />}
-                />
+                /> */}
                 <Route
                   path="/dashboard/customer/appointment"
                   element={<ComingSoon />}
@@ -549,7 +608,16 @@ function App() {
                   // element={<Researches />}
                 ></Route>
               </Route>
-
+              <Route
+                path="/dashboard/message"
+                // element={<ComingSoon />}
+                element={<MessageContainer />}
+              ></Route>
+              {/* <Route
+                path="/dashboard/message/video"
+                // element={<ComingSoon />}
+                element={<Video />}
+              /> */}
               {/* customers */}
               <Route
                 path="/dashboard/customers"
@@ -559,6 +627,16 @@ function App() {
                   path="/dashboard/customers"
                   element={<CustomersDashboardIndex />}
                 ></Route>
+                {/* <Route
+                  path="/dashboard/customers/message"
+                  // element={<ComingSoon />}
+                  element={<Message />}
+                ></Route>
+                <Route
+                  path="/dashboard/customers/message/video"
+                  // element={<ComingSoon />}
+                  element={<Video />}
+                /> */}
                 <Route
                   path="/dashboard/customers/private-profile"
                   element={<PrivateProfile />}

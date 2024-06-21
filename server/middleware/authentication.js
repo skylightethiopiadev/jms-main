@@ -17,6 +17,7 @@ const authentication = async (req, res, next) => {
   const decode = await promisify(jwt.verify)(token, process.env.JWT_SECRET_KEY);
 
   user = await User.findById(decode.id);
+  console.log(token,user,'users');
   if (!user) return next(new AppError("users not found", 404));
 
   if (await user.isPasswordChanged(decode.iat))

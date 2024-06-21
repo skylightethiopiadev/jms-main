@@ -1,6 +1,7 @@
 import React from "react";
-import customerImage from "../../assets/images/customers/customer-i.jpg";
+// import customerImage from "../../assets/images/customers/customer-i.jpg";
 import { useNavigate } from "react-router-dom";
+// import ProfilePicture from "../ProfilePicture";
 
 const ChatHeader = ({
   sender,
@@ -19,15 +20,26 @@ const ChatHeader = ({
   callRejectedHandler,
   rejectedMessage,
   setRejectedMessage,
-  callAcceptHandler,
+  user,
+  callAcceptHandler
 }) => {
+  // const user = JSON.parse(localStorage.getItem("etblink_user"));
+  // console.log(user, "user list from header");
   return (
-    <div className="w-full relative flex border-b justify-between items-center">
-      <div className="flex items-center space-x-4 rtl:space-x-reverse">
+    <div className="w-full relative py-[2px] bg-gray-200 bg-dark flex border-b border-dark justify-between items-center">
+      <div
+        onClick={() => {
+          const id = document.getElementById("user_list_container");
+          id?.classList?.value?.includes("hidden")
+            ? id?.classList?.remove("hidden")
+            : id?.classList?.add("hidden");
+        }}
+        className="flex items-center space-x-4 rtl:space-x-reverse"
+      >
         <a
           href="#"
           id="menu"
-          className="flex flex-col md:hidden ml-2 items-center p-2 border-gray-400 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+          className="flex flex-col md:hidden ml-2 items-center p-2 border-gray-400 border-dark text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
         >
           <svg
             className="w-6 h-6 text-gray-800 dark:text-white"
@@ -44,24 +56,37 @@ const ChatHeader = ({
             />
           </svg>
         </a>
-        <div className="relative ml-4 py-2">
-          <img className="w-10 h-10 rounded-full" src={customerImage} alt="" />
-        </div>
+        {user?.user?.profilePicture?.length > 1 ? (
+          <img
+            class="w-9 h-9 rounded-full"
+            src={user?.user?.profilePicture}
+            alt="photo"
+          />
+        ) : (
+          <div className="w-9 h-9 p-1 text-xl font-bold rounded-full flex items-center justify-center bg-blue-700 text-white text-center">
+            {user?.email?.substring(0, 1)}
+          </div>
+        )}
+        {/* <img
+          src={user?.user?.ProfilePicture}
+          alt=""
+          className="w-10 h-10 rounded-full border"
+        /> */}
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-            {"meseret seyom"}
+          <p className=" font-medium text-gray-900 truncate dark:text-white">
+            {user?.email}
           </p>
 
-          <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+          <p className=" mt-[2px] text-gray-500 truncate dark:text-gray-400">
             last seen recently
           </p>
         </div>
       </div>
-      {/* {callFlag && <p className="p-2 text-sm italic">Ringing...</p>} */}
+      {/* {callFlag && <p className="p-2  italic">Ringing...</p>} */}
       {type !== "small" && calling ? (
-        <div className="flex text-xs py-1 mr-3 gap-1 bg-mains text-white rounded-lg px-2 flex-col items-center.justify-center">
+        <div className="flex  py-1 mr-3 gap-1  text-white rounded-lg px-2 flex-col items-center.justify-center">
           {/* {caller} is calling... */}
-          <p className="text-sm text-blue-500 font-bold">
+          <p className=" text-blue-500 font-bold">
             Gedeon <span className="text-gray-500">is calling...</span>{" "}
           </p>
           <div className="flex w-full items-center justify-between">
@@ -86,9 +111,9 @@ const ChatHeader = ({
           </div>
         </div>
       ) : callFlag ? (
-        <p className="p-2 mr-3 text-sm italic">{rejectedMessage}</p>
+        <p className="p-2 mr-3  italic">{rejectedMessage}</p>
       ) : callRejected ? (
-        <p className="p-2 mr-3 text-sm italic">Gedeon is not answering</p>
+        <p className="p-2 mr-3  italic">Gedeon is not answering</p>
       ) : (
         <div
           className={`flex items-center ${
@@ -99,6 +124,7 @@ const ChatHeader = ({
             type="button"
             // onClick={() => setCaller()}
             onClick={callRequest}
+            // disabled
             disabled={sender && receiver ? false : true}
             className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out  focus:outline-none"
           >
@@ -122,6 +148,7 @@ const ChatHeader = ({
           </button>
           <button
             type="button"
+            // disabled
             disabled={sender && receiver ? false : true}
             className="inline-flex items-center justify-center rounded-lg h-10 w-10 transition duration-500 ease-in-out focus:outline-none"
           >
