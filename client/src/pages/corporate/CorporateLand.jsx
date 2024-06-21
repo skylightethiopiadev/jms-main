@@ -4,44 +4,62 @@ import React, { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 
-const CorporateFinancialSectorPayment = () => {
+const CorporateLand = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: "Guidance through Prudential Regulation",
+        title: "Land Acquisition ",
         text:
-          "Assisting issuers of payment instruments in understanding and complying with the prudential oversight enforced by the National Bank of Ethiopia (NBE), which encompasses the supervision of organizations that create and manage payment systems, as well as those that issue payment instruments."
+          "We provide extensive legal assistance to streamline land acquisition processes in urban, rural, or industrial areas. Our services guide clients through the complex procedures involved in acquiring land."
       },
       {
-        title: "Guidance through market conduct Regulations",
+        title: "Preparation of Legal Documents",
         text:
-          "Assisting issuers of payment instruments in understanding and complying with the market conduct oversight enforced by the NBE."
+          "We support clients seeking to acquire land in Ethiopia by preparing all the legal documents necessary for the process."
       },
       {
-        title: "License Facilitation",
+        title: "Legal Due Diligence",
         text:
-          "Providing support throughout the licensing procedure to secure authorization from the National Bank of Ethiopia (NBE) for payment instruments and operators, confirming compliance with all necessary requirements."
+          "We conduct comprehensive due diligence for clients engaged in land accusation or transfer. This involves examining property titles, conducting surveys, and assessing zoning and land use regulations to ensure compliance and minimize risks."
       },
       {
-        title: "Advisory on Ownership Restrictions",
+        title: "Government Relations and Advocacy",
         text:
-          "Offering counsel on the legislative constraints that confine ownership to Foreigners, Ethiopian nationals, the Ethiopian Government, and Foreigners of Ethiopian origin, ensuring adherence to the stipulated regulations."
+          "We advocate for clients' interests before government agencies, regulatory authorities involved in land-related matters."
       },
       {
-        title: "Legal Advice",
+        title: "Drafting and Reviewing Contracts",
         text:
-          "In addition to the above listed services, we provide a comprehensive suite of legal advisory services tailored to the regulatory demands associated with payment instrument issuers and operators."
+          "We offer a comprehensive legal support in drafting and reviewing contracts such as lease agreements and ensure that contracts accurately reflect the parties' intentions, protect their interests, and comply with legal requirements."
+      },
+      {
+        title: "Legal Consultation",
+        text:
+          "We offer a comprehensive legal consultation in relation to land and land related issues focusing both on the federal and regional government legislation."
+      },
+      {
+        title: "Regulatory Compliance",
+        text:
+          "We offer support for clients navigate complex regulatory frameworks governing land use, acquisition, transfer, including environmental regulations, building codes, and land development ordinances. We ensure compliance with legal requirements to avoid costly penalties and delays."
+      },
+      {
+        title: "Legal Representation",
+        text:
+          "In case of legal disputes, we represent clients in negotiations, mediation, arbitration, or litigation proceedings."
       },
     ],
     servicesIndex: 0,
     subServicesIndex: -1
   });
 
+  const [successionWays, setSuccessionWays] = useState(0);
+
+  
 
   return (
     <div className="text-[1.05rem]">
       <div>
-        {/* first order container */}
+        {/* 1 */}
         <div className="relative">
           {/* bg container */}
           <div className="relative lg:absolute lg:inset-0 -z-30 flex">
@@ -72,19 +90,17 @@ const CorporateFinancialSectorPayment = () => {
               <div className="w-full lg:w-[50%]">
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>Development of Digital financial services in Ethiopia</p>
+                  <p>Land ownership</p>
                 </div>
 
                 {/* normal text */}
-                <div className="my-5 text-justify">
+                <div className="my-5">
                   <p>
-                    In the dynamic financial landscape of Ethiopia, the
-                    emergence of digital financial services has blurred the
-                    traditional boundaries between financial and non-financial
-                    sectors. The National Bank of Ethiopia (NBE), as the
-                    regulatory authority, has adapted to these changes by
-                    extending its oversight to include non-traditional entities
-                    providing financial services.
+                    According to the Ethiopian Constitution, all natural
+                    resources, including land, are collectively owned by the
+                    state and its citizens. As a result, private land ownership
+                    does not exist in Ethiopia. However, legal provisions allow
+                    for land acquisition specifically for investment purposes.
                   </p>
                 </div>
               </div>
@@ -94,27 +110,7 @@ const CorporateFinancialSectorPayment = () => {
           </div>
         </div>
 
-        {/* second order container */}
-        <div className="relative">
-          {/* content container */}
-          <div className="static-padding-x py-10 md:py-16 relative z-30">
-            {/* content */}
-            <div>
-              <div className="text-justify p-5 bg-white rounded-md shadow-2xl mx-24">
-                <p>
-                  The Directive ONPS/01/2020 marks a significant shift, allowing
-                  technology companies to offer digital financial services,
-                  previously the domain of conventional financial institutions.
-                  This directive is pivotal for tech companies venturing into
-                  the financial service sector, subjecting them to the same
-                  regulatory framework as traditional banks.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* third order container */}
+        {/* 3 */}
         <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -132,16 +128,17 @@ const CorporateFinancialSectorPayment = () => {
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>Regulatory Authority</p>
+                  <p>Modalities of Land Acquisition</p>
                 </div>
                 {/* normal text */}
-                <div className="text-justify">
+                <div className="">
                   <p>
-                    The NBE holds the authority to regulate banking business,
-                    which now includes digital financial services. The bank’s
-                    mandate covers the prudential regulation of entities that
-                    establish and operate payment systems and issue payment
-                    instruments.
+                    Acquiring land in Ethiopia, whether for investment or other
+                    purposes, is a complex process due to varying procedures
+                    based on land type (urban land, rural land, or land in
+                    industrial parks). Therefore, investors must navigate
+                    changing government regulations, administrative decisions,
+                    and interactions with different authorities.
                   </p>
                 </div>
               </div>
@@ -149,32 +146,143 @@ const CorporateFinancialSectorPayment = () => {
           </div>
         </div>
 
-        {/* fourth order container */}
-        <div className="my-12 md:my-36 bg-neutral-100 py-10">
+        {/* 333 */}
+        {/* 10 */}
+        <div className="my-12 md:my-36 bg-neutral-50 py-10">
           {/* content container */}
           <div className="static-padding-x">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="w-[100%] ">
                 {/* bold text */}
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>Definition of Payment Instrument Issuers</p>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase py-3">
+                  <p>Land acquisition mechanisms includes:</p>
                 </div>
-                {/* normal text */}
-                <div className="my-5 text-justify">
-                  <p>
-                    Payment instrument issuers encompass a broad range of
-                    entities, both private and government-owned, that are
-                    licensed by the NBE. These issuers provide instruments,
-                    tangible or intangible, facilitating access to money, goods,
-                    services, or enabling payments and money transfers.
-                  </p>
+
+                {/* first  */}
+                <div className="bg-white shadow-md p-3 mb-10">
+                  <header className="flex items-center justify-between py-1">
+                    <div>
+                      <h3 className="font-semibold">
+                        Acquiring Land through Public Auction: Lease Tender
+                      </h3>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-300 cursor-pointer"
+                        onClick={() => {
+                          setSuccessionWays(0);
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                            successionWays === 0 ? "-rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+                  <div
+                    className={`overflow-hidden ${
+                      successionWays === 0 ? "h-max" : "h-0"
+                    }`}
+                  >
+                    <div className="mt-1 py-1 border-t border-gray-300">
+                      <p>
+                        The Urban Land Lease Proclamation outlines a structured
+                        system for acquiring urban land through public auctions.
+                        This mechanism ensures equitable access for private
+                        investors, who secure land rights through competitive
+                        lease bidding, thereby contributing to the dynamism of
+                        urban development initiatives.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* second  */}
+                <div className="bg-white shadow-md p-3 mb-10">
+                  <header className="flex items-center justify-between py-1">
+                    <div>
+                      <h3 className="font-semibold">
+                        Acquiring Land through Government Allotment
+                      </h3>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-400 cursor-pointer"
+                        onClick={() => {
+                          setSuccessionWays(1);
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                            successionWays === 1 ? "-rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+                  <div
+                    className={`overflow-hidden ${
+                      successionWays === 1 ? "h-max" : "h-0"
+                    }`}
+                  >
+                    <div className="mt-1 py-1 border-t border-gray-300">
+                      <p>
+                        In instances where special projects demand expedited
+                        access to urban land, the government may allocate
+                        parcels through a process known as government allotment.
+                        This mechanism, subject to regional cabinet decisions,
+                        facilitates strategic investments in vital sectors.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* third  */}
+                <div className="bg-white shadow-md p-3 mb-10">
+                  <header className="flex items-center justify-between py-1">
+                    <div>
+                      <h3 className="font-semibold">
+                        Acquiring Investment Land through Rental System
+                      </h3>
+                    </div>
+                    <div>
+                      <div
+                        className="w-[24px] aspect-square rounded-full flex items-center justify-center bg-gray-200 transition-colors ease-in-out duration-300 hover:bg-gray-400 cursor-pointer"
+                        onClick={() => {
+                          setSuccessionWays(2);
+                        }}
+                      >
+                        <MdKeyboardArrowDown
+                          className={`text-2xl cursor-pointer transition-transform ease-in-out duration-300 ${
+                            successionWays === 2 ? "-rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </header>
+                  <div
+                    className={`overflow-hidden ${
+                      successionWays === 2 ? "h-max" : "h-0"
+                    }`}
+                  >
+                    <div className="mt-1 py-1 border-t border-gray-300">
+                      <p>
+                        Venturing into rural landscapes necessitates engaging
+                        with the Rural Land Administration Proclamation. This
+                        legislation accommodates various land-use arrangements,
+                        including rental agreements with private landholders.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* fifth order container */}
+        {/* 5 */}
         <div className="my-12 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -182,17 +290,19 @@ const CorporateFinancialSectorPayment = () => {
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
                 {/* bold text */}
                 <div className="header-level-3 uppercase">
-                  <p>Payment system operator</p>
+                  <p>Facilitating Land Use Rights for Foreign Investors</p>
                 </div>
                 {/* normal text */}
-                <div className="my-5 text-justify">
+                <div className="my-5">
                   <p>
-                    These are entity’s that owns, operates, and administers a
-                    payment system. This system is used to settle the transfer
-                    of funds or financial transactions, which includes the
-                    institutions, the people, the rules and procedures,
-                    standards, and the technology that enable the financial
-                    transaction to occur.
+                    Foreign investors aiming to benefit from Ethiopia’s
+                    investment prospects must navigate the regulatory landscape
+                    overseen by various government bodies, including federal and
+                    regional investment commissions. The Ethiopian Investment
+                    Commission plays a central role in land acquisition for
+                    investors, while different regional governments and
+                    stakeholders are also involved. Procedures and responsible
+                    authorities differ across regions.
                   </p>
                 </div>
               </div>
@@ -210,130 +320,51 @@ const CorporateFinancialSectorPayment = () => {
           </div>
         </div>
 
-        {/* third order container */}
-        <div className="my-12 md:my-36">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col md:flex-row">
-              <div className="w-[100%] md:w-[50%] relative">
-                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-center object-cover"
-                    src="https://www.shutterstock.com/image-photo/law-theme-mallet-judge-enforcement-600nw-1938588952.jpg"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
-                {/* bold text */}
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>Parties Involved</p>
-                </div>
-                {/* normal text */}
-                <div className="text-justify">
-                  <p>
-                    A Payment Instrument Issuer in Ethiopia may be a corporate
-                    entity, a state-run enterprise, or a banking or microfinance
-                    institution that has received authorization from the NBE to
-                    issue means of payment. On the other hand, a Payment System
-                    Operator might be any licensed financial institution or
-                    company that has been granted permission to set up and
-                    manage a payment system.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* fourth order container */}
-        <div className="my-12 md:my-36 bg-neutral-100 py-10">
+        {/* 6 */}
+        <div className="my-12 md:my-36 bg-neutral-white py-10">
           {/* content container */}
           <div className="static-padding-x">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="w-[100%] ">
                 {/* bold text */}
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>Licensing Requirement</p>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase">
+                  <p>
+                    Overcoming Administrative Complexities: professional
+                    Guidance for Investors Securing Land in Ethiopia
+                  </p>
                 </div>
                 {/* normal text */}
                 <div className="my-5 text-justify">
-                  <p>
-                    A license from the NBE is mandatory for any entity to issue
-                    a payment instrument or serve as a payment instrument
-                    operator. In general, the activities related to digital
-                    financial services are subject to regulation and oversight
-                    by the NBE.
-                  </p>
+                  <div>
+                    <p>
+                      Investors face challenges when securing land in Ethiopia
+                      due to unique legal frameworks, bureaucratic decisions,
+                      administrative complexities, compensation issues, and
+                      legal disputes. The acquisition process involves
+                      navigating bureaucracy, understanding local laws, and
+                      obtaining community consent. Transparency concerns and
+                      competition for available land further complicate matters.
+                      To succeed, investors should seek legal guidance, conduct
+                      thorough due diligence, and engage patiently with local
+                      authorities and communities.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* fifth order container */}
-        <div className="my-12 md:my-36">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col-reverse md:flex-row">
-              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
-                {/* bold text */}
-                <div className="header-level-3 uppercase">
-                  <p>Scope of Regulation</p>
-                </div>
-                {/* normal text */}
-                <div className="my-5 text-justify">
-                  <p>
-                    Beyond banks and insurance companies, the NBE’s regulatory
-                    scope includes other financial institutions such as postal
-                    savings and money transfer entities. The NBE has the power
-                    to define and regulate additional financial institutions as
-                    necessary. Within this regulatory capacity and payment
-                    instrument issuer or operators to be or already
-                    participating in the market must aligned its objectives and
-                    function with the NBEs regulatory measures.
-                  </p>
-                </div>
-              </div>
-
-              <div className="w-[100%] md:w-[50%] relative">
-                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-center object-cover"
-                    src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 66666 order container */}
+        {/* 21 */}
         <div className="py-5 md:py-16 bg-neutral-800 text-white">
           {/* content container */}
           <div className="static-padding-x">
             <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
-              {/* left */}
-              <div>
-                <div className="w-[150px] aspect-square overflow-hidden">
-                  <img
-                    className="w-full object-center object-cover"
-                    src="/final-logo.png"
-                    alt=""
-                  />
-                </div>
-              </div>
               {/* right */}
               <div className="flex-grow">
                 <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                   <p>
-                    At Makuta Law Firm, our dedicated team of legal
-                    professionals are committed to meticulously creating and
-                    examining a variety of contracts, ensuring compliance with
-                    Ethiopian regulations while placing your priorities at the
-                    forefront.
+                  At Makuta Law Firm, our seasoned experts on land laws are dedicated to delivering customized legal solutions that prioritize your business or personal goals. We ensure that our services are aligned with your unique needs and aspirations.
                   </p>
                 </div>
               </div>
@@ -341,49 +372,7 @@ const CorporateFinancialSectorPayment = () => {
           </div>
         </div>
 
-        {/* ninth order container */}
-        <div className="my-12 md:my-36">
-          {/* content container */}
-          <div className="static-padding-x">
-            <div className="flex flex-col md:flex-row">
-              <div className="w-[100%] md:w-[50%] relative">
-                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-center object-cover"
-                    src="https://www.shutterstock.com/image-photo/law-theme-mallet-judge-enforcement-600nw-1938588952.jpg"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
-                {/* bold text */}
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
-                  <p>
-                    Importance of Legal Professionals in Navigating Regulatory
-                    Compliance
-                  </p>
-                </div>
-                {/* normal text */}
-                <div className=" text-justify">
-                  <p>
-                    In Ethiopia, issuing of payment instruments is classified as
-                    a financial service, subject to rigorous regulatory
-                    standards. Engaging in these activities demands compliance
-                    with the strict regulatory requirements set forth by the
-                    NBE. Consequently, the complexity of these regulations makes
-                    the assistance of legal professionals essential to navigate
-                    the legal landscape successfully.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-
-        {/* 12 order container */}
+        {/* 22 */}
         <div className="my-10 md:my-36">
           {/* content container */}
           <div className="static-padding-x">
@@ -520,4 +509,4 @@ const CorporateFinancialSectorPayment = () => {
   );
 };
 
-export default CorporateFinancialSectorPayment;
+export default CorporateLand;

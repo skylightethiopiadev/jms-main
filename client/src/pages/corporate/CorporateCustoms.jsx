@@ -5,74 +5,43 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 
-const Consulting = () => {
+const CorporateCustoms = () => {
   const [services, setServices] = useState({
     servicesList: [
       {
-        title: "Corporate Consultancy",
+        title: "Documentation Preparation",
         text:
-          "Consulting businesses on corporate governance, compliance with company laws, mergers and acquisitions, corporate restructuring, and commercial contracts."
+          "Drafting and scrutinizing all vital documents needed for the import and export of commodities, which encompasses items like invoices, bills of lading, packing lists, and certificates of origin."
       },
       {
-        title: "Commercial Law Consultancy",
+        title: "License and Permit Acquisition",
         text:
-          "Consulting clients with drafting and reviewing commercial contracts, negotiating deals, resolving commercial disputes, and ensuring compliance with commercial regulations."
+          "Assisting in obtaining necessary licenses and permits for restricted goods."
       },
       {
-        title: "Intellectual Property (IP) Consultancy",
+        title: "Import export compliance",
         text:
-          "Providing guidance on trademark registration, patent applications, copyright protection, licensing agreements, and enforcement of intellectual property rights."
+          "In the realm of import and export compliance, we provide guidance on adherence to the laws governing the international trade of goods. This encompasses a grasp of the customs tariffs, the necessary paperwork, and any limitations on trade."
       },
       {
-        title: "Employment Law Consultancy",
+        title: "Legal Representation",
         text:
-          "Offering advice on employment contracts, workplace policies, employee rights, termination procedures, discrimination issues, and compliance with labor laws."
+          "We will handle contentious issues related to customs laws, including litigation and arbitration."
       },
       {
-        title: "Real Estate Law Consultancy",
+        title: "Administrative decision contest",
         text:
-          "Consulting clients with property transactions, lease agreements, real estate development projects, zoning regulations, land use issues, and property disputes."
+          "In situations where disagreements occur with customs officials, we offer support by contesting these decisions via administrative rulings and filing protests."
       },
       {
-        title: "Family Law Consultancy",
+        title: "Legal Advice",
         text:
-          "Providing legal guidance on matters such as divorce, child custody, maintenance, adoption, and estate planning."
-      },
-      {
-        title: "Immigration Law Consultancy",
-        text:
-          "Offering consultancy services to individuals and businesses regarding immigration concerns, encompassing visa applications, residency permit, work permits, citizenship applications, and adherence to immigration regulations. "
-      },
-      {
-        title: "Tax Law Consultancy",
-        text:
-          "Advising clients on tax planning strategies, tax compliance, tax disputes, tax audits, international taxation, and tax implications of business transactions."
-      },
-      {
-        title: "Environmental Law Consultancy",
-        text:
-          "Offering guidance on environmental regulations, permitting requirements, environmental impact assessments, pollution control measures, and compliance with environmental laws."
-      },
-      {
-        title: "Regulatory Compliance Consultancy",
-        text:
-          "Consulting businesses comprehend and adhere to regulations specific to their industry, conducting audits for compliance, creating compliance initiatives, and addressing regulatory hurdles."
-      },
-      {
-        title: "Litigation Risk Assessment Consultancy",
-        text:
-          "Evaluating potential legal risks and liabilities, providing recommendations to mitigate risks, and offering strategic advice on dispute resolution options."
-      },
-      {
-        title: "Data Protection and Privacy Consultancy",
-        text:
-          "Consulting businesses on compliance with data protection laws, drafting privacy policies, conducting data protection impact assessments, and managing data breaches."
+          "We offer a comprehensive legal advice regarding customs laws, procedures, duty free incentives and tax responsibilities."
       },
     ],
     servicesIndex: 0,
     subServicesIndex: -1
   });
-
 
 
   return (
@@ -110,17 +79,16 @@ const Consulting = () => {
                 {/* bold text */}
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                   <p>
-                    The Role of Legal Consulting in Navigating Complex Legal
-                    Landscapes
+                    Responsibilities and Challenges in Global Trade Compliance
                   </p>
                 </div>
 
                 {/* normal text */}
                 <div className="my-5">
                   <p>
-                    In a realm where legal intricacies can become intertwined
-                    with daily affairs, turning to seasoned legal counsel
-                    frequently emerges as a prudent initial action.
+                    In the intricate world of international business
+                    transactions, customs legislation serves as a critical
+                    framework that governs the movement of goods across borders.
                   </p>
                 </div>
               </div>
@@ -136,13 +104,16 @@ const Consulting = () => {
           <div className="static-padding-x py-10 md:py-16 relative z-30">
             {/* content */}
             <div>
-              <div className="text-justify p-5 bg-white rounded-md shadow-2xl mx-5 sm:mx-10 md:mx-16 lg:mx-24">
+              <div className="text-justify p-5 bg-white rounded-md shadow-2xl mx-24">
                 <p>
-                  Whether grappling with a persistent legal conflict, pondering
-                  pivotal business choices, or seeking guidance on personal
-                  legal affairs, engaging with a proficient legal expert can
-                  furnish invaluable perspectives and guidance to individuals in
-                  various situations.
+                  The complexity of these laws, which encompass tariffs, trade
+                  agreements, and regulatory compliance, presents significant
+                  challenges for businesses operating on a global scale.
+                  Moreover, besides the challenges they pose Breaches or
+                  attempted breaches of customs rules are generally considered
+                  as an offence in Ethiopia, as elsewhere. Traders should
+                  therefore know their responsibilities as well as the
+                  implications of violations.
                 </p>
               </div>
             </div>
@@ -165,14 +136,22 @@ const Consulting = () => {
               </div>
 
               <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-l-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
+                  <p>Overview of Ethiopia's Customs Legal Framework</p>
+                </div>
                 {/* normal text */}
                 <div className="">
                   <p>
-                    Legal consulting services provided by experienced legal
-                    experts play a pivotal role for both businesses and
-                    individuals. Experts offer expert advice on legal matters,
-                    helping businesses make informed decisions, mitigate risks,
-                    and navigate complex regulations.
+                    Customs legal framework encompasses regulations governing
+                    the import, export, transit, or storage of items, as well as
+                    the levying of tariffs and taxes. Ethiopia has enacted a
+                    variety of customs laws pertinent to its import and export
+                    activities. These laws related to customs are dispersed
+                    among various statutes, mainly those that specifically
+                    govern customs, taxation, and investment. Therefore, without
+                    the assistance of legal experts, it would be challenging to
+                    navigate through these complex regulations.
                   </p>
                 </div>
               </div>
@@ -189,7 +168,15 @@ const Consulting = () => {
                 {/* normal text */}
                 <div className="my-5 text-justify">
                   <p>
-                  They assist in contract drafting, ensure compliance, and prepare businesses for potential disputes. For individuals, legal consultations provide personal guidance on estate planning, family law, and property transactions. Moreover, Legal experts assess risks, guide decision-making, and offer peace of mind. In summary, legal consulting bridges the gap between complex laws and practical decision-making, benefiting all parties involved.
+                    Ethiopian customs regulations delineate the types of goods
+                    and services permitted for import and export. There are
+                    three classifications of goods which includes, those that
+                    can be traded freely without restrictions, and those that
+                    fall under the categories of prohibited and restricted
+                    goods. Prohibited goods and services are entirely banned
+                    from entry into the country, whereas restricted goods and
+                    services require adherence to certain conditions upon
+                    import.
                   </p>
                 </div>
               </div>
@@ -197,8 +184,154 @@ const Consulting = () => {
           </div>
         </div>
 
-       
+        {/* 5 */}
+        <div className="my-12 md:my-36">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] md:w-[50%] py-7 px-5 border border-gray-200 border-t-transparent md:border-t-gray-200 md:border-r-transparent bg-white transition-all ease-in-out duration-300 hover:border-gray-100 hover:shadow-md">
+                {/* bold text */}
+                <div className="header-level-3 uppercase">
+                  <p>Import export procedure</p>
+                </div>
+                {/* normal text */}
+                <div className="my-5">
+                  <p>
+                    Ethiopian customs regulations stipulate particular legal
+                    mandates and processes for the importing or exporting of
+                    goods. Consequently, importers and exporters are obligated
+                    to adhere to these established legal steps to facilitate the
+                    trade of goods to or from the nation. The legal stipulations
+                    encompass:
+                  </p>
+                </div>
 
+                {/* lists */}
+                <div>
+                  <div className="my-3 flex gap-3">
+                    <div>
+                      <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                        <FaCheck className="text-green-400 text-[.65rem]" />
+                      </div>
+                    </div>
+                    <div>
+                      <p>Having import or investment license</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="my-3 flex gap-3">
+                    <div>
+                      <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                        <FaCheck className="text-green-400 text-[.65rem]" />
+                      </div>
+                    </div>
+                    <div>
+                      <p>Arranging payment issues</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="my-3 flex gap-3">
+                    <div>
+                      <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                        <FaCheck className="text-green-400 text-[.65rem]" />
+                      </div>
+                    </div>
+                    <div>
+                      <p>Preparation and submission of declaration</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="my-3 flex gap-3">
+                    <div>
+                      <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                        <FaCheck className="text-green-400 text-[.65rem]" />
+                      </div>
+                    </div>
+                    <div>
+                      <p>
+                        Obtaining import customs clearance and goods release
+                        note
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="my-3 flex gap-3">
+                    <div>
+                      <div className="w-[20px] mt-1 aspect-square rounded-full flex items-center justify-center border border-green-400 relative">
+                        <FaCheck className="text-green-400 text-[.65rem]" />
+                      </div>
+                    </div>
+                    <div>
+                      <p>
+                        Paying service charges and taxes (taxes applicable
+                        includes VAT, Customs duties, sur tax, excise tax and
+                        withholding tax)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-[100%] md:w-[50%] relative">
+                <div className="md:absolute md:inset-0 h-[210px] md:h-auto overflow-hidden">
+                  <img
+                    className="w-full h-full object-center object-cover"
+                    src="https://onecms-res.cloudinary.com/image/upload/s--uuxrzmSO--/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/singapore-court-hearings-safe-distancing_0.jpg?itok=bN5ksaZq"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 6 */}
+        <div className="my-12 md:my-36 bg-neutral-white py-10">
+          {/* content container */}
+          <div className="static-padding-x">
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-[100%] ">
+                {/* bold text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase">
+                  <p>
+                    Importance of Legal Expertise in Navigating Ethiopia's
+                    Customs Laws
+                  </p>
+                </div>
+                {/* normal text */}
+                <div className="my-5 text-justify">
+                  <div>
+                    <p>
+                      Ethiopia’s regulatory framework for customs poses
+                      considerable challenges for import export, attributed to
+                      the dispersal of its laws across various statutes.
+                      Additionally, the intricate clearance process, which
+                      encompasses cargo declaration, storage, goods declaration,
+                      validation, risk assessment, optional inspections, duty
+                      payment, release, and auditing also complicates the import
+                      export procedure. Moreover, The legal framework governing
+                      import export mandates adherence to specific principles
+                      and regulation. The complexity of this system often
+                      necessitates the assistance of legal experts in
+                      international trade law to navigate compliance,
+                      classification, valuation, and risk management.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
         {/* 21 */}
         <div className="py-5 md:py-16 bg-neutral-800 text-white">
           {/* content container */}
@@ -208,7 +341,7 @@ const Consulting = () => {
               <div className="flex-grow">
                 <div className="text-center text-[.85rem] md:text-[1.5rem] font-semibold">
                   <p>
-                  At Makuta law firm, we are dedicated to assist our clients through specialized consultancy services. This service is designed to provide expert advice and solutions on legal matters, ensuring compliance and facilitating informed decision-making for individuals and businesses.
+                  At Makuta Law Firm, our seasoned experts on customs procedure and law  are dedicated to delivering customized legal solutions that prioritize your business or personal goals. We ensure that our services are aligned with your unique needs and aspirations.
                   </p>
                 </div>
               </div>
@@ -353,4 +486,4 @@ const Consulting = () => {
   );
 };
 
-export default Consulting;
+export default CorporateCustoms;

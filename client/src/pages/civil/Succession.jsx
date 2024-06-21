@@ -20,7 +20,7 @@ const Succession = () => {
       {
         title: "Property Division",
         text:
-          "MManage the partitioning of assets bequeathed by the deceased, aiding in the resolution of familial disputes over inheritance claims and estate allocation."
+          "Manage the partitioning of assets bequeathed by the deceased, aiding in the resolution of familial disputes over inheritance claims and estate allocation."
       },
       {
         title: "Court Representation",

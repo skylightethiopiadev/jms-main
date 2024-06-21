@@ -216,6 +216,12 @@ import CorporateFinancialSectorInsurance from "./pages/corporate/corporate-finan
 import CorporateFinancialSectorPayment from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorPayment.jsx";
 import CorporateFinancialSectorOthers from "./pages/corporate/corporate-financial-sector/CorporateFinancialSectorOthers.jsx";
 
+// corporate
+import CorporateTaxation from "./pages/corporate/CorporateTaxation.jsx";
+import CorporateCustoms from "./pages/corporate/CorporateCustoms.jsx";
+import CorporateRealEstateLaw from "./pages/corporate/CorporateRealEstateLaw.jsx";
+import CorporateLand from "./pages/corporate/CorporateLand.jsx";
+
 // criminal
 import CriminalOutlet from "./pages/criminal/CriminalOutlet";
 import CriminalOrdinaryCrime from "./pages/criminal/CriminalOrdinaryCrime";
@@ -413,6 +419,25 @@ function App() {
                     element={<CorporateFinancialSectorOthers />}
                   ></Route>
                 </Route>
+                {/* corporate general */}
+                <Route
+                  path="/corporate/taxation"
+                  element={<CorporateTaxation />}
+                ></Route>
+                <Route
+                  path="/corporate/customs"
+                  element={<CorporateCustoms />}
+                ></Route>
+                <Route
+                  path="/corporate/real-estate"
+                  element={<CorporateRealEstateLaw />}
+                ></Route>
+                <Route
+                  path="/corporate/land"
+                  element={<CorporateLand />}
+                ></Route>
+
+                {/* ///////////////////////////////////////////// */}
                 {/* criminal */}
                 <Route path="/criminal" element={<CriminalOutlet />}>
                   <Route

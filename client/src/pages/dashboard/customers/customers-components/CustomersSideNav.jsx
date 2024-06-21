@@ -43,18 +43,18 @@ const CustomersSideNav = () => {
         },
         {
             icon: CiMedicalCase,
-            title: 'Compliance',
+            title: 'My Cases',
             path: '#',
             height: '',
             subLinkItems: [
                 {
                     icon: VscNewFolder,
-                    title: 'New Case',
+                    title: 'Start New Case',
                     path: '/dashboard/customers/compliance',
                 },
                 {
                     icon: CiViewTable,
-                    title: 'On Request',
+                    title: 'Pending Cases',
                     path: '/dashboard/customers/compliance/on-request',
                 },
 

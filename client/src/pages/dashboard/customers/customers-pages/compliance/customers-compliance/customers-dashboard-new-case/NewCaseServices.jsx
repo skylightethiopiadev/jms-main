@@ -60,6 +60,28 @@ const NewCaseServices = props => {
     }
 
 
+    // textIn Handler
+    const textInHandler = () => {
+
+        props?.setNewCaseHistory((prev) => {
+            return {
+                ...prev,
+                textIn: description,
+            };
+        });
+    }
+
+    // attach file to the case
+    const attachFilesToNewCaseHistory = () => {
+        props?.setNewCaseHistory((prev) => {
+            return {
+                ...prev,
+                fileIn: fileSet?.fileList,
+            };
+        });
+    }
+
+
     return (
         <div className="overflow-y-auto h-[66vh] p-2 pb-12 flex flex-col gap-y-3">
             <header>
@@ -164,6 +186,8 @@ const NewCaseServices = props => {
 
                 {/* next btn */}
                 <div className="absolute bottom-5 right-1 cursor-pointer px-7 py-1 rounded-md bg-blue-700 text-white transition-colors ease-in-out duration-300 hover:bg-blue-500" onClick={() => {
+                    textInHandler()
+                    attachFilesToNewCaseHistory()
                     props?.setStepCounter(props?.stepCounter + 1);
                 }}>
                     <span>next</span>

@@ -255,10 +255,10 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
               navHeaderText: "Payment instrument issuers",
               path: "/corporate/financial-sector/payment"
             },
-            {
-              navHeaderText: "Others",
-              path: "/corporate/financial-sector/others"
-            }
+            // {
+            //   navHeaderText: "Others",
+            //   path: "/corporate/financial-sector/others"
+            // },
           ]
         },
         {
@@ -305,17 +305,21 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
     {
       groupTwo: [
         {
-          navHeaderText: "Tax & customs",
-          path: "#"
+          navHeaderText: "Taxation",
+          path: "/corporate/taxation"
         },
         {
-          navHeaderText: "Real estate, land and  property",
-          path: "#"
+          navHeaderText: "Customs",
+          path: "/corporate/customs"
         },
         {
-          navHeaderText: "Others",
-          path: "#"
-        }
+          navHeaderText: "Real-Estate",
+          path: "/corporate/real-estate"
+        },
+        {
+          navHeaderText: "Land",
+          path: "/corporate/land"
+        },
       ]
     }
   ];
@@ -838,7 +842,10 @@ const FinalHeader = ({ scrollToHomeTopRef }) => {
                                       key={index}
                                       className="my-[.25rem] font-semibold text-[1.35rem]"
                                     >
-                                      <NavLink className={"hover:underline"}>
+                                      <NavLink to={item?.path} className={"hover:underline"} onClick={() => {
+                                          setIsNav(null);
+                                          scrollIntoHomeTopHandler();
+                                        }}>
                                         {item.navHeaderText}
                                       </NavLink>
                                     </li>

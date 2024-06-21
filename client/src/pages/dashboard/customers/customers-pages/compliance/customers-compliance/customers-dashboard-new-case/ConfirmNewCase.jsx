@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 // icons
 import { TiPrinter } from "react-icons/ti";
 import { AiFillPrinter } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
-import { BsArrowRightShort } from "react-icons/bs";
+import { FaFileAlt } from "react-icons/fa";
 
 import { IoMdStar } from "react-icons/io";
 import { IoMdStarHalf } from "react-icons/io";
@@ -13,15 +13,56 @@ import { FiBarChart2 } from "react-icons/fi";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
 const ConfirmNewCase = props => {
-  console.log(props, "props of cases");
   // state
   const [isPrint, setIsPrint] = useState(false);
+
+  const finalNewCaseFormData = useMemo(
+    () => ({
+      caseTree: {
+        firstCaseCategory: props?.newCaseHistory?.caseCategory,
+        secondCaseCategory:
+          props?.newCaseHistory?.subCaseCategory?.subType?.caseName,
+        thirdCaseCategory:
+          props?.newCaseHistory?.subCaseCategory?.subSubCaseCategory?.subSubType
+            ?.title
+      },
+      requestedServices: props?.newCaseHistory?.services,
+      textIn: props?.newCaseHistory?.textIn,
+      fileIn: props?.newCaseHistory?.fileIn,
+      selectedLawyer: props?.newCaseHistory?.selectedLawyer
+    }),
+    []
+  );
+
+  // new case form submit handler
+  const newCaseFormSubmitHandler = () => {
+    console.log(finalNewCaseFormData);
+    // console.log(finalNewCaseFormData?.textIn);
+  };
+
+  // cancel form submission
+  const cancelNewCaseFormSubmissionHandler = () => {
+    props?.setNewCaseHistory({
+      caseCategory: "",
+      subCaseCategory: {
+        subType: null,
+        subSubCaseCategory: {
+          subSubType: null
+        }
+      },
+      services: [],
+      textIn: null,
+      fileIn: [],
+      selectedLawyer: null
+    });
+    props?.setStepCounter(0);
+  };
 
   return (
     <div className="overflow-y-auto h-[66vh] p-2 flex relative text-[1.05rem]">
       <div className="flex-grow bg-white rounded-md border border-gray-200 p-3 h-max">
         <header className="p-3 border border-gray-100 relative rounded-md">
-          <h4 className="font-semibold">New Case Filled Form Summary</h4>
+          <h4 className="font-semibold my-2">New Case Filled Form Summary</h4>
           <div className="text-sm">
             <p>
               It is with great satisfaction that we inform you of the
@@ -101,73 +142,123 @@ const ConfirmNewCase = props => {
               )}
             </div>
           </div>
-          <div className="flex-grow h-max flex gap-10 p-5 bg-white shadow-md">
-            <div className="flex flex-col items-center whitespace-nowrap">
-              <div className="w-[42px] border-2 border-white shadow-md aspect-square rounded-full overflow-hidden">
-                <img
-                  className="w-full h-full object-center object-cover"
-                  src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center justify-center gap-1 font-semibold text-gray-800 text-sm">
-                <span>Haddis</span>
-                <span>Fanta</span>
-              </div>
-              <div className="text-xs">
-                <span>selected lawyer</span>
-              </div>
-            </div>
-            <div className="flex-grow">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center text-yellow-400">
-                  <IoMdStar />
-                  <IoMdStar />
-                  <IoMdStar />
-                  <IoMdStarHalf />
-                  <IoMdStarOutline />
+
+          {finalNewCaseFormData?.selectedLawyer ? (
+            <div className="flex-grow h-max flex gap-10 p-5 bg-green-300 shadow-md">
+              <div className="flex flex-col items-center whitespace-nowrap">
+                <div className="w-[42px] border-2 border-white shadow-md aspect-square rounded-full overflow-hidden">
+                  <img
+                    className="w-full h-full object-center object-cover"
+                    src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                    alt=""
+                  />
                 </div>
-                <div className="flex items-center cursor-pointer text-sm text-gray-700 hover:text-blue-700">
-                  <div>
-                    <FiBarChart2 className="text-lg" />
-                  </div>
-                  <div>
-                    <span>rate me</span>
-                  </div>
+                <div className="flex items-center justify-center gap-1 font-semibold text-gray-800 text-sm">
+                  <span>Haddis</span>
+                  <span>Fanta</span>
+                </div>
+                <div className="text-xs">
+                  <span>selected lawyer</span>
                 </div>
               </div>
-              <div className="my-1 text-[.95rem]">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Exercitationem, id eum rem itaque quasi quae autem.
-                </p>
+              <div className="flex-grow">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center text-yellow-400">
+                    <IoMdStar />
+                    <IoMdStar />
+                    <IoMdStar />
+                    <IoMdStarHalf />
+                    <IoMdStarOutline />
+                  </div>
+                  <div className="flex items-center cursor-pointer text-sm text-gray-700 hover:text-blue-700">
+                    <div>
+                      <FiBarChart2 className="text-lg" />
+                    </div>
+                    <div>
+                      <span>rate me</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="my-1 text-[.95rem]">
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Exercitationem, id eum rem itaque quasi quae autem.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div>
+              <div>
+                <div className="text-sm mb-1">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quaerat tempore minima dolorem sunt illum, cumque ipsum iure
+                    deleniti vel.
+                  </p>
+                </div>
+                <div>
+                  <button
+                    className="px-3 py-0.5 bg-gray-400 text-sm transition-colors ease-in-out duration-300 hover:bg-gray-600 rounded-sm text-white"
+                    onClick={() => {
+                      props?.setStepCounter(3);
+                    }}
+                  >
+                    select lawyer
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* final documents */}
         <div className="p-3 border border-gray-100 relative rounded-md mt-5 text-[.95rem]">
+          {/* description */}
           <div>
-            <h3 className="font-bold">Description</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-              labore laudantium eum. Cupiditate omnis perferendis deleniti
-              nesciunt autem harum, incidunt dolores quo perspiciatis sint
-              dolore excepturi totam praesentium qui porro reiciendis commodi
-              architecto fugit vitae labore. Suscipit sapiente non dolorum quas.
-              Facere rem laborum animi debitis! Exercitationem provident
-              blanditiis consequuntur.
-            </p>
+            <h3 className="font-bold my-2">Description</h3>
+
+            {finalNewCaseFormData?.textIn ? (
+              <div
+                className="ql-editor"
+                dangerouslySetInnerHTML={{
+                  __html: finalNewCaseFormData?.textIn
+                }}
+              ></div>
+            ) : (
+              <div>
+                <div>
+                  <div className="text-sm mb-1">
+                    <p>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quaerat tempore minima dolorem sunt illum, cumque ipsum
+                      iure deleniti vel.
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      className="px-3 py-0.5 bg-gray-400 text-sm my-3 transition-colors ease-in-out duration-300 hover:bg-gray-600 rounded-sm text-white"
+                      onClick={() => {
+                        props?.setStepCounter(2);
+                      }}
+                    >
+                      add description
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* requested services */}
           <div>
-            <h3 className="font-bold">Required Services</h3>
-            <div className="ml-5">
+            <h3 className="font-bold my-2">Required Services</h3>
+            <div>
               {props?.newCaseHistory?.services?.length > 0 ? (
                 <>
                   {props?.newCaseHistory?.services.map((item, index) => {
                     return (
-                      <div className="flex gap-2 py-[.12rem]">
+                      <div className="flex gap-2 py-[.12rem] ml-5">
                         <div className="text-lg text-green-500">
                           <IoCheckmarkCircle />
                         </div>
@@ -179,18 +270,101 @@ const ConfirmNewCase = props => {
                   })}
                 </>
               ) : (
-                <div>No Service required</div>
+                <div>
+                  <div>
+                    <div className="text-sm mb-1">
+                      <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quaerat tempore minima dolorem sunt illum, cumque
+                        ipsum iure deleniti vel.
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        className="px-3 py-0.5 bg-gray-400 text-sm my-3 transition-colors ease-in-out duration-300 hover:bg-gray-600 rounded-sm text-white"
+                        onClick={() => {
+                          props?.setStepCounter(2);
+                        }}
+                      >
+                        add services
+                      </button>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           </div>
+
+          {/* file */}
+          <div>
+            <h3 className="font-bold my-2 mt-4">Attached Documents</h3>
+            {finalNewCaseFormData?.fileIn?.length > 0 ? (
+              <div>
+                {finalNewCaseFormData?.fileIn?.map((item, index) => {
+                  return (
+                    <div className="px-5 py-3 border border-gray-200 rounded-md flex gap-3 items-center mb-2">
+                      {/* file icon */}
+                      <div>
+                        <div className="w-[32px] aspect-square rounded-full overflow-hidden flex items-center justify-center border border-gray-400">
+                          <FaFileAlt className="text-lg text-gray-500" />
+                        </div>
+                      </div>
+                      {/* text */}
+                      <div>
+                        <div>
+                          <span>{item?.name}</span>
+                        </div>
+                        <div className="text-xs text-gray-600">
+                          <span>{item?.size / 1000}kb</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div>
+                <div>
+                  <div className="text-sm mb-1">
+                    <p>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quaerat tempore minima dolorem sunt illum, cumque ipsum
+                      iure deleniti vel.
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      className="px-3 py-0.5 bg-gray-400 text-sm my-3 transition-colors ease-in-out duration-300 hover:bg-gray-600 rounded-sm text-white"
+                      onClick={() => {
+                        props?.setStepCounter(2);
+                      }}
+                    >
+                      attach file
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
+
         {/* action buttons */}
         <div className="my-5">
           <div className="flex items-center gap-5">
-            <div className="px-5 py-[.1rem] rounded-sm bg-blue-600 text-white transition-colors ease-in-out duration-300 hover:bg-blue-500 cursor-pointer">
+            <div
+              className="px-5 py-[.1rem] rounded-sm bg-blue-600 text-white transition-colors ease-in-out duration-300 hover:bg-blue-500 cursor-pointer"
+              onClick={() => {
+                newCaseFormSubmitHandler();
+              }}
+            >
               <span>submit</span>
             </div>
-            <div className="px-5 py-[.1rem] rounded-sm bg-gray-600 text-white transition-colors ease-in-out duration-300 hover:bg-gray-500 cursor-pointer">
+            <div
+              className="px-5 py-[.1rem] rounded-sm bg-gray-600 text-white transition-colors ease-in-out duration-300 hover:bg-gray-500 cursor-pointer"
+              onClick={() => {
+                cancelNewCaseFormSubmissionHandler();
+              }}
+            >
               <span>cancel</span>
             </div>
           </div>
