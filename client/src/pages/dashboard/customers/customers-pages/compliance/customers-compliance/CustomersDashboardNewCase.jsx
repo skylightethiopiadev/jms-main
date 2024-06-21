@@ -46,8 +46,9 @@ const CustomersDashboardNewCase = () => {
             },
         },
         services: [],
-        description:
-            "Civil cases are cases mostly involving individuals like contract of loan, divorce, adoption, maintenance, employment, succession of family's property. Issues related",
+        textIn: null,
+        fileIn: [],
+        selectedLawyer: null,
     });
 
     // caste categories
@@ -684,12 +685,14 @@ const CustomersDashboardNewCase = () => {
                     stepCounter={stepCounter}
                     setStepCounter={setStepCounter}
                     newCaseHistory={newCaseHistory}
+                    setNewCaseHistory={setNewCaseHistory}
                 />
             ) : (
                 <ConfirmNewCase
                     stepCounter={stepCounter}
                     setStepCounter={setStepCounter}
                     newCaseHistory={newCaseHistory}
+                    setNewCaseHistory={setNewCaseHistory}
                 />
             )}
         </div>

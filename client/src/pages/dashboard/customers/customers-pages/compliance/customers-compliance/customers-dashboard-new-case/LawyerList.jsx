@@ -44,7 +44,6 @@ const LawyerList = props => {
 
     // gender
     const [genderKey, setGenderKey] = useState(false)
-    const [genderValue, setGenderValue] = useState('')
     const [genderIndex, setGenderIndex] = useState(0)
     const [genderList, setGenderList] = useState([
         "All",
@@ -53,7 +52,6 @@ const LawyerList = props => {
     ])
     // age
     const [ageKey, setAgeKey] = useState(false)
-    const [ageValue, setAgeValue] = useState('')
     const [ageIndex, setAgeIndex] = useState(0)
     const [ageList, setAgeList] = useState([
         "25-30",
@@ -438,6 +436,12 @@ const LawyerList = props => {
                                 {/* select btn */}
                                 <div className='absolute bottom-1 right-1'>
                                     <div className='flex items-center justify-center px-3 py-1 rounded-sm bg-blue-700 text-white cursor-pointer transition-colors ease-in-out duration-300 hover:bg-blue-600' onClick={() => {
+                                        props?.setNewCaseHistory((prev) => {
+                                            return {
+                                                ...prev,
+                                                selectedLawyer: true,
+                                            };
+                                        });
                                         props?.setStepCounter(props?.stepCounter + 1);
                                     }}>
                                         <span>select</span>
